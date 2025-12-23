@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ParameterConfiguration(PropertyType):
-    VALUE_TYPE = "ValueType"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "value": "Value",
@@ -25,15 +22,6 @@ class ParameterConfiguration(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    ENUM = "Enum"
-    INTEGER = "Integer"
-    STRING_LIST = "StringList"
-    ENUM_LIST = "EnumList"
-    INTEGER_LIST = "IntegerList"
-    STRING = "String"
-    BOOLEAN = "Boolean"
-    DOUBLE = "Double"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enum": "Enum",
         "integer": "Integer",

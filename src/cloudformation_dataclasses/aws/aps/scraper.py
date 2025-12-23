@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmpConfiguration(PropertyType):
-    WORKSPACE_ARN = "WorkspaceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workspace_arn": "WorkspaceArn",
     }
@@ -22,8 +20,6 @@ class AmpConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -33,8 +29,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class ComponentConfig(PropertyType):
-    OPTIONS = "Options"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
     }
@@ -44,8 +38,6 @@ class ComponentConfig(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    AMP_CONFIGURATION = "AmpConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amp_configuration": "AmpConfiguration",
     }
@@ -55,10 +47,6 @@ class Destination(PropertyType):
 
 @dataclass
 class EksConfiguration(PropertyType):
-    CLUSTER_ARN = "ClusterArn"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "security_group_ids": "SecurityGroupIds",
@@ -72,9 +60,6 @@ class EksConfiguration(PropertyType):
 
 @dataclass
 class RoleConfiguration(PropertyType):
-    TARGET_ROLE_ARN = "TargetRoleArn"
-    SOURCE_ROLE_ARN = "SourceRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_role_arn": "TargetRoleArn",
         "source_role_arn": "SourceRoleArn",
@@ -86,8 +71,6 @@ class RoleConfiguration(PropertyType):
 
 @dataclass
 class ScrapeConfiguration(PropertyType):
-    CONFIGURATION_BLOB = "ConfigurationBlob"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_blob": "ConfigurationBlob",
     }
@@ -97,9 +80,6 @@ class ScrapeConfiguration(PropertyType):
 
 @dataclass
 class ScraperComponent(PropertyType):
-    TYPE = "Type"
-    CONFIG = "Config"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "config": "Config",
@@ -111,9 +91,6 @@ class ScraperComponent(PropertyType):
 
 @dataclass
 class ScraperLoggingConfiguration(PropertyType):
-    LOGGING_DESTINATION = "LoggingDestination"
-    SCRAPER_COMPONENTS = "ScraperComponents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_destination": "LoggingDestination",
         "scraper_components": "ScraperComponents",
@@ -125,8 +102,6 @@ class ScraperLoggingConfiguration(PropertyType):
 
 @dataclass
 class ScraperLoggingDestination(PropertyType):
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs": "CloudWatchLogs",
     }
@@ -136,9 +111,6 @@ class ScraperLoggingDestination(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    EKS_CONFIGURATION = "EksConfiguration"
-    VPC_CONFIGURATION = "VpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_configuration": "EksConfiguration",
         "vpc_configuration": "VpcConfiguration",
@@ -150,9 +122,6 @@ class Source(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",

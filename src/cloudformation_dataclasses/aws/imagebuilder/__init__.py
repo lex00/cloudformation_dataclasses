@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ImageBuilder
@@ -478,17 +478,6 @@ class Component(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::Component"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    SUPPORTED_OS_VERSIONS = "SupportedOsVersions"
-    PLATFORM = "Platform"
-    KMS_KEY_ID = "KmsKeyId"
-    VERSION = "Version"
-    CHANGE_DESCRIPTION = "ChangeDescription"
-    DATA = "Data"
-    URI = "Uri"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "supported_os_versions": "SupportedOsVersions",
@@ -566,22 +555,6 @@ class ContainerRecipe(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ContainerRecipe"
     name_field: ClassVar[str] = "name"
-    WORKING_DIRECTORY = "WorkingDirectory"
-    PARENT_IMAGE = "ParentImage"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    INSTANCE_CONFIGURATION = "InstanceConfiguration"
-    CONTAINER_TYPE = "ContainerType"
-    NAME = "Name"
-    DOCKERFILE_TEMPLATE_DATA = "DockerfileTemplateData"
-    COMPONENTS = "Components"
-    TARGET_REPOSITORY = "TargetRepository"
-    VERSION = "Version"
-    PLATFORM_OVERRIDE = "PlatformOverride"
-    IMAGE_OS_VERSION_OVERRIDE = "ImageOsVersionOverride"
-    TAGS = "Tags"
-    DOCKERFILE_TEMPLATE_URI = "DockerfileTemplateUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "working_directory": "WorkingDirectory",
         "parent_image": "ParentImage",
@@ -659,11 +632,6 @@ class DistributionConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::DistributionConfiguration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-    DISTRIBUTIONS = "Distributions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -693,20 +661,6 @@ class Image(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::Image"
-    IMAGE_SCANNING_CONFIGURATION = "ImageScanningConfiguration"
-    CONTAINER_RECIPE_ARN = "ContainerRecipeArn"
-    WORKFLOWS = "Workflows"
-    IMAGE_PIPELINE_EXECUTION_SETTINGS = "ImagePipelineExecutionSettings"
-    DELETION_SETTINGS = "DeletionSettings"
-    INFRASTRUCTURE_CONFIGURATION_ARN = "InfrastructureConfigurationArn"
-    IMAGE_RECIPE_ARN = "ImageRecipeArn"
-    DISTRIBUTION_CONFIGURATION_ARN = "DistributionConfigurationArn"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    IMAGE_TESTS_CONFIGURATION = "ImageTestsConfiguration"
-    ENHANCED_IMAGE_METADATA_ENABLED = "EnhancedImageMetadataEnabled"
-    EXECUTION_ROLE = "ExecutionRole"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_scanning_configuration": "ImageScanningConfiguration",
         "container_recipe_arn": "ContainerRecipeArn",
@@ -790,22 +744,6 @@ class ImagePipeline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ImagePipeline"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    IMAGE_SCANNING_CONFIGURATION = "ImageScanningConfiguration"
-    DESCRIPTION = "Description"
-    CONTAINER_RECIPE_ARN = "ContainerRecipeArn"
-    WORKFLOWS = "Workflows"
-    NAME = "Name"
-    INFRASTRUCTURE_CONFIGURATION_ARN = "InfrastructureConfigurationArn"
-    IMAGE_RECIPE_ARN = "ImageRecipeArn"
-    DISTRIBUTION_CONFIGURATION_ARN = "DistributionConfigurationArn"
-    SCHEDULE = "Schedule"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    IMAGE_TESTS_CONFIGURATION = "ImageTestsConfiguration"
-    ENHANCED_IMAGE_METADATA_ENABLED = "EnhancedImageMetadataEnabled"
-    EXECUTION_ROLE = "ExecutionRole"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "image_scanning_configuration": "ImageScanningConfiguration",
@@ -863,17 +801,6 @@ class ImageRecipe(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ImageRecipe"
     name_field: ClassVar[str] = "name"
-    COMPONENTS = "Components"
-    WORKING_DIRECTORY = "WorkingDirectory"
-    PARENT_IMAGE = "ParentImage"
-    AMI_TAGS = "AmiTags"
-    DESCRIPTION = "Description"
-    VERSION = "Version"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    ADDITIONAL_INSTANCE_CONFIGURATION = "AdditionalInstanceConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "components": "Components",
         "working_directory": "WorkingDirectory",
@@ -941,21 +868,6 @@ class InfrastructureConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::InfrastructureConfiguration"
     name_field: ClassVar[str] = "name"
-    LOGGING = "Logging"
-    KEY_PAIR = "KeyPair"
-    DESCRIPTION = "Description"
-    INSTANCE_PROFILE_NAME = "InstanceProfileName"
-    RESOURCE_TAGS = "ResourceTags"
-    TERMINATE_INSTANCE_ON_FAILURE = "TerminateInstanceOnFailure"
-    SUBNET_ID = "SubnetId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    NAME = "Name"
-    PLACEMENT = "Placement"
-    INSTANCE_METADATA_OPTIONS = "InstanceMetadataOptions"
-    INSTANCE_TYPES = "InstanceTypes"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "key_pair": "KeyPair",
@@ -1006,15 +918,6 @@ class LifecyclePolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::LifecyclePolicy"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    RESOURCE_TYPE = "ResourceType"
-    POLICY_DETAILS = "PolicyDetails"
-    EXECUTION_ROLE = "ExecutionRole"
-    RESOURCE_SELECTION = "ResourceSelection"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -1048,16 +951,6 @@ class Workflow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::Workflow"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    VERSION = "Version"
-    CHANGE_DESCRIPTION = "ChangeDescription"
-    DATA = "Data"
-    URI = "Uri"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",

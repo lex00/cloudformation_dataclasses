@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdditionalModelDataSource(PropertyType):
-    CHANNEL_NAME = "ChannelName"
-    S3_DATA_SOURCE = "S3DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "s3_data_source": "S3DataSource",
@@ -25,17 +22,6 @@ class AdditionalModelDataSource(PropertyType):
 
 @dataclass
 class ContainerDefinition(PropertyType):
-    IMAGE_CONFIG = "ImageConfig"
-    INFERENCE_SPECIFICATION_NAME = "InferenceSpecificationName"
-    CONTAINER_HOSTNAME = "ContainerHostname"
-    MODEL_PACKAGE_NAME = "ModelPackageName"
-    MODE = "Mode"
-    ENVIRONMENT = "Environment"
-    MODEL_DATA_URL = "ModelDataUrl"
-    IMAGE = "Image"
-    MODEL_DATA_SOURCE = "ModelDataSource"
-    MULTI_MODEL_CONFIG = "MultiModelConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_config": "ImageConfig",
         "inference_specification_name": "InferenceSpecificationName",
@@ -63,8 +49,6 @@ class ContainerDefinition(PropertyType):
 
 @dataclass
 class HubAccessConfig(PropertyType):
-    HUB_CONTENT_ARN = "HubContentArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hub_content_arn": "HubContentArn",
     }
@@ -74,9 +58,6 @@ class HubAccessConfig(PropertyType):
 
 @dataclass
 class ImageConfig(PropertyType):
-    REPOSITORY_AUTH_CONFIG = "RepositoryAuthConfig"
-    REPOSITORY_ACCESS_MODE = "RepositoryAccessMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_auth_config": "RepositoryAuthConfig",
         "repository_access_mode": "RepositoryAccessMode",
@@ -88,8 +69,6 @@ class ImageConfig(PropertyType):
 
 @dataclass
 class InferenceExecutionConfig(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -99,8 +78,6 @@ class InferenceExecutionConfig(PropertyType):
 
 @dataclass
 class ModelAccessConfig(PropertyType):
-    ACCEPT_EULA = "AcceptEula"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_eula": "AcceptEula",
     }
@@ -110,8 +87,6 @@ class ModelAccessConfig(PropertyType):
 
 @dataclass
 class ModelDataSource(PropertyType):
-    S3_DATA_SOURCE = "S3DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -121,8 +96,6 @@ class ModelDataSource(PropertyType):
 
 @dataclass
 class MultiModelConfig(PropertyType):
-    MODEL_CACHE_SETTING = "ModelCacheSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_cache_setting": "ModelCacheSetting",
     }
@@ -132,8 +105,6 @@ class MultiModelConfig(PropertyType):
 
 @dataclass
 class RepositoryAuthConfig(PropertyType):
-    REPOSITORY_CREDENTIALS_PROVIDER_ARN = "RepositoryCredentialsProviderArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials_provider_arn": "RepositoryCredentialsProviderArn",
     }
@@ -143,12 +114,6 @@ class RepositoryAuthConfig(PropertyType):
 
 @dataclass
 class S3DataSource(PropertyType):
-    MODEL_ACCESS_CONFIG = "ModelAccessConfig"
-    S3_URI = "S3Uri"
-    S3_DATA_TYPE = "S3DataType"
-    COMPRESSION_TYPE = "CompressionType"
-    HUB_ACCESS_CONFIG = "HubAccessConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_access_config": "ModelAccessConfig",
         "s3_uri": "S3Uri",
@@ -166,9 +131,6 @@ class S3DataSource(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

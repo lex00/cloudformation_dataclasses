@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OidcIdentityProviderConfig(PropertyType):
-    USERNAME_PREFIX = "UsernamePrefix"
-    GROUPS_PREFIX = "GroupsPrefix"
-    ISSUER_URL = "IssuerUrl"
-    REQUIRED_CLAIMS = "RequiredClaims"
-    CLIENT_ID = "ClientId"
-    GROUPS_CLAIM = "GroupsClaim"
-    USERNAME_CLAIM = "UsernameClaim"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_prefix": "UsernamePrefix",
         "groups_prefix": "GroupsPrefix",
@@ -40,9 +32,6 @@ class OidcIdentityProviderConfig(PropertyType):
 
 @dataclass
 class RequiredClaim(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

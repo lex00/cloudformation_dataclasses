@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AsyncInferenceClientConfig(PropertyType):
-    MAX_CONCURRENT_INVOCATIONS_PER_INSTANCE = "MaxConcurrentInvocationsPerInstance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_invocations_per_instance": "MaxConcurrentInvocationsPerInstance",
     }
@@ -22,9 +20,6 @@ class AsyncInferenceClientConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceConfig(PropertyType):
-    OUTPUT_CONFIG = "OutputConfig"
-    CLIENT_CONFIG = "ClientConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_config": "OutputConfig",
         "client_config": "ClientConfig",
@@ -36,10 +31,6 @@ class AsyncInferenceConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceNotificationConfig(PropertyType):
-    INCLUDE_INFERENCE_RESPONSE_IN = "IncludeInferenceResponseIn"
-    SUCCESS_TOPIC = "SuccessTopic"
-    ERROR_TOPIC = "ErrorTopic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_inference_response_in": "IncludeInferenceResponseIn",
         "success_topic": "SuccessTopic",
@@ -53,11 +44,6 @@ class AsyncInferenceNotificationConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceOutputConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    NOTIFICATION_CONFIG = "NotificationConfig"
-    S3_OUTPUT_PATH = "S3OutputPath"
-    S3_FAILURE_PATH = "S3FailurePath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "notification_config": "NotificationConfig",
@@ -73,9 +59,6 @@ class AsyncInferenceOutputConfig(PropertyType):
 
 @dataclass
 class CapacityReservationConfig(PropertyType):
-    ML_RESERVATION_ARN = "MlReservationArn"
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_reservation_arn": "MlReservationArn",
         "capacity_reservation_preference": "CapacityReservationPreference",
@@ -87,9 +70,6 @@ class CapacityReservationConfig(PropertyType):
 
 @dataclass
 class CaptureContentTypeHeader(PropertyType):
-    JSON_CONTENT_TYPES = "JsonContentTypes"
-    CSV_CONTENT_TYPES = "CsvContentTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_content_types": "JsonContentTypes",
         "csv_content_types": "CsvContentTypes",
@@ -101,8 +81,6 @@ class CaptureContentTypeHeader(PropertyType):
 
 @dataclass
 class CaptureOption(PropertyType):
-    CAPTURE_MODE = "CaptureMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_mode": "CaptureMode",
     }
@@ -112,10 +90,6 @@ class CaptureOption(PropertyType):
 
 @dataclass
 class ClarifyExplainerConfig(PropertyType):
-    INFERENCE_CONFIG = "InferenceConfig"
-    ENABLE_EXPLANATIONS = "EnableExplanations"
-    SHAP_CONFIG = "ShapConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_config": "InferenceConfig",
         "enable_explanations": "EnableExplanations",
@@ -139,18 +113,6 @@ class ClarifyHeader(PropertyType):
 
 @dataclass
 class ClarifyInferenceConfig(PropertyType):
-    CONTENT_TEMPLATE = "ContentTemplate"
-    LABEL_HEADERS = "LabelHeaders"
-    MAX_PAYLOAD_IN_MB = "MaxPayloadInMB"
-    PROBABILITY_INDEX = "ProbabilityIndex"
-    LABEL_ATTRIBUTE = "LabelAttribute"
-    FEATURE_TYPES = "FeatureTypes"
-    FEATURE_HEADERS = "FeatureHeaders"
-    LABEL_INDEX = "LabelIndex"
-    PROBABILITY_ATTRIBUTE = "ProbabilityAttribute"
-    FEATURES_ATTRIBUTE = "FeaturesAttribute"
-    MAX_RECORD_COUNT = "MaxRecordCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_template": "ContentTemplate",
         "label_headers": "LabelHeaders",
@@ -180,10 +142,6 @@ class ClarifyInferenceConfig(PropertyType):
 
 @dataclass
 class ClarifyShapBaselineConfig(PropertyType):
-    SHAP_BASELINE = "ShapBaseline"
-    SHAP_BASELINE_URI = "ShapBaselineUri"
-    MIME_TYPE = "MimeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shap_baseline": "ShapBaseline",
         "shap_baseline_uri": "ShapBaselineUri",
@@ -197,12 +155,6 @@ class ClarifyShapBaselineConfig(PropertyType):
 
 @dataclass
 class ClarifyShapConfig(PropertyType):
-    TEXT_CONFIG = "TextConfig"
-    USE_LOGIT = "UseLogit"
-    SEED = "Seed"
-    SHAP_BASELINE_CONFIG = "ShapBaselineConfig"
-    NUMBER_OF_SAMPLES = "NumberOfSamples"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_config": "TextConfig",
         "use_logit": "UseLogit",
@@ -220,9 +172,6 @@ class ClarifyShapConfig(PropertyType):
 
 @dataclass
 class ClarifyTextConfig(PropertyType):
-    LANGUAGE = "Language"
-    GRANULARITY = "Granularity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "granularity": "Granularity",
@@ -234,13 +183,6 @@ class ClarifyTextConfig(PropertyType):
 
 @dataclass
 class DataCaptureConfig(PropertyType):
-    CAPTURE_OPTIONS = "CaptureOptions"
-    KMS_KEY_ID = "KmsKeyId"
-    DESTINATION_S3_URI = "DestinationS3Uri"
-    INITIAL_SAMPLING_PERCENTAGE = "InitialSamplingPercentage"
-    CAPTURE_CONTENT_TYPE_HEADER = "CaptureContentTypeHeader"
-    ENABLE_CAPTURE = "EnableCapture"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_options": "CaptureOptions",
         "kms_key_id": "KmsKeyId",
@@ -260,8 +202,6 @@ class DataCaptureConfig(PropertyType):
 
 @dataclass
 class ExplainerConfig(PropertyType):
-    CLARIFY_EXPLAINER_CONFIG = "ClarifyExplainerConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "clarify_explainer_config": "ClarifyExplainerConfig",
     }
@@ -271,10 +211,6 @@ class ExplainerConfig(PropertyType):
 
 @dataclass
 class ManagedInstanceScaling(PropertyType):
-    STATUS = "Status"
-    MAX_INSTANCE_COUNT = "MaxInstanceCount"
-    MIN_INSTANCE_COUNT = "MinInstanceCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "max_instance_count": "MaxInstanceCount",
@@ -288,21 +224,6 @@ class ManagedInstanceScaling(PropertyType):
 
 @dataclass
 class ProductionVariant(PropertyType):
-    MANAGED_INSTANCE_SCALING = "ManagedInstanceScaling"
-    MODEL_NAME = "ModelName"
-    VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
-    ENABLE_SSM_ACCESS = "EnableSSMAccess"
-    VARIANT_NAME = "VariantName"
-    INITIAL_INSTANCE_COUNT = "InitialInstanceCount"
-    ROUTING_CONFIG = "RoutingConfig"
-    INITIAL_VARIANT_WEIGHT = "InitialVariantWeight"
-    MODEL_DATA_DOWNLOAD_TIMEOUT_IN_SECONDS = "ModelDataDownloadTimeoutInSeconds"
-    CAPACITY_RESERVATION_CONFIG = "CapacityReservationConfig"
-    INFERENCE_AMI_VERSION = "InferenceAmiVersion"
-    CONTAINER_STARTUP_HEALTH_CHECK_TIMEOUT_IN_SECONDS = "ContainerStartupHealthCheckTimeoutInSeconds"
-    SERVERLESS_CONFIG = "ServerlessConfig"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_instance_scaling": "ManagedInstanceScaling",
         "model_name": "ModelName",
@@ -338,8 +259,6 @@ class ProductionVariant(PropertyType):
 
 @dataclass
 class RoutingConfig(PropertyType):
-    ROUTING_STRATEGY = "RoutingStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "routing_strategy": "RoutingStrategy",
     }
@@ -349,10 +268,6 @@ class RoutingConfig(PropertyType):
 
 @dataclass
 class ServerlessConfig(PropertyType):
-    MAX_CONCURRENCY = "MaxConcurrency"
-    MEMORY_SIZE_IN_MB = "MemorySizeInMB"
-    PROVISIONED_CONCURRENCY = "ProvisionedConcurrency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrency": "MaxConcurrency",
         "memory_size_in_mb": "MemorySizeInMB",
@@ -366,9 +281,6 @@ class ServerlessConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

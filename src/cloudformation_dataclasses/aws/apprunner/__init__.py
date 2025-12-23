@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppRunner
@@ -287,12 +287,6 @@ class AutoScalingConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppRunner::AutoScalingConfiguration"
     name_field: ClassVar[str] = "auto_scaling_configuration_name"
-    MIN_SIZE = "MinSize"
-    MAX_CONCURRENCY = "MaxConcurrency"
-    AUTO_SCALING_CONFIGURATION_NAME = "AutoScalingConfigurationName"
-    MAX_SIZE = "MaxSize"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "max_concurrency": "MaxConcurrency",
@@ -330,10 +324,6 @@ class ObservabilityConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppRunner::ObservabilityConfiguration"
     name_field: ClassVar[str] = "observability_configuration_name"
-    TRACE_CONFIGURATION = "TraceConfiguration"
-    OBSERVABILITY_CONFIGURATION_NAME = "ObservabilityConfigurationName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trace_configuration": "TraceConfiguration",
         "observability_configuration_name": "ObservabilityConfigurationName",
@@ -367,16 +357,6 @@ class Service(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppRunner::Service"
     name_field: ClassVar[str] = "service_name"
-    HEALTH_CHECK_CONFIGURATION = "HealthCheckConfiguration"
-    INSTANCE_CONFIGURATION = "InstanceConfiguration"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    SERVICE_NAME = "ServiceName"
-    OBSERVABILITY_CONFIGURATION = "ObservabilityConfiguration"
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    AUTO_SCALING_CONFIGURATION_ARN = "AutoScalingConfigurationArn"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_check_configuration": "HealthCheckConfiguration",
         "instance_configuration": "InstanceConfiguration",
@@ -427,11 +407,6 @@ class VpcConnector(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppRunner::VpcConnector"
     name_field: ClassVar[str] = "vpc_connector_name"
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    VPC_CONNECTOR_NAME = "VpcConnectorName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -462,11 +437,6 @@ class VpcIngressConnection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppRunner::VpcIngressConnection"
     name_field: ClassVar[str] = "vpc_ingress_connection_name"
-    VPC_INGRESS_CONNECTION_NAME = "VpcIngressConnectionName"
-    SERVICE_ARN = "ServiceArn"
-    TAGS = "Tags"
-    INGRESS_VPC_CONFIGURATION = "IngressVpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_ingress_connection_name": "VpcIngressConnectionName",
         "service_arn": "ServiceArn",

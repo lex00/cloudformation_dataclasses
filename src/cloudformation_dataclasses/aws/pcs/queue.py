@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeNodeGroupConfiguration(PropertyType):
-    COMPUTE_NODE_GROUP_ID = "ComputeNodeGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_node_group_id": "ComputeNodeGroupId",
     }
@@ -22,9 +20,6 @@ class ComputeNodeGroupConfiguration(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    MESSAGE = "Message"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -36,8 +31,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    SLURM_CUSTOM_SETTINGS = "SlurmCustomSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slurm_custom_settings": "SlurmCustomSettings",
     }
@@ -47,9 +40,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",

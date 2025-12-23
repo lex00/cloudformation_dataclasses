@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapabilityOptions(PropertyType):
-    INBOUND_EDI = "InboundEdi"
-    OUTBOUND_EDI = "OutboundEdi"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inbound_edi": "InboundEdi",
         "outbound_edi": "OutboundEdi",
@@ -25,8 +22,6 @@ class CapabilityOptions(PropertyType):
 
 @dataclass
 class InboundEdiOptions(PropertyType):
-    X12 = "X12"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -36,8 +31,6 @@ class InboundEdiOptions(PropertyType):
 
 @dataclass
 class OutboundEdiOptions(PropertyType):
-    X12 = "X12"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -47,10 +40,6 @@ class OutboundEdiOptions(PropertyType):
 
 @dataclass
 class WrapOptions(PropertyType):
-    LINE_LENGTH = "LineLength"
-    WRAP_BY = "WrapBy"
-    LINE_TERMINATOR = "LineTerminator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_length": "LineLength",
         "wrap_by": "WrapBy",
@@ -64,9 +53,6 @@ class WrapOptions(PropertyType):
 
 @dataclass
 class X12AcknowledgmentOptions(PropertyType):
-    TECHNICAL_ACKNOWLEDGMENT = "TechnicalAcknowledgment"
-    FUNCTIONAL_ACKNOWLEDGMENT = "FunctionalAcknowledgment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "technical_acknowledgment": "TechnicalAcknowledgment",
         "functional_acknowledgment": "FunctionalAcknowledgment",
@@ -78,10 +64,6 @@ class X12AcknowledgmentOptions(PropertyType):
 
 @dataclass
 class X12ControlNumbers(PropertyType):
-    STARTING_FUNCTIONAL_GROUP_CONTROL_NUMBER = "StartingFunctionalGroupControlNumber"
-    STARTING_INTERCHANGE_CONTROL_NUMBER = "StartingInterchangeControlNumber"
-    STARTING_TRANSACTION_SET_CONTROL_NUMBER = "StartingTransactionSetControlNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_functional_group_control_number": "StartingFunctionalGroupControlNumber",
         "starting_interchange_control_number": "StartingInterchangeControlNumber",
@@ -95,10 +77,6 @@ class X12ControlNumbers(PropertyType):
 
 @dataclass
 class X12Delimiters(PropertyType):
-    SEGMENT_TERMINATOR = "SegmentTerminator"
-    COMPONENT_SEPARATOR = "ComponentSeparator"
-    DATA_ELEMENT_SEPARATOR = "DataElementSeparator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_terminator": "SegmentTerminator",
         "component_separator": "ComponentSeparator",
@@ -112,9 +90,6 @@ class X12Delimiters(PropertyType):
 
 @dataclass
 class X12Envelope(PropertyType):
-    WRAP_OPTIONS = "WrapOptions"
-    COMMON = "Common"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wrap_options": "WrapOptions",
         "common": "Common",
@@ -126,10 +101,6 @@ class X12Envelope(PropertyType):
 
 @dataclass
 class X12FunctionalGroupHeaders(PropertyType):
-    APPLICATION_SENDER_CODE = "ApplicationSenderCode"
-    APPLICATION_RECEIVER_CODE = "ApplicationReceiverCode"
-    RESPONSIBLE_AGENCY_CODE = "ResponsibleAgencyCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_sender_code": "ApplicationSenderCode",
         "application_receiver_code": "ApplicationReceiverCode",
@@ -143,8 +114,6 @@ class X12FunctionalGroupHeaders(PropertyType):
 
 @dataclass
 class X12InboundEdiOptions(PropertyType):
-    ACKNOWLEDGMENT_OPTIONS = "AcknowledgmentOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acknowledgment_options": "AcknowledgmentOptions",
     }
@@ -154,14 +123,6 @@ class X12InboundEdiOptions(PropertyType):
 
 @dataclass
 class X12InterchangeControlHeaders(PropertyType):
-    RECEIVER_ID = "ReceiverId"
-    ACKNOWLEDGMENT_REQUESTED_CODE = "AcknowledgmentRequestedCode"
-    SENDER_ID_QUALIFIER = "SenderIdQualifier"
-    USAGE_INDICATOR_CODE = "UsageIndicatorCode"
-    REPETITION_SEPARATOR = "RepetitionSeparator"
-    SENDER_ID = "SenderId"
-    RECEIVER_ID_QUALIFIER = "ReceiverIdQualifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "receiver_id": "ReceiverId",
         "acknowledgment_requested_code": "AcknowledgmentRequestedCode",
@@ -183,13 +144,6 @@ class X12InterchangeControlHeaders(PropertyType):
 
 @dataclass
 class X12OutboundEdiHeaders(PropertyType):
-    DELIMITERS = "Delimiters"
-    CONTROL_NUMBERS = "ControlNumbers"
-    FUNCTIONAL_GROUP_HEADERS = "FunctionalGroupHeaders"
-    INTERCHANGE_CONTROL_HEADERS = "InterchangeControlHeaders"
-    VALIDATE_EDI = "ValidateEdi"
-    GS05_TIME_FORMAT = "Gs05TimeFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiters": "Delimiters",
         "control_numbers": "ControlNumbers",

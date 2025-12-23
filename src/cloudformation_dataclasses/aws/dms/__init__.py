@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:52
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DMS
@@ -494,10 +494,6 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-c"""
 
     resource_type: ClassVar[str] = "AWS::DMS::Certificate"
-    CERTIFICATE_IDENTIFIER = "CertificateIdentifier"
-    CERTIFICATE_PEM = "CertificatePem"
-    CERTIFICATE_WALLET = "CertificateWallet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_identifier": "CertificateIdentifier",
         "certificate_pem": "CertificatePem",
@@ -515,15 +511,6 @@ class DataMigration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::DataMigration"
     name_field: ClassVar[str] = "data_migration_name"
-    DATA_MIGRATION_TYPE = "DataMigrationType"
-    DATA_MIGRATION_SETTINGS = "DataMigrationSettings"
-    DATA_MIGRATION_NAME = "DataMigrationName"
-    MIGRATION_PROJECT_IDENTIFIER = "MigrationProjectIdentifier"
-    SOURCE_DATA_SETTINGS = "SourceDataSettings"
-    SERVICE_ACCESS_ROLE_ARN = "ServiceAccessRoleArn"
-    TAGS = "Tags"
-    DATA_MIGRATION_IDENTIFIER = "DataMigrationIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_migration_type": "DataMigrationType",
         "data_migration_settings": "DataMigrationSettings",
@@ -562,14 +549,6 @@ class DataProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::DataProvider"
     name_field: ClassVar[str] = "data_provider_name"
-    DATA_PROVIDER_NAME = "DataProviderName"
-    DESCRIPTION = "Description"
-    EXACT_SETTINGS = "ExactSettings"
-    ENGINE = "Engine"
-    SETTINGS = "Settings"
-    TAGS = "Tags"
-    DATA_PROVIDER_IDENTIFIER = "DataProviderIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_provider_name": "DataProviderName",
         "description": "Description",
@@ -606,38 +585,6 @@ class Endpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::Endpoint"
     name_field: ClassVar[str] = "engine_name"
-    SYBASE_SETTINGS = "SybaseSettings"
-    REDIS_SETTINGS = "RedisSettings"
-    ORACLE_SETTINGS = "OracleSettings"
-    KAFKA_SETTINGS = "KafkaSettings"
-    PORT = "Port"
-    MY_SQL_SETTINGS = "MySqlSettings"
-    S3_SETTINGS = "S3Settings"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    KINESIS_SETTINGS = "KinesisSettings"
-    SSL_MODE = "SslMode"
-    REDSHIFT_SETTINGS = "RedshiftSettings"
-    ENDPOINT_TYPE = "EndpointType"
-    TAGS = "Tags"
-    PASSWORD = "Password"
-    MONGO_DB_SETTINGS = "MongoDbSettings"
-    IBM_DB2_SETTINGS = "IbmDb2Settings"
-    KMS_KEY_ID = "KmsKeyId"
-    DATABASE_NAME = "DatabaseName"
-    NEPTUNE_SETTINGS = "NeptuneSettings"
-    ELASTICSEARCH_SETTINGS = "ElasticsearchSettings"
-    ENGINE_NAME = "EngineName"
-    DOC_DB_SETTINGS = "DocDbSettings"
-    DYNAMO_DB_SETTINGS = "DynamoDbSettings"
-    USERNAME = "Username"
-    MICROSOFT_SQL_SERVER_SETTINGS = "MicrosoftSqlServerSettings"
-    GCP_MY_SQL_SETTINGS = "GcpMySQLSettings"
-    SERVER_NAME = "ServerName"
-    EXTRA_CONNECTION_ATTRIBUTES = "ExtraConnectionAttributes"
-    ENDPOINT_IDENTIFIER = "EndpointIdentifier"
-    CERTIFICATE_ARN = "CertificateArn"
-    POSTGRE_SQL_SETTINGS = "PostgreSqlSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sybase_settings": "SybaseSettings",
         "redis_settings": "RedisSettings",
@@ -717,14 +664,6 @@ class EventSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::EventSubscription"
     name_field: ClassVar[str] = "subscription_name"
-    SOURCE_TYPE = "SourceType"
-    EVENT_CATEGORIES = "EventCategories"
-    ENABLED = "Enabled"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    SOURCE_IDS = "SourceIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "event_categories": "EventCategories",
@@ -750,17 +689,6 @@ class InstanceProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::InstanceProfile"
     name_field: ClassVar[str] = "instance_profile_name"
-    SUBNET_GROUP_IDENTIFIER = "SubnetGroupIdentifier"
-    DESCRIPTION = "Description"
-    INSTANCE_PROFILE_NAME = "InstanceProfileName"
-    KMS_KEY_ARN = "KmsKeyArn"
-    NETWORK_TYPE = "NetworkType"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    VPC_SECURITY_GROUPS = "VpcSecurityGroups"
-    TAGS = "Tags"
-    INSTANCE_PROFILE_IDENTIFIER = "InstanceProfileIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_group_identifier": "SubnetGroupIdentifier",
         "description": "Description",
@@ -803,18 +731,6 @@ class MigrationProject(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DMS::MigrationProject"
     name_field: ClassVar[str] = "migration_project_name"
-    TARGET_DATA_PROVIDER_DESCRIPTORS = "TargetDataProviderDescriptors"
-    MIGRATION_PROJECT_NAME = "MigrationProjectName"
-    INSTANCE_PROFILE_NAME = "InstanceProfileName"
-    DESCRIPTION = "Description"
-    MIGRATION_PROJECT_IDENTIFIER = "MigrationProjectIdentifier"
-    SOURCE_DATA_PROVIDER_DESCRIPTORS = "SourceDataProviderDescriptors"
-    TRANSFORMATION_RULES = "TransformationRules"
-    SCHEMA_CONVERSION_APPLICATION_ATTRIBUTES = "SchemaConversionApplicationAttributes"
-    INSTANCE_PROFILE_ARN = "InstanceProfileArn"
-    TAGS = "Tags"
-    INSTANCE_PROFILE_IDENTIFIER = "InstanceProfileIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_data_provider_descriptors": "TargetDataProviderDescriptors",
         "migration_project_name": "MigrationProjectName",
@@ -853,17 +769,6 @@ class ReplicationConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-r"""
 
     resource_type: ClassVar[str] = "AWS::DMS::ReplicationConfig"
-    REPLICATION_SETTINGS = "ReplicationSettings"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    REPLICATION_CONFIG_IDENTIFIER = "ReplicationConfigIdentifier"
-    COMPUTE_CONFIG = "ComputeConfig"
-    REPLICATION_TYPE = "ReplicationType"
-    TABLE_MAPPINGS = "TableMappings"
-    SOURCE_ENDPOINT_ARN = "SourceEndpointArn"
-    SUPPLEMENTAL_SETTINGS = "SupplementalSettings"
-    TARGET_ENDPOINT_ARN = "TargetEndpointArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_settings": "ReplicationSettings",
         "resource_identifier": "ResourceIdentifier",
@@ -900,24 +805,6 @@ class ReplicationInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-r"""
 
     resource_type: ClassVar[str] = "AWS::DMS::ReplicationInstance"
-    DNS_NAME_SERVERS = "DnsNameServers"
-    REPLICATION_INSTANCE_IDENTIFIER = "ReplicationInstanceIdentifier"
-    ENGINE_VERSION = "EngineVersion"
-    KMS_KEY_ID = "KmsKeyId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    REPLICATION_SUBNET_GROUP_IDENTIFIER = "ReplicationSubnetGroupIdentifier"
-    ALLOCATED_STORAGE = "AllocatedStorage"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    NETWORK_TYPE = "NetworkType"
-    ALLOW_MAJOR_VERSION_UPGRADE = "AllowMajorVersionUpgrade"
-    REPLICATION_INSTANCE_CLASS = "ReplicationInstanceClass"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    MULTI_AZ = "MultiAZ"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name_servers": "DnsNameServers",
         "replication_instance_identifier": "ReplicationInstanceIdentifier",
@@ -973,11 +860,6 @@ class ReplicationSubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-r"""
 
     resource_type: ClassVar[str] = "AWS::DMS::ReplicationSubnetGroup"
-    REPLICATION_SUBNET_GROUP_DESCRIPTION = "ReplicationSubnetGroupDescription"
-    REPLICATION_SUBNET_GROUP_IDENTIFIER = "ReplicationSubnetGroupIdentifier"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_subnet_group_description": "ReplicationSubnetGroupDescription",
         "replication_subnet_group_identifier": "ReplicationSubnetGroupIdentifier",
@@ -996,20 +878,6 @@ class ReplicationTask(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-r"""
 
     resource_type: ClassVar[str] = "AWS::DMS::ReplicationTask"
-    REPLICATION_TASK_SETTINGS = "ReplicationTaskSettings"
-    CDC_START_POSITION = "CdcStartPosition"
-    CDC_STOP_POSITION = "CdcStopPosition"
-    MIGRATION_TYPE = "MigrationType"
-    TARGET_ENDPOINT_ARN = "TargetEndpointArn"
-    REPLICATION_INSTANCE_ARN = "ReplicationInstanceArn"
-    TASK_DATA = "TaskData"
-    CDC_START_TIME = "CdcStartTime"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    TABLE_MAPPINGS = "TableMappings"
-    REPLICATION_TASK_IDENTIFIER = "ReplicationTaskIdentifier"
-    SOURCE_ENDPOINT_ARN = "SourceEndpointArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_task_settings": "ReplicationTaskSettings",
         "cdc_start_position": "CdcStartPosition",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IncrementalRunConfig(PropertyType):
-    INCREMENTAL_RUN_TYPE = "IncrementalRunType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incremental_run_type": "IncrementalRunType",
     }
@@ -22,10 +20,6 @@ class IncrementalRunConfig(PropertyType):
 
 @dataclass
 class InputSource(PropertyType):
-    APPLY_NORMALIZATION = "ApplyNormalization"
-    INPUT_SOURCE_ARN = "InputSourceARN"
-    SCHEMA_ARN = "SchemaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_normalization": "ApplyNormalization",
         "input_source_arn": "InputSourceARN",
@@ -39,8 +33,6 @@ class InputSource(PropertyType):
 
 @dataclass
 class IntermediateSourceConfiguration(PropertyType):
-    INTERMEDIATE_S3_PATH = "IntermediateS3Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_s3_path": "IntermediateS3Path",
     }
@@ -50,9 +42,6 @@ class IntermediateSourceConfiguration(PropertyType):
 
 @dataclass
 class OutputAttribute(PropertyType):
-    HASHED = "Hashed"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hashed": "Hashed",
         "name": "Name",
@@ -64,11 +53,6 @@ class OutputAttribute(PropertyType):
 
 @dataclass
 class OutputSource(PropertyType):
-    KMS_ARN = "KMSArn"
-    OUTPUT_S3_PATH = "OutputS3Path"
-    OUTPUT = "Output"
-    APPLY_NORMALIZATION = "ApplyNormalization"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_arn": "KMSArn",
         "output_s3_path": "OutputS3Path",
@@ -84,10 +68,6 @@ class OutputSource(PropertyType):
 
 @dataclass
 class ProviderProperties(PropertyType):
-    INTERMEDIATE_SOURCE_CONFIGURATION = "IntermediateSourceConfiguration"
-    PROVIDER_SERVICE_ARN = "ProviderServiceArn"
-    PROVIDER_CONFIGURATION = "ProviderConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_source_configuration": "IntermediateSourceConfiguration",
         "provider_service_arn": "ProviderServiceArn",
@@ -101,11 +81,6 @@ class ProviderProperties(PropertyType):
 
 @dataclass
 class ResolutionTechniques(PropertyType):
-    RULE_BASED_PROPERTIES = "RuleBasedProperties"
-    PROVIDER_PROPERTIES = "ProviderProperties"
-    RESOLUTION_TYPE = "ResolutionType"
-    RULE_CONDITION_PROPERTIES = "RuleConditionProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -121,9 +96,6 @@ class ResolutionTechniques(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    MATCHING_KEYS = "MatchingKeys"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",
@@ -135,10 +107,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleBasedProperties(PropertyType):
-    ATTRIBUTE_MATCHING_MODEL = "AttributeMatchingModel"
-    MATCH_PURPOSE = "MatchPurpose"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "match_purpose": "MatchPurpose",
@@ -152,9 +120,6 @@ class RuleBasedProperties(PropertyType):
 
 @dataclass
 class RuleCondition(PropertyType):
-    CONDITION = "Condition"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "rule_name": "RuleName",
@@ -166,8 +131,6 @@ class RuleCondition(PropertyType):
 
 @dataclass
 class RuleConditionProperties(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }

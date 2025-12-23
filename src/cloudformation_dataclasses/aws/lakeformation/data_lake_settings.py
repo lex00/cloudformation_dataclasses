@@ -26,8 +26,6 @@ class CreateTableDefaultPermissions(PropertyType):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    DATA_LAKE_PRINCIPAL_IDENTIFIER = "DataLakePrincipalIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -42,9 +40,6 @@ class ExternalDataFilteringAllowList(PropertyType):
 
 @dataclass
 class PrincipalPermissions(PropertyType):
-    PERMISSIONS = "Permissions"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
         "principal": "Principal",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Grafana
@@ -190,24 +190,6 @@ class Workspace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Grafana::Workspace"
     name_field: ClassVar[str] = "name"
-    NOTIFICATION_DESTINATIONS = "NotificationDestinations"
-    PLUGIN_ADMIN_ENABLED = "PluginAdminEnabled"
-    DESCRIPTION = "Description"
-    PERMISSION_TYPE = "PermissionType"
-    ACCOUNT_ACCESS_TYPE = "AccountAccessType"
-    STACK_SET_NAME = "StackSetName"
-    SAML_CONFIGURATION = "SamlConfiguration"
-    ORGANIZATIONAL_UNITS = "OrganizationalUnits"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    GRAFANA_VERSION = "GrafanaVersion"
-    DATA_SOURCES = "DataSources"
-    AUTHENTICATION_PROVIDERS = "AuthenticationProviders"
-    ORGANIZATION_ROLE_NAME = "OrganizationRoleName"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    NETWORK_ACCESS_CONTROL = "NetworkAccessControl"
-    CLIENT_TOKEN = "ClientToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_destinations": "NotificationDestinations",
         "plugin_admin_enabled": "PluginAdminEnabled",

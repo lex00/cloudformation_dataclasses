@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Omics
@@ -640,14 +640,6 @@ class AnnotationStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::AnnotationStore"
     name_field: ClassVar[str] = "name"
-    STORE_FORMAT = "StoreFormat"
-    DESCRIPTION = "Description"
-    REFERENCE = "Reference"
-    SSE_CONFIG = "SseConfig"
-    STORE_OPTIONS = "StoreOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "store_format": "StoreFormat",
         "description": "Description",
@@ -709,11 +701,6 @@ class ReferenceStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::ReferenceStore"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    SSE_CONFIG = "SseConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "sse_config": "SseConfig",
@@ -749,13 +736,6 @@ class RunGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::RunGroup"
     name_field: ClassVar[str] = "name"
-    MAX_DURATION = "MaxDuration"
-    MAX_GPUS = "MaxGpus"
-    MAX_RUNS = "MaxRuns"
-    MAX_CPUS = "MaxCpus"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_duration": "MaxDuration",
         "max_gpus": "MaxGpus",
@@ -795,16 +775,6 @@ class SequenceStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::SequenceStore"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PROPAGATED_SET_LEVEL_TAGS = "PropagatedSetLevelTags"
-    FALLBACK_LOCATION = "FallbackLocation"
-    SSE_CONFIG = "SseConfig"
-    ACCESS_LOG_LOCATION = "AccessLogLocation"
-    E_TAG_ALGORITHM_FAMILY = "ETagAlgorithmFamily"
-    S3_ACCESS_POLICY = "S3AccessPolicy"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "propagated_set_level_tags": "PropagatedSetLevelTags",
@@ -875,12 +845,6 @@ class VariantStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::VariantStore"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    REFERENCE = "Reference"
-    SSE_CONFIG = "SseConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "reference": "Reference",
@@ -938,25 +902,6 @@ class Workflow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::Workflow"
     name_field: ClassVar[str] = "name"
-    PARAMETER_TEMPLATE = "ParameterTemplate"
-    DESCRIPTION = "Description"
-    STORAGE_TYPE = "StorageType"
-    CONTAINER_REGISTRY_MAP = "ContainerRegistryMap"
-    STORAGE_CAPACITY = "StorageCapacity"
-    DEFINITION_URI = "DefinitionUri"
-    NAME = "Name"
-    PARAMETER_TEMPLATE_PATH = "ParameterTemplatePath"
-    README_MARKDOWN = "readmeMarkdown"
-    DEFINITION_REPOSITORY = "DefinitionRepository"
-    ACCELERATORS = "Accelerators"
-    WORKFLOW_BUCKET_OWNER_ID = "WorkflowBucketOwnerId"
-    README_PATH = "readmePath"
-    CONTAINER_REGISTRY_MAP_URI = "ContainerRegistryMapUri"
-    MAIN = "Main"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-    README_URI = "readmeUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_template": "ParameterTemplate",
         "description": "Description",
@@ -1035,26 +980,6 @@ class WorkflowVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Omics::WorkflowVersion"
     name_field: ClassVar[str] = "version_name"
-    PARAMETER_TEMPLATE = "ParameterTemplate"
-    DESCRIPTION = "Description"
-    STORAGE_TYPE = "StorageType"
-    CONTAINER_REGISTRY_MAP = "ContainerRegistryMap"
-    STORAGE_CAPACITY = "StorageCapacity"
-    WORKFLOW_ID = "WorkflowId"
-    DEFINITION_URI = "DefinitionUri"
-    PARAMETER_TEMPLATE_PATH = "ParameterTemplatePath"
-    README_MARKDOWN = "readmeMarkdown"
-    DEFINITION_REPOSITORY = "DefinitionRepository"
-    ACCELERATORS = "Accelerators"
-    WORKFLOW_BUCKET_OWNER_ID = "WorkflowBucketOwnerId"
-    README_PATH = "readmePath"
-    VERSION_NAME = "VersionName"
-    CONTAINER_REGISTRY_MAP_URI = "ContainerRegistryMapUri"
-    MAIN = "Main"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-    README_URI = "readmeUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_template": "ParameterTemplate",
         "description": "Description",

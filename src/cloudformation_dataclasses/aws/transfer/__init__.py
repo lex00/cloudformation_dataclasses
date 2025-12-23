@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:21
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Transfer
@@ -469,18 +469,6 @@ class Agreement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Agreement"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    BASE_DIRECTORY = "BaseDirectory"
-    SERVER_ID = "ServerId"
-    CUSTOM_DIRECTORIES = "CustomDirectories"
-    ACCESS_ROLE = "AccessRole"
-    PARTNER_PROFILE_ID = "PartnerProfileId"
-    LOCAL_PROFILE_ID = "LocalProfileId"
-    ENFORCE_MESSAGE_SIGNING = "EnforceMessageSigning"
-    PRESERVE_FILENAME = "PreserveFilename"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -524,15 +512,6 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Certificate"
-    INACTIVE_DATE = "InactiveDate"
-    USAGE = "Usage"
-    PRIVATE_KEY = "PrivateKey"
-    DESCRIPTION = "Description"
-    CERTIFICATE_CHAIN = "CertificateChain"
-    ACTIVE_DATE = "ActiveDate"
-    TAGS = "Tags"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inactive_date": "InactiveDate",
         "usage": "Usage",
@@ -596,16 +575,6 @@ class Connector(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Transfer::Connector"
     name_field: ClassVar[str] = "security_policy_name"
-    AS2_CONFIG = "As2Config"
-    LOGGING_ROLE = "LoggingRole"
-    ACCESS_ROLE = "AccessRole"
-    EGRESS_TYPE = "EgressType"
-    EGRESS_CONFIG = "EgressConfig"
-    SECURITY_POLICY_NAME = "SecurityPolicyName"
-    SFTP_CONFIG = "SftpConfig"
-    URL = "Url"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "as2_config": "As2Config",
         "logging_role": "LoggingRole",
@@ -660,11 +629,6 @@ class Profile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Profile"
-    AS2_ID = "As2Id"
-    PROFILE_TYPE = "ProfileType"
-    CERTIFICATE_IDS = "CertificateIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "as2_id": "As2Id",
         "profile_type": "ProfileType",
@@ -695,24 +659,6 @@ class Server(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Transfer::Server"
     name_field: ClassVar[str] = "security_policy_name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    LOGGING_ROLE = "LoggingRole"
-    PROTOCOLS = "Protocols"
-    IDENTITY_PROVIDER_DETAILS = "IdentityProviderDetails"
-    ENDPOINT_DETAILS = "EndpointDetails"
-    STRUCTURED_LOG_DESTINATIONS = "StructuredLogDestinations"
-    PRE_AUTHENTICATION_LOGIN_BANNER = "PreAuthenticationLoginBanner"
-    POST_AUTHENTICATION_LOGIN_BANNER = "PostAuthenticationLoginBanner"
-    ENDPOINT_TYPE = "EndpointType"
-    SECURITY_POLICY_NAME = "SecurityPolicyName"
-    PROTOCOL_DETAILS = "ProtocolDetails"
-    S3_STORAGE_OPTIONS = "S3StorageOptions"
-    WORKFLOW_DETAILS = "WorkflowDetails"
-    DOMAIN = "Domain"
-    IDENTITY_PROVIDER_TYPE = "IdentityProviderType"
-    TAGS = "Tags"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "logging_role": "LoggingRole",
@@ -779,17 +725,6 @@ class User(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Transfer::User"
     name_field: ClassVar[str] = "user_name"
-    POLICY = "Policy"
-    ROLE = "Role"
-    HOME_DIRECTORY = "HomeDirectory"
-    HOME_DIRECTORY_TYPE = "HomeDirectoryType"
-    SERVER_ID = "ServerId"
-    USER_NAME = "UserName"
-    HOME_DIRECTORY_MAPPINGS = "HomeDirectoryMappings"
-    POSIX_PROFILE = "PosixProfile"
-    SSH_PUBLIC_KEYS = "SshPublicKeys"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "role": "Role",
@@ -836,13 +771,6 @@ class WebApp(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::WebApp"
-    WEB_APP_CUSTOMIZATION = "WebAppCustomization"
-    IDENTITY_PROVIDER_DETAILS = "IdentityProviderDetails"
-    WEB_APP_UNITS = "WebAppUnits"
-    WEB_APP_ENDPOINT_POLICY = "WebAppEndpointPolicy"
-    TAGS = "Tags"
-    ACCESS_ENDPOINT = "AccessEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web_app_customization": "WebAppCustomization",
         "identity_provider_details": "IdentityProviderDetails",
@@ -881,11 +809,6 @@ class Workflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Workflow"
-    STEPS = "Steps"
-    DESCRIPTION = "Description"
-    ON_EXCEPTION_STEPS = "OnExceptionSteps"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "steps": "Steps",
         "description": "Description",

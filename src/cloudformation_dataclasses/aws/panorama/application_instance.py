@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ManifestOverridesPayload(PropertyType):
-    PAYLOAD_DATA = "PayloadData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "payload_data": "PayloadData",
     }
@@ -22,8 +20,6 @@ class ManifestOverridesPayload(PropertyType):
 
 @dataclass
 class ManifestPayload(PropertyType):
-    PAYLOAD_DATA = "PayloadData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "payload_data": "PayloadData",
     }

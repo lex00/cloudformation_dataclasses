@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IntuneConfiguration(PropertyType):
-    AZURE_APPLICATION_ID = "AzureApplicationId"
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "azure_application_id": "AzureApplicationId",
         "domain": "Domain",
@@ -25,8 +22,6 @@ class IntuneConfiguration(PropertyType):
 
 @dataclass
 class MobileDeviceManagement(PropertyType):
-    INTUNE = "Intune"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intune": "Intune",
     }
@@ -36,10 +31,6 @@ class MobileDeviceManagement(PropertyType):
 
 @dataclass
 class OpenIdConfiguration(PropertyType):
-    ISSUER = "Issuer"
-    AUDIENCE = "Audience"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "audience": "Audience",

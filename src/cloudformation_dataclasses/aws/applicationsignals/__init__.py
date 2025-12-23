@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationSignals
@@ -50,8 +50,6 @@ class GroupingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appli"""
 
     resource_type: ClassVar[str] = "AWS::ApplicationSignals::GroupingConfiguration"
-    GROUPING_ATTRIBUTE_DEFINITIONS = "GroupingAttributeDefinitions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grouping_attribute_definitions": "GroupingAttributeDefinitions",
     }
@@ -76,15 +74,6 @@ class ServiceLevelObjective(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApplicationSignals::ServiceLevelObjective"
     name_field: ClassVar[str] = "name"
-    BURN_RATE_CONFIGURATIONS = "BurnRateConfigurations"
-    SLI = "Sli"
-    GOAL = "Goal"
-    DESCRIPTION = "Description"
-    REQUEST_BASED_SLI = "RequestBasedSli"
-    EXCLUSION_WINDOWS = "ExclusionWindows"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "burn_rate_configurations": "BurnRateConfigurations",
         "sli": "Sli",

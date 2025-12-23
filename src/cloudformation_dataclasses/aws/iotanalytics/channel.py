@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ChannelStorage(PropertyType):
-    CUSTOMER_MANAGED_S3 = "CustomerManagedS3"
-    SERVICE_MANAGED_S3 = "ServiceManagedS3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3": "CustomerManagedS3",
         "service_managed_s3": "ServiceManagedS3",
@@ -25,10 +22,6 @@ class ChannelStorage(PropertyType):
 
 @dataclass
 class CustomerManagedS3(PropertyType):
-    BUCKET = "Bucket"
-    ROLE_ARN = "RoleArn"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "role_arn": "RoleArn",
@@ -42,9 +35,6 @@ class CustomerManagedS3(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    NUMBER_OF_DAYS = "NumberOfDays"
-    UNLIMITED = "Unlimited"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",

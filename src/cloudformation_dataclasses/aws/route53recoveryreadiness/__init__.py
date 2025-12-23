@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryReadiness
@@ -55,10 +55,6 @@ class Cell(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::Cell"
     name_field: ClassVar[str] = "cell_name"
-    CELL_NAME = "CellName"
-    CELLS = "Cells"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell_name": "CellName",
         "cells": "Cells",
@@ -87,10 +83,6 @@ class ReadinessCheck(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::ReadinessCheck"
     name_field: ClassVar[str] = "readiness_check_name"
-    RESOURCE_SET_NAME = "ResourceSetName"
-    READINESS_CHECK_NAME = "ReadinessCheckName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_set_name": "ResourceSetName",
         "readiness_check_name": "ReadinessCheckName",
@@ -114,10 +106,6 @@ class RecoveryGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::RecoveryGroup"
     name_field: ClassVar[str] = "recovery_group_name"
-    RECOVERY_GROUP_NAME = "RecoveryGroupName"
-    CELLS = "Cells"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recovery_group_name": "RecoveryGroupName",
         "cells": "Cells",
@@ -141,11 +129,6 @@ class ResourceSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::ResourceSet"
     name_field: ClassVar[str] = "resource_set_name"
-    RESOURCE_SET_TYPE = "ResourceSetType"
-    RESOURCE_SET_NAME = "ResourceSetName"
-    RESOURCES = "Resources"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_set_type": "ResourceSetType",
         "resource_set_name": "ResourceSetName",

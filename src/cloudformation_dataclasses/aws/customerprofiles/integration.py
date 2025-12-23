@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectorOperator(PropertyType):
-    S3 = "S3"
-    SERVICE_NOW = "ServiceNow"
-    ZENDESK = "Zendesk"
-    MARKETO = "Marketo"
-    SALESFORCE = "Salesforce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "service_now": "ServiceNow",
@@ -34,13 +28,6 @@ class ConnectorOperator(PropertyType):
 
 @dataclass
 class FlowDefinition(PropertyType):
-    DESCRIPTION = "Description"
-    TASKS = "Tasks"
-    FLOW_NAME = "FlowName"
-    TRIGGER_CONFIG = "TriggerConfig"
-    SOURCE_FLOW_CONFIG = "SourceFlowConfig"
-    KMS_ARN = "KmsArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tasks": "Tasks",
@@ -60,8 +47,6 @@ class FlowDefinition(PropertyType):
 
 @dataclass
 class IncrementalPullConfig(PropertyType):
-    DATETIME_TYPE_FIELD_NAME = "DatetimeTypeFieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datetime_type_field_name": "DatetimeTypeFieldName",
     }
@@ -71,8 +56,6 @@ class IncrementalPullConfig(PropertyType):
 
 @dataclass
 class MarketoSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -82,9 +65,6 @@ class MarketoSourceProperties(PropertyType):
 
 @dataclass
 class ObjectTypeMapping(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -96,9 +76,6 @@ class ObjectTypeMapping(PropertyType):
 
 @dataclass
 class S3SourceProperties(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -110,10 +87,6 @@ class S3SourceProperties(PropertyType):
 
 @dataclass
 class SalesforceSourceProperties(PropertyType):
-    INCLUDE_DELETED_RECORDS = "IncludeDeletedRecords"
-    OBJECT = "Object"
-    ENABLE_DYNAMIC_FIELD_UPDATE = "EnableDynamicFieldUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_deleted_records": "IncludeDeletedRecords",
         "object": "Object",
@@ -127,14 +100,6 @@ class SalesforceSourceProperties(PropertyType):
 
 @dataclass
 class ScheduledTriggerProperties(PropertyType):
-    SCHEDULE_END_TIME = "ScheduleEndTime"
-    TIMEZONE = "Timezone"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    FIRST_EXECUTION_FROM = "FirstExecutionFrom"
-    SCHEDULE_START_TIME = "ScheduleStartTime"
-    DATA_PULL_MODE = "DataPullMode"
-    SCHEDULE_OFFSET = "ScheduleOffset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_end_time": "ScheduleEndTime",
         "timezone": "Timezone",
@@ -156,8 +121,6 @@ class ScheduledTriggerProperties(PropertyType):
 
 @dataclass
 class ServiceNowSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -167,12 +130,6 @@ class ServiceNowSourceProperties(PropertyType):
 
 @dataclass
 class SourceConnectorProperties(PropertyType):
-    S3 = "S3"
-    SERVICE_NOW = "ServiceNow"
-    ZENDESK = "Zendesk"
-    MARKETO = "Marketo"
-    SALESFORCE = "Salesforce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "service_now": "ServiceNow",
@@ -190,11 +147,6 @@ class SourceConnectorProperties(PropertyType):
 
 @dataclass
 class SourceFlowConfig(PropertyType):
-    CONNECTOR_PROFILE_NAME = "ConnectorProfileName"
-    SOURCE_CONNECTOR_PROPERTIES = "SourceConnectorProperties"
-    CONNECTOR_TYPE = "ConnectorType"
-    INCREMENTAL_PULL_CONFIG = "IncrementalPullConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "source_connector_properties": "SourceConnectorProperties",
@@ -210,12 +162,6 @@ class SourceFlowConfig(PropertyType):
 
 @dataclass
 class Task(PropertyType):
-    SOURCE_FIELDS = "SourceFields"
-    DESTINATION_FIELD = "DestinationField"
-    CONNECTOR_OPERATOR = "ConnectorOperator"
-    TASK_TYPE = "TaskType"
-    TASK_PROPERTIES = "TaskProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_fields": "SourceFields",
         "destination_field": "DestinationField",
@@ -233,9 +179,6 @@ class Task(PropertyType):
 
 @dataclass
 class TaskPropertiesMap(PropertyType):
-    OPERATOR_PROPERTY_KEY = "OperatorPropertyKey"
-    PROPERTY = "Property"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator_property_key": "OperatorPropertyKey",
         "property": "Property",
@@ -247,9 +190,6 @@ class TaskPropertiesMap(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    TRIGGER_TYPE = "TriggerType"
-    TRIGGER_PROPERTIES = "TriggerProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_type": "TriggerType",
         "trigger_properties": "TriggerProperties",
@@ -261,8 +201,6 @@ class TriggerConfig(PropertyType):
 
 @dataclass
 class TriggerProperties(PropertyType):
-    SCHEDULED = "Scheduled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled": "Scheduled",
     }
@@ -272,8 +210,6 @@ class TriggerProperties(PropertyType):
 
 @dataclass
 class ZendeskSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }

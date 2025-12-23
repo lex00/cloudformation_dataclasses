@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeliveryOptions(PropertyType):
-    SENDING_POOL_NAME = "SendingPoolName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_pool_name": "SendingPoolName",
     }
@@ -22,8 +20,6 @@ class DeliveryOptions(PropertyType):
 
 @dataclass
 class ReputationOptions(PropertyType):
-    REPUTATION_METRICS_ENABLED = "ReputationMetricsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reputation_metrics_enabled": "ReputationMetricsEnabled",
     }
@@ -33,8 +29,6 @@ class ReputationOptions(PropertyType):
 
 @dataclass
 class SendingOptions(PropertyType):
-    SENDING_ENABLED = "SendingEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_enabled": "SendingEnabled",
     }
@@ -44,9 +38,6 @@ class SendingOptions(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -58,8 +49,6 @@ class Tags(PropertyType):
 
 @dataclass
 class TrackingOptions(PropertyType):
-    CUSTOM_REDIRECT_DOMAIN = "CustomRedirectDomain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_redirect_domain": "CustomRedirectDomain",
     }

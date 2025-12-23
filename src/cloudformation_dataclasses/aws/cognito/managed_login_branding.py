@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssetType(PropertyType):
-    EXTENSION = "Extension"
-    BYTES = "Bytes"
-    CATEGORY = "Category"
-    RESOURCE_ID = "ResourceId"
-    COLOR_MODE = "ColorMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extension": "Extension",
         "bytes": "Bytes",

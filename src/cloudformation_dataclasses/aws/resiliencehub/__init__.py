@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResilienceHub
@@ -562,16 +562,6 @@ class App(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ResilienceHub::App"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    APP_TEMPLATE_BODY = "AppTemplateBody"
-    APP_ASSESSMENT_SCHEDULE = "AppAssessmentSchedule"
-    PERMISSION_MODEL = "PermissionModel"
-    RESOURCE_MAPPINGS = "ResourceMappings"
-    EVENT_SUBSCRIPTIONS = "EventSubscriptions"
-    TAGS = "Tags"
-    NAME = "Name"
-    RESILIENCY_POLICY_ARN = "ResiliencyPolicyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "app_template_body": "AppTemplateBody",
@@ -612,13 +602,6 @@ class ResiliencyPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ResilienceHub::ResiliencyPolicy"
     name_field: ClassVar[str] = "policy_name"
-    POLICY = "Policy"
-    POLICY_DESCRIPTION = "PolicyDescription"
-    TIER = "Tier"
-    POLICY_NAME = "PolicyName"
-    DATA_LOCATION_CONSTRAINT = "DataLocationConstraint"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "policy_description": "PolicyDescription",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LatestRevision(PropertyType):
-    DESCRIPTION = "Description"
-    REVISION = "Revision"
-    CREATION_TIME = "CreationTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "revision": "Revision",

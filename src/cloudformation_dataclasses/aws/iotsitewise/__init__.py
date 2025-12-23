@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTSiteWise
@@ -658,10 +658,6 @@ class AccessPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::AccessPolicy"
-    ACCESS_POLICY_RESOURCE = "AccessPolicyResource"
-    ACCESS_POLICY_IDENTITY = "AccessPolicyIdentity"
-    ACCESS_POLICY_PERMISSION = "AccessPolicyPermission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_policy_resource": "AccessPolicyResource",
         "access_policy_identity": "AccessPolicyIdentity",
@@ -690,14 +686,6 @@ class Asset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Asset"
     name_field: ClassVar[str] = "asset_name"
-    ASSET_MODEL_ID = "AssetModelId"
-    ASSET_DESCRIPTION = "AssetDescription"
-    ASSET_PROPERTIES = "AssetProperties"
-    ASSET_EXTERNAL_ID = "AssetExternalId"
-    ASSET_NAME = "AssetName"
-    TAGS = "Tags"
-    ASSET_HIERARCHIES = "AssetHierarchies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_model_id": "AssetModelId",
         "asset_description": "AssetDescription",
@@ -734,16 +722,6 @@ class AssetModel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::AssetModel"
     name_field: ClassVar[str] = "asset_model_name"
-    ASSET_MODEL_DESCRIPTION = "AssetModelDescription"
-    ASSET_MODEL_COMPOSITE_MODELS = "AssetModelCompositeModels"
-    ENFORCED_ASSET_MODEL_INTERFACE_RELATIONSHIPS = "EnforcedAssetModelInterfaceRelationships"
-    ASSET_MODEL_TYPE = "AssetModelType"
-    ASSET_MODEL_NAME = "AssetModelName"
-    ASSET_MODEL_HIERARCHIES = "AssetModelHierarchies"
-    ASSET_MODEL_PROPERTIES = "AssetModelProperties"
-    ASSET_MODEL_EXTERNAL_ID = "AssetModelExternalId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_model_description": "AssetModelDescription",
         "asset_model_composite_models": "AssetModelCompositeModels",
@@ -784,12 +762,6 @@ class ComputationModel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::ComputationModel"
     name_field: ClassVar[str] = "computation_model_name"
-    COMPUTATION_MODEL_CONFIGURATION = "ComputationModelConfiguration"
-    COMPUTATION_MODEL_DESCRIPTION = "ComputationModelDescription"
-    COMPUTATION_MODEL_NAME = "ComputationModelName"
-    COMPUTATION_MODEL_DATA_BINDING = "ComputationModelDataBinding"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "computation_model_configuration": "ComputationModelConfiguration",
         "computation_model_description": "ComputationModelDescription",
@@ -822,12 +794,6 @@ class Dashboard(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Dashboard"
     name_field: ClassVar[str] = "dashboard_name"
-    DASHBOARD_NAME = "DashboardName"
-    DASHBOARD_DEFINITION = "DashboardDefinition"
-    PROJECT_ID = "ProjectId"
-    DASHBOARD_DESCRIPTION = "DashboardDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_name": "DashboardName",
         "dashboard_definition": "DashboardDefinition",
@@ -860,11 +826,6 @@ class Dataset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Dataset"
     name_field: ClassVar[str] = "dataset_name"
-    DATASET_NAME = "DatasetName"
-    DATASET_SOURCE = "DatasetSource"
-    DATASET_DESCRIPTION = "DatasetDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_name": "DatasetName",
         "dataset_source": "DatasetSource",
@@ -895,12 +856,6 @@ class Gateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Gateway"
     name_field: ClassVar[str] = "gateway_name"
-    GATEWAY_CAPABILITY_SUMMARIES = "GatewayCapabilitySummaries"
-    GATEWAY_NAME = "GatewayName"
-    GATEWAY_PLATFORM = "GatewayPlatform"
-    GATEWAY_VERSION = "GatewayVersion"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gateway_capability_summaries": "GatewayCapabilitySummaries",
         "gateway_name": "GatewayName",
@@ -928,17 +883,6 @@ class Portal(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Portal"
     name_field: ClassVar[str] = "portal_name"
-    PORTAL_NAME = "PortalName"
-    PORTAL_AUTH_MODE = "PortalAuthMode"
-    NOTIFICATION_SENDER_EMAIL = "NotificationSenderEmail"
-    ALARMS = "Alarms"
-    PORTAL_TYPE_CONFIGURATION = "PortalTypeConfiguration"
-    PORTAL_CONTACT_EMAIL = "PortalContactEmail"
-    ROLE_ARN = "RoleArn"
-    PORTAL_TYPE = "PortalType"
-    TAGS = "Tags"
-    PORTAL_DESCRIPTION = "PortalDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "portal_name": "PortalName",
         "portal_auth_mode": "PortalAuthMode",
@@ -991,12 +935,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Project"
     name_field: ClassVar[str] = "project_name"
-    ASSET_IDS = "AssetIds"
-    PROJECT_NAME = "ProjectName"
-    PORTAL_ID = "PortalId"
-    PROJECT_DESCRIPTION = "ProjectDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_ids": "AssetIds",
         "project_name": "ProjectName",

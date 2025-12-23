@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PeriodicStateTemplateUpdateStrategy(PropertyType):
-    STATE_TEMPLATE_UPDATE_RATE = "StateTemplateUpdateRate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state_template_update_rate": "StateTemplateUpdateRate",
     }
@@ -22,9 +20,6 @@ class PeriodicStateTemplateUpdateStrategy(PropertyType):
 
 @dataclass
 class StateTemplateAssociation(PropertyType):
-    IDENTIFIER = "Identifier"
-    STATE_TEMPLATE_UPDATE_STRATEGY = "StateTemplateUpdateStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "state_template_update_strategy": "StateTemplateUpdateStrategy",
@@ -36,9 +31,6 @@ class StateTemplateAssociation(PropertyType):
 
 @dataclass
 class StateTemplateUpdateStrategy(PropertyType):
-    ON_CHANGE = "OnChange"
-    PERIODIC = "Periodic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_change": "OnChange",
         "periodic": "Periodic",
@@ -50,9 +42,6 @@ class StateTemplateUpdateStrategy(PropertyType):
 
 @dataclass
 class TimePeriod(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",

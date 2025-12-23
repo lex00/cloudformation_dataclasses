@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RepositoryCatalogData(PropertyType):
-    ABOUT_TEXT = "AboutText"
-    OPERATING_SYSTEMS = "OperatingSystems"
-    USAGE_TEXT = "UsageText"
-    REPOSITORY_DESCRIPTION = "RepositoryDescription"
-    ARCHITECTURES = "Architectures"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "about_text": "AboutText",
         "operating_systems": "OperatingSystems",

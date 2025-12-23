@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppConfigResourceObject(PropertyType):
-    ENVIRONMENT_ID = "EnvironmentId"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "application_id": "ApplicationId",
@@ -25,9 +22,6 @@ class AppConfigResourceObject(PropertyType):
 
 @dataclass
 class DataDeliveryObject(PropertyType):
-    S3 = "S3"
-    LOG_GROUP = "LogGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "log_group": "LogGroup",
@@ -39,9 +33,6 @@ class DataDeliveryObject(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    BUCKET_NAME = "BucketName"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",

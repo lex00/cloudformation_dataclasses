@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdvancedConfiguration(PropertyType):
-    TEST_LISTENER_RULE = "TestListenerRule"
-    ALTERNATE_TARGET_GROUP_ARN = "AlternateTargetGroupArn"
-    PRODUCTION_LISTENER_RULE = "ProductionListenerRule"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "test_listener_rule": "TestListenerRule",
         "alternate_target_group_arn": "AlternateTargetGroupArn",
@@ -31,10 +26,6 @@ class AdvancedConfiguration(PropertyType):
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -48,9 +39,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class CanaryConfiguration(PropertyType):
-    CANARY_PERCENT = "CanaryPercent"
-    CANARY_BAKE_TIME_IN_MINUTES = "CanaryBakeTimeInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canary_percent": "CanaryPercent",
         "canary_bake_time_in_minutes": "CanaryBakeTimeInMinutes",
@@ -62,10 +50,6 @@ class CanaryConfiguration(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    BASE = "Base"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "base": "Base",
@@ -79,10 +63,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class DeploymentAlarms(PropertyType):
-    ALARM_NAMES = "AlarmNames"
-    ENABLE = "Enable"
-    ROLLBACK = "Rollback"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_names": "AlarmNames",
         "enable": "Enable",
@@ -96,9 +76,6 @@ class DeploymentAlarms(PropertyType):
 
 @dataclass
 class DeploymentCircuitBreaker(PropertyType):
-    ENABLE = "Enable"
-    ROLLBACK = "Rollback"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable": "Enable",
         "rollback": "Rollback",
@@ -110,16 +87,6 @@ class DeploymentCircuitBreaker(PropertyType):
 
 @dataclass
 class DeploymentConfiguration(PropertyType):
-    CANARY_CONFIGURATION = "CanaryConfiguration"
-    BAKE_TIME_IN_MINUTES = "BakeTimeInMinutes"
-    LIFECYCLE_HOOKS = "LifecycleHooks"
-    ALARMS = "Alarms"
-    STRATEGY = "Strategy"
-    DEPLOYMENT_CIRCUIT_BREAKER = "DeploymentCircuitBreaker"
-    MAXIMUM_PERCENT = "MaximumPercent"
-    MINIMUM_HEALTHY_PERCENT = "MinimumHealthyPercent"
-    LINEAR_CONFIGURATION = "LinearConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canary_configuration": "CanaryConfiguration",
         "bake_time_in_minutes": "BakeTimeInMinutes",
@@ -145,8 +112,6 @@ class DeploymentConfiguration(PropertyType):
 
 @dataclass
 class DeploymentController(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -156,11 +121,6 @@ class DeploymentController(PropertyType):
 
 @dataclass
 class DeploymentLifecycleHook(PropertyType):
-    LIFECYCLE_STAGES = "LifecycleStages"
-    HOOK_TARGET_ARN = "HookTargetArn"
-    HOOK_DETAILS = "HookDetails"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_stages": "LifecycleStages",
         "hook_target_arn": "HookTargetArn",
@@ -176,10 +136,6 @@ class DeploymentLifecycleHook(PropertyType):
 
 @dataclass
 class EBSTagSpecification(PropertyType):
-    PROPAGATE_TAGS = "PropagateTags"
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "propagate_tags": "PropagateTags",
         "resource_type": "ResourceType",
@@ -193,9 +149,6 @@ class EBSTagSpecification(PropertyType):
 
 @dataclass
 class ForceNewDeployment(PropertyType):
-    ENABLE_FORCE_NEW_DEPLOYMENT = "EnableForceNewDeployment"
-    FORCE_NEW_DEPLOYMENT_NONCE = "ForceNewDeploymentNonce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_force_new_deployment": "EnableForceNewDeployment",
         "force_new_deployment_nonce": "ForceNewDeploymentNonce",
@@ -207,9 +160,6 @@ class ForceNewDeployment(PropertyType):
 
 @dataclass
 class LinearConfiguration(PropertyType):
-    STEP_BAKE_TIME_IN_MINUTES = "StepBakeTimeInMinutes"
-    STEP_PERCENT = "StepPercent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_bake_time_in_minutes": "StepBakeTimeInMinutes",
         "step_percent": "StepPercent",
@@ -221,12 +171,6 @@ class LinearConfiguration(PropertyType):
 
 @dataclass
 class LoadBalancer(PropertyType):
-    TARGET_GROUP_ARN = "TargetGroupArn"
-    LOAD_BALANCER_NAME = "LoadBalancerName"
-    CONTAINER_NAME = "ContainerName"
-    CONTAINER_PORT = "ContainerPort"
-    ADVANCED_CONFIGURATION = "AdvancedConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "load_balancer_name": "LoadBalancerName",
@@ -244,10 +188,6 @@ class LoadBalancer(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    SECRET_OPTIONS = "SecretOptions"
-    OPTIONS = "Options"
-    LOG_DRIVER = "LogDriver"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_options": "SecretOptions",
         "options": "Options",
@@ -261,8 +201,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    AWSVPC_CONFIGURATION = "AwsvpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
@@ -272,9 +210,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -286,9 +221,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    FIELD = "Field"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -300,9 +232,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    VALUE_FROM = "ValueFrom"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_from": "ValueFrom",
         "name": "Name",
@@ -314,9 +243,6 @@ class Secret(PropertyType):
 
 @dataclass
 class ServiceConnectAccessLogConfiguration(PropertyType):
-    FORMAT = "Format"
-    INCLUDE_QUERY_PARAMETERS = "IncludeQueryParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "include_query_parameters": "IncludeQueryParameters",
@@ -328,10 +254,6 @@ class ServiceConnectAccessLogConfiguration(PropertyType):
 
 @dataclass
 class ServiceConnectClientAlias(PropertyType):
-    DNS_NAME = "DnsName"
-    TEST_TRAFFIC_RULES = "TestTrafficRules"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name": "DnsName",
         "test_traffic_rules": "TestTrafficRules",
@@ -345,12 +267,6 @@ class ServiceConnectClientAlias(PropertyType):
 
 @dataclass
 class ServiceConnectConfiguration(PropertyType):
-    SERVICES = "Services"
-    ACCESS_LOG_CONFIGURATION = "AccessLogConfiguration"
-    ENABLED = "Enabled"
-    LOG_CONFIGURATION = "LogConfiguration"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "services": "Services",
         "access_log_configuration": "AccessLogConfiguration",
@@ -368,13 +284,6 @@ class ServiceConnectConfiguration(PropertyType):
 
 @dataclass
 class ServiceConnectService(PropertyType):
-    TIMEOUT = "Timeout"
-    INGRESS_PORT_OVERRIDE = "IngressPortOverride"
-    CLIENT_ALIASES = "ClientAliases"
-    TLS = "Tls"
-    DISCOVERY_NAME = "DiscoveryName"
-    PORT_NAME = "PortName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout": "Timeout",
         "ingress_port_override": "IngressPortOverride",
@@ -394,8 +303,6 @@ class ServiceConnectService(PropertyType):
 
 @dataclass
 class ServiceConnectTestTrafficRules(PropertyType):
-    HEADER = "Header"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -405,9 +312,6 @@ class ServiceConnectTestTrafficRules(PropertyType):
 
 @dataclass
 class ServiceConnectTestTrafficRulesHeader(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -419,8 +323,6 @@ class ServiceConnectTestTrafficRulesHeader(PropertyType):
 
 @dataclass
 class ServiceConnectTestTrafficRulesHeaderValue(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -430,8 +332,6 @@ class ServiceConnectTestTrafficRulesHeaderValue(PropertyType):
 
 @dataclass
 class ServiceConnectTlsCertificateAuthority(PropertyType):
-    AWS_PCA_AUTHORITY_ARN = "AwsPcaAuthorityArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_pca_authority_arn": "AwsPcaAuthorityArn",
     }
@@ -441,10 +341,6 @@ class ServiceConnectTlsCertificateAuthority(PropertyType):
 
 @dataclass
 class ServiceConnectTlsConfiguration(PropertyType):
-    ISSUER_CERTIFICATE_AUTHORITY = "IssuerCertificateAuthority"
-    KMS_KEY = "KmsKey"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer_certificate_authority": "IssuerCertificateAuthority",
         "kms_key": "KmsKey",
@@ -458,18 +354,6 @@ class ServiceConnectTlsConfiguration(PropertyType):
 
 @dataclass
 class ServiceManagedEBSVolumeConfiguration(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    FILESYSTEM_TYPE = "FilesystemType"
-    ENCRYPTED = "Encrypted"
-    THROUGHPUT = "Throughput"
-    VOLUME_INITIALIZATION_RATE = "VolumeInitializationRate"
-    IOPS = "Iops"
-    SIZE_IN_GI_B = "SizeInGiB"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -499,11 +383,6 @@ class ServiceManagedEBSVolumeConfiguration(PropertyType):
 
 @dataclass
 class ServiceRegistry(PropertyType):
-    CONTAINER_NAME = "ContainerName"
-    PORT = "Port"
-    CONTAINER_PORT = "ContainerPort"
-    REGISTRY_ARN = "RegistryArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_name": "ContainerName",
         "port": "Port",
@@ -519,9 +398,6 @@ class ServiceRegistry(PropertyType):
 
 @dataclass
 class ServiceVolumeConfiguration(PropertyType):
-    MANAGED_EBS_VOLUME = "ManagedEBSVolume"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_ebs_volume": "ManagedEBSVolume",
         "name": "Name",
@@ -533,9 +409,6 @@ class ServiceVolumeConfiguration(PropertyType):
 
 @dataclass
 class TimeoutConfiguration(PropertyType):
-    PER_REQUEST_TIMEOUT_SECONDS = "PerRequestTimeoutSeconds"
-    IDLE_TIMEOUT_SECONDS = "IdleTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request_timeout_seconds": "PerRequestTimeoutSeconds",
         "idle_timeout_seconds": "IdleTimeoutSeconds",
@@ -547,10 +420,6 @@ class TimeoutConfiguration(PropertyType):
 
 @dataclass
 class VpcLatticeConfiguration(PropertyType):
-    TARGET_GROUP_ARN = "TargetGroupArn"
-    PORT_NAME = "PortName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "port_name": "PortName",

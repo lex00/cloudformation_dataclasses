@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApacheKafkaCluster(PropertyType):
-    VPC = "Vpc"
-    BOOTSTRAP_SERVERS = "BootstrapServers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc": "Vpc",
         "bootstrap_servers": "BootstrapServers",
@@ -25,12 +22,6 @@ class ApacheKafkaCluster(PropertyType):
 
 @dataclass
 class AutoScaling(PropertyType):
-    SCALE_OUT_POLICY = "ScaleOutPolicy"
-    SCALE_IN_POLICY = "ScaleInPolicy"
-    MAX_WORKER_COUNT = "MaxWorkerCount"
-    MIN_WORKER_COUNT = "MinWorkerCount"
-    MCU_COUNT = "McuCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_policy": "ScaleOutPolicy",
         "scale_in_policy": "ScaleInPolicy",
@@ -48,9 +39,6 @@ class AutoScaling(PropertyType):
 
 @dataclass
 class Capacity(PropertyType):
-    PROVISIONED_CAPACITY = "ProvisionedCapacity"
-    AUTO_SCALING = "AutoScaling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_capacity": "ProvisionedCapacity",
         "auto_scaling": "AutoScaling",
@@ -62,9 +50,6 @@ class Capacity(PropertyType):
 
 @dataclass
 class CloudWatchLogsLogDelivery(PropertyType):
-    LOG_GROUP = "LogGroup"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -76,9 +61,6 @@ class CloudWatchLogsLogDelivery(PropertyType):
 
 @dataclass
 class CustomPlugin(PropertyType):
-    CUSTOM_PLUGIN_ARN = "CustomPluginArn"
-    REVISION = "Revision"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_plugin_arn": "CustomPluginArn",
         "revision": "Revision",
@@ -90,9 +72,6 @@ class CustomPlugin(PropertyType):
 
 @dataclass
 class FirehoseLogDelivery(PropertyType):
-    DELIVERY_STREAM = "DeliveryStream"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -104,8 +83,6 @@ class FirehoseLogDelivery(PropertyType):
 
 @dataclass
 class KafkaCluster(PropertyType):
-    APACHE_KAFKA_CLUSTER = "ApacheKafkaCluster"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apache_kafka_cluster": "ApacheKafkaCluster",
     }
@@ -115,8 +92,6 @@ class KafkaCluster(PropertyType):
 
 @dataclass
 class KafkaClusterClientAuthentication(PropertyType):
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_type": "AuthenticationType",
     }
@@ -126,8 +101,6 @@ class KafkaClusterClientAuthentication(PropertyType):
 
 @dataclass
 class KafkaClusterEncryptionInTransit(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
     }
@@ -137,8 +110,6 @@ class KafkaClusterEncryptionInTransit(PropertyType):
 
 @dataclass
 class LogDelivery(PropertyType):
-    WORKER_LOG_DELIVERY = "WorkerLogDelivery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_log_delivery": "WorkerLogDelivery",
     }
@@ -148,8 +119,6 @@ class LogDelivery(PropertyType):
 
 @dataclass
 class Plugin(PropertyType):
-    CUSTOM_PLUGIN = "CustomPlugin"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_plugin": "CustomPlugin",
     }
@@ -159,9 +128,6 @@ class Plugin(PropertyType):
 
 @dataclass
 class ProvisionedCapacity(PropertyType):
-    WORKER_COUNT = "WorkerCount"
-    MCU_COUNT = "McuCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_count": "WorkerCount",
         "mcu_count": "McuCount",
@@ -173,10 +139,6 @@ class ProvisionedCapacity(PropertyType):
 
 @dataclass
 class S3LogDelivery(PropertyType):
-    BUCKET = "Bucket"
-    ENABLED = "Enabled"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -190,8 +152,6 @@ class S3LogDelivery(PropertyType):
 
 @dataclass
 class ScaleInPolicy(PropertyType):
-    CPU_UTILIZATION_PERCENTAGE = "CpuUtilizationPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
@@ -201,8 +161,6 @@ class ScaleInPolicy(PropertyType):
 
 @dataclass
 class ScaleOutPolicy(PropertyType):
-    CPU_UTILIZATION_PERCENTAGE = "CpuUtilizationPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
@@ -212,9 +170,6 @@ class ScaleOutPolicy(PropertyType):
 
 @dataclass
 class Vpc(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -226,9 +181,6 @@ class Vpc(PropertyType):
 
 @dataclass
 class WorkerConfiguration(PropertyType):
-    REVISION = "Revision"
-    WORKER_CONFIGURATION_ARN = "WorkerConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "worker_configuration_arn": "WorkerConfigurationArn",
@@ -240,10 +192,6 @@ class WorkerConfiguration(PropertyType):
 
 @dataclass
 class WorkerLogDelivery(PropertyType):
-    S3 = "S3"
-    FIREHOSE = "Firehose"
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",

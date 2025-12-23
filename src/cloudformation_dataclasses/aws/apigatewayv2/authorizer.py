@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class JWTConfiguration(PropertyType):
-    ISSUER = "Issuer"
-    AUDIENCE = "Audience"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "audience": "Audience",

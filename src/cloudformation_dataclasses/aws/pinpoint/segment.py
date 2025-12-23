@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeDimension(PropertyType):
-    ATTRIBUTE_TYPE = "AttributeType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "values": "Values",
@@ -25,8 +22,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class Behavior(PropertyType):
-    RECENCY = "Recency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recency": "Recency",
     }
@@ -36,9 +31,6 @@ class Behavior(PropertyType):
 
 @dataclass
 class Coordinates(PropertyType):
-    LATITUDE = "Latitude"
-    LONGITUDE = "Longitude"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latitude": "Latitude",
         "longitude": "Longitude",
@@ -50,13 +42,6 @@ class Coordinates(PropertyType):
 
 @dataclass
 class Demographic(PropertyType):
-    APP_VERSION = "AppVersion"
-    DEVICE_TYPE = "DeviceType"
-    PLATFORM = "Platform"
-    CHANNEL = "Channel"
-    MODEL = "Model"
-    MAKE = "Make"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_version": "AppVersion",
         "device_type": "DeviceType",
@@ -76,9 +61,6 @@ class Demographic(PropertyType):
 
 @dataclass
 class GPSPoint(PropertyType):
-    RANGE_IN_KILOMETERS = "RangeInKilometers"
-    COORDINATES = "Coordinates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range_in_kilometers": "RangeInKilometers",
         "coordinates": "Coordinates",
@@ -90,11 +72,6 @@ class GPSPoint(PropertyType):
 
 @dataclass
 class Groups(PropertyType):
-    TYPE = "Type"
-    SOURCE_TYPE = "SourceType"
-    DIMENSIONS = "Dimensions"
-    SOURCE_SEGMENTS = "SourceSegments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source_type": "SourceType",
@@ -110,9 +87,6 @@ class Groups(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    GPS_POINT = "GPSPoint"
-    COUNTRY = "Country"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gps_point": "GPSPoint",
         "country": "Country",
@@ -124,9 +98,6 @@ class Location(PropertyType):
 
 @dataclass
 class Recency(PropertyType):
-    DURATION = "Duration"
-    RECENCY_TYPE = "RecencyType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration": "Duration",
         "recency_type": "RecencyType",
@@ -138,13 +109,6 @@ class Recency(PropertyType):
 
 @dataclass
 class SegmentDimensions(PropertyType):
-    DEMOGRAPHIC = "Demographic"
-    METRICS = "Metrics"
-    ATTRIBUTES = "Attributes"
-    BEHAVIOR = "Behavior"
-    USER_ATTRIBUTES = "UserAttributes"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "demographic": "Demographic",
         "metrics": "Metrics",
@@ -164,9 +128,6 @@ class SegmentDimensions(PropertyType):
 
 @dataclass
 class SegmentGroups(PropertyType):
-    GROUPS = "Groups"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "groups": "Groups",
         "include": "Include",
@@ -178,9 +139,6 @@ class SegmentGroups(PropertyType):
 
 @dataclass
 class SetDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -192,9 +150,6 @@ class SetDimension(PropertyType):
 
 @dataclass
 class SourceSegments(PropertyType):
-    VERSION = "Version"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "id": "Id",

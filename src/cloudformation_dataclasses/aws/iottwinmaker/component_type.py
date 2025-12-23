@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CompositeComponentType(PropertyType):
-    COMPONENT_TYPE_ID = "ComponentTypeId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_type_id": "ComponentTypeId",
     }
@@ -22,9 +20,6 @@ class CompositeComponentType(PropertyType):
 
 @dataclass
 class DataConnector(PropertyType):
-    IS_NATIVE = "IsNative"
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_native": "IsNative",
         "lambda_": "Lambda",
@@ -36,12 +31,6 @@ class DataConnector(PropertyType):
 
 @dataclass
 class DataType(PropertyType):
-    TYPE = "Type"
-    ALLOWED_VALUES = "AllowedValues"
-    UNIT_OF_MEASURE = "UnitOfMeasure"
-    RELATIONSHIP = "Relationship"
-    NESTED_TYPE = "NestedType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "allowed_values": "AllowedValues",
@@ -59,16 +48,6 @@ class DataType(PropertyType):
 
 @dataclass
 class DataValue(PropertyType):
-    DOUBLE_VALUE = "DoubleValue"
-    EXPRESSION = "Expression"
-    BOOLEAN_VALUE = "BooleanValue"
-    INTEGER_VALUE = "IntegerValue"
-    LIST_VALUE = "ListValue"
-    LONG_VALUE = "LongValue"
-    MAP_VALUE = "MapValue"
-    RELATIONSHIP_VALUE = "RelationshipValue"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "expression": "Expression",
@@ -94,9 +73,6 @@ class DataValue(PropertyType):
 
 @dataclass
 class Error(PropertyType):
-    MESSAGE = "Message"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -108,10 +84,6 @@ class Error(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    SCOPE = "Scope"
-    REQUIRED_PROPERTIES = "RequiredProperties"
-    IMPLEMENTED_BY = "ImplementedBy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "required_properties": "RequiredProperties",
@@ -125,8 +97,6 @@ class Function(PropertyType):
 
 @dataclass
 class LambdaFunction(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -136,14 +106,6 @@ class LambdaFunction(PropertyType):
 
 @dataclass
 class PropertyDefinition(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    IS_EXTERNAL_ID = "IsExternalId"
-    IS_STORED_EXTERNALLY = "IsStoredExternally"
-    IS_TIME_SERIES = "IsTimeSeries"
-    IS_REQUIRED_IN_ENTITY = "IsRequiredInEntity"
-    DATA_TYPE = "DataType"
-    CONFIGURATIONS = "Configurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "is_external_id": "IsExternalId",
@@ -165,9 +127,6 @@ class PropertyDefinition(PropertyType):
 
 @dataclass
 class PropertyGroup(PropertyType):
-    GROUP_TYPE = "GroupType"
-    PROPERTY_NAMES = "PropertyNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_type": "GroupType",
         "property_names": "PropertyNames",
@@ -179,9 +138,6 @@ class PropertyGroup(PropertyType):
 
 @dataclass
 class Relationship(PropertyType):
-    RELATIONSHIP_TYPE = "RelationshipType"
-    TARGET_COMPONENT_TYPE_ID = "TargetComponentTypeId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relationship_type": "RelationshipType",
         "target_component_type_id": "TargetComponentTypeId",
@@ -193,9 +149,6 @@ class Relationship(PropertyType):
 
 @dataclass
 class RelationshipValue(PropertyType):
-    TARGET_COMPONENT_NAME = "TargetComponentName"
-    TARGET_ENTITY_ID = "TargetEntityId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_component_name": "TargetComponentName",
         "target_entity_id": "TargetEntityId",
@@ -207,9 +160,6 @@ class RelationshipValue(PropertyType):
 
 @dataclass
 class Status(PropertyType):
-    STATE = "State"
-    ERROR = "Error"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "error": "Error",

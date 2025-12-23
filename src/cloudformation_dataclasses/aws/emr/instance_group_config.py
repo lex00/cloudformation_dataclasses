@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoScalingPolicy(PropertyType):
-    CONSTRAINTS = "Constraints"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "rules": "Rules",
@@ -25,16 +22,6 @@ class AutoScalingPolicy(PropertyType):
 
 @dataclass
 class CloudWatchAlarmDefinition(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    DIMENSIONS = "Dimensions"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    METRIC_NAME = "MetricName"
-    NAMESPACE = "Namespace"
-    PERIOD = "Period"
-    STATISTIC = "Statistic"
-    THRESHOLD = "Threshold"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "dimensions": "Dimensions",
@@ -60,10 +47,6 @@ class CloudWatchAlarmDefinition(PropertyType):
 
 @dataclass
 class Configuration(PropertyType):
-    CLASSIFICATION = "Classification"
-    CONFIGURATION_PROPERTIES = "ConfigurationProperties"
-    CONFIGURATIONS = "Configurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classification": "Classification",
         "configuration_properties": "ConfigurationProperties",
@@ -77,9 +60,6 @@ class Configuration(PropertyType):
 
 @dataclass
 class EbsBlockDeviceConfig(PropertyType):
-    VOLUME_SPECIFICATION = "VolumeSpecification"
-    VOLUMES_PER_INSTANCE = "VolumesPerInstance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_specification": "VolumeSpecification",
         "volumes_per_instance": "VolumesPerInstance",
@@ -91,9 +71,6 @@ class EbsBlockDeviceConfig(PropertyType):
 
 @dataclass
 class EbsConfiguration(PropertyType):
-    EBS_BLOCK_DEVICE_CONFIGS = "EbsBlockDeviceConfigs"
-    EBS_OPTIMIZED = "EbsOptimized"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_block_device_configs": "EbsBlockDeviceConfigs",
         "ebs_optimized": "EbsOptimized",
@@ -105,9 +82,6 @@ class EbsConfiguration(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    KEY = "Key"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "value": "Value",
@@ -119,9 +93,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class ScalingAction(PropertyType):
-    MARKET = "Market"
-    SIMPLE_SCALING_POLICY_CONFIGURATION = "SimpleScalingPolicyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "market": "Market",
         "simple_scaling_policy_configuration": "SimpleScalingPolicyConfiguration",
@@ -133,9 +104,6 @@ class ScalingAction(PropertyType):
 
 @dataclass
 class ScalingConstraints(PropertyType):
-    MAX_CAPACITY = "MaxCapacity"
-    MIN_CAPACITY = "MinCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_capacity": "MaxCapacity",
         "min_capacity": "MinCapacity",
@@ -147,11 +115,6 @@ class ScalingConstraints(PropertyType):
 
 @dataclass
 class ScalingRule(PropertyType):
-    ACTION = "Action"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-    TRIGGER = "Trigger"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "description": "Description",
@@ -167,8 +130,6 @@ class ScalingRule(PropertyType):
 
 @dataclass
 class ScalingTrigger(PropertyType):
-    CLOUD_WATCH_ALARM_DEFINITION = "CloudWatchAlarmDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_alarm_definition": "CloudWatchAlarmDefinition",
     }
@@ -178,10 +139,6 @@ class ScalingTrigger(PropertyType):
 
 @dataclass
 class SimpleScalingPolicyConfiguration(PropertyType):
-    ADJUSTMENT_TYPE = "AdjustmentType"
-    COOL_DOWN = "CoolDown"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "adjustment_type": "AdjustmentType",
         "cool_down": "CoolDown",
@@ -195,11 +152,6 @@ class SimpleScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class VolumeSpecification(PropertyType):
-    IOPS = "Iops"
-    SIZE_IN_GB = "SizeInGB"
-    THROUGHPUT = "Throughput"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iops": "Iops",
         "size_in_gb": "SizeInGB",

@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Egress(PropertyType):
-    CIDR_IP = "CidrIp"
-    CIDR_IPV6 = "CidrIpv6"
-    DESCRIPTION = "Description"
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-    IP_PROTOCOL = "IpProtocol"
-    DESTINATION_SECURITY_GROUP_ID = "DestinationSecurityGroupId"
-    DESTINATION_PREFIX_LIST_ID = "DestinationPrefixListId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_ip": "CidrIp",
         "cidr_ipv6": "CidrIpv6",
@@ -43,17 +34,6 @@ class Egress(PropertyType):
 
 @dataclass
 class Ingress(PropertyType):
-    CIDR_IP = "CidrIp"
-    CIDR_IPV6 = "CidrIpv6"
-    DESCRIPTION = "Description"
-    FROM_PORT = "FromPort"
-    SOURCE_SECURITY_GROUP_NAME = "SourceSecurityGroupName"
-    TO_PORT = "ToPort"
-    SOURCE_SECURITY_GROUP_OWNER_ID = "SourceSecurityGroupOwnerId"
-    IP_PROTOCOL = "IpProtocol"
-    SOURCE_SECURITY_GROUP_ID = "SourceSecurityGroupId"
-    SOURCE_PREFIX_LIST_ID = "SourcePrefixListId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_ip": "CidrIp",
         "cidr_ipv6": "CidrIpv6",

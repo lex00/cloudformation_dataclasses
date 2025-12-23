@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BotVersionLocaleDetails(PropertyType):
-    SOURCE_BOT_VERSION = "SourceBotVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_bot_version": "SourceBotVersion",
     }
@@ -22,9 +20,6 @@ class BotVersionLocaleDetails(PropertyType):
 
 @dataclass
 class BotVersionLocaleSpecification(PropertyType):
-    LOCALE_ID = "LocaleId"
-    BOT_VERSION_LOCALE_DETAILS = "BotVersionLocaleDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_version_locale_details": "BotVersionLocaleDetails",

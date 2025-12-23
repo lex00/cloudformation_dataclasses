@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:49
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeCommit
@@ -230,13 +230,6 @@ class Repository(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeCommit::Repository"
     name_field: ClassVar[str] = "repository_name"
-    KMS_KEY_ID = "KmsKeyId"
-    REPOSITORY_NAME = "RepositoryName"
-    TRIGGERS = "Triggers"
-    CODE = "Code"
-    REPOSITORY_DESCRIPTION = "RepositoryDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "repository_name": "RepositoryName",

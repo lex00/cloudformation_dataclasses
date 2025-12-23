@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MappingRule(PropertyType):
-    MATCH_TYPE = "MatchType"
-    VALUE = "Value"
-    CLAIM = "Claim"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_type": "MatchType",
         "value": "Value",
@@ -31,11 +26,6 @@ class MappingRule(PropertyType):
 
 @dataclass
 class RoleMapping(PropertyType):
-    TYPE = "Type"
-    AMBIGUOUS_ROLE_RESOLUTION = "AmbiguousRoleResolution"
-    RULES_CONFIGURATION = "RulesConfiguration"
-    IDENTITY_PROVIDER = "IdentityProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ambiguous_role_resolution": "AmbiguousRoleResolution",
@@ -51,8 +41,6 @@ class RoleMapping(PropertyType):
 
 @dataclass
 class RulesConfigurationType(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }

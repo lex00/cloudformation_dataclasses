@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AddOn(PropertyType):
-    STATUS = "Status"
-    ADD_ON_TYPE = "AddOnType"
-    AUTO_SNAPSHOT_ADD_ON_REQUEST = "AutoSnapshotAddOnRequest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "add_on_type": "AddOnType",
@@ -28,8 +24,6 @@ class AddOn(PropertyType):
 
 @dataclass
 class AutoSnapshotAddOn(PropertyType):
-    SNAPSHOT_TIME_OF_DAY = "SnapshotTimeOfDay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_time_of_day": "SnapshotTimeOfDay",
     }
@@ -39,14 +33,6 @@ class AutoSnapshotAddOn(PropertyType):
 
 @dataclass
 class Disk(PropertyType):
-    SIZE_IN_GB = "SizeInGb"
-    PATH = "Path"
-    ATTACHMENT_STATE = "AttachmentState"
-    IS_SYSTEM_DISK = "IsSystemDisk"
-    ATTACHED_TO = "AttachedTo"
-    IOPS = "IOPS"
-    DISK_NAME = "DiskName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gb": "SizeInGb",
         "path": "Path",
@@ -68,10 +54,6 @@ class Disk(PropertyType):
 
 @dataclass
 class Hardware(PropertyType):
-    CPU_COUNT = "CpuCount"
-    RAM_SIZE_IN_GB = "RamSizeInGb"
-    DISKS = "Disks"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_count": "CpuCount",
         "ram_size_in_gb": "RamSizeInGb",
@@ -85,9 +67,6 @@ class Hardware(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    REGION_NAME = "RegionName"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",
@@ -99,8 +78,6 @@ class Location(PropertyType):
 
 @dataclass
 class MonthlyTransfer(PropertyType):
-    GB_PER_MONTH_ALLOCATED = "GbPerMonthAllocated"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gb_per_month_allocated": "GbPerMonthAllocated",
     }
@@ -110,9 +87,6 @@ class MonthlyTransfer(PropertyType):
 
 @dataclass
 class Networking(PropertyType):
-    PORTS = "Ports"
-    MONTHLY_TRANSFER = "MonthlyTransfer"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ports": "Ports",
         "monthly_transfer": "MonthlyTransfer",
@@ -124,17 +98,6 @@ class Networking(PropertyType):
 
 @dataclass
 class Port(PropertyType):
-    FROM_PORT = "FromPort"
-    ACCESS_DIRECTION = "AccessDirection"
-    CIDR_LIST_ALIASES = "CidrListAliases"
-    TO_PORT = "ToPort"
-    IPV6_CIDRS = "Ipv6Cidrs"
-    ACCESS_FROM = "AccessFrom"
-    PROTOCOL = "Protocol"
-    ACCESS_TYPE = "AccessType"
-    CIDRS = "Cidrs"
-    COMMON_NAME = "CommonName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "access_direction": "AccessDirection",
@@ -162,9 +125,6 @@ class Port(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    CODE = "Code"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "Code",
         "name": "Name",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DashboardAttributes(PropertyType):
-    ENGAGEMENT_METRICS = "EngagementMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engagement_metrics": "EngagementMetrics",
     }
@@ -22,8 +20,6 @@ class DashboardAttributes(PropertyType):
 
 @dataclass
 class GuardianAttributes(PropertyType):
-    OPTIMIZED_SHARED_DELIVERY = "OptimizedSharedDelivery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_shared_delivery": "OptimizedSharedDelivery",
     }

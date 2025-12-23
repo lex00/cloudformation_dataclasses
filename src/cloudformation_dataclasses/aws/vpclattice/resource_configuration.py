@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DnsResource(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    DOMAIN_NAME = "DomainName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "domain_name": "DomainName",
@@ -25,10 +22,6 @@ class DnsResource(PropertyType):
 
 @dataclass
 class ResourceConfigurationDefinition(PropertyType):
-    IP_RESOURCE = "IpResource"
-    DNS_RESOURCE = "DnsResource"
-    ARN_RESOURCE = "ArnResource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_resource": "IpResource",
         "dns_resource": "DnsResource",

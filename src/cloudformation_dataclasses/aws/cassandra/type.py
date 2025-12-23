@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Field(PropertyType):
-    FIELD_NAME = "FieldName"
-    FIELD_TYPE = "FieldType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_name": "FieldName",
         "field_type": "FieldType",

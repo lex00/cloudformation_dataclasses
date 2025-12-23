@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationLogs(PropertyType):
-    LINK_APPLICATION_LOG_SAMPLING = "LinkApplicationLogSampling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
@@ -22,9 +20,6 @@ class ApplicationLogs(PropertyType):
 
 @dataclass
 class LinkApplicationLogSampling(PropertyType):
-    FILTER_LOG = "FilterLog"
-    ERROR_LOG = "ErrorLog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_log": "FilterLog",
         "error_log": "ErrorLog",
@@ -36,9 +31,6 @@ class LinkApplicationLogSampling(PropertyType):
 
 @dataclass
 class LinkAttributes(PropertyType):
-    RESPONDER_ERROR_MASKING = "ResponderErrorMasking"
-    CUSTOMER_PROVIDED_ID = "CustomerProvidedId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responder_error_masking": "ResponderErrorMasking",
         "customer_provided_id": "CustomerProvidedId",
@@ -50,8 +42,6 @@ class LinkAttributes(PropertyType):
 
 @dataclass
 class LinkLogSettings(PropertyType):
-    APPLICATION_LOGS = "ApplicationLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_logs": "ApplicationLogs",
     }
@@ -61,11 +51,6 @@ class LinkLogSettings(PropertyType):
 
 @dataclass
 class ResponderErrorMaskingForHttpCode(PropertyType):
-    HTTP_CODE = "HttpCode"
-    ACTION = "Action"
-    RESPONSE_LOGGING_PERCENTAGE = "ResponseLoggingPercentage"
-    LOGGING_TYPES = "LoggingTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
         "action": "Action",

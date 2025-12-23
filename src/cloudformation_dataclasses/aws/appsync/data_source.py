@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthorizationConfig(PropertyType):
-    AWS_IAM_CONFIG = "AwsIamConfig"
-    AUTHORIZATION_TYPE = "AuthorizationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_iam_config": "AwsIamConfig",
         "authorization_type": "AuthorizationType",
@@ -25,9 +22,6 @@ class AuthorizationConfig(PropertyType):
 
 @dataclass
 class AwsIamConfig(PropertyType):
-    SIGNING_REGION = "SigningRegion"
-    SIGNING_SERVICE_NAME = "SigningServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_region": "SigningRegion",
         "signing_service_name": "SigningServiceName",
@@ -39,10 +33,6 @@ class AwsIamConfig(PropertyType):
 
 @dataclass
 class DeltaSyncConfig(PropertyType):
-    BASE_TABLE_TTL = "BaseTableTTL"
-    DELTA_SYNC_TABLE_TTL = "DeltaSyncTableTTL"
-    DELTA_SYNC_TABLE_NAME = "DeltaSyncTableName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_table_ttl": "BaseTableTTL",
         "delta_sync_table_ttl": "DeltaSyncTableTTL",
@@ -56,12 +46,6 @@ class DeltaSyncConfig(PropertyType):
 
 @dataclass
 class DynamoDBConfig(PropertyType):
-    TABLE_NAME = "TableName"
-    AWS_REGION = "AwsRegion"
-    VERSIONED = "Versioned"
-    DELTA_SYNC_CONFIG = "DeltaSyncConfig"
-    USE_CALLER_CREDENTIALS = "UseCallerCredentials"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "aws_region": "AwsRegion",
@@ -79,8 +63,6 @@ class DynamoDBConfig(PropertyType):
 
 @dataclass
 class EventBridgeConfig(PropertyType):
-    EVENT_BUS_ARN = "EventBusArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -90,9 +72,6 @@ class EventBridgeConfig(PropertyType):
 
 @dataclass
 class HttpConfig(PropertyType):
-    ENDPOINT = "Endpoint"
-    AUTHORIZATION_CONFIG = "AuthorizationConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "authorization_config": "AuthorizationConfig",
@@ -104,8 +83,6 @@ class HttpConfig(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    LAMBDA_FUNCTION_ARN = "LambdaFunctionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function_arn": "LambdaFunctionArn",
     }
@@ -115,9 +92,6 @@ class LambdaConfig(PropertyType):
 
 @dataclass
 class OpenSearchServiceConfig(PropertyType):
-    AWS_REGION = "AwsRegion"
-    ENDPOINT = "Endpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "endpoint": "Endpoint",
@@ -129,12 +103,6 @@ class OpenSearchServiceConfig(PropertyType):
 
 @dataclass
 class RdsHttpEndpointConfig(PropertyType):
-    AWS_REGION = "AwsRegion"
-    SCHEMA = "Schema"
-    DATABASE_NAME = "DatabaseName"
-    DB_CLUSTER_IDENTIFIER = "DbClusterIdentifier"
-    AWS_SECRET_STORE_ARN = "AwsSecretStoreArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "schema": "Schema",
@@ -152,9 +120,6 @@ class RdsHttpEndpointConfig(PropertyType):
 
 @dataclass
 class RelationalDatabaseConfig(PropertyType):
-    RDS_HTTP_ENDPOINT_CONFIG = "RdsHttpEndpointConfig"
-    RELATIONAL_DATABASE_SOURCE_TYPE = "RelationalDatabaseSourceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rds_http_endpoint_config": "RdsHttpEndpointConfig",
         "relational_database_source_type": "RelationalDatabaseSourceType",

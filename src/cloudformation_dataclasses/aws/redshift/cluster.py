@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Endpoint(PropertyType):
-    ADDRESS = "Address"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -25,11 +22,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class LoggingProperties(PropertyType):
-    BUCKET_NAME = "BucketName"
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    LOG_DESTINATION_TYPE = "LogDestinationType"
-    LOG_EXPORTS = "LogExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "s3_key_prefix": "S3KeyPrefix",

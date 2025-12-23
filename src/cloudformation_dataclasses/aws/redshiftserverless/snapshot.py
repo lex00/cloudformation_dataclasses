@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Snapshot(PropertyType):
-    STATUS = "Status"
-    NAMESPACE_NAME = "NamespaceName"
-    ADMIN_USERNAME = "AdminUsername"
-    SNAPSHOT_CREATE_TIME = "SnapshotCreateTime"
-    NAMESPACE_ARN = "NamespaceArn"
-    KMS_KEY_ID = "KmsKeyId"
-    SNAPSHOT_ARN = "SnapshotArn"
-    OWNER_ACCOUNT = "OwnerAccount"
-    RETENTION_PERIOD = "RetentionPeriod"
-    SNAPSHOT_NAME = "SnapshotName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespace_name": "NamespaceName",

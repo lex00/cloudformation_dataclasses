@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StreamEncryption(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-    KEY_ID = "KeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "key_id": "KeyId",
@@ -25,8 +22,6 @@ class StreamEncryption(PropertyType):
 
 @dataclass
 class StreamModeDetails(PropertyType):
-    STREAM_MODE = "StreamMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_mode": "StreamMode",
     }
@@ -36,9 +31,6 @@ class StreamModeDetails(PropertyType):
 
 @dataclass
 class WarmThroughputObject(PropertyType):
-    CURRENT_MI_BPS = "CurrentMiBps"
-    TARGET_MI_BPS = "TargetMiBps"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "current_mi_bps": "CurrentMiBps",
         "target_mi_bps": "TargetMiBps",

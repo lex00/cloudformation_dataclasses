@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaTailor
@@ -422,16 +422,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::Channel"
     name_field: ClassVar[str] = "channel_name"
-    FILLER_SLATE = "FillerSlate"
-    CHANNEL_NAME = "ChannelName"
-    TIER = "Tier"
-    AUDIENCES = "Audiences"
-    OUTPUTS = "Outputs"
-    LOG_CONFIGURATION = "LogConfiguration"
-    PLAYBACK_MODE = "PlaybackMode"
-    TAGS = "Tags"
-    TIME_SHIFT_CONFIGURATION = "TimeShiftConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filler_slate": "FillerSlate",
         "channel_name": "ChannelName",
@@ -467,9 +457,6 @@ class ChannelPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::ChannelPolicy"
     name_field: ClassVar[str] = "channel_name"
-    POLICY = "Policy"
-    CHANNEL_NAME = "ChannelName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "channel_name": "ChannelName",
@@ -485,11 +472,6 @@ class LiveSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::LiveSource"
     name_field: ClassVar[str] = "live_source_name"
-    LIVE_SOURCE_NAME = "LiveSourceName"
-    SOURCE_LOCATION_NAME = "SourceLocationName"
-    HTTP_PACKAGE_CONFIGURATIONS = "HttpPackageConfigurations"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "live_source_name": "LiveSourceName",
         "source_location_name": "SourceLocationName",
@@ -515,25 +497,6 @@ class PlaybackConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::PlaybackConfiguration"
     name_field: ClassVar[str] = "name"
-    BUMPER = "Bumper"
-    DASH_CONFIGURATION = "DashConfiguration"
-    INSERTION_MODE = "InsertionMode"
-    CDN_CONFIGURATION = "CdnConfiguration"
-    MANIFEST_PROCESSING_RULES = "ManifestProcessingRules"
-    PERSONALIZATION_THRESHOLD_SECONDS = "PersonalizationThresholdSeconds"
-    LIVE_PRE_ROLL_CONFIGURATION = "LivePreRollConfiguration"
-    HLS_CONFIGURATION = "HlsConfiguration"
-    LOG_CONFIGURATION = "LogConfiguration"
-    VIDEO_CONTENT_SOURCE_URL = "VideoContentSourceUrl"
-    NAME = "Name"
-    TRANSCODE_PROFILE_NAME = "TranscodeProfileName"
-    CONFIGURATION_ALIASES = "ConfigurationAliases"
-    AD_DECISION_SERVER_URL = "AdDecisionServerUrl"
-    AD_CONDITIONING_CONFIGURATION = "AdConditioningConfiguration"
-    SLATE_AD_URL = "SlateAdUrl"
-    AVAIL_SUPPRESSION = "AvailSuppression"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bumper": "Bumper",
         "dash_configuration": "DashConfiguration",
@@ -607,13 +570,6 @@ class SourceLocation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::SourceLocation"
     name_field: ClassVar[str] = "source_location_name"
-    SOURCE_LOCATION_NAME = "SourceLocationName"
-    DEFAULT_SEGMENT_DELIVERY_CONFIGURATION = "DefaultSegmentDeliveryConfiguration"
-    SEGMENT_DELIVERY_CONFIGURATIONS = "SegmentDeliveryConfigurations"
-    HTTP_CONFIGURATION = "HttpConfiguration"
-    ACCESS_CONFIGURATION = "AccessConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_location_name": "SourceLocationName",
         "default_segment_delivery_configuration": "DefaultSegmentDeliveryConfiguration",
@@ -643,11 +599,6 @@ class VodSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::VodSource"
     name_field: ClassVar[str] = "vod_source_name"
-    VOD_SOURCE_NAME = "VodSourceName"
-    SOURCE_LOCATION_NAME = "SourceLocationName"
-    HTTP_PACKAGE_CONFIGURATIONS = "HttpPackageConfigurations"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vod_source_name": "VodSourceName",
         "source_location_name": "SourceLocationName",

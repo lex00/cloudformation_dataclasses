@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -28,10 +24,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    BASE = "Base"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "base": "Base",
@@ -45,10 +37,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class LoadBalancer(PropertyType):
-    TARGET_GROUP_ARN = "TargetGroupArn"
-    CONTAINER_NAME = "ContainerName"
-    CONTAINER_PORT = "ContainerPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "container_name": "ContainerName",
@@ -62,8 +50,6 @@ class LoadBalancer(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    AWS_VPC_CONFIGURATION = "AwsVpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_vpc_configuration": "AwsVpcConfiguration",
     }
@@ -73,9 +59,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class Scale(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -87,11 +70,6 @@ class Scale(PropertyType):
 
 @dataclass
 class ServiceRegistry(PropertyType):
-    CONTAINER_NAME = "ContainerName"
-    PORT = "Port"
-    CONTAINER_PORT = "ContainerPort"
-    REGISTRY_ARN = "RegistryArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_name": "ContainerName",
         "port": "Port",

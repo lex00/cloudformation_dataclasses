@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ArtifactDetails(PropertyType):
-    MINIMUM_COUNT = "MinimumCount"
-    MAXIMUM_COUNT = "MaximumCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_count": "MinimumCount",
         "maximum_count": "MaximumCount",
@@ -25,14 +22,6 @@ class ArtifactDetails(PropertyType):
 
 @dataclass
 class ConfigurationProperties(PropertyType):
-    SECRET = "Secret"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    REQUIRED = "Required"
-    QUERYABLE = "Queryable"
-    KEY = "Key"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret": "Secret",
         "type_": "Type",
@@ -54,11 +43,6 @@ class ConfigurationProperties(PropertyType):
 
 @dataclass
 class Settings(PropertyType):
-    ENTITY_URL_TEMPLATE = "EntityUrlTemplate"
-    EXECUTION_URL_TEMPLATE = "ExecutionUrlTemplate"
-    REVISION_URL_TEMPLATE = "RevisionUrlTemplate"
-    THIRD_PARTY_CONFIGURATION_URL = "ThirdPartyConfigurationUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_url_template": "EntityUrlTemplate",
         "execution_url_template": "ExecutionUrlTemplate",

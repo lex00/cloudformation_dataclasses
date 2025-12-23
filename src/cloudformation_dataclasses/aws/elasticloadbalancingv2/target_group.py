@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Matcher(PropertyType):
-    GRPC_CODE = "GrpcCode"
-    HTTP_CODE = "HttpCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grpc_code": "GrpcCode",
         "http_code": "HttpCode",
@@ -25,11 +22,6 @@ class Matcher(PropertyType):
 
 @dataclass
 class TargetDescription(PropertyType):
-    QUIC_SERVER_ID = "QuicServerId"
-    PORT = "Port"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quic_server_id": "QuicServerId",
         "port": "Port",
@@ -45,9 +37,6 @@ class TargetDescription(PropertyType):
 
 @dataclass
 class TargetGroupAttribute(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

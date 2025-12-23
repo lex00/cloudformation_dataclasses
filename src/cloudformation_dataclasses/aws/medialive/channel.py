@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AacSettings(PropertyType):
-    CODING_MODE = "CodingMode"
-    RATE_CONTROL_MODE = "RateControlMode"
-    SAMPLE_RATE = "SampleRate"
-    INPUT_TYPE = "InputType"
-    VBR_QUALITY = "VbrQuality"
-    RAW_FORMAT = "RawFormat"
-    SPEC = "Spec"
-    BITRATE = "Bitrate"
-    PROFILE = "Profile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "rate_control_mode": "RateControlMode",
@@ -46,15 +36,6 @@ class AacSettings(PropertyType):
 
 @dataclass
 class Ac3Settings(PropertyType):
-    CODING_MODE = "CodingMode"
-    DRC_PROFILE = "DrcProfile"
-    METADATA_CONTROL = "MetadataControl"
-    DIALNORM = "Dialnorm"
-    LFE_FILTER = "LfeFilter"
-    BITSTREAM_MODE = "BitstreamMode"
-    ATTENUATION_CONTROL = "AttenuationControl"
-    BITRATE = "Bitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "drc_profile": "DrcProfile",
@@ -78,8 +59,6 @@ class Ac3Settings(PropertyType):
 
 @dataclass
 class AdditionalDestinations(PropertyType):
-    DESTINATION = "Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -89,8 +68,6 @@ class AdditionalDestinations(PropertyType):
 
 @dataclass
 class AncillarySourceSettings(PropertyType):
-    SOURCE_ANCILLARY_CHANNEL_NUMBER = "SourceAncillaryChannelNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ancillary_channel_number": "SourceAncillaryChannelNumber",
     }
@@ -100,9 +77,6 @@ class AncillarySourceSettings(PropertyType):
 
 @dataclass
 class AnywhereSettings(PropertyType):
-    CHANNEL_PLACEMENT_GROUP_ID = "ChannelPlacementGroupId"
-    CLUSTER_ID = "ClusterId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_placement_group_id": "ChannelPlacementGroupId",
         "cluster_id": "ClusterId",
@@ -114,8 +88,6 @@ class AnywhereSettings(PropertyType):
 
 @dataclass
 class ArchiveCdnSettings(PropertyType):
-    ARCHIVE_S3_SETTINGS = "ArchiveS3Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "archive_s3_settings": "ArchiveS3Settings",
     }
@@ -125,9 +97,6 @@ class ArchiveCdnSettings(PropertyType):
 
 @dataclass
 class ArchiveContainerSettings(PropertyType):
-    RAW_SETTINGS = "RawSettings"
-    M2TS_SETTINGS = "M2tsSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "raw_settings": "RawSettings",
         "m2ts_settings": "M2tsSettings",
@@ -139,10 +108,6 @@ class ArchiveContainerSettings(PropertyType):
 
 @dataclass
 class ArchiveGroupSettings(PropertyType):
-    DESTINATION = "Destination"
-    ARCHIVE_CDN_SETTINGS = "ArchiveCdnSettings"
-    ROLLOVER_INTERVAL = "RolloverInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "archive_cdn_settings": "ArchiveCdnSettings",
@@ -156,10 +121,6 @@ class ArchiveGroupSettings(PropertyType):
 
 @dataclass
 class ArchiveOutputSettings(PropertyType):
-    EXTENSION = "Extension"
-    NAME_MODIFIER = "NameModifier"
-    CONTAINER_SETTINGS = "ContainerSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extension": "Extension",
         "name_modifier": "NameModifier",
@@ -173,8 +134,6 @@ class ArchiveOutputSettings(PropertyType):
 
 @dataclass
 class ArchiveS3Settings(PropertyType):
-    CANNED_ACL = "CannedAcl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -194,9 +153,6 @@ class AribSourceSettings(PropertyType):
 
 @dataclass
 class AudioChannelMapping(PropertyType):
-    OUTPUT_CHANNEL = "OutputChannel"
-    INPUT_CHANNEL_LEVELS = "InputChannelLevels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_channel": "OutputChannel",
         "input_channel_levels": "InputChannelLevels",
@@ -208,14 +164,6 @@ class AudioChannelMapping(PropertyType):
 
 @dataclass
 class AudioCodecSettings(PropertyType):
-    EAC3_SETTINGS = "Eac3Settings"
-    AC3_SETTINGS = "Ac3Settings"
-    MP2_SETTINGS = "Mp2Settings"
-    EAC3_ATMOS_SETTINGS = "Eac3AtmosSettings"
-    PASS_THROUGH_SETTINGS = "PassThroughSettings"
-    WAV_SETTINGS = "WavSettings"
-    AAC_SETTINGS = "AacSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eac3_settings": "Eac3Settings",
         "ac3_settings": "Ac3Settings",
@@ -237,20 +185,6 @@ class AudioCodecSettings(PropertyType):
 
 @dataclass
 class AudioDescription(PropertyType):
-    AUDIO_DASH_ROLES = "AudioDashRoles"
-    LANGUAGE_CODE_CONTROL = "LanguageCodeControl"
-    CODEC_SETTINGS = "CodecSettings"
-    NAME = "Name"
-    AUDIO_WATERMARKING_SETTINGS = "AudioWatermarkingSettings"
-    AUDIO_NORMALIZATION_SETTINGS = "AudioNormalizationSettings"
-    LANGUAGE_CODE = "LanguageCode"
-    REMIX_SETTINGS = "RemixSettings"
-    AUDIO_SELECTOR_NAME = "AudioSelectorName"
-    STREAM_NAME = "StreamName"
-    DVB_DASH_ACCESSIBILITY = "DvbDashAccessibility"
-    AUDIO_TYPE = "AudioType"
-    AUDIO_TYPE_CONTROL = "AudioTypeControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_dash_roles": "AudioDashRoles",
         "language_code_control": "LanguageCodeControl",
@@ -284,8 +218,6 @@ class AudioDescription(PropertyType):
 
 @dataclass
 class AudioDolbyEDecode(PropertyType):
-    PROGRAM_SELECTION = "ProgramSelection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "program_selection": "ProgramSelection",
     }
@@ -295,9 +227,6 @@ class AudioDolbyEDecode(PropertyType):
 
 @dataclass
 class AudioHlsRenditionSelection(PropertyType):
-    GROUP_ID = "GroupId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_id": "GroupId",
         "name": "Name",
@@ -309,9 +238,6 @@ class AudioHlsRenditionSelection(PropertyType):
 
 @dataclass
 class AudioLanguageSelection(PropertyType):
-    LANGUAGE_CODE = "LanguageCode"
-    LANGUAGE_SELECTION_POLICY = "LanguageSelectionPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "language_selection_policy": "LanguageSelectionPolicy",
@@ -323,10 +249,6 @@ class AudioLanguageSelection(PropertyType):
 
 @dataclass
 class AudioNormalizationSettings(PropertyType):
-    TARGET_LKFS = "TargetLkfs"
-    ALGORITHM = "Algorithm"
-    ALGORITHM_CONTROL = "AlgorithmControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_lkfs": "TargetLkfs",
         "algorithm": "Algorithm",
@@ -340,11 +262,6 @@ class AudioNormalizationSettings(PropertyType):
 
 @dataclass
 class AudioOnlyHlsSettings(PropertyType):
-    SEGMENT_TYPE = "SegmentType"
-    AUDIO_TRACK_TYPE = "AudioTrackType"
-    AUDIO_ONLY_IMAGE = "AudioOnlyImage"
-    AUDIO_GROUP_ID = "AudioGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_type": "SegmentType",
         "audio_track_type": "AudioTrackType",
@@ -360,8 +277,6 @@ class AudioOnlyHlsSettings(PropertyType):
 
 @dataclass
 class AudioPidSelection(PropertyType):
-    PID = "Pid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pid": "Pid",
     }
@@ -371,9 +286,6 @@ class AudioPidSelection(PropertyType):
 
 @dataclass
 class AudioSelector(PropertyType):
-    SELECTOR_SETTINGS = "SelectorSettings"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selector_settings": "SelectorSettings",
         "name": "Name",
@@ -385,11 +297,6 @@ class AudioSelector(PropertyType):
 
 @dataclass
 class AudioSelectorSettings(PropertyType):
-    AUDIO_PID_SELECTION = "AudioPidSelection"
-    AUDIO_LANGUAGE_SELECTION = "AudioLanguageSelection"
-    AUDIO_TRACK_SELECTION = "AudioTrackSelection"
-    AUDIO_HLS_RENDITION_SELECTION = "AudioHlsRenditionSelection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_pid_selection": "AudioPidSelection",
         "audio_language_selection": "AudioLanguageSelection",
@@ -405,9 +312,6 @@ class AudioSelectorSettings(PropertyType):
 
 @dataclass
 class AudioSilenceFailoverSettings(PropertyType):
-    AUDIO_SELECTOR_NAME = "AudioSelectorName"
-    AUDIO_SILENCE_THRESHOLD_MSEC = "AudioSilenceThresholdMsec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_selector_name": "AudioSelectorName",
         "audio_silence_threshold_msec": "AudioSilenceThresholdMsec",
@@ -419,8 +323,6 @@ class AudioSilenceFailoverSettings(PropertyType):
 
 @dataclass
 class AudioTrack(PropertyType):
-    TRACK = "Track"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "track": "Track",
     }
@@ -430,9 +332,6 @@ class AudioTrack(PropertyType):
 
 @dataclass
 class AudioTrackSelection(PropertyType):
-    DOLBY_E_DECODE = "DolbyEDecode"
-    TRACKS = "Tracks"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dolby_e_decode": "DolbyEDecode",
         "tracks": "Tracks",
@@ -444,8 +343,6 @@ class AudioTrackSelection(PropertyType):
 
 @dataclass
 class AudioWatermarkSettings(PropertyType):
-    NIELSEN_WATERMARKS_SETTINGS = "NielsenWatermarksSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nielsen_watermarks_settings": "NielsenWatermarksSettings",
     }
@@ -455,11 +352,6 @@ class AudioWatermarkSettings(PropertyType):
 
 @dataclass
 class AutomaticInputFailoverSettings(PropertyType):
-    FAILOVER_CONDITIONS = "FailoverConditions"
-    INPUT_PREFERENCE = "InputPreference"
-    SECONDARY_INPUT_ID = "SecondaryInputId"
-    ERROR_CLEAR_TIME_MSEC = "ErrorClearTimeMsec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_conditions": "FailoverConditions",
         "input_preference": "InputPreference",
@@ -475,11 +367,6 @@ class AutomaticInputFailoverSettings(PropertyType):
 
 @dataclass
 class Av1ColorSpaceSettings(PropertyType):
-    REC601_SETTINGS = "Rec601Settings"
-    REC709_SETTINGS = "Rec709Settings"
-    COLOR_SPACE_PASSTHROUGH_SETTINGS = "ColorSpacePassthroughSettings"
-    HDR10_SETTINGS = "Hdr10Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -495,29 +382,6 @@ class Av1ColorSpaceSettings(PropertyType):
 
 @dataclass
 class Av1Settings(PropertyType):
-    TIMECODE_BURNIN_SETTINGS = "TimecodeBurninSettings"
-    COLOR_SPACE_SETTINGS = "ColorSpaceSettings"
-    SPATIAL_AQ = "SpatialAq"
-    TEMPORAL_AQ = "TemporalAq"
-    QVBR_QUALITY_LEVEL = "QvbrQualityLevel"
-    PAR_DENOMINATOR = "ParDenominator"
-    FIXED_AFD = "FixedAfd"
-    GOP_SIZE_UNITS = "GopSizeUnits"
-    FRAMERATE_NUMERATOR = "FramerateNumerator"
-    AFD_SIGNALING = "AfdSignaling"
-    BITRATE = "Bitrate"
-    PAR_NUMERATOR = "ParNumerator"
-    RATE_CONTROL_MODE = "RateControlMode"
-    BUF_SIZE = "BufSize"
-    MIN_BITRATE = "MinBitrate"
-    MIN_I_INTERVAL = "MinIInterval"
-    SCENE_CHANGE_DETECT = "SceneChangeDetect"
-    FRAMERATE_DENOMINATOR = "FramerateDenominator"
-    LOOK_AHEAD_RATE_CONTROL = "LookAheadRateControl"
-    LEVEL = "Level"
-    MAX_BITRATE = "MaxBitrate"
-    GOP_SIZE = "GopSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "color_space_settings": "ColorSpaceSettings",
@@ -569,9 +433,6 @@ class Av1Settings(PropertyType):
 
 @dataclass
 class AvailBlanking(PropertyType):
-    STATE = "State"
-    AVAIL_BLANKING_IMAGE = "AvailBlankingImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "avail_blanking_image": "AvailBlankingImage",
@@ -583,9 +444,6 @@ class AvailBlanking(PropertyType):
 
 @dataclass
 class AvailConfiguration(PropertyType):
-    AVAIL_SETTINGS = "AvailSettings"
-    SCTE35_SEGMENTATION_SCOPE = "Scte35SegmentationScope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "avail_settings": "AvailSettings",
         "scte35_segmentation_scope": "Scte35SegmentationScope",
@@ -597,10 +455,6 @@ class AvailConfiguration(PropertyType):
 
 @dataclass
 class AvailSettings(PropertyType):
-    SCTE35_SPLICE_INSERT = "Scte35SpliceInsert"
-    SCTE35_TIME_SIGNAL_APOS = "Scte35TimeSignalApos"
-    ESAM = "Esam"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_splice_insert": "Scte35SpliceInsert",
         "scte35_time_signal_apos": "Scte35TimeSignalApos",
@@ -614,9 +468,6 @@ class AvailSettings(PropertyType):
 
 @dataclass
 class BandwidthReductionFilterSettings(PropertyType):
-    POST_FILTER_SHARPENING = "PostFilterSharpening"
-    STRENGTH = "Strength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_filter_sharpening": "PostFilterSharpening",
         "strength": "Strength",
@@ -628,12 +479,6 @@ class BandwidthReductionFilterSettings(PropertyType):
 
 @dataclass
 class BlackoutSlate(PropertyType):
-    NETWORK_END_BLACKOUT = "NetworkEndBlackout"
-    STATE = "State"
-    NETWORK_ID = "NetworkId"
-    NETWORK_END_BLACKOUT_IMAGE = "NetworkEndBlackoutImage"
-    BLACKOUT_SLATE_IMAGE = "BlackoutSlateImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_end_blackout": "NetworkEndBlackout",
         "state": "State",
@@ -651,25 +496,6 @@ class BlackoutSlate(PropertyType):
 
 @dataclass
 class BurnInDestinationSettings(PropertyType):
-    BACKGROUND_OPACITY = "BackgroundOpacity"
-    FONT_RESOLUTION = "FontResolution"
-    OUTLINE_COLOR = "OutlineColor"
-    FONT_COLOR = "FontColor"
-    SHADOW_COLOR = "ShadowColor"
-    SHADOW_OPACITY = "ShadowOpacity"
-    FONT = "Font"
-    SHADOW_Y_OFFSET = "ShadowYOffset"
-    ALIGNMENT = "Alignment"
-    X_POSITION = "XPosition"
-    FONT_SIZE = "FontSize"
-    Y_POSITION = "YPosition"
-    OUTLINE_SIZE = "OutlineSize"
-    TELETEXT_GRID_CONTROL = "TeletextGridControl"
-    SUBTITLE_ROWS = "SubtitleRows"
-    FONT_OPACITY = "FontOpacity"
-    SHADOW_X_OFFSET = "ShadowXOffset"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_opacity": "BackgroundOpacity",
         "font_resolution": "FontResolution",
@@ -713,15 +539,6 @@ class BurnInDestinationSettings(PropertyType):
 
 @dataclass
 class CaptionDescription(PropertyType):
-    DESTINATION_SETTINGS = "DestinationSettings"
-    LANGUAGE_CODE = "LanguageCode"
-    LANGUAGE_DESCRIPTION = "LanguageDescription"
-    ACCESSIBILITY = "Accessibility"
-    DVB_DASH_ACCESSIBILITY = "DvbDashAccessibility"
-    CAPTION_SELECTOR_NAME = "CaptionSelectorName"
-    CAPTION_DASH_ROLES = "CaptionDashRoles"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_settings": "DestinationSettings",
         "language_code": "LanguageCode",
@@ -745,20 +562,6 @@ class CaptionDescription(PropertyType):
 
 @dataclass
 class CaptionDestinationSettings(PropertyType):
-    ARIB_DESTINATION_SETTINGS = "AribDestinationSettings"
-    EBU_TT_D_DESTINATION_SETTINGS = "EbuTtDDestinationSettings"
-    SMPTE_TT_DESTINATION_SETTINGS = "SmpteTtDestinationSettings"
-    EMBEDDED_PLUS_SCTE20_DESTINATION_SETTINGS = "EmbeddedPlusScte20DestinationSettings"
-    TTML_DESTINATION_SETTINGS = "TtmlDestinationSettings"
-    SCTE20_PLUS_EMBEDDED_DESTINATION_SETTINGS = "Scte20PlusEmbeddedDestinationSettings"
-    DVB_SUB_DESTINATION_SETTINGS = "DvbSubDestinationSettings"
-    TELETEXT_DESTINATION_SETTINGS = "TeletextDestinationSettings"
-    BURN_IN_DESTINATION_SETTINGS = "BurnInDestinationSettings"
-    WEBVTT_DESTINATION_SETTINGS = "WebvttDestinationSettings"
-    EMBEDDED_DESTINATION_SETTINGS = "EmbeddedDestinationSettings"
-    RTMP_CAPTION_INFO_DESTINATION_SETTINGS = "RtmpCaptionInfoDestinationSettings"
-    SCTE27_DESTINATION_SETTINGS = "Scte27DestinationSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arib_destination_settings": "AribDestinationSettings",
         "ebu_tt_d_destination_settings": "EbuTtDDestinationSettings",
@@ -792,10 +595,6 @@ class CaptionDestinationSettings(PropertyType):
 
 @dataclass
 class CaptionLanguageMapping(PropertyType):
-    LANGUAGE_CODE = "LanguageCode"
-    LANGUAGE_DESCRIPTION = "LanguageDescription"
-    CAPTION_CHANNEL = "CaptionChannel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "language_description": "LanguageDescription",
@@ -809,11 +608,6 @@ class CaptionLanguageMapping(PropertyType):
 
 @dataclass
 class CaptionRectangle(PropertyType):
-    TOP_OFFSET = "TopOffset"
-    HEIGHT = "Height"
-    WIDTH = "Width"
-    LEFT_OFFSET = "LeftOffset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "top_offset": "TopOffset",
         "height": "Height",
@@ -829,10 +623,6 @@ class CaptionRectangle(PropertyType):
 
 @dataclass
 class CaptionSelector(PropertyType):
-    LANGUAGE_CODE = "LanguageCode"
-    SELECTOR_SETTINGS = "SelectorSettings"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "selector_settings": "SelectorSettings",
@@ -846,14 +636,6 @@ class CaptionSelector(PropertyType):
 
 @dataclass
 class CaptionSelectorSettings(PropertyType):
-    DVB_SUB_SOURCE_SETTINGS = "DvbSubSourceSettings"
-    SCTE27_SOURCE_SETTINGS = "Scte27SourceSettings"
-    ARIB_SOURCE_SETTINGS = "AribSourceSettings"
-    EMBEDDED_SOURCE_SETTINGS = "EmbeddedSourceSettings"
-    SCTE20_SOURCE_SETTINGS = "Scte20SourceSettings"
-    TELETEXT_SOURCE_SETTINGS = "TeletextSourceSettings"
-    ANCILLARY_SOURCE_SETTINGS = "AncillarySourceSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dvb_sub_source_settings": "DvbSubSourceSettings",
         "scte27_source_settings": "Scte27SourceSettings",
@@ -875,8 +657,6 @@ class CaptionSelectorSettings(PropertyType):
 
 @dataclass
 class CdiInputSpecification(PropertyType):
-    RESOLUTION = "Resolution"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resolution": "Resolution",
     }
@@ -886,8 +666,6 @@ class CdiInputSpecification(PropertyType):
 
 @dataclass
 class ChannelEngineVersionRequest(PropertyType):
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -897,9 +675,6 @@ class ChannelEngineVersionRequest(PropertyType):
 
 @dataclass
 class CmafIngestCaptionLanguageMapping(PropertyType):
-    LANGUAGE_CODE = "LanguageCode"
-    CAPTION_CHANNEL = "CaptionChannel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "caption_channel": "CaptionChannel",
@@ -911,24 +686,6 @@ class CmafIngestCaptionLanguageMapping(PropertyType):
 
 @dataclass
 class CmafIngestGroupSettings(PropertyType):
-    DESTINATION = "Destination"
-    KLV_NAME_MODIFIER = "KlvNameModifier"
-    SCTE35_TYPE = "Scte35Type"
-    TIMED_METADATA_ID3_FRAME = "TimedMetadataId3Frame"
-    TIMED_METADATA_PASSTHROUGH = "TimedMetadataPassthrough"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    SCTE35_NAME_MODIFIER = "Scte35NameModifier"
-    CAPTION_LANGUAGE_MAPPINGS = "CaptionLanguageMappings"
-    SEGMENT_LENGTH_UNITS = "SegmentLengthUnits"
-    TIMED_METADATA_ID3_PERIOD = "TimedMetadataId3Period"
-    ADDITIONAL_DESTINATIONS = "AdditionalDestinations"
-    NIELSEN_ID3_NAME_MODIFIER = "NielsenId3NameModifier"
-    KLV_BEHAVIOR = "KlvBehavior"
-    SEGMENT_LENGTH = "SegmentLength"
-    ID3_BEHAVIOR = "Id3Behavior"
-    SEND_DELAY_MS = "SendDelayMs"
-    ID3_NAME_MODIFIER = "Id3NameModifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "klv_name_modifier": "KlvNameModifier",
@@ -970,8 +727,6 @@ class CmafIngestGroupSettings(PropertyType):
 
 @dataclass
 class CmafIngestOutputSettings(PropertyType):
-    NAME_MODIFIER = "NameModifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
     }
@@ -981,10 +736,6 @@ class CmafIngestOutputSettings(PropertyType):
 
 @dataclass
 class ColorCorrection(PropertyType):
-    OUTPUT_COLOR_SPACE = "OutputColorSpace"
-    INPUT_COLOR_SPACE = "InputColorSpace"
-    URI = "Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_color_space": "OutputColorSpace",
         "input_color_space": "InputColorSpace",
@@ -998,8 +749,6 @@ class ColorCorrection(PropertyType):
 
 @dataclass
 class ColorCorrectionSettings(PropertyType):
-    GLOBAL_COLOR_CORRECTIONS = "GlobalColorCorrections"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_color_corrections": "GlobalColorCorrections",
     }
@@ -1019,10 +768,6 @@ class DolbyVision81Settings(PropertyType):
 
 @dataclass
 class DvbNitSettings(PropertyType):
-    NETWORK_NAME = "NetworkName"
-    REP_INTERVAL = "RepInterval"
-    NETWORK_ID = "NetworkId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "rep_interval": "RepInterval",
@@ -1036,11 +781,6 @@ class DvbNitSettings(PropertyType):
 
 @dataclass
 class DvbSdtSettings(PropertyType):
-    SERVICE_PROVIDER_NAME = "ServiceProviderName"
-    OUTPUT_SDT = "OutputSdt"
-    SERVICE_NAME = "ServiceName"
-    REP_INTERVAL = "RepInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_provider_name": "ServiceProviderName",
         "output_sdt": "OutputSdt",
@@ -1056,25 +796,6 @@ class DvbSdtSettings(PropertyType):
 
 @dataclass
 class DvbSubDestinationSettings(PropertyType):
-    BACKGROUND_OPACITY = "BackgroundOpacity"
-    FONT_RESOLUTION = "FontResolution"
-    OUTLINE_COLOR = "OutlineColor"
-    FONT_COLOR = "FontColor"
-    SHADOW_COLOR = "ShadowColor"
-    SHADOW_OPACITY = "ShadowOpacity"
-    FONT = "Font"
-    SHADOW_Y_OFFSET = "ShadowYOffset"
-    ALIGNMENT = "Alignment"
-    X_POSITION = "XPosition"
-    FONT_SIZE = "FontSize"
-    Y_POSITION = "YPosition"
-    OUTLINE_SIZE = "OutlineSize"
-    TELETEXT_GRID_CONTROL = "TeletextGridControl"
-    SUBTITLE_ROWS = "SubtitleRows"
-    FONT_OPACITY = "FontOpacity"
-    SHADOW_X_OFFSET = "ShadowXOffset"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_opacity": "BackgroundOpacity",
         "font_resolution": "FontResolution",
@@ -1118,9 +839,6 @@ class DvbSubDestinationSettings(PropertyType):
 
 @dataclass
 class DvbSubSourceSettings(PropertyType):
-    OCR_LANGUAGE = "OcrLanguage"
-    PID = "Pid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocr_language": "OcrLanguage",
         "pid": "Pid",
@@ -1132,8 +850,6 @@ class DvbSubSourceSettings(PropertyType):
 
 @dataclass
 class DvbTdtSettings(PropertyType):
-    REP_INTERVAL = "RepInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rep_interval": "RepInterval",
     }
@@ -1143,14 +859,6 @@ class DvbTdtSettings(PropertyType):
 
 @dataclass
 class Eac3AtmosSettings(PropertyType):
-    CODING_MODE = "CodingMode"
-    DIALNORM = "Dialnorm"
-    SURROUND_TRIM = "SurroundTrim"
-    DRC_RF = "DrcRf"
-    BITRATE = "Bitrate"
-    DRC_LINE = "DrcLine"
-    HEIGHT_TRIM = "HeightTrim"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "dialnorm": "Dialnorm",
@@ -1172,27 +880,6 @@ class Eac3AtmosSettings(PropertyType):
 
 @dataclass
 class Eac3Settings(PropertyType):
-    CODING_MODE = "CodingMode"
-    SURROUND_MODE = "SurroundMode"
-    PASSTHROUGH_CONTROL = "PassthroughControl"
-    DIALNORM = "Dialnorm"
-    LO_RO_SURROUND_MIX_LEVEL = "LoRoSurroundMixLevel"
-    PHASE_CONTROL = "PhaseControl"
-    LT_RT_CENTER_MIX_LEVEL = "LtRtCenterMixLevel"
-    LFE_FILTER = "LfeFilter"
-    LFE_CONTROL = "LfeControl"
-    BITRATE = "Bitrate"
-    DRC_LINE = "DrcLine"
-    DC_FILTER = "DcFilter"
-    METADATA_CONTROL = "MetadataControl"
-    LT_RT_SURROUND_MIX_LEVEL = "LtRtSurroundMixLevel"
-    LO_RO_CENTER_MIX_LEVEL = "LoRoCenterMixLevel"
-    DRC_RF = "DrcRf"
-    ATTENUATION_CONTROL = "AttenuationControl"
-    BITSTREAM_MODE = "BitstreamMode"
-    SURROUND_EX_MODE = "SurroundExMode"
-    STEREO_DOWNMIX = "StereoDownmix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "surround_mode": "SurroundMode",
@@ -1240,13 +927,6 @@ class Eac3Settings(PropertyType):
 
 @dataclass
 class EbuTtDDestinationSettings(PropertyType):
-    FONT_FAMILY = "FontFamily"
-    DEFAULT_FONT_SIZE = "DefaultFontSize"
-    DEFAULT_LINE_HEIGHT = "DefaultLineHeight"
-    FILL_LINE_GAP = "FillLineGap"
-    STYLE_CONTROL = "StyleControl"
-    COPYRIGHT_HOLDER = "CopyrightHolder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "default_font_size": "DefaultFontSize",
@@ -1276,11 +956,6 @@ class EmbeddedPlusScte20DestinationSettings(PropertyType):
 
 @dataclass
 class EmbeddedSourceSettings(PropertyType):
-    SOURCE608_CHANNEL_NUMBER = "Source608ChannelNumber"
-    SCTE20_DETECTION = "Scte20Detection"
-    SOURCE608_TRACK_NUMBER = "Source608TrackNumber"
-    CONVERT608_TO708 = "Convert608To708"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source608_channel_number": "Source608ChannelNumber",
         "scte20_detection": "Scte20Detection",
@@ -1296,21 +971,6 @@ class EmbeddedSourceSettings(PropertyType):
 
 @dataclass
 class EncoderSettings(PropertyType):
-    AUDIO_DESCRIPTIONS = "AudioDescriptions"
-    VIDEO_DESCRIPTIONS = "VideoDescriptions"
-    GLOBAL_CONFIGURATION = "GlobalConfiguration"
-    MOTION_GRAPHICS_CONFIGURATION = "MotionGraphicsConfiguration"
-    THUMBNAIL_CONFIGURATION = "ThumbnailConfiguration"
-    FEATURE_ACTIVATIONS = "FeatureActivations"
-    CAPTION_DESCRIPTIONS = "CaptionDescriptions"
-    AVAIL_CONFIGURATION = "AvailConfiguration"
-    COLOR_CORRECTION_SETTINGS = "ColorCorrectionSettings"
-    OUTPUT_GROUPS = "OutputGroups"
-    AVAIL_BLANKING = "AvailBlanking"
-    NIELSEN_CONFIGURATION = "NielsenConfiguration"
-    BLACKOUT_SLATE = "BlackoutSlate"
-    TIMECODE_CONFIG = "TimecodeConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_descriptions": "AudioDescriptions",
         "video_descriptions": "VideoDescriptions",
@@ -1346,9 +1006,6 @@ class EncoderSettings(PropertyType):
 
 @dataclass
 class EpochLockingSettings(PropertyType):
-    JAM_SYNC_TIME = "JamSyncTime"
-    CUSTOM_EPOCH = "CustomEpoch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jam_sync_time": "JamSyncTime",
         "custom_epoch": "CustomEpoch",
@@ -1360,13 +1017,6 @@ class EpochLockingSettings(PropertyType):
 
 @dataclass
 class Esam(PropertyType):
-    AD_AVAIL_OFFSET = "AdAvailOffset"
-    ZONE_IDENTITY = "ZoneIdentity"
-    ACQUISITION_POINT_ID = "AcquisitionPointId"
-    POIS_ENDPOINT = "PoisEndpoint"
-    USERNAME = "Username"
-    PASSWORD_PARAM = "PasswordParam"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "zone_identity": "ZoneIdentity",
@@ -1386,8 +1036,6 @@ class Esam(PropertyType):
 
 @dataclass
 class FailoverCondition(PropertyType):
-    FAILOVER_CONDITION_SETTINGS = "FailoverConditionSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_condition_settings": "FailoverConditionSettings",
     }
@@ -1397,10 +1045,6 @@ class FailoverCondition(PropertyType):
 
 @dataclass
 class FailoverConditionSettings(PropertyType):
-    AUDIO_SILENCE_SETTINGS = "AudioSilenceSettings"
-    VIDEO_BLACK_SETTINGS = "VideoBlackSettings"
-    INPUT_LOSS_SETTINGS = "InputLossSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_silence_settings": "AudioSilenceSettings",
         "video_black_settings": "VideoBlackSettings",
@@ -1414,9 +1058,6 @@ class FailoverConditionSettings(PropertyType):
 
 @dataclass
 class FeatureActivations(PropertyType):
-    INPUT_PREPARE_SCHEDULE_ACTIONS = "InputPrepareScheduleActions"
-    OUTPUT_STATIC_IMAGE_OVERLAY_SCHEDULE_ACTIONS = "OutputStaticImageOverlayScheduleActions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_prepare_schedule_actions": "InputPrepareScheduleActions",
         "output_static_image_overlay_schedule_actions": "OutputStaticImageOverlayScheduleActions",
@@ -1428,10 +1069,6 @@ class FeatureActivations(PropertyType):
 
 @dataclass
 class FecOutputSettings(PropertyType):
-    ROW_LENGTH = "RowLength"
-    COLUMN_DEPTH = "ColumnDepth"
-    INCLUDE_FEC = "IncludeFec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_length": "RowLength",
         "column_depth": "ColumnDepth",
@@ -1445,10 +1082,6 @@ class FecOutputSettings(PropertyType):
 
 @dataclass
 class Fmp4HlsSettings(PropertyType):
-    AUDIO_RENDITION_SETS = "AudioRenditionSets"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    TIMED_METADATA_BEHAVIOR = "TimedMetadataBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "nielsen_id3_behavior": "NielsenId3Behavior",
@@ -1462,8 +1095,6 @@ class Fmp4HlsSettings(PropertyType):
 
 @dataclass
 class FrameCaptureCdnSettings(PropertyType):
-    FRAME_CAPTURE_S3_SETTINGS = "FrameCaptureS3Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_capture_s3_settings": "FrameCaptureS3Settings",
     }
@@ -1473,9 +1104,6 @@ class FrameCaptureCdnSettings(PropertyType):
 
 @dataclass
 class FrameCaptureGroupSettings(PropertyType):
-    FRAME_CAPTURE_CDN_SETTINGS = "FrameCaptureCdnSettings"
-    DESTINATION = "Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_capture_cdn_settings": "FrameCaptureCdnSettings",
         "destination": "Destination",
@@ -1492,8 +1120,6 @@ class FrameCaptureHlsSettings(PropertyType):
 
 @dataclass
 class FrameCaptureOutputSettings(PropertyType):
-    NAME_MODIFIER = "NameModifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
     }
@@ -1503,8 +1129,6 @@ class FrameCaptureOutputSettings(PropertyType):
 
 @dataclass
 class FrameCaptureS3Settings(PropertyType):
-    CANNED_ACL = "CannedAcl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -1514,10 +1138,6 @@ class FrameCaptureS3Settings(PropertyType):
 
 @dataclass
 class FrameCaptureSettings(PropertyType):
-    TIMECODE_BURNIN_SETTINGS = "TimecodeBurninSettings"
-    CAPTURE_INTERVAL = "CaptureInterval"
-    CAPTURE_INTERVAL_UNITS = "CaptureIntervalUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "capture_interval": "CaptureInterval",
@@ -1531,14 +1151,6 @@ class FrameCaptureSettings(PropertyType):
 
 @dataclass
 class GlobalConfiguration(PropertyType):
-    INPUT_END_ACTION = "InputEndAction"
-    OUTPUT_LOCKING_SETTINGS = "OutputLockingSettings"
-    OUTPUT_TIMING_SOURCE = "OutputTimingSource"
-    OUTPUT_LOCKING_MODE = "OutputLockingMode"
-    SUPPORT_LOW_FRAMERATE_INPUTS = "SupportLowFramerateInputs"
-    INITIAL_AUDIO_GAIN = "InitialAudioGain"
-    INPUT_LOSS_BEHAVIOR = "InputLossBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_end_action": "InputEndAction",
         "output_locking_settings": "OutputLockingSettings",
@@ -1560,10 +1172,6 @@ class GlobalConfiguration(PropertyType):
 
 @dataclass
 class H264ColorSpaceSettings(PropertyType):
-    REC601_SETTINGS = "Rec601Settings"
-    REC709_SETTINGS = "Rec709Settings"
-    COLOR_SPACE_PASSTHROUGH_SETTINGS = "ColorSpacePassthroughSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -1577,9 +1185,6 @@ class H264ColorSpaceSettings(PropertyType):
 
 @dataclass
 class H264FilterSettings(PropertyType):
-    TEMPORAL_FILTER_SETTINGS = "TemporalFilterSettings"
-    BANDWIDTH_REDUCTION_FILTER_SETTINGS = "BandwidthReductionFilterSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
         "bandwidth_reduction_filter_settings": "BandwidthReductionFilterSettings",
@@ -1591,51 +1196,6 @@ class H264FilterSettings(PropertyType):
 
 @dataclass
 class H264Settings(PropertyType):
-    TIMECODE_BURNIN_SETTINGS = "TimecodeBurninSettings"
-    NUM_REF_FRAMES = "NumRefFrames"
-    TEMPORAL_AQ = "TemporalAq"
-    SLICES = "Slices"
-    FRAMERATE_CONTROL = "FramerateControl"
-    QVBR_QUALITY_LEVEL = "QvbrQualityLevel"
-    FRAMERATE_NUMERATOR = "FramerateNumerator"
-    PAR_CONTROL = "ParControl"
-    GOP_CLOSED_CADENCE = "GopClosedCadence"
-    FLICKER_AQ = "FlickerAq"
-    PROFILE = "Profile"
-    QUALITY_LEVEL = "QualityLevel"
-    MIN_BITRATE = "MinBitrate"
-    MIN_I_INTERVAL = "MinIInterval"
-    SCENE_CHANGE_DETECT = "SceneChangeDetect"
-    FORCE_FIELD_PICTURES = "ForceFieldPictures"
-    FRAMERATE_DENOMINATOR = "FramerateDenominator"
-    SOFTNESS = "Softness"
-    GOP_SIZE = "GopSize"
-    ADAPTIVE_QUANTIZATION = "AdaptiveQuantization"
-    FILTER_SETTINGS = "FilterSettings"
-    MIN_QP = "MinQp"
-    COLOR_SPACE_SETTINGS = "ColorSpaceSettings"
-    ENTROPY_ENCODING = "EntropyEncoding"
-    SPATIAL_AQ = "SpatialAq"
-    PAR_DENOMINATOR = "ParDenominator"
-    FIXED_AFD = "FixedAfd"
-    GOP_SIZE_UNITS = "GopSizeUnits"
-    AFD_SIGNALING = "AfdSignaling"
-    BITRATE = "Bitrate"
-    PAR_NUMERATOR = "ParNumerator"
-    RATE_CONTROL_MODE = "RateControlMode"
-    SCAN_TYPE = "ScanType"
-    BUF_SIZE = "BufSize"
-    TIMECODE_INSERTION = "TimecodeInsertion"
-    COLOR_METADATA = "ColorMetadata"
-    BUF_FILL_PCT = "BufFillPct"
-    GOP_B_REFERENCE = "GopBReference"
-    LOOK_AHEAD_RATE_CONTROL = "LookAheadRateControl"
-    LEVEL = "Level"
-    MAX_BITRATE = "MaxBitrate"
-    SYNTAX = "Syntax"
-    SUBGOP_LENGTH = "SubgopLength"
-    GOP_NUM_B_FRAMES = "GopNumBFrames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "num_ref_frames": "NumRefFrames",
@@ -1731,13 +1291,6 @@ class H264Settings(PropertyType):
 
 @dataclass
 class H265ColorSpaceSettings(PropertyType):
-    REC601_SETTINGS = "Rec601Settings"
-    REC709_SETTINGS = "Rec709Settings"
-    COLOR_SPACE_PASSTHROUGH_SETTINGS = "ColorSpacePassthroughSettings"
-    DOLBY_VISION81_SETTINGS = "DolbyVision81Settings"
-    HDR10_SETTINGS = "Hdr10Settings"
-    HLG2020_SETTINGS = "Hlg2020Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -1757,9 +1310,6 @@ class H265ColorSpaceSettings(PropertyType):
 
 @dataclass
 class H265FilterSettings(PropertyType):
-    TEMPORAL_FILTER_SETTINGS = "TemporalFilterSettings"
-    BANDWIDTH_REDUCTION_FILTER_SETTINGS = "BandwidthReductionFilterSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
         "bandwidth_reduction_filter_settings": "BandwidthReductionFilterSettings",
@@ -1771,49 +1321,6 @@ class H265FilterSettings(PropertyType):
 
 @dataclass
 class H265Settings(PropertyType):
-    MV_OVER_PICTURE_BOUNDARIES = "MvOverPictureBoundaries"
-    TIMECODE_BURNIN_SETTINGS = "TimecodeBurninSettings"
-    SLICES = "Slices"
-    QVBR_QUALITY_LEVEL = "QvbrQualityLevel"
-    TILE_HEIGHT = "TileHeight"
-    FRAMERATE_NUMERATOR = "FramerateNumerator"
-    GOP_CLOSED_CADENCE = "GopClosedCadence"
-    FLICKER_AQ = "FlickerAq"
-    PROFILE = "Profile"
-    MV_TEMPORAL_PREDICTOR = "MvTemporalPredictor"
-    MIN_BITRATE = "MinBitrate"
-    MIN_I_INTERVAL = "MinIInterval"
-    SCENE_CHANGE_DETECT = "SceneChangeDetect"
-    FRAMERATE_DENOMINATOR = "FramerateDenominator"
-    GOP_SIZE = "GopSize"
-    ADAPTIVE_QUANTIZATION = "AdaptiveQuantization"
-    TILE_WIDTH = "TileWidth"
-    FILTER_SETTINGS = "FilterSettings"
-    MIN_QP = "MinQp"
-    ALTERNATIVE_TRANSFER_FUNCTION = "AlternativeTransferFunction"
-    COLOR_SPACE_SETTINGS = "ColorSpaceSettings"
-    TIER = "Tier"
-    PAR_DENOMINATOR = "ParDenominator"
-    FIXED_AFD = "FixedAfd"
-    GOP_SIZE_UNITS = "GopSizeUnits"
-    TILE_PADDING = "TilePadding"
-    AFD_SIGNALING = "AfdSignaling"
-    BITRATE = "Bitrate"
-    PAR_NUMERATOR = "ParNumerator"
-    RATE_CONTROL_MODE = "RateControlMode"
-    SCAN_TYPE = "ScanType"
-    BUF_SIZE = "BufSize"
-    TIMECODE_INSERTION = "TimecodeInsertion"
-    DEBLOCKING = "Deblocking"
-    COLOR_METADATA = "ColorMetadata"
-    LOOK_AHEAD_RATE_CONTROL = "LookAheadRateControl"
-    GOP_B_REFERENCE = "GopBReference"
-    LEVEL = "Level"
-    MAX_BITRATE = "MaxBitrate"
-    TREEBLOCK_SIZE = "TreeblockSize"
-    SUBGOP_LENGTH = "SubgopLength"
-    GOP_NUM_B_FRAMES = "GopNumBFrames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mv_over_picture_boundaries": "MvOverPictureBoundaries",
         "timecode_burnin_settings": "TimecodeBurninSettings",
@@ -1905,9 +1412,6 @@ class H265Settings(PropertyType):
 
 @dataclass
 class Hdr10Settings(PropertyType):
-    MAX_CLL = "MaxCll"
-    MAX_FALL = "MaxFall"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_cll": "MaxCll",
         "max_fall": "MaxFall",
@@ -1924,14 +1428,6 @@ class Hlg2020Settings(PropertyType):
 
 @dataclass
 class HlsAkamaiSettings(PropertyType):
-    SALT = "Salt"
-    FILECACHE_DURATION = "FilecacheDuration"
-    NUM_RETRIES = "NumRetries"
-    TOKEN = "Token"
-    RESTART_DELAY = "RestartDelay"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-    HTTP_TRANSFER_MODE = "HttpTransferMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "salt": "Salt",
         "filecache_duration": "FilecacheDuration",
@@ -1953,11 +1449,6 @@ class HlsAkamaiSettings(PropertyType):
 
 @dataclass
 class HlsBasicPutSettings(PropertyType):
-    FILECACHE_DURATION = "FilecacheDuration"
-    NUM_RETRIES = "NumRetries"
-    RESTART_DELAY = "RestartDelay"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -1973,12 +1464,6 @@ class HlsBasicPutSettings(PropertyType):
 
 @dataclass
 class HlsCdnSettings(PropertyType):
-    HLS_WEBDAV_SETTINGS = "HlsWebdavSettings"
-    HLS_S3_SETTINGS = "HlsS3Settings"
-    HLS_AKAMAI_SETTINGS = "HlsAkamaiSettings"
-    HLS_BASIC_PUT_SETTINGS = "HlsBasicPutSettings"
-    HLS_MEDIA_STORE_SETTINGS = "HlsMediaStoreSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hls_webdav_settings": "HlsWebdavSettings",
         "hls_s3_settings": "HlsS3Settings",
@@ -1996,50 +1481,6 @@ class HlsCdnSettings(PropertyType):
 
 @dataclass
 class HlsGroupSettings(PropertyType):
-    SEGMENTATION_MODE = "SegmentationMode"
-    DESTINATION = "Destination"
-    CODEC_SPECIFICATION = "CodecSpecification"
-    IV_SOURCE = "IvSource"
-    TIMED_METADATA_ID3_FRAME = "TimedMetadataId3Frame"
-    KEY_FORMAT_VERSIONS = "KeyFormatVersions"
-    REDUNDANT_MANIFEST = "RedundantManifest"
-    OUTPUT_SELECTION = "OutputSelection"
-    KEY_PROVIDER_SETTINGS = "KeyProviderSettings"
-    STREAM_INF_RESOLUTION = "StreamInfResolution"
-    CAPTION_LANGUAGE_MAPPINGS = "CaptionLanguageMappings"
-    HLS_ID3_SEGMENT_TAGGING = "HlsId3SegmentTagging"
-    I_FRAME_ONLY_PLAYLISTS = "IFrameOnlyPlaylists"
-    CAPTION_LANGUAGE_SETTING = "CaptionLanguageSetting"
-    KEEP_SEGMENTS = "KeepSegments"
-    CONSTANT_IV = "ConstantIv"
-    DIRECTORY_STRUCTURE = "DirectoryStructure"
-    ENCRYPTION_TYPE = "EncryptionType"
-    AD_MARKERS = "AdMarkers"
-    HLS_CDN_SETTINGS = "HlsCdnSettings"
-    INDEX_N_SEGMENTS = "IndexNSegments"
-    DISCONTINUITY_TAGS = "DiscontinuityTags"
-    INPUT_LOSS_ACTION = "InputLossAction"
-    MODE = "Mode"
-    TS_FILE_MODE = "TsFileMode"
-    BASE_URL_MANIFEST1 = "BaseUrlManifest1"
-    CLIENT_CACHE = "ClientCache"
-    MIN_SEGMENT_LENGTH = "MinSegmentLength"
-    KEY_FORMAT = "KeyFormat"
-    IV_IN_MANIFEST = "IvInManifest"
-    BASE_URL_CONTENT1 = "BaseUrlContent1"
-    PROGRAM_DATE_TIME_CLOCK = "ProgramDateTimeClock"
-    MANIFEST_COMPRESSION = "ManifestCompression"
-    MANIFEST_DURATION_FORMAT = "ManifestDurationFormat"
-    TIMED_METADATA_ID3_PERIOD = "TimedMetadataId3Period"
-    INCOMPLETE_SEGMENT_BEHAVIOR = "IncompleteSegmentBehavior"
-    PROGRAM_DATE_TIME_PERIOD = "ProgramDateTimePeriod"
-    SEGMENT_LENGTH = "SegmentLength"
-    TIMESTAMP_DELTA_MILLISECONDS = "TimestampDeltaMilliseconds"
-    PROGRAM_DATE_TIME = "ProgramDateTime"
-    SEGMENTS_PER_SUBDIRECTORY = "SegmentsPerSubdirectory"
-    BASE_URL_CONTENT = "BaseUrlContent"
-    BASE_URL_MANIFEST = "BaseUrlManifest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_mode": "SegmentationMode",
         "destination": "Destination",
@@ -2133,12 +1574,6 @@ class HlsGroupSettings(PropertyType):
 
 @dataclass
 class HlsInputSettings(PropertyType):
-    SCTE35_SOURCE = "Scte35Source"
-    BUFFER_SEGMENTS = "BufferSegments"
-    RETRIES = "Retries"
-    BANDWIDTH = "Bandwidth"
-    RETRY_INTERVAL = "RetryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_source": "Scte35Source",
         "buffer_segments": "BufferSegments",
@@ -2156,12 +1591,6 @@ class HlsInputSettings(PropertyType):
 
 @dataclass
 class HlsMediaStoreSettings(PropertyType):
-    FILECACHE_DURATION = "FilecacheDuration"
-    NUM_RETRIES = "NumRetries"
-    MEDIA_STORE_STORAGE_CLASS = "MediaStoreStorageClass"
-    RESTART_DELAY = "RestartDelay"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -2179,11 +1608,6 @@ class HlsMediaStoreSettings(PropertyType):
 
 @dataclass
 class HlsOutputSettings(PropertyType):
-    NAME_MODIFIER = "NameModifier"
-    HLS_SETTINGS = "HlsSettings"
-    H265_PACKAGING_TYPE = "H265PackagingType"
-    SEGMENT_MODIFIER = "SegmentModifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
         "hls_settings": "HlsSettings",
@@ -2199,8 +1623,6 @@ class HlsOutputSettings(PropertyType):
 
 @dataclass
 class HlsS3Settings(PropertyType):
-    CANNED_ACL = "CannedAcl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -2210,11 +1632,6 @@ class HlsS3Settings(PropertyType):
 
 @dataclass
 class HlsSettings(PropertyType):
-    STANDARD_HLS_SETTINGS = "StandardHlsSettings"
-    AUDIO_ONLY_HLS_SETTINGS = "AudioOnlyHlsSettings"
-    FMP4_HLS_SETTINGS = "Fmp4HlsSettings"
-    FRAME_CAPTURE_HLS_SETTINGS = "FrameCaptureHlsSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standard_hls_settings": "StandardHlsSettings",
         "audio_only_hls_settings": "AudioOnlyHlsSettings",
@@ -2230,12 +1647,6 @@ class HlsSettings(PropertyType):
 
 @dataclass
 class HlsWebdavSettings(PropertyType):
-    FILECACHE_DURATION = "FilecacheDuration"
-    NUM_RETRIES = "NumRetries"
-    RESTART_DELAY = "RestartDelay"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-    HTTP_TRANSFER_MODE = "HttpTransferMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -2258,12 +1669,6 @@ class HtmlMotionGraphicsSettings(PropertyType):
 
 @dataclass
 class InputAttachment(PropertyType):
-    INPUT_ATTACHMENT_NAME = "InputAttachmentName"
-    LOGICAL_INTERFACE_NAMES = "LogicalInterfaceNames"
-    INPUT_ID = "InputId"
-    AUTOMATIC_INPUT_FAILOVER_SETTINGS = "AutomaticInputFailoverSettings"
-    INPUT_SETTINGS = "InputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_attachment_name": "InputAttachmentName",
         "logical_interface_names": "LogicalInterfaceNames",
@@ -2281,9 +1686,6 @@ class InputAttachment(PropertyType):
 
 @dataclass
 class InputChannelLevel(PropertyType):
-    INPUT_CHANNEL = "InputChannel"
-    GAIN = "Gain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_channel": "InputChannel",
         "gain": "Gain",
@@ -2295,10 +1697,6 @@ class InputChannelLevel(PropertyType):
 
 @dataclass
 class InputLocation(PropertyType):
-    USERNAME = "Username"
-    PASSWORD_PARAM = "PasswordParam"
-    URI = "Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password_param": "PasswordParam",
@@ -2312,12 +1710,6 @@ class InputLocation(PropertyType):
 
 @dataclass
 class InputLossBehavior(PropertyType):
-    INPUT_LOSS_IMAGE_COLOR = "InputLossImageColor"
-    BLACK_FRAME_MSEC = "BlackFrameMsec"
-    INPUT_LOSS_IMAGE_TYPE = "InputLossImageType"
-    INPUT_LOSS_IMAGE_SLATE = "InputLossImageSlate"
-    REPEAT_FRAME_MSEC = "RepeatFrameMsec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_image_color": "InputLossImageColor",
         "black_frame_msec": "BlackFrameMsec",
@@ -2335,8 +1727,6 @@ class InputLossBehavior(PropertyType):
 
 @dataclass
 class InputLossFailoverSettings(PropertyType):
-    INPUT_LOSS_THRESHOLD_MSEC = "InputLossThresholdMsec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_threshold_msec": "InputLossThresholdMsec",
     }
@@ -2346,18 +1736,6 @@ class InputLossFailoverSettings(PropertyType):
 
 @dataclass
 class InputSettings(PropertyType):
-    SCTE35_PID = "Scte35Pid"
-    DEBLOCK_FILTER = "DeblockFilter"
-    FILTER_STRENGTH = "FilterStrength"
-    INPUT_FILTER = "InputFilter"
-    SOURCE_END_BEHAVIOR = "SourceEndBehavior"
-    VIDEO_SELECTOR = "VideoSelector"
-    SMPTE2038_DATA_PREFERENCE = "Smpte2038DataPreference"
-    AUDIO_SELECTORS = "AudioSelectors"
-    CAPTION_SELECTORS = "CaptionSelectors"
-    DENOISE_FILTER = "DenoiseFilter"
-    NETWORK_INPUT_SETTINGS = "NetworkInputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_pid": "Scte35Pid",
         "deblock_filter": "DeblockFilter",
@@ -2387,10 +1765,6 @@ class InputSettings(PropertyType):
 
 @dataclass
 class InputSpecification(PropertyType):
-    CODEC = "Codec"
-    MAXIMUM_BITRATE = "MaximumBitrate"
-    RESOLUTION = "Resolution"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "codec": "Codec",
         "maximum_bitrate": "MaximumBitrate",
@@ -2404,8 +1778,6 @@ class InputSpecification(PropertyType):
 
 @dataclass
 class KeyProviderSettings(PropertyType):
-    STATIC_KEY_SETTINGS = "StaticKeySettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_key_settings": "StaticKeySettings",
     }
@@ -2415,55 +1787,6 @@ class KeyProviderSettings(PropertyType):
 
 @dataclass
 class M2tsSettings(PropertyType):
-    ETV_PLATFORM_PID = "EtvPlatformPid"
-    PAT_INTERVAL = "PatInterval"
-    PROGRAM_NUM = "ProgramNum"
-    RATE_MODE = "RateMode"
-    KLV_DATA_PIDS = "KlvDataPids"
-    NULL_PACKET_BITRATE = "NullPacketBitrate"
-    PMT_INTERVAL = "PmtInterval"
-    ARIB_CAPTIONS_PID = "AribCaptionsPid"
-    ES_RATE_IN_PES = "EsRateInPes"
-    VIDEO_PID = "VideoPid"
-    TRANSPORT_STREAM_ID = "TransportStreamId"
-    EBP_PLACEMENT = "EbpPlacement"
-    DVB_SUB_PIDS = "DvbSubPids"
-    SEGMENTATION_STYLE = "SegmentationStyle"
-    SCTE35_PID = "Scte35Pid"
-    AUDIO_STREAM_TYPE = "AudioStreamType"
-    KLV = "Klv"
-    EBP_LOOKAHEAD_MS = "EbpLookaheadMs"
-    SCTE35_PREROLL_PULLUP_MILLISECONDS = "Scte35PrerollPullupMilliseconds"
-    DVB_TDT_SETTINGS = "DvbTdtSettings"
-    TIMED_METADATA_BEHAVIOR = "TimedMetadataBehavior"
-    EBP_AUDIO_INTERVAL = "EbpAudioInterval"
-    FRAGMENT_TIME = "FragmentTime"
-    DVB_TELETEXT_PID = "DvbTeletextPid"
-    SCTE35_CONTROL = "Scte35Control"
-    PCR_PERIOD = "PcrPeriod"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    PCR_PID = "PcrPid"
-    SEGMENTATION_TIME = "SegmentationTime"
-    CC_DESCRIPTOR = "CcDescriptor"
-    AUDIO_FRAMES_PER_PES = "AudioFramesPerPes"
-    ABSENT_INPUT_AUDIO_BEHAVIOR = "AbsentInputAudioBehavior"
-    BITRATE = "Bitrate"
-    PMT_PID = "PmtPid"
-    SCTE27_PIDS = "Scte27Pids"
-    SEGMENTATION_MARKERS = "SegmentationMarkers"
-    DVB_NIT_SETTINGS = "DvbNitSettings"
-    DVB_SDT_SETTINGS = "DvbSdtSettings"
-    ETV_SIGNAL_PID = "EtvSignalPid"
-    ARIB = "Arib"
-    BUFFER_MODEL = "BufferModel"
-    ECM_PID = "EcmPid"
-    TIMED_METADATA_PID = "TimedMetadataPid"
-    AUDIO_PIDS = "AudioPids"
-    AUDIO_BUFFER_MODEL = "AudioBufferModel"
-    EBIF = "Ebif"
-    ARIB_CAPTIONS_PID_CONTROL = "AribCaptionsPidControl"
-    PCR_CONTROL = "PcrControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etv_platform_pid": "EtvPlatformPid",
         "pat_interval": "PatInterval",
@@ -2567,26 +1890,6 @@ class M2tsSettings(PropertyType):
 
 @dataclass
 class M3u8Settings(PropertyType):
-    PAT_INTERVAL = "PatInterval"
-    PROGRAM_NUM = "ProgramNum"
-    PCR_PERIOD = "PcrPeriod"
-    PMT_INTERVAL = "PmtInterval"
-    KLV_DATA_PIDS = "KlvDataPids"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    PCR_PID = "PcrPid"
-    VIDEO_PID = "VideoPid"
-    AUDIO_FRAMES_PER_PES = "AudioFramesPerPes"
-    TRANSPORT_STREAM_ID = "TransportStreamId"
-    PMT_PID = "PmtPid"
-    SCTE35_PID = "Scte35Pid"
-    SCTE35_BEHAVIOR = "Scte35Behavior"
-    KLV_BEHAVIOR = "KlvBehavior"
-    ECM_PID = "EcmPid"
-    TIMED_METADATA_PID = "TimedMetadataPid"
-    AUDIO_PIDS = "AudioPids"
-    PCR_CONTROL = "PcrControl"
-    TIMED_METADATA_BEHAVIOR = "TimedMetadataBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pat_interval": "PatInterval",
         "program_num": "ProgramNum",
@@ -2632,9 +1935,6 @@ class M3u8Settings(PropertyType):
 
 @dataclass
 class MaintenanceCreateSettings(PropertyType):
-    MAINTENANCE_DAY = "MaintenanceDay"
-    MAINTENANCE_START_TIME = "MaintenanceStartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_start_time": "MaintenanceStartTime",
@@ -2646,10 +1946,6 @@ class MaintenanceCreateSettings(PropertyType):
 
 @dataclass
 class MaintenanceUpdateSettings(PropertyType):
-    MAINTENANCE_DAY = "MaintenanceDay"
-    MAINTENANCE_SCHEDULED_DATE = "MaintenanceScheduledDate"
-    MAINTENANCE_START_TIME = "MaintenanceStartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_scheduled_date": "MaintenanceScheduledDate",
@@ -2663,9 +1959,6 @@ class MaintenanceUpdateSettings(PropertyType):
 
 @dataclass
 class MediaPackageGroupSettings(PropertyType):
-    DESTINATION = "Destination"
-    MEDIAPACKAGE_V2_GROUP_SETTINGS = "MediapackageV2GroupSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "mediapackage_v2_group_settings": "MediapackageV2GroupSettings",
@@ -2677,10 +1970,6 @@ class MediaPackageGroupSettings(PropertyType):
 
 @dataclass
 class MediaPackageOutputDestinationSettings(PropertyType):
-    CHANNEL_NAME = "ChannelName"
-    CHANNEL_ID = "ChannelId"
-    CHANNEL_GROUP = "ChannelGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "channel_id": "ChannelId",
@@ -2694,8 +1983,6 @@ class MediaPackageOutputDestinationSettings(PropertyType):
 
 @dataclass
 class MediaPackageOutputSettings(PropertyType):
-    MEDIA_PACKAGE_V2_DESTINATION_SETTINGS = "MediaPackageV2DestinationSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_package_v2_destination_settings": "MediaPackageV2DestinationSettings",
     }
@@ -2705,11 +1992,6 @@ class MediaPackageOutputSettings(PropertyType):
 
 @dataclass
 class MediaPackageV2DestinationSettings(PropertyType):
-    AUDIO_RENDITION_SETS = "AudioRenditionSets"
-    HLS_DEFAULT = "HlsDefault"
-    AUDIO_GROUP_ID = "AudioGroupId"
-    HLS_AUTO_SELECT = "HlsAutoSelect"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "hls_default": "HlsDefault",
@@ -2725,17 +2007,6 @@ class MediaPackageV2DestinationSettings(PropertyType):
 
 @dataclass
 class MediaPackageV2GroupSettings(PropertyType):
-    CAPTION_LANGUAGE_MAPPINGS = "CaptionLanguageMappings"
-    SCTE35_TYPE = "Scte35Type"
-    SEGMENT_LENGTH_UNITS = "SegmentLengthUnits"
-    TIMED_METADATA_ID3_FRAME = "TimedMetadataId3Frame"
-    TIMED_METADATA_ID3_PERIOD = "TimedMetadataId3Period"
-    TIMED_METADATA_PASSTHROUGH = "TimedMetadataPassthrough"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    KLV_BEHAVIOR = "KlvBehavior"
-    ID3_BEHAVIOR = "Id3Behavior"
-    SEGMENT_LENGTH = "SegmentLength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "caption_language_mappings": "CaptionLanguageMappings",
         "scte35_type": "Scte35Type",
@@ -2763,9 +2034,6 @@ class MediaPackageV2GroupSettings(PropertyType):
 
 @dataclass
 class MotionGraphicsConfiguration(PropertyType):
-    MOTION_GRAPHICS_SETTINGS = "MotionGraphicsSettings"
-    MOTION_GRAPHICS_INSERTION = "MotionGraphicsInsertion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "motion_graphics_settings": "MotionGraphicsSettings",
         "motion_graphics_insertion": "MotionGraphicsInsertion",
@@ -2777,8 +2045,6 @@ class MotionGraphicsConfiguration(PropertyType):
 
 @dataclass
 class MotionGraphicsSettings(PropertyType):
-    HTML_MOTION_GRAPHICS_SETTINGS = "HtmlMotionGraphicsSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "html_motion_graphics_settings": "HtmlMotionGraphicsSettings",
     }
@@ -2788,10 +2054,6 @@ class MotionGraphicsSettings(PropertyType):
 
 @dataclass
 class Mp2Settings(PropertyType):
-    CODING_MODE = "CodingMode"
-    SAMPLE_RATE = "SampleRate"
-    BITRATE = "Bitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "sample_rate": "SampleRate",
@@ -2805,8 +2067,6 @@ class Mp2Settings(PropertyType):
 
 @dataclass
 class Mpeg2FilterSettings(PropertyType):
-    TEMPORAL_FILTER_SETTINGS = "TemporalFilterSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
     }
@@ -2816,24 +2076,6 @@ class Mpeg2FilterSettings(PropertyType):
 
 @dataclass
 class Mpeg2Settings(PropertyType):
-    TIMECODE_BURNIN_SETTINGS = "TimecodeBurninSettings"
-    COLOR_SPACE = "ColorSpace"
-    FIXED_AFD = "FixedAfd"
-    GOP_SIZE_UNITS = "GopSizeUnits"
-    FRAMERATE_NUMERATOR = "FramerateNumerator"
-    GOP_CLOSED_CADENCE = "GopClosedCadence"
-    AFD_SIGNALING = "AfdSignaling"
-    DISPLAY_ASPECT_RATIO = "DisplayAspectRatio"
-    SCAN_TYPE = "ScanType"
-    TIMECODE_INSERTION = "TimecodeInsertion"
-    COLOR_METADATA = "ColorMetadata"
-    FRAMERATE_DENOMINATOR = "FramerateDenominator"
-    GOP_SIZE = "GopSize"
-    ADAPTIVE_QUANTIZATION = "AdaptiveQuantization"
-    SUBGOP_LENGTH = "SubgopLength"
-    FILTER_SETTINGS = "FilterSettings"
-    GOP_NUM_B_FRAMES = "GopNumBFrames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "color_space": "ColorSpace",
@@ -2875,26 +2117,6 @@ class Mpeg2Settings(PropertyType):
 
 @dataclass
 class MsSmoothGroupSettings(PropertyType):
-    SEGMENTATION_MODE = "SegmentationMode"
-    DESTINATION = "Destination"
-    EVENT_STOP_BEHAVIOR = "EventStopBehavior"
-    FILECACHE_DURATION = "FilecacheDuration"
-    CERTIFICATE_MODE = "CertificateMode"
-    ACQUISITION_POINT_ID = "AcquisitionPointId"
-    STREAM_MANIFEST_BEHAVIOR = "StreamManifestBehavior"
-    INPUT_LOSS_ACTION = "InputLossAction"
-    FRAGMENT_LENGTH = "FragmentLength"
-    RESTART_DELAY = "RestartDelay"
-    SPARSE_TRACK_TYPE = "SparseTrackType"
-    EVENT_ID_MODE = "EventIdMode"
-    TIMESTAMP_OFFSET_MODE = "TimestampOffsetMode"
-    AUDIO_ONLY_TIMECODE_CONTROL = "AudioOnlyTimecodeControl"
-    NUM_RETRIES = "NumRetries"
-    TIMESTAMP_OFFSET = "TimestampOffset"
-    EVENT_ID = "EventId"
-    SEND_DELAY_MS = "SendDelayMs"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_mode": "SegmentationMode",
         "destination": "Destination",
@@ -2940,9 +2162,6 @@ class MsSmoothGroupSettings(PropertyType):
 
 @dataclass
 class MsSmoothOutputSettings(PropertyType):
-    NAME_MODIFIER = "NameModifier"
-    H265_PACKAGING_TYPE = "H265PackagingType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
         "h265_packaging_type": "H265PackagingType",
@@ -2954,8 +2173,6 @@ class MsSmoothOutputSettings(PropertyType):
 
 @dataclass
 class MulticastInputSettings(PropertyType):
-    SOURCE_IP_ADDRESS = "SourceIpAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip_address": "SourceIpAddress",
     }
@@ -2965,8 +2182,6 @@ class MulticastInputSettings(PropertyType):
 
 @dataclass
 class MultiplexContainerSettings(PropertyType):
-    MULTIPLEX_M2TS_SETTINGS = "MultiplexM2tsSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_m2ts_settings": "MultiplexM2tsSettings",
     }
@@ -2981,21 +2196,6 @@ class MultiplexGroupSettings(PropertyType):
 
 @dataclass
 class MultiplexM2tsSettings(PropertyType):
-    SCTE35_CONTROL = "Scte35Control"
-    PCR_PERIOD = "PcrPeriod"
-    NIELSEN_ID3_BEHAVIOR = "NielsenId3Behavior"
-    ES_RATE_IN_PES = "EsRateInPes"
-    CC_DESCRIPTOR = "CcDescriptor"
-    AUDIO_FRAMES_PER_PES = "AudioFramesPerPes"
-    ABSENT_INPUT_AUDIO_BEHAVIOR = "AbsentInputAudioBehavior"
-    AUDIO_STREAM_TYPE = "AudioStreamType"
-    KLV = "Klv"
-    ARIB = "Arib"
-    AUDIO_BUFFER_MODEL = "AudioBufferModel"
-    EBIF = "Ebif"
-    SCTE35_PREROLL_PULLUP_MILLISECONDS = "Scte35PrerollPullupMilliseconds"
-    PCR_CONTROL = "PcrControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_control": "Scte35Control",
         "pcr_period": "PcrPeriod",
@@ -3031,9 +2231,6 @@ class MultiplexM2tsSettings(PropertyType):
 
 @dataclass
 class MultiplexOutputSettings(PropertyType):
-    DESTINATION = "Destination"
-    CONTAINER_SETTINGS = "ContainerSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "container_settings": "ContainerSettings",
@@ -3045,9 +2242,6 @@ class MultiplexOutputSettings(PropertyType):
 
 @dataclass
 class MultiplexProgramChannelDestinationSettings(PropertyType):
-    MULTIPLEX_ID = "MultiplexId"
-    PROGRAM_NAME = "ProgramName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_id": "MultiplexId",
         "program_name": "ProgramName",
@@ -3059,10 +2253,6 @@ class MultiplexProgramChannelDestinationSettings(PropertyType):
 
 @dataclass
 class NetworkInputSettings(PropertyType):
-    SERVER_VALIDATION = "ServerValidation"
-    HLS_INPUT_SETTINGS = "HlsInputSettings"
-    MULTICAST_INPUT_SETTINGS = "MulticastInputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_validation": "ServerValidation",
         "hls_input_settings": "HlsInputSettings",
@@ -3076,10 +2266,6 @@ class NetworkInputSettings(PropertyType):
 
 @dataclass
 class NielsenCBET(PropertyType):
-    CBET_CHECK_DIGIT_STRING = "CbetCheckDigitString"
-    CBET_STEPASIDE = "CbetStepaside"
-    CSID = "Csid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cbet_check_digit_string": "CbetCheckDigitString",
         "cbet_stepaside": "CbetStepaside",
@@ -3093,9 +2279,6 @@ class NielsenCBET(PropertyType):
 
 @dataclass
 class NielsenConfiguration(PropertyType):
-    DISTRIBUTOR_ID = "DistributorId"
-    NIELSEN_PCM_TO_ID3_TAGGING = "NielsenPcmToId3Tagging"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "distributor_id": "DistributorId",
         "nielsen_pcm_to_id3_tagging": "NielsenPcmToId3Tagging",
@@ -3107,10 +2290,6 @@ class NielsenConfiguration(PropertyType):
 
 @dataclass
 class NielsenNaesIiNw(PropertyType):
-    TIMEZONE = "Timezone"
-    CHECK_DIGIT_STRING = "CheckDigitString"
-    SID = "Sid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "check_digit_string": "CheckDigitString",
@@ -3124,10 +2303,6 @@ class NielsenNaesIiNw(PropertyType):
 
 @dataclass
 class NielsenWatermarksSettings(PropertyType):
-    NIELSEN_DISTRIBUTION_TYPE = "NielsenDistributionType"
-    NIELSEN_CBET_SETTINGS = "NielsenCbetSettings"
-    NIELSEN_NAES_II_NW_SETTINGS = "NielsenNaesIiNwSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nielsen_distribution_type": "NielsenDistributionType",
         "nielsen_cbet_settings": "NielsenCbetSettings",
@@ -3141,12 +2316,6 @@ class NielsenWatermarksSettings(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    OUTPUT_SETTINGS = "OutputSettings"
-    CAPTION_DESCRIPTION_NAMES = "CaptionDescriptionNames"
-    AUDIO_DESCRIPTION_NAMES = "AudioDescriptionNames"
-    OUTPUT_NAME = "OutputName"
-    VIDEO_DESCRIPTION_NAME = "VideoDescriptionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_settings": "OutputSettings",
         "caption_description_names": "CaptionDescriptionNames",
@@ -3164,13 +2333,6 @@ class Output(PropertyType):
 
 @dataclass
 class OutputDestination(PropertyType):
-    SRT_SETTINGS = "SrtSettings"
-    LOGICAL_INTERFACE_NAMES = "LogicalInterfaceNames"
-    MULTIPLEX_SETTINGS = "MultiplexSettings"
-    ID = "Id"
-    SETTINGS = "Settings"
-    MEDIA_PACKAGE_SETTINGS = "MediaPackageSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_settings": "SrtSettings",
         "logical_interface_names": "LogicalInterfaceNames",
@@ -3190,11 +2352,6 @@ class OutputDestination(PropertyType):
 
 @dataclass
 class OutputDestinationSettings(PropertyType):
-    STREAM_NAME = "StreamName"
-    USERNAME = "Username"
-    PASSWORD_PARAM = "PasswordParam"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "username": "Username",
@@ -3210,10 +2367,6 @@ class OutputDestinationSettings(PropertyType):
 
 @dataclass
 class OutputGroup(PropertyType):
-    OUTPUTS = "Outputs"
-    OUTPUT_GROUP_SETTINGS = "OutputGroupSettings"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outputs": "Outputs",
         "output_group_settings": "OutputGroupSettings",
@@ -3227,17 +2380,6 @@ class OutputGroup(PropertyType):
 
 @dataclass
 class OutputGroupSettings(PropertyType):
-    HLS_GROUP_SETTINGS = "HlsGroupSettings"
-    FRAME_CAPTURE_GROUP_SETTINGS = "FrameCaptureGroupSettings"
-    MULTIPLEX_GROUP_SETTINGS = "MultiplexGroupSettings"
-    SRT_GROUP_SETTINGS = "SrtGroupSettings"
-    ARCHIVE_GROUP_SETTINGS = "ArchiveGroupSettings"
-    MEDIA_PACKAGE_GROUP_SETTINGS = "MediaPackageGroupSettings"
-    UDP_GROUP_SETTINGS = "UdpGroupSettings"
-    MS_SMOOTH_GROUP_SETTINGS = "MsSmoothGroupSettings"
-    RTMP_GROUP_SETTINGS = "RtmpGroupSettings"
-    CMAF_INGEST_GROUP_SETTINGS = "CmafIngestGroupSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hls_group_settings": "HlsGroupSettings",
         "frame_capture_group_settings": "FrameCaptureGroupSettings",
@@ -3265,8 +2407,6 @@ class OutputGroupSettings(PropertyType):
 
 @dataclass
 class OutputLocationRef(PropertyType):
-    DESTINATION_REF_ID = "DestinationRefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_ref_id": "DestinationRefId",
     }
@@ -3276,9 +2416,6 @@ class OutputLocationRef(PropertyType):
 
 @dataclass
 class OutputLockingSettings(PropertyType):
-    PIPELINE_LOCKING_SETTINGS = "PipelineLockingSettings"
-    EPOCH_LOCKING_SETTINGS = "EpochLockingSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_locking_settings": "PipelineLockingSettings",
         "epoch_locking_settings": "EpochLockingSettings",
@@ -3290,17 +2427,6 @@ class OutputLockingSettings(PropertyType):
 
 @dataclass
 class OutputSettings(PropertyType):
-    MEDIA_PACKAGE_OUTPUT_SETTINGS = "MediaPackageOutputSettings"
-    MS_SMOOTH_OUTPUT_SETTINGS = "MsSmoothOutputSettings"
-    FRAME_CAPTURE_OUTPUT_SETTINGS = "FrameCaptureOutputSettings"
-    HLS_OUTPUT_SETTINGS = "HlsOutputSettings"
-    RTMP_OUTPUT_SETTINGS = "RtmpOutputSettings"
-    UDP_OUTPUT_SETTINGS = "UdpOutputSettings"
-    MULTIPLEX_OUTPUT_SETTINGS = "MultiplexOutputSettings"
-    CMAF_INGEST_OUTPUT_SETTINGS = "CmafIngestOutputSettings"
-    SRT_OUTPUT_SETTINGS = "SrtOutputSettings"
-    ARCHIVE_OUTPUT_SETTINGS = "ArchiveOutputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_package_output_settings": "MediaPackageOutputSettings",
         "ms_smooth_output_settings": "MsSmoothOutputSettings",
@@ -3353,10 +2479,6 @@ class Rec709Settings(PropertyType):
 
 @dataclass
 class RemixSettings(PropertyType):
-    CHANNELS_OUT = "ChannelsOut"
-    CHANNEL_MAPPINGS = "ChannelMappings"
-    CHANNELS_IN = "ChannelsIn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channels_out": "ChannelsOut",
         "channel_mappings": "ChannelMappings",
@@ -3375,15 +2497,6 @@ class RtmpCaptionInfoDestinationSettings(PropertyType):
 
 @dataclass
 class RtmpGroupSettings(PropertyType):
-    AUTHENTICATION_SCHEME = "AuthenticationScheme"
-    CACHE_LENGTH = "CacheLength"
-    AD_MARKERS = "AdMarkers"
-    INCLUDE_FILLER_NAL_UNITS = "IncludeFillerNalUnits"
-    INPUT_LOSS_ACTION = "InputLossAction"
-    RESTART_DELAY = "RestartDelay"
-    CAPTION_DATA = "CaptionData"
-    CACHE_FULL_BEHAVIOR = "CacheFullBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_scheme": "AuthenticationScheme",
         "cache_length": "CacheLength",
@@ -3407,11 +2520,6 @@ class RtmpGroupSettings(PropertyType):
 
 @dataclass
 class RtmpOutputSettings(PropertyType):
-    DESTINATION = "Destination"
-    CERTIFICATE_MODE = "CertificateMode"
-    NUM_RETRIES = "NumRetries"
-    CONNECTION_RETRY_INTERVAL = "ConnectionRetryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "certificate_mode": "CertificateMode",
@@ -3432,9 +2540,6 @@ class Scte20PlusEmbeddedDestinationSettings(PropertyType):
 
 @dataclass
 class Scte20SourceSettings(PropertyType):
-    SOURCE608_CHANNEL_NUMBER = "Source608ChannelNumber"
-    CONVERT608_TO708 = "Convert608To708"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source608_channel_number": "Source608ChannelNumber",
         "convert608_to708": "Convert608To708",
@@ -3451,9 +2556,6 @@ class Scte27DestinationSettings(PropertyType):
 
 @dataclass
 class Scte27SourceSettings(PropertyType):
-    OCR_LANGUAGE = "OcrLanguage"
-    PID = "Pid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocr_language": "OcrLanguage",
         "pid": "Pid",
@@ -3465,10 +2567,6 @@ class Scte27SourceSettings(PropertyType):
 
 @dataclass
 class Scte35SpliceInsert(PropertyType):
-    AD_AVAIL_OFFSET = "AdAvailOffset"
-    WEB_DELIVERY_ALLOWED_FLAG = "WebDeliveryAllowedFlag"
-    NO_REGIONAL_BLACKOUT_FLAG = "NoRegionalBlackoutFlag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "web_delivery_allowed_flag": "WebDeliveryAllowedFlag",
@@ -3482,10 +2580,6 @@ class Scte35SpliceInsert(PropertyType):
 
 @dataclass
 class Scte35TimeSignalApos(PropertyType):
-    AD_AVAIL_OFFSET = "AdAvailOffset"
-    WEB_DELIVERY_ALLOWED_FLAG = "WebDeliveryAllowedFlag"
-    NO_REGIONAL_BLACKOUT_FLAG = "NoRegionalBlackoutFlag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "web_delivery_allowed_flag": "WebDeliveryAllowedFlag",
@@ -3504,8 +2598,6 @@ class SmpteTtDestinationSettings(PropertyType):
 
 @dataclass
 class SrtGroupSettings(PropertyType):
-    INPUT_LOSS_ACTION = "InputLossAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_action": "InputLossAction",
     }
@@ -3515,10 +2607,6 @@ class SrtGroupSettings(PropertyType):
 
 @dataclass
 class SrtOutputDestinationSettings(PropertyType):
-    STREAM_ID = "StreamId"
-    ENCRYPTION_PASSPHRASE_SECRET_ARN = "EncryptionPassphraseSecretArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_id": "StreamId",
         "encryption_passphrase_secret_arn": "EncryptionPassphraseSecretArn",
@@ -3532,12 +2620,6 @@ class SrtOutputDestinationSettings(PropertyType):
 
 @dataclass
 class SrtOutputSettings(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-    DESTINATION = "Destination"
-    CONTAINER_SETTINGS = "ContainerSettings"
-    BUFFER_MSEC = "BufferMsec"
-    LATENCY = "Latency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "destination": "Destination",
@@ -3555,9 +2637,6 @@ class SrtOutputSettings(PropertyType):
 
 @dataclass
 class StandardHlsSettings(PropertyType):
-    AUDIO_RENDITION_SETS = "AudioRenditionSets"
-    M3U8_SETTINGS = "M3u8Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "m3u8_settings": "M3u8Settings",
@@ -3569,9 +2648,6 @@ class StandardHlsSettings(PropertyType):
 
 @dataclass
 class StaticKeySettings(PropertyType):
-    KEY_PROVIDER_SERVER = "KeyProviderServer"
-    STATIC_KEY_VALUE = "StaticKeyValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_provider_server": "KeyProviderServer",
         "static_key_value": "StaticKeyValue",
@@ -3588,9 +2664,6 @@ class TeletextDestinationSettings(PropertyType):
 
 @dataclass
 class TeletextSourceSettings(PropertyType):
-    OUTPUT_RECTANGLE = "OutputRectangle"
-    PAGE_NUMBER = "PageNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_rectangle": "OutputRectangle",
         "page_number": "PageNumber",
@@ -3602,9 +2675,6 @@ class TeletextSourceSettings(PropertyType):
 
 @dataclass
 class TemporalFilterSettings(PropertyType):
-    POST_FILTER_SHARPENING = "PostFilterSharpening"
-    STRENGTH = "Strength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_filter_sharpening": "PostFilterSharpening",
         "strength": "Strength",
@@ -3616,8 +2686,6 @@ class TemporalFilterSettings(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -3627,10 +2695,6 @@ class ThumbnailConfiguration(PropertyType):
 
 @dataclass
 class TimecodeBurninSettings(PropertyType):
-    FONT_SIZE = "FontSize"
-    POSITION = "Position"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_size": "FontSize",
         "position": "Position",
@@ -3644,9 +2708,6 @@ class TimecodeBurninSettings(PropertyType):
 
 @dataclass
 class TimecodeConfig(PropertyType):
-    SYNC_THRESHOLD = "SyncThreshold"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_threshold": "SyncThreshold",
         "source": "Source",
@@ -3658,8 +2719,6 @@ class TimecodeConfig(PropertyType):
 
 @dataclass
 class TtmlDestinationSettings(PropertyType):
-    STYLE_CONTROL = "StyleControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_control": "StyleControl",
     }
@@ -3669,8 +2728,6 @@ class TtmlDestinationSettings(PropertyType):
 
 @dataclass
 class UdpContainerSettings(PropertyType):
-    M2TS_SETTINGS = "M2tsSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "m2ts_settings": "M2tsSettings",
     }
@@ -3680,10 +2737,6 @@ class UdpContainerSettings(PropertyType):
 
 @dataclass
 class UdpGroupSettings(PropertyType):
-    TIMED_METADATA_ID3_FRAME = "TimedMetadataId3Frame"
-    TIMED_METADATA_ID3_PERIOD = "TimedMetadataId3Period"
-    INPUT_LOSS_ACTION = "InputLossAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timed_metadata_id3_frame": "TimedMetadataId3Frame",
         "timed_metadata_id3_period": "TimedMetadataId3Period",
@@ -3697,11 +2750,6 @@ class UdpGroupSettings(PropertyType):
 
 @dataclass
 class UdpOutputSettings(PropertyType):
-    DESTINATION = "Destination"
-    FEC_OUTPUT_SETTINGS = "FecOutputSettings"
-    CONTAINER_SETTINGS = "ContainerSettings"
-    BUFFER_MSEC = "BufferMsec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "fec_output_settings": "FecOutputSettings",
@@ -3717,9 +2765,6 @@ class UdpOutputSettings(PropertyType):
 
 @dataclass
 class VideoBlackFailoverSettings(PropertyType):
-    VIDEO_BLACK_THRESHOLD_MSEC = "VideoBlackThresholdMsec"
-    BLACK_DETECT_THRESHOLD = "BlackDetectThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_black_threshold_msec": "VideoBlackThresholdMsec",
         "black_detect_threshold": "BlackDetectThreshold",
@@ -3731,12 +2776,6 @@ class VideoBlackFailoverSettings(PropertyType):
 
 @dataclass
 class VideoCodecSettings(PropertyType):
-    MPEG2_SETTINGS = "Mpeg2Settings"
-    FRAME_CAPTURE_SETTINGS = "FrameCaptureSettings"
-    H264_SETTINGS = "H264Settings"
-    H265_SETTINGS = "H265Settings"
-    AV1_SETTINGS = "Av1Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mpeg2_settings": "Mpeg2Settings",
         "frame_capture_settings": "FrameCaptureSettings",
@@ -3754,14 +2793,6 @@ class VideoCodecSettings(PropertyType):
 
 @dataclass
 class VideoDescription(PropertyType):
-    SCALING_BEHAVIOR = "ScalingBehavior"
-    RESPOND_TO_AFD = "RespondToAfd"
-    HEIGHT = "Height"
-    SHARPNESS = "Sharpness"
-    WIDTH = "Width"
-    CODEC_SETTINGS = "CodecSettings"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_behavior": "ScalingBehavior",
         "respond_to_afd": "RespondToAfd",
@@ -3783,11 +2814,6 @@ class VideoDescription(PropertyType):
 
 @dataclass
 class VideoSelector(PropertyType):
-    COLOR_SPACE_SETTINGS = "ColorSpaceSettings"
-    SELECTOR_SETTINGS = "SelectorSettings"
-    COLOR_SPACE = "ColorSpace"
-    COLOR_SPACE_USAGE = "ColorSpaceUsage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_space_settings": "ColorSpaceSettings",
         "selector_settings": "SelectorSettings",
@@ -3803,8 +2829,6 @@ class VideoSelector(PropertyType):
 
 @dataclass
 class VideoSelectorColorSpaceSettings(PropertyType):
-    HDR10_SETTINGS = "Hdr10Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hdr10_settings": "Hdr10Settings",
     }
@@ -3814,8 +2838,6 @@ class VideoSelectorColorSpaceSettings(PropertyType):
 
 @dataclass
 class VideoSelectorPid(PropertyType):
-    PID = "Pid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pid": "Pid",
     }
@@ -3825,8 +2847,6 @@ class VideoSelectorPid(PropertyType):
 
 @dataclass
 class VideoSelectorProgramId(PropertyType):
-    PROGRAM_ID = "ProgramId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "program_id": "ProgramId",
     }
@@ -3836,9 +2856,6 @@ class VideoSelectorProgramId(PropertyType):
 
 @dataclass
 class VideoSelectorSettings(PropertyType):
-    VIDEO_SELECTOR_PROGRAM_ID = "VideoSelectorProgramId"
-    VIDEO_SELECTOR_PID = "VideoSelectorPid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_selector_program_id": "VideoSelectorProgramId",
         "video_selector_pid": "VideoSelectorPid",
@@ -3850,10 +2867,6 @@ class VideoSelectorSettings(PropertyType):
 
 @dataclass
 class VpcOutputSettings(PropertyType):
-    PUBLIC_ADDRESS_ALLOCATION_IDS = "PublicAddressAllocationIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_address_allocation_ids": "PublicAddressAllocationIds",
         "security_group_ids": "SecurityGroupIds",
@@ -3867,10 +2880,6 @@ class VpcOutputSettings(PropertyType):
 
 @dataclass
 class WavSettings(PropertyType):
-    CODING_MODE = "CodingMode"
-    SAMPLE_RATE = "SampleRate"
-    BIT_DEPTH = "BitDepth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "sample_rate": "SampleRate",
@@ -3884,8 +2893,6 @@ class WavSettings(PropertyType):
 
 @dataclass
 class WebvttDestinationSettings(PropertyType):
-    STYLE_CONTROL = "StyleControl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_control": "StyleControl",
     }

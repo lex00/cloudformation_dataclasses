@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HadoopJarStepConfig(PropertyType):
-    ARGS = "Args"
-    MAIN_CLASS = "MainClass"
-    STEP_PROPERTIES = "StepProperties"
-    JAR = "Jar"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "args": "Args",
         "main_class": "MainClass",
@@ -31,9 +26,6 @@ class HadoopJarStepConfig(PropertyType):
 
 @dataclass
 class KeyValue(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

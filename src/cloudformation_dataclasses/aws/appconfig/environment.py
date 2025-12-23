@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Monitor(PropertyType):
-    ALARM_ARN = "AlarmArn"
-    ALARM_ROLE_ARN = "AlarmRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_arn": "AlarmArn",
         "alarm_role_arn": "AlarmRoleArn",

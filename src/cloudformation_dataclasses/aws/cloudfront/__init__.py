@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:48
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFront
@@ -619,12 +619,6 @@ class AnycastIpList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::AnycastIpList"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    IP_COUNT = "IpCount"
-    IPAM_CIDR_CONFIGS = "IpamCidrConfigs"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "ip_count": "IpCount",
@@ -711,8 +705,6 @@ class CachePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::CachePolicy"
-    CACHE_POLICY_CONFIG = "CachePolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_policy_config": "CachePolicyConfig",
     }
@@ -736,8 +728,6 @@ class CloudFrontOriginAccessIdentity(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
-    CLOUD_FRONT_ORIGIN_ACCESS_IDENTITY_CONFIG = "CloudFrontOriginAccessIdentityConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_front_origin_access_identity_config": "CloudFrontOriginAccessIdentityConfig",
     }
@@ -762,12 +752,6 @@ class ConnectionFunction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ConnectionFunction"
     name_field: ClassVar[str] = "name"
-    CONNECTION_FUNCTION_CONFIG = "ConnectionFunctionConfig"
-    AUTO_PUBLISH = "AutoPublish"
-    CONNECTION_FUNCTION_CODE = "ConnectionFunctionCode"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_function_config": "ConnectionFunctionConfig",
         "auto_publish": "AutoPublish",
@@ -825,12 +809,6 @@ class ConnectionGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ConnectionGroup"
     name_field: ClassVar[str] = "name"
-    IPV6_ENABLED = "Ipv6Enabled"
-    ANYCAST_IP_LIST_ID = "AnycastIpListId"
-    ENABLED = "Enabled"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_enabled": "Ipv6Enabled",
         "anycast_ip_list_id": "AnycastIpListId",
@@ -892,8 +870,6 @@ class ContinuousDeploymentPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ContinuousDeploymentPolicy"
-    CONTINUOUS_DEPLOYMENT_POLICY_CONFIG = "ContinuousDeploymentPolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continuous_deployment_policy_config": "ContinuousDeploymentPolicyConfig",
     }
@@ -917,9 +893,6 @@ class Distribution(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::Distribution"
-    DISTRIBUTION_CONFIG = "DistributionConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "distribution_config": "DistributionConfig",
         "tags": "Tags",
@@ -946,16 +919,6 @@ class DistributionTenant(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::DistributionTenant"
     name_field: ClassVar[str] = "name"
-    DOMAINS = "Domains"
-    PARAMETERS = "Parameters"
-    CUSTOMIZATIONS = "Customizations"
-    ENABLED = "Enabled"
-    MANAGED_CERTIFICATE_REQUEST = "ManagedCertificateRequest"
-    DISTRIBUTION_ID = "DistributionId"
-    CONNECTION_GROUP_ID = "ConnectionGroupId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domains": "Domains",
         "parameters": "Parameters",
@@ -1021,12 +984,6 @@ class Function(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::Function"
     name_field: ClassVar[str] = "name"
-    FUNCTION_CONFIG = "FunctionConfig"
-    FUNCTION_METADATA = "FunctionMetadata"
-    AUTO_PUBLISH = "AutoPublish"
-    FUNCTION_CODE = "FunctionCode"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_config": "FunctionConfig",
         "function_metadata": "FunctionMetadata",
@@ -1063,8 +1020,6 @@ class KeyGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::KeyGroup"
-    KEY_GROUP_CONFIG = "KeyGroupConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_group_config": "KeyGroupConfig",
     }
@@ -1089,10 +1044,6 @@ class KeyValueStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::KeyValueStore"
     name_field: ClassVar[str] = "name"
-    COMMENT = "Comment"
-    IMPORT_SOURCE = "ImportSource"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "import_source": "ImportSource",
@@ -1125,9 +1076,6 @@ class MonitoringSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::MonitoringSubscription"
-    MONITORING_SUBSCRIPTION = "MonitoringSubscription"
-    DISTRIBUTION_ID = "DistributionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitoring_subscription": "MonitoringSubscription",
         "distribution_id": "DistributionId",
@@ -1142,8 +1090,6 @@ class OriginAccessControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::OriginAccessControl"
-    ORIGIN_ACCESS_CONTROL_CONFIG = "OriginAccessControlConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_access_control_config": "OriginAccessControlConfig",
     }
@@ -1162,8 +1108,6 @@ class OriginRequestPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::OriginRequestPolicy"
-    ORIGIN_REQUEST_POLICY_CONFIG = "OriginRequestPolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_request_policy_config": "OriginRequestPolicyConfig",
     }
@@ -1187,8 +1131,6 @@ class PublicKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::PublicKey"
-    PUBLIC_KEY_CONFIG = "PublicKeyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_key_config": "PublicKeyConfig",
     }
@@ -1213,11 +1155,6 @@ class RealtimeLogConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::RealtimeLogConfig"
     name_field: ClassVar[str] = "name"
-    FIELDS = "Fields"
-    END_POINTS = "EndPoints"
-    SAMPLING_RATE = "SamplingRate"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
         "end_points": "EndPoints",
@@ -1242,8 +1179,6 @@ class ResponseHeadersPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ResponseHeadersPolicy"
-    RESPONSE_HEADERS_POLICY_CONFIG = "ResponseHeadersPolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_headers_policy_config": "ResponseHeadersPolicyConfig",
     }
@@ -1267,9 +1202,6 @@ class StreamingDistribution(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::StreamingDistribution"
-    STREAMING_DISTRIBUTION_CONFIG = "StreamingDistributionConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streaming_distribution_config": "StreamingDistributionConfig",
         "tags": "Tags",
@@ -1291,10 +1223,6 @@ class TrustStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFront::TrustStore"
     name_field: ClassVar[str] = "name"
-    CA_CERTIFICATES_BUNDLE_SOURCE = "CaCertificatesBundleSource"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ca_certificates_bundle_source": "CaCertificatesBundleSource",
         "tags": "Tags",
@@ -1342,9 +1270,6 @@ class VpcOrigin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::VpcOrigin"
-    VPC_ORIGIN_ENDPOINT_CONFIG = "VpcOriginEndpointConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_origin_endpoint_config": "VpcOriginEndpointConfig",
         "tags": "Tags",

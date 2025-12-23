@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccelerationSettings(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -22,10 +20,6 @@ class AccelerationSettings(PropertyType):
 
 @dataclass
 class HopDestination(PropertyType):
-    WAIT_MINUTES = "WaitMinutes"
-    PRIORITY = "Priority"
-    QUEUE = "Queue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wait_minutes": "WaitMinutes",
         "priority": "Priority",

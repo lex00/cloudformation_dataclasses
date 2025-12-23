@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:46
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Budgets
@@ -347,10 +347,6 @@ class Budget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budge"""
 
     resource_type: ClassVar[str] = "AWS::Budgets::Budget"
-    NOTIFICATIONS_WITH_SUBSCRIBERS = "NotificationsWithSubscribers"
-    RESOURCE_TAGS = "ResourceTags"
-    BUDGET = "Budget"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notifications_with_subscribers": "NotificationsWithSubscribers",
         "resource_tags": "ResourceTags",
@@ -368,16 +364,6 @@ class BudgetsAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Budgets::BudgetsAction"
     name_field: ClassVar[str] = "budget_name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    ACTION_TYPE = "ActionType"
-    RESOURCE_TAGS = "ResourceTags"
-    NOTIFICATION_TYPE = "NotificationType"
-    ACTION_THRESHOLD = "ActionThreshold"
-    DEFINITION = "Definition"
-    APPROVAL_MODEL = "ApprovalModel"
-    SUBSCRIBERS = "Subscribers"
-    BUDGET_NAME = "BudgetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "action_type": "ActionType",

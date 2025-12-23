@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationResourceLifecycleConfig(PropertyType):
-    SERVICE_ROLE = "ServiceRole"
-    VERSION_LIFECYCLE_CONFIG = "VersionLifecycleConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_role": "ServiceRole",
         "version_lifecycle_config": "VersionLifecycleConfig",
@@ -25,9 +22,6 @@ class ApplicationResourceLifecycleConfig(PropertyType):
 
 @dataclass
 class ApplicationVersionLifecycleConfig(PropertyType):
-    MAX_COUNT_RULE = "MaxCountRule"
-    MAX_AGE_RULE = "MaxAgeRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_count_rule": "MaxCountRule",
         "max_age_rule": "MaxAgeRule",
@@ -39,10 +33,6 @@ class ApplicationVersionLifecycleConfig(PropertyType):
 
 @dataclass
 class MaxAgeRule(PropertyType):
-    DELETE_SOURCE_FROM_S3 = "DeleteSourceFromS3"
-    MAX_AGE_IN_DAYS = "MaxAgeInDays"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_source_from_s3": "DeleteSourceFromS3",
         "max_age_in_days": "MaxAgeInDays",
@@ -56,10 +46,6 @@ class MaxAgeRule(PropertyType):
 
 @dataclass
 class MaxCountRule(PropertyType):
-    DELETE_SOURCE_FROM_S3 = "DeleteSourceFromS3"
-    ENABLED = "Enabled"
-    MAX_COUNT = "MaxCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_source_from_s3": "DeleteSourceFromS3",
         "enabled": "Enabled",

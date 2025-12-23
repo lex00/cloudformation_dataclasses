@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AgentPermissions(PropertyType):
-    PRINCIPALS = "Principals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principals": "Principals",
     }
@@ -22,9 +20,6 @@ class AgentPermissions(PropertyType):
 
 @dataclass
 class Channel(PropertyType):
-    CHANNEL_URI = "channelUri"
-    CHANNEL_ID = "channelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_uri": "channelUri",
         "channel_id": "channelId",

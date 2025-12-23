@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SupportApp
@@ -57,8 +57,6 @@ class AccountAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-suppo"""
 
     resource_type: ClassVar[str] = "AWS::SupportApp::AccountAlias"
-    ACCOUNT_ALIAS = "AccountAlias"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_alias": "AccountAlias",
     }
@@ -78,15 +76,6 @@ class SlackChannelConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SupportApp::SlackChannelConfiguration"
     name_field: ClassVar[str] = "channel_name"
-    CHANNEL_NAME = "ChannelName"
-    NOTIFY_ON_ADD_CORRESPONDENCE_TO_CASE = "NotifyOnAddCorrespondenceToCase"
-    CHANNEL_ROLE_ARN = "ChannelRoleArn"
-    NOTIFY_ON_RESOLVE_CASE = "NotifyOnResolveCase"
-    NOTIFY_ON_CASE_SEVERITY = "NotifyOnCaseSeverity"
-    TEAM_ID = "TeamId"
-    CHANNEL_ID = "ChannelId"
-    NOTIFY_ON_CREATE_OR_REOPEN_CASE = "NotifyOnCreateOrReopenCase"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "notify_on_add_correspondence_to_case": "NotifyOnAddCorrespondenceToCase",
@@ -113,9 +102,6 @@ class SlackWorkspaceConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-suppo"""
 
     resource_type: ClassVar[str] = "AWS::SupportApp::SlackWorkspaceConfiguration"
-    VERSION_ID = "VersionId"
-    TEAM_ID = "TeamId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "team_id": "TeamId",

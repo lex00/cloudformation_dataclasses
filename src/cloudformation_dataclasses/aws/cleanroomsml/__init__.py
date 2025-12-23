@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRoomsML
@@ -868,12 +868,6 @@ class TrainingDataset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRoomsML::TrainingDataset"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TRAINING_DATA = "TrainingData"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "training_data": "TrainingData",

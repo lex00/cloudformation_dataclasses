@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionTrackingSpecification(PropertyType):
-    UDP_TIMEOUT = "UdpTimeout"
-    TCP_ESTABLISHED_TIMEOUT = "TcpEstablishedTimeout"
-    UDP_STREAM_TIMEOUT = "UdpStreamTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "udp_timeout": "UdpTimeout",
         "tcp_established_timeout": "TcpEstablishedTimeout",
@@ -28,8 +24,6 @@ class ConnectionTrackingSpecification(PropertyType):
 
 @dataclass
 class InstanceIpv6Address(PropertyType):
-    IPV6_ADDRESS = "Ipv6Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -39,8 +33,6 @@ class InstanceIpv6Address(PropertyType):
 
 @dataclass
 class Ipv4PrefixSpecification(PropertyType):
-    IPV4_PREFIX = "Ipv4Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv4_prefix": "Ipv4Prefix",
     }
@@ -50,8 +42,6 @@ class Ipv4PrefixSpecification(PropertyType):
 
 @dataclass
 class Ipv6PrefixSpecification(PropertyType):
-    IPV6_PREFIX = "Ipv6Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_prefix": "Ipv6Prefix",
     }
@@ -61,9 +51,6 @@ class Ipv6PrefixSpecification(PropertyType):
 
 @dataclass
 class PrivateIpAddressSpecification(PropertyType):
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIMARY = "Primary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -75,11 +62,6 @@ class PrivateIpAddressSpecification(PropertyType):
 
 @dataclass
 class PublicIpDnsNameOptions(PropertyType):
-    DNS_HOSTNAME_TYPE = "DnsHostnameType"
-    PUBLIC_IPV4_DNS_NAME = "PublicIpv4DnsName"
-    PUBLIC_DUAL_STACK_DNS_NAME = "PublicDualStackDnsName"
-    PUBLIC_IPV6_DNS_NAME = "PublicIpv6DnsName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_hostname_type": "DnsHostnameType",
         "public_ipv4_dns_name": "PublicIpv4DnsName",

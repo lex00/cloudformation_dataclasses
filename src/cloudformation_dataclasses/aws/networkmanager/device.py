@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AWSLocation(PropertyType):
-    ZONE = "Zone"
-    SUBNET_ARN = "SubnetArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "zone": "Zone",
         "subnet_arn": "SubnetArn",
@@ -25,10 +22,6 @@ class AWSLocation(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    ADDRESS = "Address"
-    LATITUDE = "Latitude"
-    LONGITUDE = "Longitude"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "latitude": "Latitude",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class S3Config(PropertyType):
-    BUCKET_ACCESS_ROLE_ARN = "BucketAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_access_role_arn": "BucketAccessRoleArn",
     }

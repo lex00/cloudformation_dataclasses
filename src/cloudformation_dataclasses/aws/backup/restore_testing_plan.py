@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RestoreTestingRecoveryPointSelection(PropertyType):
-    SELECTION_WINDOW_DAYS = "SelectionWindowDays"
-    RECOVERY_POINT_TYPES = "RecoveryPointTypes"
-    INCLUDE_VAULTS = "IncludeVaults"
-    EXCLUDE_VAULTS = "ExcludeVaults"
-    ALGORITHM = "Algorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_window_days": "SelectionWindowDays",
         "recovery_point_types": "RecoveryPointTypes",

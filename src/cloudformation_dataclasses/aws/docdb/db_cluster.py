@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ServerlessV2ScalingConfiguration(PropertyType):
-    MIN_CAPACITY = "MinCapacity"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "max_capacity": "MaxCapacity",

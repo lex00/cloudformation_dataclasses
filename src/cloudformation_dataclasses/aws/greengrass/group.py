@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GroupVersion(PropertyType):
-    LOGGER_DEFINITION_VERSION_ARN = "LoggerDefinitionVersionArn"
-    DEVICE_DEFINITION_VERSION_ARN = "DeviceDefinitionVersionArn"
-    FUNCTION_DEFINITION_VERSION_ARN = "FunctionDefinitionVersionArn"
-    CORE_DEFINITION_VERSION_ARN = "CoreDefinitionVersionArn"
-    RESOURCE_DEFINITION_VERSION_ARN = "ResourceDefinitionVersionArn"
-    CONNECTOR_DEFINITION_VERSION_ARN = "ConnectorDefinitionVersionArn"
-    SUBSCRIPTION_DEFINITION_VERSION_ARN = "SubscriptionDefinitionVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logger_definition_version_arn": "LoggerDefinitionVersionArn",
         "device_definition_version_arn": "DeviceDefinitionVersionArn",

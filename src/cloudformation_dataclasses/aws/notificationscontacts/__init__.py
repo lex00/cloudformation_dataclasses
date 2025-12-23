@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NotificationsContacts
@@ -60,10 +60,6 @@ class EmailContact(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NotificationsContacts::EmailContact"
     name_field: ClassVar[str] = "name"
-    EMAIL_ADDRESS = "EmailAddress"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_address": "EmailAddress",
         "tags": "Tags",

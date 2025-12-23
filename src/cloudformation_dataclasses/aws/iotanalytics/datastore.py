@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Column(PropertyType):
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -25,10 +22,6 @@ class Column(PropertyType):
 
 @dataclass
 class CustomerManagedS3(PropertyType):
-    BUCKET = "Bucket"
-    ROLE_ARN = "RoleArn"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "role_arn": "RoleArn",
@@ -42,9 +35,6 @@ class CustomerManagedS3(PropertyType):
 
 @dataclass
 class CustomerManagedS3Storage(PropertyType):
-    BUCKET = "Bucket"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key_prefix": "KeyPrefix",
@@ -56,9 +46,6 @@ class CustomerManagedS3Storage(PropertyType):
 
 @dataclass
 class DatastorePartition(PropertyType):
-    PARTITION = "Partition"
-    TIMESTAMP_PARTITION = "TimestampPartition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition": "Partition",
         "timestamp_partition": "TimestampPartition",
@@ -70,8 +57,6 @@ class DatastorePartition(PropertyType):
 
 @dataclass
 class DatastorePartitions(PropertyType):
-    PARTITIONS = "Partitions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partitions": "Partitions",
     }
@@ -81,10 +66,6 @@ class DatastorePartitions(PropertyType):
 
 @dataclass
 class DatastoreStorage(PropertyType):
-    CUSTOMER_MANAGED_S3 = "CustomerManagedS3"
-    SERVICE_MANAGED_S3 = "ServiceManagedS3"
-    IOT_SITE_WISE_MULTI_LAYER_STORAGE = "IotSiteWiseMultiLayerStorage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3": "CustomerManagedS3",
         "service_managed_s3": "ServiceManagedS3",
@@ -98,9 +79,6 @@ class DatastoreStorage(PropertyType):
 
 @dataclass
 class FileFormatConfiguration(PropertyType):
-    PARQUET_CONFIGURATION = "ParquetConfiguration"
-    JSON_CONFIGURATION = "JsonConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet_configuration": "ParquetConfiguration",
         "json_configuration": "JsonConfiguration",
@@ -112,8 +90,6 @@ class FileFormatConfiguration(PropertyType):
 
 @dataclass
 class IotSiteWiseMultiLayerStorage(PropertyType):
-    CUSTOMER_MANAGED_S3_STORAGE = "CustomerManagedS3Storage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3_storage": "CustomerManagedS3Storage",
     }
@@ -123,8 +99,6 @@ class IotSiteWiseMultiLayerStorage(PropertyType):
 
 @dataclass
 class ParquetConfiguration(PropertyType):
-    SCHEMA_DEFINITION = "SchemaDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_definition": "SchemaDefinition",
     }
@@ -134,8 +108,6 @@ class ParquetConfiguration(PropertyType):
 
 @dataclass
 class Partition(PropertyType):
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_name": "AttributeName",
     }
@@ -145,9 +117,6 @@ class Partition(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    NUMBER_OF_DAYS = "NumberOfDays"
-    UNLIMITED = "Unlimited"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",
@@ -159,8 +128,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class SchemaDefinition(PropertyType):
-    COLUMNS = "Columns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "columns": "Columns",
     }
@@ -170,9 +137,6 @@ class SchemaDefinition(PropertyType):
 
 @dataclass
 class TimestampPartition(PropertyType):
-    ATTRIBUTE_NAME = "AttributeName"
-    TIMESTAMP_FORMAT = "TimestampFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_name": "AttributeName",
         "timestamp_format": "TimestampFormat",

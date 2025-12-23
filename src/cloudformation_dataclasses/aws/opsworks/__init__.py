@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpsWorks
@@ -38,19 +38,6 @@ class App(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::App"
     name_field: ClassVar[str] = "name"
-    APP_SOURCE = "AppSource"
-    ATTRIBUTES = "Attributes"
-    DATA_SOURCES = "DataSources"
-    DESCRIPTION = "Description"
-    DOMAINS = "Domains"
-    ENABLE_SSL = "EnableSsl"
-    ENVIRONMENT = "Environment"
-    NAME = "Name"
-    SHORTNAME = "Shortname"
-    SSL_CONFIGURATION = "SslConfiguration"
-    STACK_ID = "StackId"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_source": "AppSource",
         "attributes": "Attributes",
@@ -86,9 +73,6 @@ class ElasticLoadBalancerAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
     name_field: ClassVar[str] = "elastic_load_balancer_name"
-    ELASTIC_LOAD_BALANCER_NAME = "ElasticLoadBalancerName"
-    LAYER_ID = "LayerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elastic_load_balancer_name": "ElasticLoadBalancerName",
         "layer_id": "LayerId",
@@ -104,28 +88,6 @@ class Instance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Instance"
     name_field: ClassVar[str] = "ssh_key_name"
-    AGENT_VERSION = "AgentVersion"
-    AMI_ID = "AmiId"
-    ARCHITECTURE = "Architecture"
-    AUTO_SCALING_TYPE = "AutoScalingType"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    EBS_OPTIMIZED = "EbsOptimized"
-    ELASTIC_IPS = "ElasticIps"
-    HOSTNAME = "Hostname"
-    INSTALL_UPDATES_ON_BOOT = "InstallUpdatesOnBoot"
-    INSTANCE_TYPE = "InstanceType"
-    LAYER_IDS = "LayerIds"
-    OS = "Os"
-    ROOT_DEVICE_TYPE = "RootDeviceType"
-    SSH_KEY_NAME = "SshKeyName"
-    STACK_ID = "StackId"
-    SUBNET_ID = "SubnetId"
-    TENANCY = "Tenancy"
-    TIME_BASED_AUTO_SCALING = "TimeBasedAutoScaling"
-    VIRTUALIZATION_TYPE = "VirtualizationType"
-    VOLUMES = "Volumes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_version": "AgentVersion",
         "ami_id": "AmiId",
@@ -205,26 +167,6 @@ class Layer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Layer"
     name_field: ClassVar[str] = "name"
-    ATTRIBUTES = "Attributes"
-    AUTO_ASSIGN_ELASTIC_IPS = "AutoAssignElasticIps"
-    AUTO_ASSIGN_PUBLIC_IPS = "AutoAssignPublicIps"
-    CUSTOM_INSTANCE_PROFILE_ARN = "CustomInstanceProfileArn"
-    CUSTOM_JSON = "CustomJson"
-    CUSTOM_RECIPES = "CustomRecipes"
-    CUSTOM_SECURITY_GROUP_IDS = "CustomSecurityGroupIds"
-    ENABLE_AUTO_HEALING = "EnableAutoHealing"
-    INSTALL_UPDATES_ON_BOOT = "InstallUpdatesOnBoot"
-    LIFECYCLE_EVENT_CONFIGURATION = "LifecycleEventConfiguration"
-    LOAD_BASED_AUTO_SCALING = "LoadBasedAutoScaling"
-    NAME = "Name"
-    PACKAGES = "Packages"
-    SHORTNAME = "Shortname"
-    STACK_ID = "StackId"
-    TAGS = "Tags"
-    TYPE = "Type"
-    USE_EBS_OPTIMIZED_INSTANCES = "UseEbsOptimizedInstances"
-    VOLUME_CONFIGURATIONS = "VolumeConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "auto_assign_elastic_ips": "AutoAssignElasticIps",
@@ -274,32 +216,6 @@ class Stack(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Stack"
     name_field: ClassVar[str] = "name"
-    AGENT_VERSION = "AgentVersion"
-    ATTRIBUTES = "Attributes"
-    CHEF_CONFIGURATION = "ChefConfiguration"
-    CLONE_APP_IDS = "CloneAppIds"
-    CLONE_PERMISSIONS = "ClonePermissions"
-    CONFIGURATION_MANAGER = "ConfigurationManager"
-    CUSTOM_COOKBOOKS_SOURCE = "CustomCookbooksSource"
-    CUSTOM_JSON = "CustomJson"
-    DEFAULT_AVAILABILITY_ZONE = "DefaultAvailabilityZone"
-    DEFAULT_INSTANCE_PROFILE_ARN = "DefaultInstanceProfileArn"
-    DEFAULT_OS = "DefaultOs"
-    DEFAULT_ROOT_DEVICE_TYPE = "DefaultRootDeviceType"
-    DEFAULT_SSH_KEY_NAME = "DefaultSshKeyName"
-    DEFAULT_SUBNET_ID = "DefaultSubnetId"
-    ECS_CLUSTER_ARN = "EcsClusterArn"
-    ELASTIC_IPS = "ElasticIps"
-    HOSTNAME_THEME = "HostnameTheme"
-    NAME = "Name"
-    RDS_DB_INSTANCES = "RdsDbInstances"
-    SERVICE_ROLE_ARN = "ServiceRoleArn"
-    SOURCE_STACK_ID = "SourceStackId"
-    TAGS = "Tags"
-    USE_CUSTOM_COOKBOOKS = "UseCustomCookbooks"
-    USE_OPSWORKS_SECURITY_GROUPS = "UseOpsworksSecurityGroups"
-    VPC_ID = "VpcId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_version": "AgentVersion",
         "attributes": "Attributes",
@@ -360,11 +276,6 @@ class UserProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::UserProfile"
-    ALLOW_SELF_MANAGEMENT = "AllowSelfManagement"
-    IAM_USER_ARN = "IamUserArn"
-    SSH_PUBLIC_KEY = "SshPublicKey"
-    SSH_USERNAME = "SshUsername"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_self_management": "AllowSelfManagement",
         "iam_user_arn": "IamUserArn",
@@ -390,11 +301,6 @@ class Volume(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Volume"
     name_field: ClassVar[str] = "name"
-    EC2_VOLUME_ID = "Ec2VolumeId"
-    MOUNT_POINT = "MountPoint"
-    NAME = "Name"
-    STACK_ID = "StackId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_volume_id": "Ec2VolumeId",
         "mount_point": "MountPoint",

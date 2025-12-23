@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoggingConfig(PropertyType):
-    LOG_GROUP_NAME = "LogGroupName"
-    LOG_ROLE_ARN = "LogRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
         "log_role_arn": "LogRoleArn",

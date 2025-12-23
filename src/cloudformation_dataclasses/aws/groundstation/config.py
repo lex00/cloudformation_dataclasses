@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AntennaDownlinkConfig(PropertyType):
-    SPECTRUM_CONFIG = "SpectrumConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spectrum_config": "SpectrumConfig",
     }
@@ -22,10 +20,6 @@ class AntennaDownlinkConfig(PropertyType):
 
 @dataclass
 class AntennaDownlinkDemodDecodeConfig(PropertyType):
-    DEMODULATION_CONFIG = "DemodulationConfig"
-    SPECTRUM_CONFIG = "SpectrumConfig"
-    DECODE_CONFIG = "DecodeConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "demodulation_config": "DemodulationConfig",
         "spectrum_config": "SpectrumConfig",
@@ -39,10 +33,6 @@ class AntennaDownlinkDemodDecodeConfig(PropertyType):
 
 @dataclass
 class AntennaUplinkConfig(PropertyType):
-    TRANSMIT_DISABLED = "TransmitDisabled"
-    SPECTRUM_CONFIG = "SpectrumConfig"
-    TARGET_EIRP = "TargetEirp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transmit_disabled": "TransmitDisabled",
         "spectrum_config": "SpectrumConfig",
@@ -56,14 +46,6 @@ class AntennaUplinkConfig(PropertyType):
 
 @dataclass
 class ConfigData(PropertyType):
-    DATAFLOW_ENDPOINT_CONFIG = "DataflowEndpointConfig"
-    UPLINK_ECHO_CONFIG = "UplinkEchoConfig"
-    ANTENNA_DOWNLINK_CONFIG = "AntennaDownlinkConfig"
-    ANTENNA_DOWNLINK_DEMOD_DECODE_CONFIG = "AntennaDownlinkDemodDecodeConfig"
-    TRACKING_CONFIG = "TrackingConfig"
-    ANTENNA_UPLINK_CONFIG = "AntennaUplinkConfig"
-    S3_RECORDING_CONFIG = "S3RecordingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataflow_endpoint_config": "DataflowEndpointConfig",
         "uplink_echo_config": "UplinkEchoConfig",
@@ -85,9 +67,6 @@ class ConfigData(PropertyType):
 
 @dataclass
 class DataflowEndpointConfig(PropertyType):
-    DATAFLOW_ENDPOINT_NAME = "DataflowEndpointName"
-    DATAFLOW_ENDPOINT_REGION = "DataflowEndpointRegion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataflow_endpoint_name": "DataflowEndpointName",
         "dataflow_endpoint_region": "DataflowEndpointRegion",
@@ -99,8 +78,6 @@ class DataflowEndpointConfig(PropertyType):
 
 @dataclass
 class DecodeConfig(PropertyType):
-    UNVALIDATED_JSON = "UnvalidatedJSON"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unvalidated_json": "UnvalidatedJSON",
     }
@@ -110,8 +87,6 @@ class DecodeConfig(PropertyType):
 
 @dataclass
 class DemodulationConfig(PropertyType):
-    UNVALIDATED_JSON = "UnvalidatedJSON"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unvalidated_json": "UnvalidatedJSON",
     }
@@ -121,9 +96,6 @@ class DemodulationConfig(PropertyType):
 
 @dataclass
 class Eirp(PropertyType):
-    VALUE = "Value"
-    UNITS = "Units"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -135,9 +107,6 @@ class Eirp(PropertyType):
 
 @dataclass
 class Frequency(PropertyType):
-    VALUE = "Value"
-    UNITS = "Units"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -149,9 +118,6 @@ class Frequency(PropertyType):
 
 @dataclass
 class FrequencyBandwidth(PropertyType):
-    VALUE = "Value"
-    UNITS = "Units"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -163,10 +129,6 @@ class FrequencyBandwidth(PropertyType):
 
 @dataclass
 class S3RecordingConfig(PropertyType):
-    BUCKET_ARN = "BucketArn"
-    PREFIX = "Prefix"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "prefix": "Prefix",
@@ -180,10 +142,6 @@ class S3RecordingConfig(PropertyType):
 
 @dataclass
 class SpectrumConfig(PropertyType):
-    POLARIZATION = "Polarization"
-    BANDWIDTH = "Bandwidth"
-    CENTER_FREQUENCY = "CenterFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polarization": "Polarization",
         "bandwidth": "Bandwidth",
@@ -197,8 +155,6 @@ class SpectrumConfig(PropertyType):
 
 @dataclass
 class TrackingConfig(PropertyType):
-    AUTOTRACK = "Autotrack"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "autotrack": "Autotrack",
     }
@@ -208,9 +164,6 @@ class TrackingConfig(PropertyType):
 
 @dataclass
 class UplinkEchoConfig(PropertyType):
-    ENABLED = "Enabled"
-    ANTENNA_UPLINK_CONFIG_ARN = "AntennaUplinkConfigArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "antenna_uplink_config_arn": "AntennaUplinkConfigArn",
@@ -222,9 +175,6 @@ class UplinkEchoConfig(PropertyType):
 
 @dataclass
 class UplinkSpectrumConfig(PropertyType):
-    POLARIZATION = "Polarization"
-    CENTER_FREQUENCY = "CenterFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polarization": "Polarization",
         "center_frequency": "CenterFrequency",

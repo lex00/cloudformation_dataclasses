@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    NOTIFICATION_PROPERTY = "NotificationProperty"
-    CRAWLER_NAME = "CrawlerName"
-    TIMEOUT = "Timeout"
-    JOB_NAME = "JobName"
-    ARGUMENTS = "Arguments"
-    SECURITY_CONFIGURATION = "SecurityConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_property": "NotificationProperty",
         "crawler_name": "CrawlerName",
@@ -37,12 +30,6 @@ class Action(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    CRAWLER_NAME = "CrawlerName"
-    STATE = "State"
-    CRAWL_STATE = "CrawlState"
-    LOGICAL_OPERATOR = "LogicalOperator"
-    JOB_NAME = "JobName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "crawler_name": "CrawlerName",
         "state": "State",
@@ -60,9 +47,6 @@ class Condition(PropertyType):
 
 @dataclass
 class EventBatchingCondition(PropertyType):
-    BATCH_SIZE = "BatchSize"
-    BATCH_WINDOW = "BatchWindow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "batch_window": "BatchWindow",
@@ -74,8 +58,6 @@ class EventBatchingCondition(PropertyType):
 
 @dataclass
 class NotificationProperty(PropertyType):
-    NOTIFY_DELAY_AFTER = "NotifyDelayAfter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify_delay_after": "NotifyDelayAfter",
     }
@@ -85,9 +67,6 @@ class NotificationProperty(PropertyType):
 
 @dataclass
 class Predicate(PropertyType):
-    LOGICAL = "Logical"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical": "Logical",
         "conditions": "Conditions",

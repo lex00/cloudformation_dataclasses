@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutomationRulesActionV2(PropertyType):
-    TYPE = "Type"
-    EXTERNAL_INTEGRATION_CONFIGURATION = "ExternalIntegrationConfiguration"
-    FINDING_FIELDS_UPDATE = "FindingFieldsUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "external_integration_configuration": "ExternalIntegrationConfiguration",
@@ -28,10 +24,6 @@ class AutomationRulesActionV2(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFieldsUpdateV2(PropertyType):
-    COMMENT = "Comment"
-    STATUS_ID = "StatusId"
-    SEVERITY_ID = "SeverityId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "status_id": "StatusId",
@@ -45,8 +37,6 @@ class AutomationRulesFindingFieldsUpdateV2(PropertyType):
 
 @dataclass
 class BooleanFilter(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -56,13 +46,6 @@ class BooleanFilter(PropertyType):
 
 @dataclass
 class CompositeFilter(PropertyType):
-    OPERATOR = "Operator"
-    STRING_FILTERS = "StringFilters"
-    BOOLEAN_FILTERS = "BooleanFilters"
-    DATE_FILTERS = "DateFilters"
-    NUMBER_FILTERS = "NumberFilters"
-    MAP_FILTERS = "MapFilters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "string_filters": "StringFilters",
@@ -82,8 +65,6 @@ class CompositeFilter(PropertyType):
 
 @dataclass
 class Criteria(PropertyType):
-    OCSF_FINDING_CRITERIA = "OcsfFindingCriteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsf_finding_criteria": "OcsfFindingCriteria",
     }
@@ -93,10 +74,6 @@ class Criteria(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    DATE_RANGE = "DateRange"
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -110,9 +87,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -124,8 +98,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class ExternalIntegrationConfiguration(PropertyType):
-    CONNECTOR_ARN = "ConnectorArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
     }
@@ -135,10 +107,6 @@ class ExternalIntegrationConfiguration(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -152,10 +120,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    GTE = "Gte"
-    EQ = "Eq"
-    LTE = "Lte"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -169,9 +133,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class OcsfBooleanFilter(PropertyType):
-    FILTER = "Filter"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -183,9 +144,6 @@ class OcsfBooleanFilter(PropertyType):
 
 @dataclass
 class OcsfDateFilter(PropertyType):
-    FILTER = "Filter"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -197,9 +155,6 @@ class OcsfDateFilter(PropertyType):
 
 @dataclass
 class OcsfFindingFilters(PropertyType):
-    COMPOSITE_FILTERS = "CompositeFilters"
-    COMPOSITE_OPERATOR = "CompositeOperator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "composite_filters": "CompositeFilters",
         "composite_operator": "CompositeOperator",
@@ -211,9 +166,6 @@ class OcsfFindingFilters(PropertyType):
 
 @dataclass
 class OcsfMapFilter(PropertyType):
-    FILTER = "Filter"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -225,9 +177,6 @@ class OcsfMapFilter(PropertyType):
 
 @dataclass
 class OcsfNumberFilter(PropertyType):
-    FILTER = "Filter"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -239,9 +188,6 @@ class OcsfNumberFilter(PropertyType):
 
 @dataclass
 class OcsfStringFilter(PropertyType):
-    FILTER = "Filter"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -253,9 +199,6 @@ class OcsfStringFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",

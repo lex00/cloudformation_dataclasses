@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppSync
@@ -440,11 +440,6 @@ class Api(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::Api"
     name_field: ClassVar[str] = "name"
-    OWNER_CONTACT = "OwnerContact"
-    EVENT_CONFIG = "EventConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_contact": "OwnerContact",
         "event_config": "EventConfig",
@@ -489,14 +484,6 @@ class ApiCache(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::ApiCache"
-    TYPE = "Type"
-    TRANSIT_ENCRYPTION_ENABLED = "TransitEncryptionEnabled"
-    HEALTH_METRICS_CONFIG = "HealthMetricsConfig"
-    AT_REST_ENCRYPTION_ENABLED = "AtRestEncryptionEnabled"
-    API_ID = "ApiId"
-    API_CACHING_BEHAVIOR = "ApiCachingBehavior"
-    TTL = "Ttl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "transit_encryption_enabled": "TransitEncryptionEnabled",
@@ -521,11 +508,6 @@ class ApiKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::ApiKey"
-    DESCRIPTION = "Description"
-    API_KEY_ID = "ApiKeyId"
-    EXPIRES = "Expires"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "api_key_id": "ApiKeyId",
@@ -556,15 +538,6 @@ class ChannelNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::ChannelNamespace"
     name_field: ClassVar[str] = "name"
-    SUBSCRIBE_AUTH_MODES = "SubscribeAuthModes"
-    CODE_S3_LOCATION = "CodeS3Location"
-    PUBLISH_AUTH_MODES = "PublishAuthModes"
-    CODE_HANDLERS = "CodeHandlers"
-    HANDLER_CONFIGS = "HandlerConfigs"
-    API_ID = "ApiId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscribe_auth_modes": "SubscribeAuthModes",
         "code_s3_location": "CodeS3Location",
@@ -598,19 +571,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::DataSource"
     name_field: ClassVar[str] = "name"
-    OPEN_SEARCH_SERVICE_CONFIG = "OpenSearchServiceConfig"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    SERVICE_ROLE_ARN = "ServiceRoleArn"
-    EVENT_BRIDGE_CONFIG = "EventBridgeConfig"
-    HTTP_CONFIG = "HttpConfig"
-    RELATIONAL_DATABASE_CONFIG = "RelationalDatabaseConfig"
-    LAMBDA_CONFIG = "LambdaConfig"
-    API_ID = "ApiId"
-    METRICS_CONFIG = "MetricsConfig"
-    NAME = "Name"
-    DYNAMO_DB_CONFIG = "DynamoDBConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_search_service_config": "OpenSearchServiceConfig",
         "type_": "Type",
@@ -657,11 +617,6 @@ class DomainName(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::DomainName"
     name_field: ClassVar[str] = "domain_name"
-    DESCRIPTION = "Description"
-    DOMAIN_NAME = "DomainName"
-    TAGS = "Tags"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "domain_name": "DomainName",
@@ -702,9 +657,6 @@ class DomainNameApiAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::DomainNameApiAssociation"
     name_field: ClassVar[str] = "domain_name"
-    DOMAIN_NAME = "DomainName"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "api_id": "ApiId",
@@ -726,21 +678,6 @@ class FunctionConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::FunctionConfiguration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    REQUEST_MAPPING_TEMPLATE = "RequestMappingTemplate"
-    RESPONSE_MAPPING_TEMPLATE = "ResponseMappingTemplate"
-    MAX_BATCH_SIZE = "MaxBatchSize"
-    SYNC_CONFIG = "SyncConfig"
-    CODE = "Code"
-    NAME = "Name"
-    RESPONSE_MAPPING_TEMPLATE_S3_LOCATION = "ResponseMappingTemplateS3Location"
-    RUNTIME = "Runtime"
-    CODE_S3_LOCATION = "CodeS3Location"
-    DATA_SOURCE_NAME = "DataSourceName"
-    FUNCTION_VERSION = "FunctionVersion"
-    REQUEST_MAPPING_TEMPLATE_S3_LOCATION = "RequestMappingTemplateS3Location"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "request_mapping_template": "RequestMappingTemplate",
@@ -801,25 +738,6 @@ class GraphQLApi(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::GraphQLApi"
     name_field: ClassVar[str] = "name"
-    QUERY_DEPTH_LIMIT = "QueryDepthLimit"
-    OPEN_ID_CONNECT_CONFIG = "OpenIDConnectConfig"
-    INTROSPECTION_CONFIG = "IntrospectionConfig"
-    MERGED_API_EXECUTION_ROLE_ARN = "MergedApiExecutionRoleArn"
-    ENHANCED_METRICS_CONFIG = "EnhancedMetricsConfig"
-    OWNER_CONTACT = "OwnerContact"
-    RESOLVER_COUNT_LIMIT = "ResolverCountLimit"
-    NAME = "Name"
-    ADDITIONAL_AUTHENTICATION_PROVIDERS = "AdditionalAuthenticationProviders"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    API_TYPE = "ApiType"
-    LAMBDA_AUTHORIZER_CONFIG = "LambdaAuthorizerConfig"
-    XRAY_ENABLED = "XrayEnabled"
-    VISIBILITY = "Visibility"
-    USER_POOL_CONFIG = "UserPoolConfig"
-    TAGS = "Tags"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-    LOG_CONFIG = "LogConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_depth_limit": "QueryDepthLimit",
         "open_id_connect_config": "OpenIDConnectConfig",
@@ -902,10 +820,6 @@ class GraphQLSchema(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::GraphQLSchema"
-    DEFINITION = "Definition"
-    DEFINITION_S3_LOCATION = "DefinitionS3Location"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
         "definition_s3_location": "DefinitionS3Location",
@@ -923,24 +837,6 @@ class Resolver(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppSync::Resolver"
     name_field: ClassVar[str] = "type_name"
-    TYPE_NAME = "TypeName"
-    PIPELINE_CONFIG = "PipelineConfig"
-    REQUEST_MAPPING_TEMPLATE = "RequestMappingTemplate"
-    RESPONSE_MAPPING_TEMPLATE = "ResponseMappingTemplate"
-    MAX_BATCH_SIZE = "MaxBatchSize"
-    SYNC_CONFIG = "SyncConfig"
-    CODE = "Code"
-    METRICS_CONFIG = "MetricsConfig"
-    RESPONSE_MAPPING_TEMPLATE_S3_LOCATION = "ResponseMappingTemplateS3Location"
-    RUNTIME = "Runtime"
-    CODE_S3_LOCATION = "CodeS3Location"
-    DATA_SOURCE_NAME = "DataSourceName"
-    KIND = "Kind"
-    CACHING_CONFIG = "CachingConfig"
-    REQUEST_MAPPING_TEMPLATE_S3_LOCATION = "RequestMappingTemplateS3Location"
-    API_ID = "ApiId"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "pipeline_config": "PipelineConfig",
@@ -1001,11 +897,6 @@ class SourceApiAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::SourceApiAssociation"
-    DESCRIPTION = "Description"
-    SOURCE_API_ASSOCIATION_CONFIG = "SourceApiAssociationConfig"
-    MERGED_API_IDENTIFIER = "MergedApiIdentifier"
-    SOURCE_API_IDENTIFIER = "SourceApiIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "source_api_association_config": "SourceApiAssociationConfig",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationInsights
@@ -35,19 +35,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApplicationInsights::Application"
     name_field: ClassVar[str] = "resource_group_name"
-    AUTO_CONFIGURATION_ENABLED = "AutoConfigurationEnabled"
-    OPS_ITEM_SNS_TOPIC_ARN = "OpsItemSNSTopicArn"
-    OPS_CENTER_ENABLED = "OpsCenterEnabled"
-    CUSTOM_COMPONENTS = "CustomComponents"
-    SNS_NOTIFICATION_ARN = "SNSNotificationArn"
-    ATTACH_MISSING_PERMISSION = "AttachMissingPermission"
-    LOG_PATTERN_SETS = "LogPatternSets"
-    GROUPING_TYPE = "GroupingType"
-    COMPONENT_MONITORING_SETTINGS = "ComponentMonitoringSettings"
-    CWE_MONITOR_ENABLED = "CWEMonitorEnabled"
-    TAGS = "Tags"
-    RESOURCE_GROUP_NAME = "ResourceGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_configuration_enabled": "AutoConfigurationEnabled",
         "ops_item_sns_topic_arn": "OpsItemSNSTopicArn",

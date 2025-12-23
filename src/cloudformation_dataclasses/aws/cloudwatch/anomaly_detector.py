@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Configuration(PropertyType):
-    METRIC_TIME_ZONE = "MetricTimeZone"
-    EXCLUDED_TIME_RANGES = "ExcludedTimeRanges"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_time_zone": "MetricTimeZone",
         "excluded_time_ranges": "ExcludedTimeRanges",
@@ -25,9 +22,6 @@ class Configuration(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -39,10 +33,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    METRIC_NAME = "MetricName"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -56,8 +46,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricCharacteristics(PropertyType):
-    PERIODIC_SPIKES = "PeriodicSpikes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periodic_spikes": "PeriodicSpikes",
     }
@@ -72,14 +60,6 @@ class MetricDataQueries(PropertyType):
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    ACCOUNT_ID = "AccountId"
-    RETURN_DATA = "ReturnData"
-    EXPRESSION = "Expression"
-    METRIC_STAT = "MetricStat"
-    LABEL = "Label"
-    PERIOD = "Period"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "return_data": "ReturnData",
@@ -101,8 +81,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricMathAnomalyDetector(PropertyType):
-    METRIC_DATA_QUERIES = "MetricDataQueries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -112,11 +90,6 @@ class MetricMathAnomalyDetector(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    STAT = "Stat"
-    PERIOD = "Period"
-    METRIC = "Metric"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -132,9 +105,6 @@ class MetricStat(PropertyType):
 
 @dataclass
 class Range(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -146,12 +116,6 @@ class Range(PropertyType):
 
 @dataclass
 class SingleMetricAnomalyDetector(PropertyType):
-    METRIC_NAME = "MetricName"
-    ACCOUNT_ID = "AccountId"
-    STAT = "Stat"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "account_id": "AccountId",

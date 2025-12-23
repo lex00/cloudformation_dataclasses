@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:17
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMContacts
@@ -149,12 +149,6 @@ class Contact(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::Contact"
     name_field: ClassVar[str] = "display_name"
-    TYPE = "Type"
-    ALIAS = "Alias"
-    DISPLAY_NAME = "DisplayName"
-    PLAN = "Plan"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "alias": "Alias",
@@ -182,12 +176,6 @@ class ContactChannel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::ContactChannel"
     name_field: ClassVar[str] = "channel_name"
-    CHANNEL_NAME = "ChannelName"
-    CHANNEL_ADDRESS = "ChannelAddress"
-    CONTACT_ID = "ContactId"
-    CHANNEL_TYPE = "ChannelType"
-    DEFER_ACTIVATION = "DeferActivation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "channel_address": "ChannelAddress",
@@ -214,10 +202,6 @@ class Plan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmco"""
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::Plan"
-    ROTATION_IDS = "RotationIds"
-    STAGES = "Stages"
-    CONTACT_ID = "ContactId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rotation_ids": "RotationIds",
         "stages": "Stages",
@@ -241,13 +225,6 @@ class Rotation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::Rotation"
     name_field: ClassVar[str] = "name"
-    RECURRENCE = "Recurrence"
-    TIME_ZONE_ID = "TimeZoneId"
-    START_TIME = "StartTime"
-    TAGS = "Tags"
-    NAME = "Name"
-    CONTACT_IDS = "ContactIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recurrence": "Recurrence",
         "time_zone_id": "TimeZoneId",

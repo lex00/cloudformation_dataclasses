@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:42
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppConfig
@@ -185,10 +185,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Application"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -212,17 +208,6 @@ class ConfigurationProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppConfig::ConfigurationProfile"
     name_field: ClassVar[str] = "name"
-    LOCATION_URI = "LocationUri"
-    TYPE = "Type"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    VALIDATORS = "Validators"
-    RETRIEVAL_ROLE_ARN = "RetrievalRoleArn"
-    DELETION_PROTECTION_CHECK = "DeletionProtectionCheck"
-    APPLICATION_ID = "ApplicationId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_uri": "LocationUri",
         "type_": "Type",
@@ -264,16 +249,6 @@ class Deployment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Deployment"
-    DEPLOYMENT_STRATEGY_ID = "DeploymentStrategyId"
-    CONFIGURATION_PROFILE_ID = "ConfigurationProfileId"
-    ENVIRONMENT_ID = "EnvironmentId"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    CONFIGURATION_VERSION = "ConfigurationVersion"
-    APPLICATION_ID = "ApplicationId"
-    DYNAMIC_EXTENSION_PARAMETERS = "DynamicExtensionParameters"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_strategy_id": "DeploymentStrategyId",
         "configuration_profile_id": "ConfigurationProfileId",
@@ -314,15 +289,6 @@ class DeploymentStrategy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppConfig::DeploymentStrategy"
     name_field: ClassVar[str] = "name"
-    REPLICATE_TO = "ReplicateTo"
-    GROWTH_TYPE = "GrowthType"
-    DESCRIPTION = "Description"
-    DEPLOYMENT_DURATION_IN_MINUTES = "DeploymentDurationInMinutes"
-    GROWTH_FACTOR = "GrowthFactor"
-    FINAL_BAKE_TIME_IN_MINUTES = "FinalBakeTimeInMinutes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replicate_to": "ReplicateTo",
         "growth_type": "GrowthType",
@@ -356,13 +322,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Environment"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    MONITORS = "Monitors"
-    DELETION_PROTECTION_CHECK = "DeletionProtectionCheck"
-    APPLICATION_ID = "ApplicationId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "monitors": "Monitors",
@@ -392,13 +351,6 @@ class Extension(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Extension"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    ACTIONS = "Actions"
-    LATEST_VERSION_NUMBER = "LatestVersionNumber"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -437,12 +389,6 @@ class ExtensionAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::ExtensionAssociation"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    PARAMETERS = "Parameters"
-    EXTENSION_IDENTIFIER = "ExtensionIdentifier"
-    EXTENSION_VERSION_NUMBER = "ExtensionVersionNumber"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_identifier": "ResourceIdentifier",
         "parameters": "Parameters",
@@ -484,14 +430,6 @@ class HostedConfigurationVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::HostedConfigurationVersion"
-    CONFIGURATION_PROFILE_ID = "ConfigurationProfileId"
-    DESCRIPTION = "Description"
-    CONTENT_TYPE = "ContentType"
-    LATEST_VERSION_NUMBER = "LatestVersionNumber"
-    CONTENT = "Content"
-    VERSION_LABEL = "VersionLabel"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_profile_id": "ConfigurationProfileId",
         "description": "Description",

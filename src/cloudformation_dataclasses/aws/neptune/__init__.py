@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Neptune
@@ -79,32 +79,6 @@ class DBCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBCluster"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    STORAGE_ENCRYPTED = "StorageEncrypted"
-    RESTORE_TO_TIME = "RestoreToTime"
-    ASSOCIATED_ROLES = "AssociatedRoles"
-    SNAPSHOT_IDENTIFIER = "SnapshotIdentifier"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    DB_PORT = "DBPort"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    COPY_TAGS_TO_SNAPSHOT = "CopyTagsToSnapshot"
-    RESTORE_TYPE = "RestoreType"
-    TAGS = "Tags"
-    ENGINE_VERSION = "EngineVersion"
-    KMS_KEY_ID = "KmsKeyId"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    SERVERLESS_SCALING_CONFIGURATION = "ServerlessScalingConfiguration"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    IAM_AUTH_ENABLED = "IamAuthEnabled"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DELETION_PROTECTION = "DeletionProtection"
-    USE_LATEST_RESTORABLE_TIME = "UseLatestRestorableTime"
-    SOURCE_DB_CLUSTER_IDENTIFIER = "SourceDBClusterIdentifier"
-    DB_CLUSTER_PARAMETER_GROUP_NAME = "DBClusterParameterGroupName"
-    BACKUP_RETENTION_PERIOD = "BackupRetentionPeriod"
-    DB_INSTANCE_PARAMETER_GROUP_NAME = "DBInstanceParameterGroupName"
-    ENABLE_CLOUDWATCH_LOGS_EXPORTS = "EnableCloudwatchLogsExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_encrypted": "StorageEncrypted",
         "restore_to_time": "RestoreToTime",
@@ -187,12 +161,6 @@ class DBClusterParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBClusterParameterGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    FAMILY = "Family"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -214,18 +182,6 @@ class DBInstance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBInstance"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    DB_PARAMETER_GROUP_NAME = "DBParameterGroupName"
-    DB_INSTANCE_CLASS = "DBInstanceClass"
-    ALLOW_MAJOR_VERSION_UPGRADE = "AllowMajorVersionUpgrade"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    DB_INSTANCE_IDENTIFIER = "DBInstanceIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_parameter_group_name": "DBParameterGroupName",
         "db_instance_class": "DBInstanceClass",
@@ -270,12 +226,6 @@ class DBParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBParameterGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    FAMILY = "Family"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -297,11 +247,6 @@ class DBSubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBSubnetGroup"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_subnet_group_name": "DBSubnetGroupName",
         "db_subnet_group_description": "DBSubnetGroupDescription",
@@ -321,14 +266,6 @@ class EventSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Neptune::EventSubscription"
     name_field: ClassVar[str] = "subscription_name"
-    SOURCE_TYPE = "SourceType"
-    ENABLED = "Enabled"
-    EVENT_CATEGORIES = "EventCategories"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SOURCE_IDS = "SourceIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "enabled": "Enabled",

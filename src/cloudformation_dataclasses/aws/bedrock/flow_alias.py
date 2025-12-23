@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FlowAliasConcurrencyConfiguration(PropertyType):
-    TYPE = "Type"
-    MAX_CONCURRENCY = "MaxConcurrency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "max_concurrency": "MaxConcurrency",
@@ -25,8 +22,6 @@ class FlowAliasConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class FlowAliasRoutingConfigurationListItem(PropertyType):
-    FLOW_VERSION = "FlowVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_version": "FlowVersion",
     }

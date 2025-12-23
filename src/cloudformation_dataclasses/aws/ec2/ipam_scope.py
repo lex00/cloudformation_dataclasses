@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IpamScopeExternalAuthorityConfiguration(PropertyType):
-    EXTERNAL_RESOURCE_IDENTIFIER = "ExternalResourceIdentifier"
-    IPAM_SCOPE_EXTERNAL_AUTHORITY_TYPE = "IpamScopeExternalAuthorityType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_resource_identifier": "ExternalResourceIdentifier",
         "ipam_scope_external_authority_type": "IpamScopeExternalAuthorityType",

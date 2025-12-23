@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResourceServerScopeType(PropertyType):
-    SCOPE_NAME = "ScopeName"
-    SCOPE_DESCRIPTION = "ScopeDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope_name": "ScopeName",
         "scope_description": "ScopeDescription",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoadBalancerAttribute(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,8 +22,6 @@ class LoadBalancerAttribute(PropertyType):
 
 @dataclass
 class MinimumLoadBalancerCapacity(PropertyType):
-    CAPACITY_UNITS = "CapacityUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_units": "CapacityUnits",
     }
@@ -36,12 +31,6 @@ class MinimumLoadBalancerCapacity(PropertyType):
 
 @dataclass
 class SubnetMapping(PropertyType):
-    ALLOCATION_ID = "AllocationId"
-    I_PV6_ADDRESS = "IPv6Address"
-    SUBNET_ID = "SubnetId"
-    SOURCE_NAT_IPV6_PREFIX = "SourceNatIpv6Prefix"
-    PRIVATE_I_PV4_ADDRESS = "PrivateIPv4Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_id": "AllocationId",
         "i_pv6_address": "IPv6Address",

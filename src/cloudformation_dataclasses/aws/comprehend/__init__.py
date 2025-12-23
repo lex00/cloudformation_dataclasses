@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:50
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Comprehend
@@ -613,19 +613,6 @@ class DocumentClassifier(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Comprehend::DocumentClassifier"
     name_field: ClassVar[str] = "document_classifier_name"
-    LANGUAGE_CODE = "LanguageCode"
-    DATA_ACCESS_ROLE_ARN = "DataAccessRoleArn"
-    OUTPUT_DATA_CONFIG = "OutputDataConfig"
-    VPC_CONFIG = "VpcConfig"
-    DOCUMENT_CLASSIFIER_NAME = "DocumentClassifierName"
-    MODE = "Mode"
-    VOLUME_KMS_KEY_ID = "VolumeKmsKeyId"
-    MODEL_KMS_KEY_ID = "ModelKmsKeyId"
-    VERSION_NAME = "VersionName"
-    MODEL_POLICY = "ModelPolicy"
-    INPUT_DATA_CONFIG = "InputDataConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "data_access_role_arn": "DataAccessRoleArn",
@@ -667,15 +654,6 @@ class Flywheel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Comprehend::Flywheel"
     name_field: ClassVar[str] = "flywheel_name"
-    DATA_LAKE_S3_URI = "DataLakeS3Uri"
-    DATA_ACCESS_ROLE_ARN = "DataAccessRoleArn"
-    FLYWHEEL_NAME = "FlywheelName"
-    MODEL_TYPE = "ModelType"
-    TASK_CONFIG = "TaskConfig"
-    ACTIVE_MODEL_ARN = "ActiveModelArn"
-    DATA_SECURITY_CONFIG = "DataSecurityConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_s3_uri": "DataLakeS3Uri",
         "data_access_role_arn": "DataAccessRoleArn",

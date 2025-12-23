@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Logger(PropertyType):
-    SPACE = "Space"
-    TYPE = "Type"
-    LEVEL = "Level"
-    ID = "Id"
-    COMPONENT = "Component"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "space": "Space",
         "type_": "Type",
@@ -34,8 +28,6 @@ class Logger(PropertyType):
 
 @dataclass
 class LoggerDefinitionVersion(PropertyType):
-    LOGGERS = "Loggers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "loggers": "Loggers",
     }

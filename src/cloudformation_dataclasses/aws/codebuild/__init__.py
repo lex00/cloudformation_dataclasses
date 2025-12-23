@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:48
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeBuild
@@ -741,19 +741,6 @@ class Fleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::Fleet"
     name_field: ClassVar[str] = "name"
-    FLEET_SERVICE_ROLE = "FleetServiceRole"
-    ENVIRONMENT_TYPE = "EnvironmentType"
-    OVERFLOW_BEHAVIOR = "OverflowBehavior"
-    IMAGE_ID = "ImageId"
-    SCALING_CONFIGURATION = "ScalingConfiguration"
-    BASE_CAPACITY = "BaseCapacity"
-    FLEET_PROXY_CONFIGURATION = "FleetProxyConfiguration"
-    COMPUTE_CONFIGURATION = "ComputeConfiguration"
-    COMPUTE_TYPE = "ComputeType"
-    TAGS = "Tags"
-    NAME = "Name"
-    FLEET_VPC_CONFIG = "FleetVpcConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_service_role": "FleetServiceRole",
         "environment_type": "EnvironmentType",
@@ -795,32 +782,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::Project"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    RESOURCE_ACCESS_ROLE = "ResourceAccessRole"
-    VPC_CONFIG = "VpcConfig"
-    SECONDARY_SOURCES = "SecondarySources"
-    ENCRYPTION_KEY = "EncryptionKey"
-    SECONDARY_ARTIFACTS = "SecondaryArtifacts"
-    SOURCE = "Source"
-    NAME = "Name"
-    LOGS_CONFIG = "LogsConfig"
-    SERVICE_ROLE = "ServiceRole"
-    QUEUED_TIMEOUT_IN_MINUTES = "QueuedTimeoutInMinutes"
-    SECONDARY_SOURCE_VERSIONS = "SecondarySourceVersions"
-    TAGS = "Tags"
-    AUTO_RETRY_LIMIT = "AutoRetryLimit"
-    SOURCE_VERSION = "SourceVersion"
-    TRIGGERS = "Triggers"
-    ARTIFACTS = "Artifacts"
-    BADGE_ENABLED = "BadgeEnabled"
-    FILE_SYSTEM_LOCATIONS = "FileSystemLocations"
-    ENVIRONMENT = "Environment"
-    CONCURRENT_BUILD_LIMIT = "ConcurrentBuildLimit"
-    VISIBILITY = "Visibility"
-    BUILD_BATCH_CONFIG = "BuildBatchConfig"
-    TIMEOUT_IN_MINUTES = "TimeoutInMinutes"
-    CACHE = "Cache"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "resource_access_role": "ResourceAccessRole",
@@ -888,12 +849,6 @@ class ReportGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::ReportGroup"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    EXPORT_CONFIG = "ExportConfig"
-    DELETE_REPORTS = "DeleteReports"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "export_config": "ExportConfig",
@@ -920,11 +875,6 @@ class SourceCredential(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeb"""
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::SourceCredential"
-    SERVER_TYPE = "ServerType"
-    USERNAME = "Username"
-    TOKEN = "Token"
-    AUTH_TYPE = "AuthType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_type": "ServerType",
         "username": "Username",

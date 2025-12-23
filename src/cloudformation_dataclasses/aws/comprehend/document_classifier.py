@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AugmentedManifestsListItem(PropertyType):
-    S3_URI = "S3Uri"
-    ATTRIBUTE_NAMES = "AttributeNames"
-    SPLIT = "Split"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "attribute_names": "AttributeNames",
@@ -28,9 +24,6 @@ class AugmentedManifestsListItem(PropertyType):
 
 @dataclass
 class DocumentClassifierDocuments(PropertyType):
-    S3_URI = "S3Uri"
-    TEST_S3_URI = "TestS3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "test_s3_uri": "TestS3Uri",
@@ -42,15 +35,6 @@ class DocumentClassifierDocuments(PropertyType):
 
 @dataclass
 class DocumentClassifierInputDataConfig(PropertyType):
-    DOCUMENT_READER_CONFIG = "DocumentReaderConfig"
-    S3_URI = "S3Uri"
-    DOCUMENTS = "Documents"
-    DATA_FORMAT = "DataFormat"
-    DOCUMENT_TYPE = "DocumentType"
-    AUGMENTED_MANIFESTS = "AugmentedManifests"
-    LABEL_DELIMITER = "LabelDelimiter"
-    TEST_S3_URI = "TestS3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_reader_config": "DocumentReaderConfig",
         "s3_uri": "S3Uri",
@@ -74,9 +58,6 @@ class DocumentClassifierInputDataConfig(PropertyType):
 
 @dataclass
 class DocumentClassifierOutputDataConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_uri": "S3Uri",
@@ -88,10 +69,6 @@ class DocumentClassifierOutputDataConfig(PropertyType):
 
 @dataclass
 class DocumentReaderConfig(PropertyType):
-    FEATURE_TYPES = "FeatureTypes"
-    DOCUMENT_READ_MODE = "DocumentReadMode"
-    DOCUMENT_READ_ACTION = "DocumentReadAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_types": "FeatureTypes",
         "document_read_mode": "DocumentReadMode",
@@ -105,9 +82,6 @@ class DocumentReaderConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

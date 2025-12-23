@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ReportExportConfig(PropertyType):
-    S3_DESTINATION = "S3Destination"
-    EXPORT_CONFIG_TYPE = "ExportConfigType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
         "export_config_type": "ExportConfigType",
@@ -25,13 +22,6 @@ class ReportExportConfig(PropertyType):
 
 @dataclass
 class S3ReportExportConfig(PropertyType):
-    PATH = "Path"
-    BUCKET = "Bucket"
-    PACKAGING = "Packaging"
-    ENCRYPTION_KEY = "EncryptionKey"
-    BUCKET_OWNER = "BucketOwner"
-    ENCRYPTION_DISABLED = "EncryptionDisabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "bucket": "Bucket",

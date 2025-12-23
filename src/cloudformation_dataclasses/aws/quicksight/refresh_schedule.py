@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RefreshOnDay(PropertyType):
-    DAY_OF_WEEK = "DayOfWeek"
-    DAY_OF_MONTH = "DayOfMonth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "day_of_month": "DayOfMonth",
@@ -25,11 +22,6 @@ class RefreshOnDay(PropertyType):
 
 @dataclass
 class RefreshScheduleMap(PropertyType):
-    START_AFTER_DATE_TIME = "StartAfterDateTime"
-    SCHEDULE_ID = "ScheduleId"
-    SCHEDULE_FREQUENCY = "ScheduleFrequency"
-    REFRESH_TYPE = "RefreshType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_after_date_time": "StartAfterDateTime",
         "schedule_id": "ScheduleId",
@@ -45,11 +37,6 @@ class RefreshScheduleMap(PropertyType):
 
 @dataclass
 class ScheduleFrequency(PropertyType):
-    TIME_ZONE = "TimeZone"
-    REFRESH_ON_DAY = "RefreshOnDay"
-    TIME_OF_THE_DAY = "TimeOfTheDay"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_zone": "TimeZone",
         "refresh_on_day": "RefreshOnDay",

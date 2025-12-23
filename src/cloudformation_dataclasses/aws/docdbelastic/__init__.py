@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDBElastic
@@ -31,21 +31,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DocDBElastic::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    ADMIN_USER_NAME = "AdminUserName"
-    KMS_KEY_ID = "KmsKeyId"
-    ADMIN_USER_PASSWORD = "AdminUserPassword"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    SHARD_INSTANCE_COUNT = "ShardInstanceCount"
-    SUBNET_IDS = "SubnetIds"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    SHARD_COUNT = "ShardCount"
-    SHARD_CAPACITY = "ShardCapacity"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    CLUSTER_NAME = "ClusterName"
-    BACKUP_RETENTION_PERIOD = "BackupRetentionPeriod"
-    AUTH_TYPE = "AuthType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_user_name": "AdminUserName",
         "kms_key_id": "KmsKeyId",

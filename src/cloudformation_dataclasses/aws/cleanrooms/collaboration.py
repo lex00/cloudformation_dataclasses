@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataEncryptionMetadata(PropertyType):
-    ALLOW_CLEARTEXT = "AllowCleartext"
-    PRESERVE_NULLS = "PreserveNulls"
-    ALLOW_JOINS_ON_COLUMNS_WITH_DIFFERENT_NAMES = "AllowJoinsOnColumnsWithDifferentNames"
-    ALLOW_DUPLICATES = "AllowDuplicates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_cleartext": "AllowCleartext",
         "preserve_nulls": "PreserveNulls",
@@ -31,8 +26,6 @@ class DataEncryptionMetadata(PropertyType):
 
 @dataclass
 class JobComputePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -42,8 +35,6 @@ class JobComputePaymentConfig(PropertyType):
 
 @dataclass
 class MLMemberAbilities(PropertyType):
-    CUSTOM_ML_MEMBER_ABILITIES = "CustomMLMemberAbilities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_ml_member_abilities": "CustomMLMemberAbilities",
     }
@@ -53,10 +44,6 @@ class MLMemberAbilities(PropertyType):
 
 @dataclass
 class MLPaymentConfig(PropertyType):
-    MODEL_INFERENCE = "ModelInference"
-    SYNTHETIC_DATA_GENERATION = "SyntheticDataGeneration"
-    MODEL_TRAINING = "ModelTraining"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_inference": "ModelInference",
         "synthetic_data_generation": "SyntheticDataGeneration",
@@ -70,12 +57,6 @@ class MLPaymentConfig(PropertyType):
 
 @dataclass
 class MemberSpecification(PropertyType):
-    ACCOUNT_ID = "AccountId"
-    ML_MEMBER_ABILITIES = "MLMemberAbilities"
-    DISPLAY_NAME = "DisplayName"
-    MEMBER_ABILITIES = "MemberAbilities"
-    PAYMENT_CONFIGURATION = "PaymentConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "ml_member_abilities": "MLMemberAbilities",
@@ -93,8 +74,6 @@ class MemberSpecification(PropertyType):
 
 @dataclass
 class ModelInferencePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -104,8 +83,6 @@ class ModelInferencePaymentConfig(PropertyType):
 
 @dataclass
 class ModelTrainingPaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -115,10 +92,6 @@ class ModelTrainingPaymentConfig(PropertyType):
 
 @dataclass
 class PaymentConfiguration(PropertyType):
-    JOB_COMPUTE = "JobCompute"
-    QUERY_COMPUTE = "QueryCompute"
-    MACHINE_LEARNING = "MachineLearning"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_compute": "JobCompute",
         "query_compute": "QueryCompute",
@@ -132,8 +105,6 @@ class PaymentConfiguration(PropertyType):
 
 @dataclass
 class QueryComputePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -143,8 +114,6 @@ class QueryComputePaymentConfig(PropertyType):
 
 @dataclass
 class SyntheticDataGenerationPaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }

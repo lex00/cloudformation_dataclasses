@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Certificate(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -22,10 +20,6 @@ class Certificate(PropertyType):
 
 @dataclass
 class Customizations(PropertyType):
-    WEB_ACL = "WebAcl"
-    GEO_RESTRICTIONS = "GeoRestrictions"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web_acl": "WebAcl",
         "geo_restrictions": "GeoRestrictions",
@@ -39,9 +33,6 @@ class Customizations(PropertyType):
 
 @dataclass
 class DomainResult(PropertyType):
-    STATUS = "Status"
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "domain": "Domain",
@@ -53,9 +44,6 @@ class DomainResult(PropertyType):
 
 @dataclass
 class GeoRestrictionCustomization(PropertyType):
-    LOCATIONS = "Locations"
-    RESTRICTION_TYPE = "RestrictionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locations": "Locations",
         "restriction_type": "RestrictionType",
@@ -67,10 +55,6 @@ class GeoRestrictionCustomization(PropertyType):
 
 @dataclass
 class ManagedCertificateRequest(PropertyType):
-    CERTIFICATE_TRANSPARENCY_LOGGING_PREFERENCE = "CertificateTransparencyLoggingPreference"
-    VALIDATION_TOKEN_HOST = "ValidationTokenHost"
-    PRIMARY_DOMAIN_NAME = "PrimaryDomainName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_transparency_logging_preference": "CertificateTransparencyLoggingPreference",
         "validation_token_host": "ValidationTokenHost",
@@ -84,9 +68,6 @@ class ManagedCertificateRequest(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -98,9 +79,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class WebAclCustomization(PropertyType):
-    ACTION = "Action"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "arn": "Arn",

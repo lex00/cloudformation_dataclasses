@@ -11,20 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    IOT_EVENTS = "IotEvents"
-    FIREHOSE = "Firehose"
-    DYNAMO_DB = "DynamoDB"
-    IOT_TOPIC_PUBLISH = "IotTopicPublish"
-    DYNAMO_D_BV2 = "DynamoDBv2"
-    IOT_SITE_WISE = "IotSiteWise"
-    RESET_TIMER = "ResetTimer"
-    SQS = "Sqs"
-    SET_TIMER = "SetTimer"
-    SNS = "Sns"
-    CLEAR_TIMER = "ClearTimer"
-    LAMBDA = "Lambda"
-    SET_VARIABLE = "SetVariable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_events": "IotEvents",
         "firehose": "Firehose",
@@ -58,9 +44,6 @@ class Action(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    TIME_IN_SECONDS = "TimeInSeconds"
-    OFFSET_IN_NANOS = "OffsetInNanos"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -72,10 +55,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    QUALITY = "Quality"
-    VALUE = "Value"
-    TIMESTAMP = "Timestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -89,11 +68,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    DOUBLE_VALUE = "DoubleValue"
-    BOOLEAN_VALUE = "BooleanValue"
-    INTEGER_VALUE = "IntegerValue"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -109,8 +83,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class ClearTimer(PropertyType):
-    TIMER_NAME = "TimerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timer_name": "TimerName",
     }
@@ -120,9 +92,6 @@ class ClearTimer(PropertyType):
 
 @dataclass
 class DetectorModelDefinition(PropertyType):
-    STATES = "States"
-    INITIAL_STATE_NAME = "InitialStateName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "states": "States",
         "initial_state_name": "InitialStateName",
@@ -134,17 +103,6 @@ class DetectorModelDefinition(PropertyType):
 
 @dataclass
 class DynamoDB(PropertyType):
-    TABLE_NAME = "TableName"
-    PAYLOAD_FIELD = "PayloadField"
-    RANGE_KEY_FIELD = "RangeKeyField"
-    HASH_KEY_FIELD = "HashKeyField"
-    RANGE_KEY_VALUE = "RangeKeyValue"
-    RANGE_KEY_TYPE = "RangeKeyType"
-    HASH_KEY_TYPE = "HashKeyType"
-    HASH_KEY_VALUE = "HashKeyValue"
-    PAYLOAD = "Payload"
-    OPERATION = "Operation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -172,9 +130,6 @@ class DynamoDB(PropertyType):
 
 @dataclass
 class DynamoDBv2(PropertyType):
-    TABLE_NAME = "TableName"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload": "Payload",
@@ -186,10 +141,6 @@ class DynamoDBv2(PropertyType):
 
 @dataclass
 class Event(PropertyType):
-    CONDITION = "Condition"
-    ACTIONS = "Actions"
-    EVENT_NAME = "EventName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "actions": "Actions",
@@ -203,10 +154,6 @@ class Event(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    DELIVERY_STREAM_NAME = "DeliveryStreamName"
-    PAYLOAD = "Payload"
-    SEPARATOR = "Separator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "payload": "Payload",
@@ -220,9 +167,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class IotEvents(PropertyType):
-    INPUT_NAME = "InputName"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "payload": "Payload",
@@ -234,12 +178,6 @@ class IotEvents(PropertyType):
 
 @dataclass
 class IotSiteWise(PropertyType):
-    ENTRY_ID = "EntryId"
-    PROPERTY_ALIAS = "PropertyAlias"
-    PROPERTY_VALUE = "PropertyValue"
-    ASSET_ID = "AssetId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_id": "EntryId",
         "property_alias": "PropertyAlias",
@@ -257,9 +195,6 @@ class IotSiteWise(PropertyType):
 
 @dataclass
 class IotTopicPublish(PropertyType):
-    MQTT_TOPIC = "MqttTopic"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "payload": "Payload",
@@ -271,9 +206,6 @@ class IotTopicPublish(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "payload": "Payload",
@@ -285,8 +217,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class OnEnter(PropertyType):
-    EVENTS = "Events"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -296,8 +226,6 @@ class OnEnter(PropertyType):
 
 @dataclass
 class OnExit(PropertyType):
-    EVENTS = "Events"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -307,9 +235,6 @@ class OnExit(PropertyType):
 
 @dataclass
 class OnInput(PropertyType):
-    EVENTS = "Events"
-    TRANSITION_EVENTS = "TransitionEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
         "transition_events": "TransitionEvents",
@@ -321,9 +246,6 @@ class OnInput(PropertyType):
 
 @dataclass
 class Payload(PropertyType):
-    CONTENT_EXPRESSION = "ContentExpression"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_expression": "ContentExpression",
         "type_": "Type",
@@ -335,8 +257,6 @@ class Payload(PropertyType):
 
 @dataclass
 class ResetTimer(PropertyType):
-    TIMER_NAME = "TimerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timer_name": "TimerName",
     }
@@ -346,10 +266,6 @@ class ResetTimer(PropertyType):
 
 @dataclass
 class SetTimer(PropertyType):
-    SECONDS = "Seconds"
-    TIMER_NAME = "TimerName"
-    DURATION_EXPRESSION = "DurationExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seconds": "Seconds",
         "timer_name": "TimerName",
@@ -363,9 +279,6 @@ class SetTimer(PropertyType):
 
 @dataclass
 class SetVariable(PropertyType):
-    VALUE = "Value"
-    VARIABLE_NAME = "VariableName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "variable_name": "VariableName",
@@ -377,9 +290,6 @@ class SetVariable(PropertyType):
 
 @dataclass
 class Sns(PropertyType):
-    TARGET_ARN = "TargetArn"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload": "Payload",
@@ -391,10 +301,6 @@ class Sns(PropertyType):
 
 @dataclass
 class Sqs(PropertyType):
-    USE_BASE64 = "UseBase64"
-    PAYLOAD = "Payload"
-    QUEUE_URL = "QueueUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "payload": "Payload",
@@ -408,11 +314,6 @@ class Sqs(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    ON_INPUT = "OnInput"
-    ON_EXIT = "OnExit"
-    STATE_NAME = "StateName"
-    ON_ENTER = "OnEnter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_input": "OnInput",
         "on_exit": "OnExit",
@@ -428,11 +329,6 @@ class State(PropertyType):
 
 @dataclass
 class TransitionEvent(PropertyType):
-    CONDITION = "Condition"
-    ACTIONS = "Actions"
-    NEXT_STATE = "NextState"
-    EVENT_NAME = "EventName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "actions": "Actions",

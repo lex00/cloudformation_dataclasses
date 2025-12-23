@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -25,9 +22,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -39,8 +33,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class AvailabilityZoneDistribution(PropertyType):
-    CAPACITY_DISTRIBUTION_STRATEGY = "CapacityDistributionStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_distribution_strategy": "CapacityDistributionStrategy",
     }
@@ -50,9 +42,6 @@ class AvailabilityZoneDistribution(PropertyType):
 
 @dataclass
 class AvailabilityZoneImpairmentPolicy(PropertyType):
-    ZONAL_SHIFT_ENABLED = "ZonalShiftEnabled"
-    IMPAIRED_ZONE_HEALTH_CHECK_BEHAVIOR = "ImpairedZoneHealthCheckBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "zonal_shift_enabled": "ZonalShiftEnabled",
         "impaired_zone_health_check_behavior": "ImpairedZoneHealthCheckBehavior",
@@ -64,9 +53,6 @@ class AvailabilityZoneImpairmentPolicy(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -78,8 +64,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactorsRequest(PropertyType):
-    CPU = "Cpu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -89,9 +73,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-    CAPACITY_RESERVATION_TARGET = "CapacityReservationTarget"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -103,9 +84,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    CAPACITY_RESERVATION_IDS = "CapacityReservationIds"
-    CAPACITY_RESERVATION_RESOURCE_GROUP_ARNS = "CapacityReservationResourceGroupArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_ids": "CapacityReservationIds",
         "capacity_reservation_resource_group_arns": "CapacityReservationResourceGroupArns",
@@ -117,8 +95,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class CpuPerformanceFactorRequest(PropertyType):
-    REFERENCES = "References"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -128,9 +104,6 @@ class CpuPerformanceFactorRequest(PropertyType):
 
 @dataclass
 class InstanceMaintenancePolicy(PropertyType):
-    MAX_HEALTHY_PERCENTAGE = "MaxHealthyPercentage"
-    MIN_HEALTHY_PERCENTAGE = "MinHealthyPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_healthy_percentage": "MaxHealthyPercentage",
         "min_healthy_percentage": "MinHealthyPercentage",
@@ -142,32 +115,6 @@ class InstanceMaintenancePolicy(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    INSTANCE_GENERATIONS = "InstanceGenerations"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    MEMORY_GI_B_PER_V_CPU = "MemoryGiBPerVCpu"
-    ACCELERATOR_MANUFACTURERS = "AcceleratorManufacturers"
-    V_CPU_COUNT = "VCpuCount"
-    LOCAL_STORAGE = "LocalStorage"
-    CPU_MANUFACTURERS = "CpuManufacturers"
-    BARE_METAL = "BareMetal"
-    REQUIRE_HIBERNATE_SUPPORT = "RequireHibernateSupport"
-    MAX_SPOT_PRICE_AS_PERCENTAGE_OF_OPTIMAL_ON_DEMAND_PRICE = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
-    ON_DEMAND_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "OnDemandMaxPricePercentageOverLowestPrice"
-    MEMORY_MI_B = "MemoryMiB"
-    LOCAL_STORAGE_TYPES = "LocalStorageTypes"
-    NETWORK_INTERFACE_COUNT = "NetworkInterfaceCount"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    ACCELERATOR_COUNT = "AcceleratorCount"
-    NETWORK_BANDWIDTH_GBPS = "NetworkBandwidthGbps"
-    BASELINE_PERFORMANCE_FACTORS = "BaselinePerformanceFactors"
-    BASELINE_EBS_BANDWIDTH_MBPS = "BaselineEbsBandwidthMbps"
-    SPOT_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "SpotMaxPricePercentageOverLowestPrice"
-    ACCELERATOR_NAMES = "AcceleratorNames"
-    ACCELERATOR_TOTAL_MEMORY_MI_B = "AcceleratorTotalMemoryMiB"
-    BURSTABLE_PERFORMANCE = "BurstablePerformance"
-    TOTAL_LOCAL_STORAGE_GB = "TotalLocalStorageGB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "accelerator_types": "AcceleratorTypes",
@@ -225,13 +172,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class InstancesDistribution(PropertyType):
-    ON_DEMAND_ALLOCATION_STRATEGY = "OnDemandAllocationStrategy"
-    ON_DEMAND_BASE_CAPACITY = "OnDemandBaseCapacity"
-    ON_DEMAND_PERCENTAGE_ABOVE_BASE_CAPACITY = "OnDemandPercentageAboveBaseCapacity"
-    SPOT_INSTANCE_POOLS = "SpotInstancePools"
-    SPOT_ALLOCATION_STRATEGY = "SpotAllocationStrategy"
-    SPOT_MAX_PRICE = "SpotMaxPrice"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_allocation_strategy": "OnDemandAllocationStrategy",
         "on_demand_base_capacity": "OnDemandBaseCapacity",
@@ -251,9 +191,6 @@ class InstancesDistribution(PropertyType):
 
 @dataclass
 class LaunchTemplate(PropertyType):
-    LAUNCH_TEMPLATE_SPECIFICATION = "LaunchTemplateSpecification"
-    OVERRIDES = "Overrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "overrides": "Overrides",
@@ -265,11 +202,6 @@ class LaunchTemplate(PropertyType):
 
 @dataclass
 class LaunchTemplateOverrides(PropertyType):
-    LAUNCH_TEMPLATE_SPECIFICATION = "LaunchTemplateSpecification"
-    WEIGHTED_CAPACITY = "WeightedCapacity"
-    INSTANCE_REQUIREMENTS = "InstanceRequirements"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "weighted_capacity": "WeightedCapacity",
@@ -285,10 +217,6 @@ class LaunchTemplateOverrides(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -302,14 +230,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LifecycleHookSpecification(PropertyType):
-    LIFECYCLE_HOOK_NAME = "LifecycleHookName"
-    LIFECYCLE_TRANSITION = "LifecycleTransition"
-    HEARTBEAT_TIMEOUT = "HeartbeatTimeout"
-    NOTIFICATION_METADATA = "NotificationMetadata"
-    DEFAULT_RESULT = "DefaultResult"
-    NOTIFICATION_TARGET_ARN = "NotificationTargetARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_hook_name": "LifecycleHookName",
         "lifecycle_transition": "LifecycleTransition",
@@ -331,9 +251,6 @@ class LifecycleHookSpecification(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -345,9 +262,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -359,9 +273,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class MetricsCollection(PropertyType):
-    METRICS = "Metrics"
-    GRANULARITY = "Granularity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "granularity": "Granularity",
@@ -373,9 +284,6 @@ class MetricsCollection(PropertyType):
 
 @dataclass
 class MixedInstancesPolicy(PropertyType):
-    INSTANCES_DISTRIBUTION = "InstancesDistribution"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instances_distribution": "InstancesDistribution",
         "launch_template": "LaunchTemplate",
@@ -387,9 +295,6 @@ class MixedInstancesPolicy(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -401,9 +306,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -415,9 +317,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    TOPIC_ARN = "TopicARN"
-    NOTIFICATION_TYPES = "NotificationTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicARN",
         "notification_types": "NotificationTypes",
@@ -429,8 +328,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class PerformanceFactorReferenceRequest(PropertyType):
-    INSTANCE_FAMILY = "InstanceFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -440,10 +337,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
 
 @dataclass
 class TagProperty(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-    PROPAGATE_AT_LAUNCH = "PropagateAtLaunch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -457,9 +350,6 @@ class TagProperty(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -471,9 +361,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class TrafficSourceIdentifier(PropertyType):
-    TYPE = "Type"
-    IDENTIFIER = "Identifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",
@@ -485,9 +372,6 @@ class TrafficSourceIdentifier(PropertyType):
 
 @dataclass
 class VCpuCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",

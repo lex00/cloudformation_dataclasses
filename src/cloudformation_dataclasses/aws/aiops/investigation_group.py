@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ChatbotNotificationChannel(PropertyType):
-    SNS_TOPIC_ARN = "SNSTopicArn"
-    CHAT_CONFIGURATION_ARNS = "ChatConfigurationArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "chat_configuration_arns": "ChatConfigurationArns",
@@ -25,8 +22,6 @@ class ChatbotNotificationChannel(PropertyType):
 
 @dataclass
 class CrossAccountConfiguration(PropertyType):
-    SOURCE_ROLE_ARN = "SourceRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_role_arn": "SourceRoleArn",
     }
@@ -36,9 +31,6 @@ class CrossAccountConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfigMap(PropertyType):
-    ENCRYPTION_CONFIGURATION_TYPE = "EncryptionConfigurationType"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration_type": "EncryptionConfigurationType",
         "kms_key_id": "KmsKeyId",

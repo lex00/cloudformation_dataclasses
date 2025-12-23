@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PatchFilter(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -25,8 +22,6 @@ class PatchFilter(PropertyType):
 
 @dataclass
 class PatchFilterGroup(PropertyType):
-    PATCH_FILTERS = "PatchFilters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "patch_filters": "PatchFilters",
     }
@@ -36,10 +31,6 @@ class PatchFilterGroup(PropertyType):
 
 @dataclass
 class PatchSource(PropertyType):
-    PRODUCTS = "Products"
-    CONFIGURATION = "Configuration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "products": "Products",
         "configuration": "Configuration",
@@ -53,12 +44,6 @@ class PatchSource(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    APPROVE_UNTIL_DATE = "ApproveUntilDate"
-    ENABLE_NON_SECURITY = "EnableNonSecurity"
-    PATCH_FILTER_GROUP = "PatchFilterGroup"
-    APPROVE_AFTER_DAYS = "ApproveAfterDays"
-    COMPLIANCE_LEVEL = "ComplianceLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approve_until_date": "ApproveUntilDate",
         "enable_non_security": "EnableNonSecurity",
@@ -76,8 +61,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleGroup(PropertyType):
-    PATCH_RULES = "PatchRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "patch_rules": "PatchRules",
     }

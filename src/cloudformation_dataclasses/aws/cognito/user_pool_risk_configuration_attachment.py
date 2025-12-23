@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccountTakeoverActionType(PropertyType):
-    NOTIFY = "Notify"
-    EVENT_ACTION = "EventAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify": "Notify",
         "event_action": "EventAction",
@@ -25,10 +22,6 @@ class AccountTakeoverActionType(PropertyType):
 
 @dataclass
 class AccountTakeoverActionsType(PropertyType):
-    HIGH_ACTION = "HighAction"
-    LOW_ACTION = "LowAction"
-    MEDIUM_ACTION = "MediumAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "high_action": "HighAction",
         "low_action": "LowAction",
@@ -42,9 +35,6 @@ class AccountTakeoverActionsType(PropertyType):
 
 @dataclass
 class AccountTakeoverRiskConfigurationType(PropertyType):
-    ACTIONS = "Actions"
-    NOTIFY_CONFIGURATION = "NotifyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "notify_configuration": "NotifyConfiguration",
@@ -56,8 +46,6 @@ class AccountTakeoverRiskConfigurationType(PropertyType):
 
 @dataclass
 class CompromisedCredentialsActionsType(PropertyType):
-    EVENT_ACTION = "EventAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_action": "EventAction",
     }
@@ -67,9 +55,6 @@ class CompromisedCredentialsActionsType(PropertyType):
 
 @dataclass
 class CompromisedCredentialsRiskConfigurationType(PropertyType):
-    ACTIONS = "Actions"
-    EVENT_FILTER = "EventFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "event_filter": "EventFilter",
@@ -81,13 +66,6 @@ class CompromisedCredentialsRiskConfigurationType(PropertyType):
 
 @dataclass
 class NotifyConfigurationType(PropertyType):
-    BLOCK_EMAIL = "BlockEmail"
-    REPLY_TO = "ReplyTo"
-    SOURCE_ARN = "SourceArn"
-    NO_ACTION_EMAIL = "NoActionEmail"
-    FROM = "From"
-    MFA_EMAIL = "MfaEmail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block_email": "BlockEmail",
         "reply_to": "ReplyTo",
@@ -107,10 +85,6 @@ class NotifyConfigurationType(PropertyType):
 
 @dataclass
 class NotifyEmailType(PropertyType):
-    TEXT_BODY = "TextBody"
-    HTML_BODY = "HtmlBody"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_body": "TextBody",
         "html_body": "HtmlBody",
@@ -124,9 +98,6 @@ class NotifyEmailType(PropertyType):
 
 @dataclass
 class RiskExceptionConfigurationType(PropertyType):
-    BLOCKED_IP_RANGE_LIST = "BlockedIPRangeList"
-    SKIPPED_IP_RANGE_LIST = "SkippedIPRangeList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocked_ip_range_list": "BlockedIPRangeList",
         "skipped_ip_range_list": "SkippedIPRangeList",

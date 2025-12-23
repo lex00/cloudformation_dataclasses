@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IngestEndpoint(PropertyType):
-    ID = "Id"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "url": "Url",
@@ -25,9 +22,6 @@ class IngestEndpoint(PropertyType):
 
 @dataclass
 class InputSwitchConfiguration(PropertyType):
-    PREFERRED_INPUT = "PreferredInput"
-    MQCS_INPUT_SWITCHING = "MQCSInputSwitching"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_input": "PreferredInput",
         "mqcs_input_switching": "MQCSInputSwitching",
@@ -39,8 +33,6 @@ class InputSwitchConfiguration(PropertyType):
 
 @dataclass
 class OutputHeaderConfiguration(PropertyType):
-    PUBLISH_MQCS = "PublishMQCS"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_mqcs": "PublishMQCS",
     }

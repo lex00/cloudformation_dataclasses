@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CertificateDetails(PropertyType):
-    VALID_TILL = "ValidTill"
-    CA_IDENTIFIER = "CAIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "valid_till": "ValidTill",
         "ca_identifier": "CAIdentifier",
@@ -25,9 +22,6 @@ class CertificateDetails(PropertyType):
 
 @dataclass
 class DBInstanceRole(PropertyType):
-    ROLE_ARN = "RoleArn"
-    FEATURE_NAME = "FeatureName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "feature_name": "FeatureName",
@@ -39,11 +33,6 @@ class DBInstanceRole(PropertyType):
 
 @dataclass
 class DBInstanceStatusInfo(PropertyType):
-    STATUS = "Status"
-    MESSAGE = "Message"
-    STATUS_TYPE = "StatusType"
-    NORMAL = "Normal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "message": "Message",
@@ -59,10 +48,6 @@ class DBInstanceStatusInfo(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    ADDRESS = "Address"
-    PORT = "Port"
-    HOSTED_ZONE_ID = "HostedZoneId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -76,9 +61,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class MasterUserSecret(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_id": "KmsKeyId",
@@ -90,9 +72,6 @@ class MasterUserSecret(PropertyType):
 
 @dataclass
 class ProcessorFeature(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

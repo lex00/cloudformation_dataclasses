@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LakeFormationConfiguration(PropertyType):
-    LOCATION_REGISTRATION_EXCLUDE_S3_LOCATIONS = "LocationRegistrationExcludeS3Locations"
-    LOCATION_REGISTRATION_ROLE = "LocationRegistrationRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_registration_exclude_s3_locations": "LocationRegistrationExcludeS3Locations",
         "location_registration_role": "LocationRegistrationRole",
@@ -25,8 +22,6 @@ class LakeFormationConfiguration(PropertyType):
 
 @dataclass
 class ProvisioningConfiguration(PropertyType):
-    LAKE_FORMATION_CONFIGURATION = "LakeFormationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lake_formation_configuration": "LakeFormationConfiguration",
     }
@@ -36,9 +31,6 @@ class ProvisioningConfiguration(PropertyType):
 
 @dataclass
 class RegionalParameter(PropertyType):
-    PARAMETERS = "Parameters"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "region": "Region",

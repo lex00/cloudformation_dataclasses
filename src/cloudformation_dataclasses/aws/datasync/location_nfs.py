@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MountOptions(PropertyType):
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -22,8 +20,6 @@ class MountOptions(PropertyType):
 
 @dataclass
 class OnPremConfig(PropertyType):
-    AGENT_ARNS = "AgentArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_arns": "AgentArns",
     }

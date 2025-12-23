@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:51
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaignsV2
@@ -253,17 +253,6 @@ class Campaign(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ConnectCampaignsV2::Campaign"
     name_field: ClassVar[str] = "name"
-    COMMUNICATION_LIMITS_OVERRIDE = "CommunicationLimitsOverride"
-    TYPE = "Type"
-    CHANNEL_SUBTYPE_CONFIG = "ChannelSubtypeConfig"
-    CONNECT_CAMPAIGN_FLOW_ARN = "ConnectCampaignFlowArn"
-    SCHEDULE = "Schedule"
-    COMMUNICATION_TIME_CONFIG = "CommunicationTimeConfig"
-    CONNECT_INSTANCE_ID = "ConnectInstanceId"
-    SOURCE = "Source"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "communication_limits_override": "CommunicationLimitsOverride",
         "type_": "Type",

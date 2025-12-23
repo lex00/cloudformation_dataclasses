@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    ACTION_NAME = "ActionName"
-    CONTAINER_ACTION = "ContainerAction"
-    QUERY_ACTION = "QueryAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "container_action": "ContainerAction",
@@ -28,11 +24,6 @@ class Action(PropertyType):
 
 @dataclass
 class ContainerAction(PropertyType):
-    VARIABLES = "Variables"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    IMAGE = "Image"
-    RESOURCE_CONFIGURATION = "ResourceConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "execution_role_arn": "ExecutionRoleArn",
@@ -48,9 +39,6 @@ class ContainerAction(PropertyType):
 
 @dataclass
 class DatasetContentDeliveryRule(PropertyType):
-    DESTINATION = "Destination"
-    ENTRY_NAME = "EntryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "entry_name": "EntryName",
@@ -62,9 +50,6 @@ class DatasetContentDeliveryRule(PropertyType):
 
 @dataclass
 class DatasetContentDeliveryRuleDestination(PropertyType):
-    IOT_EVENTS_DESTINATION_CONFIGURATION = "IotEventsDestinationConfiguration"
-    S3_DESTINATION_CONFIGURATION = "S3DestinationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_events_destination_configuration": "IotEventsDestinationConfiguration",
         "s3_destination_configuration": "S3DestinationConfiguration",
@@ -76,8 +61,6 @@ class DatasetContentDeliveryRuleDestination(PropertyType):
 
 @dataclass
 class DatasetContentVersionValue(PropertyType):
-    DATASET_NAME = "DatasetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_name": "DatasetName",
     }
@@ -87,9 +70,6 @@ class DatasetContentVersionValue(PropertyType):
 
 @dataclass
 class DeltaTime(PropertyType):
-    TIME_EXPRESSION = "TimeExpression"
-    OFFSET_SECONDS = "OffsetSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_expression": "TimeExpression",
         "offset_seconds": "OffsetSeconds",
@@ -101,8 +81,6 @@ class DeltaTime(PropertyType):
 
 @dataclass
 class DeltaTimeSessionWindowConfiguration(PropertyType):
-    TIMEOUT_IN_MINUTES = "TimeoutInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_minutes": "TimeoutInMinutes",
     }
@@ -112,8 +90,6 @@ class DeltaTimeSessionWindowConfiguration(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    DELTA_TIME = "DeltaTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delta_time": "DeltaTime",
     }
@@ -123,9 +99,6 @@ class Filter(PropertyType):
 
 @dataclass
 class GlueConfiguration(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -137,9 +110,6 @@ class GlueConfiguration(PropertyType):
 
 @dataclass
 class IotEventsDestinationConfiguration(PropertyType):
-    INPUT_NAME = "InputName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "role_arn": "RoleArn",
@@ -151,9 +121,6 @@ class IotEventsDestinationConfiguration(PropertyType):
 
 @dataclass
 class LateDataRule(PropertyType):
-    RULE_CONFIGURATION = "RuleConfiguration"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_configuration": "RuleConfiguration",
         "rule_name": "RuleName",
@@ -165,8 +132,6 @@ class LateDataRule(PropertyType):
 
 @dataclass
 class LateDataRuleConfiguration(PropertyType):
-    DELTA_TIME_SESSION_WINDOW_CONFIGURATION = "DeltaTimeSessionWindowConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delta_time_session_window_configuration": "DeltaTimeSessionWindowConfiguration",
     }
@@ -176,8 +141,6 @@ class LateDataRuleConfiguration(PropertyType):
 
 @dataclass
 class OutputFileUriValue(PropertyType):
-    FILE_NAME = "FileName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_name": "FileName",
     }
@@ -187,9 +150,6 @@ class OutputFileUriValue(PropertyType):
 
 @dataclass
 class QueryAction(PropertyType):
-    FILTERS = "Filters"
-    SQL_QUERY = "SqlQuery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "sql_query": "SqlQuery",
@@ -201,9 +161,6 @@ class QueryAction(PropertyType):
 
 @dataclass
 class ResourceConfiguration(PropertyType):
-    VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
-    COMPUTE_TYPE = "ComputeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_size_in_gb": "VolumeSizeInGB",
         "compute_type": "ComputeType",
@@ -215,9 +172,6 @@ class ResourceConfiguration(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    NUMBER_OF_DAYS = "NumberOfDays"
-    UNLIMITED = "Unlimited"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",
@@ -229,11 +183,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    GLUE_CONFIGURATION = "GlueConfiguration"
-    BUCKET = "Bucket"
-    KEY = "Key"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_configuration": "GlueConfiguration",
         "bucket": "Bucket",
@@ -249,8 +198,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -260,9 +207,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class Trigger(PropertyType):
-    SCHEDULE = "Schedule"
-    TRIGGERING_DATASET = "TriggeringDataset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
         "triggering_dataset": "TriggeringDataset",
@@ -274,8 +218,6 @@ class Trigger(PropertyType):
 
 @dataclass
 class TriggeringDataset(PropertyType):
-    DATASET_NAME = "DatasetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_name": "DatasetName",
     }
@@ -285,12 +227,6 @@ class TriggeringDataset(PropertyType):
 
 @dataclass
 class Variable(PropertyType):
-    DATASET_CONTENT_VERSION_VALUE = "DatasetContentVersionValue"
-    DOUBLE_VALUE = "DoubleValue"
-    OUTPUT_FILE_URI_VALUE = "OutputFileUriValue"
-    VARIABLE_NAME = "VariableName"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_content_version_value": "DatasetContentVersionValue",
         "double_value": "DoubleValue",
@@ -308,9 +244,6 @@ class Variable(PropertyType):
 
 @dataclass
 class VersioningConfiguration(PropertyType):
-    MAX_VERSIONS = "MaxVersions"
-    UNLIMITED = "Unlimited"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_versions": "MaxVersions",
         "unlimited": "Unlimited",

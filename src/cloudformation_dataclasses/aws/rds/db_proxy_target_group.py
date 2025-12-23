@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionPoolConfigurationInfoFormat(PropertyType):
-    MAX_IDLE_CONNECTIONS_PERCENT = "MaxIdleConnectionsPercent"
-    MAX_CONNECTIONS_PERCENT = "MaxConnectionsPercent"
-    INIT_QUERY = "InitQuery"
-    CONNECTION_BORROW_TIMEOUT = "ConnectionBorrowTimeout"
-    SESSION_PINNING_FILTERS = "SessionPinningFilters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_idle_connections_percent": "MaxIdleConnectionsPercent",
         "max_connections_percent": "MaxConnectionsPercent",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ClusterNetworkSettings(PropertyType):
-    INTERFACE_MAPPINGS = "InterfaceMappings"
-    DEFAULT_ROUTE = "DefaultRoute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_mappings": "InterfaceMappings",
         "default_route": "DefaultRoute",
@@ -25,9 +22,6 @@ class ClusterNetworkSettings(PropertyType):
 
 @dataclass
 class InterfaceMapping(PropertyType):
-    NETWORK_ID = "NetworkId"
-    LOGICAL_INTERFACE_NAME = "LogicalInterfaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_id": "NetworkId",
         "logical_interface_name": "LogicalInterfaceName",
@@ -39,9 +33,6 @@ class InterfaceMapping(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

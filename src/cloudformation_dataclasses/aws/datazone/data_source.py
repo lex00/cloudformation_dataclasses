@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataSourceConfigurationInput(PropertyType):
-    REDSHIFT_RUN_CONFIGURATION = "RedshiftRunConfiguration"
-    GLUE_RUN_CONFIGURATION = "GlueRunConfiguration"
-    SAGE_MAKER_RUN_CONFIGURATION = "SageMakerRunConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redshift_run_configuration": "RedshiftRunConfiguration",
         "glue_run_configuration": "GlueRunConfiguration",
@@ -28,9 +24,6 @@ class DataSourceConfigurationInput(PropertyType):
 
 @dataclass
 class FilterExpression(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -42,11 +35,6 @@ class FilterExpression(PropertyType):
 
 @dataclass
 class FormInput(PropertyType):
-    TYPE_IDENTIFIER = "TypeIdentifier"
-    TYPE_REVISION = "TypeRevision"
-    CONTENT = "Content"
-    FORM_NAME = "FormName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_identifier": "TypeIdentifier",
         "type_revision": "TypeRevision",
@@ -62,11 +50,6 @@ class FormInput(PropertyType):
 
 @dataclass
 class GlueRunConfigurationInput(PropertyType):
-    DATA_ACCESS_ROLE = "DataAccessRole"
-    AUTO_IMPORT_DATA_QUALITY_RESULT = "AutoImportDataQualityResult"
-    RELATIONAL_FILTER_CONFIGURATIONS = "RelationalFilterConfigurations"
-    CATALOG_NAME = "CatalogName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_access_role": "DataAccessRole",
         "auto_import_data_quality_result": "AutoImportDataQualityResult",
@@ -82,8 +65,6 @@ class GlueRunConfigurationInput(PropertyType):
 
 @dataclass
 class RecommendationConfiguration(PropertyType):
-    ENABLE_BUSINESS_NAME_GENERATION = "EnableBusinessNameGeneration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_business_name_generation": "EnableBusinessNameGeneration",
     }
@@ -93,8 +74,6 @@ class RecommendationConfiguration(PropertyType):
 
 @dataclass
 class RedshiftClusterStorage(PropertyType):
-    CLUSTER_NAME = "ClusterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
     }
@@ -104,8 +83,6 @@ class RedshiftClusterStorage(PropertyType):
 
 @dataclass
 class RedshiftCredentialConfiguration(PropertyType):
-    SECRET_MANAGER_ARN = "SecretManagerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_manager_arn": "SecretManagerArn",
     }
@@ -115,11 +92,6 @@ class RedshiftCredentialConfiguration(PropertyType):
 
 @dataclass
 class RedshiftRunConfigurationInput(PropertyType):
-    DATA_ACCESS_ROLE = "DataAccessRole"
-    RELATIONAL_FILTER_CONFIGURATIONS = "RelationalFilterConfigurations"
-    REDSHIFT_CREDENTIAL_CONFIGURATION = "RedshiftCredentialConfiguration"
-    REDSHIFT_STORAGE = "RedshiftStorage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_access_role": "DataAccessRole",
         "relational_filter_configurations": "RelationalFilterConfigurations",
@@ -135,8 +107,6 @@ class RedshiftRunConfigurationInput(PropertyType):
 
 @dataclass
 class RedshiftServerlessStorage(PropertyType):
-    WORKGROUP_NAME = "WorkgroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_name": "WorkgroupName",
     }
@@ -146,9 +116,6 @@ class RedshiftServerlessStorage(PropertyType):
 
 @dataclass
 class RedshiftStorage(PropertyType):
-    REDSHIFT_CLUSTER_SOURCE = "RedshiftClusterSource"
-    REDSHIFT_SERVERLESS_SOURCE = "RedshiftServerlessSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redshift_cluster_source": "RedshiftClusterSource",
         "redshift_serverless_source": "RedshiftServerlessSource",
@@ -160,10 +127,6 @@ class RedshiftStorage(PropertyType):
 
 @dataclass
 class RelationalFilterConfiguration(PropertyType):
-    FILTER_EXPRESSIONS = "FilterExpressions"
-    DATABASE_NAME = "DatabaseName"
-    SCHEMA_NAME = "SchemaName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_expressions": "FilterExpressions",
         "database_name": "DatabaseName",
@@ -177,8 +140,6 @@ class RelationalFilterConfiguration(PropertyType):
 
 @dataclass
 class SageMakerRunConfigurationInput(PropertyType):
-    TRACKING_ASSETS = "TrackingAssets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracking_assets": "TrackingAssets",
     }
@@ -188,9 +149,6 @@ class SageMakerRunConfigurationInput(PropertyType):
 
 @dataclass
 class ScheduleConfiguration(PropertyType):
-    TIMEZONE = "Timezone"
-    SCHEDULE = "Schedule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "schedule": "Schedule",

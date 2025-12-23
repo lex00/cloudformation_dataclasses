@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:16
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SES
@@ -265,15 +265,6 @@ class ConfigurationSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::ConfigurationSet"
     name_field: ClassVar[str] = "name"
-    SENDING_OPTIONS = "SendingOptions"
-    SUPPRESSION_OPTIONS = "SuppressionOptions"
-    TRACKING_OPTIONS = "TrackingOptions"
-    REPUTATION_OPTIONS = "ReputationOptions"
-    VDM_OPTIONS = "VdmOptions"
-    DELIVERY_OPTIONS = "DeliveryOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_options": "SendingOptions",
         "suppression_options": "SuppressionOptions",
@@ -301,9 +292,6 @@ class ConfigurationSetEventDestination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::ConfigurationSetEventDestination"
     name_field: ClassVar[str] = "configuration_set_name"
-    CONFIGURATION_SET_NAME = "ConfigurationSetName"
-    EVENT_DESTINATION = "EventDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_set_name": "ConfigurationSetName",
         "event_destination": "EventDestination",
@@ -325,11 +313,6 @@ class ContactList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::ContactList"
     name_field: ClassVar[str] = "contact_list_name"
-    DESCRIPTION = "Description"
-    TOPICS = "Topics"
-    CONTACT_LIST_NAME = "ContactListName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "topics": "Topics",
@@ -349,10 +332,6 @@ class DedicatedIpPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::DedicatedIpPool"
     name_field: ClassVar[str] = "pool_name"
-    POOL_NAME = "PoolName"
-    SCALING_MODE = "ScalingMode"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pool_name": "PoolName",
         "scaling_mode": "ScalingMode",
@@ -369,14 +348,6 @@ class EmailIdentity(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-e"""
 
     resource_type: ClassVar[str] = "AWS::SES::EmailIdentity"
-    CONFIGURATION_SET_ATTRIBUTES = "ConfigurationSetAttributes"
-    EMAIL_IDENTITY = "EmailIdentity"
-    DKIM_SIGNING_ATTRIBUTES = "DkimSigningAttributes"
-    DKIM_ATTRIBUTES = "DkimAttributes"
-    FEEDBACK_ATTRIBUTES = "FeedbackAttributes"
-    TAGS = "Tags"
-    MAIL_FROM_ATTRIBUTES = "MailFromAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_set_attributes": "ConfigurationSetAttributes",
         "email_identity": "EmailIdentity",
@@ -432,9 +403,6 @@ class MailManagerAddonInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerAddonInstance"
-    ADDON_SUBSCRIPTION_ID = "AddonSubscriptionId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "addon_subscription_id": "AddonSubscriptionId",
         "tags": "Tags",
@@ -466,9 +434,6 @@ class MailManagerAddonSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerAddonSubscription"
     name_field: ClassVar[str] = "addon_name"
-    ADDON_NAME = "AddonName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "addon_name": "AddonName",
         "tags": "Tags",
@@ -495,9 +460,6 @@ class MailManagerAddressList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerAddressList"
     name_field: ClassVar[str] = "address_list_name"
-    ADDRESS_LIST_NAME = "AddressListName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_list_name": "AddressListName",
         "tags": "Tags",
@@ -524,11 +486,6 @@ class MailManagerArchive(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerArchive"
     name_field: ClassVar[str] = "archive_name"
-    KMS_KEY_ARN = "KmsKeyArn"
-    ARCHIVE_NAME = "ArchiveName"
-    RETENTION = "Retention"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "archive_name": "ArchiveName",
@@ -564,15 +521,6 @@ class MailManagerIngressPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerIngressPoint"
     name_field: ClassVar[str] = "ingress_point_name"
-    RULE_SET_ID = "RuleSetId"
-    TYPE = "Type"
-    TRAFFIC_POLICY_ID = "TrafficPolicyId"
-    INGRESS_POINT_NAME = "IngressPointName"
-    STATUS_TO_UPDATE = "StatusToUpdate"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-    INGRESS_POINT_CONFIGURATION = "IngressPointConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_set_id": "RuleSetId",
         "type_": "Type",
@@ -621,12 +569,6 @@ class MailManagerRelay(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerRelay"
     name_field: ClassVar[str] = "relay_name"
-    AUTHENTICATION = "Authentication"
-    SERVER_NAME = "ServerName"
-    RELAY_NAME = "RelayName"
-    SERVER_PORT = "ServerPort"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication": "Authentication",
         "server_name": "ServerName",
@@ -659,10 +601,6 @@ class MailManagerRuleSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerRuleSet"
     name_field: ClassVar[str] = "rule_set_name"
-    RULE_SET_NAME = "RuleSetName"
-    RULES = "Rules"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_set_name": "RuleSetName",
         "rules": "Rules",
@@ -691,12 +629,6 @@ class MailManagerTrafficPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerTrafficPolicy"
     name_field: ClassVar[str] = "traffic_policy_name"
-    DEFAULT_ACTION = "DefaultAction"
-    POLICY_STATEMENTS = "PolicyStatements"
-    TRAFFIC_POLICY_NAME = "TrafficPolicyName"
-    MAX_MESSAGE_SIZE_BYTES = "MaxMessageSizeBytes"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_action": "DefaultAction",
         "policy_statements": "PolicyStatements",
@@ -729,10 +661,6 @@ class MultiRegionEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::MultiRegionEndpoint"
     name_field: ClassVar[str] = "endpoint_name"
-    DETAILS = "Details"
-    ENDPOINT_NAME = "EndpointName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "details": "Details",
         "endpoint_name": "EndpointName",
@@ -749,8 +677,6 @@ class ReceiptFilter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-r"""
 
     resource_type: ClassVar[str] = "AWS::SES::ReceiptFilter"
-    FILTER = "Filter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
     }
@@ -764,10 +690,6 @@ class ReceiptRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::ReceiptRule"
     name_field: ClassVar[str] = "rule_set_name"
-    AFTER = "After"
-    RULE = "Rule"
-    RULE_SET_NAME = "RuleSetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
         "rule": "Rule",
@@ -785,8 +707,6 @@ class ReceiptRuleSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SES::ReceiptRuleSet"
     name_field: ClassVar[str] = "rule_set_name"
-    RULE_SET_NAME = "RuleSetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_set_name": "RuleSetName",
     }
@@ -799,8 +719,6 @@ class Template(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-t"""
 
     resource_type: ClassVar[str] = "AWS::SES::Template"
-    TEMPLATE = "Template"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template": "Template",
     }
@@ -819,9 +737,6 @@ class VdmAttributes(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-v"""
 
     resource_type: ClassVar[str] = "AWS::SES::VdmAttributes"
-    DASHBOARD_ATTRIBUTES = "DashboardAttributes"
-    GUARDIAN_ATTRIBUTES = "GuardianAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_attributes": "DashboardAttributes",
         "guardian_attributes": "GuardianAttributes",

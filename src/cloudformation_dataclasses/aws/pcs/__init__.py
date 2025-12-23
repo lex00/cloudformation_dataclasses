@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCS
@@ -206,13 +206,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PCS::Cluster"
     name_field: ClassVar[str] = "name"
-    NETWORKING = "Networking"
-    SCHEDULER = "Scheduler"
-    SIZE = "Size"
-    SLURM_CONFIGURATION = "SlurmConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "networking": "Networking",
         "scheduler": "Scheduler",
@@ -262,19 +255,6 @@ class ComputeNodeGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PCS::ComputeNodeGroup"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ID = "ClusterId"
-    SPOT_OPTIONS = "SpotOptions"
-    SLURM_CONFIGURATION = "SlurmConfiguration"
-    SCALING_CONFIGURATION = "ScalingConfiguration"
-    INSTANCE_CONFIGS = "InstanceConfigs"
-    PURCHASE_OPTION = "PurchaseOption"
-    CUSTOM_LAUNCH_TEMPLATE = "CustomLaunchTemplate"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-    NAME = "Name"
-    AMI_ID = "AmiId"
-    IAM_INSTANCE_PROFILE_ARN = "IamInstanceProfileArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_id": "ClusterId",
         "spot_options": "SpotOptions",
@@ -331,12 +311,6 @@ class Queue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PCS::Queue"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ID = "ClusterId"
-    COMPUTE_NODE_GROUP_CONFIGURATIONS = "ComputeNodeGroupConfigurations"
-    SLURM_CONFIGURATION = "SlurmConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_id": "ClusterId",
         "compute_node_group_configurations": "ComputeNodeGroupConfigurations",

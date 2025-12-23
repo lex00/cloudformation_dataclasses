@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Organizations
@@ -555,12 +555,6 @@ class Account(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Organizations::Account"
     name_field: ClassVar[str] = "account_name"
-    ROLE_NAME = "RoleName"
-    EMAIL = "Email"
-    PARENT_IDS = "ParentIds"
-    TAGS = "Tags"
-    ACCOUNT_NAME = "AccountName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_name": "RoleName",
         "email": "Email",
@@ -612,8 +606,6 @@ class Organization(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Organization"
-    FEATURE_SET = "FeatureSet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_set": "FeatureSet",
     }
@@ -658,10 +650,6 @@ class OrganizationalUnit(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Organizations::OrganizationalUnit"
     name_field: ClassVar[str] = "name"
-    PARENT_ID = "ParentId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parent_id": "ParentId",
         "tags": "Tags",
@@ -690,13 +678,6 @@ class Policy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Organizations::Policy"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    TARGET_IDS = "TargetIds"
-    DESCRIPTION = "Description"
-    CONTENT = "Content"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "target_ids": "TargetIds",
@@ -735,9 +716,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::ResourcePolicy"
-    CONTENT = "Content"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "tags": "Tags",

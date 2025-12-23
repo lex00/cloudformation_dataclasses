@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ContainerRegistryMap(PropertyType):
-    REGISTRY_MAPPINGS = "RegistryMappings"
-    IMAGE_MAPPINGS = "ImageMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_mappings": "RegistryMappings",
         "image_mappings": "ImageMappings",
@@ -25,11 +22,6 @@ class ContainerRegistryMap(PropertyType):
 
 @dataclass
 class DefinitionRepository(PropertyType):
-    SOURCE_REFERENCE = "sourceReference"
-    FULL_REPOSITORY_ID = "fullRepositoryId"
-    EXCLUDE_FILE_PATTERNS = "excludeFilePatterns"
-    CONNECTION_ARN = "connectionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_reference": "sourceReference",
         "full_repository_id": "fullRepositoryId",
@@ -45,9 +37,6 @@ class DefinitionRepository(PropertyType):
 
 @dataclass
 class ImageMapping(PropertyType):
-    SOURCE_IMAGE = "SourceImage"
-    DESTINATION_IMAGE = "DestinationImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_image": "SourceImage",
         "destination_image": "DestinationImage",
@@ -59,11 +48,6 @@ class ImageMapping(PropertyType):
 
 @dataclass
 class RegistryMapping(PropertyType):
-    UPSTREAM_REGISTRY_URL = "UpstreamRegistryUrl"
-    ECR_ACCOUNT_ID = "EcrAccountId"
-    UPSTREAM_REPOSITORY_PREFIX = "UpstreamRepositoryPrefix"
-    ECR_REPOSITORY_PREFIX = "EcrRepositoryPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upstream_registry_url": "UpstreamRegistryUrl",
         "ecr_account_id": "EcrAccountId",
@@ -79,9 +63,6 @@ class RegistryMapping(PropertyType):
 
 @dataclass
 class SourceReference(PropertyType):
-    TYPE = "type"
-    VALUE = "value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "type",
         "value": "value",
@@ -93,9 +74,6 @@ class SourceReference(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    DESCRIPTION = "Description"
-    OPTIONAL = "Optional"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "optional": "Optional",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpacesWeb
@@ -38,12 +38,6 @@ class BrowserSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::BrowserSettings"
-    BROWSER_POLICY = "BrowserPolicy"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    WEB_CONTENT_FILTERING_POLICY = "WebContentFilteringPolicy"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "browser_policy": "BrowserPolicy",
         "customer_managed_key": "CustomerManagedKey",
@@ -76,13 +70,6 @@ class DataProtectionSettings(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::DataProtectionSettings"
     name_field: ClassVar[str] = "display_name"
-    INLINE_REDACTION_CONFIGURATION = "InlineRedactionConfiguration"
-    DESCRIPTION = "Description"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    DISPLAY_NAME = "DisplayName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_redaction_configuration": "InlineRedactionConfiguration",
         "description": "Description",
@@ -122,12 +109,6 @@ class IdentityProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::IdentityProvider"
     name_field: ClassVar[str] = "identity_provider_name"
-    IDENTITY_PROVIDER_DETAILS = "IdentityProviderDetails"
-    PORTAL_ARN = "PortalArn"
-    IDENTITY_PROVIDER_NAME = "IdentityProviderName"
-    IDENTITY_PROVIDER_TYPE = "IdentityProviderType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_provider_details": "IdentityProviderDetails",
         "portal_arn": "PortalArn",
@@ -155,13 +136,6 @@ class IpAccessSettings(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::IpAccessSettings"
     name_field: ClassVar[str] = "display_name"
-    IP_RULES = "IpRules"
-    DESCRIPTION = "Description"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    DISPLAY_NAME = "DisplayName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_rules": "IpRules",
         "description": "Description",
@@ -200,11 +174,6 @@ class NetworkSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::NetworkSettings"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "security_group_ids": "SecurityGroupIds",
@@ -235,22 +204,6 @@ class Portal(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::Portal"
     name_field: ClassVar[str] = "display_name"
-    TRUST_STORE_ARN = "TrustStoreArn"
-    USER_ACCESS_LOGGING_SETTINGS_ARN = "UserAccessLoggingSettingsArn"
-    BROWSER_SETTINGS_ARN = "BrowserSettingsArn"
-    IP_ACCESS_SETTINGS_ARN = "IpAccessSettingsArn"
-    NETWORK_SETTINGS_ARN = "NetworkSettingsArn"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    DISPLAY_NAME = "DisplayName"
-    USER_SETTINGS_ARN = "UserSettingsArn"
-    DATA_PROTECTION_SETTINGS_ARN = "DataProtectionSettingsArn"
-    INSTANCE_TYPE = "InstanceType"
-    SESSION_LOGGER_ARN = "SessionLoggerArn"
-    MAX_CONCURRENT_SESSIONS = "MaxConcurrentSessions"
-    TAGS = "Tags"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trust_store_arn": "TrustStoreArn",
         "user_access_logging_settings_arn": "UserAccessLoggingSettingsArn",
@@ -333,13 +286,6 @@ class SessionLogger(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::SessionLogger"
     name_field: ClassVar[str] = "display_name"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    DISPLAY_NAME = "DisplayName"
-    EVENT_FILTER = "EventFilter"
-    LOG_CONFIGURATION = "LogConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key": "CustomerManagedKey",
         "additional_encryption_context": "AdditionalEncryptionContext",
@@ -378,9 +324,6 @@ class TrustStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::TrustStore"
-    CERTIFICATE_LIST = "CertificateList"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_list": "CertificateList",
         "tags": "Tags",
@@ -406,9 +349,6 @@ class UserAccessLoggingSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::UserAccessLoggingSettings"
-    KINESIS_STREAM_ARN = "KinesisStreamArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_arn": "KinesisStreamArn",
         "tags": "Tags",
@@ -434,20 +374,6 @@ class UserSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::UserSettings"
-    IDLE_DISCONNECT_TIMEOUT_IN_MINUTES = "IdleDisconnectTimeoutInMinutes"
-    DEEP_LINK_ALLOWED = "DeepLinkAllowed"
-    PRINT_ALLOWED = "PrintAllowed"
-    COPY_ALLOWED = "CopyAllowed"
-    DOWNLOAD_ALLOWED = "DownloadAllowed"
-    TOOLBAR_CONFIGURATION = "ToolbarConfiguration"
-    UPLOAD_ALLOWED = "UploadAllowed"
-    CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    DISCONNECT_TIMEOUT_IN_MINUTES = "DisconnectTimeoutInMinutes"
-    COOKIE_SYNCHRONIZATION_CONFIGURATION = "CookieSynchronizationConfiguration"
-    PASTE_ALLOWED = "PasteAllowed"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_disconnect_timeout_in_minutes": "IdleDisconnectTimeoutInMinutes",
         "deep_link_allowed": "DeepLinkAllowed",

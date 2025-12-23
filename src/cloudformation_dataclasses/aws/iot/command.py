@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CommandParameter(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTION = "Description"
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -31,14 +26,6 @@ class CommandParameter(PropertyType):
 
 @dataclass
 class CommandParameterValue(PropertyType):
-    B = "B"
-    S = "S"
-    D = "D"
-    BIN = "BIN"
-    UL = "UL"
-    I = "I"
-    L = "L"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "b": "B",
         "s": "S",
@@ -60,9 +47,6 @@ class CommandParameterValue(PropertyType):
 
 @dataclass
 class CommandPayload(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "content": "Content",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Shield
@@ -180,9 +180,6 @@ class DRTAccess(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::DRTAccess"
-    LOG_BUCKET_LIST = "LogBucketList"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_bucket_list": "LogBucketList",
         "role_arn": "RoleArn",
@@ -203,9 +200,6 @@ class ProactiveEngagement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::ProactiveEngagement"
-    PROACTIVE_ENGAGEMENT_STATUS = "ProactiveEngagementStatus"
-    EMERGENCY_CONTACT_LIST = "EmergencyContactList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proactive_engagement_status": "ProactiveEngagementStatus",
         "emergency_contact_list": "EmergencyContactList",
@@ -227,12 +221,6 @@ class Protection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Shield::Protection"
     name_field: ClassVar[str] = "name"
-    RESOURCE_ARN = "ResourceArn"
-    HEALTH_CHECK_ARNS = "HealthCheckArns"
-    APPLICATION_LAYER_AUTOMATIC_RESPONSE_CONFIGURATION = "ApplicationLayerAutomaticResponseConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "health_check_arns": "HealthCheckArns",
@@ -264,13 +252,6 @@ class ProtectionGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::ProtectionGroup"
-    AGGREGATION = "Aggregation"
-    PATTERN = "Pattern"
-    PROTECTION_GROUP_ID = "ProtectionGroupId"
-    RESOURCE_TYPE = "ResourceType"
-    MEMBERS = "Members"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "pattern": "Pattern",

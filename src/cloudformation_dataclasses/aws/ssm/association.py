@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InstanceAssociationOutputLocation(PropertyType):
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -22,10 +20,6 @@ class InstanceAssociationOutputLocation(PropertyType):
 
 @dataclass
 class S3OutputLocation(PropertyType):
-    OUTPUT_S3_KEY_PREFIX = "OutputS3KeyPrefix"
-    OUTPUT_S3_REGION = "OutputS3Region"
-    OUTPUT_S3_BUCKET_NAME = "OutputS3BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_s3_key_prefix": "OutputS3KeyPrefix",
         "output_s3_region": "OutputS3Region",
@@ -39,9 +33,6 @@ class S3OutputLocation(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

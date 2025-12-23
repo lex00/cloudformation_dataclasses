@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -31,9 +26,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-    CAPACITY_RESERVATION_TARGET = "CapacityReservationTarget"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -45,9 +37,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    CAPACITY_RESERVATION_RESOURCE_GROUP_ARN = "CapacityReservationResourceGroupArn"
-    CAPACITY_RESERVATION_ID = "CapacityReservationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
         "capacity_reservation_id": "CapacityReservationId",
@@ -59,9 +48,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class CpuOptionsRequest(PropertyType):
-    THREADS_PER_CORE = "ThreadsPerCore"
-    CORE_COUNT = "CoreCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "core_count": "CoreCount",
@@ -73,8 +59,6 @@ class CpuOptionsRequest(PropertyType):
 
 @dataclass
 class CreditSpecificationRequest(PropertyType):
-    CPU_CREDITS = "CpuCredits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CpuCredits",
     }
@@ -84,8 +68,6 @@ class CreditSpecificationRequest(PropertyType):
 
 @dataclass
 class EC2ManagedInstance(PropertyType):
-    INSTANCE_ID = "InstanceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
     }
@@ -95,13 +77,6 @@ class EC2ManagedInstance(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_type": "VolumeType",
         "kms_key_id": "KmsKeyId",
@@ -121,8 +96,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class EnclaveOptionsRequest(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -132,8 +105,6 @@ class EnclaveOptionsRequest(PropertyType):
 
 @dataclass
 class HibernationOptionsRequest(PropertyType):
-    CONFIGURED = "Configured"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -143,9 +114,6 @@ class HibernationOptionsRequest(PropertyType):
 
 @dataclass
 class IamInstanceProfileSpecification(PropertyType):
-    ARN = "Arn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -157,8 +125,6 @@ class IamInstanceProfileSpecification(PropertyType):
 
 @dataclass
 class InstanceMaintenanceOptionsRequest(PropertyType):
-    AUTO_RECOVERY = "AutoRecovery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_recovery": "AutoRecovery",
     }
@@ -168,9 +134,6 @@ class InstanceMaintenanceOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceMarketOptionsRequest(PropertyType):
-    SPOT_OPTIONS = "SpotOptions"
-    MARKET_TYPE = "MarketType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_options": "SpotOptions",
         "market_type": "MarketType",
@@ -182,12 +145,6 @@ class InstanceMarketOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceMetadataOptionsRequest(PropertyType):
-    HTTP_PUT_RESPONSE_HOP_LIMIT = "HttpPutResponseHopLimit"
-    HTTP_PROTOCOL_IPV6 = "HttpProtocolIpv6"
-    HTTP_TOKENS = "HttpTokens"
-    INSTANCE_METADATA_TAGS = "InstanceMetadataTags"
-    HTTP_ENDPOINT = "HttpEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_protocol_ipv6": "HttpProtocolIpv6",
@@ -205,11 +162,6 @@ class InstanceMetadataOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceNetworkInterfaceSpecification(PropertyType):
-    DESCRIPTION = "Description"
-    DEVICE_INDEX = "DeviceIndex"
-    GROUPS = "Groups"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "device_index": "DeviceIndex",
@@ -225,8 +177,6 @@ class InstanceNetworkInterfaceSpecification(PropertyType):
 
 @dataclass
 class InstanceNetworkPerformanceOptionsRequest(PropertyType):
-    BANDWIDTH_WEIGHTING = "BandwidthWeighting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_weighting": "BandwidthWeighting",
     }
@@ -236,8 +186,6 @@ class InstanceNetworkPerformanceOptionsRequest(PropertyType):
 
 @dataclass
 class LicenseConfigurationRequest(PropertyType):
-    LICENSE_CONFIGURATION_ARN = "LicenseConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -247,33 +195,6 @@ class LicenseConfigurationRequest(PropertyType):
 
 @dataclass
 class ManagedInstance(PropertyType):
-    NETWORK_PERFORMANCE_OPTIONS = "NetworkPerformanceOptions"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    USER_DATA = "UserData"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    MAINTENANCE_OPTIONS = "MaintenanceOptions"
-    IAM_INSTANCE_PROFILE = "IamInstanceProfile"
-    SUBNET_ID = "SubnetId"
-    EBS_OPTIMIZED = "EbsOptimized"
-    PLACEMENT = "Placement"
-    IPV6_ADDRESS_COUNT = "Ipv6AddressCount"
-    ENCLAVE_OPTIONS = "EnclaveOptions"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    IMAGE_ID = "ImageId"
-    INSTANCE_TYPE = "InstanceType"
-    MONITORING = "Monitoring"
-    HIBERNATION_OPTIONS = "HibernationOptions"
-    LICENSE_SPECIFICATIONS = "LicenseSpecifications"
-    METADATA_OPTIONS = "MetadataOptions"
-    DISABLE_API_STOP = "DisableApiStop"
-    CPU_OPTIONS = "CpuOptions"
-    PRIVATE_DNS_NAME_OPTIONS = "PrivateDnsNameOptions"
-    ENABLE_PRIMARY_IPV6 = "EnablePrimaryIpv6"
-    KEY_NAME = "KeyName"
-    INSTANCE_MARKET_OPTIONS = "InstanceMarketOptions"
-    CAPACITY_RESERVATION_SPECIFICATION = "CapacityReservationSpecification"
-    CREDIT_SPECIFICATION = "CreditSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_performance_options": "NetworkPerformanceOptions",
         "tag_specifications": "TagSpecifications",
@@ -333,12 +254,6 @@ class ManagedInstance(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    GROUP_NAME = "GroupName"
-    TENANCY = "Tenancy"
-    PARTITION_NUMBER = "PartitionNumber"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -356,10 +271,6 @@ class Placement(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptionsRequest(PropertyType):
-    ENABLE_RESOURCE_NAME_DNS_A_RECORD = "EnableResourceNameDnsARecord"
-    HOSTNAME_TYPE = "HostnameType"
-    ENABLE_RESOURCE_NAME_DNS_AAAA_RECORD = "EnableResourceNameDnsAAAARecord"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -373,8 +284,6 @@ class PrivateDnsNameOptionsRequest(PropertyType):
 
 @dataclass
 class RunInstancesMonitoringEnabled(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -384,11 +293,6 @@ class RunInstancesMonitoringEnabled(PropertyType):
 
 @dataclass
 class SpotMarketOptions(PropertyType):
-    VALID_UNTIL_UTC = "ValidUntilUtc"
-    SPOT_INSTANCE_TYPE = "SpotInstanceType"
-    INSTANCE_INTERRUPTION_BEHAVIOR = "InstanceInterruptionBehavior"
-    MAX_PRICE = "MaxPrice"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "valid_until_utc": "ValidUntilUtc",
         "spot_instance_type": "SpotInstanceType",
@@ -404,9 +308,6 @@ class SpotMarketOptions(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScalingPlans
@@ -34,9 +34,6 @@ class ScalingPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScalingPlans::ScalingPlan"
-    APPLICATION_SOURCE = "ApplicationSource"
-    SCALING_INSTRUCTIONS = "ScalingInstructions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_source": "ApplicationSource",
         "scaling_instructions": "ScalingInstructions",

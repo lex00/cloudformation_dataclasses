@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GroupingAttributeDefinition(PropertyType):
-    GROUPING_NAME = "GroupingName"
-    GROUPING_SOURCE_KEYS = "GroupingSourceKeys"
-    DEFAULT_GROUPING_VALUE = "DefaultGroupingValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grouping_name": "GroupingName",
         "grouping_source_keys": "GroupingSourceKeys",

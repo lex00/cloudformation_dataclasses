@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    EXCLUDED_COLUMN_NAMES = "ExcludedColumnNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -22,11 +20,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class DataCellsFilterResource(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    TABLE_CATALOG_ID = "TableCatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -42,8 +35,6 @@ class DataCellsFilterResource(PropertyType):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    DATA_LAKE_PRINCIPAL_IDENTIFIER = "DataLakePrincipalIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -53,9 +44,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DataLocationResource(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "catalog_id": "CatalogId",
@@ -67,9 +55,6 @@ class DataLocationResource(PropertyType):
 
 @dataclass
 class DatabaseResource(PropertyType):
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -81,9 +66,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class LFTag(PropertyType):
-    TAG_KEY = "TagKey"
-    TAG_VALUES = "TagValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "tag_values": "TagValues",
@@ -95,10 +77,6 @@ class LFTag(PropertyType):
 
 @dataclass
 class LFTagKeyResource(PropertyType):
-    TAG_KEY = "TagKey"
-    CATALOG_ID = "CatalogId"
-    TAG_VALUES = "TagValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "catalog_id": "CatalogId",
@@ -112,10 +90,6 @@ class LFTagKeyResource(PropertyType):
 
 @dataclass
 class LFTagPolicyResource(PropertyType):
-    EXPRESSION = "Expression"
-    RESOURCE_TYPE = "ResourceType"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "resource_type": "ResourceType",
@@ -129,15 +103,6 @@ class LFTagPolicyResource(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    LF_TAG = "LFTag"
-    TABLE = "Table"
-    DATA_CELLS_FILTER = "DataCellsFilter"
-    TABLE_WITH_COLUMNS = "TableWithColumns"
-    LF_TAG_POLICY = "LFTagPolicy"
-    DATABASE = "Database"
-    DATA_LOCATION = "DataLocation"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lf_tag": "LFTag",
         "table": "Table",
@@ -161,11 +126,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    TABLE_WILDCARD = "TableWildcard"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -181,12 +141,6 @@ class TableResource(PropertyType):
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    COLUMN_NAMES = "ColumnNames"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-    COLUMN_WILDCARD = "ColumnWildcard"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",

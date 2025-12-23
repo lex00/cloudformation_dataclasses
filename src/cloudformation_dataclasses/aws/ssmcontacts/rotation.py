@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CoverageTime(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -25,9 +22,6 @@ class CoverageTime(PropertyType):
 
 @dataclass
 class MonthlySetting(PropertyType):
-    DAY_OF_MONTH = "DayOfMonth"
-    HAND_OFF_TIME = "HandOffTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_month": "DayOfMonth",
         "hand_off_time": "HandOffTime",
@@ -39,13 +33,6 @@ class MonthlySetting(PropertyType):
 
 @dataclass
 class RecurrenceSettings(PropertyType):
-    DAILY_SETTINGS = "DailySettings"
-    NUMBER_OF_ON_CALLS = "NumberOfOnCalls"
-    SHIFT_COVERAGES = "ShiftCoverages"
-    WEEKLY_SETTINGS = "WeeklySettings"
-    RECURRENCE_MULTIPLIER = "RecurrenceMultiplier"
-    MONTHLY_SETTINGS = "MonthlySettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily_settings": "DailySettings",
         "number_of_on_calls": "NumberOfOnCalls",
@@ -65,9 +52,6 @@ class RecurrenceSettings(PropertyType):
 
 @dataclass
 class ShiftCoverage(PropertyType):
-    DAY_OF_WEEK = "DayOfWeek"
-    COVERAGE_TIMES = "CoverageTimes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "coverage_times": "CoverageTimes",
@@ -79,9 +63,6 @@ class ShiftCoverage(PropertyType):
 
 @dataclass
 class WeeklySetting(PropertyType):
-    DAY_OF_WEEK = "DayOfWeek"
-    HAND_OFF_TIME = "HandOffTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "hand_off_time": "HandOffTime",

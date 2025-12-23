@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SystemsManagerSAP
@@ -34,16 +34,6 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-syste"""
 
     resource_type: ClassVar[str] = "AWS::SystemsManagerSAP::Application"
-    INSTANCES = "Instances"
-    APPLICATION_TYPE = "ApplicationType"
-    DATABASE_ARN = "DatabaseArn"
-    SAP_INSTANCE_NUMBER = "SapInstanceNumber"
-    APPLICATION_ID = "ApplicationId"
-    CREDENTIALS = "Credentials"
-    TAGS = "Tags"
-    COMPONENTS_INFO = "ComponentsInfo"
-    SID = "Sid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instances": "Instances",
         "application_type": "ApplicationType",

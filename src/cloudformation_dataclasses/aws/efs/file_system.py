@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BackupPolicy(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -22,9 +20,6 @@ class BackupPolicy(PropertyType):
 
 @dataclass
 class ElasticFileSystemTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -36,8 +31,6 @@ class ElasticFileSystemTag(PropertyType):
 
 @dataclass
 class FileSystemProtection(PropertyType):
-    REPLICATION_OVERWRITE_PROTECTION = "ReplicationOverwriteProtection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_overwrite_protection": "ReplicationOverwriteProtection",
     }
@@ -47,10 +40,6 @@ class FileSystemProtection(PropertyType):
 
 @dataclass
 class LifecyclePolicy(PropertyType):
-    TRANSITION_TO_IA = "TransitionToIA"
-    TRANSITION_TO_PRIMARY_STORAGE_CLASS = "TransitionToPrimaryStorageClass"
-    TRANSITION_TO_ARCHIVE = "TransitionToArchive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_to_ia": "TransitionToIA",
         "transition_to_primary_storage_class": "TransitionToPrimaryStorageClass",
@@ -64,8 +53,6 @@ class LifecyclePolicy(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    DESTINATIONS = "Destinations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
     }
@@ -75,14 +62,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class ReplicationDestination(PropertyType):
-    STATUS = "Status"
-    KMS_KEY_ID = "KmsKeyId"
-    AVAILABILITY_ZONE_NAME = "AvailabilityZoneName"
-    FILE_SYSTEM_ID = "FileSystemId"
-    REGION = "Region"
-    ROLE_ARN = "RoleArn"
-    STATUS_MESSAGE = "StatusMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "kms_key_id": "KmsKeyId",

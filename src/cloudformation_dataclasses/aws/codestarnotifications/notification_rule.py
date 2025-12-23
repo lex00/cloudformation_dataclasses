@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Target(PropertyType):
-    TARGET_TYPE = "TargetType"
-    TARGET_ADDRESS = "TargetAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_type": "TargetType",
         "target_address": "TargetAddress",

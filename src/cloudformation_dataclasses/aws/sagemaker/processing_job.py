@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppSpecification(PropertyType):
-    CONTAINER_ENTRYPOINT = "ContainerEntrypoint"
-    IMAGE_URI = "ImageUri"
-    CONTAINER_ARGUMENTS = "ContainerArguments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "image_uri": "ImageUri",
@@ -28,15 +24,6 @@ class AppSpecification(PropertyType):
 
 @dataclass
 class AthenaDatasetDefinition(PropertyType):
-    WORK_GROUP = "WorkGroup"
-    OUTPUT_S3_URI = "OutputS3Uri"
-    KMS_KEY_ID = "KmsKeyId"
-    QUERY_STRING = "QueryString"
-    DATABASE = "Database"
-    OUTPUT_FORMAT = "OutputFormat"
-    OUTPUT_COMPRESSION = "OutputCompression"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "output_s3_uri": "OutputS3Uri",
@@ -60,11 +47,6 @@ class AthenaDatasetDefinition(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    INSTANCE_COUNT = "InstanceCount"
-    VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
-    VOLUME_KMS_KEY_ID = "VolumeKmsKeyId"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -80,12 +62,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class DatasetDefinition(PropertyType):
-    INPUT_MODE = "InputMode"
-    REDSHIFT_DATASET_DEFINITION = "RedshiftDatasetDefinition"
-    ATHENA_DATASET_DEFINITION = "AthenaDatasetDefinition"
-    LOCAL_PATH = "LocalPath"
-    DATA_DISTRIBUTION_TYPE = "DataDistributionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_mode": "InputMode",
         "redshift_dataset_definition": "RedshiftDatasetDefinition",
@@ -103,11 +79,6 @@ class DatasetDefinition(PropertyType):
 
 @dataclass
 class ExperimentConfig(PropertyType):
-    TRIAL_NAME = "TrialName"
-    EXPERIMENT_NAME = "ExperimentName"
-    TRIAL_COMPONENT_DISPLAY_NAME = "TrialComponentDisplayName"
-    RUN_NAME = "RunName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trial_name": "TrialName",
         "experiment_name": "ExperimentName",
@@ -123,8 +94,6 @@ class ExperimentConfig(PropertyType):
 
 @dataclass
 class FeatureStoreOutput(PropertyType):
-    FEATURE_GROUP_NAME = "FeatureGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_group_name": "FeatureGroupName",
     }
@@ -134,10 +103,6 @@ class FeatureStoreOutput(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    ENABLE_NETWORK_ISOLATION = "EnableNetworkIsolation"
-    ENABLE_INTER_CONTAINER_TRAFFIC_ENCRYPTION = "EnableInterContainerTrafficEncryption"
-    VPC_CONFIG = "VpcConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -151,11 +116,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class ProcessingInputsObject(PropertyType):
-    APP_MANAGED = "AppManaged"
-    INPUT_NAME = "InputName"
-    DATASET_DEFINITION = "DatasetDefinition"
-    S3_INPUT = "S3Input"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_managed": "AppManaged",
         "input_name": "InputName",
@@ -171,9 +131,6 @@ class ProcessingInputsObject(PropertyType):
 
 @dataclass
 class ProcessingOutputConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    OUTPUTS = "Outputs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "outputs": "Outputs",
@@ -185,11 +142,6 @@ class ProcessingOutputConfig(PropertyType):
 
 @dataclass
 class ProcessingOutputsObject(PropertyType):
-    S3_OUTPUT = "S3Output"
-    APP_MANAGED = "AppManaged"
-    FEATURE_STORE_OUTPUT = "FeatureStoreOutput"
-    OUTPUT_NAME = "OutputName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
         "app_managed": "AppManaged",
@@ -205,8 +157,6 @@ class ProcessingOutputsObject(PropertyType):
 
 @dataclass
 class ProcessingResources(PropertyType):
-    CLUSTER_CONFIG = "ClusterConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -216,16 +166,6 @@ class ProcessingResources(PropertyType):
 
 @dataclass
 class RedshiftDatasetDefinition(PropertyType):
-    OUTPUT_S3_URI = "OutputS3Uri"
-    KMS_KEY_ID = "KmsKeyId"
-    CLUSTER_ID = "ClusterId"
-    QUERY_STRING = "QueryString"
-    DATABASE = "Database"
-    OUTPUT_FORMAT = "OutputFormat"
-    OUTPUT_COMPRESSION = "OutputCompression"
-    CLUSTER_ROLE_ARN = "ClusterRoleArn"
-    DB_USER = "DbUser"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_s3_uri": "OutputS3Uri",
         "kms_key_id": "KmsKeyId",
@@ -251,13 +191,6 @@ class RedshiftDatasetDefinition(PropertyType):
 
 @dataclass
 class S3Input(PropertyType):
-    S3_COMPRESSION_TYPE = "S3CompressionType"
-    S3_DATA_DISTRIBUTION_TYPE = "S3DataDistributionType"
-    S3_URI = "S3Uri"
-    S3_INPUT_MODE = "S3InputMode"
-    LOCAL_PATH = "LocalPath"
-    S3_DATA_TYPE = "S3DataType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_compression_type": "S3CompressionType",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -277,10 +210,6 @@ class S3Input(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    S3_URI = "S3Uri"
-    LOCAL_PATH = "LocalPath"
-    S3_UPLOAD_MODE = "S3UploadMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -294,8 +223,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    MAX_RUNTIME_IN_SECONDS = "MaxRuntimeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -305,9 +232,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

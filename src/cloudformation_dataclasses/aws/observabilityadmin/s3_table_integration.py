@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    SSE_ALGORITHM = "SseAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "sse_algorithm": "SseAlgorithm",
@@ -25,10 +22,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class LogSource(PropertyType):
-    TYPE = "Type"
-    IDENTIFIER = "Identifier"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",

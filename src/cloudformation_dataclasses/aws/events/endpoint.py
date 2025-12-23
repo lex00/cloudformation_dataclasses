@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndpointEventBus(PropertyType):
-    EVENT_BUS_ARN = "EventBusArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -22,9 +20,6 @@ class EndpointEventBus(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    SECONDARY = "Secondary"
-    PRIMARY = "Primary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary": "Secondary",
         "primary": "Primary",
@@ -36,8 +31,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class Primary(PropertyType):
-    HEALTH_CHECK = "HealthCheck"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_check": "HealthCheck",
     }
@@ -47,8 +40,6 @@ class Primary(PropertyType):
 
 @dataclass
 class ReplicationConfig(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -58,8 +49,6 @@ class ReplicationConfig(PropertyType):
 
 @dataclass
 class RoutingConfig(PropertyType):
-    FAILOVER_CONFIG = "FailoverConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_config": "FailoverConfig",
     }
@@ -69,8 +58,6 @@ class RoutingConfig(PropertyType):
 
 @dataclass
 class Secondary(PropertyType):
-    ROUTE = "Route"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route": "Route",
     }

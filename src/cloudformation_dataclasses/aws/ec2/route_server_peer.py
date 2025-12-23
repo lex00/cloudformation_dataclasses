@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BgpOptions(PropertyType):
-    PEER_LIVENESS_DETECTION = "PeerLivenessDetection"
-    PEER_ASN = "PeerAsn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_liveness_detection": "PeerLivenessDetection",
         "peer_asn": "PeerAsn",

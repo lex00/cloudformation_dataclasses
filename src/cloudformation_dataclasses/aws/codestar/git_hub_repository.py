@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Code(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -22,10 +20,6 @@ class Code(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    OBJECT_VERSION = "ObjectVersion"
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_version": "ObjectVersion",
         "bucket": "Bucket",

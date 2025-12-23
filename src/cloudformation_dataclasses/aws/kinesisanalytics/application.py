@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CSVMappingParameters(PropertyType):
-    RECORD_ROW_DELIMITER = "RecordRowDelimiter"
-    RECORD_COLUMN_DELIMITER = "RecordColumnDelimiter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_delimiter": "RecordRowDelimiter",
         "record_column_delimiter": "RecordColumnDelimiter",
@@ -25,13 +22,6 @@ class CSVMappingParameters(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    NAME_PREFIX = "NamePrefix"
-    INPUT_SCHEMA = "InputSchema"
-    KINESIS_STREAMS_INPUT = "KinesisStreamsInput"
-    KINESIS_FIREHOSE_INPUT = "KinesisFirehoseInput"
-    INPUT_PROCESSING_CONFIGURATION = "InputProcessingConfiguration"
-    INPUT_PARALLELISM = "InputParallelism"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_prefix": "NamePrefix",
         "input_schema": "InputSchema",
@@ -51,9 +41,6 @@ class Input(PropertyType):
 
 @dataclass
 class InputLambdaProcessor(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
         "role_arn": "RoleARN",
@@ -65,8 +52,6 @@ class InputLambdaProcessor(PropertyType):
 
 @dataclass
 class InputParallelism(PropertyType):
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "count": "Count",
     }
@@ -76,8 +61,6 @@ class InputParallelism(PropertyType):
 
 @dataclass
 class InputProcessingConfiguration(PropertyType):
-    INPUT_LAMBDA_PROCESSOR = "InputLambdaProcessor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_lambda_processor": "InputLambdaProcessor",
     }
@@ -87,10 +70,6 @@ class InputProcessingConfiguration(PropertyType):
 
 @dataclass
 class InputSchema(PropertyType):
-    RECORD_ENCODING = "RecordEncoding"
-    RECORD_COLUMNS = "RecordColumns"
-    RECORD_FORMAT = "RecordFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_encoding": "RecordEncoding",
         "record_columns": "RecordColumns",
@@ -104,8 +83,6 @@ class InputSchema(PropertyType):
 
 @dataclass
 class JSONMappingParameters(PropertyType):
-    RECORD_ROW_PATH = "RecordRowPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_path": "RecordRowPath",
     }
@@ -115,9 +92,6 @@ class JSONMappingParameters(PropertyType):
 
 @dataclass
 class KinesisFirehoseInput(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
         "role_arn": "RoleARN",
@@ -129,9 +103,6 @@ class KinesisFirehoseInput(PropertyType):
 
 @dataclass
 class KinesisStreamsInput(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
         "role_arn": "RoleARN",
@@ -143,9 +114,6 @@ class KinesisStreamsInput(PropertyType):
 
 @dataclass
 class MappingParameters(PropertyType):
-    JSON_MAPPING_PARAMETERS = "JSONMappingParameters"
-    CSV_MAPPING_PARAMETERS = "CSVMappingParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_mapping_parameters": "JSONMappingParameters",
         "csv_mapping_parameters": "CSVMappingParameters",
@@ -157,10 +125,6 @@ class MappingParameters(PropertyType):
 
 @dataclass
 class RecordColumn(PropertyType):
-    MAPPING = "Mapping"
-    SQL_TYPE = "SqlType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping": "Mapping",
         "sql_type": "SqlType",
@@ -174,9 +138,6 @@ class RecordColumn(PropertyType):
 
 @dataclass
 class RecordFormat(PropertyType):
-    MAPPING_PARAMETERS = "MappingParameters"
-    RECORD_FORMAT_TYPE = "RecordFormatType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_parameters": "MappingParameters",
         "record_format_type": "RecordFormatType",

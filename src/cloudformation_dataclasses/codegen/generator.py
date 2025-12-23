@@ -281,13 +281,6 @@ def generate_property_type_class(
     if not prop_type.properties:
         lines.append(f"{indent}    pass")
     else:
-        # Generate CloudFormation property name constants
-        # These allow type-safe dict key access: PropertyType.FIELD_NAME
-        for prop_name, prop in prop_type.properties.items():
-            const_name = to_snake_case(prop_name).upper()
-            lines.append(f'{indent}    {const_name} = "{prop_name}"')
-        lines.append("")
-
         # Generate _property_mappings for data-driven serialization
         lines.append(f"{indent}    _property_mappings: ClassVar[dict[str, str]] = {{")
         for prop_name, prop in prop_type.properties.items():
@@ -359,13 +352,6 @@ def generate_resource_class_only(
         lines.append("")
         lines.append("    pass")
     else:
-        # Generate CloudFormation property name constants
-        # These allow type-safe dict key access: Resource.FIELD_NAME
-        for prop_name, prop in resource.properties.items():
-            const_name = to_snake_case(prop_name).upper()
-            lines.append(f'    {const_name} = "{prop_name}"')
-        lines.append("")
-
         # Generate _property_mappings for data-driven serialization
         lines.append("    _property_mappings: ClassVar[dict[str, str]] = {")
         for prop_name, prop in resource.properties.items():

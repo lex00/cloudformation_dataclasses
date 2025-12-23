@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DNSTargetResource(PropertyType):
-    TARGET_RESOURCE = "TargetResource"
-    RECORD_TYPE = "RecordType"
-    DOMAIN_NAME = "DomainName"
-    HOSTED_ZONE_ARN = "HostedZoneArn"
-    RECORD_SET_ID = "RecordSetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource": "TargetResource",
         "record_type": "RecordType",
@@ -34,8 +28,6 @@ class DNSTargetResource(PropertyType):
 
 @dataclass
 class NLBResource(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -45,9 +37,6 @@ class NLBResource(PropertyType):
 
 @dataclass
 class R53ResourceRecord(PropertyType):
-    DOMAIN_NAME = "DomainName"
-    RECORD_SET_ID = "RecordSetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "record_set_id": "RecordSetId",
@@ -59,11 +48,6 @@ class R53ResourceRecord(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    DNS_TARGET_RESOURCE = "DnsTargetResource"
-    READINESS_SCOPES = "ReadinessScopes"
-    COMPONENT_ID = "ComponentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "dns_target_resource": "DnsTargetResource",
@@ -79,9 +63,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TargetResource(PropertyType):
-    R53_RESOURCE = "R53Resource"
-    NLB_RESOURCE = "NLBResource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "r53_resource": "R53Resource",
         "nlb_resource": "NLBResource",

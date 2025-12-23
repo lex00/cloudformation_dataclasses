@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCAConnectorSCEP
@@ -34,9 +34,6 @@ class Challenge(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorSCEP::Challenge"
-    CONNECTOR_ARN = "ConnectorArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "tags": "Tags",
@@ -57,10 +54,6 @@ class Connector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorSCEP::Connector"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    MOBILE_DEVICE_MANAGEMENT = "MobileDeviceManagement"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "mobile_device_management": "MobileDeviceManagement",

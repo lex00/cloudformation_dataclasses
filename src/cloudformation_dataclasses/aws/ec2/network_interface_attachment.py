@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    ENA_SRD_ENABLED = "EnaSrdEnabled"
-    ENA_SRD_UDP_SPECIFICATION = "EnaSrdUdpSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -25,8 +22,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    ENA_SRD_UDP_ENABLED = "EnaSrdUdpEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }

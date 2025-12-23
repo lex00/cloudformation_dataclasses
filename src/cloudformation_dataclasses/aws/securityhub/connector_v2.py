@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class JiraCloud(PropertyType):
-    PROJECT_KEY = "ProjectKey"
-    AUTH_STATUS = "AuthStatus"
-    AUTH_URL = "AuthUrl"
-    DOMAIN = "Domain"
-    CLOUD_ID = "CloudId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_key": "ProjectKey",
         "auth_status": "AuthStatus",
@@ -34,9 +28,6 @@ class JiraCloud(PropertyType):
 
 @dataclass
 class Provider(PropertyType):
-    SERVICE_NOW = "ServiceNow"
-    JIRA_CLOUD = "JiraCloud"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_now": "ServiceNow",
         "jira_cloud": "JiraCloud",
@@ -48,10 +39,6 @@ class Provider(PropertyType):
 
 @dataclass
 class ServiceNow(PropertyType):
-    INSTANCE_NAME = "InstanceName"
-    SECRET_ARN = "SecretArn"
-    AUTH_STATUS = "AuthStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_name": "InstanceName",
         "secret_arn": "SecretArn",

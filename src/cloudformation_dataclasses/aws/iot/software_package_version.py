@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PackageVersionArtifact(PropertyType):
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -22,10 +20,6 @@ class PackageVersionArtifact(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -39,8 +33,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class Sbom(PropertyType):
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }

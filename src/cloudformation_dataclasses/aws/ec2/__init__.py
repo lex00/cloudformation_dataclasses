@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EC2
@@ -7893,12 +7893,6 @@ class CapacityManagerDataExport(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::CapacityManagerDataExport"
     name_field: ClassVar[str] = "s3_bucket_name"
-    S3_BUCKET_PREFIX = "S3BucketPrefix"
-    SCHEDULE = "Schedule"
-    OUTPUT_FORMAT = "OutputFormat"
-    S3_BUCKET_NAME = "S3BucketName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_prefix": "S3BucketPrefix",
         "schedule": "Schedule",
@@ -7925,22 +7919,6 @@ class CapacityReservation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::CapacityReservation"
-    TENANCY = "Tenancy"
-    END_DATE_TYPE = "EndDateType"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    UNUSED_RESERVATION_BILLING_OWNER_ID = "UnusedReservationBillingOwnerId"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    END_DATE = "EndDate"
-    EBS_OPTIMIZED = "EbsOptimized"
-    OUT_POST_ARN = "OutPostArn"
-    INSTANCE_COUNT = "InstanceCount"
-    PLACEMENT_GROUP_ARN = "PlacementGroupArn"
-    INSTANCE_PLATFORM = "InstancePlatform"
-    INSTANCE_TYPE = "InstanceType"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-    INSTANCE_MATCH_CRITERIA = "InstanceMatchCriteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenancy": "Tenancy",
         "end_date_type": "EndDateType",
@@ -8072,16 +8050,6 @@ class CapacityReservationFleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::CapacityReservationFleet"
-    TENANCY = "Tenancy"
-    TOTAL_TARGET_CAPACITY = "TotalTargetCapacity"
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    NO_REMOVE_END_DATE = "NoRemoveEndDate"
-    INSTANCE_TYPE_SPECIFICATIONS = "InstanceTypeSpecifications"
-    REMOVE_END_DATE = "RemoveEndDate"
-    INSTANCE_MATCH_CRITERIA = "InstanceMatchCriteria"
-    END_DATE = "EndDate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenancy": "Tenancy",
         "total_target_capacity": "TotalTargetCapacity",
@@ -8116,9 +8084,6 @@ class CarrierGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::CarrierGateway"
-    VPC_ID = "VpcId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "tags": "Tags",
@@ -8149,12 +8114,6 @@ class ClientVpnAuthorizationRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::ClientVpnAuthorizationRule"
-    CLIENT_VPN_ENDPOINT_ID = "ClientVpnEndpointId"
-    DESCRIPTION = "Description"
-    ACCESS_GROUP_ID = "AccessGroupId"
-    TARGET_NETWORK_CIDR = "TargetNetworkCidr"
-    AUTHORIZE_ALL_GROUPS = "AuthorizeAllGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_vpn_endpoint_id": "ClientVpnEndpointId",
         "description": "Description",
@@ -8175,25 +8134,6 @@ class ClientVpnEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::ClientVpnEndpoint"
-    CLIENT_CIDR_BLOCK = "ClientCidrBlock"
-    CLIENT_CONNECT_OPTIONS = "ClientConnectOptions"
-    DESCRIPTION = "Description"
-    CLIENT_ROUTE_ENFORCEMENT_OPTIONS = "ClientRouteEnforcementOptions"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    AUTHENTICATION_OPTIONS = "AuthenticationOptions"
-    SERVER_CERTIFICATE_ARN = "ServerCertificateArn"
-    SESSION_TIMEOUT_HOURS = "SessionTimeoutHours"
-    DNS_SERVERS = "DnsServers"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    DISCONNECT_ON_SESSION_TIMEOUT = "DisconnectOnSessionTimeout"
-    CONNECTION_LOG_OPTIONS = "ConnectionLogOptions"
-    SPLIT_TUNNEL = "SplitTunnel"
-    CLIENT_LOGIN_BANNER_OPTIONS = "ClientLoginBannerOptions"
-    VPC_ID = "VpcId"
-    SELF_SERVICE_PORTAL = "SelfServicePortal"
-    TRANSPORT_PROTOCOL = "TransportProtocol"
-    VPN_PORT = "VpnPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_cidr_block": "ClientCidrBlock",
         "client_connect_options": "ClientConnectOptions",
@@ -8240,11 +8180,6 @@ class ClientVpnRoute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::ClientVpnRoute"
-    CLIENT_VPN_ENDPOINT_ID = "ClientVpnEndpointId"
-    TARGET_VPC_SUBNET_ID = "TargetVpcSubnetId"
-    DESCRIPTION = "Description"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_vpn_endpoint_id": "ClientVpnEndpointId",
         "target_vpc_subnet_id": "TargetVpcSubnetId",
@@ -8263,9 +8198,6 @@ class ClientVpnTargetNetworkAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::ClientVpnTargetNetworkAssociation"
-    CLIENT_VPN_ENDPOINT_ID = "ClientVpnEndpointId"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_vpn_endpoint_id": "ClientVpnEndpointId",
         "subnet_id": "SubnetId",
@@ -8281,14 +8213,6 @@ class CustomerGateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::CustomerGateway"
     name_field: ClassVar[str] = "device_name"
-    TYPE = "Type"
-    IP_ADDRESS = "IpAddress"
-    BGP_ASN_EXTENDED = "BgpAsnExtended"
-    BGP_ASN = "BgpAsn"
-    TAGS = "Tags"
-    CERTIFICATE_ARN = "CertificateArn"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ip_address": "IpAddress",
@@ -8320,14 +8244,6 @@ class DHCPOptions(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::DHCPOptions"
     name_field: ClassVar[str] = "domain_name"
-    NETBIOS_NAME_SERVERS = "NetbiosNameServers"
-    NTP_SERVERS = "NtpServers"
-    DOMAIN_NAME = "DomainName"
-    IPV6_ADDRESS_PREFERRED_LEASE_TIME = "Ipv6AddressPreferredLeaseTime"
-    NETBIOS_NODE_TYPE = "NetbiosNodeType"
-    DOMAIN_NAME_SERVERS = "DomainNameServers"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "netbios_name_servers": "NetbiosNameServers",
         "ntp_servers": "NtpServers",
@@ -8358,19 +8274,6 @@ class EC2Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-e"""
 
     resource_type: ClassVar[str] = "AWS::EC2::EC2Fleet"
-    CONTEXT = "Context"
-    TARGET_CAPACITY_SPECIFICATION = "TargetCapacitySpecification"
-    ON_DEMAND_OPTIONS = "OnDemandOptions"
-    TYPE = "Type"
-    EXCESS_CAPACITY_TERMINATION_POLICY = "ExcessCapacityTerminationPolicy"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    SPOT_OPTIONS = "SpotOptions"
-    VALID_FROM = "ValidFrom"
-    REPLACE_UNHEALTHY_INSTANCES = "ReplaceUnhealthyInstances"
-    LAUNCH_TEMPLATE_CONFIGS = "LaunchTemplateConfigs"
-    TERMINATE_INSTANCES_WITH_EXPIRATION = "TerminateInstancesWithExpiration"
-    VALID_UNTIL = "ValidUntil"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context": "Context",
         "target_capacity_specification": "TargetCapacitySpecification",
@@ -8411,15 +8314,6 @@ class EIP(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-e"""
 
     resource_type: ClassVar[str] = "AWS::EC2::EIP"
-    ADDRESS = "Address"
-    INSTANCE_ID = "InstanceId"
-    IPAM_POOL_ID = "IpamPoolId"
-    PUBLIC_IPV4_POOL = "PublicIpv4Pool"
-    TRANSFER_ADDRESS = "TransferAddress"
-    DOMAIN = "Domain"
-    TAGS = "Tags"
-    NETWORK_BORDER_GROUP = "NetworkBorderGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "instance_id": "InstanceId",
@@ -8457,11 +8351,6 @@ class EIPAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-e"""
 
     resource_type: ClassVar[str] = "AWS::EC2::EIPAssociation"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    INSTANCE_ID = "InstanceId"
-    ALLOCATION_ID = "AllocationId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "instance_id": "InstanceId",
@@ -8486,9 +8375,6 @@ class EgressOnlyInternetGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-e"""
 
     resource_type: ClassVar[str] = "AWS::EC2::EgressOnlyInternetGateway"
-    VPC_ID = "VpcId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "tags": "Tags",
@@ -8509,9 +8395,6 @@ class EnclaveCertificateIamRoleAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-e"""
 
     resource_type: ClassVar[str] = "AWS::EC2::EnclaveCertificateIamRoleAssociation"
-    ROLE_ARN = "RoleArn"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "certificate_arn": "CertificateArn",
@@ -8543,19 +8426,6 @@ class FlowLog(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::FlowLog"
     name_field: ClassVar[str] = "log_group_name"
-    LOG_FORMAT = "LogFormat"
-    RESOURCE_ID = "ResourceId"
-    MAX_AGGREGATION_INTERVAL = "MaxAggregationInterval"
-    DESTINATION_OPTIONS = "DestinationOptions"
-    RESOURCE_TYPE = "ResourceType"
-    DELIVER_CROSS_ACCOUNT_ROLE = "DeliverCrossAccountRole"
-    LOG_DESTINATION = "LogDestination"
-    LOG_GROUP_NAME = "LogGroupName"
-    DELIVER_LOGS_PERMISSION_ARN = "DeliverLogsPermissionArn"
-    LOG_DESTINATION_TYPE = "LogDestinationType"
-    TAGS = "Tags"
-    TRAFFIC_TYPE = "TrafficType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "resource_id": "ResourceId",
@@ -8596,9 +8466,6 @@ class GatewayRouteTableAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-g"""
 
     resource_type: ClassVar[str] = "AWS::EC2::GatewayRouteTableAssociation"
-    ROUTE_TABLE_ID = "RouteTableId"
-    GATEWAY_ID = "GatewayId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_table_id": "RouteTableId",
         "gateway_id": "GatewayId",
@@ -8619,16 +8486,6 @@ class Host(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-h"""
 
     resource_type: ClassVar[str] = "AWS::EC2::Host"
-    HOST_RECOVERY = "HostRecovery"
-    INSTANCE_FAMILY = "InstanceFamily"
-    AUTO_PLACEMENT = "AutoPlacement"
-    OUTPOST_ARN = "OutpostArn"
-    HOST_MAINTENANCE = "HostMaintenance"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    INSTANCE_TYPE = "InstanceType"
-    ASSET_ID = "AssetId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_recovery": "HostRecovery",
         "instance_family": "InstanceFamily",
@@ -8663,14 +8520,6 @@ class IPAM(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAM"
-    DEFAULT_RESOURCE_DISCOVERY_ORGANIZATIONAL_UNIT_EXCLUSIONS = "DefaultResourceDiscoveryOrganizationalUnitExclusions"
-    DESCRIPTION = "Description"
-    METERED_ACCOUNT = "MeteredAccount"
-    TIER = "Tier"
-    ENABLE_PRIVATE_GUA = "EnablePrivateGua"
-    TAGS = "Tags"
-    OPERATING_REGIONS = "OperatingRegions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_discovery_organizational_unit_exclusions": "DefaultResourceDiscoveryOrganizationalUnitExclusions",
         "description": "Description",
@@ -8736,11 +8585,6 @@ class IPAMAllocation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMAllocation"
-    DESCRIPTION = "Description"
-    CIDR = "Cidr"
-    NETMASK_LENGTH = "NetmaskLength"
-    IPAM_POOL_ID = "IpamPoolId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "cidr": "Cidr",
@@ -8765,23 +8609,6 @@ class IPAMPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMPool"
-    AWS_SERVICE = "AwsService"
-    LOCALE = "Locale"
-    PUBLIC_IP_SOURCE = "PublicIpSource"
-    DESCRIPTION = "Description"
-    SOURCE_RESOURCE = "SourceResource"
-    SOURCE_IPAM_POOL_ID = "SourceIpamPoolId"
-    ALLOCATION_MIN_NETMASK_LENGTH = "AllocationMinNetmaskLength"
-    IPAM_SCOPE_ID = "IpamScopeId"
-    PROVISIONED_CIDRS = "ProvisionedCidrs"
-    ALLOCATION_MAX_NETMASK_LENGTH = "AllocationMaxNetmaskLength"
-    ALLOCATION_DEFAULT_NETMASK_LENGTH = "AllocationDefaultNetmaskLength"
-    AUTO_IMPORT = "AutoImport"
-    ADDRESS_FAMILY = "AddressFamily"
-    ALLOCATION_RESOURCE_TAGS = "AllocationResourceTags"
-    PUBLICLY_ADVERTISABLE = "PubliclyAdvertisable"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_service": "AwsService",
         "locale": "Locale",
@@ -8865,10 +8692,6 @@ class IPAMPoolCidr(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMPoolCidr"
-    CIDR = "Cidr"
-    NETMASK_LENGTH = "NetmaskLength"
-    IPAM_POOL_ID = "IpamPoolId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "netmask_length": "NetmaskLength",
@@ -8896,11 +8719,6 @@ class IPAMResourceDiscovery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMResourceDiscovery"
-    ORGANIZATIONAL_UNIT_EXCLUSIONS = "OrganizationalUnitExclusions"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    OPERATING_REGIONS = "OperatingRegions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_exclusions": "OrganizationalUnitExclusions",
         "description": "Description",
@@ -8950,10 +8768,6 @@ class IPAMResourceDiscoveryAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMResourceDiscoveryAssociation"
-    IPAM_ID = "IpamId"
-    TAGS = "Tags"
-    IPAM_RESOURCE_DISCOVERY_ID = "IpamResourceDiscoveryId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipam_id": "IpamId",
         "tags": "Tags",
@@ -9011,11 +8825,6 @@ class IPAMScope(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IPAMScope"
-    DESCRIPTION = "Description"
-    IPAM_ID = "IpamId"
-    EXTERNAL_AUTHORITY_CONFIGURATION = "ExternalAuthorityConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "ipam_id": "IpamId",
@@ -9066,48 +8875,6 @@ class Instance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::Instance"
     name_field: ClassVar[str] = "key_name"
-    TENANCY = "Tenancy"
-    SECURITY_GROUPS = "SecurityGroups"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    USER_DATA = "UserData"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    IAM_INSTANCE_PROFILE = "IamInstanceProfile"
-    IPV6_ADDRESSES = "Ipv6Addresses"
-    KERNEL_ID = "KernelId"
-    SUBNET_ID = "SubnetId"
-    EBS_OPTIMIZED = "EbsOptimized"
-    PROPAGATE_TAGS_TO_VOLUME_ON_CREATION = "PropagateTagsToVolumeOnCreation"
-    ELASTIC_GPU_SPECIFICATIONS = "ElasticGpuSpecifications"
-    ELASTIC_INFERENCE_ACCELERATORS = "ElasticInferenceAccelerators"
-    VOLUMES = "Volumes"
-    IPV6_ADDRESS_COUNT = "Ipv6AddressCount"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    ENCLAVE_OPTIONS = "EnclaveOptions"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    IMAGE_ID = "ImageId"
-    INSTANCE_TYPE = "InstanceType"
-    TAGS = "Tags"
-    MONITORING = "Monitoring"
-    ADDITIONAL_INFO = "AdditionalInfo"
-    HIBERNATION_OPTIONS = "HibernationOptions"
-    LICENSE_SPECIFICATIONS = "LicenseSpecifications"
-    METADATA_OPTIONS = "MetadataOptions"
-    INSTANCE_INITIATED_SHUTDOWN_BEHAVIOR = "InstanceInitiatedShutdownBehavior"
-    CPU_OPTIONS = "CpuOptions"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PRIVATE_DNS_NAME_OPTIONS = "PrivateDnsNameOptions"
-    HOST_ID = "HostId"
-    HOST_RESOURCE_GROUP_ARN = "HostResourceGroupArn"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    DISABLE_API_TERMINATION = "DisableApiTermination"
-    KEY_NAME = "KeyName"
-    RAMDISK_ID = "RamdiskId"
-    SOURCE_DEST_CHECK = "SourceDestCheck"
-    PLACEMENT_GROUP_NAME = "PlacementGroupName"
-    SSM_ASSOCIATIONS = "SsmAssociations"
-    AFFINITY = "Affinity"
-    CREDIT_SPECIFICATION = "CreditSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenancy": "Tenancy",
         "security_groups": "SecurityGroups",
@@ -9251,12 +9018,6 @@ class InstanceConnectEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::InstanceConnectEndpoint"
-    PRESERVE_CLIENT_IP = "PreserveClientIp"
-    SUBNET_ID = "SubnetId"
-    CLIENT_TOKEN = "ClientToken"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preserve_client_ip": "PreserveClientIp",
         "subnet_id": "SubnetId",
@@ -9283,8 +9044,6 @@ class InternetGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::InternetGateway"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
     }
@@ -9303,9 +9062,6 @@ class IpPoolRouteTableAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::IpPoolRouteTableAssociation"
-    ROUTE_TABLE_ID = "RouteTableId"
-    PUBLIC_IPV4_POOL = "PublicIpv4Pool"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_table_id": "RouteTableId",
         "public_ipv4_pool": "PublicIpv4Pool",
@@ -9327,12 +9083,6 @@ class KeyPair(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::KeyPair"
     name_field: ClassVar[str] = "key_name"
-    KEY_NAME = "KeyName"
-    KEY_TYPE = "KeyType"
-    KEY_FORMAT = "KeyFormat"
-    PUBLIC_KEY_MATERIAL = "PublicKeyMaterial"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_name": "KeyName",
         "key_type": "KeyType",
@@ -9365,11 +9115,6 @@ class LaunchTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::LaunchTemplate"
     name_field: ClassVar[str] = "launch_template_name"
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    LAUNCH_TEMPLATE_DATA = "LaunchTemplateData"
-    VERSION_DESCRIPTION = "VersionDescription"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "launch_template_data": "LaunchTemplateData",
@@ -9404,11 +9149,6 @@ class LocalGatewayRoute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayRoute"
-    LOCAL_GATEWAY_ROUTE_TABLE_ID = "LocalGatewayRouteTableId"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    LOCAL_GATEWAY_VIRTUAL_INTERFACE_GROUP_ID = "LocalGatewayVirtualInterfaceGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_gateway_route_table_id": "LocalGatewayRouteTableId",
         "destination_cidr_block": "DestinationCidrBlock",
@@ -9438,10 +9178,6 @@ class LocalGatewayRouteTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayRouteTable"
-    LOCAL_GATEWAY_ID = "LocalGatewayId"
-    MODE = "Mode"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_gateway_id": "LocalGatewayId",
         "mode": "Mode",
@@ -9484,10 +9220,6 @@ class LocalGatewayRouteTableVPCAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
-    VPC_ID = "VpcId"
-    LOCAL_GATEWAY_ROUTE_TABLE_ID = "LocalGatewayRouteTableId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "local_gateway_route_table_id": "LocalGatewayRouteTableId",
@@ -9520,10 +9252,6 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(CloudFormationResou
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
-    LOCAL_GATEWAY_ROUTE_TABLE_ID = "LocalGatewayRouteTableId"
-    TAGS = "Tags"
-    LOCAL_GATEWAY_VIRTUAL_INTERFACE_GROUP_ID = "LocalGatewayVirtualInterfaceGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_gateway_route_table_id": "LocalGatewayRouteTableId",
         "tags": "Tags",
@@ -9566,15 +9294,6 @@ class LocalGatewayVirtualInterface(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayVirtualInterface"
-    OUTPOST_LAG_ID = "OutpostLagId"
-    LOCAL_ADDRESS = "LocalAddress"
-    PEER_ADDRESS = "PeerAddress"
-    VLAN = "Vlan"
-    PEER_BGP_ASN = "PeerBgpAsn"
-    TAGS = "Tags"
-    LOCAL_GATEWAY_VIRTUAL_INTERFACE_GROUP_ID = "LocalGatewayVirtualInterfaceGroupId"
-    PEER_BGP_ASN_EXTENDED = "PeerBgpAsnExtended"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outpost_lag_id": "OutpostLagId",
         "local_address": "LocalAddress",
@@ -9627,11 +9346,6 @@ class LocalGatewayVirtualInterfaceGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LocalGatewayVirtualInterfaceGroup"
-    LOCAL_GATEWAY_ID = "LocalGatewayId"
-    LOCAL_BGP_ASN_EXTENDED = "LocalBgpAsnExtended"
-    LOCAL_BGP_ASN = "LocalBgpAsn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_gateway_id": "LocalGatewayId",
         "local_bgp_asn_extended": "LocalBgpAsnExtended",
@@ -9676,19 +9390,6 @@ class NatGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NatGateway"
-    SECONDARY_ALLOCATION_IDS = "SecondaryAllocationIds"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    SECONDARY_PRIVATE_IP_ADDRESS_COUNT = "SecondaryPrivateIpAddressCount"
-    CONNECTIVITY_TYPE = "ConnectivityType"
-    SECONDARY_PRIVATE_IP_ADDRESSES = "SecondaryPrivateIpAddresses"
-    VPC_ID = "VpcId"
-    AVAILABILITY_ZONE_ADDRESSES = "AvailabilityZoneAddresses"
-    AVAILABILITY_MODE = "AvailabilityMode"
-    ALLOCATION_ID = "AllocationId"
-    SUBNET_ID = "SubnetId"
-    TAGS = "Tags"
-    MAX_DRAIN_DURATION_SECONDS = "MaxDrainDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary_allocation_ids": "SecondaryAllocationIds",
         "private_ip_address": "PrivateIpAddress",
@@ -9749,9 +9450,6 @@ class NetworkAcl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkAcl"
-    VPC_ID = "VpcId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "tags": "Tags",
@@ -9772,16 +9470,6 @@ class NetworkAclEntry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkAclEntry"
-    PORT_RANGE = "PortRange"
-    NETWORK_ACL_ID = "NetworkAclId"
-    RULE_ACTION = "RuleAction"
-    CIDR_BLOCK = "CidrBlock"
-    EGRESS = "Egress"
-    RULE_NUMBER = "RuleNumber"
-    IPV6_CIDR_BLOCK = "Ipv6CidrBlock"
-    PROTOCOL = "Protocol"
-    ICMP = "Icmp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "network_acl_id": "NetworkAclId",
@@ -9816,10 +9504,6 @@ class NetworkInsightsAccessScope(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInsightsAccessScope"
-    EXCLUDE_PATHS = "ExcludePaths"
-    MATCH_PATHS = "MatchPaths"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_paths": "ExcludePaths",
         "match_paths": "MatchPaths",
@@ -9857,9 +9541,6 @@ class NetworkInsightsAccessScopeAnalysis(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInsightsAccessScopeAnalysis"
-    NETWORK_INSIGHTS_ACCESS_SCOPE_ID = "NetworkInsightsAccessScopeId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_insights_access_scope_id": "NetworkInsightsAccessScopeId",
         "tags": "Tags",
@@ -9915,12 +9596,6 @@ class NetworkInsightsAnalysis(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInsightsAnalysis"
-    FILTER_OUT_ARNS = "FilterOutArns"
-    NETWORK_INSIGHTS_PATH_ID = "NetworkInsightsPathId"
-    FILTER_IN_ARNS = "FilterInArns"
-    ADDITIONAL_ACCOUNTS = "AdditionalAccounts"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_out_arns": "FilterOutArns",
         "network_insights_path_id": "NetworkInsightsPathId",
@@ -9997,16 +9672,6 @@ class NetworkInsightsPath(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInsightsPath"
-    DESTINATION = "Destination"
-    DESTINATION_IP = "DestinationIp"
-    SOURCE_IP = "SourceIp"
-    FILTER_AT_DESTINATION = "FilterAtDestination"
-    FILTER_AT_SOURCE = "FilterAtSource"
-    PROTOCOL = "Protocol"
-    DESTINATION_PORT = "DestinationPort"
-    SOURCE = "Source"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "destination_ip": "DestinationIp",
@@ -10061,24 +9726,6 @@ class NetworkInterface(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInterface"
-    DESCRIPTION = "Description"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIVATE_IP_ADDRESSES = "PrivateIpAddresses"
-    SECONDARY_PRIVATE_IP_ADDRESS_COUNT = "SecondaryPrivateIpAddressCount"
-    PUBLIC_IP_DNS_HOSTNAME_TYPE_SPECIFICATION = "PublicIpDnsHostnameTypeSpecification"
-    IPV6_PREFIX_COUNT = "Ipv6PrefixCount"
-    IPV4_PREFIXES = "Ipv4Prefixes"
-    IPV4_PREFIX_COUNT = "Ipv4PrefixCount"
-    GROUP_SET = "GroupSet"
-    IPV6_ADDRESSES = "Ipv6Addresses"
-    IPV6_PREFIXES = "Ipv6Prefixes"
-    SUBNET_ID = "SubnetId"
-    SOURCE_DEST_CHECK = "SourceDestCheck"
-    INTERFACE_TYPE = "InterfaceType"
-    IPV6_ADDRESS_COUNT = "Ipv6AddressCount"
-    TAGS = "Tags"
-    CONNECTION_TRACKING_SPECIFICATION = "ConnectionTrackingSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_address": "PrivateIpAddress",
@@ -10174,13 +9821,6 @@ class NetworkInterfaceAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInterfaceAttachment"
-    ENA_SRD_SPECIFICATION = "EnaSrdSpecification"
-    INSTANCE_ID = "InstanceId"
-    DEVICE_INDEX = "DeviceIndex"
-    ENA_QUEUE_COUNT = "EnaQueueCount"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_specification": "EnaSrdSpecification",
         "instance_id": "InstanceId",
@@ -10209,10 +9849,6 @@ class NetworkInterfacePermission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkInterfacePermission"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    PERMISSION = "Permission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_account_id": "AwsAccountId",
         "network_interface_id": "NetworkInterfaceId",
@@ -10229,11 +9865,6 @@ class NetworkPerformanceMetricSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-n"""
 
     resource_type: ClassVar[str] = "AWS::EC2::NetworkPerformanceMetricSubscription"
-    DESTINATION = "Destination"
-    STATISTIC = "Statistic"
-    METRIC = "Metric"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "statistic": "Statistic",
@@ -10252,11 +9883,6 @@ class PlacementGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-p"""
 
     resource_type: ClassVar[str] = "AWS::EC2::PlacementGroup"
-    SPREAD_LEVEL = "SpreadLevel"
-    STRATEGY = "Strategy"
-    PARTITION_COUNT = "PartitionCount"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spread_level": "SpreadLevel",
         "strategy": "Strategy",
@@ -10282,12 +9908,6 @@ class PrefixList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::PrefixList"
     name_field: ClassVar[str] = "prefix_list_name"
-    MAX_ENTRIES = "MaxEntries"
-    PREFIX_LIST_NAME = "PrefixListName"
-    ENTRIES = "Entries"
-    ADDRESS_FAMILY = "AddressFamily"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_entries": "MaxEntries",
         "prefix_list_name": "PrefixListName",
@@ -10329,22 +9949,6 @@ class Route(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::Route"
-    DESTINATION_IPV6_CIDR_BLOCK = "DestinationIpv6CidrBlock"
-    ROUTE_TABLE_ID = "RouteTableId"
-    INSTANCE_ID = "InstanceId"
-    LOCAL_GATEWAY_ID = "LocalGatewayId"
-    CARRIER_GATEWAY_ID = "CarrierGatewayId"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    GATEWAY_ID = "GatewayId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-    CORE_NETWORK_ARN = "CoreNetworkArn"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    VPC_PEERING_CONNECTION_ID = "VpcPeeringConnectionId"
-    EGRESS_ONLY_INTERNET_GATEWAY_ID = "EgressOnlyInternetGatewayId"
-    DESTINATION_PREFIX_LIST_ID = "DestinationPrefixListId"
-    NAT_GATEWAY_ID = "NatGatewayId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_ipv6_cidr_block": "DestinationIpv6CidrBlock",
         "route_table_id": "RouteTableId",
@@ -10391,12 +9995,6 @@ class RouteServer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteServer"
-    PERSIST_ROUTES = "PersistRoutes"
-    SNS_NOTIFICATIONS_ENABLED = "SnsNotificationsEnabled"
-    PERSIST_ROUTES_DURATION = "PersistRoutesDuration"
-    AMAZON_SIDE_ASN = "AmazonSideAsn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "persist_routes": "PersistRoutes",
         "sns_notifications_enabled": "SnsNotificationsEnabled",
@@ -10428,9 +10026,6 @@ class RouteServerAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteServerAssociation"
-    VPC_ID = "VpcId"
-    ROUTE_SERVER_ID = "RouteServerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "route_server_id": "RouteServerId",
@@ -10445,10 +10040,6 @@ class RouteServerEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteServerEndpoint"
-    SUBNET_ID = "SubnetId"
-    ROUTE_SERVER_ID = "RouteServerId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id": "SubnetId",
         "route_server_id": "RouteServerId",
@@ -10491,11 +10082,6 @@ class RouteServerPeer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteServerPeer"
-    PEER_ADDRESS = "PeerAddress"
-    BGP_OPTIONS = "BgpOptions"
-    ROUTE_SERVER_ENDPOINT_ID = "RouteServerEndpointId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_address": "PeerAddress",
         "bgp_options": "BgpOptions",
@@ -10550,9 +10136,6 @@ class RouteServerPropagation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteServerPropagation"
-    ROUTE_TABLE_ID = "RouteTableId"
-    ROUTE_SERVER_ID = "RouteServerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_table_id": "RouteTableId",
         "route_server_id": "RouteServerId",
@@ -10567,9 +10150,6 @@ class RouteTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-r"""
 
     resource_type: ClassVar[str] = "AWS::EC2::RouteTable"
-    VPC_ID = "VpcId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "tags": "Tags",
@@ -10591,13 +10171,6 @@ class SecurityGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroup"
     name_field: ClassVar[str] = "group_name"
-    GROUP_DESCRIPTION = "GroupDescription"
-    GROUP_NAME = "GroupName"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_INGRESS = "SecurityGroupIngress"
-    SECURITY_GROUP_EGRESS = "SecurityGroupEgress"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_description": "GroupDescription",
         "group_name": "GroupName",
@@ -10636,16 +10209,6 @@ class SecurityGroupEgress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroupEgress"
-    CIDR_IP = "CidrIp"
-    CIDR_IPV6 = "CidrIpv6"
-    DESCRIPTION = "Description"
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-    IP_PROTOCOL = "IpProtocol"
-    DESTINATION_SECURITY_GROUP_ID = "DestinationSecurityGroupId"
-    DESTINATION_PREFIX_LIST_ID = "DestinationPrefixListId"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_ip": "CidrIp",
         "cidr_ipv6": "CidrIpv6",
@@ -10681,19 +10244,6 @@ class SecurityGroupIngress(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroupIngress"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    CIDR_IP = "CidrIp"
-    CIDR_IPV6 = "CidrIpv6"
-    DESCRIPTION = "Description"
-    FROM_PORT = "FromPort"
-    SOURCE_SECURITY_GROUP_NAME = "SourceSecurityGroupName"
-    TO_PORT = "ToPort"
-    SOURCE_SECURITY_GROUP_OWNER_ID = "SourceSecurityGroupOwnerId"
-    IP_PROTOCOL = "IpProtocol"
-    SOURCE_SECURITY_GROUP_ID = "SourceSecurityGroupId"
-    SOURCE_PREFIX_LIST_ID = "SourcePrefixListId"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "cidr_ip": "CidrIp",
@@ -10734,9 +10284,6 @@ class SecurityGroupVpcAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroupVpcAssociation"
-    VPC_ID = "VpcId"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "group_id": "GroupId",
@@ -10767,8 +10314,6 @@ class SnapshotBlockPublicAccess(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SnapshotBlockPublicAccess"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -10787,9 +10332,6 @@ class SpotFleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SpotFleet"
-    SPOT_FLEET_REQUEST_CONFIG_DATA = "SpotFleetRequestConfigData"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_fleet_request_config_data": "SpotFleetRequestConfigData",
         "tags": "Tags",
@@ -10810,24 +10352,6 @@ class Subnet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::Subnet"
-    MAP_PUBLIC_IP_ON_LAUNCH = "MapPublicIpOnLaunch"
-    ENABLE_DNS64 = "EnableDns64"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    OUTPOST_ARN = "OutpostArn"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    CIDR_BLOCK = "CidrBlock"
-    ENABLE_LNI_AT_DEVICE_INDEX = "EnableLniAtDeviceIndex"
-    IPV6_NETMASK_LENGTH = "Ipv6NetmaskLength"
-    IPV6_IPAM_POOL_ID = "Ipv6IpamPoolId"
-    ASSIGN_IPV6_ADDRESS_ON_CREATION = "AssignIpv6AddressOnCreation"
-    VPC_ID = "VpcId"
-    IPV4_NETMASK_LENGTH = "Ipv4NetmaskLength"
-    PRIVATE_DNS_NAME_OPTIONS_ON_LAUNCH = "PrivateDnsNameOptionsOnLaunch"
-    IPV4_IPAM_POOL_ID = "Ipv4IpamPoolId"
-    IPV6_NATIVE = "Ipv6Native"
-    IPV6_CIDR_BLOCK = "Ipv6CidrBlock"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "map_public_ip_on_launch": "MapPublicIpOnLaunch",
         "enable_dns64": "EnableDns64",
@@ -10923,11 +10447,6 @@ class SubnetCidrBlock(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SubnetCidrBlock"
-    IPV6_NETMASK_LENGTH = "Ipv6NetmaskLength"
-    IPV6_IPAM_POOL_ID = "Ipv6IpamPoolId"
-    SUBNET_ID = "SubnetId"
-    IPV6_CIDR_BLOCK = "Ipv6CidrBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_netmask_length": "Ipv6NetmaskLength",
         "ipv6_ipam_pool_id": "Ipv6IpamPoolId",
@@ -10962,9 +10481,6 @@ class SubnetNetworkAclAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SubnetNetworkAclAssociation"
-    NETWORK_ACL_ID = "NetworkAclId"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_acl_id": "NetworkAclId",
         "subnet_id": "SubnetId",
@@ -10985,9 +10501,6 @@ class SubnetRouteTableAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SubnetRouteTableAssociation"
-    ROUTE_TABLE_ID = "RouteTableId"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_table_id": "RouteTableId",
         "subnet_id": "SubnetId",
@@ -11008,10 +10521,6 @@ class TrafficMirrorFilter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TrafficMirrorFilter"
-    DESCRIPTION = "Description"
-    NETWORK_SERVICES = "NetworkServices"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "network_services": "NetworkServices",
@@ -11034,18 +10543,6 @@ class TrafficMirrorFilterRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TrafficMirrorFilterRule"
-    DESTINATION_PORT_RANGE = "DestinationPortRange"
-    DESCRIPTION = "Description"
-    SOURCE_PORT_RANGE = "SourcePortRange"
-    RULE_ACTION = "RuleAction"
-    SOURCE_CIDR_BLOCK = "SourceCidrBlock"
-    RULE_NUMBER = "RuleNumber"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    TRAFFIC_MIRROR_FILTER_ID = "TrafficMirrorFilterId"
-    TRAFFIC_DIRECTION = "TrafficDirection"
-    PROTOCOL = "Protocol"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port_range": "DestinationPortRange",
         "description": "Description",
@@ -11084,16 +10581,6 @@ class TrafficMirrorSession(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TrafficMirrorSession"
-    TRAFFIC_MIRROR_TARGET_ID = "TrafficMirrorTargetId"
-    DESCRIPTION = "Description"
-    OWNER_ID = "OwnerId"
-    SESSION_NUMBER = "SessionNumber"
-    VIRTUAL_NETWORK_ID = "VirtualNetworkId"
-    PACKET_LENGTH = "PacketLength"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    TRAFFIC_MIRROR_FILTER_ID = "TrafficMirrorFilterId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "traffic_mirror_target_id": "TrafficMirrorTargetId",
         "description": "Description",
@@ -11128,12 +10615,6 @@ class TrafficMirrorTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TrafficMirrorTarget"
-    NETWORK_LOAD_BALANCER_ARN = "NetworkLoadBalancerArn"
-    DESCRIPTION = "Description"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    GATEWAY_LOAD_BALANCER_ENDPOINT_ID = "GatewayLoadBalancerEndpointId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_load_balancer_arn": "NetworkLoadBalancerArn",
         "description": "Description",
@@ -11160,21 +10641,6 @@ class TransitGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGateway"
-    DESCRIPTION = "Description"
-    ASSOCIATION_DEFAULT_ROUTE_TABLE_ID = "AssociationDefaultRouteTableId"
-    AUTO_ACCEPT_SHARED_ATTACHMENTS = "AutoAcceptSharedAttachments"
-    DEFAULT_ROUTE_TABLE_PROPAGATION = "DefaultRouteTablePropagation"
-    TRANSIT_GATEWAY_CIDR_BLOCKS = "TransitGatewayCidrBlocks"
-    PROPAGATION_DEFAULT_ROUTE_TABLE_ID = "PropagationDefaultRouteTableId"
-    DEFAULT_ROUTE_TABLE_ASSOCIATION = "DefaultRouteTableAssociation"
-    VPN_ECMP_SUPPORT = "VpnEcmpSupport"
-    SECURITY_GROUP_REFERENCING_SUPPORT = "SecurityGroupReferencingSupport"
-    DNS_SUPPORT = "DnsSupport"
-    MULTICAST_SUPPORT = "MulticastSupport"
-    AMAZON_SIDE_ASN = "AmazonSideAsn"
-    TAGS = "Tags"
-    ENCRYPTION_SUPPORT = "EncryptionSupport"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "association_default_route_table_id": "AssociationDefaultRouteTableId",
@@ -11229,12 +10695,6 @@ class TransitGatewayAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayAttachment"
-    OPTIONS = "Options"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    VPC_ID = "VpcId"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "transit_gateway_id": "TransitGatewayId",
@@ -11261,10 +10721,6 @@ class TransitGatewayConnect(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayConnect"
-    OPTIONS = "Options"
-    TRANSPORT_TRANSIT_GATEWAY_ATTACHMENT_ID = "TransportTransitGatewayAttachmentId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "transport_transit_gateway_attachment_id": "TransportTransitGatewayAttachmentId",
@@ -11302,10 +10758,6 @@ class TransitGatewayConnectPeer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayConnectPeer"
-    CONNECT_PEER_CONFIGURATION = "ConnectPeerConfiguration"
-    TAGS = "Tags"
-    TRANSIT_GATEWAY_ATTACHMENT_ID = "TransitGatewayAttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_peer_configuration": "ConnectPeerConfiguration",
         "tags": "Tags",
@@ -11348,10 +10800,6 @@ class TransitGatewayMeteringPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMeteringPolicy"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    MIDDLEBOX_ATTACHMENT_IDS = "MiddleboxAttachmentIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_id": "TransitGatewayId",
         "middlebox_attachment_ids": "MiddleboxAttachmentIds",
@@ -11384,19 +10832,6 @@ class TransitGatewayMeteringPolicyEntry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMeteringPolicyEntry"
-    DESTINATION_PORT_RANGE = "DestinationPortRange"
-    DESTINATION_TRANSIT_GATEWAY_ATTACHMENT_ID = "DestinationTransitGatewayAttachmentId"
-    METERED_ACCOUNT = "MeteredAccount"
-    SOURCE_PORT_RANGE = "SourcePortRange"
-    POLICY_RULE_NUMBER = "PolicyRuleNumber"
-    DESTINATION_TRANSIT_GATEWAY_ATTACHMENT_TYPE = "DestinationTransitGatewayAttachmentType"
-    SOURCE_CIDR_BLOCK = "SourceCidrBlock"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    PROTOCOL = "Protocol"
-    TRANSIT_GATEWAY_METERING_POLICY_ID = "TransitGatewayMeteringPolicyId"
-    SOURCE_TRANSIT_GATEWAY_ATTACHMENT_ID = "SourceTransitGatewayAttachmentId"
-    SOURCE_TRANSIT_GATEWAY_ATTACHMENT_TYPE = "SourceTransitGatewayAttachmentType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port_range": "DestinationPortRange",
         "destination_transit_gateway_attachment_id": "DestinationTransitGatewayAttachmentId",
@@ -11442,10 +10877,6 @@ class TransitGatewayMulticastDomain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMulticastDomain"
-    OPTIONS = "Options"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "transit_gateway_id": "TransitGatewayId",
@@ -11483,10 +10914,6 @@ class TransitGatewayMulticastDomainAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMulticastDomainAssociation"
-    TRANSIT_GATEWAY_MULTICAST_DOMAIN_ID = "TransitGatewayMulticastDomainId"
-    SUBNET_ID = "SubnetId"
-    TRANSIT_GATEWAY_ATTACHMENT_ID = "TransitGatewayAttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_multicast_domain_id": "TransitGatewayMulticastDomainId",
         "subnet_id": "SubnetId",
@@ -11519,10 +10946,6 @@ class TransitGatewayMulticastGroupMember(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMulticastGroupMember"
-    TRANSIT_GATEWAY_MULTICAST_DOMAIN_ID = "TransitGatewayMulticastDomainId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    GROUP_IP_ADDRESS = "GroupIpAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_multicast_domain_id": "TransitGatewayMulticastDomainId",
         "network_interface_id": "NetworkInterfaceId",
@@ -11575,10 +10998,6 @@ class TransitGatewayMulticastGroupSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayMulticastGroupSource"
-    TRANSIT_GATEWAY_MULTICAST_DOMAIN_ID = "TransitGatewayMulticastDomainId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    GROUP_IP_ADDRESS = "GroupIpAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_multicast_domain_id": "TransitGatewayMulticastDomainId",
         "network_interface_id": "NetworkInterfaceId",
@@ -11631,12 +11050,6 @@ class TransitGatewayPeeringAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayPeeringAttachment"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    PEER_TRANSIT_GATEWAY_ID = "PeerTransitGatewayId"
-    PEER_ACCOUNT_ID = "PeerAccountId"
-    PEER_REGION = "PeerRegion"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_id": "TransitGatewayId",
         "peer_transit_gateway_id": "PeerTransitGatewayId",
@@ -11688,11 +11101,6 @@ class TransitGatewayRoute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayRoute"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ID = "TransitGatewayRouteTableId"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    BLACKHOLE = "Blackhole"
-    TRANSIT_GATEWAY_ATTACHMENT_ID = "TransitGatewayAttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_route_table_id": "TransitGatewayRouteTableId",
         "destination_cidr_block": "DestinationCidrBlock",
@@ -11711,9 +11119,6 @@ class TransitGatewayRouteTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayRouteTable"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_id": "TransitGatewayId",
         "tags": "Tags",
@@ -11734,9 +11139,6 @@ class TransitGatewayRouteTableAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayRouteTableAssociation"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ID = "TransitGatewayRouteTableId"
-    TRANSIT_GATEWAY_ATTACHMENT_ID = "TransitGatewayAttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_route_table_id": "TransitGatewayRouteTableId",
         "transit_gateway_attachment_id": "TransitGatewayAttachmentId",
@@ -11751,9 +11153,6 @@ class TransitGatewayRouteTablePropagation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayRouteTablePropagation"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ID = "TransitGatewayRouteTableId"
-    TRANSIT_GATEWAY_ATTACHMENT_ID = "TransitGatewayAttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_route_table_id": "TransitGatewayRouteTableId",
         "transit_gateway_attachment_id": "TransitGatewayAttachmentId",
@@ -11768,14 +11167,6 @@ class TransitGatewayVpcAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-t"""
 
     resource_type: ClassVar[str] = "AWS::EC2::TransitGatewayVpcAttachment"
-    OPTIONS = "Options"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    VPC_ID = "VpcId"
-    REMOVE_SUBNET_IDS = "RemoveSubnetIds"
-    SUBNET_IDS = "SubnetIds"
-    ADD_SUBNET_IDS = "AddSubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "transit_gateway_id": "TransitGatewayId",
@@ -11806,14 +11197,6 @@ class VPC(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPC"
-    INSTANCE_TENANCY = "InstanceTenancy"
-    IPV4_NETMASK_LENGTH = "Ipv4NetmaskLength"
-    CIDR_BLOCK = "CidrBlock"
-    IPV4_IPAM_POOL_ID = "Ipv4IpamPoolId"
-    ENABLE_DNS_SUPPORT = "EnableDnsSupport"
-    ENABLE_DNS_HOSTNAMES = "EnableDnsHostnames"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_tenancy": "InstanceTenancy",
         "ipv4_netmask_length": "Ipv4NetmaskLength",
@@ -11869,11 +11252,6 @@ class VPCBlockPublicAccessExclusion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCBlockPublicAccessExclusion"
-    INTERNET_GATEWAY_EXCLUSION_MODE = "InternetGatewayExclusionMode"
-    VPC_ID = "VpcId"
-    SUBNET_ID = "SubnetId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internet_gateway_exclusion_mode": "InternetGatewayExclusionMode",
         "vpc_id": "VpcId",
@@ -11898,8 +11276,6 @@ class VPCBlockPublicAccessOptions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCBlockPublicAccessOptions"
-    INTERNET_GATEWAY_BLOCK_MODE = "InternetGatewayBlockMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internet_gateway_block_mode": "InternetGatewayBlockMode",
     }
@@ -11923,17 +11299,6 @@ class VPCCidrBlock(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCCidrBlock"
-    IPV6_NETMASK_LENGTH = "Ipv6NetmaskLength"
-    IPV6_IPAM_POOL_ID = "Ipv6IpamPoolId"
-    VPC_ID = "VpcId"
-    IPV4_NETMASK_LENGTH = "Ipv4NetmaskLength"
-    IPV6_CIDR_BLOCK_NETWORK_BORDER_GROUP = "Ipv6CidrBlockNetworkBorderGroup"
-    CIDR_BLOCK = "CidrBlock"
-    IPV6_POOL = "Ipv6Pool"
-    IPV4_IPAM_POOL_ID = "Ipv4IpamPoolId"
-    IPV6_CIDR_BLOCK = "Ipv6CidrBlock"
-    AMAZON_PROVIDED_IPV6_CIDR_BLOCK = "AmazonProvidedIpv6CidrBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_netmask_length": "Ipv6NetmaskLength",
         "ipv6_ipam_pool_id": "Ipv6IpamPoolId",
@@ -11980,9 +11345,6 @@ class VPCDHCPOptionsAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCDHCPOptionsAssociation"
-    VPC_ID = "VpcId"
-    DHCP_OPTIONS_ID = "DhcpOptionsId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "dhcp_options_id": "DhcpOptionsId",
@@ -11997,18 +11359,6 @@ class VPCEncryptionControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEncryptionControl"
-    VPC_PEERING_EXCLUSION_INPUT = "VpcPeeringExclusionInput"
-    ELASTIC_FILE_SYSTEM_EXCLUSION_INPUT = "ElasticFileSystemExclusionInput"
-    VPC_LATTICE_EXCLUSION_INPUT = "VpcLatticeExclusionInput"
-    VPC_ID = "VpcId"
-    NAT_GATEWAY_EXCLUSION_INPUT = "NatGatewayExclusionInput"
-    EGRESS_ONLY_INTERNET_GATEWAY_EXCLUSION_INPUT = "EgressOnlyInternetGatewayExclusionInput"
-    VIRTUAL_PRIVATE_GATEWAY_EXCLUSION_INPUT = "VirtualPrivateGatewayExclusionInput"
-    MODE = "Mode"
-    INTERNET_GATEWAY_EXCLUSION_INPUT = "InternetGatewayExclusionInput"
-    LAMBDA_EXCLUSION_INPUT = "LambdaExclusionInput"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_peering_exclusion_input": "VpcPeeringExclusionInput",
         "elastic_file_system_exclusion_input": "ElasticFileSystemExclusionInput",
@@ -12183,21 +11533,6 @@ class VPCEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEndpoint"
     name_field: ClassVar[str] = "service_name"
-    PRIVATE_DNS_ENABLED = "PrivateDnsEnabled"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SERVICE_REGION = "ServiceRegion"
-    DNS_OPTIONS = "DnsOptions"
-    RESOURCE_CONFIGURATION_ARN = "ResourceConfigurationArn"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    SERVICE_NETWORK_ARN = "ServiceNetworkArn"
-    VPC_ID = "VpcId"
-    ROUTE_TABLE_IDS = "RouteTableIds"
-    SERVICE_NAME = "ServiceName"
-    POLICY_DOCUMENT = "PolicyDocument"
-    VPC_ENDPOINT_TYPE = "VpcEndpointType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_enabled": "PrivateDnsEnabled",
         "ip_address_type": "IpAddressType",
@@ -12257,11 +11592,6 @@ class VPCEndpointConnectionNotification(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEndpointConnectionNotification"
-    CONNECTION_EVENTS = "ConnectionEvents"
-    VPC_ENDPOINT_ID = "VPCEndpointId"
-    CONNECTION_NOTIFICATION_ARN = "ConnectionNotificationArn"
-    SERVICE_ID = "ServiceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_events": "ConnectionEvents",
         "vpc_endpoint_id": "VPCEndpointId",
@@ -12286,15 +11616,6 @@ class VPCEndpointService(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEndpointService"
-    NETWORK_LOAD_BALANCER_ARNS = "NetworkLoadBalancerArns"
-    PAYER_RESPONSIBILITY = "PayerResponsibility"
-    ACCEPTANCE_REQUIRED = "AcceptanceRequired"
-    CONTRIBUTOR_INSIGHTS_ENABLED = "ContributorInsightsEnabled"
-    SUPPORTED_IP_ADDRESS_TYPES = "SupportedIpAddressTypes"
-    GATEWAY_LOAD_BALANCER_ARNS = "GatewayLoadBalancerArns"
-    SUPPORTED_REGIONS = "SupportedRegions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_load_balancer_arns": "NetworkLoadBalancerArns",
         "payer_responsibility": "PayerResponsibility",
@@ -12327,9 +11648,6 @@ class VPCEndpointServicePermissions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEndpointServicePermissions"
-    ALLOWED_PRINCIPALS = "AllowedPrincipals"
-    SERVICE_ID = "ServiceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_principals": "AllowedPrincipals",
         "service_id": "ServiceId",
@@ -12344,10 +11662,6 @@ class VPCGatewayAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCGatewayAttachment"
-    INTERNET_GATEWAY_ID = "InternetGatewayId"
-    VPC_ID = "VpcId"
-    VPN_GATEWAY_ID = "VpnGatewayId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internet_gateway_id": "InternetGatewayId",
         "vpc_id": "VpcId",
@@ -12370,13 +11684,6 @@ class VPCPeeringConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCPeeringConnection"
-    PEER_ROLE_ARN = "PeerRoleArn"
-    VPC_ID = "VpcId"
-    PEER_VPC_ID = "PeerVpcId"
-    PEER_REGION = "PeerRegion"
-    PEER_OWNER_ID = "PeerOwnerId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_role_arn": "PeerRoleArn",
         "vpc_id": "VpcId",
@@ -12405,10 +11712,6 @@ class VPNConcentrator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPNConcentrator"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    TYPE = "Type"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_id": "TransitGatewayId",
         "type_": "Type",
@@ -12436,25 +11739,6 @@ class VPNConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPNConnection"
-    REMOTE_IPV6_NETWORK_CIDR = "RemoteIpv6NetworkCidr"
-    REMOTE_IPV4_NETWORK_CIDR = "RemoteIpv4NetworkCidr"
-    VPN_TUNNEL_OPTIONS_SPECIFICATIONS = "VpnTunnelOptionsSpecifications"
-    CUSTOMER_GATEWAY_ID = "CustomerGatewayId"
-    OUTSIDE_IP_ADDRESS_TYPE = "OutsideIpAddressType"
-    STATIC_ROUTES_ONLY = "StaticRoutesOnly"
-    ENABLE_ACCELERATION = "EnableAcceleration"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    TYPE = "Type"
-    TUNNEL_BANDWIDTH = "TunnelBandwidth"
-    LOCAL_IPV4_NETWORK_CIDR = "LocalIpv4NetworkCidr"
-    VPN_GATEWAY_ID = "VpnGatewayId"
-    VPN_CONCENTRATOR_ID = "VpnConcentratorId"
-    PRE_SHARED_KEY_STORAGE = "PreSharedKeyStorage"
-    TRANSPORT_TRANSIT_GATEWAY_ATTACHMENT_ID = "TransportTransitGatewayAttachmentId"
-    LOCAL_IPV6_NETWORK_CIDR = "LocalIpv6NetworkCidr"
-    TUNNEL_INSIDE_IP_VERSION = "TunnelInsideIpVersion"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "remote_ipv6_network_cidr": "RemoteIpv6NetworkCidr",
         "remote_ipv4_network_cidr": "RemoteIpv4NetworkCidr",
@@ -12507,9 +11791,6 @@ class VPNConnectionRoute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPNConnectionRoute"
-    DESTINATION_CIDR_BLOCK = "DestinationCidrBlock"
-    VPN_CONNECTION_ID = "VpnConnectionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_cidr_block": "DestinationCidrBlock",
         "vpn_connection_id": "VpnConnectionId",
@@ -12524,10 +11805,6 @@ class VPNGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPNGateway"
-    TYPE = "Type"
-    AMAZON_SIDE_ASN = "AmazonSideAsn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "amazon_side_asn": "AmazonSideAsn",
@@ -12550,9 +11827,6 @@ class VPNGatewayRoutePropagation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPNGatewayRoutePropagation"
-    ROUTE_TABLE_IDS = "RouteTableIds"
-    VPN_GATEWAY_ID = "VpnGatewayId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_table_ids": "RouteTableIds",
         "vpn_gateway_id": "VpnGatewayId",
@@ -12573,23 +11847,6 @@ class VerifiedAccessEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VerifiedAccessEndpoint"
-    ATTACHMENT_TYPE = "AttachmentType"
-    DESCRIPTION = "Description"
-    DOMAIN_CERTIFICATE_ARN = "DomainCertificateArn"
-    VERIFIED_ACCESS_GROUP_ID = "VerifiedAccessGroupId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    LOAD_BALANCER_OPTIONS = "LoadBalancerOptions"
-    APPLICATION_DOMAIN = "ApplicationDomain"
-    POLICY_ENABLED = "PolicyEnabled"
-    CIDR_OPTIONS = "CidrOptions"
-    ENDPOINT_DOMAIN_PREFIX = "EndpointDomainPrefix"
-    ENDPOINT_TYPE = "EndpointType"
-    POLICY_DOCUMENT = "PolicyDocument"
-    RDS_OPTIONS = "RdsOptions"
-    SSE_SPECIFICATION = "SseSpecification"
-    TAGS = "Tags"
-    NETWORK_INTERFACE_OPTIONS = "NetworkInterfaceOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachment_type": "AttachmentType",
         "description": "Description",
@@ -12668,13 +11925,6 @@ class VerifiedAccessGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VerifiedAccessGroup"
-    DESCRIPTION = "Description"
-    POLICY_DOCUMENT = "PolicyDocument"
-    SSE_SPECIFICATION = "SseSpecification"
-    VERIFIED_ACCESS_INSTANCE_ID = "VerifiedAccessInstanceId"
-    TAGS = "Tags"
-    POLICY_ENABLED = "PolicyEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "policy_document": "PolicyDocument",
@@ -12723,14 +11973,6 @@ class VerifiedAccessInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VerifiedAccessInstance"
-    VERIFIED_ACCESS_TRUST_PROVIDERS = "VerifiedAccessTrustProviders"
-    DESCRIPTION = "Description"
-    FIPS_ENABLED = "FipsEnabled"
-    LOGGING_CONFIGURATIONS = "LoggingConfigurations"
-    CIDR_ENDPOINTS_CUSTOM_SUB_DOMAIN = "CidrEndpointsCustomSubDomain"
-    VERIFIED_ACCESS_TRUST_PROVIDER_IDS = "VerifiedAccessTrustProviderIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "verified_access_trust_providers": "VerifiedAccessTrustProviders",
         "description": "Description",
@@ -12777,17 +12019,6 @@ class VerifiedAccessTrustProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EC2::VerifiedAccessTrustProvider"
     name_field: ClassVar[str] = "policy_reference_name"
-    POLICY_REFERENCE_NAME = "PolicyReferenceName"
-    DEVICE_OPTIONS = "DeviceOptions"
-    NATIVE_APPLICATION_OIDC_OPTIONS = "NativeApplicationOidcOptions"
-    DEVICE_TRUST_PROVIDER_TYPE = "DeviceTrustProviderType"
-    DESCRIPTION = "Description"
-    OIDC_OPTIONS = "OidcOptions"
-    TRUST_PROVIDER_TYPE = "TrustProviderType"
-    SSE_SPECIFICATION = "SseSpecification"
-    USER_TRUST_PROVIDER_TYPE = "UserTrustProviderType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_reference_name": "PolicyReferenceName",
         "device_options": "DeviceOptions",
@@ -12834,22 +12065,6 @@ class Volume(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::Volume"
-    MULTI_ATTACH_ENABLED = "MultiAttachEnabled"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    SIZE = "Size"
-    AUTO_ENABLE_IO = "AutoEnableIO"
-    OUTPOST_ARN = "OutpostArn"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_INITIALIZATION_RATE = "VolumeInitializationRate"
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    SOURCE_VOLUME_ID = "SourceVolumeId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_attach_enabled": "MultiAttachEnabled",
         "kms_key_id": "KmsKeyId",
@@ -12896,10 +12111,6 @@ class VolumeAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VolumeAttachment"
-    VOLUME_ID = "VolumeId"
-    INSTANCE_ID = "InstanceId"
-    DEVICE = "Device"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "instance_id": "InstanceId",

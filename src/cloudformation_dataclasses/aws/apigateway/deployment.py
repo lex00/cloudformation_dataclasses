@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLogSetting(PropertyType):
-    FORMAT = "Format"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -25,10 +22,6 @@ class AccessLogSetting(PropertyType):
 
 @dataclass
 class CanarySetting(PropertyType):
-    STAGE_VARIABLE_OVERRIDES = "StageVariableOverrides"
-    PERCENT_TRAFFIC = "PercentTraffic"
-    USE_STAGE_CACHE = "UseStageCache"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_variable_overrides": "StageVariableOverrides",
         "percent_traffic": "PercentTraffic",
@@ -42,10 +35,6 @@ class CanarySetting(PropertyType):
 
 @dataclass
 class DeploymentCanarySettings(PropertyType):
-    STAGE_VARIABLE_OVERRIDES = "StageVariableOverrides"
-    PERCENT_TRAFFIC = "PercentTraffic"
-    USE_STAGE_CACHE = "UseStageCache"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_variable_overrides": "StageVariableOverrides",
         "percent_traffic": "PercentTraffic",
@@ -59,17 +48,6 @@ class DeploymentCanarySettings(PropertyType):
 
 @dataclass
 class MethodSetting(PropertyType):
-    CACHE_TTL_IN_SECONDS = "CacheTtlInSeconds"
-    LOGGING_LEVEL = "LoggingLevel"
-    RESOURCE_PATH = "ResourcePath"
-    CACHE_DATA_ENCRYPTED = "CacheDataEncrypted"
-    DATA_TRACE_ENABLED = "DataTraceEnabled"
-    THROTTLING_BURST_LIMIT = "ThrottlingBurstLimit"
-    CACHING_ENABLED = "CachingEnabled"
-    METRICS_ENABLED = "MetricsEnabled"
-    HTTP_METHOD = "HttpMethod"
-    THROTTLING_RATE_LIMIT = "ThrottlingRateLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "logging_level": "LoggingLevel",
@@ -97,26 +75,6 @@ class MethodSetting(PropertyType):
 
 @dataclass
 class StageDescription(PropertyType):
-    CACHE_TTL_IN_SECONDS = "CacheTtlInSeconds"
-    DESCRIPTION = "Description"
-    LOGGING_LEVEL = "LoggingLevel"
-    CANARY_SETTING = "CanarySetting"
-    THROTTLING_RATE_LIMIT = "ThrottlingRateLimit"
-    CLIENT_CERTIFICATE_ID = "ClientCertificateId"
-    VARIABLES = "Variables"
-    DOCUMENTATION_VERSION = "DocumentationVersion"
-    CACHE_DATA_ENCRYPTED = "CacheDataEncrypted"
-    DATA_TRACE_ENABLED = "DataTraceEnabled"
-    THROTTLING_BURST_LIMIT = "ThrottlingBurstLimit"
-    CACHING_ENABLED = "CachingEnabled"
-    TRACING_ENABLED = "TracingEnabled"
-    METHOD_SETTINGS = "MethodSettings"
-    ACCESS_LOG_SETTING = "AccessLogSetting"
-    CACHE_CLUSTER_SIZE = "CacheClusterSize"
-    METRICS_ENABLED = "MetricsEnabled"
-    TAGS = "Tags"
-    CACHE_CLUSTER_ENABLED = "CacheClusterEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "description": "Description",

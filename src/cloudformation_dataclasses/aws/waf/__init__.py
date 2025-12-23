@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:21
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAF
@@ -785,9 +785,6 @@ class ByteMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::ByteMatchSet"
     name_field: ClassVar[str] = "name"
-    BYTE_MATCH_TUPLES = "ByteMatchTuples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "byte_match_tuples": "ByteMatchTuples",
         "name": "Name",
@@ -803,9 +800,6 @@ class IPSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::IPSet"
     name_field: ClassVar[str] = "name"
-    IP_SET_DESCRIPTORS = "IPSetDescriptors"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_descriptors": "IPSetDescriptors",
         "name": "Name",
@@ -821,10 +815,6 @@ class Rule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::Rule"
     name_field: ClassVar[str] = "name"
-    METRIC_NAME = "MetricName"
-    NAME = "Name"
-    PREDICATES = "Predicates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "name": "Name",
@@ -842,9 +832,6 @@ class SizeConstraintSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::SizeConstraintSet"
     name_field: ClassVar[str] = "name"
-    NAME = "Name"
-    SIZE_CONSTRAINTS = "SizeConstraints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "size_constraints": "SizeConstraints",
@@ -860,9 +847,6 @@ class SqlInjectionMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::SqlInjectionMatchSet"
     name_field: ClassVar[str] = "name"
-    NAME = "Name"
-    SQL_INJECTION_MATCH_TUPLES = "SqlInjectionMatchTuples"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "sql_injection_match_tuples": "SqlInjectionMatchTuples",
@@ -878,11 +862,6 @@ class WebACL(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::WebACL"
     name_field: ClassVar[str] = "name"
-    DEFAULT_ACTION = "DefaultAction"
-    METRIC_NAME = "MetricName"
-    NAME = "Name"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_action": "DefaultAction",
         "metric_name": "MetricName",
@@ -902,9 +881,6 @@ class XssMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAF::XssMatchSet"
     name_field: ClassVar[str] = "name"
-    NAME = "Name"
-    XSS_MATCH_TUPLES = "XssMatchTuples"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "xss_match_tuples": "XssMatchTuples",

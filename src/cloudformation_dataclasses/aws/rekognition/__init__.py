@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Rekognition
@@ -661,9 +661,6 @@ class Collection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekog"""
 
     resource_type: ClassVar[str] = "AWS::Rekognition::Collection"
-    COLLECTION_ID = "CollectionId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "tags": "Tags",
@@ -685,9 +682,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Rekognition::Project"
     name_field: ClassVar[str] = "project_name"
-    PROJECT_NAME = "ProjectName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_name": "ProjectName",
         "tags": "Tags",
@@ -709,20 +703,6 @@ class StreamProcessor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Rekognition::StreamProcessor"
     name_field: ClassVar[str] = "name"
-    S3_DESTINATION = "S3Destination"
-    DATA_SHARING_PREFERENCE = "DataSharingPreference"
-    KMS_KEY_ID = "KmsKeyId"
-    FACE_SEARCH_SETTINGS = "FaceSearchSettings"
-    POLYGON_REGIONS_OF_INTEREST = "PolygonRegionsOfInterest"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    CONNECTED_HOME_SETTINGS = "ConnectedHomeSettings"
-    NOTIFICATION_CHANNEL = "NotificationChannel"
-    KINESIS_VIDEO_STREAM = "KinesisVideoStream"
-    BOUNDING_BOX_REGIONS_OF_INTEREST = "BoundingBoxRegionsOfInterest"
-    KINESIS_DATA_STREAM = "KinesisDataStream"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
         "data_sharing_preference": "DataSharingPreference",

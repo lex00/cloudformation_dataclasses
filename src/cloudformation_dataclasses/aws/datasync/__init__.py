@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:52
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataSync
@@ -518,13 +518,6 @@ class Agent(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataSync::Agent"
     name_field: ClassVar[str] = "agent_name"
-    SUBNET_ARNS = "SubnetArns"
-    AGENT_NAME = "AgentName"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-    ACTIVATION_KEY = "ActivationKey"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_arns": "SubnetArns",
         "agent_name": "AgentName",
@@ -558,17 +551,6 @@ class LocationAzureBlob(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationAzureBlob"
-    CMK_SECRET_CONFIG = "CmkSecretConfig"
-    AZURE_ACCESS_TIER = "AzureAccessTier"
-    SUBDIRECTORY = "Subdirectory"
-    AZURE_BLOB_SAS_CONFIGURATION = "AzureBlobSasConfiguration"
-    AZURE_BLOB_TYPE = "AzureBlobType"
-    AZURE_BLOB_CONTAINER_URL = "AzureBlobContainerUrl"
-    CUSTOM_SECRET_CONFIG = "CustomSecretConfig"
-    AGENT_ARNS = "AgentArns"
-    TAGS = "Tags"
-    AZURE_BLOB_AUTHENTICATION_TYPE = "AzureBlobAuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cmk_secret_config": "CmkSecretConfig",
         "azure_access_tier": "AzureAccessTier",
@@ -625,14 +607,6 @@ class LocationEFS(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationEFS"
-    EFS_FILESYSTEM_ARN = "EfsFilesystemArn"
-    EC2_CONFIG = "Ec2Config"
-    ACCESS_POINT_ARN = "AccessPointArn"
-    SUBDIRECTORY = "Subdirectory"
-    IN_TRANSIT_ENCRYPTION = "InTransitEncryption"
-    FILE_SYSTEM_ACCESS_ROLE_ARN = "FileSystemAccessRoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_filesystem_arn": "EfsFilesystemArn",
         "ec2_config": "Ec2Config",
@@ -668,11 +642,6 @@ class LocationFSxLustre(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationFSxLustre"
-    SUBDIRECTORY = "Subdirectory"
-    FSX_FILESYSTEM_ARN = "FsxFilesystemArn"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subdirectory": "Subdirectory",
         "fsx_filesystem_arn": "FsxFilesystemArn",
@@ -702,12 +671,6 @@ class LocationFSxONTAP(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationFSxONTAP"
-    STORAGE_VIRTUAL_MACHINE_ARN = "StorageVirtualMachineArn"
-    SUBDIRECTORY = "Subdirectory"
-    PROTOCOL = "Protocol"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_virtual_machine_arn": "StorageVirtualMachineArn",
         "subdirectory": "Subdirectory",
@@ -744,12 +707,6 @@ class LocationFSxOpenZFS(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationFSxOpenZFS"
-    SUBDIRECTORY = "Subdirectory"
-    FSX_FILESYSTEM_ARN = "FsxFilesystemArn"
-    PROTOCOL = "Protocol"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subdirectory": "Subdirectory",
         "fsx_filesystem_arn": "FsxFilesystemArn",
@@ -781,14 +738,6 @@ class LocationFSxWindows(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationFSxWindows"
-    USER = "User"
-    SUBDIRECTORY = "Subdirectory"
-    FSX_FILESYSTEM_ARN = "FsxFilesystemArn"
-    DOMAIN = "Domain"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-    TAGS = "Tags"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "subdirectory": "Subdirectory",
@@ -824,20 +773,6 @@ class LocationHDFS(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationHDFS"
-    KMS_KEY_PROVIDER_URI = "KmsKeyProviderUri"
-    QOP_CONFIGURATION = "QopConfiguration"
-    KERBEROS_PRINCIPAL = "KerberosPrincipal"
-    SIMPLE_USER = "SimpleUser"
-    REPLICATION_FACTOR = "ReplicationFactor"
-    KERBEROS_KEYTAB = "KerberosKeytab"
-    NAME_NODES = "NameNodes"
-    SUBDIRECTORY = "Subdirectory"
-    KERBEROS_KRB5_CONF = "KerberosKrb5Conf"
-    BLOCK_SIZE = "BlockSize"
-    TAGS = "Tags"
-    AGENT_ARNS = "AgentArns"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_provider_uri": "KmsKeyProviderUri",
         "qop_configuration": "QopConfiguration",
@@ -885,12 +820,6 @@ class LocationNFS(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationNFS"
-    SUBDIRECTORY = "Subdirectory"
-    SERVER_HOSTNAME = "ServerHostname"
-    MOUNT_OPTIONS = "MountOptions"
-    ON_PREM_CONFIG = "OnPremConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subdirectory": "Subdirectory",
         "server_hostname": "ServerHostname",
@@ -923,19 +852,6 @@ class LocationObjectStorage(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationObjectStorage"
     name_field: ClassVar[str] = "bucket_name"
-    SERVER_CERTIFICATE = "ServerCertificate"
-    SECRET_KEY = "SecretKey"
-    BUCKET_NAME = "BucketName"
-    CMK_SECRET_CONFIG = "CmkSecretConfig"
-    SUBDIRECTORY = "Subdirectory"
-    SERVER_HOSTNAME = "ServerHostname"
-    ACCESS_KEY = "AccessKey"
-    CUSTOM_SECRET_CONFIG = "CustomSecretConfig"
-    SERVER_PROTOCOL = "ServerProtocol"
-    AGENT_ARNS = "AgentArns"
-    SERVER_PORT = "ServerPort"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_certificate": "ServerCertificate",
         "secret_key": "SecretKey",
@@ -996,12 +912,6 @@ class LocationS3(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationS3"
-    S3_STORAGE_CLASS = "S3StorageClass"
-    S3_CONFIG = "S3Config"
-    SUBDIRECTORY = "Subdirectory"
-    S3_BUCKET_ARN = "S3BucketArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_storage_class": "S3StorageClass",
         "s3_config": "S3Config",
@@ -1033,22 +943,6 @@ class LocationSMB(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationSMB"
-    KERBEROS_PRINCIPAL = "KerberosPrincipal"
-    USER = "User"
-    KERBEROS_KEYTAB = "KerberosKeytab"
-    CMK_SECRET_CONFIG = "CmkSecretConfig"
-    SUBDIRECTORY = "Subdirectory"
-    SERVER_HOSTNAME = "ServerHostname"
-    KERBEROS_KRB5_CONF = "KerberosKrb5Conf"
-    CUSTOM_SECRET_CONFIG = "CustomSecretConfig"
-    DOMAIN = "Domain"
-    DNS_IP_ADDRESSES = "DnsIpAddresses"
-    MOUNT_OPTIONS = "MountOptions"
-    AGENT_ARNS = "AgentArns"
-    TAGS = "Tags"
-    PASSWORD = "Password"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kerberos_principal": "KerberosPrincipal",
         "user": "User",
@@ -1116,19 +1010,6 @@ class Task(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataSync::Task"
     name_field: ClassVar[str] = "name"
-    INCLUDES = "Includes"
-    DESTINATION_LOCATION_ARN = "DestinationLocationArn"
-    OPTIONS = "Options"
-    SCHEDULE = "Schedule"
-    CLOUD_WATCH_LOG_GROUP_ARN = "CloudWatchLogGroupArn"
-    SOURCE_LOCATION_ARN = "SourceLocationArn"
-    TASK_REPORT_CONFIG = "TaskReportConfig"
-    EXCLUDES = "Excludes"
-    TASK_MODE = "TaskMode"
-    TAGS = "Tags"
-    NAME = "Name"
-    MANIFEST_CONFIG = "ManifestConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "destination_location_arn": "DestinationLocationArn",

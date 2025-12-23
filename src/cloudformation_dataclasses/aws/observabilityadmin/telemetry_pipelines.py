@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TelemetryPipeline(PropertyType):
-    STATUS = "Status"
-    LAST_UPDATE_TIME_STAMP = "LastUpdateTimeStamp"
-    CREATED_TIME_STAMP = "CreatedTimeStamp"
-    CONFIGURATION = "Configuration"
-    STATUS_REASON = "StatusReason"
-    ARN = "Arn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "last_update_time_stamp": "LastUpdateTimeStamp",
@@ -43,8 +34,6 @@ class TelemetryPipeline(PropertyType):
 
 @dataclass
 class TelemetryPipelineConfiguration(PropertyType):
-    BODY = "Body"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body": "Body",
     }
@@ -54,8 +43,6 @@ class TelemetryPipelineConfiguration(PropertyType):
 
 @dataclass
 class TelemetryPipelineStatusReason(PropertyType):
-    DESCRIPTION = "Description"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
     }

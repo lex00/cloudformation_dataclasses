@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoDisablePolicy(PropertyType):
-    FAILURE_COUNT = "FailureCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_count": "FailureCount",
     }
@@ -22,9 +20,6 @@ class AutoDisablePolicy(PropertyType):
 
 @dataclass
 class EcrConfiguration(PropertyType):
-    CONTAINER_TAGS = "ContainerTags"
-    REPOSITORY_NAME = "RepositoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_tags": "ContainerTags",
         "repository_name": "RepositoryName",
@@ -36,9 +31,6 @@ class EcrConfiguration(PropertyType):
 
 @dataclass
 class ImageScanningConfiguration(PropertyType):
-    ECR_CONFIGURATION = "EcrConfiguration"
-    IMAGE_SCANNING_ENABLED = "ImageScanningEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ecr_configuration": "EcrConfiguration",
         "image_scanning_enabled": "ImageScanningEnabled",
@@ -50,9 +42,6 @@ class ImageScanningConfiguration(PropertyType):
 
 @dataclass
 class ImageTestsConfiguration(PropertyType):
-    TIMEOUT_MINUTES = "TimeoutMinutes"
-    IMAGE_TESTS_ENABLED = "ImageTestsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_minutes": "TimeoutMinutes",
         "image_tests_enabled": "ImageTestsEnabled",
@@ -64,9 +53,6 @@ class ImageTestsConfiguration(PropertyType):
 
 @dataclass
 class PipelineLoggingConfiguration(PropertyType):
-    PIPELINE_LOG_GROUP_NAME = "PipelineLogGroupName"
-    IMAGE_LOG_GROUP_NAME = "ImageLogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_log_group_name": "PipelineLogGroupName",
         "image_log_group_name": "ImageLogGroupName",
@@ -78,10 +64,6 @@ class PipelineLoggingConfiguration(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    PIPELINE_EXECUTION_START_CONDITION = "PipelineExecutionStartCondition"
-    AUTO_DISABLE_POLICY = "AutoDisablePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "pipeline_execution_start_condition": "PipelineExecutionStartCondition",
@@ -95,11 +77,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class WorkflowConfiguration(PropertyType):
-    PARALLEL_GROUP = "ParallelGroup"
-    PARAMETERS = "Parameters"
-    WORKFLOW_ARN = "WorkflowArn"
-    ON_FAILURE = "OnFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parallel_group": "ParallelGroup",
         "parameters": "Parameters",
@@ -115,9 +92,6 @@ class WorkflowConfiguration(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

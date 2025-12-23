@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LaunchWizard
@@ -35,12 +35,6 @@ class Deployment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::LaunchWizard::Deployment"
     name_field: ClassVar[str] = "name"
-    SPECIFICATIONS = "Specifications"
-    WORKLOAD_NAME = "WorkloadName"
-    TAGS = "Tags"
-    DEPLOYMENT_PATTERN_NAME = "DeploymentPatternName"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "specifications": "Specifications",
         "workload_name": "WorkloadName",

@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeConfiguration(PropertyType):
-    DISK = "disk"
-    MEMORY = "memory"
-    V_CPU = "vCpu"
-    INSTANCE_TYPE = "instanceType"
-    MACHINE_TYPE = "machineType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disk": "disk",
         "memory": "memory",
@@ -34,10 +28,6 @@ class ComputeConfiguration(PropertyType):
 
 @dataclass
 class FleetProxyRule(PropertyType):
-    TYPE = "Type"
-    EFFECT = "Effect"
-    ENTITIES = "Entities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "effect": "Effect",
@@ -51,9 +41,6 @@ class FleetProxyRule(PropertyType):
 
 @dataclass
 class ProxyConfiguration(PropertyType):
-    DEFAULT_BEHAVIOR = "DefaultBehavior"
-    ORDERED_PROXY_RULES = "OrderedProxyRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_behavior": "DefaultBehavior",
         "ordered_proxy_rules": "OrderedProxyRules",
@@ -65,10 +52,6 @@ class ProxyConfiguration(PropertyType):
 
 @dataclass
 class ScalingConfigurationInput(PropertyType):
-    TARGET_TRACKING_SCALING_CONFIGS = "TargetTrackingScalingConfigs"
-    SCALING_TYPE = "ScalingType"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_tracking_scaling_configs": "TargetTrackingScalingConfigs",
         "scaling_type": "ScalingType",
@@ -82,9 +65,6 @@ class ScalingConfigurationInput(PropertyType):
 
 @dataclass
 class TargetTrackingScalingConfiguration(PropertyType):
-    TARGET_VALUE = "TargetValue"
-    METRIC_TYPE = "MetricType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "metric_type": "MetricType",
@@ -96,10 +76,6 @@ class TargetTrackingScalingConfiguration(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "vpc_id": "VpcId",

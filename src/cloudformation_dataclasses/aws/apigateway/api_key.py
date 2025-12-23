@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StageKey(PropertyType):
-    STAGE_NAME = "StageName"
-    REST_API_ID = "RestApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "rest_api_id": "RestApiId",

@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccountLevel(PropertyType):
-    ADVANCED_DATA_PROTECTION_METRICS = "AdvancedDataProtectionMetrics"
-    STORAGE_LENS_GROUP_LEVEL = "StorageLensGroupLevel"
-    ACTIVITY_METRICS = "ActivityMetrics"
-    ADVANCED_PERFORMANCE_METRICS = "AdvancedPerformanceMetrics"
-    BUCKET_LEVEL = "BucketLevel"
-    ADVANCED_COST_OPTIMIZATION_METRICS = "AdvancedCostOptimizationMetrics"
-    DETAILED_STATUS_CODES_METRICS = "DetailedStatusCodesMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_data_protection_metrics": "AdvancedDataProtectionMetrics",
         "storage_lens_group_level": "StorageLensGroupLevel",
@@ -40,8 +32,6 @@ class AccountLevel(PropertyType):
 
 @dataclass
 class ActivityMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -51,8 +41,6 @@ class ActivityMetrics(PropertyType):
 
 @dataclass
 class AdvancedCostOptimizationMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -62,8 +50,6 @@ class AdvancedCostOptimizationMetrics(PropertyType):
 
 @dataclass
 class AdvancedDataProtectionMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -73,8 +59,6 @@ class AdvancedDataProtectionMetrics(PropertyType):
 
 @dataclass
 class AdvancedPerformanceMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -84,8 +68,6 @@ class AdvancedPerformanceMetrics(PropertyType):
 
 @dataclass
 class AwsOrg(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -95,13 +77,6 @@ class AwsOrg(PropertyType):
 
 @dataclass
 class BucketLevel(PropertyType):
-    ADVANCED_DATA_PROTECTION_METRICS = "AdvancedDataProtectionMetrics"
-    PREFIX_LEVEL = "PrefixLevel"
-    ACTIVITY_METRICS = "ActivityMetrics"
-    ADVANCED_PERFORMANCE_METRICS = "AdvancedPerformanceMetrics"
-    ADVANCED_COST_OPTIMIZATION_METRICS = "AdvancedCostOptimizationMetrics"
-    DETAILED_STATUS_CODES_METRICS = "DetailedStatusCodesMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_data_protection_metrics": "AdvancedDataProtectionMetrics",
         "prefix_level": "PrefixLevel",
@@ -121,9 +96,6 @@ class BucketLevel(PropertyType):
 
 @dataclass
 class BucketsAndRegions(PropertyType):
-    REGIONS = "Regions"
-    BUCKETS = "Buckets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regions": "Regions",
         "buckets": "Buckets",
@@ -135,8 +107,6 @@ class BucketsAndRegions(PropertyType):
 
 @dataclass
 class CloudWatchMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -146,10 +116,6 @@ class CloudWatchMetrics(PropertyType):
 
 @dataclass
 class DataExport(PropertyType):
-    STORAGE_LENS_TABLE_DESTINATION = "StorageLensTableDestination"
-    S3_BUCKET_DESTINATION = "S3BucketDestination"
-    CLOUD_WATCH_METRICS = "CloudWatchMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_table_destination": "StorageLensTableDestination",
         "s3_bucket_destination": "S3BucketDestination",
@@ -163,8 +129,6 @@ class DataExport(PropertyType):
 
 @dataclass
 class DetailedStatusCodesMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -174,9 +138,6 @@ class DetailedStatusCodesMetrics(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    SSEKMS = "SSEKMS"
-    SSES3 = "SSES3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssekms": "SSEKMS",
         "sses3": "SSES3",
@@ -188,8 +149,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class PrefixLevel(PropertyType):
-    STORAGE_METRICS = "StorageMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_metrics": "StorageMetrics",
     }
@@ -199,9 +158,6 @@ class PrefixLevel(PropertyType):
 
 @dataclass
 class PrefixLevelStorageMetrics(PropertyType):
-    IS_ENABLED = "IsEnabled"
-    SELECTION_CRITERIA = "SelectionCriteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "selection_criteria": "SelectionCriteria",
@@ -213,13 +169,6 @@ class PrefixLevelStorageMetrics(PropertyType):
 
 @dataclass
 class S3BucketDestination(PropertyType):
-    OUTPUT_SCHEMA_VERSION = "OutputSchemaVersion"
-    FORMAT = "Format"
-    ACCOUNT_ID = "AccountId"
-    PREFIX = "Prefix"
-    ENCRYPTION = "Encryption"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_schema_version": "OutputSchemaVersion",
         "format": "Format",
@@ -239,8 +188,6 @@ class S3BucketDestination(PropertyType):
 
 @dataclass
 class SSEKMS(PropertyType):
-    KEY_ID = "KeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_id": "KeyId",
     }
@@ -250,10 +197,6 @@ class SSEKMS(PropertyType):
 
 @dataclass
 class SelectionCriteria(PropertyType):
-    DELIMITER = "Delimiter"
-    MAX_DEPTH = "MaxDepth"
-    MIN_STORAGE_BYTES_PERCENTAGE = "MinStorageBytesPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "max_depth": "MaxDepth",
@@ -267,17 +210,6 @@ class SelectionCriteria(PropertyType):
 
 @dataclass
 class StorageLensConfiguration(PropertyType):
-    ACCOUNT_LEVEL = "AccountLevel"
-    EXCLUDE = "Exclude"
-    IS_ENABLED = "IsEnabled"
-    INCLUDE = "Include"
-    PREFIX_DELIMITER = "PrefixDelimiter"
-    AWS_ORG = "AwsOrg"
-    ID = "Id"
-    STORAGE_LENS_ARN = "StorageLensArn"
-    DATA_EXPORT = "DataExport"
-    EXPANDED_PREFIXES_DATA_EXPORT = "ExpandedPrefixesDataExport"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_level": "AccountLevel",
         "exclude": "Exclude",
@@ -305,9 +237,6 @@ class StorageLensConfiguration(PropertyType):
 
 @dataclass
 class StorageLensExpandedPrefixesDataExport(PropertyType):
-    STORAGE_LENS_TABLE_DESTINATION = "StorageLensTableDestination"
-    S3_BUCKET_DESTINATION = "S3BucketDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_table_destination": "StorageLensTableDestination",
         "s3_bucket_destination": "S3BucketDestination",
@@ -319,8 +248,6 @@ class StorageLensExpandedPrefixesDataExport(PropertyType):
 
 @dataclass
 class StorageLensGroupLevel(PropertyType):
-    STORAGE_LENS_GROUP_SELECTION_CRITERIA = "StorageLensGroupSelectionCriteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_group_selection_criteria": "StorageLensGroupSelectionCriteria",
     }
@@ -330,9 +257,6 @@ class StorageLensGroupLevel(PropertyType):
 
 @dataclass
 class StorageLensGroupSelectionCriteria(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -344,9 +268,6 @@ class StorageLensGroupSelectionCriteria(PropertyType):
 
 @dataclass
 class StorageLensTableDestination(PropertyType):
-    IS_ENABLED = "IsEnabled"
-    ENCRYPTION = "Encryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "encryption": "Encryption",

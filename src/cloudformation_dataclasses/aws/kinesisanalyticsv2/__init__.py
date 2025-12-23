@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:03
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisAnalyticsV2
@@ -238,16 +238,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalyticsV2::Application"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    RUNTIME_ENVIRONMENT = "RuntimeEnvironment"
-    RUN_CONFIGURATION = "RunConfiguration"
-    APPLICATION_MODE = "ApplicationMode"
-    APPLICATION_MAINTENANCE_CONFIGURATION = "ApplicationMaintenanceConfiguration"
-    APPLICATION_CONFIGURATION = "ApplicationConfiguration"
-    APPLICATION_DESCRIPTION = "ApplicationDescription"
-    TAGS = "Tags"
-    SERVICE_EXECUTION_ROLE = "ServiceExecutionRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "runtime_environment": "RuntimeEnvironment",
@@ -277,9 +267,6 @@ class ApplicationCloudWatchLoggingOption(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    CLOUD_WATCH_LOGGING_OPTION = "CloudWatchLoggingOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "cloud_watch_logging_option": "CloudWatchLoggingOption",
@@ -295,9 +282,6 @@ class ApplicationOutput(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalyticsV2::ApplicationOutput"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    OUTPUT = "Output"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "output": "Output",
@@ -313,9 +297,6 @@ class ApplicationReferenceDataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    REFERENCE_DATA_SOURCE = "ReferenceDataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "reference_data_source": "ReferenceDataSource",

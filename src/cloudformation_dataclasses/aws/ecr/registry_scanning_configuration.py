@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RepositoryFilter(PropertyType):
-    FILTER_TYPE = "FilterType"
-    FILTER = "Filter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "filter": "Filter",
@@ -25,9 +22,6 @@ class RepositoryFilter(PropertyType):
 
 @dataclass
 class ScanningRule(PropertyType):
-    REPOSITORY_FILTERS = "RepositoryFilters"
-    SCAN_FREQUENCY = "ScanFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_filters": "RepositoryFilters",
         "scan_frequency": "ScanFrequency",

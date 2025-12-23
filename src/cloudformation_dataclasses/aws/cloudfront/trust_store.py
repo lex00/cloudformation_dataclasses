@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CaCertificatesBundleS3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    REGION = "Region"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -31,8 +26,6 @@ class CaCertificatesBundleS3Location(PropertyType):
 
 @dataclass
 class CaCertificatesBundleSource(PropertyType):
-    CA_CERTIFICATES_BUNDLE_S3_LOCATION = "CaCertificatesBundleS3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ca_certificates_bundle_s3_location": "CaCertificatesBundleS3Location",
     }

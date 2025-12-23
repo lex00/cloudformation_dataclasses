@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Cors(PropertyType):
-    ALLOW_CREDENTIALS = "AllowCredentials"
-    ALLOW_ORIGINS = "AllowOrigins"
-    EXPOSE_HEADERS = "ExposeHeaders"
-    ALLOW_HEADERS = "AllowHeaders"
-    MAX_AGE = "MaxAge"
-    ALLOW_METHODS = "AllowMethods"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_credentials": "AllowCredentials",
         "allow_origins": "AllowOrigins",

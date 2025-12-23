@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Details(PropertyType):
-    ROUTE_DETAILS = "RouteDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_details": "RouteDetails",
     }
@@ -22,8 +20,6 @@ class Details(PropertyType):
 
 @dataclass
 class RouteDetailsItems(PropertyType):
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
     }

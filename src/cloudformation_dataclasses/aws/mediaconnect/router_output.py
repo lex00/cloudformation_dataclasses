@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    ENCRYPTION_KEY_TYPE = "EncryptionKeyType"
-    ENCRYPTION_KEY_CONFIGURATION = "EncryptionKeyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -25,9 +22,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    SECRETS_MANAGER = "SecretsManager"
-    AUTOMATIC = "Automatic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -39,9 +33,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class MaintenanceConfiguration(PropertyType):
-    DEFAULT = "Default"
-    PREFERRED_DAY_TIME = "PreferredDayTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default": "Default",
         "preferred_day_time": "PreferredDayTime",
@@ -53,10 +44,6 @@ class MaintenanceConfiguration(PropertyType):
 
 @dataclass
 class MediaConnectFlowRouterOutputConfiguration(PropertyType):
-    FLOW_SOURCE_ARN = "FlowSourceArn"
-    FLOW_ARN = "FlowArn"
-    DESTINATION_TRANSIT_ENCRYPTION = "DestinationTransitEncryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_source_arn": "FlowSourceArn",
         "flow_arn": "FlowArn",
@@ -70,10 +57,6 @@ class MediaConnectFlowRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class MediaLiveInputRouterOutputConfiguration(PropertyType):
-    MEDIA_LIVE_INPUT_ARN = "MediaLiveInputArn"
-    MEDIA_LIVE_PIPELINE_ID = "MediaLivePipelineId"
-    DESTINATION_TRANSIT_ENCRYPTION = "DestinationTransitEncryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_live_input_arn": "MediaLiveInputArn",
         "media_live_pipeline_id": "MediaLivePipelineId",
@@ -87,9 +70,6 @@ class MediaLiveInputRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class MediaLiveTransitEncryption(PropertyType):
-    ENCRYPTION_KEY_TYPE = "EncryptionKeyType"
-    ENCRYPTION_KEY_CONFIGURATION = "EncryptionKeyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -101,9 +81,6 @@ class MediaLiveTransitEncryption(PropertyType):
 
 @dataclass
 class MediaLiveTransitEncryptionKeyConfiguration(PropertyType):
-    SECRETS_MANAGER = "SecretsManager"
-    AUTOMATIC = "Automatic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -115,9 +92,6 @@ class MediaLiveTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class PreferredDayTimeMaintenanceConfiguration(PropertyType):
-    TIME = "Time"
-    DAY = "Day"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time": "Time",
         "day": "Day",
@@ -129,9 +103,6 @@ class PreferredDayTimeMaintenanceConfiguration(PropertyType):
 
 @dataclass
 class RistRouterOutputConfiguration(PropertyType):
-    DESTINATION_PORT = "DestinationPort"
-    DESTINATION_ADDRESS = "DestinationAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port": "DestinationPort",
         "destination_address": "DestinationAddress",
@@ -143,10 +114,6 @@ class RistRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class RouterOutputConfiguration(PropertyType):
-    MEDIA_LIVE_INPUT = "MediaLiveInput"
-    MEDIA_CONNECT_FLOW = "MediaConnectFlow"
-    STANDARD = "Standard"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_live_input": "MediaLiveInput",
         "media_connect_flow": "MediaConnectFlow",
@@ -160,11 +127,6 @@ class RouterOutputConfiguration(PropertyType):
 
 @dataclass
 class RouterOutputProtocolConfiguration(PropertyType):
-    SRT_CALLER = "SrtCaller"
-    SRT_LISTENER = "SrtListener"
-    RIST = "Rist"
-    RTP = "Rtp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller": "SrtCaller",
         "srt_listener": "SrtListener",
@@ -180,10 +142,6 @@ class RouterOutputProtocolConfiguration(PropertyType):
 
 @dataclass
 class RtpRouterOutputConfiguration(PropertyType):
-    FORWARD_ERROR_CORRECTION = "ForwardErrorCorrection"
-    DESTINATION_PORT = "DestinationPort"
-    DESTINATION_ADDRESS = "DestinationAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward_error_correction": "ForwardErrorCorrection",
         "destination_port": "DestinationPort",
@@ -197,9 +155,6 @@ class RtpRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -211,12 +166,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class SrtCallerRouterOutputConfiguration(PropertyType):
-    STREAM_ID = "StreamId"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    DESTINATION_PORT = "DestinationPort"
-    MINIMUM_LATENCY_MILLISECONDS = "MinimumLatencyMilliseconds"
-    DESTINATION_ADDRESS = "DestinationAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_id": "StreamId",
         "encryption_configuration": "EncryptionConfiguration",
@@ -234,8 +183,6 @@ class SrtCallerRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class SrtEncryptionConfiguration(PropertyType):
-    ENCRYPTION_KEY = "EncryptionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key": "EncryptionKey",
     }
@@ -245,10 +192,6 @@ class SrtEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SrtListenerRouterOutputConfiguration(PropertyType):
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    PORT = "Port"
-    MINIMUM_LATENCY_MILLISECONDS = "MinimumLatencyMilliseconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "port": "Port",
@@ -262,10 +205,6 @@ class SrtListenerRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class StandardRouterOutputConfiguration(PropertyType):
-    PROTOCOL_CONFIGURATION = "ProtocolConfiguration"
-    NETWORK_INTERFACE_ARN = "NetworkInterfaceArn"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_configuration": "ProtocolConfiguration",
         "network_interface_arn": "NetworkInterfaceArn",

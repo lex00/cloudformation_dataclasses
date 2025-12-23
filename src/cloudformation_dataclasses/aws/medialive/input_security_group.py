@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InputWhitelistRuleCidr(PropertyType):
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }

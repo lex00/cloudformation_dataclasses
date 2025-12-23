@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AbpV10x(PropertyType):
-    SESSION_KEYS = "SessionKeys"
-    DEV_ADDR = "DevAddr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_keys": "SessionKeys",
         "dev_addr": "DevAddr",
@@ -25,9 +22,6 @@ class AbpV10x(PropertyType):
 
 @dataclass
 class AbpV11(PropertyType):
-    SESSION_KEYS = "SessionKeys"
-    DEV_ADDR = "DevAddr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_keys": "SessionKeys",
         "dev_addr": "DevAddr",
@@ -39,10 +33,6 @@ class AbpV11(PropertyType):
 
 @dataclass
 class Application(PropertyType):
-    TYPE = "Type"
-    F_PORT = "FPort"
-    DESTINATION_NAME = "DestinationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "f_port": "FPort",
@@ -56,8 +46,6 @@ class Application(PropertyType):
 
 @dataclass
 class FPorts(PropertyType):
-    APPLICATIONS = "Applications"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "applications": "Applications",
     }
@@ -67,15 +55,6 @@ class FPorts(PropertyType):
 
 @dataclass
 class LoRaWANDevice(PropertyType):
-    ABP_V10X = "AbpV10x"
-    F_PORTS = "FPorts"
-    OTAA_V11 = "OtaaV11"
-    ABP_V11 = "AbpV11"
-    DEVICE_PROFILE_ID = "DeviceProfileId"
-    DEV_EUI = "DevEui"
-    OTAA_V10X = "OtaaV10x"
-    SERVICE_PROFILE_ID = "ServiceProfileId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "abp_v10x": "AbpV10x",
         "f_ports": "FPorts",
@@ -99,9 +78,6 @@ class LoRaWANDevice(PropertyType):
 
 @dataclass
 class OtaaV10x(PropertyType):
-    APP_EUI = "AppEui"
-    APP_KEY = "AppKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_eui": "AppEui",
         "app_key": "AppKey",
@@ -113,10 +89,6 @@ class OtaaV10x(PropertyType):
 
 @dataclass
 class OtaaV11(PropertyType):
-    NWK_KEY = "NwkKey"
-    APP_KEY = "AppKey"
-    JOIN_EUI = "JoinEui"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nwk_key": "NwkKey",
         "app_key": "AppKey",
@@ -130,9 +102,6 @@ class OtaaV11(PropertyType):
 
 @dataclass
 class SessionKeysAbpV10x(PropertyType):
-    APP_S_KEY = "AppSKey"
-    NWK_S_KEY = "NwkSKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_s_key": "AppSKey",
         "nwk_s_key": "NwkSKey",
@@ -144,11 +113,6 @@ class SessionKeysAbpV10x(PropertyType):
 
 @dataclass
 class SessionKeysAbpV11(PropertyType):
-    F_NWK_S_INT_KEY = "FNwkSIntKey"
-    APP_S_KEY = "AppSKey"
-    S_NWK_S_INT_KEY = "SNwkSIntKey"
-    NWK_S_ENC_KEY = "NwkSEncKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "f_nwk_s_int_key": "FNwkSIntKey",
         "app_s_key": "AppSKey",

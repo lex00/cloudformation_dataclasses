@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Subscription(PropertyType):
-    TARGET = "Target"
-    ID = "Id"
-    SOURCE = "Source"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "id": "Id",
@@ -31,8 +26,6 @@ class Subscription(PropertyType):
 
 @dataclass
 class SubscriptionDefinitionVersion(PropertyType):
-    SUBSCRIPTIONS = "Subscriptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscriptions": "Subscriptions",
     }

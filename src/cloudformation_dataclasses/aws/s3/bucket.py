@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    DAYS_AFTER_INITIATION = "DaysAfterInitiation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -22,8 +20,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class AccelerateConfiguration(PropertyType):
-    ACCELERATION_STATUS = "AccelerationStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acceleration_status": "AccelerationStatus",
     }
@@ -33,8 +29,6 @@ class AccelerateConfiguration(PropertyType):
 
 @dataclass
 class AccessControlTranslation(PropertyType):
-    OWNER = "Owner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
     }
@@ -44,11 +38,6 @@ class AccessControlTranslation(PropertyType):
 
 @dataclass
 class AnalyticsConfiguration(PropertyType):
-    STORAGE_CLASS_ANALYSIS = "StorageClassAnalysis"
-    TAG_FILTERS = "TagFilters"
-    ID = "Id"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class_analysis": "StorageClassAnalysis",
         "tag_filters": "TagFilters",
@@ -64,8 +53,6 @@ class AnalyticsConfiguration(PropertyType):
 
 @dataclass
 class BlockedEncryptionTypes(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
     }
@@ -75,8 +62,6 @@ class BlockedEncryptionTypes(PropertyType):
 
 @dataclass
 class BucketEncryption(PropertyType):
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_encryption_configuration": "ServerSideEncryptionConfiguration",
     }
@@ -86,8 +71,6 @@ class BucketEncryption(PropertyType):
 
 @dataclass
 class CorsConfiguration(PropertyType):
-    CORS_RULES = "CorsRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cors_rules": "CorsRules",
     }
@@ -97,13 +80,6 @@ class CorsConfiguration(PropertyType):
 
 @dataclass
 class CorsRule(PropertyType):
-    EXPOSED_HEADERS = "ExposedHeaders"
-    ALLOWED_METHODS = "AllowedMethods"
-    ALLOWED_ORIGINS = "AllowedOrigins"
-    ALLOWED_HEADERS = "AllowedHeaders"
-    MAX_AGE = "MaxAge"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exposed_headers": "ExposedHeaders",
         "allowed_methods": "AllowedMethods",
@@ -123,9 +99,6 @@ class CorsRule(PropertyType):
 
 @dataclass
 class DataExport(PropertyType):
-    DESTINATION = "Destination"
-    OUTPUT_SCHEMA_VERSION = "OutputSchemaVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "output_schema_version": "OutputSchemaVersion",
@@ -137,10 +110,6 @@ class DataExport(PropertyType):
 
 @dataclass
 class DefaultRetention(PropertyType):
-    YEARS = "Years"
-    DAYS = "Days"
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "years": "Years",
         "days": "Days",
@@ -154,8 +123,6 @@ class DefaultRetention(PropertyType):
 
 @dataclass
 class DeleteMarkerReplication(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -165,11 +132,6 @@ class DeleteMarkerReplication(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    BUCKET_ARN = "BucketArn"
-    FORMAT = "Format"
-    BUCKET_ACCOUNT_ID = "BucketAccountId"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "format": "Format",
@@ -185,8 +147,6 @@ class Destination(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    REPLICA_KMS_KEY_ID = "ReplicaKmsKeyID"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_kms_key_id": "ReplicaKmsKeyID",
     }
@@ -196,8 +156,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EventBridgeConfiguration(PropertyType):
-    EVENT_BRIDGE_ENABLED = "EventBridgeEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bridge_enabled": "EventBridgeEnabled",
     }
@@ -207,9 +165,6 @@ class EventBridgeConfiguration(PropertyType):
 
 @dataclass
 class FilterRule(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -221,12 +176,6 @@ class FilterRule(PropertyType):
 
 @dataclass
 class IntelligentTieringConfiguration(PropertyType):
-    STATUS = "Status"
-    TIERINGS = "Tierings"
-    TAG_FILTERS = "TagFilters"
-    ID = "Id"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "tierings": "Tierings",
@@ -244,14 +193,6 @@ class IntelligentTieringConfiguration(PropertyType):
 
 @dataclass
 class InventoryConfiguration(PropertyType):
-    DESTINATION = "Destination"
-    OPTIONAL_FIELDS = "OptionalFields"
-    INCLUDED_OBJECT_VERSIONS = "IncludedObjectVersions"
-    ENABLED = "Enabled"
-    ID = "Id"
-    PREFIX = "Prefix"
-    SCHEDULE_FREQUENCY = "ScheduleFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "optional_fields": "OptionalFields",
@@ -273,11 +214,6 @@ class InventoryConfiguration(PropertyType):
 
 @dataclass
 class InventoryTableConfiguration(PropertyType):
-    TABLE_NAME = "TableName"
-    CONFIGURATION_STATE = "ConfigurationState"
-    TABLE_ARN = "TableArn"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "configuration_state": "ConfigurationState",
@@ -293,11 +229,6 @@ class InventoryTableConfiguration(PropertyType):
 
 @dataclass
 class JournalTableConfiguration(PropertyType):
-    TABLE_NAME = "TableName"
-    TABLE_ARN = "TableArn"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    RECORD_EXPIRATION = "RecordExpiration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "table_arn": "TableArn",
@@ -313,10 +244,6 @@ class JournalTableConfiguration(PropertyType):
 
 @dataclass
 class LambdaConfiguration(PropertyType):
-    FUNCTION = "Function"
-    FILTER = "Filter"
-    EVENT = "Event"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "filter": "Filter",
@@ -330,9 +257,6 @@ class LambdaConfiguration(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    TRANSITION_DEFAULT_MINIMUM_OBJECT_SIZE = "TransitionDefaultMinimumObjectSize"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_default_minimum_object_size": "TransitionDefaultMinimumObjectSize",
         "rules": "Rules",
@@ -344,10 +268,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    TARGET_OBJECT_KEY_FORMAT = "TargetObjectKeyFormat"
-    LOG_FILE_PREFIX = "LogFilePrefix"
-    DESTINATION_BUCKET_NAME = "DestinationBucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_object_key_format": "TargetObjectKeyFormat",
         "log_file_prefix": "LogFilePrefix",
@@ -361,10 +281,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfiguration(PropertyType):
-    DESTINATION = "Destination"
-    JOURNAL_TABLE_CONFIGURATION = "JournalTableConfiguration"
-    INVENTORY_TABLE_CONFIGURATION = "InventoryTableConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "journal_table_configuration": "JournalTableConfiguration",
@@ -378,10 +294,6 @@ class MetadataConfiguration(PropertyType):
 
 @dataclass
 class MetadataDestination(PropertyType):
-    TABLE_BUCKET_ARN = "TableBucketArn"
-    TABLE_BUCKET_TYPE = "TableBucketType"
-    TABLE_NAMESPACE = "TableNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketArn",
         "table_bucket_type": "TableBucketType",
@@ -395,8 +307,6 @@ class MetadataDestination(PropertyType):
 
 @dataclass
 class MetadataTableConfiguration(PropertyType):
-    S3_TABLES_DESTINATION = "S3TablesDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_tables_destination": "S3TablesDestination",
     }
@@ -406,9 +316,6 @@ class MetadataTableConfiguration(PropertyType):
 
 @dataclass
 class MetadataTableEncryptionConfiguration(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    SSE_ALGORITHM = "SseAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "sse_algorithm": "SseAlgorithm",
@@ -420,9 +327,6 @@ class MetadataTableEncryptionConfiguration(PropertyType):
 
 @dataclass
 class Metrics(PropertyType):
-    STATUS = "Status"
-    EVENT_THRESHOLD = "EventThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "event_threshold": "EventThreshold",
@@ -434,11 +338,6 @@ class Metrics(PropertyType):
 
 @dataclass
 class MetricsConfiguration(PropertyType):
-    ACCESS_POINT_ARN = "AccessPointArn"
-    TAG_FILTERS = "TagFilters"
-    ID = "Id"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_point_arn": "AccessPointArn",
         "tag_filters": "TagFilters",
@@ -454,9 +353,6 @@ class MetricsConfiguration(PropertyType):
 
 @dataclass
 class NoncurrentVersionExpiration(PropertyType):
-    NONCURRENT_DAYS = "NoncurrentDays"
-    NEWER_NONCURRENT_VERSIONS = "NewerNoncurrentVersions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "noncurrent_days": "NoncurrentDays",
         "newer_noncurrent_versions": "NewerNoncurrentVersions",
@@ -468,10 +364,6 @@ class NoncurrentVersionExpiration(PropertyType):
 
 @dataclass
 class NoncurrentVersionTransition(PropertyType):
-    STORAGE_CLASS = "StorageClass"
-    TRANSITION_IN_DAYS = "TransitionInDays"
-    NEWER_NONCURRENT_VERSIONS = "NewerNoncurrentVersions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
         "transition_in_days": "TransitionInDays",
@@ -485,11 +377,6 @@ class NoncurrentVersionTransition(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    TOPIC_CONFIGURATIONS = "TopicConfigurations"
-    QUEUE_CONFIGURATIONS = "QueueConfigurations"
-    LAMBDA_CONFIGURATIONS = "LambdaConfigurations"
-    EVENT_BRIDGE_CONFIGURATION = "EventBridgeConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_configurations": "TopicConfigurations",
         "queue_configurations": "QueueConfigurations",
@@ -505,8 +392,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class NotificationFilter(PropertyType):
-    S3_KEY = "S3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key": "S3Key",
     }
@@ -516,9 +401,6 @@ class NotificationFilter(PropertyType):
 
 @dataclass
 class ObjectLockConfiguration(PropertyType):
-    OBJECT_LOCK_ENABLED = "ObjectLockEnabled"
-    RULE = "Rule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_lock_enabled": "ObjectLockEnabled",
         "rule": "Rule",
@@ -530,8 +412,6 @@ class ObjectLockConfiguration(PropertyType):
 
 @dataclass
 class ObjectLockRule(PropertyType):
-    DEFAULT_RETENTION = "DefaultRetention"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_retention": "DefaultRetention",
     }
@@ -541,8 +421,6 @@ class ObjectLockRule(PropertyType):
 
 @dataclass
 class OwnershipControls(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -552,8 +430,6 @@ class OwnershipControls(PropertyType):
 
 @dataclass
 class OwnershipControlsRule(PropertyType):
-    OBJECT_OWNERSHIP = "ObjectOwnership"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_ownership": "ObjectOwnership",
     }
@@ -563,8 +439,6 @@ class OwnershipControlsRule(PropertyType):
 
 @dataclass
 class PartitionedPrefix(PropertyType):
-    PARTITION_DATE_SOURCE = "PartitionDateSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_date_source": "PartitionDateSource",
     }
@@ -574,11 +448,6 @@ class PartitionedPrefix(PropertyType):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    RESTRICT_PUBLIC_BUCKETS = "RestrictPublicBuckets"
-    BLOCK_PUBLIC_POLICY = "BlockPublicPolicy"
-    BLOCK_PUBLIC_ACLS = "BlockPublicAcls"
-    IGNORE_PUBLIC_ACLS = "IgnorePublicAcls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -594,10 +463,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class QueueConfiguration(PropertyType):
-    FILTER = "Filter"
-    EVENT = "Event"
-    QUEUE = "Queue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "event": "Event",
@@ -611,9 +476,6 @@ class QueueConfiguration(PropertyType):
 
 @dataclass
 class RecordExpiration(PropertyType):
-    DAYS = "Days"
-    EXPIRATION = "Expiration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days": "Days",
         "expiration": "Expiration",
@@ -625,9 +487,6 @@ class RecordExpiration(PropertyType):
 
 @dataclass
 class RedirectAllRequestsTo(PropertyType):
-    PROTOCOL = "Protocol"
-    HOST_NAME = "HostName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol": "Protocol",
         "host_name": "HostName",
@@ -639,12 +498,6 @@ class RedirectAllRequestsTo(PropertyType):
 
 @dataclass
 class RedirectRule(PropertyType):
-    REPLACE_KEY_WITH = "ReplaceKeyWith"
-    HTTP_REDIRECT_CODE = "HttpRedirectCode"
-    PROTOCOL = "Protocol"
-    HOST_NAME = "HostName"
-    REPLACE_KEY_PREFIX_WITH = "ReplaceKeyPrefixWith"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replace_key_with": "ReplaceKeyWith",
         "http_redirect_code": "HttpRedirectCode",
@@ -662,8 +515,6 @@ class RedirectRule(PropertyType):
 
 @dataclass
 class ReplicaModifications(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -673,9 +524,6 @@ class ReplicaModifications(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    ROLE = "Role"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "rules": "Rules",
@@ -687,14 +535,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class ReplicationDestination(PropertyType):
-    ACCESS_CONTROL_TRANSLATION = "AccessControlTranslation"
-    ACCOUNT = "Account"
-    METRICS = "Metrics"
-    BUCKET = "Bucket"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    STORAGE_CLASS = "StorageClass"
-    REPLICATION_TIME = "ReplicationTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_control_translation": "AccessControlTranslation",
         "account": "Account",
@@ -716,15 +556,6 @@ class ReplicationDestination(PropertyType):
 
 @dataclass
 class ReplicationRule(PropertyType):
-    STATUS = "Status"
-    DESTINATION = "Destination"
-    FILTER = "Filter"
-    PRIORITY = "Priority"
-    SOURCE_SELECTION_CRITERIA = "SourceSelectionCriteria"
-    ID = "Id"
-    PREFIX = "Prefix"
-    DELETE_MARKER_REPLICATION = "DeleteMarkerReplication"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "destination": "Destination",
@@ -748,9 +579,6 @@ class ReplicationRule(PropertyType):
 
 @dataclass
 class ReplicationRuleAndOperator(PropertyType):
-    TAG_FILTERS = "TagFilters"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_filters": "TagFilters",
         "prefix": "Prefix",
@@ -762,10 +590,6 @@ class ReplicationRuleAndOperator(PropertyType):
 
 @dataclass
 class ReplicationRuleFilter(PropertyType):
-    AND = "And"
-    TAG_FILTER = "TagFilter"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_": "And",
         "tag_filter": "TagFilter",
@@ -779,9 +603,6 @@ class ReplicationRuleFilter(PropertyType):
 
 @dataclass
 class ReplicationTime(PropertyType):
-    STATUS = "Status"
-    TIME = "Time"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "time": "Time",
@@ -793,8 +614,6 @@ class ReplicationTime(PropertyType):
 
 @dataclass
 class ReplicationTimeValue(PropertyType):
-    MINUTES = "Minutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minutes": "Minutes",
     }
@@ -804,9 +623,6 @@ class ReplicationTimeValue(PropertyType):
 
 @dataclass
 class RoutingRule(PropertyType):
-    REDIRECT_RULE = "RedirectRule"
-    ROUTING_RULE_CONDITION = "RoutingRuleCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redirect_rule": "RedirectRule",
         "routing_rule_condition": "RoutingRuleCondition",
@@ -818,9 +634,6 @@ class RoutingRule(PropertyType):
 
 @dataclass
 class RoutingRuleCondition(PropertyType):
-    KEY_PREFIX_EQUALS = "KeyPrefixEquals"
-    HTTP_ERROR_CODE_RETURNED_EQUALS = "HttpErrorCodeReturnedEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_prefix_equals": "KeyPrefixEquals",
         "http_error_code_returned_equals": "HttpErrorCodeReturnedEquals",
@@ -832,23 +645,6 @@ class RoutingRuleCondition(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    STATUS = "Status"
-    EXPIRED_OBJECT_DELETE_MARKER = "ExpiredObjectDeleteMarker"
-    NONCURRENT_VERSION_EXPIRATION_IN_DAYS = "NoncurrentVersionExpirationInDays"
-    TRANSITIONS = "Transitions"
-    OBJECT_SIZE_GREATER_THAN = "ObjectSizeGreaterThan"
-    TAG_FILTERS = "TagFilters"
-    NONCURRENT_VERSION_TRANSITIONS = "NoncurrentVersionTransitions"
-    PREFIX = "Prefix"
-    OBJECT_SIZE_LESS_THAN = "ObjectSizeLessThan"
-    NONCURRENT_VERSION_TRANSITION = "NoncurrentVersionTransition"
-    EXPIRATION_DATE = "ExpirationDate"
-    NONCURRENT_VERSION_EXPIRATION = "NoncurrentVersionExpiration"
-    EXPIRATION_IN_DAYS = "ExpirationInDays"
-    TRANSITION = "Transition"
-    ID = "Id"
-    ABORT_INCOMPLETE_MULTIPART_UPLOAD = "AbortIncompleteMultipartUpload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expired_object_delete_marker": "ExpiredObjectDeleteMarker",
@@ -888,8 +684,6 @@ class Rule(PropertyType):
 
 @dataclass
 class S3KeyFilter(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -899,11 +693,6 @@ class S3KeyFilter(PropertyType):
 
 @dataclass
 class S3TablesDestination(PropertyType):
-    TABLE_BUCKET_ARN = "TableBucketArn"
-    TABLE_NAME = "TableName"
-    TABLE_ARN = "TableArn"
-    TABLE_NAMESPACE = "TableNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketArn",
         "table_name": "TableName",
@@ -919,9 +708,6 @@ class S3TablesDestination(PropertyType):
 
 @dataclass
 class ServerSideEncryptionByDefault(PropertyType):
-    SSE_ALGORITHM = "SSEAlgorithm"
-    KMS_MASTER_KEY_ID = "KMSMasterKeyID"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_algorithm": "SSEAlgorithm",
         "kms_master_key_id": "KMSMasterKeyID",
@@ -933,10 +719,6 @@ class ServerSideEncryptionByDefault(PropertyType):
 
 @dataclass
 class ServerSideEncryptionRule(PropertyType):
-    BUCKET_KEY_ENABLED = "BucketKeyEnabled"
-    BLOCKED_ENCRYPTION_TYPES = "BlockedEncryptionTypes"
-    SERVER_SIDE_ENCRYPTION_BY_DEFAULT = "ServerSideEncryptionByDefault"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_key_enabled": "BucketKeyEnabled",
         "blocked_encryption_types": "BlockedEncryptionTypes",
@@ -950,9 +732,6 @@ class ServerSideEncryptionRule(PropertyType):
 
 @dataclass
 class SourceSelectionCriteria(PropertyType):
-    REPLICA_MODIFICATIONS = "ReplicaModifications"
-    SSE_KMS_ENCRYPTED_OBJECTS = "SseKmsEncryptedObjects"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_modifications": "ReplicaModifications",
         "sse_kms_encrypted_objects": "SseKmsEncryptedObjects",
@@ -964,8 +743,6 @@ class SourceSelectionCriteria(PropertyType):
 
 @dataclass
 class SseKmsEncryptedObjects(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -975,8 +752,6 @@ class SseKmsEncryptedObjects(PropertyType):
 
 @dataclass
 class StorageClassAnalysis(PropertyType):
-    DATA_EXPORT = "DataExport"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_export": "DataExport",
     }
@@ -986,9 +761,6 @@ class StorageClassAnalysis(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1000,9 +772,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetObjectKeyFormat(PropertyType):
-    PARTITIONED_PREFIX = "PartitionedPrefix"
-    SIMPLE_PREFIX = "SimplePrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partitioned_prefix": "PartitionedPrefix",
         "simple_prefix": "SimplePrefix",
@@ -1014,9 +783,6 @@ class TargetObjectKeyFormat(PropertyType):
 
 @dataclass
 class Tiering(PropertyType):
-    ACCESS_TIER = "AccessTier"
-    DAYS = "Days"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_tier": "AccessTier",
         "days": "Days",
@@ -1028,10 +794,6 @@ class Tiering(PropertyType):
 
 @dataclass
 class TopicConfiguration(PropertyType):
-    FILTER = "Filter"
-    EVENT = "Event"
-    TOPIC = "Topic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "event": "Event",
@@ -1045,10 +807,6 @@ class TopicConfiguration(PropertyType):
 
 @dataclass
 class Transition(PropertyType):
-    TRANSITION_DATE = "TransitionDate"
-    STORAGE_CLASS = "StorageClass"
-    TRANSITION_IN_DAYS = "TransitionInDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_date": "TransitionDate",
         "storage_class": "StorageClass",
@@ -1062,8 +820,6 @@ class Transition(PropertyType):
 
 @dataclass
 class VersioningConfiguration(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1073,11 +829,6 @@ class VersioningConfiguration(PropertyType):
 
 @dataclass
 class WebsiteConfiguration(PropertyType):
-    INDEX_DOCUMENT = "IndexDocument"
-    REDIRECT_ALL_REQUESTS_TO = "RedirectAllRequestsTo"
-    ROUTING_RULES = "RoutingRules"
-    ERROR_DOCUMENT = "ErrorDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_document": "IndexDocument",
         "redirect_all_requests_to": "RedirectAllRequestsTo",

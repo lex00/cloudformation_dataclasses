@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:16
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3ObjectLambda
@@ -912,9 +912,6 @@ class AccessPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3ObjectLambda::AccessPoint"
     name_field: ClassVar[str] = "name"
-    OBJECT_LAMBDA_CONFIGURATION = "ObjectLambdaConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_lambda_configuration": "ObjectLambdaConfiguration",
         "name": "Name",
@@ -980,9 +977,6 @@ class AccessPointPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3obj"""
 
     resource_type: ClassVar[str] = "AWS::S3ObjectLambda::AccessPointPolicy"
-    POLICY_DOCUMENT = "PolicyDocument"
-    OBJECT_LAMBDA_ACCESS_POINT = "ObjectLambdaAccessPoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
         "object_lambda_access_point": "ObjectLambdaAccessPoint",

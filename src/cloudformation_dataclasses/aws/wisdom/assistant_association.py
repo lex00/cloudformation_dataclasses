@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssociationData(PropertyType):
-    KNOWLEDGE_BASE_ID = "KnowledgeBaseId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_id": "KnowledgeBaseId",
     }

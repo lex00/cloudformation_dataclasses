@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchServerless
@@ -161,11 +161,6 @@ class AccessPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::AccessPolicy"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -185,12 +180,6 @@ class Collection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::Collection"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    STANDBY_REPLICAS = "StandbyReplicas"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -238,11 +227,6 @@ class Index(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::Index"
     name_field: ClassVar[str] = "index_name"
-    INDEX_NAME = "IndexName"
-    MAPPINGS = "Mappings"
-    COLLECTION_ENDPOINT = "CollectionEndpoint"
-    SETTINGS = "Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "mappings": "Mappings",
@@ -268,11 +252,6 @@ class LifecyclePolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::LifecyclePolicy"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -292,13 +271,6 @@ class SecurityConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::SecurityConfig"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    SAML_OPTIONS = "SamlOptions"
-    IAM_FEDERATION_OPTIONS = "IamFederationOptions"
-    NAME = "Name"
-    IAM_IDENTITY_CENTER_OPTIONS = "IamIdentityCenterOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -343,11 +315,6 @@ class SecurityPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::SecurityPolicy"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -367,11 +334,6 @@ class VpcEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::VpcEndpoint"
     name_field: ClassVar[str] = "name"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "security_group_ids": "SecurityGroupIds",

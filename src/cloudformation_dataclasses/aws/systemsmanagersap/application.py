@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComponentInfo(PropertyType):
-    EC2_INSTANCE_ID = "Ec2InstanceId"
-    COMPONENT_TYPE = "ComponentType"
-    SID = "Sid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_instance_id": "Ec2InstanceId",
         "component_type": "ComponentType",
@@ -28,10 +24,6 @@ class ComponentInfo(PropertyType):
 
 @dataclass
 class Credential(PropertyType):
-    SECRET_ID = "SecretId"
-    DATABASE_NAME = "DatabaseName"
-    CREDENTIAL_TYPE = "CredentialType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_id": "SecretId",
         "database_name": "DatabaseName",

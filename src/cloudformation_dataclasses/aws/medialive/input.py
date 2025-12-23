@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InputDestinationRequest(PropertyType):
-    STREAM_NAME = "StreamName"
-    NETWORK = "Network"
-    NETWORK_ROUTES = "NetworkRoutes"
-    STATIC_IP_ADDRESS = "StaticIpAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "network": "Network",
@@ -31,8 +26,6 @@ class InputDestinationRequest(PropertyType):
 
 @dataclass
 class InputDeviceRequest(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -42,8 +35,6 @@ class InputDeviceRequest(PropertyType):
 
 @dataclass
 class InputDeviceSettings(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -53,9 +44,6 @@ class InputDeviceSettings(PropertyType):
 
 @dataclass
 class InputRequestDestinationRoute(PropertyType):
-    CIDR = "Cidr"
-    GATEWAY = "Gateway"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "gateway": "Gateway",
@@ -67,9 +55,6 @@ class InputRequestDestinationRoute(PropertyType):
 
 @dataclass
 class InputSdpLocation(PropertyType):
-    MEDIA_INDEX = "MediaIndex"
-    SDP_URL = "SdpUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_index": "MediaIndex",
         "sdp_url": "SdpUrl",
@@ -81,10 +66,6 @@ class InputSdpLocation(PropertyType):
 
 @dataclass
 class InputSourceRequest(PropertyType):
-    USERNAME = "Username"
-    PASSWORD_PARAM = "PasswordParam"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password_param": "PasswordParam",
@@ -98,9 +79,6 @@ class InputSourceRequest(PropertyType):
 
 @dataclass
 class InputVpcRequest(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -112,8 +90,6 @@ class InputVpcRequest(PropertyType):
 
 @dataclass
 class MediaConnectFlowRequest(PropertyType):
-    FLOW_ARN = "FlowArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_arn": "FlowArn",
     }
@@ -123,8 +99,6 @@ class MediaConnectFlowRequest(PropertyType):
 
 @dataclass
 class MulticastSettingsCreateRequest(PropertyType):
-    SOURCES = "Sources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sources": "Sources",
     }
@@ -134,8 +108,6 @@ class MulticastSettingsCreateRequest(PropertyType):
 
 @dataclass
 class MulticastSettingsUpdateRequest(PropertyType):
-    SOURCES = "Sources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sources": "Sources",
     }
@@ -145,9 +117,6 @@ class MulticastSettingsUpdateRequest(PropertyType):
 
 @dataclass
 class MulticastSourceCreateRequest(PropertyType):
-    SOURCE_IP = "SourceIp"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip": "SourceIp",
         "url": "Url",
@@ -159,9 +128,6 @@ class MulticastSourceCreateRequest(PropertyType):
 
 @dataclass
 class MulticastSourceUpdateRequest(PropertyType):
-    SOURCE_IP = "SourceIp"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip": "SourceIp",
         "url": "Url",
@@ -173,8 +139,6 @@ class MulticastSourceUpdateRequest(PropertyType):
 
 @dataclass
 class RouterDestinationSettings(PropertyType):
-    AVAILABILITY_ZONE_NAME = "AvailabilityZoneName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_name": "AvailabilityZoneName",
     }
@@ -184,10 +148,6 @@ class RouterDestinationSettings(PropertyType):
 
 @dataclass
 class RouterSettings(PropertyType):
-    SECRET_ARN = "SecretArn"
-    ENCRYPTION_TYPE = "EncryptionType"
-    DESTINATIONS = "Destinations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "encryption_type": "EncryptionType",
@@ -201,8 +161,6 @@ class RouterSettings(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroup(PropertyType):
-    SDP_SETTINGS = "SdpSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sdp_settings": "SdpSettings",
     }
@@ -212,10 +170,6 @@ class Smpte2110ReceiverGroup(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroupSdpSettings(PropertyType):
-    AUDIO_SDPS = "AudioSdps"
-    ANCILLARY_SDPS = "AncillarySdps"
-    VIDEO_SDP = "VideoSdp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_sdps": "AudioSdps",
         "ancillary_sdps": "AncillarySdps",
@@ -229,8 +183,6 @@ class Smpte2110ReceiverGroupSdpSettings(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroupSettings(PropertyType):
-    SMPTE2110_RECEIVER_GROUPS = "Smpte2110ReceiverGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smpte2110_receiver_groups": "Smpte2110ReceiverGroups",
     }
@@ -240,8 +192,6 @@ class Smpte2110ReceiverGroupSettings(PropertyType):
 
 @dataclass
 class SpecialRouterSettings(PropertyType):
-    ROUTER_ARN = "RouterArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "router_arn": "RouterArn",
     }
@@ -251,9 +201,6 @@ class SpecialRouterSettings(PropertyType):
 
 @dataclass
 class SrtCallerDecryptionRequest(PropertyType):
-    ALGORITHM = "Algorithm"
-    PASSPHRASE_SECRET_ARN = "PassphraseSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "algorithm": "Algorithm",
         "passphrase_secret_arn": "PassphraseSecretArn",
@@ -265,12 +212,6 @@ class SrtCallerDecryptionRequest(PropertyType):
 
 @dataclass
 class SrtCallerSourceRequest(PropertyType):
-    SRT_LISTENER_PORT = "SrtListenerPort"
-    STREAM_ID = "StreamId"
-    MINIMUM_LATENCY = "MinimumLatency"
-    SRT_LISTENER_ADDRESS = "SrtListenerAddress"
-    DECRYPTION = "Decryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_listener_port": "SrtListenerPort",
         "stream_id": "StreamId",
@@ -288,8 +229,6 @@ class SrtCallerSourceRequest(PropertyType):
 
 @dataclass
 class SrtSettingsRequest(PropertyType):
-    SRT_CALLER_SOURCES = "SrtCallerSources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller_sources": "SrtCallerSources",
     }

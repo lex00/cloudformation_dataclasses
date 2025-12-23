@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcceleratorCount(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -25,9 +22,6 @@ class AcceleratorCount(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiB(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -39,9 +33,6 @@ class AcceleratorTotalMemoryMiB(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbps(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -53,8 +44,6 @@ class BaselineEbsBandwidthMbps(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactors(PropertyType):
-    CPU = "Cpu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -64,11 +53,6 @@ class BaselinePerformanceFactors(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -84,9 +68,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-    CAPACITY_RESERVATION_TARGET = "CapacityReservationTarget"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -98,9 +79,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    CAPACITY_RESERVATION_RESOURCE_GROUP_ARN = "CapacityReservationResourceGroupArn"
-    CAPACITY_RESERVATION_ID = "CapacityReservationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
         "capacity_reservation_id": "CapacityReservationId",
@@ -112,10 +90,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class ConnectionTrackingSpecification(PropertyType):
-    UDP_TIMEOUT = "UdpTimeout"
-    TCP_ESTABLISHED_TIMEOUT = "TcpEstablishedTimeout"
-    UDP_STREAM_TIMEOUT = "UdpStreamTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "udp_timeout": "UdpTimeout",
         "tcp_established_timeout": "TcpEstablishedTimeout",
@@ -129,8 +103,6 @@ class ConnectionTrackingSpecification(PropertyType):
 
 @dataclass
 class Cpu(PropertyType):
-    REFERENCES = "References"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -140,10 +112,6 @@ class Cpu(PropertyType):
 
 @dataclass
 class CpuOptions(PropertyType):
-    THREADS_PER_CORE = "ThreadsPerCore"
-    AMD_SEV_SNP = "AmdSevSnp"
-    CORE_COUNT = "CoreCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "amd_sev_snp": "AmdSevSnp",
@@ -157,8 +125,6 @@ class CpuOptions(PropertyType):
 
 @dataclass
 class CreditSpecification(PropertyType):
-    CPU_CREDITS = "CpuCredits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CpuCredits",
     }
@@ -168,16 +134,6 @@ class CreditSpecification(PropertyType):
 
 @dataclass
 class Ebs(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_INITIALIZATION_RATE = "VolumeInitializationRate"
-    VOLUME_SIZE = "VolumeSize"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -203,9 +159,6 @@ class Ebs(PropertyType):
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    ENA_SRD_ENABLED = "EnaSrdEnabled"
-    ENA_SRD_UDP_SPECIFICATION = "EnaSrdUdpSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -217,8 +170,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    ENA_SRD_UDP_ENABLED = "EnaSrdUdpEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }
@@ -228,8 +179,6 @@ class EnaSrdUdpSpecification(PropertyType):
 
 @dataclass
 class EnclaveOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -239,8 +188,6 @@ class EnclaveOptions(PropertyType):
 
 @dataclass
 class HibernationOptions(PropertyType):
-    CONFIGURED = "Configured"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -250,9 +197,6 @@ class HibernationOptions(PropertyType):
 
 @dataclass
 class IamInstanceProfile(PropertyType):
-    ARN = "Arn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -264,9 +208,6 @@ class IamInstanceProfile(PropertyType):
 
 @dataclass
 class InstanceMarketOptions(PropertyType):
-    SPOT_OPTIONS = "SpotOptions"
-    MARKET_TYPE = "MarketType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_options": "SpotOptions",
         "market_type": "MarketType",
@@ -278,32 +219,6 @@ class InstanceMarketOptions(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    INSTANCE_GENERATIONS = "InstanceGenerations"
-    MEMORY_GI_B_PER_V_CPU = "MemoryGiBPerVCpu"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    V_CPU_COUNT = "VCpuCount"
-    ACCELERATOR_MANUFACTURERS = "AcceleratorManufacturers"
-    LOCAL_STORAGE = "LocalStorage"
-    CPU_MANUFACTURERS = "CpuManufacturers"
-    BARE_METAL = "BareMetal"
-    REQUIRE_HIBERNATE_SUPPORT = "RequireHibernateSupport"
-    MAX_SPOT_PRICE_AS_PERCENTAGE_OF_OPTIMAL_ON_DEMAND_PRICE = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
-    ON_DEMAND_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "OnDemandMaxPricePercentageOverLowestPrice"
-    MEMORY_MI_B = "MemoryMiB"
-    LOCAL_STORAGE_TYPES = "LocalStorageTypes"
-    NETWORK_INTERFACE_COUNT = "NetworkInterfaceCount"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    ACCELERATOR_COUNT = "AcceleratorCount"
-    NETWORK_BANDWIDTH_GBPS = "NetworkBandwidthGbps"
-    BASELINE_PERFORMANCE_FACTORS = "BaselinePerformanceFactors"
-    SPOT_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "SpotMaxPricePercentageOverLowestPrice"
-    BASELINE_EBS_BANDWIDTH_MBPS = "BaselineEbsBandwidthMbps"
-    ACCELERATOR_NAMES = "AcceleratorNames"
-    ACCELERATOR_TOTAL_MEMORY_MI_B = "AcceleratorTotalMemoryMiB"
-    BURSTABLE_PERFORMANCE = "BurstablePerformance"
-    TOTAL_LOCAL_STORAGE_GB = "TotalLocalStorageGB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "memory_gi_b_per_v_cpu": "MemoryGiBPerVCpu",
@@ -361,8 +276,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class Ipv4PrefixSpecification(PropertyType):
-    IPV4_PREFIX = "Ipv4Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv4_prefix": "Ipv4Prefix",
     }
@@ -372,8 +285,6 @@ class Ipv4PrefixSpecification(PropertyType):
 
 @dataclass
 class Ipv6Add(PropertyType):
-    IPV6_ADDRESS = "Ipv6Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -383,8 +294,6 @@ class Ipv6Add(PropertyType):
 
 @dataclass
 class Ipv6PrefixSpecification(PropertyType):
-    IPV6_PREFIX = "Ipv6Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_prefix": "Ipv6Prefix",
     }
@@ -394,37 +303,6 @@ class Ipv6PrefixSpecification(PropertyType):
 
 @dataclass
 class LaunchTemplateData(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    NETWORK_PERFORMANCE_OPTIONS = "NetworkPerformanceOptions"
-    USER_DATA = "UserData"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    MAINTENANCE_OPTIONS = "MaintenanceOptions"
-    IAM_INSTANCE_PROFILE = "IamInstanceProfile"
-    KERNEL_ID = "KernelId"
-    EBS_OPTIMIZED = "EbsOptimized"
-    PLACEMENT = "Placement"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    ENCLAVE_OPTIONS = "EnclaveOptions"
-    IMAGE_ID = "ImageId"
-    INSTANCE_TYPE = "InstanceType"
-    MONITORING = "Monitoring"
-    HIBERNATION_OPTIONS = "HibernationOptions"
-    METADATA_OPTIONS = "MetadataOptions"
-    LICENSE_SPECIFICATIONS = "LicenseSpecifications"
-    INSTANCE_INITIATED_SHUTDOWN_BEHAVIOR = "InstanceInitiatedShutdownBehavior"
-    DISABLE_API_STOP = "DisableApiStop"
-    CPU_OPTIONS = "CpuOptions"
-    PRIVATE_DNS_NAME_OPTIONS = "PrivateDnsNameOptions"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    KEY_NAME = "KeyName"
-    DISABLE_API_TERMINATION = "DisableApiTermination"
-    INSTANCE_MARKET_OPTIONS = "InstanceMarketOptions"
-    INSTANCE_REQUIREMENTS = "InstanceRequirements"
-    RAM_DISK_ID = "RamDiskId"
-    CAPACITY_RESERVATION_SPECIFICATION = "CapacityReservationSpecification"
-    CREDIT_SPECIFICATION = "CreditSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "tag_specifications": "TagSpecifications",
@@ -492,9 +370,6 @@ class LaunchTemplateData(PropertyType):
 
 @dataclass
 class LaunchTemplateTagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -506,8 +381,6 @@ class LaunchTemplateTagSpecification(PropertyType):
 
 @dataclass
 class LicenseSpecification(PropertyType):
-    LICENSE_CONFIGURATION_ARN = "LicenseConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -517,8 +390,6 @@ class LicenseSpecification(PropertyType):
 
 @dataclass
 class MaintenanceOptions(PropertyType):
-    AUTO_RECOVERY = "AutoRecovery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_recovery": "AutoRecovery",
     }
@@ -528,9 +399,6 @@ class MaintenanceOptions(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpu(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -542,9 +410,6 @@ class MemoryGiBPerVCpu(PropertyType):
 
 @dataclass
 class MemoryMiB(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -556,12 +421,6 @@ class MemoryMiB(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    HTTP_PUT_RESPONSE_HOP_LIMIT = "HttpPutResponseHopLimit"
-    HTTP_TOKENS = "HttpTokens"
-    HTTP_PROTOCOL_IPV6 = "HttpProtocolIpv6"
-    INSTANCE_METADATA_TAGS = "InstanceMetadataTags"
-    HTTP_ENDPOINT = "HttpEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",
@@ -579,8 +438,6 @@ class MetadataOptions(PropertyType):
 
 @dataclass
 class Monitoring(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -590,9 +447,6 @@ class Monitoring(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbps(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -604,30 +458,6 @@ class NetworkBandwidthGbps(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    DESCRIPTION = "Description"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIVATE_IP_ADDRESSES = "PrivateIpAddresses"
-    SECONDARY_PRIVATE_IP_ADDRESS_COUNT = "SecondaryPrivateIpAddressCount"
-    IPV6_PREFIX_COUNT = "Ipv6PrefixCount"
-    IPV4_PREFIXES = "Ipv4Prefixes"
-    DEVICE_INDEX = "DeviceIndex"
-    PRIMARY_IPV6 = "PrimaryIpv6"
-    IPV4_PREFIX_COUNT = "Ipv4PrefixCount"
-    ENA_QUEUE_COUNT = "EnaQueueCount"
-    IPV6_PREFIXES = "Ipv6Prefixes"
-    SUBNET_ID = "SubnetId"
-    IPV6_ADDRESSES = "Ipv6Addresses"
-    ASSOCIATE_PUBLIC_IP_ADDRESS = "AssociatePublicIpAddress"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    NETWORK_CARD_INDEX = "NetworkCardIndex"
-    INTERFACE_TYPE = "InterfaceType"
-    ASSOCIATE_CARRIER_IP_ADDRESS = "AssociateCarrierIpAddress"
-    ENA_SRD_SPECIFICATION = "EnaSrdSpecification"
-    IPV6_ADDRESS_COUNT = "Ipv6AddressCount"
-    GROUPS = "Groups"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-    CONNECTION_TRACKING_SPECIFICATION = "ConnectionTrackingSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_address": "PrivateIpAddress",
@@ -681,9 +511,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class NetworkInterfaceCount(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -695,8 +522,6 @@ class NetworkInterfaceCount(PropertyType):
 
 @dataclass
 class NetworkPerformanceOptions(PropertyType):
-    BANDWIDTH_WEIGHTING = "BandwidthWeighting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_weighting": "BandwidthWeighting",
     }
@@ -706,16 +531,6 @@ class NetworkPerformanceOptions(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    GROUP_NAME = "GroupName"
-    TENANCY = "Tenancy"
-    SPREAD_DOMAIN = "SpreadDomain"
-    PARTITION_NUMBER = "PartitionNumber"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    AFFINITY = "Affinity"
-    HOST_ID = "HostId"
-    HOST_RESOURCE_GROUP_ARN = "HostResourceGroupArn"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -741,10 +556,6 @@ class Placement(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptions(PropertyType):
-    ENABLE_RESOURCE_NAME_DNS_A_RECORD = "EnableResourceNameDnsARecord"
-    HOSTNAME_TYPE = "HostnameType"
-    ENABLE_RESOURCE_NAME_DNS_AAAA_RECORD = "EnableResourceNameDnsAAAARecord"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -758,9 +569,6 @@ class PrivateDnsNameOptions(PropertyType):
 
 @dataclass
 class PrivateIpAdd(PropertyType):
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIMARY = "Primary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -772,8 +580,6 @@ class PrivateIpAdd(PropertyType):
 
 @dataclass
 class Reference(PropertyType):
-    INSTANCE_FAMILY = "InstanceFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -783,12 +589,6 @@ class Reference(PropertyType):
 
 @dataclass
 class SpotOptions(PropertyType):
-    SPOT_INSTANCE_TYPE = "SpotInstanceType"
-    INSTANCE_INTERRUPTION_BEHAVIOR = "InstanceInterruptionBehavior"
-    MAX_PRICE = "MaxPrice"
-    BLOCK_DURATION_MINUTES = "BlockDurationMinutes"
-    VALID_UNTIL = "ValidUntil"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_instance_type": "SpotInstanceType",
         "instance_interruption_behavior": "InstanceInterruptionBehavior",
@@ -806,9 +606,6 @@ class SpotOptions(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -820,9 +617,6 @@ class TagSpecification(PropertyType):
 
 @dataclass
 class TotalLocalStorageGB(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -834,9 +628,6 @@ class TotalLocalStorageGB(PropertyType):
 
 @dataclass
 class VCpuCount(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",

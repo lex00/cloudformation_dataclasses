@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLoggingPolicy(PropertyType):
-    EMIT_INTERVAL = "EmitInterval"
-    ENABLED = "Enabled"
-    S3_BUCKET_NAME = "S3BucketName"
-    S3_BUCKET_PREFIX = "S3BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "emit_interval": "EmitInterval",
         "enabled": "Enabled",
@@ -31,9 +26,6 @@ class AccessLoggingPolicy(PropertyType):
 
 @dataclass
 class AppCookieStickinessPolicy(PropertyType):
-    COOKIE_NAME = "CookieName"
-    POLICY_NAME = "PolicyName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie_name": "CookieName",
         "policy_name": "PolicyName",
@@ -45,9 +37,6 @@ class AppCookieStickinessPolicy(PropertyType):
 
 @dataclass
 class ConnectionDrainingPolicy(PropertyType):
-    ENABLED = "Enabled"
-    TIMEOUT = "Timeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "timeout": "Timeout",
@@ -59,8 +48,6 @@ class ConnectionDrainingPolicy(PropertyType):
 
 @dataclass
 class ConnectionSettings(PropertyType):
-    IDLE_TIMEOUT = "IdleTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_timeout": "IdleTimeout",
     }
@@ -70,12 +57,6 @@ class ConnectionSettings(PropertyType):
 
 @dataclass
 class HealthCheck(PropertyType):
-    HEALTHY_THRESHOLD = "HealthyThreshold"
-    INTERVAL = "Interval"
-    TARGET = "Target"
-    TIMEOUT = "Timeout"
-    UNHEALTHY_THRESHOLD = "UnhealthyThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "healthy_threshold": "HealthyThreshold",
         "interval": "Interval",
@@ -93,9 +74,6 @@ class HealthCheck(PropertyType):
 
 @dataclass
 class LBCookieStickinessPolicy(PropertyType):
-    COOKIE_EXPIRATION_PERIOD = "CookieExpirationPeriod"
-    POLICY_NAME = "PolicyName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie_expiration_period": "CookieExpirationPeriod",
         "policy_name": "PolicyName",
@@ -107,13 +85,6 @@ class LBCookieStickinessPolicy(PropertyType):
 
 @dataclass
 class Listeners(PropertyType):
-    INSTANCE_PORT = "InstancePort"
-    INSTANCE_PROTOCOL = "InstanceProtocol"
-    LOAD_BALANCER_PORT = "LoadBalancerPort"
-    POLICY_NAMES = "PolicyNames"
-    PROTOCOL = "Protocol"
-    SSL_CERTIFICATE_ID = "SSLCertificateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_port": "InstancePort",
         "instance_protocol": "InstanceProtocol",
@@ -133,12 +104,6 @@ class Listeners(PropertyType):
 
 @dataclass
 class Policies(PropertyType):
-    ATTRIBUTES = "Attributes"
-    INSTANCE_PORTS = "InstancePorts"
-    LOAD_BALANCER_PORTS = "LoadBalancerPorts"
-    POLICY_NAME = "PolicyName"
-    POLICY_TYPE = "PolicyType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "instance_ports": "InstancePorts",

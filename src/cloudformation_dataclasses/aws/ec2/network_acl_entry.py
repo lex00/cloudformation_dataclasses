@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Icmp(PropertyType):
-    TYPE = "Type"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "code": "Code",
@@ -25,9 +22,6 @@ class Icmp(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    FROM = "From"
-    TO = "To"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",

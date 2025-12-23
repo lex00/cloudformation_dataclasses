@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomLaunchTemplate(PropertyType):
-    VERSION = "Version"
-    TEMPLATE_ID = "TemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "template_id": "TemplateId",
@@ -25,9 +22,6 @@ class CustomLaunchTemplate(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    MESSAGE = "Message"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -39,8 +33,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class InstanceConfig(PropertyType):
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_type": "InstanceType",
     }
@@ -50,9 +42,6 @@ class InstanceConfig(PropertyType):
 
 @dataclass
 class ScalingConfiguration(PropertyType):
-    MAX_INSTANCE_COUNT = "MaxInstanceCount"
-    MIN_INSTANCE_COUNT = "MinInstanceCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_instance_count": "MaxInstanceCount",
         "min_instance_count": "MinInstanceCount",
@@ -64,8 +53,6 @@ class ScalingConfiguration(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    SLURM_CUSTOM_SETTINGS = "SlurmCustomSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slurm_custom_settings": "SlurmCustomSettings",
     }
@@ -75,9 +62,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -89,8 +73,6 @@ class SlurmCustomSetting(PropertyType):
 
 @dataclass
 class SpotOptions(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
     }

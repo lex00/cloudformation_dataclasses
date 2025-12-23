@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DateFilter(PropertyType):
-    END_INCLUSIVE = "EndInclusive"
-    START_INCLUSIVE = "StartInclusive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_inclusive": "EndInclusive",
         "start_inclusive": "StartInclusive",
@@ -25,49 +22,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    RESOURCE_TAGS = "ResourceTags"
-    EC2_INSTANCE_IMAGE_ID = "Ec2InstanceImageId"
-    FIRST_OBSERVED_AT = "FirstObservedAt"
-    INSPECTOR_SCORE = "InspectorScore"
-    EC2_INSTANCE_VPC_ID = "Ec2InstanceVpcId"
-    LAMBDA_FUNCTION_NAME = "LambdaFunctionName"
-    LAMBDA_FUNCTION_RUNTIME = "LambdaFunctionRuntime"
-    LAST_OBSERVED_AT = "LastObservedAt"
-    ECR_IMAGE_PUSHED_AT = "EcrImagePushedAt"
-    LAMBDA_FUNCTION_LAYERS = "LambdaFunctionLayers"
-    FIX_AVAILABLE = "FixAvailable"
-    EXPLOIT_AVAILABLE = "ExploitAvailable"
-    ECR_IMAGE_ARCHITECTURE = "EcrImageArchitecture"
-    RELATED_VULNERABILITIES = "RelatedVulnerabilities"
-    ECR_IMAGE_TAGS = "EcrImageTags"
-    VULNERABILITY_ID = "VulnerabilityId"
-    COMPONENT_TYPE = "ComponentType"
-    LAMBDA_FUNCTION_EXECUTION_ROLE_ARN = "LambdaFunctionExecutionRoleArn"
-    VENDOR_SEVERITY = "VendorSeverity"
-    CODE_VULNERABILITY_DETECTOR_TAGS = "CodeVulnerabilityDetectorTags"
-    CODE_VULNERABILITY_DETECTOR_NAME = "CodeVulnerabilityDetectorName"
-    ECR_IMAGE_REPOSITORY_NAME = "EcrImageRepositoryName"
-    TITLE = "Title"
-    RESOURCE_TYPE = "ResourceType"
-    SEVERITY = "Severity"
-    NETWORK_PROTOCOL = "NetworkProtocol"
-    UPDATED_AT = "UpdatedAt"
-    CODE_VULNERABILITY_FILE_PATH = "CodeVulnerabilityFilePath"
-    ECR_IMAGE_HASH = "EcrImageHash"
-    LAMBDA_FUNCTION_LAST_MODIFIED_AT = "LambdaFunctionLastModifiedAt"
-    PORT_RANGE = "PortRange"
-    VULNERABILITY_SOURCE = "VulnerabilitySource"
-    EC2_INSTANCE_SUBNET_ID = "Ec2InstanceSubnetId"
-    FINDING_ARN = "FindingArn"
-    RESOURCE_ID = "ResourceId"
-    FINDING_STATUS = "FindingStatus"
-    VULNERABLE_PACKAGES = "VulnerablePackages"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    EPSS_SCORE = "EpssScore"
-    COMPONENT_ID = "ComponentId"
-    ECR_IMAGE_REGISTRY = "EcrImageRegistry"
-    FINDING_TYPE = "FindingType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_tags": "ResourceTags",
         "ec2_instance_image_id": "Ec2InstanceImageId",
@@ -159,10 +113,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -176,9 +126,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    LOWER_INCLUSIVE = "LowerInclusive"
-    UPPER_INCLUSIVE = "UpperInclusive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lower_inclusive": "LowerInclusive",
         "upper_inclusive": "UpperInclusive",
@@ -190,15 +137,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class PackageFilter(PropertyType):
-    FILE_PATH = "FilePath"
-    ARCHITECTURE = "Architecture"
-    VERSION = "Version"
-    EPOCH = "Epoch"
-    SOURCE_LAYER_HASH = "SourceLayerHash"
-    SOURCE_LAMBDA_LAYER_ARN = "SourceLambdaLayerArn"
-    RELEASE = "Release"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_path": "FilePath",
         "architecture": "Architecture",
@@ -222,9 +160,6 @@ class PackageFilter(PropertyType):
 
 @dataclass
 class PortRangeFilter(PropertyType):
-    BEGIN_INCLUSIVE = "BeginInclusive"
-    END_INCLUSIVE = "EndInclusive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "begin_inclusive": "BeginInclusive",
         "end_inclusive": "EndInclusive",
@@ -236,9 +171,6 @@ class PortRangeFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",

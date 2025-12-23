@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lambda
@@ -779,13 +779,6 @@ class Alias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::Alias"
     name_field: ClassVar[str] = "name"
-    FUNCTION_NAME = "FunctionName"
-    PROVISIONED_CONCURRENCY_CONFIG = "ProvisionedConcurrencyConfig"
-    DESCRIPTION = "Description"
-    FUNCTION_VERSION = "FunctionVersion"
-    ROUTING_CONFIG = "RoutingConfig"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_name": "FunctionName",
         "provisioned_concurrency_config": "ProvisionedConcurrencyConfig",
@@ -815,14 +808,6 @@ class CapacityProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::CapacityProvider"
     name_field: ClassVar[str] = "capacity_provider_name"
-    CAPACITY_PROVIDER_SCALING_CONFIG = "CapacityProviderScalingConfig"
-    KMS_KEY_ARN = "KmsKeyArn"
-    VPC_CONFIG = "VpcConfig"
-    CAPACITY_PROVIDER_NAME = "CapacityProviderName"
-    INSTANCE_REQUIREMENTS = "InstanceRequirements"
-    PERMISSIONS_CONFIG = "PermissionsConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider_scaling_config": "CapacityProviderScalingConfig",
         "kms_key_arn": "KmsKeyArn",
@@ -858,11 +843,6 @@ class CodeSigningConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::CodeSigningConfig"
-    DESCRIPTION = "Description"
-    ALLOWED_PUBLISHERS = "AllowedPublishers"
-    CODE_SIGNING_POLICIES = "CodeSigningPolicies"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_publishers": "AllowedPublishers",
@@ -893,12 +873,6 @@ class EventInvokeConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::EventInvokeConfig"
     name_field: ClassVar[str] = "function_name"
-    FUNCTION_NAME = "FunctionName"
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    DESTINATION_CONFIG = "DestinationConfig"
-    QUALIFIER = "Qualifier"
-    MAXIMUM_EVENT_AGE_IN_SECONDS = "MaximumEventAgeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_name": "FunctionName",
         "maximum_retry_attempts": "MaximumRetryAttempts",
@@ -920,35 +894,6 @@ class EventSourceMapping(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::EventSourceMapping"
     name_field: ClassVar[str] = "function_name"
-    STARTING_POSITION = "StartingPosition"
-    SELF_MANAGED_EVENT_SOURCE = "SelfManagedEventSource"
-    PARALLELIZATION_FACTOR = "ParallelizationFactor"
-    FILTER_CRITERIA = "FilterCriteria"
-    PROVISIONED_POLLER_CONFIG = "ProvisionedPollerConfig"
-    METRICS_CONFIG = "MetricsConfig"
-    FUNCTION_NAME = "FunctionName"
-    DESTINATION_CONFIG = "DestinationConfig"
-    KMS_KEY_ARN = "KmsKeyArn"
-    AMAZON_MANAGED_KAFKA_EVENT_SOURCE_CONFIG = "AmazonManagedKafkaEventSourceConfig"
-    SOURCE_ACCESS_CONFIGURATIONS = "SourceAccessConfigurations"
-    TAGS = "Tags"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-    BATCH_SIZE = "BatchSize"
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    TOPICS = "Topics"
-    SCALING_CONFIG = "ScalingConfig"
-    ENABLED = "Enabled"
-    EVENT_SOURCE_ARN = "EventSourceArn"
-    SELF_MANAGED_KAFKA_EVENT_SOURCE_CONFIG = "SelfManagedKafkaEventSourceConfig"
-    DOCUMENT_DB_EVENT_SOURCE_CONFIG = "DocumentDBEventSourceConfig"
-    TUMBLING_WINDOW_IN_SECONDS = "TumblingWindowInSeconds"
-    BISECT_BATCH_ON_FUNCTION_ERROR = "BisectBatchOnFunctionError"
-    MAXIMUM_RECORD_AGE_IN_SECONDS = "MaximumRecordAgeInSeconds"
-    STARTING_POSITION_TIMESTAMP = "StartingPositionTimestamp"
-    LOGGING_CONFIG = "LoggingConfig"
-    QUEUES = "Queues"
-    FUNCTION_RESPONSE_TYPES = "FunctionResponseTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "self_managed_event_source": "SelfManagedEventSource",
@@ -1027,38 +972,6 @@ class Function(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::Function"
     name_field: ClassVar[str] = "function_name"
-    FUNCTION_SCALING_CONFIG = "FunctionScalingConfig"
-    DESCRIPTION = "Description"
-    TRACING_CONFIG = "TracingConfig"
-    VPC_CONFIG = "VpcConfig"
-    RUNTIME_MANAGEMENT_CONFIG = "RuntimeManagementConfig"
-    DURABLE_CONFIG = "DurableConfig"
-    RESERVED_CONCURRENT_EXECUTIONS = "ReservedConcurrentExecutions"
-    SNAP_START = "SnapStart"
-    FILE_SYSTEM_CONFIGS = "FileSystemConfigs"
-    FUNCTION_NAME = "FunctionName"
-    RUNTIME = "Runtime"
-    KMS_KEY_ARN = "KmsKeyArn"
-    PUBLISH_TO_LATEST_PUBLISHED = "PublishToLatestPublished"
-    PACKAGE_TYPE = "PackageType"
-    CODE_SIGNING_CONFIG_ARN = "CodeSigningConfigArn"
-    LAYERS = "Layers"
-    TENANCY_CONFIG = "TenancyConfig"
-    TAGS = "Tags"
-    IMAGE_CONFIG = "ImageConfig"
-    MEMORY_SIZE = "MemorySize"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    TIMEOUT = "Timeout"
-    CAPACITY_PROVIDER_CONFIG = "CapacityProviderConfig"
-    HANDLER = "Handler"
-    CODE = "Code"
-    ROLE = "Role"
-    LOGGING_CONFIG = "LoggingConfig"
-    RECURSIVE_LOOP = "RecursiveLoop"
-    ENVIRONMENT = "Environment"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-    ARCHITECTURES = "Architectures"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_scaling_config": "FunctionScalingConfig",
         "description": "Description",
@@ -1153,13 +1066,6 @@ class LayerVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::LayerVersion"
     name_field: ClassVar[str] = "layer_name"
-    COMPATIBLE_RUNTIMES = "CompatibleRuntimes"
-    LICENSE_INFO = "LicenseInfo"
-    DESCRIPTION = "Description"
-    LAYER_NAME = "LayerName"
-    CONTENT = "Content"
-    COMPATIBLE_ARCHITECTURES = "CompatibleArchitectures"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compatible_runtimes": "CompatibleRuntimes",
         "license_info": "LicenseInfo",
@@ -1188,11 +1094,6 @@ class LayerVersionPermission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::LayerVersionPermission"
-    ACTION = "Action"
-    LAYER_VERSION_ARN = "LayerVersionArn"
-    ORGANIZATION_ID = "OrganizationId"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "layer_version_arn": "LayerVersionArn",
@@ -1218,16 +1119,6 @@ class Permission(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::Permission"
     name_field: ClassVar[str] = "function_name"
-    FUNCTION_NAME = "FunctionName"
-    ACTION = "Action"
-    INVOKED_VIA_FUNCTION_URL = "InvokedViaFunctionUrl"
-    EVENT_SOURCE_TOKEN = "EventSourceToken"
-    FUNCTION_URL_AUTH_TYPE = "FunctionUrlAuthType"
-    SOURCE_ARN = "SourceArn"
-    SOURCE_ACCOUNT = "SourceAccount"
-    PRINCIPAL_ORG_ID = "PrincipalOrgID"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_name": "FunctionName",
         "action": "Action",
@@ -1262,12 +1153,6 @@ class Url(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::Url"
-    QUALIFIER = "Qualifier"
-    INVOKE_MODE = "InvokeMode"
-    AUTH_TYPE = "AuthType"
-    TARGET_FUNCTION_ARN = "TargetFunctionArn"
-    CORS = "Cors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qualifier": "Qualifier",
         "invoke_mode": "InvokeMode",
@@ -1300,13 +1185,6 @@ class Version(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lambda::Version"
     name_field: ClassVar[str] = "function_name"
-    FUNCTION_SCALING_CONFIG = "FunctionScalingConfig"
-    FUNCTION_NAME = "FunctionName"
-    PROVISIONED_CONCURRENCY_CONFIG = "ProvisionedConcurrencyConfig"
-    DESCRIPTION = "Description"
-    RUNTIME_POLICY = "RuntimePolicy"
-    CODE_SHA256 = "CodeSha256"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_scaling_config": "FunctionScalingConfig",
         "function_name": "FunctionName",

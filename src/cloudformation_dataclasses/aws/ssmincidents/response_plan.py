@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    SSM_AUTOMATION = "SsmAutomation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_automation": "SsmAutomation",
     }
@@ -22,8 +20,6 @@ class Action(PropertyType):
 
 @dataclass
 class ChatChannel(PropertyType):
-    CHATBOT_SNS = "ChatbotSns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chatbot_sns": "ChatbotSns",
     }
@@ -33,9 +29,6 @@ class ChatChannel(PropertyType):
 
 @dataclass
 class DynamicSsmParameter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -47,8 +40,6 @@ class DynamicSsmParameter(PropertyType):
 
 @dataclass
 class DynamicSsmParameterValue(PropertyType):
-    VARIABLE = "Variable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variable": "Variable",
     }
@@ -58,13 +49,6 @@ class DynamicSsmParameterValue(PropertyType):
 
 @dataclass
 class IncidentTemplate(PropertyType):
-    IMPACT = "Impact"
-    INCIDENT_TAGS = "IncidentTags"
-    SUMMARY = "Summary"
-    TITLE = "Title"
-    NOTIFICATION_TARGETS = "NotificationTargets"
-    DEDUPE_STRING = "DedupeString"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "impact": "Impact",
         "incident_tags": "IncidentTags",
@@ -84,8 +68,6 @@ class IncidentTemplate(PropertyType):
 
 @dataclass
 class Integration(PropertyType):
-    PAGER_DUTY_CONFIGURATION = "PagerDutyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pager_duty_configuration": "PagerDutyConfiguration",
     }
@@ -95,8 +77,6 @@ class Integration(PropertyType):
 
 @dataclass
 class NotificationTargetItem(PropertyType):
-    SNS_TOPIC_ARN = "SnsTopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SnsTopicArn",
     }
@@ -106,10 +86,6 @@ class NotificationTargetItem(PropertyType):
 
 @dataclass
 class PagerDutyConfiguration(PropertyType):
-    SECRET_ID = "SecretId"
-    PAGER_DUTY_INCIDENT_CONFIGURATION = "PagerDutyIncidentConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_id": "SecretId",
         "pager_duty_incident_configuration": "PagerDutyIncidentConfiguration",
@@ -123,8 +99,6 @@ class PagerDutyConfiguration(PropertyType):
 
 @dataclass
 class PagerDutyIncidentConfiguration(PropertyType):
-    SERVICE_ID = "ServiceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_id": "ServiceId",
     }
@@ -134,13 +108,6 @@ class PagerDutyIncidentConfiguration(PropertyType):
 
 @dataclass
 class SsmAutomation(PropertyType):
-    PARAMETERS = "Parameters"
-    TARGET_ACCOUNT = "TargetAccount"
-    DYNAMIC_PARAMETERS = "DynamicParameters"
-    DOCUMENT_VERSION = "DocumentVersion"
-    ROLE_ARN = "RoleArn"
-    DOCUMENT_NAME = "DocumentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "target_account": "TargetAccount",
@@ -160,9 +127,6 @@ class SsmAutomation(PropertyType):
 
 @dataclass
 class SsmParameter(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

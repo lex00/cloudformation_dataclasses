@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DynamicExtensionParameters(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    EXTENSION_REFERENCE = "ExtensionReference"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "extension_reference": "ExtensionReference",

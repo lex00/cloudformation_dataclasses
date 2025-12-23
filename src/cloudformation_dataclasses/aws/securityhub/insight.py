@@ -11,107 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsSecurityFindingFilters(PropertyType):
-    RESOURCE_AWS_EC2_INSTANCE_IAM_INSTANCE_PROFILE_ARN = "ResourceAwsEc2InstanceIamInstanceProfileArn"
-    SOURCE_URL = "SourceUrl"
-    PROCESS_NAME = "ProcessName"
-    FINDING_PROVIDER_FIELDS_CONFIDENCE = "FindingProviderFieldsConfidence"
-    FIRST_OBSERVED_AT = "FirstObservedAt"
-    CREATED_AT = "CreatedAt"
-    MALWARE_STATE = "MalwareState"
-    USER_DEFINED_FIELDS = "UserDefinedFields"
-    NETWORK_SOURCE_PORT = "NetworkSourcePort"
-    RESOURCE_AWS_IAM_USER_USER_NAME = "ResourceAwsIamUserUserName"
-    NETWORK_SOURCE_DOMAIN = "NetworkSourceDomain"
-    RESOURCE_PARTITION = "ResourcePartition"
-    FINDING_PROVIDER_FIELDS_RELATED_FINDINGS_ID = "FindingProviderFieldsRelatedFindingsId"
-    NETWORK_DIRECTION = "NetworkDirection"
-    CRITICALITY = "Criticality"
-    RESOURCE_APPLICATION_ARN = "ResourceApplicationArn"
-    COMPLIANCE_SECURITY_CONTROL_PARAMETERS_VALUE = "ComplianceSecurityControlParametersValue"
-    SEVERITY_LABEL = "SeverityLabel"
-    RELATED_FINDINGS_PRODUCT_ARN = "RelatedFindingsProductArn"
-    RESOURCE_AWS_IAM_ACCESS_KEY_PRINCIPAL_NAME = "ResourceAwsIamAccessKeyPrincipalName"
-    THREAT_INTEL_INDICATOR_CATEGORY = "ThreatIntelIndicatorCategory"
-    COMPLIANCE_STATUS = "ComplianceStatus"
-    THREAT_INTEL_INDICATOR_VALUE = "ThreatIntelIndicatorValue"
-    RESOURCE_CONTAINER_IMAGE_NAME = "ResourceContainerImageName"
-    MALWARE_TYPE = "MalwareType"
-    THREAT_INTEL_INDICATOR_SOURCE = "ThreatIntelIndicatorSource"
-    RESOURCE_AWS_IAM_ACCESS_KEY_CREATED_AT = "ResourceAwsIamAccessKeyCreatedAt"
-    RESOURCE_AWS_EC2_INSTANCE_TYPE = "ResourceAwsEc2InstanceType"
-    RECOMMENDATION_TEXT = "RecommendationText"
-    AWS_ACCOUNT_NAME = "AwsAccountName"
-    FINDING_PROVIDER_FIELDS_RELATED_FINDINGS_PRODUCT_ARN = "FindingProviderFieldsRelatedFindingsProductArn"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    ID = "Id"
-    PROCESS_PARENT_PID = "ProcessParentPid"
-    RESOURCE_APPLICATION_NAME = "ResourceApplicationName"
-    PRODUCT_ARN = "ProductArn"
-    RESOURCE_AWS_EC2_INSTANCE_IP_V6_ADDRESSES = "ResourceAwsEc2InstanceIpV6Addresses"
-    MALWARE_NAME = "MalwareName"
-    DESCRIPTION = "Description"
-    RESOURCE_CONTAINER_LAUNCHED_AT = "ResourceContainerLaunchedAt"
-    PROCESS_PID = "ProcessPid"
-    NOTE_TEXT = "NoteText"
-    RESOURCE_AWS_EC2_INSTANCE_KEY_NAME = "ResourceAwsEc2InstanceKeyName"
-    FINDING_PROVIDER_FIELDS_TYPES = "FindingProviderFieldsTypes"
-    COMPLIANCE_SECURITY_CONTROL_ID = "ComplianceSecurityControlId"
-    NOTE_UPDATED_BY = "NoteUpdatedBy"
-    VERIFICATION_STATE = "VerificationState"
-    GENERATOR_ID = "GeneratorId"
-    RESOURCE_TYPE = "ResourceType"
-    NETWORK_PROTOCOL = "NetworkProtocol"
-    UPDATED_AT = "UpdatedAt"
-    PROCESS_PATH = "ProcessPath"
-    WORKFLOW_STATUS = "WorkflowStatus"
-    RESOURCE_CONTAINER_NAME = "ResourceContainerName"
-    TYPE = "Type"
-    RESOURCE_ID = "ResourceId"
-    NETWORK_DESTINATION_DOMAIN = "NetworkDestinationDomain"
-    PRODUCT_NAME = "ProductName"
-    RESOURCE_TAGS = "ResourceTags"
-    RESOURCE_AWS_EC2_INSTANCE_VPC_ID = "ResourceAwsEc2InstanceVpcId"
-    RESOURCE_AWS_S3_BUCKET_OWNER_NAME = "ResourceAwsS3BucketOwnerName"
-    LAST_OBSERVED_AT = "LastObservedAt"
-    COMPLIANCE_SECURITY_CONTROL_PARAMETERS_NAME = "ComplianceSecurityControlParametersName"
-    NETWORK_SOURCE_IP_V4 = "NetworkSourceIpV4"
-    PROCESS_LAUNCHED_AT = "ProcessLaunchedAt"
-    RESOURCE_AWS_EC2_INSTANCE_LAUNCHED_AT = "ResourceAwsEc2InstanceLaunchedAt"
-    NOTE_UPDATED_AT = "NoteUpdatedAt"
-    THREAT_INTEL_INDICATOR_TYPE = "ThreatIntelIndicatorType"
-    COMPANY_NAME = "CompanyName"
-    RESOURCE_REGION = "ResourceRegion"
-    RESOURCE_AWS_IAM_ACCESS_KEY_STATUS = "ResourceAwsIamAccessKeyStatus"
-    NETWORK_SOURCE_IP_V6 = "NetworkSourceIpV6"
-    CONFIDENCE = "Confidence"
-    PRODUCT_FIELDS = "ProductFields"
-    THREAT_INTEL_INDICATOR_LAST_OBSERVED_AT = "ThreatIntelIndicatorLastObservedAt"
-    RESOURCE_AWS_EC2_INSTANCE_SUBNET_ID = "ResourceAwsEc2InstanceSubnetId"
-    COMPLIANCE_ASSOCIATED_STANDARDS_ID = "ComplianceAssociatedStandardsId"
-    RESOURCE_AWS_EC2_INSTANCE_IMAGE_ID = "ResourceAwsEc2InstanceImageId"
-    RESOURCE_AWS_EC2_INSTANCE_IP_V4_ADDRESSES = "ResourceAwsEc2InstanceIpV4Addresses"
-    RELATED_FINDINGS_ID = "RelatedFindingsId"
-    PROCESS_TERMINATED_AT = "ProcessTerminatedAt"
-    RESOURCE_CONTAINER_IMAGE_ID = "ResourceContainerImageId"
-    NETWORK_DESTINATION_IP_V4 = "NetworkDestinationIpV4"
-    REGION = "Region"
-    NETWORK_DESTINATION_IP_V6 = "NetworkDestinationIpV6"
-    VULNERABILITIES_EXPLOIT_AVAILABLE = "VulnerabilitiesExploitAvailable"
-    FINDING_PROVIDER_FIELDS_CRITICALITY = "FindingProviderFieldsCriticality"
-    NETWORK_DESTINATION_PORT = "NetworkDestinationPort"
-    RESOURCE_DETAILS_OTHER = "ResourceDetailsOther"
-    FINDING_PROVIDER_FIELDS_SEVERITY_LABEL = "FindingProviderFieldsSeverityLabel"
-    THREAT_INTEL_INDICATOR_SOURCE_URL = "ThreatIntelIndicatorSourceUrl"
-    FINDING_PROVIDER_FIELDS_SEVERITY_ORIGINAL = "FindingProviderFieldsSeverityOriginal"
-    MALWARE_PATH = "MalwarePath"
-    SAMPLE = "Sample"
-    RECORD_STATE = "RecordState"
-    TITLE = "Title"
-    WORKFLOW_STATE = "WorkflowState"
-    NETWORK_SOURCE_MAC = "NetworkSourceMac"
-    RESOURCE_AWS_S3_BUCKET_OWNER_ID = "ResourceAwsS3BucketOwnerId"
-    VULNERABILITIES_FIX_AVAILABLE = "VulnerabilitiesFixAvailable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_aws_ec2_instance_iam_instance_profile_arn": "ResourceAwsEc2InstanceIamInstanceProfileArn",
         "source_url": "SourceUrl",
@@ -319,8 +218,6 @@ class AwsSecurityFindingFilters(PropertyType):
 
 @dataclass
 class BooleanFilter(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -330,10 +227,6 @@ class BooleanFilter(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    DATE_RANGE = "DateRange"
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -347,9 +240,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -361,8 +251,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class IpFilter(PropertyType):
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -372,10 +260,6 @@ class IpFilter(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -389,10 +273,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    GTE = "Gte"
-    EQ = "Eq"
-    LTE = "Lte"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -406,9 +286,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",

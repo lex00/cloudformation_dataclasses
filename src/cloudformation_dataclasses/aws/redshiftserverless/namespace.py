@@ -11,20 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Namespace(PropertyType):
-    STATUS = "Status"
-    CREATION_DATE = "CreationDate"
-    IAM_ROLES = "IamRoles"
-    KMS_KEY_ID = "KmsKeyId"
-    ADMIN_PASSWORD_SECRET_KMS_KEY_ID = "AdminPasswordSecretKmsKeyId"
-    DEFAULT_IAM_ROLE_ARN = "DefaultIamRoleArn"
-    ADMIN_PASSWORD_SECRET_ARN = "AdminPasswordSecretArn"
-    NAMESPACE_NAME = "NamespaceName"
-    ADMIN_USERNAME = "AdminUsername"
-    NAMESPACE_ARN = "NamespaceArn"
-    DB_NAME = "DbName"
-    NAMESPACE_ID = "NamespaceId"
-    LOG_EXPORTS = "LogExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "creation_date": "CreationDate",
@@ -58,10 +44,6 @@ class Namespace(PropertyType):
 
 @dataclass
 class SnapshotCopyConfiguration(PropertyType):
-    SNAPSHOT_RETENTION_PERIOD = "SnapshotRetentionPeriod"
-    DESTINATION_KMS_KEY_ID = "DestinationKmsKeyId"
-    DESTINATION_REGION = "DestinationRegion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_retention_period": "SnapshotRetentionPeriod",
         "destination_kms_key_id": "DestinationKmsKeyId",

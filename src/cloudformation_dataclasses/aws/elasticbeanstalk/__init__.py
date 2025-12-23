@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:55
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticBeanstalk
@@ -318,10 +318,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::Application"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    DESCRIPTION = "Description"
-    RESOURCE_LIFECYCLE_CONFIG = "ResourceLifecycleConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "description": "Description",
@@ -339,10 +335,6 @@ class ApplicationVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::ApplicationVersion"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    DESCRIPTION = "Description"
-    SOURCE_BUNDLE = "SourceBundle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "description": "Description",
@@ -366,14 +358,6 @@ class ConfigurationTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::ConfigurationTemplate"
     name_field: ClassVar[str] = "application_name"
-    ENVIRONMENT_ID = "EnvironmentId"
-    PLATFORM_ARN = "PlatformArn"
-    APPLICATION_NAME = "ApplicationName"
-    DESCRIPTION = "Description"
-    OPTION_SETTINGS = "OptionSettings"
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    SOLUTION_STACK_NAME = "SolutionStackName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "platform_arn": "PlatformArn",
@@ -405,19 +389,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::Environment"
     name_field: ClassVar[str] = "environment_name"
-    PLATFORM_ARN = "PlatformArn"
-    APPLICATION_NAME = "ApplicationName"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_NAME = "EnvironmentName"
-    OPERATIONS_ROLE = "OperationsRole"
-    TIER = "Tier"
-    OPTION_SETTINGS = "OptionSettings"
-    VERSION_LABEL = "VersionLabel"
-    TEMPLATE_NAME = "TemplateName"
-    SOLUTION_STACK_NAME = "SolutionStackName"
-    CNAME_PREFIX = "CNAMEPrefix"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_arn": "PlatformArn",
         "application_name": "ApplicationName",

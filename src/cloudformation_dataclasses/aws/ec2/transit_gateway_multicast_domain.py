@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Options(PropertyType):
-    STATIC_SOURCES_SUPPORT = "StaticSourcesSupport"
-    AUTO_ACCEPT_SHARED_ASSOCIATIONS = "AutoAcceptSharedAssociations"
-    IGMPV2_SUPPORT = "Igmpv2Support"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_sources_support": "StaticSourcesSupport",
         "auto_accept_shared_associations": "AutoAcceptSharedAssociations",

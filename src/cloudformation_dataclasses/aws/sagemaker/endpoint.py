@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alarm(PropertyType):
-    ALARM_NAME = "AlarmName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
     }
@@ -22,8 +20,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AutoRollbackConfig(PropertyType):
-    ALARMS = "Alarms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarms": "Alarms",
     }
@@ -33,10 +29,6 @@ class AutoRollbackConfig(PropertyType):
 
 @dataclass
 class BlueGreenUpdatePolicy(PropertyType):
-    MAXIMUM_EXECUTION_TIMEOUT_IN_SECONDS = "MaximumExecutionTimeoutInSeconds"
-    TERMINATION_WAIT_IN_SECONDS = "TerminationWaitInSeconds"
-    TRAFFIC_ROUTING_CONFIGURATION = "TrafficRoutingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_execution_timeout_in_seconds": "MaximumExecutionTimeoutInSeconds",
         "termination_wait_in_seconds": "TerminationWaitInSeconds",
@@ -50,9 +42,6 @@ class BlueGreenUpdatePolicy(PropertyType):
 
 @dataclass
 class CapacitySize(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -64,10 +53,6 @@ class CapacitySize(PropertyType):
 
 @dataclass
 class DeploymentConfig(PropertyType):
-    AUTO_ROLLBACK_CONFIGURATION = "AutoRollbackConfiguration"
-    ROLLING_UPDATE_POLICY = "RollingUpdatePolicy"
-    BLUE_GREEN_UPDATE_POLICY = "BlueGreenUpdatePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_rollback_configuration": "AutoRollbackConfiguration",
         "rolling_update_policy": "RollingUpdatePolicy",
@@ -81,11 +66,6 @@ class DeploymentConfig(PropertyType):
 
 @dataclass
 class RollingUpdatePolicy(PropertyType):
-    MAXIMUM_EXECUTION_TIMEOUT_IN_SECONDS = "MaximumExecutionTimeoutInSeconds"
-    MAXIMUM_BATCH_SIZE = "MaximumBatchSize"
-    WAIT_INTERVAL_IN_SECONDS = "WaitIntervalInSeconds"
-    ROLLBACK_MAXIMUM_BATCH_SIZE = "RollbackMaximumBatchSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_execution_timeout_in_seconds": "MaximumExecutionTimeoutInSeconds",
         "maximum_batch_size": "MaximumBatchSize",
@@ -101,11 +81,6 @@ class RollingUpdatePolicy(PropertyType):
 
 @dataclass
 class TrafficRoutingConfig(PropertyType):
-    TYPE = "Type"
-    LINEAR_STEP_SIZE = "LinearStepSize"
-    CANARY_SIZE = "CanarySize"
-    WAIT_INTERVAL_IN_SECONDS = "WaitIntervalInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "linear_step_size": "LinearStepSize",
@@ -121,8 +96,6 @@ class TrafficRoutingConfig(PropertyType):
 
 @dataclass
 class VariantProperty(PropertyType):
-    VARIANT_PROPERTY_TYPE = "VariantPropertyType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variant_property_type": "VariantPropertyType",
     }

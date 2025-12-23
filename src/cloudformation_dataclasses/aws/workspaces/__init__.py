@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpaces
@@ -1039,9 +1039,6 @@ class ConnectionAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpaces::ConnectionAlias"
-    CONNECTION_STRING = "ConnectionString"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_string": "ConnectionString",
         "tags": "Tags",
@@ -1073,15 +1070,6 @@ class Workspace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpaces::Workspace"
     name_field: ClassVar[str] = "user_name"
-    BUNDLE_ID = "BundleId"
-    DIRECTORY_ID = "DirectoryId"
-    ROOT_VOLUME_ENCRYPTION_ENABLED = "RootVolumeEncryptionEnabled"
-    TAGS = "Tags"
-    USER_NAME = "UserName"
-    USER_VOLUME_ENCRYPTION_ENABLED = "UserVolumeEncryptionEnabled"
-    VOLUME_ENCRYPTION_KEY = "VolumeEncryptionKey"
-    WORKSPACE_PROPERTIES = "WorkspaceProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
         "directory_id": "DirectoryId",
@@ -1109,15 +1097,6 @@ class WorkspacesPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpaces::WorkspacesPool"
     name_field: ClassVar[str] = "pool_name"
-    APPLICATION_SETTINGS = "ApplicationSettings"
-    BUNDLE_ID = "BundleId"
-    DESCRIPTION = "Description"
-    DIRECTORY_ID = "DirectoryId"
-    TIMEOUT_SETTINGS = "TimeoutSettings"
-    CAPACITY = "Capacity"
-    POOL_NAME = "PoolName"
-    RUNNING_MODE = "RunningMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_settings": "ApplicationSettings",
         "bundle_id": "BundleId",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogs(PropertyType):
-    LOG_GROUP = "LogGroup"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -25,9 +22,6 @@ class CloudWatchLogs(PropertyType):
 
 @dataclass
 class KinesisDataFirehose(PropertyType):
-    DELIVERY_STREAM = "DeliveryStream"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -39,11 +33,6 @@ class KinesisDataFirehose(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    BUCKET_NAME = "BucketName"
-    ENABLED = "Enabled"
-    PREFIX = "Prefix"
-    BUCKET_OWNER = "BucketOwner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "enabled": "Enabled",
@@ -59,12 +48,6 @@ class S3(PropertyType):
 
 @dataclass
 class VerifiedAccessLogs(PropertyType):
-    S3 = "S3"
-    LOG_VERSION = "LogVersion"
-    KINESIS_DATA_FIREHOSE = "KinesisDataFirehose"
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-    INCLUDE_TRUST_CONTEXT = "IncludeTrustContext"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "log_version": "LogVersion",
@@ -82,12 +65,6 @@ class VerifiedAccessLogs(PropertyType):
 
 @dataclass
 class VerifiedAccessTrustProvider(PropertyType):
-    DESCRIPTION = "Description"
-    DEVICE_TRUST_PROVIDER_TYPE = "DeviceTrustProviderType"
-    VERIFIED_ACCESS_TRUST_PROVIDER_ID = "VerifiedAccessTrustProviderId"
-    TRUST_PROVIDER_TYPE = "TrustProviderType"
-    USER_TRUST_PROVIDER_TYPE = "UserTrustProviderType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "device_trust_provider_type": "DeviceTrustProviderType",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DynamoDB
@@ -567,22 +567,6 @@ class GlobalTable(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DynamoDB::GlobalTable"
     name_field: ClassVar[str] = "table_name"
-    MULTI_REGION_CONSISTENCY = "MultiRegionConsistency"
-    SSE_SPECIFICATION = "SSESpecification"
-    STREAM_SPECIFICATION = "StreamSpecification"
-    WARM_THROUGHPUT = "WarmThroughput"
-    REPLICAS = "Replicas"
-    WRITE_PROVISIONED_THROUGHPUT_SETTINGS = "WriteProvisionedThroughputSettings"
-    WRITE_ON_DEMAND_THROUGHPUT_SETTINGS = "WriteOnDemandThroughputSettings"
-    GLOBAL_TABLE_WITNESSES = "GlobalTableWitnesses"
-    TABLE_NAME = "TableName"
-    ATTRIBUTE_DEFINITIONS = "AttributeDefinitions"
-    BILLING_MODE = "BillingMode"
-    GLOBAL_SECONDARY_INDEXES = "GlobalSecondaryIndexes"
-    KEY_SCHEMA = "KeySchema"
-    LOCAL_SECONDARY_INDEXES = "LocalSecondaryIndexes"
-    TIME_TO_LIVE_SPECIFICATION = "TimeToLiveSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_region_consistency": "MultiRegionConsistency",
         "sse_specification": "SSESpecification",
@@ -640,27 +624,6 @@ class Table(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DynamoDB::Table"
     name_field: ClassVar[str] = "table_name"
-    ON_DEMAND_THROUGHPUT = "OnDemandThroughput"
-    SSE_SPECIFICATION = "SSESpecification"
-    KINESIS_STREAM_SPECIFICATION = "KinesisStreamSpecification"
-    STREAM_SPECIFICATION = "StreamSpecification"
-    CONTRIBUTOR_INSIGHTS_SPECIFICATION = "ContributorInsightsSpecification"
-    IMPORT_SOURCE_SPECIFICATION = "ImportSourceSpecification"
-    POINT_IN_TIME_RECOVERY_SPECIFICATION = "PointInTimeRecoverySpecification"
-    PROVISIONED_THROUGHPUT = "ProvisionedThroughput"
-    WARM_THROUGHPUT = "WarmThroughput"
-    TABLE_NAME = "TableName"
-    ATTRIBUTE_DEFINITIONS = "AttributeDefinitions"
-    GLOBAL_SECONDARY_INDEXES = "GlobalSecondaryIndexes"
-    BILLING_MODE = "BillingMode"
-    RESOURCE_POLICY = "ResourcePolicy"
-    LOCAL_SECONDARY_INDEXES = "LocalSecondaryIndexes"
-    KEY_SCHEMA = "KeySchema"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    TABLE_CLASS = "TableClass"
-    TAGS = "Tags"
-    TIME_TO_LIVE_SPECIFICATION = "TimeToLiveSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_throughput": "OnDemandThroughput",
         "sse_specification": "SSESpecification",

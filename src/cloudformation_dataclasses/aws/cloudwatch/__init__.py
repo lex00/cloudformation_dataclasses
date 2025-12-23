@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:48
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudWatch
@@ -251,29 +251,6 @@ class Alarm(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::Alarm"
     name_field: ClassVar[str] = "alarm_name"
-    THRESHOLD_METRIC_ID = "ThresholdMetricId"
-    EVALUATE_LOW_SAMPLE_COUNT_PERCENTILE = "EvaluateLowSampleCountPercentile"
-    EXTENDED_STATISTIC = "ExtendedStatistic"
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TREAT_MISSING_DATA = "TreatMissingData"
-    DIMENSIONS = "Dimensions"
-    PERIOD = "Period"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    UNIT = "Unit"
-    NAMESPACE = "Namespace"
-    OK_ACTIONS = "OKActions"
-    ALARM_ACTIONS = "AlarmActions"
-    METRIC_NAME = "MetricName"
-    ACTIONS_ENABLED = "ActionsEnabled"
-    METRICS = "Metrics"
-    ALARM_DESCRIPTION = "AlarmDescription"
-    ALARM_NAME = "AlarmName"
-    STATISTIC = "Statistic"
-    INSUFFICIENT_DATA_ACTIONS = "InsufficientDataActions"
-    DATAPOINTS_TO_ALARM = "DatapointsToAlarm"
-    TAGS = "Tags"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threshold_metric_id": "ThresholdMetricId",
         "evaluate_low_sample_count_percentile": "EvaluateLowSampleCountPercentile",
@@ -335,15 +312,6 @@ class AnomalyDetector(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::AnomalyDetector"
     name_field: ClassVar[str] = "metric_name"
-    METRIC_CHARACTERISTICS = "MetricCharacteristics"
-    METRIC_NAME = "MetricName"
-    STAT = "Stat"
-    CONFIGURATION = "Configuration"
-    METRIC_MATH_ANOMALY_DETECTOR = "MetricMathAnomalyDetector"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-    SINGLE_METRIC_ANOMALY_DETECTOR = "SingleMetricAnomalyDetector"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_characteristics": "MetricCharacteristics",
         "metric_name": "MetricName",
@@ -371,18 +339,6 @@ class CompositeAlarm(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::CompositeAlarm"
     name_field: ClassVar[str] = "alarm_name"
-    ALARM_ACTIONS = "AlarmActions"
-    ACTIONS_SUPPRESSOR_WAIT_PERIOD = "ActionsSuppressorWaitPeriod"
-    ACTIONS_ENABLED = "ActionsEnabled"
-    ALARM_NAME = "AlarmName"
-    ALARM_DESCRIPTION = "AlarmDescription"
-    ACTIONS_SUPPRESSOR = "ActionsSuppressor"
-    ALARM_RULE = "AlarmRule"
-    INSUFFICIENT_DATA_ACTIONS = "InsufficientDataActions"
-    OK_ACTIONS = "OKActions"
-    ACTIONS_SUPPRESSOR_EXTENSION_PERIOD = "ActionsSuppressorExtensionPeriod"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_actions": "AlarmActions",
         "actions_suppressor_wait_period": "ActionsSuppressorWaitPeriod",
@@ -422,9 +378,6 @@ class Dashboard(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::Dashboard"
     name_field: ClassVar[str] = "dashboard_name"
-    DASHBOARD_NAME = "DashboardName"
-    DASHBOARD_BODY = "DashboardBody"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_name": "DashboardName",
         "dashboard_body": "DashboardBody",
@@ -440,12 +393,6 @@ class InsightRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::InsightRule"
     name_field: ClassVar[str] = "rule_name"
-    RULE_STATE = "RuleState"
-    RULE_BODY = "RuleBody"
-    APPLY_ON_TRANSFORMED_LOGS = "ApplyOnTransformedLogs"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_state": "RuleState",
         "rule_body": "RuleBody",
@@ -478,16 +425,6 @@ class MetricStream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::MetricStream"
     name_field: ClassVar[str] = "name"
-    STATISTICS_CONFIGURATIONS = "StatisticsConfigurations"
-    FIREHOSE_ARN = "FirehoseArn"
-    INCLUDE_LINKED_ACCOUNTS_METRICS = "IncludeLinkedAccountsMetrics"
-    INCLUDE_FILTERS = "IncludeFilters"
-    OUTPUT_FORMAT = "OutputFormat"
-    EXCLUDE_FILTERS = "ExcludeFilters"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics_configurations": "StatisticsConfigurations",
         "firehose_arn": "FirehoseArn",

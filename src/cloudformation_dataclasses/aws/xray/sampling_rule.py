@@ -11,20 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SamplingRule(PropertyType):
-    PRIORITY = "Priority"
-    RESERVOIR_SIZE = "ReservoirSize"
-    RULE_ARN = "RuleARN"
-    URL_PATH = "URLPath"
-    ATTRIBUTES = "Attributes"
-    FIXED_RATE = "FixedRate"
-    HOST = "Host"
-    RESOURCE_ARN = "ResourceARN"
-    HTTP_METHOD = "HTTPMethod"
-    SERVICE_NAME = "ServiceName"
-    VERSION = "Version"
-    SERVICE_TYPE = "ServiceType"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "reservoir_size": "ReservoirSize",

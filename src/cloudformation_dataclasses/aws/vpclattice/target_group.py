@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    PATH = "Path"
-    HEALTH_CHECK_INTERVAL_SECONDS = "HealthCheckIntervalSeconds"
-    MATCHER = "Matcher"
-    HEALTHY_THRESHOLD_COUNT = "HealthyThresholdCount"
-    PORT = "Port"
-    ENABLED = "Enabled"
-    PROTOCOL = "Protocol"
-    PROTOCOL_VERSION = "ProtocolVersion"
-    UNHEALTHY_THRESHOLD_COUNT = "UnhealthyThresholdCount"
-    HEALTH_CHECK_TIMEOUT_SECONDS = "HealthCheckTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "health_check_interval_seconds": "HealthCheckIntervalSeconds",
@@ -49,8 +38,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class Matcher(PropertyType):
-    HTTP_CODE = "HttpCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
     }
@@ -60,9 +47,6 @@ class Matcher(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    PORT = "Port"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "id": "Id",
@@ -74,14 +58,6 @@ class Target(PropertyType):
 
 @dataclass
 class TargetGroupConfig(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    PORT = "Port"
-    HEALTH_CHECK = "HealthCheck"
-    LAMBDA_EVENT_STRUCTURE_VERSION = "LambdaEventStructureVersion"
-    VPC_IDENTIFIER = "VpcIdentifier"
-    PROTOCOL = "Protocol"
-    PROTOCOL_VERSION = "ProtocolVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "port": "Port",

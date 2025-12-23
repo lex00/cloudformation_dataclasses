@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeTypesSelector(PropertyType):
-    ADDRESS = "Address"
-    ATTRIBUTE_MATCHING_MODEL = "AttributeMatchingModel"
-    PHONE_NUMBER = "PhoneNumber"
-    EMAIL_ADDRESS = "EmailAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "attribute_matching_model": "AttributeMatchingModel",
@@ -31,11 +26,6 @@ class AttributeTypesSelector(PropertyType):
 
 @dataclass
 class AutoMerging(PropertyType):
-    CONSOLIDATION = "Consolidation"
-    ENABLED = "Enabled"
-    CONFLICT_RESOLUTION = "ConflictResolution"
-    MIN_ALLOWED_CONFIDENCE_SCORE_FOR_MERGING = "MinAllowedConfidenceScoreForMerging"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "enabled": "Enabled",
@@ -51,9 +41,6 @@ class AutoMerging(PropertyType):
 
 @dataclass
 class ConflictResolution(PropertyType):
-    CONFLICT_RESOLVING_MODEL = "ConflictResolvingModel"
-    SOURCE_NAME = "SourceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conflict_resolving_model": "ConflictResolvingModel",
         "source_name": "SourceName",
@@ -65,8 +52,6 @@ class ConflictResolution(PropertyType):
 
 @dataclass
 class Consolidation(PropertyType):
-    MATCHING_ATTRIBUTES_LIST = "MatchingAttributesList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_attributes_list": "MatchingAttributesList",
     }
@@ -76,9 +61,6 @@ class Consolidation(PropertyType):
 
 @dataclass
 class DataStore(PropertyType):
-    READINESS = "Readiness"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "readiness": "Readiness",
         "enabled": "Enabled",
@@ -90,11 +72,6 @@ class DataStore(PropertyType):
 
 @dataclass
 class DomainStats(PropertyType):
-    METERING_PROFILE_COUNT = "MeteringProfileCount"
-    PROFILE_COUNT = "ProfileCount"
-    OBJECT_COUNT = "ObjectCount"
-    TOTAL_SIZE = "TotalSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metering_profile_count": "MeteringProfileCount",
         "profile_count": "ProfileCount",
@@ -110,8 +87,6 @@ class DomainStats(PropertyType):
 
 @dataclass
 class ExportingConfig(PropertyType):
-    S3_EXPORTING = "S3Exporting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_exporting": "S3Exporting",
     }
@@ -121,9 +96,6 @@ class ExportingConfig(PropertyType):
 
 @dataclass
 class JobSchedule(PropertyType):
-    DAY_OF_THE_WEEK = "DayOfTheWeek"
-    TIME = "Time"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_the_week": "DayOfTheWeek",
         "time": "Time",
@@ -135,11 +107,6 @@ class JobSchedule(PropertyType):
 
 @dataclass
 class Matching(PropertyType):
-    AUTO_MERGING = "AutoMerging"
-    JOB_SCHEDULE = "JobSchedule"
-    ENABLED = "Enabled"
-    EXPORTING_CONFIG = "ExportingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_merging": "AutoMerging",
         "job_schedule": "JobSchedule",
@@ -155,8 +122,6 @@ class Matching(PropertyType):
 
 @dataclass
 class MatchingRule(PropertyType):
-    RULE = "Rule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule": "Rule",
     }
@@ -166,9 +131,6 @@ class MatchingRule(PropertyType):
 
 @dataclass
 class Readiness(PropertyType):
-    MESSAGE = "Message"
-    PROGRESS_PERCENTAGE = "ProgressPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "progress_percentage": "ProgressPercentage",
@@ -180,15 +142,6 @@ class Readiness(PropertyType):
 
 @dataclass
 class RuleBasedMatching(PropertyType):
-    STATUS = "Status"
-    MAX_ALLOWED_RULE_LEVEL_FOR_MERGING = "MaxAllowedRuleLevelForMerging"
-    ENABLED = "Enabled"
-    MATCHING_RULES = "MatchingRules"
-    ATTRIBUTE_TYPES_SELECTOR = "AttributeTypesSelector"
-    CONFLICT_RESOLUTION = "ConflictResolution"
-    EXPORTING_CONFIG = "ExportingConfig"
-    MAX_ALLOWED_RULE_LEVEL_FOR_MATCHING = "MaxAllowedRuleLevelForMatching"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "max_allowed_rule_level_for_merging": "MaxAllowedRuleLevelForMerging",
@@ -212,9 +165,6 @@ class RuleBasedMatching(PropertyType):
 
 @dataclass
 class S3ExportingConfig(PropertyType):
-    S3_BUCKET_NAME = "S3BucketName"
-    S3_KEY_NAME = "S3KeyName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_name": "S3BucketName",
         "s3_key_name": "S3KeyName",

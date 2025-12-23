@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:17
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SMSVOICE
@@ -38,13 +38,6 @@ class ConfigurationSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::ConfigurationSet"
     name_field: ClassVar[str] = "configuration_set_name"
-    EVENT_DESTINATIONS = "EventDestinations"
-    MESSAGE_FEEDBACK_ENABLED = "MessageFeedbackEnabled"
-    CONFIGURATION_SET_NAME = "ConfigurationSetName"
-    DEFAULT_SENDER_ID = "DefaultSenderId"
-    PROTECT_CONFIGURATION_ID = "ProtectConfigurationId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_destinations": "EventDestinations",
         "message_feedback_enabled": "MessageFeedbackEnabled",
@@ -74,9 +67,6 @@ class OptOutList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::OptOutList"
     name_field: ClassVar[str] = "opt_out_list_name"
-    OPT_OUT_LIST_NAME = "OptOutListName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_out_list_name": "OptOutListName",
         "tags": "Tags",
@@ -98,17 +88,6 @@ class PhoneNumber(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::PhoneNumber"
     name_field: ClassVar[str] = "opt_out_list_name"
-    OPT_OUT_LIST_NAME = "OptOutListName"
-    SELF_MANAGED_OPT_OUTS_ENABLED = "SelfManagedOptOutsEnabled"
-    NUMBER_TYPE = "NumberType"
-    TWO_WAY = "TwoWay"
-    NUMBER_CAPABILITIES = "NumberCapabilities"
-    MANDATORY_KEYWORDS = "MandatoryKeywords"
-    OPTIONAL_KEYWORDS = "OptionalKeywords"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    ISO_COUNTRY_CODE = "IsoCountryCode"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_out_list_name": "OptOutListName",
         "self_managed_opt_outs_enabled": "SelfManagedOptOutsEnabled",
@@ -156,16 +135,6 @@ class Pool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::Pool"
     name_field: ClassVar[str] = "opt_out_list_name"
-    OPT_OUT_LIST_NAME = "OptOutListName"
-    SELF_MANAGED_OPT_OUTS_ENABLED = "SelfManagedOptOutsEnabled"
-    SHARED_ROUTES_ENABLED = "SharedRoutesEnabled"
-    ORIGINATION_IDENTITIES = "OriginationIdentities"
-    TWO_WAY = "TwoWay"
-    MANDATORY_KEYWORDS = "MandatoryKeywords"
-    OPTIONAL_KEYWORDS = "OptionalKeywords"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_out_list_name": "OptOutListName",
         "self_managed_opt_outs_enabled": "SelfManagedOptOutsEnabled",
@@ -205,10 +174,6 @@ class ProtectConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::ProtectConfiguration"
-    COUNTRY_RULE_SET = "CountryRuleSet"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "country_rule_set": "CountryRuleSet",
         "deletion_protection_enabled": "DeletionProtectionEnabled",
@@ -236,9 +201,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::ResourcePolicy"
-    RESOURCE_ARN = "ResourceArn"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "policy_document": "PolicyDocument",
@@ -253,11 +215,6 @@ class SenderId(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::SenderId"
-    SENDER_ID = "SenderId"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    ISO_COUNTRY_CODE = "IsoCountryCode"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sender_id": "SenderId",
         "deletion_protection_enabled": "DeletionProtectionEnabled",

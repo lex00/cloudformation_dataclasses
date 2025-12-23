@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EventFilter(PropertyType):
-    ALL = "All"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "include": "Include",
@@ -25,8 +22,6 @@ class EventFilter(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -36,12 +31,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class S3LogConfiguration(PropertyType):
-    BUCKET = "Bucket"
-    FOLDER_STRUCTURE = "FolderStructure"
-    LOG_FILE_FORMAT = "LogFileFormat"
-    BUCKET_OWNER = "BucketOwner"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "folder_structure": "FolderStructure",

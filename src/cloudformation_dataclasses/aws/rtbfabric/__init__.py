@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:12
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RTBFabric
@@ -168,11 +168,6 @@ class InboundExternalLink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfa"""
 
     resource_type: ClassVar[str] = "AWS::RTBFabric::InboundExternalLink"
-    LINK_ATTRIBUTES = "LinkAttributes"
-    LINK_LOG_SETTINGS = "LinkLogSettings"
-    GATEWAY_ID = "GatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_attributes": "LinkAttributes",
         "link_log_settings": "LinkLogSettings",
@@ -217,14 +212,6 @@ class Link(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfa"""
 
     resource_type: ClassVar[str] = "AWS::RTBFabric::Link"
-    LINK_ATTRIBUTES = "LinkAttributes"
-    MODULE_CONFIGURATION_LIST = "ModuleConfigurationList"
-    HTTP_RESPONDER_ALLOWED = "HttpResponderAllowed"
-    LINK_LOG_SETTINGS = "LinkLogSettings"
-    PEER_GATEWAY_ID = "PeerGatewayId"
-    GATEWAY_ID = "GatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_attributes": "LinkAttributes",
         "module_configuration_list": "ModuleConfigurationList",
@@ -280,12 +267,6 @@ class OutboundExternalLink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfa"""
 
     resource_type: ClassVar[str] = "AWS::RTBFabric::OutboundExternalLink"
-    LINK_ATTRIBUTES = "LinkAttributes"
-    LINK_LOG_SETTINGS = "LinkLogSettings"
-    PUBLIC_ENDPOINT = "PublicEndpoint"
-    GATEWAY_ID = "GatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_attributes": "LinkAttributes",
         "link_log_settings": "LinkLogSettings",
@@ -332,12 +313,6 @@ class RequesterGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfa"""
 
     resource_type: ClassVar[str] = "AWS::RTBFabric::RequesterGateway"
-    DESCRIPTION = "Description"
-    VPC_ID = "VpcId"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "vpc_id": "VpcId",
@@ -400,17 +375,6 @@ class ResponderGateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RTBFabric::ResponderGateway"
     name_field: ClassVar[str] = "domain_name"
-    TRUST_STORE_CONFIGURATION = "TrustStoreConfiguration"
-    DESCRIPTION = "Description"
-    VPC_ID = "VpcId"
-    DOMAIN_NAME = "DomainName"
-    PORT = "Port"
-    MANAGED_ENDPOINT_CONFIGURATION = "ManagedEndpointConfiguration"
-    PROTOCOL = "Protocol"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trust_store_configuration": "TrustStoreConfiguration",
         "description": "Description",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VpcInformation(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "security_group_ids": "SecurityGroupIds",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityAllocation(PropertyType):
-    ALLOCATION_TYPE = "AllocationType"
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_type": "AllocationType",
         "count": "Count",
@@ -25,9 +22,6 @@ class CapacityAllocation(PropertyType):
 
 @dataclass
 class CommitmentInfo(PropertyType):
-    COMMITTED_INSTANCE_COUNT = "CommittedInstanceCount"
-    COMMITMENT_END_DATE = "CommitmentEndDate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "committed_instance_count": "CommittedInstanceCount",
         "commitment_end_date": "CommitmentEndDate",
@@ -39,9 +33,6 @@ class CommitmentInfo(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

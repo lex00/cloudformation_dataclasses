@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomActionAttachment(PropertyType):
-    VARIABLES = "Variables"
-    NOTIFICATION_TYPE = "NotificationType"
-    CRITERIA = "Criteria"
-    BUTTON_TEXT = "ButtonText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "notification_type": "NotificationType",
@@ -31,10 +26,6 @@ class CustomActionAttachment(PropertyType):
 
 @dataclass
 class CustomActionAttachmentCriteria(PropertyType):
-    OPERATOR = "Operator"
-    VARIABLE_NAME = "VariableName"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "variable_name": "VariableName",
@@ -48,8 +39,6 @@ class CustomActionAttachmentCriteria(PropertyType):
 
 @dataclass
 class CustomActionDefinition(PropertyType):
-    COMMAND_TEXT = "CommandText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command_text": "CommandText",
     }

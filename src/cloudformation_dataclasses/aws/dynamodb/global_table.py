@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeDefinition(PropertyType):
-    ATTRIBUTE_TYPE = "AttributeType"
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "attribute_name": "AttributeName",
@@ -25,11 +22,6 @@ class AttributeDefinition(PropertyType):
 
 @dataclass
 class CapacityAutoScalingSettings(PropertyType):
-    MIN_CAPACITY = "MinCapacity"
-    SEED_CAPACITY = "SeedCapacity"
-    TARGET_TRACKING_SCALING_POLICY_CONFIGURATION = "TargetTrackingScalingPolicyConfiguration"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "seed_capacity": "SeedCapacity",
@@ -45,9 +37,6 @@ class CapacityAutoScalingSettings(PropertyType):
 
 @dataclass
 class ContributorInsightsSpecification(PropertyType):
-    MODE = "Mode"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "enabled": "Enabled",
@@ -59,13 +48,6 @@ class ContributorInsightsSpecification(PropertyType):
 
 @dataclass
 class GlobalSecondaryIndex(PropertyType):
-    INDEX_NAME = "IndexName"
-    PROJECTION = "Projection"
-    KEY_SCHEMA = "KeySchema"
-    WARM_THROUGHPUT = "WarmThroughput"
-    WRITE_PROVISIONED_THROUGHPUT_SETTINGS = "WriteProvisionedThroughputSettings"
-    WRITE_ON_DEMAND_THROUGHPUT_SETTINGS = "WriteOnDemandThroughputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "projection": "Projection",
@@ -85,8 +67,6 @@ class GlobalSecondaryIndex(PropertyType):
 
 @dataclass
 class GlobalTableWitness(PropertyType):
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
     }
@@ -96,9 +76,6 @@ class GlobalTableWitness(PropertyType):
 
 @dataclass
 class KeySchema(PropertyType):
-    KEY_TYPE = "KeyType"
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "attribute_name": "AttributeName",
@@ -110,9 +87,6 @@ class KeySchema(PropertyType):
 
 @dataclass
 class KinesisStreamSpecification(PropertyType):
-    APPROXIMATE_CREATION_DATE_TIME_PRECISION = "ApproximateCreationDateTimePrecision"
-    STREAM_ARN = "StreamArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approximate_creation_date_time_precision": "ApproximateCreationDateTimePrecision",
         "stream_arn": "StreamArn",
@@ -124,10 +98,6 @@ class KinesisStreamSpecification(PropertyType):
 
 @dataclass
 class LocalSecondaryIndex(PropertyType):
-    INDEX_NAME = "IndexName"
-    PROJECTION = "Projection"
-    KEY_SCHEMA = "KeySchema"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "projection": "Projection",
@@ -141,9 +111,6 @@ class LocalSecondaryIndex(PropertyType):
 
 @dataclass
 class PointInTimeRecoverySpecification(PropertyType):
-    POINT_IN_TIME_RECOVERY_ENABLED = "PointInTimeRecoveryEnabled"
-    RECOVERY_PERIOD_IN_DAYS = "RecoveryPeriodInDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "point_in_time_recovery_enabled": "PointInTimeRecoveryEnabled",
         "recovery_period_in_days": "RecoveryPeriodInDays",
@@ -155,9 +122,6 @@ class PointInTimeRecoverySpecification(PropertyType):
 
 @dataclass
 class Projection(PropertyType):
-    PROJECTION_TYPE = "ProjectionType"
-    NON_KEY_ATTRIBUTES = "NonKeyAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "projection_type": "ProjectionType",
         "non_key_attributes": "NonKeyAttributes",
@@ -169,8 +133,6 @@ class Projection(PropertyType):
 
 @dataclass
 class ReadOnDemandThroughputSettings(PropertyType):
-    MAX_READ_REQUEST_UNITS = "MaxReadRequestUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_read_request_units": "MaxReadRequestUnits",
     }
@@ -180,9 +142,6 @@ class ReadOnDemandThroughputSettings(PropertyType):
 
 @dataclass
 class ReadProvisionedThroughputSettings(PropertyType):
-    READ_CAPACITY_UNITS = "ReadCapacityUnits"
-    READ_CAPACITY_AUTO_SCALING_SETTINGS = "ReadCapacityAutoScalingSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_capacity_units": "ReadCapacityUnits",
         "read_capacity_auto_scaling_settings": "ReadCapacityAutoScalingSettings",
@@ -194,11 +153,6 @@ class ReadProvisionedThroughputSettings(PropertyType):
 
 @dataclass
 class ReplicaGlobalSecondaryIndexSpecification(PropertyType):
-    INDEX_NAME = "IndexName"
-    CONTRIBUTOR_INSIGHTS_SPECIFICATION = "ContributorInsightsSpecification"
-    READ_PROVISIONED_THROUGHPUT_SETTINGS = "ReadProvisionedThroughputSettings"
-    READ_ON_DEMAND_THROUGHPUT_SETTINGS = "ReadOnDemandThroughputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "contributor_insights_specification": "ContributorInsightsSpecification",
@@ -214,8 +168,6 @@ class ReplicaGlobalSecondaryIndexSpecification(PropertyType):
 
 @dataclass
 class ReplicaSSESpecification(PropertyType):
-    KMS_MASTER_KEY_ID = "KMSMasterKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_master_key_id": "KMSMasterKeyId",
     }
@@ -225,20 +177,6 @@ class ReplicaSSESpecification(PropertyType):
 
 @dataclass
 class ReplicaSpecification(PropertyType):
-    SSE_SPECIFICATION = "SSESpecification"
-    KINESIS_STREAM_SPECIFICATION = "KinesisStreamSpecification"
-    CONTRIBUTOR_INSIGHTS_SPECIFICATION = "ContributorInsightsSpecification"
-    POINT_IN_TIME_RECOVERY_SPECIFICATION = "PointInTimeRecoverySpecification"
-    REPLICA_STREAM_SPECIFICATION = "ReplicaStreamSpecification"
-    GLOBAL_SECONDARY_INDEXES = "GlobalSecondaryIndexes"
-    REGION = "Region"
-    RESOURCE_POLICY = "ResourcePolicy"
-    READ_PROVISIONED_THROUGHPUT_SETTINGS = "ReadProvisionedThroughputSettings"
-    TABLE_CLASS = "TableClass"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    TAGS = "Tags"
-    READ_ON_DEMAND_THROUGHPUT_SETTINGS = "ReadOnDemandThroughputSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_specification": "SSESpecification",
         "kinesis_stream_specification": "KinesisStreamSpecification",
@@ -272,8 +210,6 @@ class ReplicaSpecification(PropertyType):
 
 @dataclass
 class ReplicaStreamSpecification(PropertyType):
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_policy": "ResourcePolicy",
     }
@@ -283,8 +219,6 @@ class ReplicaStreamSpecification(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
     }
@@ -294,9 +228,6 @@ class ResourcePolicy(PropertyType):
 
 @dataclass
 class SSESpecification(PropertyType):
-    SSE_ENABLED = "SSEEnabled"
-    SSE_TYPE = "SSEType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_enabled": "SSEEnabled",
         "sse_type": "SSEType",
@@ -308,8 +239,6 @@ class SSESpecification(PropertyType):
 
 @dataclass
 class StreamSpecification(PropertyType):
-    STREAM_VIEW_TYPE = "StreamViewType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_view_type": "StreamViewType",
     }
@@ -319,11 +248,6 @@ class StreamSpecification(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicyConfiguration(PropertyType):
-    SCALE_OUT_COOLDOWN = "ScaleOutCooldown"
-    TARGET_VALUE = "TargetValue"
-    DISABLE_SCALE_IN = "DisableScaleIn"
-    SCALE_IN_COOLDOWN = "ScaleInCooldown"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",
@@ -339,9 +263,6 @@ class TargetTrackingScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class TimeToLiveSpecification(PropertyType):
-    ENABLED = "Enabled"
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "attribute_name": "AttributeName",
@@ -353,9 +274,6 @@ class TimeToLiveSpecification(PropertyType):
 
 @dataclass
 class WarmThroughput(PropertyType):
-    READ_UNITS_PER_SECOND = "ReadUnitsPerSecond"
-    WRITE_UNITS_PER_SECOND = "WriteUnitsPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_units_per_second": "ReadUnitsPerSecond",
         "write_units_per_second": "WriteUnitsPerSecond",
@@ -367,8 +285,6 @@ class WarmThroughput(PropertyType):
 
 @dataclass
 class WriteOnDemandThroughputSettings(PropertyType):
-    MAX_WRITE_REQUEST_UNITS = "MaxWriteRequestUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_write_request_units": "MaxWriteRequestUnits",
     }
@@ -378,8 +294,6 @@ class WriteOnDemandThroughputSettings(PropertyType):
 
 @dataclass
 class WriteProvisionedThroughputSettings(PropertyType):
-    WRITE_CAPACITY_AUTO_SCALING_SETTINGS = "WriteCapacityAutoScalingSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "write_capacity_auto_scaling_settings": "WriteCapacityAutoScalingSettings",
     }

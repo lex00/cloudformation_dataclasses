@@ -11,26 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWANServiceProfile(PropertyType):
-    DL_BUCKET_SIZE = "DlBucketSize"
-    MIN_GW_DIVERSITY = "MinGwDiversity"
-    DR_MAX = "DrMax"
-    REPORT_DEV_STATUS_MARGIN = "ReportDevStatusMargin"
-    PR_ALLOWED = "PrAllowed"
-    DL_RATE = "DlRate"
-    UL_RATE_POLICY = "UlRatePolicy"
-    REPORT_DEV_STATUS_BATTERY = "ReportDevStatusBattery"
-    CHANNEL_MASK = "ChannelMask"
-    UL_RATE = "UlRate"
-    ADD_GW_METADATA = "AddGwMetadata"
-    DL_RATE_POLICY = "DlRatePolicy"
-    HR_ALLOWED = "HrAllowed"
-    DR_MIN = "DrMin"
-    TARGET_PER = "TargetPer"
-    NWK_GEO_LOC = "NwkGeoLoc"
-    DEV_STATUS_REQ_FREQ = "DevStatusReqFreq"
-    UL_BUCKET_SIZE = "UlBucketSize"
-    RA_ALLOWED = "RaAllowed"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dl_bucket_size": "DlBucketSize",
         "min_gw_diversity": "MinGwDiversity",

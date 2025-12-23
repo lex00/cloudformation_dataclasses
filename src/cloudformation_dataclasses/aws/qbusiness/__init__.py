@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:12
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QBusiness
@@ -795,21 +795,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Application"
     name_field: ClassVar[str] = "display_name"
-    IDENTITY_TYPE = "IdentityType"
-    DESCRIPTION = "Description"
-    IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceArn"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    IAM_IDENTITY_PROVIDER_ARN = "IamIdentityProviderArn"
-    ROLE_ARN = "RoleArn"
-    ATTACHMENTS_CONFIGURATION = "AttachmentsConfiguration"
-    CLIENT_IDS_FOR_OIDC = "ClientIdsForOIDC"
-    QUICK_SIGHT_CONFIGURATION = "QuickSightConfiguration"
-    PERSONALIZATION_CONFIGURATION = "PersonalizationConfiguration"
-    DISPLAY_NAME = "DisplayName"
-    AUTO_SUBSCRIPTION_CONFIGURATION = "AutoSubscriptionConfiguration"
-    Q_APPS_CONFIGURATION = "QAppsConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_type": "IdentityType",
         "description": "Description",
@@ -880,13 +865,6 @@ class DataAccessor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::DataAccessor"
     name_field: ClassVar[str] = "display_name"
-    DISPLAY_NAME = "DisplayName"
-    ACTION_CONFIGURATIONS = "ActionConfigurations"
-    APPLICATION_ID = "ApplicationId"
-    PRINCIPAL = "Principal"
-    TAGS = "Tags"
-    AUTHENTICATION_DETAIL = "AuthenticationDetail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_name": "DisplayName",
         "action_configurations": "ActionConfigurations",
@@ -936,18 +914,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::DataSource"
     name_field: ClassVar[str] = "display_name"
-    INDEX_ID = "IndexId"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    SYNC_SCHEDULE = "SyncSchedule"
-    DOCUMENT_ENRICHMENT_CONFIGURATION = "DocumentEnrichmentConfiguration"
-    MEDIA_EXTRACTION_CONFIGURATION = "MediaExtractionConfiguration"
-    DISPLAY_NAME = "DisplayName"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    APPLICATION_ID = "ApplicationId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
         "description": "Description",
@@ -1012,14 +978,6 @@ class Index(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Index"
     name_field: ClassVar[str] = "display_name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    DOCUMENT_ATTRIBUTE_CONFIGURATIONS = "DocumentAttributeConfigurations"
-    APPLICATION_ID = "ApplicationId"
-    TAGS = "Tags"
-    CAPACITY_CONFIGURATION = "CapacityConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -1090,12 +1048,6 @@ class Permission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Permission"
-    ACTIONS = "Actions"
-    STATEMENT_ID = "StatementId"
-    APPLICATION_ID = "ApplicationId"
-    CONDITIONS = "Conditions"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "statement_id": "StatementId",
@@ -1117,15 +1069,6 @@ class Plugin(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Plugin"
     name_field: ClassVar[str] = "display_name"
-    SERVER_URL = "ServerUrl"
-    CUSTOM_PLUGIN_CONFIGURATION = "CustomPluginConfiguration"
-    TYPE = "Type"
-    STATE = "State"
-    DISPLAY_NAME = "DisplayName"
-    AUTH_CONFIGURATION = "AuthConfiguration"
-    APPLICATION_ID = "ApplicationId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_url": "ServerUrl",
         "custom_plugin_configuration": "CustomPluginConfiguration",
@@ -1179,13 +1122,6 @@ class Retriever(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Retriever"
     name_field: ClassVar[str] = "display_name"
-    TYPE = "Type"
-    CONFIGURATION = "Configuration"
-    DISPLAY_NAME = "DisplayName"
-    APPLICATION_ID = "ApplicationId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -1234,18 +1170,6 @@ class WebExperience(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::WebExperience"
-    ORIGINS = "Origins"
-    SUBTITLE = "Subtitle"
-    CUSTOMIZATION_CONFIGURATION = "CustomizationConfiguration"
-    SAMPLE_PROMPTS_CONTROL_MODE = "SamplePromptsControlMode"
-    TITLE = "Title"
-    IDENTITY_PROVIDER_CONFIGURATION = "IdentityProviderConfiguration"
-    WELCOME_MESSAGE = "WelcomeMessage"
-    APPLICATION_ID = "ApplicationId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    BROWSER_EXTENSION_CONFIGURATION = "BrowserExtensionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origins": "Origins",
         "subtitle": "Subtitle",

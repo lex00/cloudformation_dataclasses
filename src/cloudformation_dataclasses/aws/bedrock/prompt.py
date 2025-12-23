@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CachePointBlock(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -22,11 +20,6 @@ class CachePointBlock(PropertyType):
 
 @dataclass
 class ChatPromptTemplateConfiguration(PropertyType):
-    MESSAGES = "Messages"
-    INPUT_VARIABLES = "InputVariables"
-    TOOL_CONFIGURATION = "ToolConfiguration"
-    SYSTEM = "System"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "messages": "Messages",
         "input_variables": "InputVariables",
@@ -42,9 +35,6 @@ class ChatPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class ContentBlock(PropertyType):
-    CACHE_POINT = "CachePoint"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -56,9 +46,6 @@ class ContentBlock(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    ROLE = "Role"
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "content": "Content",
@@ -70,8 +57,6 @@ class Message(PropertyType):
 
 @dataclass
 class PromptAgentResource(PropertyType):
-    AGENT_IDENTIFIER = "AgentIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_identifier": "AgentIdentifier",
     }
@@ -81,8 +66,6 @@ class PromptAgentResource(PropertyType):
 
 @dataclass
 class PromptGenAiResource(PropertyType):
-    AGENT = "Agent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent": "Agent",
     }
@@ -92,8 +75,6 @@ class PromptGenAiResource(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -103,8 +84,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -114,9 +93,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptMetadataEntry(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -128,11 +104,6 @@ class PromptMetadataEntry(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    TEMPERATURE = "Temperature"
-    STOP_SEQUENCES = "StopSequences"
-    MAX_TOKENS = "MaxTokens"
-    TOP_P = "TopP"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -148,9 +119,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    CHAT = "Chat"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chat": "Chat",
         "text": "Text",
@@ -162,15 +130,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class PromptVariant(PropertyType):
-    ADDITIONAL_MODEL_REQUEST_FIELDS = "AdditionalModelRequestFields"
-    INFERENCE_CONFIGURATION = "InferenceConfiguration"
-    METADATA = "Metadata"
-    GEN_AI_RESOURCE = "GenAiResource"
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-    TEMPLATE_TYPE = "TemplateType"
-    MODEL_ID = "ModelId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_model_request_fields": "AdditionalModelRequestFields",
         "inference_configuration": "InferenceConfiguration",
@@ -194,8 +153,6 @@ class PromptVariant(PropertyType):
 
 @dataclass
 class SpecificToolChoice(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -205,9 +162,6 @@ class SpecificToolChoice(PropertyType):
 
 @dataclass
 class SystemContentBlock(PropertyType):
-    CACHE_POINT = "CachePoint"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -219,11 +173,6 @@ class SystemContentBlock(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    INPUT_VARIABLES = "InputVariables"
-    TEXT_S3_LOCATION = "TextS3Location"
-    CACHE_POINT = "CachePoint"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "text_s3_location": "TextS3Location",
@@ -239,10 +188,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class TextS3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -256,9 +201,6 @@ class TextS3Location(PropertyType):
 
 @dataclass
 class Tool(PropertyType):
-    CACHE_POINT = "CachePoint"
-    TOOL_SPEC = "ToolSpec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "tool_spec": "ToolSpec",
@@ -270,10 +212,6 @@ class Tool(PropertyType):
 
 @dataclass
 class ToolChoice(PropertyType):
-    AUTO = "Auto"
-    ANY = "Any"
-    TOOL = "Tool"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto": "Auto",
         "any": "Any",
@@ -287,9 +225,6 @@ class ToolChoice(PropertyType):
 
 @dataclass
 class ToolConfiguration(PropertyType):
-    TOOL_CHOICE = "ToolChoice"
-    TOOLS = "Tools"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tool_choice": "ToolChoice",
         "tools": "Tools",
@@ -301,8 +236,6 @@ class ToolConfiguration(PropertyType):
 
 @dataclass
 class ToolInputSchema(PropertyType):
-    JSON = "Json"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json": "Json",
     }
@@ -312,10 +245,6 @@ class ToolInputSchema(PropertyType):
 
 @dataclass
 class ToolSpecification(PropertyType):
-    DESCRIPTION = "Description"
-    INPUT_SCHEMA = "InputSchema"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "input_schema": "InputSchema",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BudgetParameter(PropertyType):
-    TYPE = "Type"
-    BUDGET = "Budget"
-    AUTO_REFRESH = "AutoRefresh"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "budget": "Budget",
@@ -28,11 +24,6 @@ class BudgetParameter(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    BUDGET_PARAMETERS = "BudgetParameters"
-    EPSILON = "Epsilon"
-    USERS_NOISE_PER_QUERY = "UsersNoisePerQuery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "budget_parameters": "BudgetParameters",

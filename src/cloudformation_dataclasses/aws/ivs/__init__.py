@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:59
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVS
@@ -192,17 +192,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::Channel"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    RECORDING_CONFIGURATION_ARN = "RecordingConfigurationArn"
-    AUTHORIZED = "Authorized"
-    MULTITRACK_INPUT_CONFIGURATION = "MultitrackInputConfiguration"
-    PRESET = "Preset"
-    CONTAINER_FORMAT = "ContainerFormat"
-    INSECURE_INGEST = "InsecureIngest"
-    LATENCY_MODE = "LatencyMode"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "recording_configuration_arn": "RecordingConfigurationArn",
@@ -250,10 +239,6 @@ class EncoderConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::EncoderConfiguration"
     name_field: ClassVar[str] = "name"
-    VIDEO = "Video"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video": "Video",
         "tags": "Tags",
@@ -277,13 +262,6 @@ class IngestConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::IngestConfiguration"
     name_field: ClassVar[str] = "name"
-    USER_ID = "UserId"
-    INGEST_PROTOCOL = "IngestProtocol"
-    STAGE_ARN = "StageArn"
-    INSECURE_INGEST = "InsecureIngest"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_id": "UserId",
         "ingest_protocol": "IngestProtocol",
@@ -328,10 +306,6 @@ class PlaybackKeyPair(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::PlaybackKeyPair"
     name_field: ClassVar[str] = "name"
-    PUBLIC_KEY_MATERIAL = "PublicKeyMaterial"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_key_material": "PublicKeyMaterial",
         "tags": "Tags",
@@ -360,12 +334,6 @@ class PlaybackRestrictionPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::PlaybackRestrictionPolicy"
     name_field: ClassVar[str] = "name"
-    ALLOWED_ORIGINS = "AllowedOrigins"
-    ENABLE_STRICT_ORIGIN_ENFORCEMENT = "EnableStrictOriginEnforcement"
-    ALLOWED_COUNTRIES = "AllowedCountries"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_origins": "AllowedOrigins",
         "enable_strict_origin_enforcement": "EnableStrictOriginEnforcement",
@@ -393,10 +361,6 @@ class PublicKey(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::PublicKey"
     name_field: ClassVar[str] = "name"
-    PUBLIC_KEY_MATERIAL = "PublicKeyMaterial"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_key_material": "PublicKeyMaterial",
         "tags": "Tags",
@@ -425,13 +389,6 @@ class RecordingConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::RecordingConfiguration"
     name_field: ClassVar[str] = "name"
-    DESTINATION_CONFIGURATION = "DestinationConfiguration"
-    RENDITION_CONFIGURATION = "RenditionConfiguration"
-    RECORDING_RECONNECT_WINDOW_SECONDS = "RecordingReconnectWindowSeconds"
-    TAGS = "Tags"
-    THUMBNAIL_CONFIGURATION = "ThumbnailConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_configuration": "DestinationConfiguration",
         "rendition_configuration": "RenditionConfiguration",
@@ -466,10 +423,6 @@ class Stage(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::Stage"
     name_field: ClassVar[str] = "name"
-    AUTO_PARTICIPANT_RECORDING_CONFIGURATION = "AutoParticipantRecordingConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_participant_recording_configuration": "AutoParticipantRecordingConfiguration",
         "tags": "Tags",
@@ -498,10 +451,6 @@ class StorageConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVS::StorageConfiguration"
     name_field: ClassVar[str] = "name"
-    S3 = "S3"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "tags": "Tags",
@@ -524,9 +473,6 @@ class StreamKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-s"""
 
     resource_type: ClassVar[str] = "AWS::IVS::StreamKey"
-    CHANNEL_ARN = "ChannelArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_arn": "ChannelArn",
         "tags": "Tags",

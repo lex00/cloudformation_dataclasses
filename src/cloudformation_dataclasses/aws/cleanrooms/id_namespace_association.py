@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IdMappingConfig(PropertyType):
-    ALLOW_USE_AS_DIMENSION_COLUMN = "AllowUseAsDimensionColumn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_use_as_dimension_column": "AllowUseAsDimensionColumn",
     }
@@ -22,9 +20,6 @@ class IdMappingConfig(PropertyType):
 
 @dataclass
 class IdNamespaceAssociationInputReferenceConfig(PropertyType):
-    INPUT_REFERENCE_ARN = "InputReferenceArn"
-    MANAGE_RESOURCE_POLICIES = "ManageResourcePolicies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_reference_arn": "InputReferenceArn",
         "manage_resource_policies": "ManageResourcePolicies",
@@ -36,9 +31,6 @@ class IdNamespaceAssociationInputReferenceConfig(PropertyType):
 
 @dataclass
 class IdNamespaceAssociationInputReferenceProperties(PropertyType):
-    ID_NAMESPACE_TYPE = "IdNamespaceType"
-    ID_MAPPING_WORKFLOWS_SUPPORTED = "IdMappingWorkflowsSupported"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_namespace_type": "IdNamespaceType",
         "id_mapping_workflows_supported": "IdMappingWorkflowsSupported",

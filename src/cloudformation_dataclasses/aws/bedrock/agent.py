@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class APISchema(PropertyType):
-    S3 = "S3"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "payload": "Payload",
@@ -25,9 +22,6 @@ class APISchema(PropertyType):
 
 @dataclass
 class ActionGroupExecutor(PropertyType):
-    CUSTOM_CONTROL = "CustomControl"
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_control": "CustomControl",
         "lambda_": "Lambda",
@@ -39,15 +33,6 @@ class ActionGroupExecutor(PropertyType):
 
 @dataclass
 class AgentActionGroup(PropertyType):
-    DESCRIPTION = "Description"
-    API_SCHEMA = "ApiSchema"
-    FUNCTION_SCHEMA = "FunctionSchema"
-    SKIP_RESOURCE_IN_USE_CHECK_ON_DELETE = "SkipResourceInUseCheckOnDelete"
-    PARENT_ACTION_GROUP_SIGNATURE = "ParentActionGroupSignature"
-    ACTION_GROUP_EXECUTOR = "ActionGroupExecutor"
-    ACTION_GROUP_NAME = "ActionGroupName"
-    ACTION_GROUP_STATE = "ActionGroupState"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "api_schema": "ApiSchema",
@@ -71,11 +56,6 @@ class AgentActionGroup(PropertyType):
 
 @dataclass
 class AgentCollaborator(PropertyType):
-    AGENT_DESCRIPTOR = "AgentDescriptor"
-    COLLABORATION_INSTRUCTION = "CollaborationInstruction"
-    RELAY_CONVERSATION_HISTORY = "RelayConversationHistory"
-    COLLABORATOR_NAME = "CollaboratorName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_descriptor": "AgentDescriptor",
         "collaboration_instruction": "CollaborationInstruction",
@@ -91,8 +71,6 @@ class AgentCollaborator(PropertyType):
 
 @dataclass
 class AgentDescriptor(PropertyType):
-    ALIAS_ARN = "AliasArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias_arn": "AliasArn",
     }
@@ -102,10 +80,6 @@ class AgentDescriptor(PropertyType):
 
 @dataclass
 class AgentKnowledgeBase(PropertyType):
-    DESCRIPTION = "Description"
-    KNOWLEDGE_BASE_STATE = "KnowledgeBaseState"
-    KNOWLEDGE_BASE_ID = "KnowledgeBaseId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "knowledge_base_state": "KnowledgeBaseState",
@@ -119,8 +93,6 @@ class AgentKnowledgeBase(PropertyType):
 
 @dataclass
 class CustomOrchestration(PropertyType):
-    EXECUTOR = "Executor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "executor": "Executor",
     }
@@ -130,11 +102,6 @@ class CustomOrchestration(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    REQUIRE_CONFIRMATION = "RequireConfirmation"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -150,8 +117,6 @@ class Function(PropertyType):
 
 @dataclass
 class FunctionSchema(PropertyType):
-    FUNCTIONS = "Functions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "functions": "Functions",
     }
@@ -161,9 +126,6 @@ class FunctionSchema(PropertyType):
 
 @dataclass
 class GuardrailConfiguration(PropertyType):
-    GUARDRAIL_IDENTIFIER = "GuardrailIdentifier"
-    GUARDRAIL_VERSION = "GuardrailVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "guardrail_version": "GuardrailVersion",
@@ -175,12 +137,6 @@ class GuardrailConfiguration(PropertyType):
 
 @dataclass
 class InferenceConfiguration(PropertyType):
-    TOP_K = "TopK"
-    TEMPERATURE = "Temperature"
-    MAXIMUM_LENGTH = "MaximumLength"
-    STOP_SEQUENCES = "StopSequences"
-    TOP_P = "TopP"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "top_k": "TopK",
         "temperature": "Temperature",
@@ -198,10 +154,6 @@ class InferenceConfiguration(PropertyType):
 
 @dataclass
 class MemoryConfiguration(PropertyType):
-    SESSION_SUMMARY_CONFIGURATION = "SessionSummaryConfiguration"
-    ENABLED_MEMORY_TYPES = "EnabledMemoryTypes"
-    STORAGE_DAYS = "StorageDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_summary_configuration": "SessionSummaryConfiguration",
         "enabled_memory_types": "EnabledMemoryTypes",
@@ -215,8 +167,6 @@ class MemoryConfiguration(PropertyType):
 
 @dataclass
 class OrchestrationExecutor(PropertyType):
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_": "Lambda",
     }
@@ -226,10 +176,6 @@ class OrchestrationExecutor(PropertyType):
 
 @dataclass
 class ParameterDetail(PropertyType):
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    REQUIRED = "Required"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -243,15 +189,6 @@ class ParameterDetail(PropertyType):
 
 @dataclass
 class PromptConfiguration(PropertyType):
-    PROMPT_TYPE = "PromptType"
-    PROMPT_STATE = "PromptState"
-    ADDITIONAL_MODEL_REQUEST_FIELDS = "AdditionalModelRequestFields"
-    BASE_PROMPT_TEMPLATE = "BasePromptTemplate"
-    FOUNDATION_MODEL = "FoundationModel"
-    INFERENCE_CONFIGURATION = "InferenceConfiguration"
-    PROMPT_CREATION_MODE = "PromptCreationMode"
-    PARSER_MODE = "ParserMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_type": "PromptType",
         "prompt_state": "PromptState",
@@ -275,9 +212,6 @@ class PromptConfiguration(PropertyType):
 
 @dataclass
 class PromptOverrideConfiguration(PropertyType):
-    PROMPT_CONFIGURATIONS = "PromptConfigurations"
-    OVERRIDE_LAMBDA = "OverrideLambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_configurations": "PromptConfigurations",
         "override_lambda": "OverrideLambda",
@@ -289,9 +223,6 @@ class PromptOverrideConfiguration(PropertyType):
 
 @dataclass
 class S3Identifier(PropertyType):
-    S3_BUCKET_NAME = "S3BucketName"
-    S3_OBJECT_KEY = "S3ObjectKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_name": "S3BucketName",
         "s3_object_key": "S3ObjectKey",
@@ -303,8 +234,6 @@ class S3Identifier(PropertyType):
 
 @dataclass
 class SessionSummaryConfiguration(PropertyType):
-    MAX_RECENT_SESSIONS = "MaxRecentSessions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_recent_sessions": "MaxRecentSessions",
     }

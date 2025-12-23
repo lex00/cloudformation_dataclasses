@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CertificateBasedAuthProperties(PropertyType):
-    STATUS = "Status"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "certificate_authority_arn": "CertificateAuthorityArn",
@@ -25,9 +22,6 @@ class CertificateBasedAuthProperties(PropertyType):
 
 @dataclass
 class ServiceAccountCredentials(PropertyType):
-    ACCOUNT_NAME = "AccountName"
-    ACCOUNT_PASSWORD = "AccountPassword"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_name": "AccountName",
         "account_password": "AccountPassword",

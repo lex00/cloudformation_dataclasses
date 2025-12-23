@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OutboundCallerConfig(PropertyType):
-    OUTBOUND_CALLER_ID_NUMBER_ARN = "OutboundCallerIdNumberArn"
-    OUTBOUND_FLOW_ARN = "OutboundFlowArn"
-    OUTBOUND_CALLER_ID_NAME = "OutboundCallerIdName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_caller_id_number_arn": "OutboundCallerIdNumberArn",
         "outbound_flow_arn": "OutboundFlowArn",
@@ -28,8 +24,6 @@ class OutboundCallerConfig(PropertyType):
 
 @dataclass
 class OutboundEmailConfig(PropertyType):
-    OUTBOUND_EMAIL_ADDRESS_ID = "OutboundEmailAddressId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_email_address_id": "OutboundEmailAddressId",
     }

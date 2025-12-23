@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NotificationHubStatusSummary(PropertyType):
-    NOTIFICATION_HUB_STATUS = "NotificationHubStatus"
-    NOTIFICATION_HUB_STATUS_REASON = "NotificationHubStatusReason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_hub_status": "NotificationHubStatus",
         "notification_hub_status_reason": "NotificationHubStatusReason",

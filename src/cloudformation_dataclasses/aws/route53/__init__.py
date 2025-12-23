@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53
@@ -562,9 +562,6 @@ class CidrCollection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53::CidrCollection"
     name_field: ClassVar[str] = "name"
-    LOCATIONS = "Locations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locations": "Locations",
         "name": "Name",
@@ -590,8 +587,6 @@ class DNSSEC(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::DNSSEC"
-    HOSTED_ZONE_ID = "HostedZoneId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hosted_zone_id": "HostedZoneId",
     }
@@ -604,9 +599,6 @@ class HealthCheck(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::HealthCheck"
-    HEALTH_CHECK_CONFIG = "HealthCheckConfig"
-    HEALTH_CHECK_TAGS = "HealthCheckTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_check_config": "HealthCheckConfig",
         "health_check_tags": "HealthCheckTags",
@@ -628,13 +620,6 @@ class HostedZone(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53::HostedZone"
     name_field: ClassVar[str] = "name"
-    HOSTED_ZONE_TAGS = "HostedZoneTags"
-    VP_CS = "VPCs"
-    HOSTED_ZONE_FEATURES = "HostedZoneFeatures"
-    HOSTED_ZONE_CONFIG = "HostedZoneConfig"
-    QUERY_LOGGING_CONFIG = "QueryLoggingConfig"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hosted_zone_tags": "HostedZoneTags",
         "vp_cs": "VPCs",
@@ -669,11 +654,6 @@ class KeySigningKey(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53::KeySigningKey"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    KEY_MANAGEMENT_SERVICE_ARN = "KeyManagementServiceArn"
-    HOSTED_ZONE_ID = "HostedZoneId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "key_management_service_arn": "KeyManagementServiceArn",
@@ -693,24 +673,6 @@ class RecordSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53::RecordSet"
     name_field: ClassVar[str] = "name"
-    ALIAS_TARGET = "AliasTarget"
-    CIDR_ROUTING_CONFIG = "CidrRoutingConfig"
-    COMMENT = "Comment"
-    FAILOVER = "Failover"
-    GEO_LOCATION = "GeoLocation"
-    GEO_PROXIMITY_LOCATION = "GeoProximityLocation"
-    HEALTH_CHECK_ID = "HealthCheckId"
-    HOSTED_ZONE_ID = "HostedZoneId"
-    HOSTED_ZONE_NAME = "HostedZoneName"
-    MULTI_VALUE_ANSWER = "MultiValueAnswer"
-    NAME = "Name"
-    REGION = "Region"
-    RESOURCE_RECORDS = "ResourceRecords"
-    SET_IDENTIFIER = "SetIdentifier"
-    TTL = "TTL"
-    TYPE = "Type"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias_target": "AliasTarget",
         "cidr_routing_config": "CidrRoutingConfig",
@@ -756,11 +718,6 @@ class RecordSetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53::RecordSetGroup"
     name_field: ClassVar[str] = "hosted_zone_name"
-    COMMENT = "Comment"
-    HOSTED_ZONE_ID = "HostedZoneId"
-    HOSTED_ZONE_NAME = "HostedZoneName"
-    RECORD_SETS = "RecordSets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "hosted_zone_id": "HostedZoneId",

@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthFormat(PropertyType):
-    SECRET_ARN = "SecretArn"
-    DESCRIPTION = "Description"
-    IAM_AUTH = "IAMAuth"
-    CLIENT_PASSWORD_AUTH_TYPE = "ClientPasswordAuthType"
-    AUTH_SCHEME = "AuthScheme"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "description": "Description",
@@ -34,9 +28,6 @@ class AuthFormat(PropertyType):
 
 @dataclass
 class TagFormat(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

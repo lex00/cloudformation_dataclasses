@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EntityType(PropertyType):
-    DESCRIPTION = "Description"
-    CREATED_TIME = "CreatedTime"
-    LAST_UPDATED_TIME = "LastUpdatedTime"
-    INLINE = "Inline"
-    ARN = "Arn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -40,18 +32,6 @@ class EntityType(PropertyType):
 
 @dataclass
 class EventVariable(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTION = "Description"
-    CREATED_TIME = "CreatedTime"
-    VARIABLE_TYPE = "VariableType"
-    DATA_TYPE = "DataType"
-    LAST_UPDATED_TIME = "LastUpdatedTime"
-    INLINE = "Inline"
-    ARN = "Arn"
-    TAGS = "Tags"
-    NAME = "Name"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -81,14 +61,6 @@ class EventVariable(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    DESCRIPTION = "Description"
-    CREATED_TIME = "CreatedTime"
-    LAST_UPDATED_TIME = "LastUpdatedTime"
-    INLINE = "Inline"
-    ARN = "Arn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",

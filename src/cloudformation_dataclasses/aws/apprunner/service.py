@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthenticationConfiguration(PropertyType):
-    ACCESS_ROLE_ARN = "AccessRoleArn"
-    CONNECTION_ARN = "ConnectionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_role_arn": "AccessRoleArn",
         "connection_arn": "ConnectionArn",
@@ -25,9 +22,6 @@ class AuthenticationConfiguration(PropertyType):
 
 @dataclass
 class CodeConfiguration(PropertyType):
-    CONFIGURATION_SOURCE = "ConfigurationSource"
-    CODE_CONFIGURATION_VALUES = "CodeConfigurationValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_source": "ConfigurationSource",
         "code_configuration_values": "CodeConfigurationValues",
@@ -39,13 +33,6 @@ class CodeConfiguration(PropertyType):
 
 @dataclass
 class CodeConfigurationValues(PropertyType):
-    RUNTIME_ENVIRONMENT_SECRETS = "RuntimeEnvironmentSecrets"
-    RUNTIME = "Runtime"
-    START_COMMAND = "StartCommand"
-    RUNTIME_ENVIRONMENT_VARIABLES = "RuntimeEnvironmentVariables"
-    PORT = "Port"
-    BUILD_COMMAND = "BuildCommand"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
         "runtime": "Runtime",
@@ -65,11 +52,6 @@ class CodeConfigurationValues(PropertyType):
 
 @dataclass
 class CodeRepository(PropertyType):
-    SOURCE_CODE_VERSION = "SourceCodeVersion"
-    CODE_CONFIGURATION = "CodeConfiguration"
-    SOURCE_DIRECTORY = "SourceDirectory"
-    REPOSITORY_URL = "RepositoryUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_code_version": "SourceCodeVersion",
         "code_configuration": "CodeConfiguration",
@@ -85,9 +67,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class EgressConfiguration(PropertyType):
-    VPC_CONNECTOR_ARN = "VpcConnectorArn"
-    EGRESS_TYPE = "EgressType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_connector_arn": "VpcConnectorArn",
         "egress_type": "EgressType",
@@ -99,8 +78,6 @@ class EgressConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -110,13 +87,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class HealthCheckConfiguration(PropertyType):
-    PATH = "Path"
-    UNHEALTHY_THRESHOLD = "UnhealthyThreshold"
-    TIMEOUT = "Timeout"
-    HEALTHY_THRESHOLD = "HealthyThreshold"
-    PROTOCOL = "Protocol"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -136,11 +106,6 @@ class HealthCheckConfiguration(PropertyType):
 
 @dataclass
 class ImageConfiguration(PropertyType):
-    RUNTIME_ENVIRONMENT_SECRETS = "RuntimeEnvironmentSecrets"
-    START_COMMAND = "StartCommand"
-    RUNTIME_ENVIRONMENT_VARIABLES = "RuntimeEnvironmentVariables"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
         "start_command": "StartCommand",
@@ -156,10 +121,6 @@ class ImageConfiguration(PropertyType):
 
 @dataclass
 class ImageRepository(PropertyType):
-    IMAGE_IDENTIFIER = "ImageIdentifier"
-    IMAGE_CONFIGURATION = "ImageConfiguration"
-    IMAGE_REPOSITORY_TYPE = "ImageRepositoryType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_identifier": "ImageIdentifier",
         "image_configuration": "ImageConfiguration",
@@ -173,8 +134,6 @@ class ImageRepository(PropertyType):
 
 @dataclass
 class IngressConfiguration(PropertyType):
-    IS_PUBLICLY_ACCESSIBLE = "IsPubliclyAccessible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_publicly_accessible": "IsPubliclyAccessible",
     }
@@ -184,10 +143,6 @@ class IngressConfiguration(PropertyType):
 
 @dataclass
 class InstanceConfiguration(PropertyType):
-    INSTANCE_ROLE_ARN = "InstanceRoleArn"
-    MEMORY = "Memory"
-    CPU = "Cpu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_role_arn": "InstanceRoleArn",
         "memory": "Memory",
@@ -201,9 +156,6 @@ class InstanceConfiguration(PropertyType):
 
 @dataclass
 class KeyValuePair(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -215,10 +167,6 @@ class KeyValuePair(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    EGRESS_CONFIGURATION = "EgressConfiguration"
-    INGRESS_CONFIGURATION = "IngressConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "egress_configuration": "EgressConfiguration",
@@ -232,9 +180,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class ServiceObservabilityConfiguration(PropertyType):
-    OBSERVABILITY_ENABLED = "ObservabilityEnabled"
-    OBSERVABILITY_CONFIGURATION_ARN = "ObservabilityConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "observability_enabled": "ObservabilityEnabled",
         "observability_configuration_arn": "ObservabilityConfigurationArn",
@@ -246,9 +191,6 @@ class ServiceObservabilityConfiguration(PropertyType):
 
 @dataclass
 class SourceCodeVersion(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -260,11 +202,6 @@ class SourceCodeVersion(PropertyType):
 
 @dataclass
 class SourceConfiguration(PropertyType):
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    CODE_REPOSITORY = "CodeRepository"
-    IMAGE_REPOSITORY = "ImageRepository"
-    AUTO_DEPLOYMENTS_ENABLED = "AutoDeploymentsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "code_repository": "CodeRepository",

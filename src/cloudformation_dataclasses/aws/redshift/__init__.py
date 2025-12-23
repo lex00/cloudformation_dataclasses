@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Redshift
@@ -471,59 +471,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::Cluster"
     name_field: ClassVar[str] = "db_name"
-    REVISION_TARGET = "RevisionTarget"
-    AUTOMATED_SNAPSHOT_RETENTION_PERIOD = "AutomatedSnapshotRetentionPeriod"
-    ENCRYPTED = "Encrypted"
-    PORT = "Port"
-    NUMBER_OF_NODES = "NumberOfNodes"
-    DESTINATION_REGION = "DestinationRegion"
-    ALLOW_VERSION_UPGRADE = "AllowVersionUpgrade"
-    ENDPOINT = "Endpoint"
-    NAMESPACE_RESOURCE_POLICY = "NamespaceResourcePolicy"
-    MAINTENANCE_TRACK_NAME = "MaintenanceTrackName"
-    OWNER_ACCOUNT = "OwnerAccount"
-    MULTI_AZ = "MultiAZ"
-    TAGS = "Tags"
-    SNAPSHOT_CLUSTER_IDENTIFIER = "SnapshotClusterIdentifier"
-    IAM_ROLES = "IamRoles"
-    KMS_KEY_ID = "KmsKeyId"
-    SNAPSHOT_COPY_MANUAL = "SnapshotCopyManual"
-    MANAGE_MASTER_PASSWORD = "ManageMasterPassword"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    CLUSTER_SECURITY_GROUPS = "ClusterSecurityGroups"
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    CLUSTER_SUBNET_GROUP_NAME = "ClusterSubnetGroupName"
-    LOGGING_PROPERTIES = "LoggingProperties"
-    DEFER_MAINTENANCE = "DeferMaintenance"
-    NODE_TYPE = "NodeType"
-    MASTER_USERNAME = "MasterUsername"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    MANUAL_SNAPSHOT_RETENTION_PERIOD = "ManualSnapshotRetentionPeriod"
-    RESOURCE_ACTION = "ResourceAction"
-    HSM_CLIENT_CERTIFICATE_IDENTIFIER = "HsmClientCertificateIdentifier"
-    ELASTIC_IP = "ElasticIp"
-    AVAILABILITY_ZONE_RELOCATION_STATUS = "AvailabilityZoneRelocationStatus"
-    AQUA_CONFIGURATION_STATUS = "AquaConfigurationStatus"
-    SNAPSHOT_IDENTIFIER = "SnapshotIdentifier"
-    AVAILABILITY_ZONE_RELOCATION = "AvailabilityZoneRelocation"
-    SNAPSHOT_COPY_GRANT_NAME = "SnapshotCopyGrantName"
-    ENHANCED_VPC_ROUTING = "EnhancedVpcRouting"
-    CLUSTER_PARAMETER_GROUP_NAME = "ClusterParameterGroupName"
-    DEFER_MAINTENANCE_END_TIME = "DeferMaintenanceEndTime"
-    ROTATE_ENCRYPTION_KEY = "RotateEncryptionKey"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    CLUSTER_VERSION = "ClusterVersion"
-    HSM_CONFIGURATION_IDENTIFIER = "HsmConfigurationIdentifier"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    DEFER_MAINTENANCE_START_TIME = "DeferMaintenanceStartTime"
-    CLUSTER_TYPE = "ClusterType"
-    CLASSIC = "Classic"
-    MASTER_PASSWORD_SECRET_KMS_KEY_ID = "MasterPasswordSecretKmsKeyId"
-    DEFER_MAINTENANCE_DURATION = "DeferMaintenanceDuration"
-    DB_NAME = "DBName"
-    SNAPSHOT_COPY_RETENTION_PERIOD = "SnapshotCopyRetentionPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision_target": "RevisionTarget",
         "automated_snapshot_retention_period": "AutomatedSnapshotRetentionPeriod",
@@ -665,12 +612,6 @@ class ClusterParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterParameterGroup"
     name_field: ClassVar[str] = "parameter_group_name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    PARAMETER_GROUP_NAME = "ParameterGroupName"
-    PARAMETER_GROUP_FAMILY = "ParameterGroupFamily"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -691,9 +632,6 @@ class ClusterSecurityGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterSecurityGroup"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -709,11 +647,6 @@ class ClusterSecurityGroupIngress(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterSecurityGroupIngress"
     name_field: ClassVar[str] = "ec2_security_group_name"
-    CIDRIP = "CIDRIP"
-    CLUSTER_SECURITY_GROUP_NAME = "ClusterSecurityGroupName"
-    EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
-    EC2_SECURITY_GROUP_OWNER_ID = "EC2SecurityGroupOwnerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrip": "CIDRIP",
         "cluster_security_group_name": "ClusterSecurityGroupName",
@@ -732,10 +665,6 @@ class ClusterSubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterSubnetGroup"
-    DESCRIPTION = "Description"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "subnet_ids": "SubnetIds",
@@ -759,12 +688,6 @@ class EndpointAccess(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::EndpointAccess"
     name_field: ClassVar[str] = "endpoint_name"
-    ENDPOINT_NAME = "EndpointName"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    RESOURCE_OWNER = "ResourceOwner"
-    SUBNET_GROUP_NAME = "SubnetGroupName"
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_name": "EndpointName",
         "vpc_security_group_ids": "VpcSecurityGroupIds",
@@ -831,11 +754,6 @@ class EndpointAuthorization(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::EndpointAuthorization"
-    ACCOUNT = "Account"
-    FORCE = "Force"
-    VPC_IDS = "VpcIds"
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account": "Account",
         "force": "Force",
@@ -896,15 +814,6 @@ class EventSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::EventSubscription"
     name_field: ClassVar[str] = "subscription_name"
-    SOURCE_TYPE = "SourceType"
-    EVENT_CATEGORIES = "EventCategories"
-    ENABLED = "Enabled"
-    SEVERITY = "Severity"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SOURCE_IDS = "SourceIds"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "event_categories": "EventCategories",
@@ -963,13 +872,6 @@ class Integration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::Integration"
     name_field: ClassVar[str] = "integration_name"
-    INTEGRATION_NAME = "IntegrationName"
-    KMS_KEY_ID = "KMSKeyId"
-    SOURCE_ARN = "SourceArn"
-    TARGET_ARN = "TargetArn"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration_name": "IntegrationName",
         "kms_key_id": "KMSKeyId",
@@ -1004,15 +906,6 @@ class ScheduledAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Redshift::ScheduledAction"
     name_field: ClassVar[str] = "scheduled_action_name"
-    SCHEDULED_ACTION_DESCRIPTION = "ScheduledActionDescription"
-    SCHEDULED_ACTION_NAME = "ScheduledActionName"
-    END_TIME = "EndTime"
-    SCHEDULE = "Schedule"
-    IAM_ROLE = "IamRole"
-    START_TIME = "StartTime"
-    ENABLE = "Enable"
-    TARGET_ACTION = "TargetAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled_action_description": "ScheduledActionDescription",
         "scheduled_action_name": "ScheduledActionName",

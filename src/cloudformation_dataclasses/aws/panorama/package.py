@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StorageLocation(PropertyType):
-    REPO_PREFIX_LOCATION = "RepoPrefixLocation"
-    GENERATED_PREFIX_LOCATION = "GeneratedPrefixLocation"
-    BINARY_PREFIX_LOCATION = "BinaryPrefixLocation"
-    BUCKET = "Bucket"
-    MANIFEST_PREFIX_LOCATION = "ManifestPrefixLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repo_prefix_location": "RepoPrefixLocation",
         "generated_prefix_location": "GeneratedPrefixLocation",

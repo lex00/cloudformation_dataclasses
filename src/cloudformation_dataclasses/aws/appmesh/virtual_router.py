@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PortMapping(PropertyType):
-    PORT = "Port"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -25,8 +22,6 @@ class PortMapping(PropertyType):
 
 @dataclass
 class VirtualRouterListener(PropertyType):
-    PORT_MAPPING = "PortMapping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_mapping": "PortMapping",
     }
@@ -36,8 +31,6 @@ class VirtualRouterListener(PropertyType):
 
 @dataclass
 class VirtualRouterSpec(PropertyType):
-    LISTENERS = "Listeners"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listeners": "Listeners",
     }

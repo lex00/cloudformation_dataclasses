@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchDashboard(PropertyType):
-    DASHBOARD_IDENTIFIER = "DashboardIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_identifier": "DashboardIdentifier",
     }
@@ -22,8 +20,6 @@ class CloudWatchDashboard(PropertyType):
 
 @dataclass
 class CloudWatchLogsConfiguration(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -33,8 +29,6 @@ class CloudWatchLogsConfiguration(PropertyType):
 
 @dataclass
 class DataSources(PropertyType):
-    CLOUD_WATCH_DASHBOARDS = "CloudWatchDashboards"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_dashboards": "CloudWatchDashboards",
     }
@@ -44,9 +38,6 @@ class DataSources(PropertyType):
 
 @dataclass
 class ExperimentReportS3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",
@@ -58,12 +49,6 @@ class ExperimentReportS3Configuration(PropertyType):
 
 @dataclass
 class ExperimentTemplateAction(PropertyType):
-    ACTION_ID = "ActionId"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    TARGETS = "Targets"
-    START_AFTER = "StartAfter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_id": "ActionId",
         "description": "Description",
@@ -81,9 +66,6 @@ class ExperimentTemplateAction(PropertyType):
 
 @dataclass
 class ExperimentTemplateExperimentOptions(PropertyType):
-    EMPTY_TARGET_RESOLUTION_MODE = "EmptyTargetResolutionMode"
-    ACCOUNT_TARGETING = "AccountTargeting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "empty_target_resolution_mode": "EmptyTargetResolutionMode",
         "account_targeting": "AccountTargeting",
@@ -95,11 +77,6 @@ class ExperimentTemplateExperimentOptions(PropertyType):
 
 @dataclass
 class ExperimentTemplateExperimentReportConfiguration(PropertyType):
-    DATA_SOURCES = "DataSources"
-    POST_EXPERIMENT_DURATION = "PostExperimentDuration"
-    OUTPUTS = "Outputs"
-    PRE_EXPERIMENT_DURATION = "PreExperimentDuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_sources": "DataSources",
         "post_experiment_duration": "PostExperimentDuration",
@@ -115,10 +92,6 @@ class ExperimentTemplateExperimentReportConfiguration(PropertyType):
 
 @dataclass
 class ExperimentTemplateLogConfiguration(PropertyType):
-    S3_CONFIGURATION = "S3Configuration"
-    LOG_SCHEMA_VERSION = "LogSchemaVersion"
-    CLOUD_WATCH_LOGS_CONFIGURATION = "CloudWatchLogsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
         "log_schema_version": "LogSchemaVersion",
@@ -132,9 +105,6 @@ class ExperimentTemplateLogConfiguration(PropertyType):
 
 @dataclass
 class ExperimentTemplateStopCondition(PropertyType):
-    VALUE = "Value"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "source": "Source",
@@ -146,13 +116,6 @@ class ExperimentTemplateStopCondition(PropertyType):
 
 @dataclass
 class ExperimentTemplateTarget(PropertyType):
-    FILTERS = "Filters"
-    PARAMETERS = "Parameters"
-    RESOURCE_TAGS = "ResourceTags"
-    RESOURCE_TYPE = "ResourceType"
-    RESOURCE_ARNS = "ResourceArns"
-    SELECTION_MODE = "SelectionMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "parameters": "Parameters",
@@ -172,9 +135,6 @@ class ExperimentTemplateTarget(PropertyType):
 
 @dataclass
 class ExperimentTemplateTargetFilter(PropertyType):
-    PATH = "Path"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "values": "Values",
@@ -186,8 +146,6 @@ class ExperimentTemplateTargetFilter(PropertyType):
 
 @dataclass
 class Outputs(PropertyType):
-    EXPERIMENT_REPORT_S3_CONFIGURATION = "ExperimentReportS3Configuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "experiment_report_s3_configuration": "ExperimentReportS3Configuration",
     }
@@ -197,9 +155,6 @@ class Outputs(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",

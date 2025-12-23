@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Deleted(PropertyType):
-    REPORT_LEVEL = "ReportLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -22,8 +20,6 @@ class Deleted(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -33,9 +29,6 @@ class Destination(PropertyType):
 
 @dataclass
 class FilterRule(PropertyType):
-    FILTER_TYPE = "FilterType"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "value": "Value",
@@ -47,10 +40,6 @@ class FilterRule(PropertyType):
 
 @dataclass
 class ManifestConfig(PropertyType):
-    ACTION = "Action"
-    FORMAT = "Format"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "format": "Format",
@@ -64,11 +53,6 @@ class ManifestConfig(PropertyType):
 
 @dataclass
 class ManifestConfigSourceS3(PropertyType):
-    S3_BUCKET_ARN = "S3BucketArn"
-    BUCKET_ACCESS_ROLE_ARN = "BucketAccessRoleArn"
-    MANIFEST_OBJECT_VERSION_ID = "ManifestObjectVersionId"
-    MANIFEST_OBJECT_PATH = "ManifestObjectPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_arn": "S3BucketArn",
         "bucket_access_role_arn": "BucketAccessRoleArn",
@@ -84,22 +68,6 @@ class ManifestConfigSourceS3(PropertyType):
 
 @dataclass
 class Options(PropertyType):
-    VERIFY_MODE = "VerifyMode"
-    GID = "Gid"
-    ATIME = "Atime"
-    OVERWRITE_MODE = "OverwriteMode"
-    PRESERVE_DEVICES = "PreserveDevices"
-    MTIME = "Mtime"
-    TASK_QUEUEING = "TaskQueueing"
-    TRANSFER_MODE = "TransferMode"
-    LOG_LEVEL = "LogLevel"
-    OBJECT_TAGS = "ObjectTags"
-    UID = "Uid"
-    BYTES_PER_SECOND = "BytesPerSecond"
-    POSIX_PERMISSIONS = "PosixPermissions"
-    PRESERVE_DELETED_FILES = "PreserveDeletedFiles"
-    SECURITY_DESCRIPTOR_COPY_FLAGS = "SecurityDescriptorCopyFlags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "verify_mode": "VerifyMode",
         "gid": "Gid",
@@ -137,11 +105,6 @@ class Options(PropertyType):
 
 @dataclass
 class Overrides(PropertyType):
-    VERIFIED = "Verified"
-    SKIPPED = "Skipped"
-    TRANSFERRED = "Transferred"
-    DELETED = "Deleted"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "verified": "Verified",
         "skipped": "Skipped",
@@ -157,8 +120,6 @@ class Overrides(PropertyType):
 
 @dataclass
 class Skipped(PropertyType):
-    REPORT_LEVEL = "ReportLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -168,8 +129,6 @@ class Skipped(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -179,12 +138,6 @@ class Source(PropertyType):
 
 @dataclass
 class TaskReportConfig(PropertyType):
-    DESTINATION = "Destination"
-    REPORT_LEVEL = "ReportLevel"
-    OBJECT_VERSION_IDS = "ObjectVersionIds"
-    OVERRIDES = "Overrides"
-    OUTPUT_TYPE = "OutputType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "report_level": "ReportLevel",
@@ -202,10 +155,6 @@ class TaskReportConfig(PropertyType):
 
 @dataclass
 class TaskReportConfigDestinationS3(PropertyType):
-    SUBDIRECTORY = "Subdirectory"
-    S3_BUCKET_ARN = "S3BucketArn"
-    BUCKET_ACCESS_ROLE_ARN = "BucketAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subdirectory": "Subdirectory",
         "s3_bucket_arn": "S3BucketArn",
@@ -219,9 +168,6 @@ class TaskReportConfigDestinationS3(PropertyType):
 
 @dataclass
 class TaskSchedule(PropertyType):
-    STATUS = "Status"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "schedule_expression": "ScheduleExpression",
@@ -233,8 +179,6 @@ class TaskSchedule(PropertyType):
 
 @dataclass
 class Transferred(PropertyType):
-    REPORT_LEVEL = "ReportLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -244,8 +188,6 @@ class Transferred(PropertyType):
 
 @dataclass
 class Verified(PropertyType):
-    REPORT_LEVEL = "ReportLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }

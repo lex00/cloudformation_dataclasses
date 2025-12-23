@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoggingConfig(PropertyType):
-    FAILURE_FEEDBACK_ROLE_ARN = "FailureFeedbackRoleArn"
-    SUCCESS_FEEDBACK_SAMPLE_RATE = "SuccessFeedbackSampleRate"
-    SUCCESS_FEEDBACK_ROLE_ARN = "SuccessFeedbackRoleArn"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_feedback_role_arn": "FailureFeedbackRoleArn",
         "success_feedback_sample_rate": "SuccessFeedbackSampleRate",
@@ -31,9 +26,6 @@ class LoggingConfig(PropertyType):
 
 @dataclass
 class Subscription(PropertyType):
-    ENDPOINT = "Endpoint"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "protocol": "Protocol",

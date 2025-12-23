@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnomalyDetectionComputationModelConfiguration(PropertyType):
-    RESULT_PROPERTY = "ResultProperty"
-    INPUT_PROPERTIES = "InputProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "result_property": "ResultProperty",
         "input_properties": "InputProperties",
@@ -25,9 +22,6 @@ class AnomalyDetectionComputationModelConfiguration(PropertyType):
 
 @dataclass
 class AssetModelPropertyBindingValue(PropertyType):
-    ASSET_MODEL_ID = "AssetModelId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_model_id": "AssetModelId",
         "property_id": "PropertyId",
@@ -39,9 +33,6 @@ class AssetModelPropertyBindingValue(PropertyType):
 
 @dataclass
 class AssetPropertyBindingValue(PropertyType):
-    ASSET_ID = "AssetId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_id": "AssetId",
         "property_id": "PropertyId",
@@ -53,8 +44,6 @@ class AssetPropertyBindingValue(PropertyType):
 
 @dataclass
 class ComputationModelConfiguration(PropertyType):
-    ANOMALY_DETECTION = "AnomalyDetection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anomaly_detection": "AnomalyDetection",
     }
@@ -64,10 +53,6 @@ class ComputationModelConfiguration(PropertyType):
 
 @dataclass
 class ComputationModelDataBindingValue(PropertyType):
-    ASSET_PROPERTY = "AssetProperty"
-    ASSET_MODEL_PROPERTY = "AssetModelProperty"
-    LIST = "List"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_property": "AssetProperty",
         "asset_model_property": "AssetModelProperty",

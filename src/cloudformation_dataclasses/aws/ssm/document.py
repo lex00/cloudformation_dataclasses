@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttachmentsSource(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -28,9 +24,6 @@ class AttachmentsSource(PropertyType):
 
 @dataclass
 class DocumentRequires(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",

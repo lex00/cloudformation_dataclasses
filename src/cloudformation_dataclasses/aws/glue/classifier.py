@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CsvClassifier(PropertyType):
-    CONTAINS_CUSTOM_DATATYPE = "ContainsCustomDatatype"
-    QUOTE_SYMBOL = "QuoteSymbol"
-    CONTAINS_HEADER = "ContainsHeader"
-    DELIMITER = "Delimiter"
-    HEADER = "Header"
-    ALLOW_SINGLE_COLUMN = "AllowSingleColumn"
-    CUSTOM_DATATYPE_CONFIGURED = "CustomDatatypeConfigured"
-    DISABLE_VALUE_TRIMMING = "DisableValueTrimming"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains_custom_datatype": "ContainsCustomDatatype",
         "quote_symbol": "QuoteSymbol",
@@ -46,11 +36,6 @@ class CsvClassifier(PropertyType):
 
 @dataclass
 class GrokClassifier(PropertyType):
-    CUSTOM_PATTERNS = "CustomPatterns"
-    GROK_PATTERN = "GrokPattern"
-    CLASSIFICATION = "Classification"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_patterns": "CustomPatterns",
         "grok_pattern": "GrokPattern",
@@ -66,9 +51,6 @@ class GrokClassifier(PropertyType):
 
 @dataclass
 class JsonClassifier(PropertyType):
-    JSON_PATH = "JsonPath"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
         "name": "Name",
@@ -80,10 +62,6 @@ class JsonClassifier(PropertyType):
 
 @dataclass
 class XMLClassifier(PropertyType):
-    ROW_TAG = "RowTag"
-    CLASSIFICATION = "Classification"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_tag": "RowTag",
         "classification": "Classification",

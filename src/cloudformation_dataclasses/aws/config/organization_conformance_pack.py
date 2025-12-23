@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConformancePackInputParameter(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",

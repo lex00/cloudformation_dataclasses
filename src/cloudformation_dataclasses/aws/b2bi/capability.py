@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapabilityConfiguration(PropertyType):
-    EDI = "Edi"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edi": "Edi",
     }
@@ -22,12 +20,6 @@ class CapabilityConfiguration(PropertyType):
 
 @dataclass
 class EdiConfiguration(PropertyType):
-    TYPE = "Type"
-    INPUT_LOCATION = "InputLocation"
-    TRANSFORMER_ID = "TransformerId"
-    OUTPUT_LOCATION = "OutputLocation"
-    CAPABILITY_DIRECTION = "CapabilityDirection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_location": "InputLocation",
@@ -45,8 +37,6 @@ class EdiConfiguration(PropertyType):
 
 @dataclass
 class EdiType(PropertyType):
-    X12_DETAILS = "X12Details"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12_details": "X12Details",
     }
@@ -56,9 +46,6 @@ class EdiType(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET_NAME = "BucketName"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "key": "Key",
@@ -70,9 +57,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class X12Details(PropertyType):
-    VERSION = "Version"
-    TRANSACTION_SET = "TransactionSet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "transaction_set": "TransactionSet",

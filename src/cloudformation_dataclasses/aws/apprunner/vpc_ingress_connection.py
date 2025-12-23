@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IngressVpcConfiguration(PropertyType):
-    VPC_ID = "VpcId"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "vpc_endpoint_id": "VpcEndpointId",

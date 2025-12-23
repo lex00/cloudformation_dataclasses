@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LatestVersion(PropertyType):
-    MAJOR = "Major"
-    MINOR = "Minor"
-    ARN = "Arn"
-    PATCH = "Patch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",

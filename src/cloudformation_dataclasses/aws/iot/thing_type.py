@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Mqtt5Configuration(PropertyType):
-    PROPAGATING_ATTRIBUTES = "PropagatingAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "propagating_attributes": "PropagatingAttributes",
     }
@@ -22,10 +20,6 @@ class Mqtt5Configuration(PropertyType):
 
 @dataclass
 class PropagatingAttribute(PropertyType):
-    USER_PROPERTY_KEY = "UserPropertyKey"
-    THING_ATTRIBUTE = "ThingAttribute"
-    CONNECTION_ATTRIBUTE = "ConnectionAttribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_property_key": "UserPropertyKey",
         "thing_attribute": "ThingAttribute",
@@ -39,10 +33,6 @@ class PropagatingAttribute(PropertyType):
 
 @dataclass
 class ThingTypeProperties(PropertyType):
-    THING_TYPE_DESCRIPTION = "ThingTypeDescription"
-    MQTT5_CONFIGURATION = "Mqtt5Configuration"
-    SEARCHABLE_ATTRIBUTES = "SearchableAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thing_type_description": "ThingTypeDescription",
         "mqtt5_configuration": "Mqtt5Configuration",

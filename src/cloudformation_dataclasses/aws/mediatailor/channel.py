@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DashPlaylistSettings(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    SUGGESTED_PRESENTATION_DELAY_SECONDS = "SuggestedPresentationDelaySeconds"
-    MIN_BUFFER_TIME_SECONDS = "MinBufferTimeSeconds"
-    MIN_UPDATE_PERIOD_SECONDS = "MinUpdatePeriodSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "suggested_presentation_delay_seconds": "SuggestedPresentationDelaySeconds",
@@ -31,9 +26,6 @@ class DashPlaylistSettings(PropertyType):
 
 @dataclass
 class HlsPlaylistSettings(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    AD_MARKUP_TYPE = "AdMarkupType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "ad_markup_type": "AdMarkupType",
@@ -45,8 +37,6 @@ class HlsPlaylistSettings(PropertyType):
 
 @dataclass
 class LogConfigurationForChannel(PropertyType):
-    LOG_TYPES = "LogTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_types": "LogTypes",
     }
@@ -56,11 +46,6 @@ class LogConfigurationForChannel(PropertyType):
 
 @dataclass
 class RequestOutputItem(PropertyType):
-    MANIFEST_NAME = "ManifestName"
-    DASH_PLAYLIST_SETTINGS = "DashPlaylistSettings"
-    HLS_PLAYLIST_SETTINGS = "HlsPlaylistSettings"
-    SOURCE_GROUP = "SourceGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_name": "ManifestName",
         "dash_playlist_settings": "DashPlaylistSettings",
@@ -76,9 +61,6 @@ class RequestOutputItem(PropertyType):
 
 @dataclass
 class SlateSource(PropertyType):
-    VOD_SOURCE_NAME = "VodSourceName"
-    SOURCE_LOCATION_NAME = "SourceLocationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vod_source_name": "VodSourceName",
         "source_location_name": "SourceLocationName",
@@ -90,8 +72,6 @@ class SlateSource(PropertyType):
 
 @dataclass
 class TimeShiftConfiguration(PropertyType):
-    MAX_TIME_DELAY_SECONDS = "MaxTimeDelaySeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_time_delay_seconds": "MaxTimeDelaySeconds",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionPortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -25,10 +22,6 @@ class ConnectionPortRange(PropertyType):
 
 @dataclass
 class DeploymentConfiguration(PropertyType):
-    PROTECTION_STRATEGY = "ProtectionStrategy"
-    IMPAIRMENT_STRATEGY = "ImpairmentStrategy"
-    MINIMUM_HEALTHY_PERCENTAGE = "MinimumHealthyPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protection_strategy": "ProtectionStrategy",
         "impairment_strategy": "ImpairmentStrategy",
@@ -42,8 +35,6 @@ class DeploymentConfiguration(PropertyType):
 
 @dataclass
 class DeploymentDetails(PropertyType):
-    LATEST_DEPLOYMENT_ID = "LatestDeploymentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latest_deployment_id": "LatestDeploymentId",
     }
@@ -53,9 +44,6 @@ class DeploymentDetails(PropertyType):
 
 @dataclass
 class GameSessionCreationLimitPolicy(PropertyType):
-    POLICY_PERIOD_IN_MINUTES = "PolicyPeriodInMinutes"
-    NEW_GAME_SESSIONS_PER_CREATOR = "NewGameSessionsPerCreator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_period_in_minutes": "PolicyPeriodInMinutes",
         "new_game_sessions_per_creator": "NewGameSessionsPerCreator",
@@ -67,11 +55,6 @@ class GameSessionCreationLimitPolicy(PropertyType):
 
 @dataclass
 class IpPermission(PropertyType):
-    IP_RANGE = "IpRange"
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "from_port": "FromPort",
@@ -87,10 +70,6 @@ class IpPermission(PropertyType):
 
 @dataclass
 class LocationCapacity(PropertyType):
-    MIN_SIZE = "MinSize"
-    DESIRED_EC2_INSTANCES = "DesiredEC2Instances"
-    MAX_SIZE = "MaxSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_ec2_instances": "DesiredEC2Instances",
@@ -104,10 +83,6 @@ class LocationCapacity(PropertyType):
 
 @dataclass
 class LocationConfiguration(PropertyType):
-    LOCATION_CAPACITY = "LocationCapacity"
-    STOPPED_ACTIONS = "StoppedActions"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_capacity": "LocationCapacity",
         "stopped_actions": "StoppedActions",
@@ -121,10 +96,6 @@ class LocationConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    LOG_DESTINATION = "LogDestination"
-    S3_BUCKET_NAME = "S3BucketName"
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_destination": "LogDestination",
         "s3_bucket_name": "S3BucketName",
@@ -138,16 +109,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class ScalingPolicy(PropertyType):
-    METRIC_NAME = "MetricName"
-    POLICY_TYPE = "PolicyType"
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TARGET_CONFIGURATION = "TargetConfiguration"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    NAME = "Name"
-    SCALING_ADJUSTMENT_TYPE = "ScalingAdjustmentType"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "policy_type": "PolicyType",
@@ -173,8 +134,6 @@ class ScalingPolicy(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    TARGET_VALUE = "TargetValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }

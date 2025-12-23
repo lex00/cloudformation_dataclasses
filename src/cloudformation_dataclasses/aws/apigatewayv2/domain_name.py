@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DomainNameConfiguration(PropertyType):
-    OWNERSHIP_VERIFICATION_CERTIFICATE_ARN = "OwnershipVerificationCertificateArn"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SECURITY_POLICY = "SecurityPolicy"
-    ENDPOINT_TYPE = "EndpointType"
-    CERTIFICATE_NAME = "CertificateName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ownership_verification_certificate_arn": "OwnershipVerificationCertificateArn",
         "ip_address_type": "IpAddressType",
@@ -37,9 +30,6 @@ class DomainNameConfiguration(PropertyType):
 
 @dataclass
 class MutualTlsAuthentication(PropertyType):
-    TRUSTSTORE_VERSION = "TruststoreVersion"
-    TRUSTSTORE_URI = "TruststoreUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truststore_version": "TruststoreVersion",
         "truststore_uri": "TruststoreUri",

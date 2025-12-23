@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NeptuneGraph
@@ -35,14 +35,6 @@ class Graph(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NeptuneGraph::Graph"
     name_field: ClassVar[str] = "graph_name"
-    PUBLIC_CONNECTIVITY = "PublicConnectivity"
-    GRAPH_NAME = "GraphName"
-    REPLICA_COUNT = "ReplicaCount"
-    PROVISIONED_MEMORY = "ProvisionedMemory"
-    DELETION_PROTECTION = "DeletionProtection"
-    VECTOR_SEARCH_CONFIGURATION = "VectorSearchConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_connectivity": "PublicConnectivity",
         "graph_name": "GraphName",
@@ -83,11 +75,6 @@ class PrivateGraphEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::NeptuneGraph::PrivateGraphEndpoint"
-    VPC_ID = "VpcId"
-    GRAPH_IDENTIFIER = "GraphIdentifier"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "graph_identifier": "GraphIdentifier",

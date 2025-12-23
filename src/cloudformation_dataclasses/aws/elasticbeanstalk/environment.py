@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OptionSetting(PropertyType):
-    RESOURCE_NAME = "ResourceName"
-    VALUE = "Value"
-    NAMESPACE = "Namespace"
-    OPTION_NAME = "OptionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_name": "ResourceName",
         "value": "Value",
@@ -31,10 +26,6 @@ class OptionSetting(PropertyType):
 
 @dataclass
 class Tier(PropertyType):
-    TYPE = "Type"
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "version": "Version",

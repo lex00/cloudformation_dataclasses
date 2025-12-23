@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccountRecoverySetting(PropertyType):
-    RECOVERY_MECHANISMS = "RecoveryMechanisms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recovery_mechanisms": "RecoveryMechanisms",
     }
@@ -22,10 +20,6 @@ class AccountRecoverySetting(PropertyType):
 
 @dataclass
 class AdminCreateUserConfig(PropertyType):
-    INVITE_MESSAGE_TEMPLATE = "InviteMessageTemplate"
-    UNUSED_ACCOUNT_VALIDITY_DAYS = "UnusedAccountValidityDays"
-    ALLOW_ADMIN_CREATE_USER_ONLY = "AllowAdminCreateUserOnly"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invite_message_template": "InviteMessageTemplate",
         "unused_account_validity_days": "UnusedAccountValidityDays",
@@ -39,8 +33,6 @@ class AdminCreateUserConfig(PropertyType):
 
 @dataclass
 class AdvancedSecurityAdditionalFlows(PropertyType):
-    CUSTOM_AUTH_MODE = "CustomAuthMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_auth_mode": "CustomAuthMode",
     }
@@ -50,9 +42,6 @@ class AdvancedSecurityAdditionalFlows(PropertyType):
 
 @dataclass
 class CustomEmailSender(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    LAMBDA_VERSION = "LambdaVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -64,9 +53,6 @@ class CustomEmailSender(PropertyType):
 
 @dataclass
 class CustomSMSSender(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    LAMBDA_VERSION = "LambdaVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -78,9 +64,6 @@ class CustomSMSSender(PropertyType):
 
 @dataclass
 class DeviceConfiguration(PropertyType):
-    DEVICE_ONLY_REMEMBERED_ON_USER_PROMPT = "DeviceOnlyRememberedOnUserPrompt"
-    CHALLENGE_REQUIRED_ON_NEW_DEVICE = "ChallengeRequiredOnNewDevice"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_only_remembered_on_user_prompt": "DeviceOnlyRememberedOnUserPrompt",
         "challenge_required_on_new_device": "ChallengeRequiredOnNewDevice",
@@ -92,12 +75,6 @@ class DeviceConfiguration(PropertyType):
 
 @dataclass
 class EmailConfiguration(PropertyType):
-    REPLY_TO_EMAIL_ADDRESS = "ReplyToEmailAddress"
-    CONFIGURATION_SET = "ConfigurationSet"
-    EMAIL_SENDING_ACCOUNT = "EmailSendingAccount"
-    SOURCE_ARN = "SourceArn"
-    FROM = "From"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reply_to_email_address": "ReplyToEmailAddress",
         "configuration_set": "ConfigurationSet",
@@ -115,10 +92,6 @@ class EmailConfiguration(PropertyType):
 
 @dataclass
 class InviteMessageTemplate(PropertyType):
-    EMAIL_MESSAGE = "EmailMessage"
-    SMS_MESSAGE = "SMSMessage"
-    EMAIL_SUBJECT = "EmailSubject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message": "EmailMessage",
         "sms_message": "SMSMessage",
@@ -132,21 +105,6 @@ class InviteMessageTemplate(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    CREATE_AUTH_CHALLENGE = "CreateAuthChallenge"
-    PRE_SIGN_UP = "PreSignUp"
-    KMS_KEY_ID = "KMSKeyID"
-    USER_MIGRATION = "UserMigration"
-    POST_AUTHENTICATION = "PostAuthentication"
-    VERIFY_AUTH_CHALLENGE_RESPONSE = "VerifyAuthChallengeResponse"
-    PRE_AUTHENTICATION = "PreAuthentication"
-    DEFINE_AUTH_CHALLENGE = "DefineAuthChallenge"
-    PRE_TOKEN_GENERATION = "PreTokenGeneration"
-    CUSTOM_SMS_SENDER = "CustomSMSSender"
-    POST_CONFIRMATION = "PostConfirmation"
-    CUSTOM_MESSAGE = "CustomMessage"
-    PRE_TOKEN_GENERATION_CONFIG = "PreTokenGenerationConfig"
-    CUSTOM_EMAIL_SENDER = "CustomEmailSender"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "create_auth_challenge": "CreateAuthChallenge",
         "pre_sign_up": "PreSignUp",
@@ -182,9 +140,6 @@ class LambdaConfig(PropertyType):
 
 @dataclass
 class NumberAttributeConstraints(PropertyType):
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -196,14 +151,6 @@ class NumberAttributeConstraints(PropertyType):
 
 @dataclass
 class PasswordPolicy(PropertyType):
-    REQUIRE_NUMBERS = "RequireNumbers"
-    MINIMUM_LENGTH = "MinimumLength"
-    TEMPORARY_PASSWORD_VALIDITY_DAYS = "TemporaryPasswordValidityDays"
-    REQUIRE_UPPERCASE = "RequireUppercase"
-    REQUIRE_LOWERCASE = "RequireLowercase"
-    REQUIRE_SYMBOLS = "RequireSymbols"
-    PASSWORD_HISTORY_SIZE = "PasswordHistorySize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_numbers": "RequireNumbers",
         "minimum_length": "MinimumLength",
@@ -225,9 +172,6 @@ class PasswordPolicy(PropertyType):
 
 @dataclass
 class Policies(PropertyType):
-    PASSWORD_POLICY = "PasswordPolicy"
-    SIGN_IN_POLICY = "SignInPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password_policy": "PasswordPolicy",
         "sign_in_policy": "SignInPolicy",
@@ -239,9 +183,6 @@ class Policies(PropertyType):
 
 @dataclass
 class PreTokenGenerationConfig(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    LAMBDA_VERSION = "LambdaVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -253,9 +194,6 @@ class PreTokenGenerationConfig(PropertyType):
 
 @dataclass
 class RecoveryOption(PropertyType):
-    PRIORITY = "Priority"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "name": "Name",
@@ -267,14 +205,6 @@ class RecoveryOption(PropertyType):
 
 @dataclass
 class SchemaAttribute(PropertyType):
-    DEVELOPER_ONLY_ATTRIBUTE = "DeveloperOnlyAttribute"
-    MUTABLE = "Mutable"
-    ATTRIBUTE_DATA_TYPE = "AttributeDataType"
-    STRING_ATTRIBUTE_CONSTRAINTS = "StringAttributeConstraints"
-    REQUIRED = "Required"
-    NUMBER_ATTRIBUTE_CONSTRAINTS = "NumberAttributeConstraints"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "developer_only_attribute": "DeveloperOnlyAttribute",
         "mutable": "Mutable",
@@ -296,8 +226,6 @@ class SchemaAttribute(PropertyType):
 
 @dataclass
 class SignInPolicy(PropertyType):
-    ALLOWED_FIRST_AUTH_FACTORS = "AllowedFirstAuthFactors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_first_auth_factors": "AllowedFirstAuthFactors",
     }
@@ -307,10 +235,6 @@ class SignInPolicy(PropertyType):
 
 @dataclass
 class SmsConfiguration(PropertyType):
-    SNS_REGION = "SnsRegion"
-    EXTERNAL_ID = "ExternalId"
-    SNS_CALLER_ARN = "SnsCallerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_region": "SnsRegion",
         "external_id": "ExternalId",
@@ -324,9 +248,6 @@ class SmsConfiguration(PropertyType):
 
 @dataclass
 class StringAttributeConstraints(PropertyType):
-    MIN_LENGTH = "MinLength"
-    MAX_LENGTH = "MaxLength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_length": "MinLength",
         "max_length": "MaxLength",
@@ -338,8 +259,6 @@ class StringAttributeConstraints(PropertyType):
 
 @dataclass
 class UserAttributeUpdateSettings(PropertyType):
-    ATTRIBUTES_REQUIRE_VERIFICATION_BEFORE_UPDATE = "AttributesRequireVerificationBeforeUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes_require_verification_before_update": "AttributesRequireVerificationBeforeUpdate",
     }
@@ -349,9 +268,6 @@ class UserAttributeUpdateSettings(PropertyType):
 
 @dataclass
 class UserPoolAddOns(PropertyType):
-    ADVANCED_SECURITY_ADDITIONAL_FLOWS = "AdvancedSecurityAdditionalFlows"
-    ADVANCED_SECURITY_MODE = "AdvancedSecurityMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_security_additional_flows": "AdvancedSecurityAdditionalFlows",
         "advanced_security_mode": "AdvancedSecurityMode",
@@ -363,8 +279,6 @@ class UserPoolAddOns(PropertyType):
 
 @dataclass
 class UsernameConfiguration(PropertyType):
-    CASE_SENSITIVE = "CaseSensitive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
     }
@@ -374,13 +288,6 @@ class UsernameConfiguration(PropertyType):
 
 @dataclass
 class VerificationMessageTemplate(PropertyType):
-    EMAIL_MESSAGE_BY_LINK = "EmailMessageByLink"
-    EMAIL_MESSAGE = "EmailMessage"
-    SMS_MESSAGE = "SmsMessage"
-    EMAIL_SUBJECT = "EmailSubject"
-    DEFAULT_EMAIL_OPTION = "DefaultEmailOption"
-    EMAIL_SUBJECT_BY_LINK = "EmailSubjectByLink"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message_by_link": "EmailMessageByLink",
         "email_message": "EmailMessage",

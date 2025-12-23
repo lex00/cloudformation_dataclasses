@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LakeFormation
@@ -265,14 +265,6 @@ class DataCellsFilter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::DataCellsFilter"
     name_field: ClassVar[str] = "name"
-    TABLE_NAME = "TableName"
-    COLUMN_NAMES = "ColumnNames"
-    ROW_FILTER = "RowFilter"
-    DATABASE_NAME = "DatabaseName"
-    TABLE_CATALOG_ID = "TableCatalogId"
-    NAME = "Name"
-    COLUMN_WILDCARD = "ColumnWildcard"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "column_names": "ColumnNames",
@@ -297,18 +289,6 @@ class DataLakeSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::DataLakeSettings"
-    ALLOW_EXTERNAL_DATA_FILTERING = "AllowExternalDataFiltering"
-    EXTERNAL_DATA_FILTERING_ALLOW_LIST = "ExternalDataFilteringAllowList"
-    CREATE_TABLE_DEFAULT_PERMISSIONS = "CreateTableDefaultPermissions"
-    MUTATION_TYPE = "MutationType"
-    PARAMETERS = "Parameters"
-    READ_ONLY_ADMINS = "ReadOnlyAdmins"
-    ALLOW_FULL_TABLE_EXTERNAL_DATA_ACCESS = "AllowFullTableExternalDataAccess"
-    ADMINS = "Admins"
-    CREATE_DATABASE_DEFAULT_PERMISSIONS = "CreateDatabaseDefaultPermissions"
-    AUTHORIZED_SESSION_TAG_VALUE_LIST = "AuthorizedSessionTagValueList"
-    TRUSTED_RESOURCE_OWNERS = "TrustedResourceOwners"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_external_data_filtering": "AllowExternalDataFiltering",
         "external_data_filtering_allow_list": "ExternalDataFilteringAllowList",
@@ -341,11 +321,6 @@ class Permissions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::Permissions"
-    DATA_LAKE_PRINCIPAL = "DataLakePrincipal"
-    RESOURCE = "Resource"
-    PERMISSIONS = "Permissions"
-    PERMISSIONS_WITH_GRANT_OPTION = "PermissionsWithGrantOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal": "DataLakePrincipal",
         "resource": "Resource",
@@ -364,12 +339,6 @@ class PrincipalPermissions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::PrincipalPermissions"
-    RESOURCE = "Resource"
-    PERMISSIONS = "Permissions"
-    CATALOG = "Catalog"
-    PRINCIPAL = "Principal"
-    PERMISSIONS_WITH_GRANT_OPTION = "PermissionsWithGrantOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "permissions": "Permissions",
@@ -401,12 +370,6 @@ class Resource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::Resource"
-    RESOURCE_ARN = "ResourceArn"
-    WITH_FEDERATION = "WithFederation"
-    USE_SERVICE_LINKED_ROLE = "UseServiceLinkedRole"
-    HYBRID_ACCESS_ENABLED = "HybridAccessEnabled"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "with_federation": "WithFederation",
@@ -427,10 +390,6 @@ class Tag(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::Tag"
-    TAG_KEY = "TagKey"
-    CATALOG_ID = "CatalogId"
-    TAG_VALUES = "TagValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "catalog_id": "CatalogId",
@@ -447,9 +406,6 @@ class TagAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakef"""
 
     resource_type: ClassVar[str] = "AWS::LakeFormation::TagAssociation"
-    LF_TAGS = "LFTags"
-    RESOURCE = "Resource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lf_tags": "LFTags",
         "resource": "Resource",

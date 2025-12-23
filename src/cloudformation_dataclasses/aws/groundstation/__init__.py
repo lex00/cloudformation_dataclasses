@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:59
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GroundStation
@@ -354,10 +354,6 @@ class Config(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GroundStation::Config"
     name_field: ClassVar[str] = "name"
-    CONFIG_DATA = "ConfigData"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_data": "ConfigData",
         "tags": "Tags",
@@ -390,11 +386,6 @@ class DataflowEndpointGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groun"""
 
     resource_type: ClassVar[str] = "AWS::GroundStation::DataflowEndpointGroup"
-    CONTACT_POST_PASS_DURATION_SECONDS = "ContactPostPassDurationSeconds"
-    ENDPOINT_DETAILS = "EndpointDetails"
-    TAGS = "Tags"
-    CONTACT_PRE_PASS_DURATION_SECONDS = "ContactPrePassDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_post_pass_duration_seconds": "ContactPostPassDurationSeconds",
         "endpoint_details": "EndpointDetails",
@@ -425,16 +416,6 @@ class MissionProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GroundStation::MissionProfile"
     name_field: ClassVar[str] = "name"
-    STREAMS_KMS_KEY = "StreamsKmsKey"
-    CONTACT_POST_PASS_DURATION_SECONDS = "ContactPostPassDurationSeconds"
-    MINIMUM_VIABLE_CONTACT_DURATION_SECONDS = "MinimumViableContactDurationSeconds"
-    DATAFLOW_EDGES = "DataflowEdges"
-    STREAMS_KMS_ROLE = "StreamsKmsRole"
-    TRACKING_CONFIG_ARN = "TrackingConfigArn"
-    TAGS = "Tags"
-    NAME = "Name"
-    CONTACT_PRE_PASS_DURATION_SECONDS = "ContactPrePassDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streams_kms_key": "StreamsKmsKey",
         "contact_post_pass_duration_seconds": "ContactPostPassDurationSeconds",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ProvisioningParameter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,14 +22,6 @@ class ProvisioningParameter(PropertyType):
 
 @dataclass
 class ProvisioningPreferences(PropertyType):
-    STACK_SET_ACCOUNTS = "StackSetAccounts"
-    STACK_SET_FAILURE_TOLERANCE_COUNT = "StackSetFailureToleranceCount"
-    STACK_SET_MAX_CONCURRENCY_PERCENTAGE = "StackSetMaxConcurrencyPercentage"
-    STACK_SET_MAX_CONCURRENCY_COUNT = "StackSetMaxConcurrencyCount"
-    STACK_SET_REGIONS = "StackSetRegions"
-    STACK_SET_OPERATION_TYPE = "StackSetOperationType"
-    STACK_SET_FAILURE_TOLERANCE_PERCENTAGE = "StackSetFailureTolerancePercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_set_accounts": "StackSetAccounts",
         "stack_set_failure_tolerance_count": "StackSetFailureToleranceCount",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionDefinition(PropertyType):
-    PUBLISH_METRIC_ACTION = "PublishMetricAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_metric_action": "PublishMetricAction",
     }
@@ -22,9 +20,6 @@ class ActionDefinition(PropertyType):
 
 @dataclass
 class CustomAction(PropertyType):
-    ACTION_NAME = "ActionName"
-    ACTION_DEFINITION = "ActionDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "action_definition": "ActionDefinition",
@@ -36,8 +31,6 @@ class CustomAction(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -47,17 +40,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class FirewallPolicy(PropertyType):
-    STATELESS_RULE_GROUP_REFERENCES = "StatelessRuleGroupReferences"
-    STATEFUL_RULE_GROUP_REFERENCES = "StatefulRuleGroupReferences"
-    ENABLE_TLS_SESSION_HOLDING = "EnableTLSSessionHolding"
-    STATELESS_DEFAULT_ACTIONS = "StatelessDefaultActions"
-    STATEFUL_ENGINE_OPTIONS = "StatefulEngineOptions"
-    STATELESS_CUSTOM_ACTIONS = "StatelessCustomActions"
-    STATELESS_FRAGMENT_DEFAULT_ACTIONS = "StatelessFragmentDefaultActions"
-    POLICY_VARIABLES = "PolicyVariables"
-    STATEFUL_DEFAULT_ACTIONS = "StatefulDefaultActions"
-    TLS_INSPECTION_CONFIGURATION_ARN = "TLSInspectionConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rule_group_references": "StatelessRuleGroupReferences",
         "stateful_rule_group_references": "StatefulRuleGroupReferences",
@@ -85,8 +67,6 @@ class FirewallPolicy(PropertyType):
 
 @dataclass
 class FlowTimeouts(PropertyType):
-    TCP_IDLE_TIMEOUT_SECONDS = "TcpIdleTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp_idle_timeout_seconds": "TcpIdleTimeoutSeconds",
     }
@@ -96,8 +76,6 @@ class FlowTimeouts(PropertyType):
 
 @dataclass
 class IPSet(PropertyType):
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -107,8 +85,6 @@ class IPSet(PropertyType):
 
 @dataclass
 class PolicyVariables(PropertyType):
-    RULE_VARIABLES = "RuleVariables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_variables": "RuleVariables",
     }
@@ -118,8 +94,6 @@ class PolicyVariables(PropertyType):
 
 @dataclass
 class PublishMetricAction(PropertyType):
-    DIMENSIONS = "Dimensions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimensions": "Dimensions",
     }
@@ -129,10 +103,6 @@ class PublishMetricAction(PropertyType):
 
 @dataclass
 class StatefulEngineOptions(PropertyType):
-    STREAM_EXCEPTION_POLICY = "StreamExceptionPolicy"
-    FLOW_TIMEOUTS = "FlowTimeouts"
-    RULE_ORDER = "RuleOrder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_exception_policy": "StreamExceptionPolicy",
         "flow_timeouts": "FlowTimeouts",
@@ -146,8 +116,6 @@ class StatefulEngineOptions(PropertyType):
 
 @dataclass
 class StatefulRuleGroupOverride(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -157,11 +125,6 @@ class StatefulRuleGroupOverride(PropertyType):
 
 @dataclass
 class StatefulRuleGroupReference(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    PRIORITY = "Priority"
-    OVERRIDE = "Override"
-    DEEP_THREAT_INSPECTION = "DeepThreatInspection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "priority": "Priority",
@@ -177,9 +140,6 @@ class StatefulRuleGroupReference(PropertyType):
 
 @dataclass
 class StatelessRuleGroupReference(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    PRIORITY = "Priority"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "priority": "Priority",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EventTriggerCondition(PropertyType):
-    EVENT_TRIGGER_DIMENSIONS = "EventTriggerDimensions"
-    LOGICAL_OPERATOR = "LogicalOperator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_trigger_dimensions": "EventTriggerDimensions",
         "logical_operator": "LogicalOperator",
@@ -25,8 +22,6 @@ class EventTriggerCondition(PropertyType):
 
 @dataclass
 class EventTriggerDimension(PropertyType):
-    OBJECT_ATTRIBUTES = "ObjectAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_attributes": "ObjectAttributes",
     }
@@ -36,9 +31,6 @@ class EventTriggerDimension(PropertyType):
 
 @dataclass
 class EventTriggerLimits(PropertyType):
-    PERIODS = "Periods"
-    EVENT_EXPIRATION = "EventExpiration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods": "Periods",
         "event_expiration": "EventExpiration",
@@ -50,11 +42,6 @@ class EventTriggerLimits(PropertyType):
 
 @dataclass
 class ObjectAttribute(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    VALUES = "Values"
-    FIELD_NAME = "FieldName"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "values": "Values",
@@ -70,11 +57,6 @@ class ObjectAttribute(PropertyType):
 
 @dataclass
 class Period(PropertyType):
-    MAX_INVOCATIONS_PER_PROFILE = "MaxInvocationsPerProfile"
-    VALUE = "Value"
-    UNLIMITED = "Unlimited"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_invocations_per_profile": "MaxInvocationsPerProfile",
         "value": "Value",

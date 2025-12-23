@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OptionConfiguration(PropertyType):
-    OPTION_VERSION = "OptionVersion"
-    VPC_SECURITY_GROUP_MEMBERSHIPS = "VpcSecurityGroupMemberships"
-    OPTION_SETTINGS = "OptionSettings"
-    PORT = "Port"
-    OPTION_NAME = "OptionName"
-    DB_SECURITY_GROUP_MEMBERSHIPS = "DBSecurityGroupMemberships"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "option_version": "OptionVersion",
         "vpc_security_group_memberships": "VpcSecurityGroupMemberships",
@@ -37,9 +30,6 @@ class OptionConfiguration(PropertyType):
 
 @dataclass
 class OptionSetting(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

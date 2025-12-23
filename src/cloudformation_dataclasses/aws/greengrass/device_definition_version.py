@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Device(PropertyType):
-    SYNC_SHADOW = "SyncShadow"
-    THING_ARN = "ThingArn"
-    ID = "Id"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_shadow": "SyncShadow",
         "thing_arn": "ThingArn",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:59
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IAM
@@ -424,10 +424,6 @@ class AccessKey(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::AccessKey"
     name_field: ClassVar[str] = "user_name"
-    SERIAL = "Serial"
-    STATUS = "Status"
-    USER_NAME = "UserName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "serial": "Serial",
         "status": "Status",
@@ -451,11 +447,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::Group"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    PATH = "Path"
-    MANAGED_POLICY_ARNS = "ManagedPolicyArns"
-    POLICIES = "Policies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "path": "Path",
@@ -481,10 +472,6 @@ class GroupPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::GroupPolicy"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "policy_name": "PolicyName",
@@ -502,10 +489,6 @@ class InstanceProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::InstanceProfile"
     name_field: ClassVar[str] = "instance_profile_name"
-    PATH = "Path"
-    INSTANCE_PROFILE_NAME = "InstanceProfileName"
-    ROLES = "Roles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "instance_profile_name": "InstanceProfileName",
@@ -529,14 +512,6 @@ class ManagedPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::ManagedPolicy"
     name_field: ClassVar[str] = "managed_policy_name"
-    MANAGED_POLICY_NAME = "ManagedPolicyName"
-    PATH = "Path"
-    DESCRIPTION = "Description"
-    GROUPS = "Groups"
-    POLICY_DOCUMENT = "PolicyDocument"
-    ROLES = "Roles"
-    USERS = "Users"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_policy_name": "ManagedPolicyName",
         "path": "Path",
@@ -602,11 +577,6 @@ class OIDCProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-o"""
 
     resource_type: ClassVar[str] = "AWS::IAM::OIDCProvider"
-    CLIENT_ID_LIST = "ClientIdList"
-    THUMBPRINT_LIST = "ThumbprintList"
-    URL = "Url"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_id_list": "ClientIdList",
         "thumbprint_list": "ThumbprintList",
@@ -632,12 +602,6 @@ class Policy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::Policy"
     name_field: ClassVar[str] = "policy_name"
-    GROUPS = "Groups"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-    ROLES = "Roles"
-    USERS = "Users"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "groups": "Groups",
         "policy_name": "PolicyName",
@@ -665,16 +629,6 @@ class Role(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::Role"
     name_field: ClassVar[str] = "role_name"
-    PATH = "Path"
-    MANAGED_POLICY_ARNS = "ManagedPolicyArns"
-    MAX_SESSION_DURATION = "MaxSessionDuration"
-    ROLE_NAME = "RoleName"
-    DESCRIPTION = "Description"
-    POLICIES = "Policies"
-    ASSUME_ROLE_POLICY_DOCUMENT = "AssumeRolePolicyDocument"
-    TAGS = "Tags"
-    PERMISSIONS_BOUNDARY = "PermissionsBoundary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "managed_policy_arns": "ManagedPolicyArns",
@@ -715,10 +669,6 @@ class RolePolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::RolePolicy"
     name_field: ClassVar[str] = "role_name"
-    ROLE_NAME = "RoleName"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_name": "RoleName",
         "policy_name": "PolicyName",
@@ -736,14 +686,6 @@ class SAMLProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::SAMLProvider"
     name_field: ClassVar[str] = "name"
-    ADD_PRIVATE_KEY = "AddPrivateKey"
-    REMOVE_PRIVATE_KEY = "RemovePrivateKey"
-    ASSERTION_ENCRYPTION_MODE = "AssertionEncryptionMode"
-    SAML_METADATA_DOCUMENT = "SamlMetadataDocument"
-    PRIVATE_KEY_LIST = "PrivateKeyList"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "add_private_key": "AddPrivateKey",
         "remove_private_key": "RemovePrivateKey",
@@ -780,13 +722,6 @@ class ServerCertificate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::ServerCertificate"
     name_field: ClassVar[str] = "server_certificate_name"
-    CERTIFICATE_BODY = "CertificateBody"
-    PATH = "Path"
-    PRIVATE_KEY = "PrivateKey"
-    CERTIFICATE_CHAIN = "CertificateChain"
-    SERVER_CERTIFICATE_NAME = "ServerCertificateName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_body": "CertificateBody",
         "path": "Path",
@@ -816,10 +751,6 @@ class ServiceLinkedRole(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::ServiceLinkedRole"
     name_field: ClassVar[str] = "aws_service_name"
-    CUSTOM_SUFFIX = "CustomSuffix"
-    DESCRIPTION = "Description"
-    AWS_SERVICE_NAME = "AWSServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_suffix": "CustomSuffix",
         "description": "Description",
@@ -843,15 +774,6 @@ class User(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::User"
     name_field: ClassVar[str] = "user_name"
-    PATH = "Path"
-    MANAGED_POLICY_ARNS = "ManagedPolicyArns"
-    POLICIES = "Policies"
-    USER_NAME = "UserName"
-    GROUPS = "Groups"
-    LOGIN_PROFILE = "LoginProfile"
-    TAGS = "Tags"
-    PERMISSIONS_BOUNDARY = "PermissionsBoundary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "managed_policy_arns": "ManagedPolicyArns",
@@ -885,10 +807,6 @@ class UserPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::UserPolicy"
     name_field: ClassVar[str] = "user_name"
-    USER_NAME = "UserName"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_name": "UserName",
         "policy_name": "PolicyName",
@@ -906,9 +824,6 @@ class UserToGroupAddition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::UserToGroupAddition"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    USERS = "Users"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "users": "Users",
@@ -924,11 +839,6 @@ class VirtualMFADevice(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IAM::VirtualMFADevice"
     name_field: ClassVar[str] = "virtual_mfa_device_name"
-    PATH = "Path"
-    VIRTUAL_MFA_DEVICE_NAME = "VirtualMfaDeviceName"
-    USERS = "Users"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "virtual_mfa_device_name": "VirtualMfaDeviceName",

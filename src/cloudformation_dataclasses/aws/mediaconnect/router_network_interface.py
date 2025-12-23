@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PublicRouterNetworkInterfaceConfiguration(PropertyType):
-    ALLOW_RULES = "AllowRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_rules": "AllowRules",
     }
@@ -22,8 +20,6 @@ class PublicRouterNetworkInterfaceConfiguration(PropertyType):
 
 @dataclass
 class PublicRouterNetworkInterfaceRule(PropertyType):
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -33,9 +29,6 @@ class PublicRouterNetworkInterfaceRule(PropertyType):
 
 @dataclass
 class RouterNetworkInterfaceConfiguration(PropertyType):
-    VPC = "Vpc"
-    PUBLIC = "Public"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc": "Vpc",
         "public": "Public",
@@ -47,9 +40,6 @@ class RouterNetworkInterfaceConfiguration(PropertyType):
 
 @dataclass
 class VpcRouterNetworkInterfaceConfiguration(PropertyType):
-    SUBNET_ID = "SubnetId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id": "SubnetId",
         "security_group_ids": "SecurityGroupIds",

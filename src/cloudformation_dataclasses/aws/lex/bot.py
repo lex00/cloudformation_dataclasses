@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdvancedRecognitionSetting(PropertyType):
-    AUDIO_RECOGNITION_STRATEGY = "AudioRecognitionStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_recognition_strategy": "AudioRecognitionStrategy",
     }
@@ -22,9 +20,6 @@ class AdvancedRecognitionSetting(PropertyType):
 
 @dataclass
 class AllowedInputTypes(PropertyType):
-    ALLOW_DTMF_INPUT = "AllowDTMFInput"
-    ALLOW_AUDIO_INPUT = "AllowAudioInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_dtmf_input": "AllowDTMFInput",
         "allow_audio_input": "AllowAudioInput",
@@ -36,10 +31,6 @@ class AllowedInputTypes(PropertyType):
 
 @dataclass
 class AudioAndDTMFInputSpecification(PropertyType):
-    DTMF_SPECIFICATION = "DTMFSpecification"
-    AUDIO_SPECIFICATION = "AudioSpecification"
-    START_TIMEOUT_MS = "StartTimeoutMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dtmf_specification": "DTMFSpecification",
         "audio_specification": "AudioSpecification",
@@ -53,8 +44,6 @@ class AudioAndDTMFInputSpecification(PropertyType):
 
 @dataclass
 class AudioLogDestination(PropertyType):
-    S3_BUCKET = "S3Bucket"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
     }
@@ -64,9 +53,6 @@ class AudioLogDestination(PropertyType):
 
 @dataclass
 class AudioLogSetting(PropertyType):
-    DESTINATION = "Destination"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -78,9 +64,6 @@ class AudioLogSetting(PropertyType):
 
 @dataclass
 class AudioSpecification(PropertyType):
-    END_TIMEOUT_MS = "EndTimeoutMs"
-    MAX_LENGTH_MS = "MaxLengthMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_timeout_ms": "EndTimeoutMs",
         "max_length_ms": "MaxLengthMs",
@@ -92,8 +75,6 @@ class AudioSpecification(PropertyType):
 
 @dataclass
 class BKBExactResponseFields(PropertyType):
-    ANSWER_FIELD = "AnswerField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_field": "AnswerField",
     }
@@ -103,9 +84,6 @@ class BKBExactResponseFields(PropertyType):
 
 @dataclass
 class BedrockAgentConfiguration(PropertyType):
-    BEDROCK_AGENT_ID = "BedrockAgentId"
-    BEDROCK_AGENT_ALIAS_ID = "BedrockAgentAliasId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_agent_id": "BedrockAgentId",
         "bedrock_agent_alias_id": "BedrockAgentAliasId",
@@ -117,9 +95,6 @@ class BedrockAgentConfiguration(PropertyType):
 
 @dataclass
 class BedrockAgentIntentConfiguration(PropertyType):
-    BEDROCK_AGENT_CONFIGURATION = "BedrockAgentConfiguration"
-    BEDROCK_AGENT_INTENT_KNOWLEDGE_BASE_CONFIGURATION = "BedrockAgentIntentKnowledgeBaseConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_agent_configuration": "BedrockAgentConfiguration",
         "bedrock_agent_intent_knowledge_base_configuration": "BedrockAgentIntentKnowledgeBaseConfiguration",
@@ -131,9 +106,6 @@ class BedrockAgentIntentConfiguration(PropertyType):
 
 @dataclass
 class BedrockAgentIntentKnowledgeBaseConfiguration(PropertyType):
-    BEDROCK_MODEL_CONFIGURATION = "BedrockModelConfiguration"
-    BEDROCK_KNOWLEDGE_BASE_ARN = "BedrockKnowledgeBaseArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_model_configuration": "BedrockModelConfiguration",
         "bedrock_knowledge_base_arn": "BedrockKnowledgeBaseArn",
@@ -145,9 +117,6 @@ class BedrockAgentIntentKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class BedrockGuardrailConfiguration(PropertyType):
-    BEDROCK_GUARDRAIL_VERSION = "BedrockGuardrailVersion"
-    BEDROCK_GUARDRAIL_IDENTIFIER = "BedrockGuardrailIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_guardrail_version": "BedrockGuardrailVersion",
         "bedrock_guardrail_identifier": "BedrockGuardrailIdentifier",
@@ -159,10 +128,6 @@ class BedrockGuardrailConfiguration(PropertyType):
 
 @dataclass
 class BedrockKnowledgeStoreConfiguration(PropertyType):
-    BKB_EXACT_RESPONSE_FIELDS = "BKBExactResponseFields"
-    EXACT_RESPONSE = "ExactResponse"
-    BEDROCK_KNOWLEDGE_BASE_ARN = "BedrockKnowledgeBaseArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bkb_exact_response_fields": "BKBExactResponseFields",
         "exact_response": "ExactResponse",
@@ -176,11 +141,6 @@ class BedrockKnowledgeStoreConfiguration(PropertyType):
 
 @dataclass
 class BedrockModelSpecification(PropertyType):
-    MODEL_ARN = "ModelArn"
-    BEDROCK_TRACE_STATUS = "BedrockTraceStatus"
-    BEDROCK_MODEL_CUSTOM_PROMPT = "BedrockModelCustomPrompt"
-    BEDROCK_GUARDRAIL_CONFIGURATION = "BedrockGuardrailConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "bedrock_trace_status": "BedrockTraceStatus",
@@ -196,9 +156,6 @@ class BedrockModelSpecification(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettings(PropertyType):
-    CODE_HOOK_SPECIFICATION = "CodeHookSpecification"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook_specification": "CodeHookSpecification",
         "enabled": "Enabled",
@@ -210,9 +167,6 @@ class BotAliasLocaleSettings(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettingsItem(PropertyType):
-    LOCALE_ID = "LocaleId"
-    BOT_ALIAS_LOCALE_SETTING = "BotAliasLocaleSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
@@ -224,15 +178,6 @@ class BotAliasLocaleSettingsItem(PropertyType):
 
 @dataclass
 class BotLocale(PropertyType):
-    NLU_CONFIDENCE_THRESHOLD = "NluConfidenceThreshold"
-    LOCALE_ID = "LocaleId"
-    DESCRIPTION = "Description"
-    GENERATIVE_AI_SETTINGS = "GenerativeAISettings"
-    CUSTOM_VOCABULARY = "CustomVocabulary"
-    SLOT_TYPES = "SlotTypes"
-    INTENTS = "Intents"
-    VOICE_SETTINGS = "VoiceSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nlu_confidence_threshold": "NluConfidenceThreshold",
         "locale_id": "LocaleId",
@@ -256,9 +201,6 @@ class BotLocale(PropertyType):
 
 @dataclass
 class BuildtimeSettings(PropertyType):
-    DESCRIPTIVE_BOT_BUILDER_SPECIFICATION = "DescriptiveBotBuilderSpecification"
-    SAMPLE_UTTERANCE_GENERATION_SPECIFICATION = "SampleUtteranceGenerationSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "descriptive_bot_builder_specification": "DescriptiveBotBuilderSpecification",
         "sample_utterance_generation_specification": "SampleUtteranceGenerationSpecification",
@@ -270,9 +212,6 @@ class BuildtimeSettings(PropertyType):
 
 @dataclass
 class Button(PropertyType):
-    VALUE = "Value"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "text": "Text",
@@ -284,9 +223,6 @@ class Button(PropertyType):
 
 @dataclass
 class CloudWatchLogGroupLogDestination(PropertyType):
-    CLOUD_WATCH_LOG_GROUP_ARN = "CloudWatchLogGroupArn"
-    LOG_PREFIX = "LogPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_group_arn": "CloudWatchLogGroupArn",
         "log_prefix": "LogPrefix",
@@ -298,8 +234,6 @@ class CloudWatchLogGroupLogDestination(PropertyType):
 
 @dataclass
 class CodeHookSpecification(PropertyType):
-    LAMBDA_CODE_HOOK = "LambdaCodeHook"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_code_hook": "LambdaCodeHook",
     }
@@ -309,8 +243,6 @@ class CodeHookSpecification(PropertyType):
 
 @dataclass
 class CompositeSlotTypeSetting(PropertyType):
-    SUB_SLOTS = "SubSlots"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_slots": "SubSlots",
     }
@@ -320,8 +252,6 @@ class CompositeSlotTypeSetting(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    EXPRESSION_STRING = "ExpressionString"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression_string": "ExpressionString",
     }
@@ -331,11 +261,6 @@ class Condition(PropertyType):
 
 @dataclass
 class ConditionalBranch(PropertyType):
-    CONDITION = "Condition"
-    RESPONSE = "Response"
-    NAME = "Name"
-    NEXT_STEP = "NextStep"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "response": "Response",
@@ -351,10 +276,6 @@ class ConditionalBranch(PropertyType):
 
 @dataclass
 class ConditionalSpecification(PropertyType):
-    DEFAULT_BRANCH = "DefaultBranch"
-    IS_ACTIVE = "IsActive"
-    CONDITIONAL_BRANCHES = "ConditionalBranches"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_branch": "DefaultBranch",
         "is_active": "IsActive",
@@ -368,9 +289,6 @@ class ConditionalSpecification(PropertyType):
 
 @dataclass
 class ConversationLogSettings(PropertyType):
-    TEXT_LOG_SETTINGS = "TextLogSettings"
-    AUDIO_LOG_SETTINGS = "AudioLogSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_log_settings": "TextLogSettings",
         "audio_log_settings": "AudioLogSettings",
@@ -382,8 +300,6 @@ class ConversationLogSettings(PropertyType):
 
 @dataclass
 class CustomPayload(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -393,8 +309,6 @@ class CustomPayload(PropertyType):
 
 @dataclass
 class CustomVocabulary(PropertyType):
-    CUSTOM_VOCABULARY_ITEMS = "CustomVocabularyItems"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_vocabulary_items": "CustomVocabularyItems",
     }
@@ -404,10 +318,6 @@ class CustomVocabulary(PropertyType):
 
 @dataclass
 class CustomVocabularyItem(PropertyType):
-    DISPLAY_AS = "DisplayAs"
-    PHRASE = "Phrase"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "phrase": "Phrase",
@@ -421,11 +331,6 @@ class CustomVocabularyItem(PropertyType):
 
 @dataclass
 class DTMFSpecification(PropertyType):
-    DELETION_CHARACTER = "DeletionCharacter"
-    END_TIMEOUT_MS = "EndTimeoutMs"
-    END_CHARACTER = "EndCharacter"
-    MAX_LENGTH = "MaxLength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deletion_character": "DeletionCharacter",
         "end_timeout_ms": "EndTimeoutMs",
@@ -441,8 +346,6 @@ class DTMFSpecification(PropertyType):
 
 @dataclass
 class DataPrivacy(PropertyType):
-    CHILD_DIRECTED = "ChildDirected"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "child_directed": "ChildDirected",
     }
@@ -452,10 +355,6 @@ class DataPrivacy(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    BEDROCK_KNOWLEDGE_STORE_CONFIGURATION = "BedrockKnowledgeStoreConfiguration"
-    KENDRA_CONFIGURATION = "KendraConfiguration"
-    OPENSEARCH_CONFIGURATION = "OpensearchConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_knowledge_store_configuration": "BedrockKnowledgeStoreConfiguration",
         "kendra_configuration": "KendraConfiguration",
@@ -469,9 +368,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class DefaultConditionalBranch(PropertyType):
-    RESPONSE = "Response"
-    NEXT_STEP = "NextStep"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response": "Response",
         "next_step": "NextStep",
@@ -483,9 +379,6 @@ class DefaultConditionalBranch(PropertyType):
 
 @dataclass
 class DescriptiveBotBuilderSpecification(PropertyType):
-    ENABLED = "Enabled"
-    BEDROCK_MODEL_SPECIFICATION = "BedrockModelSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -497,10 +390,6 @@ class DescriptiveBotBuilderSpecification(PropertyType):
 
 @dataclass
 class DialogAction(PropertyType):
-    TYPE = "Type"
-    SLOT_TO_ELICIT = "SlotToElicit"
-    SUPPRESS_NEXT_MESSAGE = "SuppressNextMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "slot_to_elicit": "SlotToElicit",
@@ -514,11 +403,6 @@ class DialogAction(PropertyType):
 
 @dataclass
 class DialogCodeHookInvocationSetting(PropertyType):
-    ENABLE_CODE_HOOK_INVOCATION = "EnableCodeHookInvocation"
-    INVOCATION_LABEL = "InvocationLabel"
-    IS_ACTIVE = "IsActive"
-    POST_CODE_HOOK_SPECIFICATION = "PostCodeHookSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_code_hook_invocation": "EnableCodeHookInvocation",
         "invocation_label": "InvocationLabel",
@@ -534,8 +418,6 @@ class DialogCodeHookInvocationSetting(PropertyType):
 
 @dataclass
 class DialogCodeHookSetting(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -545,10 +427,6 @@ class DialogCodeHookSetting(PropertyType):
 
 @dataclass
 class DialogState(PropertyType):
-    DIALOG_ACTION = "DialogAction"
-    SESSION_ATTRIBUTES = "SessionAttributes"
-    INTENT = "Intent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialog_action": "DialogAction",
         "session_attributes": "SessionAttributes",
@@ -562,9 +440,6 @@ class DialogState(PropertyType):
 
 @dataclass
 class ElicitationCodeHookInvocationSetting(PropertyType):
-    ENABLE_CODE_HOOK_INVOCATION = "EnableCodeHookInvocation"
-    INVOCATION_LABEL = "InvocationLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_code_hook_invocation": "EnableCodeHookInvocation",
         "invocation_label": "InvocationLabel",
@@ -576,8 +451,6 @@ class ElicitationCodeHookInvocationSetting(PropertyType):
 
 @dataclass
 class ErrorLogSettings(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -587,9 +460,6 @@ class ErrorLogSettings(PropertyType):
 
 @dataclass
 class ExactResponseFields(PropertyType):
-    QUESTION_FIELD = "QuestionField"
-    ANSWER_FIELD = "AnswerField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "question_field": "QuestionField",
         "answer_field": "AnswerField",
@@ -601,8 +471,6 @@ class ExactResponseFields(PropertyType):
 
 @dataclass
 class ExternalSourceSetting(PropertyType):
-    GRAMMAR_SLOT_TYPE_SETTING = "GrammarSlotTypeSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grammar_slot_type_setting": "GrammarSlotTypeSetting",
     }
@@ -612,11 +480,6 @@ class ExternalSourceSetting(PropertyType):
 
 @dataclass
 class FulfillmentCodeHookSetting(PropertyType):
-    POST_FULFILLMENT_STATUS_SPECIFICATION = "PostFulfillmentStatusSpecification"
-    FULFILLMENT_UPDATES_SPECIFICATION = "FulfillmentUpdatesSpecification"
-    IS_ACTIVE = "IsActive"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_fulfillment_status_specification": "PostFulfillmentStatusSpecification",
         "fulfillment_updates_specification": "FulfillmentUpdatesSpecification",
@@ -632,10 +495,6 @@ class FulfillmentCodeHookSetting(PropertyType):
 
 @dataclass
 class FulfillmentStartResponseSpecification(PropertyType):
-    DELAY_IN_SECONDS = "DelayInSeconds"
-    MESSAGE_GROUPS = "MessageGroups"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delay_in_seconds": "DelayInSeconds",
         "message_groups": "MessageGroups",
@@ -649,10 +508,6 @@ class FulfillmentStartResponseSpecification(PropertyType):
 
 @dataclass
 class FulfillmentUpdateResponseSpecification(PropertyType):
-    MESSAGE_GROUPS = "MessageGroups"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-    FREQUENCY_IN_SECONDS = "FrequencyInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups": "MessageGroups",
         "allow_interrupt": "AllowInterrupt",
@@ -666,11 +521,6 @@ class FulfillmentUpdateResponseSpecification(PropertyType):
 
 @dataclass
 class FulfillmentUpdatesSpecification(PropertyType):
-    UPDATE_RESPONSE = "UpdateResponse"
-    ACTIVE = "Active"
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    START_RESPONSE = "StartResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_response": "UpdateResponse",
         "active": "Active",
@@ -686,9 +536,6 @@ class FulfillmentUpdatesSpecification(PropertyType):
 
 @dataclass
 class GenerativeAISettings(PropertyType):
-    RUNTIME_SETTINGS = "RuntimeSettings"
-    BUILDTIME_SETTINGS = "BuildtimeSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_settings": "RuntimeSettings",
         "buildtime_settings": "BuildtimeSettings",
@@ -700,8 +547,6 @@ class GenerativeAISettings(PropertyType):
 
 @dataclass
 class GrammarSlotTypeSetting(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -711,10 +556,6 @@ class GrammarSlotTypeSetting(PropertyType):
 
 @dataclass
 class GrammarSlotTypeSource(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    S3_BUCKET_NAME = "S3BucketName"
-    S3_OBJECT_KEY = "S3ObjectKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "s3_bucket_name": "S3BucketName",
@@ -728,11 +569,6 @@ class GrammarSlotTypeSource(PropertyType):
 
 @dataclass
 class ImageResponseCard(PropertyType):
-    SUBTITLE = "Subtitle"
-    TITLE = "Title"
-    IMAGE_URL = "ImageUrl"
-    BUTTONS = "Buttons"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "title": "Title",
@@ -748,11 +584,6 @@ class ImageResponseCard(PropertyType):
 
 @dataclass
 class InitialResponseSetting(PropertyType):
-    CODE_HOOK = "CodeHook"
-    INITIAL_RESPONSE = "InitialResponse"
-    CONDITIONAL = "Conditional"
-    NEXT_STEP = "NextStep"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook": "CodeHook",
         "initial_response": "InitialResponse",
@@ -768,8 +599,6 @@ class InitialResponseSetting(PropertyType):
 
 @dataclass
 class InputContext(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -779,24 +608,6 @@ class InputContext(PropertyType):
 
 @dataclass
 class Intent(PropertyType):
-    Q_IN_CONNECT_INTENT_CONFIGURATION = "QInConnectIntentConfiguration"
-    DESCRIPTION = "Description"
-    PARENT_INTENT_SIGNATURE = "ParentIntentSignature"
-    INITIAL_RESPONSE_SETTING = "InitialResponseSetting"
-    BEDROCK_AGENT_INTENT_CONFIGURATION = "BedrockAgentIntentConfiguration"
-    FULFILLMENT_CODE_HOOK = "FulfillmentCodeHook"
-    INTENT_CONFIRMATION_SETTING = "IntentConfirmationSetting"
-    NAME = "Name"
-    SLOTS = "Slots"
-    QN_A_INTENT_CONFIGURATION = "QnAIntentConfiguration"
-    DIALOG_CODE_HOOK = "DialogCodeHook"
-    INPUT_CONTEXTS = "InputContexts"
-    KENDRA_CONFIGURATION = "KendraConfiguration"
-    INTENT_CLOSING_SETTING = "IntentClosingSetting"
-    OUTPUT_CONTEXTS = "OutputContexts"
-    SLOT_PRIORITIES = "SlotPriorities"
-    SAMPLE_UTTERANCES = "SampleUtterances"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_in_connect_intent_configuration": "QInConnectIntentConfiguration",
         "description": "Description",
@@ -838,11 +649,6 @@ class Intent(PropertyType):
 
 @dataclass
 class IntentClosingSetting(PropertyType):
-    IS_ACTIVE = "IsActive"
-    CLOSING_RESPONSE = "ClosingResponse"
-    CONDITIONAL = "Conditional"
-    NEXT_STEP = "NextStep"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_active": "IsActive",
         "closing_response": "ClosingResponse",
@@ -858,20 +664,6 @@ class IntentClosingSetting(PropertyType):
 
 @dataclass
 class IntentConfirmationSetting(PropertyType):
-    PROMPT_SPECIFICATION = "PromptSpecification"
-    CONFIRMATION_RESPONSE = "ConfirmationResponse"
-    DECLINATION_CONDITIONAL = "DeclinationConditional"
-    FAILURE_CONDITIONAL = "FailureConditional"
-    CONFIRMATION_CONDITIONAL = "ConfirmationConditional"
-    IS_ACTIVE = "IsActive"
-    FAILURE_RESPONSE = "FailureResponse"
-    CODE_HOOK = "CodeHook"
-    DECLINATION_NEXT_STEP = "DeclinationNextStep"
-    ELICITATION_CODE_HOOK = "ElicitationCodeHook"
-    CONFIRMATION_NEXT_STEP = "ConfirmationNextStep"
-    FAILURE_NEXT_STEP = "FailureNextStep"
-    DECLINATION_RESPONSE = "DeclinationResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "confirmation_response": "ConfirmationResponse",
@@ -905,9 +697,6 @@ class IntentConfirmationSetting(PropertyType):
 
 @dataclass
 class IntentOverride(PropertyType):
-    SLOTS = "Slots"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slots": "Slots",
         "name": "Name",
@@ -919,10 +708,6 @@ class IntentOverride(PropertyType):
 
 @dataclass
 class KendraConfiguration(PropertyType):
-    QUERY_FILTER_STRING = "QueryFilterString"
-    QUERY_FILTER_STRING_ENABLED = "QueryFilterStringEnabled"
-    KENDRA_INDEX = "KendraIndex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_filter_string": "QueryFilterString",
         "query_filter_string_enabled": "QueryFilterStringEnabled",
@@ -936,9 +721,6 @@ class KendraConfiguration(PropertyType):
 
 @dataclass
 class LambdaCodeHook(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    CODE_HOOK_INTERFACE_VERSION = "CodeHookInterfaceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "code_hook_interface_version": "CodeHookInterfaceVersion",
@@ -950,11 +732,6 @@ class LambdaCodeHook(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    CUSTOM_PAYLOAD = "CustomPayload"
-    IMAGE_RESPONSE_CARD = "ImageResponseCard"
-    PLAIN_TEXT_MESSAGE = "PlainTextMessage"
-    SSML_MESSAGE = "SSMLMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_payload": "CustomPayload",
         "image_response_card": "ImageResponseCard",
@@ -970,9 +747,6 @@ class Message(PropertyType):
 
 @dataclass
 class MessageGroup(PropertyType):
-    MESSAGE = "Message"
-    VARIATIONS = "Variations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "variations": "Variations",
@@ -984,8 +758,6 @@ class MessageGroup(PropertyType):
 
 @dataclass
 class MultipleValuesSetting(PropertyType):
-    ALLOW_MULTIPLE_VALUES = "AllowMultipleValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_multiple_values": "AllowMultipleValues",
     }
@@ -995,8 +767,6 @@ class MultipleValuesSetting(PropertyType):
 
 @dataclass
 class NluImprovementSpecification(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1006,8 +776,6 @@ class NluImprovementSpecification(PropertyType):
 
 @dataclass
 class ObfuscationSetting(PropertyType):
-    OBFUSCATION_SETTING_TYPE = "ObfuscationSettingType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "obfuscation_setting_type": "ObfuscationSettingType",
     }
@@ -1017,12 +785,6 @@ class ObfuscationSetting(PropertyType):
 
 @dataclass
 class OpensearchConfiguration(PropertyType):
-    INDEX_NAME = "IndexName"
-    DOMAIN_ENDPOINT = "DomainEndpoint"
-    EXACT_RESPONSE_FIELDS = "ExactResponseFields"
-    EXACT_RESPONSE = "ExactResponse"
-    INCLUDE_FIELDS = "IncludeFields"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "domain_endpoint": "DomainEndpoint",
@@ -1040,10 +802,6 @@ class OpensearchConfiguration(PropertyType):
 
 @dataclass
 class OutputContext(PropertyType):
-    TURNS_TO_LIVE = "TurnsToLive"
-    TIME_TO_LIVE_IN_SECONDS = "TimeToLiveInSeconds"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "turns_to_live": "TurnsToLive",
         "time_to_live_in_seconds": "TimeToLiveInSeconds",
@@ -1057,8 +815,6 @@ class OutputContext(PropertyType):
 
 @dataclass
 class PlainTextMessage(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1068,16 +824,6 @@ class PlainTextMessage(PropertyType):
 
 @dataclass
 class PostDialogCodeHookInvocationSpecification(PropertyType):
-    SUCCESS_RESPONSE = "SuccessResponse"
-    FAILURE_CONDITIONAL = "FailureConditional"
-    TIMEOUT_NEXT_STEP = "TimeoutNextStep"
-    SUCCESS_CONDITIONAL = "SuccessConditional"
-    TIMEOUT_RESPONSE = "TimeoutResponse"
-    SUCCESS_NEXT_STEP = "SuccessNextStep"
-    FAILURE_RESPONSE = "FailureResponse"
-    FAILURE_NEXT_STEP = "FailureNextStep"
-    TIMEOUT_CONDITIONAL = "TimeoutConditional"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_response": "SuccessResponse",
         "failure_conditional": "FailureConditional",
@@ -1103,16 +849,6 @@ class PostDialogCodeHookInvocationSpecification(PropertyType):
 
 @dataclass
 class PostFulfillmentStatusSpecification(PropertyType):
-    SUCCESS_RESPONSE = "SuccessResponse"
-    FAILURE_CONDITIONAL = "FailureConditional"
-    TIMEOUT_NEXT_STEP = "TimeoutNextStep"
-    SUCCESS_CONDITIONAL = "SuccessConditional"
-    TIMEOUT_RESPONSE = "TimeoutResponse"
-    SUCCESS_NEXT_STEP = "SuccessNextStep"
-    FAILURE_RESPONSE = "FailureResponse"
-    FAILURE_NEXT_STEP = "FailureNextStep"
-    TIMEOUT_CONDITIONAL = "TimeoutConditional"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_response": "SuccessResponse",
         "failure_conditional": "FailureConditional",
@@ -1138,11 +874,6 @@ class PostFulfillmentStatusSpecification(PropertyType):
 
 @dataclass
 class PromptAttemptSpecification(PropertyType):
-    TEXT_INPUT_SPECIFICATION = "TextInputSpecification"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-    ALLOWED_INPUT_TYPES = "AllowedInputTypes"
-    AUDIO_AND_DTMF_INPUT_SPECIFICATION = "AudioAndDTMFInputSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_input_specification": "TextInputSpecification",
         "allow_interrupt": "AllowInterrupt",
@@ -1158,12 +889,6 @@ class PromptAttemptSpecification(PropertyType):
 
 @dataclass
 class PromptSpecification(PropertyType):
-    MAX_RETRIES = "MaxRetries"
-    MESSAGE_GROUPS_LIST = "MessageGroupsList"
-    PROMPT_ATTEMPTS_SPECIFICATION = "PromptAttemptsSpecification"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-    MESSAGE_SELECTION_STRATEGY = "MessageSelectionStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "message_groups_list": "MessageGroupsList",
@@ -1181,8 +906,6 @@ class PromptSpecification(PropertyType):
 
 @dataclass
 class QInConnectAssistantConfiguration(PropertyType):
-    ASSISTANT_ARN = "AssistantArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assistant_arn": "AssistantArn",
     }
@@ -1192,8 +915,6 @@ class QInConnectAssistantConfiguration(PropertyType):
 
 @dataclass
 class QInConnectIntentConfiguration(PropertyType):
-    Q_IN_CONNECT_ASSISTANT_CONFIGURATION = "QInConnectAssistantConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_in_connect_assistant_configuration": "QInConnectAssistantConfiguration",
     }
@@ -1203,9 +924,6 @@ class QInConnectIntentConfiguration(PropertyType):
 
 @dataclass
 class QnAIntentConfiguration(PropertyType):
-    BEDROCK_MODEL_CONFIGURATION = "BedrockModelConfiguration"
-    DATA_SOURCE_CONFIGURATION = "DataSourceConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_model_configuration": "BedrockModelConfiguration",
         "data_source_configuration": "DataSourceConfiguration",
@@ -1217,11 +935,6 @@ class QnAIntentConfiguration(PropertyType):
 
 @dataclass
 class QnAKendraConfiguration(PropertyType):
-    QUERY_FILTER_STRING = "QueryFilterString"
-    QUERY_FILTER_STRING_ENABLED = "QueryFilterStringEnabled"
-    KENDRA_INDEX = "KendraIndex"
-    EXACT_RESPONSE = "ExactResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_filter_string": "QueryFilterString",
         "query_filter_string_enabled": "QueryFilterStringEnabled",
@@ -1237,8 +950,6 @@ class QnAKendraConfiguration(PropertyType):
 
 @dataclass
 class Replication(PropertyType):
-    REPLICA_REGIONS = "ReplicaRegions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_regions": "ReplicaRegions",
     }
@@ -1248,9 +959,6 @@ class Replication(PropertyType):
 
 @dataclass
 class ResponseSpecification(PropertyType):
-    MESSAGE_GROUPS_LIST = "MessageGroupsList"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups_list": "MessageGroupsList",
         "allow_interrupt": "AllowInterrupt",
@@ -1262,9 +970,6 @@ class ResponseSpecification(PropertyType):
 
 @dataclass
 class RuntimeSettings(PropertyType):
-    SLOT_RESOLUTION_IMPROVEMENT_SPECIFICATION = "SlotResolutionImprovementSpecification"
-    NLU_IMPROVEMENT_SPECIFICATION = "NluImprovementSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_resolution_improvement_specification": "SlotResolutionImprovementSpecification",
         "nlu_improvement_specification": "NluImprovementSpecification",
@@ -1276,10 +981,6 @@ class RuntimeSettings(PropertyType):
 
 @dataclass
 class S3BucketLogDestination(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    LOG_PREFIX = "LogPrefix"
-    S3_BUCKET_ARN = "S3BucketArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "log_prefix": "LogPrefix",
@@ -1293,10 +994,6 @@ class S3BucketLogDestination(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    S3_OBJECT_VERSION = "S3ObjectVersion"
-    S3_BUCKET = "S3Bucket"
-    S3_OBJECT_KEY = "S3ObjectKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_object_version": "S3ObjectVersion",
         "s3_bucket": "S3Bucket",
@@ -1310,8 +1007,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SSMLMessage(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1321,8 +1016,6 @@ class SSMLMessage(PropertyType):
 
 @dataclass
 class SampleUtterance(PropertyType):
-    UTTERANCE = "Utterance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "utterance": "Utterance",
     }
@@ -1332,9 +1025,6 @@ class SampleUtterance(PropertyType):
 
 @dataclass
 class SampleUtteranceGenerationSpecification(PropertyType):
-    ENABLED = "Enabled"
-    BEDROCK_MODEL_SPECIFICATION = "BedrockModelSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -1346,8 +1036,6 @@ class SampleUtteranceGenerationSpecification(PropertyType):
 
 @dataclass
 class SampleValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1357,8 +1045,6 @@ class SampleValue(PropertyType):
 
 @dataclass
 class SentimentAnalysisSettings(PropertyType):
-    DETECT_SENTIMENT = "DetectSentiment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detect_sentiment": "DetectSentiment",
     }
@@ -1368,9 +1054,6 @@ class SentimentAnalysisSettings(PropertyType):
 
 @dataclass
 class SessionAttribute(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1382,14 +1065,6 @@ class SessionAttribute(PropertyType):
 
 @dataclass
 class Slot(PropertyType):
-    DESCRIPTION = "Description"
-    SLOT_TYPE_NAME = "SlotTypeName"
-    VALUE_ELICITATION_SETTING = "ValueElicitationSetting"
-    SUB_SLOT_SETTING = "SubSlotSetting"
-    OBFUSCATION_SETTING = "ObfuscationSetting"
-    NAME = "Name"
-    MULTIPLE_VALUES_SETTING = "MultipleValuesSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "slot_type_name": "SlotTypeName",
@@ -1411,15 +1086,6 @@ class Slot(PropertyType):
 
 @dataclass
 class SlotCaptureSetting(PropertyType):
-    CAPTURE_CONDITIONAL = "CaptureConditional"
-    FAILURE_CONDITIONAL = "FailureConditional"
-    CAPTURE_RESPONSE = "CaptureResponse"
-    CAPTURE_NEXT_STEP = "CaptureNextStep"
-    FAILURE_RESPONSE = "FailureResponse"
-    CODE_HOOK = "CodeHook"
-    FAILURE_NEXT_STEP = "FailureNextStep"
-    ELICITATION_CODE_HOOK = "ElicitationCodeHook"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_conditional": "CaptureConditional",
         "failure_conditional": "FailureConditional",
@@ -1443,8 +1109,6 @@ class SlotCaptureSetting(PropertyType):
 
 @dataclass
 class SlotDefaultValue(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
     }
@@ -1454,8 +1118,6 @@ class SlotDefaultValue(PropertyType):
 
 @dataclass
 class SlotDefaultValueSpecification(PropertyType):
-    DEFAULT_VALUE_LIST = "DefaultValueList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value_list": "DefaultValueList",
     }
@@ -1465,9 +1127,6 @@ class SlotDefaultValueSpecification(PropertyType):
 
 @dataclass
 class SlotPriority(PropertyType):
-    PRIORITY = "Priority"
-    SLOT_NAME = "SlotName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "slot_name": "SlotName",
@@ -1479,9 +1138,6 @@ class SlotPriority(PropertyType):
 
 @dataclass
 class SlotResolutionImprovementSpecification(PropertyType):
-    ENABLED = "Enabled"
-    BEDROCK_MODEL_SPECIFICATION = "BedrockModelSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -1493,14 +1149,6 @@ class SlotResolutionImprovementSpecification(PropertyType):
 
 @dataclass
 class SlotType(PropertyType):
-    SLOT_TYPE_VALUES = "SlotTypeValues"
-    DESCRIPTION = "Description"
-    PARENT_SLOT_TYPE_SIGNATURE = "ParentSlotTypeSignature"
-    VALUE_SELECTION_SETTING = "ValueSelectionSetting"
-    COMPOSITE_SLOT_TYPE_SETTING = "CompositeSlotTypeSetting"
-    EXTERNAL_SOURCE_SETTING = "ExternalSourceSetting"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_type_values": "SlotTypeValues",
         "description": "Description",
@@ -1522,9 +1170,6 @@ class SlotType(PropertyType):
 
 @dataclass
 class SlotTypeValue(PropertyType):
-    SYNONYMS = "Synonyms"
-    SAMPLE_VALUE = "SampleValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "synonyms": "Synonyms",
         "sample_value": "SampleValue",
@@ -1536,8 +1181,6 @@ class SlotTypeValue(PropertyType):
 
 @dataclass
 class SlotValue(PropertyType):
-    INTERPRETED_VALUE = "InterpretedValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interpreted_value": "InterpretedValue",
     }
@@ -1547,13 +1190,6 @@ class SlotValue(PropertyType):
 
 @dataclass
 class SlotValueElicitationSetting(PropertyType):
-    PROMPT_SPECIFICATION = "PromptSpecification"
-    WAIT_AND_CONTINUE_SPECIFICATION = "WaitAndContinueSpecification"
-    SLOT_CONSTRAINT = "SlotConstraint"
-    SLOT_CAPTURE_SETTING = "SlotCaptureSetting"
-    SAMPLE_UTTERANCES = "SampleUtterances"
-    DEFAULT_VALUE_SPECIFICATION = "DefaultValueSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "wait_and_continue_specification": "WaitAndContinueSpecification",
@@ -1573,10 +1209,6 @@ class SlotValueElicitationSetting(PropertyType):
 
 @dataclass
 class SlotValueOverride(PropertyType):
-    SHAPE = "Shape"
-    VALUE = "Value"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shape": "Shape",
         "value": "Value",
@@ -1590,9 +1222,6 @@ class SlotValueOverride(PropertyType):
 
 @dataclass
 class SlotValueOverrideMap(PropertyType):
-    SLOT_NAME = "SlotName"
-    SLOT_VALUE_OVERRIDE = "SlotValueOverride"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_name": "SlotName",
         "slot_value_override": "SlotValueOverride",
@@ -1604,8 +1233,6 @@ class SlotValueOverrideMap(PropertyType):
 
 @dataclass
 class SlotValueRegexFilter(PropertyType):
-    PATTERN = "Pattern"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -1615,10 +1242,6 @@ class SlotValueRegexFilter(PropertyType):
 
 @dataclass
 class SlotValueSelectionSetting(PropertyType):
-    ADVANCED_RECOGNITION_SETTING = "AdvancedRecognitionSetting"
-    REGEX_FILTER = "RegexFilter"
-    RESOLUTION_STRATEGY = "ResolutionStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_recognition_setting": "AdvancedRecognitionSetting",
         "regex_filter": "RegexFilter",
@@ -1632,9 +1255,6 @@ class SlotValueSelectionSetting(PropertyType):
 
 @dataclass
 class Specifications(PropertyType):
-    VALUE_ELICITATION_SETTING = "ValueElicitationSetting"
-    SLOT_TYPE_ID = "SlotTypeId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_elicitation_setting": "ValueElicitationSetting",
         "slot_type_id": "SlotTypeId",
@@ -1646,11 +1266,6 @@ class Specifications(PropertyType):
 
 @dataclass
 class StillWaitingResponseSpecification(PropertyType):
-    MESSAGE_GROUPS_LIST = "MessageGroupsList"
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    ALLOW_INTERRUPT = "AllowInterrupt"
-    FREQUENCY_IN_SECONDS = "FrequencyInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups_list": "MessageGroupsList",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -1666,9 +1281,6 @@ class StillWaitingResponseSpecification(PropertyType):
 
 @dataclass
 class SubSlotSetting(PropertyType):
-    EXPRESSION = "Expression"
-    SLOT_SPECIFICATIONS = "SlotSpecifications"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "slot_specifications": "SlotSpecifications",
@@ -1680,9 +1292,6 @@ class SubSlotSetting(PropertyType):
 
 @dataclass
 class SubSlotTypeComposition(PropertyType):
-    SLOT_TYPE_ID = "SlotTypeId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_type_id": "SlotTypeId",
         "name": "Name",
@@ -1694,11 +1303,6 @@ class SubSlotTypeComposition(PropertyType):
 
 @dataclass
 class SubSlotValueElicitationSetting(PropertyType):
-    PROMPT_SPECIFICATION = "PromptSpecification"
-    WAIT_AND_CONTINUE_SPECIFICATION = "WaitAndContinueSpecification"
-    SAMPLE_UTTERANCES = "SampleUtterances"
-    DEFAULT_VALUE_SPECIFICATION = "DefaultValueSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "wait_and_continue_specification": "WaitAndContinueSpecification",
@@ -1714,11 +1318,6 @@ class SubSlotValueElicitationSetting(PropertyType):
 
 @dataclass
 class TestBotAliasSettings(PropertyType):
-    DESCRIPTION = "Description"
-    BOT_ALIAS_LOCALE_SETTINGS = "BotAliasLocaleSettings"
-    CONVERSATION_LOG_SETTINGS = "ConversationLogSettings"
-    SENTIMENT_ANALYSIS_SETTINGS = "SentimentAnalysisSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "bot_alias_locale_settings": "BotAliasLocaleSettings",
@@ -1734,8 +1333,6 @@ class TestBotAliasSettings(PropertyType):
 
 @dataclass
 class TextInputSpecification(PropertyType):
-    START_TIMEOUT_MS = "StartTimeoutMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_timeout_ms": "StartTimeoutMs",
     }
@@ -1745,8 +1342,6 @@ class TextInputSpecification(PropertyType):
 
 @dataclass
 class TextLogDestination(PropertyType):
-    CLOUD_WATCH = "CloudWatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch": "CloudWatch",
     }
@@ -1756,9 +1351,6 @@ class TextLogDestination(PropertyType):
 
 @dataclass
 class TextLogSetting(PropertyType):
-    DESTINATION = "Destination"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -1770,9 +1362,6 @@ class TextLogSetting(PropertyType):
 
 @dataclass
 class VoiceSettings(PropertyType):
-    VOICE_ID = "VoiceId"
-    ENGINE = "Engine"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "voice_id": "VoiceId",
         "engine": "Engine",
@@ -1784,11 +1373,6 @@ class VoiceSettings(PropertyType):
 
 @dataclass
 class WaitAndContinueSpecification(PropertyType):
-    WAITING_RESPONSE = "WaitingResponse"
-    STILL_WAITING_RESPONSE = "StillWaitingResponse"
-    IS_ACTIVE = "IsActive"
-    CONTINUE_RESPONSE = "ContinueResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "waiting_response": "WaitingResponse",
         "still_waiting_response": "StillWaitingResponse",

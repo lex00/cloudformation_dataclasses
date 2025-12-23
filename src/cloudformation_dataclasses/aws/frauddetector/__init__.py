@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:57
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FraudDetector
@@ -210,15 +210,6 @@ class Detector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Detector"
-    DESCRIPTION = "Description"
-    DETECTOR_VERSION_STATUS = "DetectorVersionStatus"
-    EVENT_TYPE = "EventType"
-    DETECTOR_ID = "DetectorId"
-    ASSOCIATED_MODELS = "AssociatedModels"
-    RULE_EXECUTION_MODE = "RuleExecutionMode"
-    RULES = "Rules"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "detector_version_status": "DetectorVersionStatus",
@@ -282,10 +273,6 @@ class EntityType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::EntityType"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -319,13 +306,6 @@ class EventType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::EventType"
     name_field: ClassVar[str] = "name"
-    ENTITY_TYPES = "EntityTypes"
-    DESCRIPTION = "Description"
-    LABELS = "Labels"
-    EVENT_VARIABLES = "EventVariables"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
         "description": "Description",
@@ -365,10 +345,6 @@ class Label(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Label"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -402,12 +378,6 @@ class List(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::List"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    VARIABLE_TYPE = "VariableType"
-    ELEMENTS = "Elements"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "variable_type": "VariableType",
@@ -445,10 +415,6 @@ class Outcome(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Outcome"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -482,14 +448,6 @@ class Variable(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Variable"
     name_field: ClassVar[str] = "name"
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTION = "Description"
-    VARIABLE_TYPE = "VariableType"
-    DATA_TYPE = "DataType"
-    TAGS = "Tags"
-    NAME = "Name"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",

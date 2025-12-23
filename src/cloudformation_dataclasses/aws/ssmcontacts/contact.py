@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ChannelTargetInfo(PropertyType):
-    RETRY_INTERVAL_IN_MINUTES = "RetryIntervalInMinutes"
-    CHANNEL_ID = "ChannelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_interval_in_minutes": "RetryIntervalInMinutes",
         "channel_id": "ChannelId",
@@ -25,9 +22,6 @@ class ChannelTargetInfo(PropertyType):
 
 @dataclass
 class ContactTargetInfo(PropertyType):
-    CONTACT_ID = "ContactId"
-    IS_ESSENTIAL = "IsEssential"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_id": "ContactId",
         "is_essential": "IsEssential",
@@ -39,10 +33,6 @@ class ContactTargetInfo(PropertyType):
 
 @dataclass
 class Stage(PropertyType):
-    DURATION_IN_MINUTES = "DurationInMinutes"
-    ROTATION_IDS = "RotationIds"
-    TARGETS = "Targets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_minutes": "DurationInMinutes",
         "rotation_ids": "RotationIds",
@@ -56,9 +46,6 @@ class Stage(PropertyType):
 
 @dataclass
 class Targets(PropertyType):
-    CHANNEL_TARGET_INFO = "ChannelTargetInfo"
-    CONTACT_TARGET_INFO = "ContactTargetInfo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_target_info": "ChannelTargetInfo",
         "contact_target_info": "ContactTargetInfo",

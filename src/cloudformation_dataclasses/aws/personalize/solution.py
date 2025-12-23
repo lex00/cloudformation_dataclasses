@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AlgorithmHyperParameterRanges(PropertyType):
-    INTEGER_HYPER_PARAMETER_RANGES = "IntegerHyperParameterRanges"
-    CATEGORICAL_HYPER_PARAMETER_RANGES = "CategoricalHyperParameterRanges"
-    CONTINUOUS_HYPER_PARAMETER_RANGES = "ContinuousHyperParameterRanges"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integer_hyper_parameter_ranges": "IntegerHyperParameterRanges",
         "categorical_hyper_parameter_ranges": "CategoricalHyperParameterRanges",
@@ -28,9 +24,6 @@ class AlgorithmHyperParameterRanges(PropertyType):
 
 @dataclass
 class AutoMLConfig(PropertyType):
-    METRIC_NAME = "MetricName"
-    RECIPE_LIST = "RecipeList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "recipe_list": "RecipeList",
@@ -42,9 +35,6 @@ class AutoMLConfig(PropertyType):
 
 @dataclass
 class CategoricalHyperParameterRange(PropertyType):
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -56,10 +46,6 @@ class CategoricalHyperParameterRange(PropertyType):
 
 @dataclass
 class ContinuousHyperParameterRange(PropertyType):
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -73,10 +59,6 @@ class ContinuousHyperParameterRange(PropertyType):
 
 @dataclass
 class HpoConfig(PropertyType):
-    HPO_RESOURCE_CONFIG = "HpoResourceConfig"
-    ALGORITHM_HYPER_PARAMETER_RANGES = "AlgorithmHyperParameterRanges"
-    HPO_OBJECTIVE = "HpoObjective"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hpo_resource_config": "HpoResourceConfig",
         "algorithm_hyper_parameter_ranges": "AlgorithmHyperParameterRanges",
@@ -90,10 +72,6 @@ class HpoConfig(PropertyType):
 
 @dataclass
 class HpoObjective(PropertyType):
-    METRIC_NAME = "MetricName"
-    TYPE = "Type"
-    METRIC_REGEX = "MetricRegex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "type_": "Type",
@@ -107,9 +85,6 @@ class HpoObjective(PropertyType):
 
 @dataclass
 class HpoResourceConfig(PropertyType):
-    MAX_PARALLEL_TRAINING_JOBS = "MaxParallelTrainingJobs"
-    MAX_NUMBER_OF_TRAINING_JOBS = "MaxNumberOfTrainingJobs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallel_training_jobs": "MaxParallelTrainingJobs",
         "max_number_of_training_jobs": "MaxNumberOfTrainingJobs",
@@ -121,10 +96,6 @@ class HpoResourceConfig(PropertyType):
 
 @dataclass
 class IntegerHyperParameterRange(PropertyType):
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -138,12 +109,6 @@ class IntegerHyperParameterRange(PropertyType):
 
 @dataclass
 class SolutionConfig(PropertyType):
-    EVENT_VALUE_THRESHOLD = "EventValueThreshold"
-    HPO_CONFIG = "HpoConfig"
-    ALGORITHM_HYPER_PARAMETERS = "AlgorithmHyperParameters"
-    FEATURE_TRANSFORMATION_PARAMETERS = "FeatureTransformationParameters"
-    AUTO_ML_CONFIG = "AutoMLConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_value_threshold": "EventValueThreshold",
         "hpo_config": "HpoConfig",

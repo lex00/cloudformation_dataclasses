@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataQualityTargetTable(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LogDestinationConfig(PropertyType):
-    LOG_TYPE = "LogType"
-    LOG_DESTINATION = "LogDestination"
-    LOG_DESTINATION_TYPE = "LogDestinationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_type": "LogType",
         "log_destination": "LogDestination",
@@ -28,8 +24,6 @@ class LogDestinationConfig(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    LOG_DESTINATION_CONFIGS = "LogDestinationConfigs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_destination_configs": "LogDestinationConfigs",
     }

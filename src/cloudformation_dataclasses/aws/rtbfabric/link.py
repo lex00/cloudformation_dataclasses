@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    NO_BID = "NoBid"
-    HEADER_TAG = "HeaderTag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid": "NoBid",
         "header_tag": "HeaderTag",
@@ -25,8 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class ApplicationLogs(PropertyType):
-    LINK_APPLICATION_LOG_SAMPLING = "LinkApplicationLogSampling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
@@ -36,8 +31,6 @@ class ApplicationLogs(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    CRITERIA = "Criteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria": "Criteria",
     }
@@ -47,9 +40,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriterion(PropertyType):
-    PATH = "Path"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "values": "Values",
@@ -61,9 +51,6 @@ class FilterCriterion(PropertyType):
 
 @dataclass
 class HeaderTagAction(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -75,9 +62,6 @@ class HeaderTagAction(PropertyType):
 
 @dataclass
 class LinkApplicationLogSampling(PropertyType):
-    FILTER_LOG = "FilterLog"
-    ERROR_LOG = "ErrorLog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_log": "FilterLog",
         "error_log": "ErrorLog",
@@ -89,9 +73,6 @@ class LinkApplicationLogSampling(PropertyType):
 
 @dataclass
 class LinkAttributes(PropertyType):
-    RESPONDER_ERROR_MASKING = "ResponderErrorMasking"
-    CUSTOMER_PROVIDED_ID = "CustomerProvidedId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responder_error_masking": "ResponderErrorMasking",
         "customer_provided_id": "CustomerProvidedId",
@@ -103,8 +84,6 @@ class LinkAttributes(PropertyType):
 
 @dataclass
 class LinkLogSettings(PropertyType):
-    APPLICATION_LOGS = "ApplicationLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_logs": "ApplicationLogs",
     }
@@ -114,11 +93,6 @@ class LinkLogSettings(PropertyType):
 
 @dataclass
 class ModuleConfiguration(PropertyType):
-    DEPENDS_ON = "DependsOn"
-    VERSION = "Version"
-    MODULE_PARAMETERS = "ModuleParameters"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "version": "Version",
@@ -134,9 +108,6 @@ class ModuleConfiguration(PropertyType):
 
 @dataclass
 class ModuleParameters(PropertyType):
-    NO_BID = "NoBid"
-    OPEN_RTB_ATTRIBUTE = "OpenRtbAttribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid": "NoBid",
         "open_rtb_attribute": "OpenRtbAttribute",
@@ -148,8 +119,6 @@ class ModuleParameters(PropertyType):
 
 @dataclass
 class NoBidAction(PropertyType):
-    NO_BID_REASON_CODE = "NoBidReasonCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid_reason_code": "NoBidReasonCode",
     }
@@ -159,10 +128,6 @@ class NoBidAction(PropertyType):
 
 @dataclass
 class NoBidModuleParameters(PropertyType):
-    PASS_THROUGH_PERCENTAGE = "PassThroughPercentage"
-    REASON_CODE = "ReasonCode"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pass_through_percentage": "PassThroughPercentage",
         "reason_code": "ReasonCode",
@@ -176,11 +141,6 @@ class NoBidModuleParameters(PropertyType):
 
 @dataclass
 class OpenRtbAttributeModuleParameters(PropertyType):
-    FILTER_TYPE = "FilterType"
-    ACTION = "Action"
-    HOLDBACK_PERCENTAGE = "HoldbackPercentage"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "action": "Action",
@@ -196,11 +156,6 @@ class OpenRtbAttributeModuleParameters(PropertyType):
 
 @dataclass
 class ResponderErrorMaskingForHttpCode(PropertyType):
-    HTTP_CODE = "HttpCode"
-    ACTION = "Action"
-    RESPONSE_LOGGING_PERCENTAGE = "ResponseLoggingPercentage"
-    LOGGING_TYPES = "LoggingTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
         "action": "Action",

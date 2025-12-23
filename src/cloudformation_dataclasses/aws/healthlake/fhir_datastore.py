@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CreatedAt(PropertyType):
-    NANOS = "Nanos"
-    SECONDS = "Seconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nanos": "Nanos",
         "seconds": "Seconds",
@@ -25,11 +22,6 @@ class CreatedAt(PropertyType):
 
 @dataclass
 class IdentityProviderConfiguration(PropertyType):
-    AUTHORIZATION_STRATEGY = "AuthorizationStrategy"
-    IDP_LAMBDA_ARN = "IdpLambdaArn"
-    FINE_GRAINED_AUTHORIZATION_ENABLED = "FineGrainedAuthorizationEnabled"
-    METADATA = "Metadata"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_strategy": "AuthorizationStrategy",
         "idp_lambda_arn": "IdpLambdaArn",
@@ -45,9 +37,6 @@ class IdentityProviderConfiguration(PropertyType):
 
 @dataclass
 class KmsEncryptionConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    CMK_TYPE = "CmkType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "cmk_type": "CmkType",
@@ -59,8 +48,6 @@ class KmsEncryptionConfig(PropertyType):
 
 @dataclass
 class PreloadDataConfig(PropertyType):
-    PRELOAD_DATA_TYPE = "PreloadDataType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preload_data_type": "PreloadDataType",
     }
@@ -70,8 +57,6 @@ class PreloadDataConfig(PropertyType):
 
 @dataclass
 class SseConfiguration(PropertyType):
-    KMS_ENCRYPTION_CONFIG = "KmsEncryptionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_encryption_config": "KmsEncryptionConfig",
     }

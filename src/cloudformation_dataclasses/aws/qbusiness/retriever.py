@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class KendraIndexConfiguration(PropertyType):
-    INDEX_ID = "IndexId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
     }
@@ -22,8 +20,6 @@ class KendraIndexConfiguration(PropertyType):
 
 @dataclass
 class NativeIndexConfiguration(PropertyType):
-    INDEX_ID = "IndexId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
     }
@@ -33,9 +29,6 @@ class NativeIndexConfiguration(PropertyType):
 
 @dataclass
 class RetrieverConfiguration(PropertyType):
-    KENDRA_INDEX_CONFIGURATION = "KendraIndexConfiguration"
-    NATIVE_INDEX_CONFIGURATION = "NativeIndexConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra_index_configuration": "KendraIndexConfiguration",
         "native_index_configuration": "NativeIndexConfiguration",

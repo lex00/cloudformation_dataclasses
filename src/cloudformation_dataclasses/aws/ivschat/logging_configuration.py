@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogsDestinationConfiguration(PropertyType):
-    LOG_GROUP_NAME = "LogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }
@@ -22,10 +20,6 @@ class CloudWatchLogsDestinationConfiguration(PropertyType):
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    S3 = "S3"
-    FIREHOSE = "Firehose"
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",
@@ -39,8 +33,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class FirehoseDestinationConfiguration(PropertyType):
-    DELIVERY_STREAM_NAME = "DeliveryStreamName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
     }
@@ -50,8 +42,6 @@ class FirehoseDestinationConfiguration(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    BUCKET_NAME = "BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }

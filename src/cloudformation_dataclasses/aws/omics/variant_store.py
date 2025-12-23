@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ReferenceItem(PropertyType):
-    REFERENCE_ARN = "ReferenceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_arn": "ReferenceArn",
     }
@@ -22,9 +20,6 @@ class ReferenceItem(PropertyType):
 
 @dataclass
 class SseConfig(PropertyType):
-    TYPE = "Type"
-    KEY_ARN = "KeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key_arn": "KeyArn",

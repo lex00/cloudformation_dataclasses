@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:52
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataZone
@@ -1300,16 +1300,6 @@ class Connection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::Connection"
     name_field: ClassVar[str] = "name"
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    SCOPE = "Scope"
-    PROPS = "Props"
-    AWS_LOCATION = "AwsLocation"
-    ENABLE_TRUSTED_IDENTITY_PROPAGATION = "EnableTrustedIdentityPropagation"
-    NAME = "Name"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "description": "Description",
@@ -1375,20 +1365,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::DataSource"
     name_field: ClassVar[str] = "name"
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    PUBLISH_ON_IMPORT = "PublishOnImport"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    CONFIGURATION = "Configuration"
-    ASSET_FORMS_INPUT = "AssetFormsInput"
-    RECOMMENDATION = "Recommendation"
-    NAME = "Name"
-    TYPE = "Type"
-    ENABLE_SETTING = "EnableSetting"
-    CONNECTION_IDENTIFIER = "ConnectionIdentifier"
-    SCHEDULE = "Schedule"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "publish_on_import": "PublishOnImport",
@@ -1482,15 +1458,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::Domain"
     name_field: ClassVar[str] = "name"
-    DOMAIN_EXECUTION_ROLE = "DomainExecutionRole"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    SERVICE_ROLE = "ServiceRole"
-    DOMAIN_VERSION = "DomainVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-    SINGLE_SIGN_ON = "SingleSignOn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_execution_role": "DomainExecutionRole",
         "kms_key_identifier": "KmsKeyIdentifier",
@@ -1559,11 +1526,6 @@ class DomainUnit(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::DomainUnit"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PARENT_DOMAIN_UNIT_IDENTIFIER = "ParentDomainUnitIdentifier"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parent_domain_unit_identifier": "ParentDomainUnitIdentifier",
@@ -1614,17 +1576,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::Environment"
     name_field: ClassVar[str] = "name"
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    ENVIRONMENT_ACCOUNT_REGION = "EnvironmentAccountRegion"
-    USER_PARAMETERS = "UserParameters"
-    ENVIRONMENT_ROLE_ARN = "EnvironmentRoleArn"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_PROFILE_IDENTIFIER = "EnvironmentProfileIdentifier"
-    GLOSSARY_TERMS = "GlossaryTerms"
-    ENVIRONMENT_ACCOUNT_IDENTIFIER = "EnvironmentAccountIdentifier"
-    NAME = "Name"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "environment_account_region": "EnvironmentAccountRegion",
@@ -1717,13 +1668,6 @@ class EnvironmentActions(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::EnvironmentActions"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    IDENTIFIER = "Identifier"
-    PARAMETERS = "Parameters"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "environment_identifier": "EnvironmentIdentifier",
@@ -1762,15 +1706,6 @@ class EnvironmentBlueprintConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::EnvironmentBlueprintConfiguration"
-    REGIONAL_PARAMETERS = "RegionalParameters"
-    PROVISIONING_ROLE_ARN = "ProvisioningRoleArn"
-    PROVISIONING_CONFIGURATIONS = "ProvisioningConfigurations"
-    ENABLED_REGIONS = "EnabledRegions"
-    ENVIRONMENT_BLUEPRINT_IDENTIFIER = "EnvironmentBlueprintIdentifier"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-    ENVIRONMENT_ROLE_PERMISSION_BOUNDARY = "EnvironmentRolePermissionBoundary"
-    MANAGE_ACCESS_ROLE_ARN = "ManageAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regional_parameters": "RegionalParameters",
         "provisioning_role_arn": "ProvisioningRoleArn",
@@ -1819,15 +1754,6 @@ class EnvironmentProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::EnvironmentProfile"
     name_field: ClassVar[str] = "name"
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    USER_PARAMETERS = "UserParameters"
-    DESCRIPTION = "Description"
-    AWS_ACCOUNT_REGION = "AwsAccountRegion"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    ENVIRONMENT_BLUEPRINT_IDENTIFIER = "EnvironmentBlueprintIdentifier"
-    NAME = "Name"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "user_parameters": "UserParameters",
@@ -1891,13 +1817,6 @@ class FormType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::FormType"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    MODEL = "Model"
-    OWNING_PROJECT_IDENTIFIER = "OwningProjectIdentifier"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -1951,10 +1870,6 @@ class GroupProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::GroupProfile"
-    STATUS = "Status"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-    GROUP_IDENTIFIER = "GroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "domain_identifier": "DomainIdentifier",
@@ -1987,11 +1902,6 @@ class Owner(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::Owner"
-    ENTITY_TYPE = "EntityType"
-    OWNER = "Owner"
-    ENTITY_IDENTIFIER = "EntityIdentifier"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_type": "EntityType",
         "owner": "Owner",
@@ -2021,13 +1931,6 @@ class PolicyGrant(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::PolicyGrant"
-    ENTITY_TYPE = "EntityType"
-    POLICY_TYPE = "PolicyType"
-    ENTITY_IDENTIFIER = "EntityIdentifier"
-    DETAIL = "Detail"
-    PRINCIPAL = "Principal"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_type": "EntityType",
         "policy_type": "PolicyType",
@@ -2067,15 +1970,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::Project"
     name_field: ClassVar[str] = "name"
-    DOMAIN_UNIT_ID = "DomainUnitId"
-    PROJECT_PROFILE_ID = "ProjectProfileId"
-    USER_PARAMETERS = "UserParameters"
-    DESCRIPTION = "Description"
-    GLOSSARY_TERMS = "GlossaryTerms"
-    PROJECT_PROFILE_VERSION = "ProjectProfileVersion"
-    NAME = "Name"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_id": "DomainUnitId",
         "project_profile_id": "ProjectProfileId",
@@ -2133,11 +2027,6 @@ class ProjectMembership(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::ProjectMembership"
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    DESIGNATION = "Designation"
-    MEMBER = "Member"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "designation": "Designation",
@@ -2168,13 +2057,6 @@ class ProjectProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::ProjectProfile"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    ENVIRONMENT_CONFIGURATIONS = "EnvironmentConfigurations"
-    DESCRIPTION = "Description"
-    DOMAIN_UNIT_IDENTIFIER = "DomainUnitIdentifier"
-    NAME = "Name"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "environment_configurations": "EnvironmentConfigurations",
@@ -2234,16 +2116,6 @@ class SubscriptionTarget(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataZone::SubscriptionTarget"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    MANAGE_ACCESS_ROLE = "ManageAccessRole"
-    SUBSCRIPTION_TARGET_CONFIG = "SubscriptionTargetConfig"
-    APPLICABLE_ASSET_TYPES = "ApplicableAssetTypes"
-    AUTHORIZED_PRINCIPALS = "AuthorizedPrincipals"
-    NAME = "Name"
-    PROVIDER = "Provider"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "environment_identifier": "EnvironmentIdentifier",
@@ -2313,11 +2185,6 @@ class UserProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::UserProfile"
-    STATUS = "Status"
-    USER_IDENTIFIER = "UserIdentifier"
-    USER_TYPE = "UserType"
-    DOMAIN_IDENTIFIER = "DomainIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "user_identifier": "UserIdentifier",

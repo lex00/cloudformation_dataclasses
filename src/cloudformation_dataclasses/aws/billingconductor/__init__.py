@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:46
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BillingConductor
@@ -332,13 +332,6 @@ class BillingGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::BillingGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PRIMARY_ACCOUNT_ID = "PrimaryAccountId"
-    COMPUTATION_PREFERENCE = "ComputationPreference"
-    ACCOUNT_GROUPING = "AccountGrouping"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "primary_account_id": "PrimaryAccountId",
@@ -393,16 +386,6 @@ class CustomLineItem(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::CustomLineItem"
     name_field: ClassVar[str] = "name"
-    BILLING_PERIOD_RANGE = "BillingPeriodRange"
-    DESCRIPTION = "Description"
-    ACCOUNT_ID = "AccountId"
-    PRESENTATION_DETAILS = "PresentationDetails"
-    BILLING_GROUP_ARN = "BillingGroupArn"
-    COMPUTATION_RULE = "ComputationRule"
-    CUSTOM_LINE_ITEM_CHARGE_DETAILS = "CustomLineItemChargeDetails"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "billing_period_range": "BillingPeriodRange",
         "description": "Description",
@@ -463,11 +446,6 @@ class PricingPlan(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::PricingPlan"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PRICING_RULE_ARNS = "PricingRuleArns"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "pricing_rule_arns": "PricingRuleArns",
@@ -508,18 +486,6 @@ class PricingRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::PricingRule"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    SCOPE = "Scope"
-    SERVICE = "Service"
-    MODIFIER_PERCENTAGE = "ModifierPercentage"
-    OPERATION = "Operation"
-    TIERING = "Tiering"
-    BILLING_ENTITY = "BillingEntity"
-    USAGE_TYPE = "UsageType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",

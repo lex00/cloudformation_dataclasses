@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AgentAttributes(PropertyType):
-    FIRST_NAME = "FirstName"
-    LAST_NAME = "LastName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "first_name": "FirstName",
         "last_name": "LastName",
@@ -25,9 +22,6 @@ class AgentAttributes(PropertyType):
 
 @dataclass
 class Content(PropertyType):
-    EMAIL_MESSAGE_TEMPLATE_CONTENT = "EmailMessageTemplateContent"
-    SMS_MESSAGE_TEMPLATE_CONTENT = "SmsMessageTemplateContent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message_template_content": "EmailMessageTemplateContent",
         "sms_message_template_content": "SmsMessageTemplateContent",
@@ -39,65 +33,6 @@ class Content(PropertyType):
 
 @dataclass
 class CustomerProfileAttributes(PropertyType):
-    PROFILE_ID = "ProfileId"
-    BILLING_CITY = "BillingCity"
-    GENDER = "Gender"
-    PROFILE_ARN = "ProfileARN"
-    BILLING_PROVINCE = "BillingProvince"
-    BILLING_POSTAL_CODE = "BillingPostalCode"
-    SHIPPING_ADDRESS1 = "ShippingAddress1"
-    BUSINESS_NAME = "BusinessName"
-    SHIPPING_ADDRESS4 = "ShippingAddress4"
-    SHIPPING_ADDRESS3 = "ShippingAddress3"
-    SHIPPING_ADDRESS2 = "ShippingAddress2"
-    MAILING_CITY = "MailingCity"
-    BUSINESS_PHONE_NUMBER = "BusinessPhoneNumber"
-    CITY = "City"
-    EMAIL_ADDRESS = "EmailAddress"
-    PROVINCE = "Province"
-    STATE = "State"
-    SHIPPING_POSTAL_CODE = "ShippingPostalCode"
-    COUNTRY = "Country"
-    SHIPPING_STATE = "ShippingState"
-    LAST_NAME = "LastName"
-    BILLING_COUNTY = "BillingCounty"
-    BILLING_STATE = "BillingState"
-    BIRTH_DATE = "BirthDate"
-    BUSINESS_EMAIL_ADDRESS = "BusinessEmailAddress"
-    MAILING_COUNTRY = "MailingCountry"
-    POSTAL_CODE = "PostalCode"
-    SHIPPING_PROVINCE = "ShippingProvince"
-    MAILING_COUNTY = "MailingCounty"
-    MOBILE_PHONE_NUMBER = "MobilePhoneNumber"
-    COUNTY = "County"
-    MAILING_STATE = "MailingState"
-    HOME_PHONE_NUMBER = "HomePhoneNumber"
-    ADDRESS4 = "Address4"
-    MAILING_POSTAL_CODE = "MailingPostalCode"
-    MAILING_ADDRESS3 = "MailingAddress3"
-    SHIPPING_COUNTRY = "ShippingCountry"
-    MAILING_ADDRESS4 = "MailingAddress4"
-    SHIPPING_CITY = "ShippingCity"
-    MAILING_ADDRESS1 = "MailingAddress1"
-    MAILING_ADDRESS2 = "MailingAddress2"
-    PARTY_TYPE = "PartyType"
-    ADDITIONAL_INFORMATION = "AdditionalInformation"
-    MAILING_PROVINCE = "MailingProvince"
-    BILLING_ADDRESS1 = "BillingAddress1"
-    BILLING_ADDRESS2 = "BillingAddress2"
-    FIRST_NAME = "FirstName"
-    BILLING_ADDRESS3 = "BillingAddress3"
-    BILLING_ADDRESS4 = "BillingAddress4"
-    ADDRESS2 = "Address2"
-    ADDRESS3 = "Address3"
-    CUSTOM = "Custom"
-    ADDRESS1 = "Address1"
-    MIDDLE_NAME = "MiddleName"
-    ACCOUNT_NUMBER = "AccountNumber"
-    SHIPPING_COUNTY = "ShippingCounty"
-    BILLING_COUNTRY = "BillingCountry"
-    PHONE_NUMBER = "PhoneNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_id": "ProfileId",
         "billing_city": "BillingCity",
@@ -221,10 +156,6 @@ class CustomerProfileAttributes(PropertyType):
 
 @dataclass
 class EmailMessageTemplateContent(PropertyType):
-    HEADERS = "Headers"
-    BODY = "Body"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "body": "Body",
@@ -238,9 +169,6 @@ class EmailMessageTemplateContent(PropertyType):
 
 @dataclass
 class EmailMessageTemplateContentBody(PropertyType):
-    PLAIN_TEXT = "PlainText"
-    HTML = "Html"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
         "html": "Html",
@@ -252,9 +180,6 @@ class EmailMessageTemplateContentBody(PropertyType):
 
 @dataclass
 class EmailMessageTemplateHeader(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -266,9 +191,6 @@ class EmailMessageTemplateHeader(PropertyType):
 
 @dataclass
 class GroupingConfiguration(PropertyType):
-    VALUES = "Values"
-    CRITERIA = "Criteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "criteria": "Criteria",
@@ -280,10 +202,6 @@ class GroupingConfiguration(PropertyType):
 
 @dataclass
 class MessageTemplateAttachment(PropertyType):
-    ATTACHMENT_NAME = "AttachmentName"
-    S3_PRESIGNED_URL = "S3PresignedUrl"
-    ATTACHMENT_ID = "AttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachment_name": "AttachmentName",
         "s3_presigned_url": "S3PresignedUrl",
@@ -297,11 +215,6 @@ class MessageTemplateAttachment(PropertyType):
 
 @dataclass
 class MessageTemplateAttributes(PropertyType):
-    SYSTEM_ATTRIBUTES = "SystemAttributes"
-    CUSTOM_ATTRIBUTES = "CustomAttributes"
-    AGENT_ATTRIBUTES = "AgentAttributes"
-    CUSTOMER_PROFILE_ATTRIBUTES = "CustomerProfileAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_attributes": "SystemAttributes",
         "custom_attributes": "CustomAttributes",
@@ -317,8 +230,6 @@ class MessageTemplateAttributes(PropertyType):
 
 @dataclass
 class MessageTemplateBodyContentProvider(PropertyType):
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
     }
@@ -328,8 +239,6 @@ class MessageTemplateBodyContentProvider(PropertyType):
 
 @dataclass
 class SmsMessageTemplateContent(PropertyType):
-    BODY = "Body"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body": "Body",
     }
@@ -339,8 +248,6 @@ class SmsMessageTemplateContent(PropertyType):
 
 @dataclass
 class SmsMessageTemplateContentBody(PropertyType):
-    PLAIN_TEXT = "PlainText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
     }
@@ -350,10 +257,6 @@ class SmsMessageTemplateContentBody(PropertyType):
 
 @dataclass
 class SystemAttributes(PropertyType):
-    CUSTOMER_ENDPOINT = "CustomerEndpoint"
-    SYSTEM_ENDPOINT = "SystemEndpoint"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_endpoint": "CustomerEndpoint",
         "system_endpoint": "SystemEndpoint",
@@ -367,8 +270,6 @@ class SystemAttributes(PropertyType):
 
 @dataclass
 class SystemEndpointAttributes(PropertyType):
-    ADDRESS = "Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
     }

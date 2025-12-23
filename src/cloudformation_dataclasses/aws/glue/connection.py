@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthenticationConfigurationInput(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KMS_KEY_ARN = "KmsKeyArn"
-    O_AUTH2_PROPERTIES = "OAuth2Properties"
-    CUSTOM_AUTHENTICATION_CREDENTIALS = "CustomAuthenticationCredentials"
-    BASIC_AUTHENTICATION_CREDENTIALS = "BasicAuthenticationCredentials"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -37,9 +30,6 @@ class AuthenticationConfigurationInput(PropertyType):
 
 @dataclass
 class AuthorizationCodeProperties(PropertyType):
-    AUTHORIZATION_CODE = "AuthorizationCode"
-    REDIRECT_URI = "RedirectUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code": "AuthorizationCode",
         "redirect_uri": "RedirectUri",
@@ -51,9 +41,6 @@ class AuthorizationCodeProperties(PropertyType):
 
 @dataclass
 class BasicAuthenticationCredentials(PropertyType):
-    USERNAME = "Username"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -65,19 +52,6 @@ class BasicAuthenticationCredentials(PropertyType):
 
 @dataclass
 class ConnectionInput(PropertyType):
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    PYTHON_PROPERTIES = "PythonProperties"
-    SPARK_PROPERTIES = "SparkProperties"
-    DESCRIPTION = "Description"
-    CONNECTION_TYPE = "ConnectionType"
-    MATCH_CRITERIA = "MatchCriteria"
-    PHYSICAL_CONNECTION_REQUIREMENTS = "PhysicalConnectionRequirements"
-    CONNECTION_PROPERTIES = "ConnectionProperties"
-    ATHENA_PROPERTIES = "AthenaProperties"
-    VALIDATE_FOR_COMPUTE_ENVIRONMENTS = "ValidateForComputeEnvironments"
-    VALIDATE_CREDENTIALS = "ValidateCredentials"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "python_properties": "PythonProperties",
@@ -109,9 +83,6 @@ class ConnectionInput(PropertyType):
 
 @dataclass
 class OAuth2ClientApplication(PropertyType):
-    AWS_MANAGED_CLIENT_APPLICATION_REFERENCE = "AWSManagedClientApplicationReference"
-    USER_MANAGED_CLIENT_APPLICATION_CLIENT_ID = "UserManagedClientApplicationClientId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_client_application_reference": "AWSManagedClientApplicationReference",
         "user_managed_client_application_client_id": "UserManagedClientApplicationClientId",
@@ -123,11 +94,6 @@ class OAuth2ClientApplication(PropertyType):
 
 @dataclass
 class OAuth2Credentials(PropertyType):
-    USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET = "UserManagedClientApplicationClientSecret"
-    JWT_TOKEN = "JwtToken"
-    REFRESH_TOKEN = "RefreshToken"
-    ACCESS_TOKEN = "AccessToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_managed_client_application_client_secret": "UserManagedClientApplicationClientSecret",
         "jwt_token": "JwtToken",
@@ -143,13 +109,6 @@ class OAuth2Credentials(PropertyType):
 
 @dataclass
 class OAuth2PropertiesInput(PropertyType):
-    AUTHORIZATION_CODE_PROPERTIES = "AuthorizationCodeProperties"
-    O_AUTH2_CLIENT_APPLICATION = "OAuth2ClientApplication"
-    TOKEN_URL = "TokenUrl"
-    O_AUTH2_CREDENTIALS = "OAuth2Credentials"
-    O_AUTH2_GRANT_TYPE = "OAuth2GrantType"
-    TOKEN_URL_PARAMETERS_MAP = "TokenUrlParametersMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code_properties": "AuthorizationCodeProperties",
         "o_auth2_client_application": "OAuth2ClientApplication",
@@ -169,10 +128,6 @@ class OAuth2PropertiesInput(PropertyType):
 
 @dataclass
 class PhysicalConnectionRequirements(PropertyType):
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    SECURITY_GROUP_ID_LIST = "SecurityGroupIdList"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
         "security_group_id_list": "SecurityGroupIdList",

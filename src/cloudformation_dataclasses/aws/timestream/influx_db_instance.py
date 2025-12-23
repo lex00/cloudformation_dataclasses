@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LogDeliveryConfiguration(PropertyType):
-    S3_CONFIGURATION = "S3Configuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -22,9 +20,6 @@ class LogDeliveryConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "enabled": "Enabled",

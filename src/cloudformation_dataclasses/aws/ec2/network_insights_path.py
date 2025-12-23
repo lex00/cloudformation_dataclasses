@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FilterPortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -25,11 +22,6 @@ class FilterPortRange(PropertyType):
 
 @dataclass
 class PathFilter(PropertyType):
-    SOURCE_ADDRESS = "SourceAddress"
-    DESTINATION_PORT_RANGE = "DestinationPortRange"
-    SOURCE_PORT_RANGE = "SourcePortRange"
-    DESTINATION_ADDRESS = "DestinationAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_address": "SourceAddress",
         "destination_port_range": "DestinationPortRange",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:01
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoT
@@ -1177,11 +1177,6 @@ class AccountAuditConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-a"""
 
     resource_type: ClassVar[str] = "AWS::IoT::AccountAuditConfiguration"
-    ACCOUNT_ID = "AccountId"
-    AUDIT_CHECK_CONFIGURATIONS = "AuditCheckConfigurations"
-    AUDIT_NOTIFICATION_TARGET_CONFIGURATIONS = "AuditNotificationTargetConfigurations"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "audit_check_configurations": "AuditCheckConfigurations",
@@ -1201,15 +1196,6 @@ class Authorizer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::Authorizer"
     name_field: ClassVar[str] = "authorizer_name"
-    STATUS = "Status"
-    TOKEN_KEY_NAME = "TokenKeyName"
-    ENABLE_CACHING_FOR_HTTP = "EnableCachingForHttp"
-    AUTHORIZER_NAME = "AuthorizerName"
-    TOKEN_SIGNING_PUBLIC_KEYS = "TokenSigningPublicKeys"
-    SIGNING_DISABLED = "SigningDisabled"
-    TAGS = "Tags"
-    AUTHORIZER_FUNCTION_ARN = "AuthorizerFunctionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "token_key_name": "TokenKeyName",
@@ -1243,10 +1229,6 @@ class BillingGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::BillingGroup"
     name_field: ClassVar[str] = "billing_group_name"
-    BILLING_GROUP_NAME = "BillingGroupName"
-    BILLING_GROUP_PROPERTIES = "BillingGroupProperties"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "billing_group_name": "BillingGroupName",
         "billing_group_properties": "BillingGroupProperties",
@@ -1274,15 +1256,6 @@ class CACertificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-c"""
 
     resource_type: ClassVar[str] = "AWS::IoT::CACertificate"
-    STATUS = "Status"
-    CA_CERTIFICATE_PEM = "CACertificatePem"
-    CERTIFICATE_MODE = "CertificateMode"
-    AUTO_REGISTRATION_STATUS = "AutoRegistrationStatus"
-    REMOVE_AUTO_REGISTRATION = "RemoveAutoRegistration"
-    REGISTRATION_CONFIG = "RegistrationConfig"
-    VERIFICATION_CERTIFICATE_PEM = "VerificationCertificatePem"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "ca_certificate_pem": "CACertificatePem",
@@ -1320,12 +1293,6 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-c"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Certificate"
-    STATUS = "Status"
-    CA_CERTIFICATE_PEM = "CACertificatePem"
-    CERTIFICATE_MODE = "CertificateMode"
-    CERTIFICATE_SIGNING_REQUEST = "CertificateSigningRequest"
-    CERTIFICATE_PEM = "CertificatePem"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "ca_certificate_pem": "CACertificatePem",
@@ -1358,11 +1325,6 @@ class CertificateProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::CertificateProvider"
     name_field: ClassVar[str] = "certificate_provider_name"
-    LAMBDA_FUNCTION_ARN = "LambdaFunctionArn"
-    CERTIFICATE_PROVIDER_NAME = "CertificateProviderName"
-    ACCOUNT_DEFAULT_FOR_OPERATIONS = "AccountDefaultForOperations"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function_arn": "LambdaFunctionArn",
         "certificate_provider_name": "CertificateProviderName",
@@ -1388,19 +1350,6 @@ class Command(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::Command"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    LAST_UPDATED_AT = "LastUpdatedAt"
-    DEPRECATED = "Deprecated"
-    CREATED_AT = "CreatedAt"
-    DISPLAY_NAME = "DisplayName"
-    PAYLOAD = "Payload"
-    COMMAND_ID = "CommandId"
-    PENDING_DELETION = "PendingDeletion"
-    MANDATORY_PARAMETERS = "MandatoryParameters"
-    NAMESPACE = "Namespace"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "last_updated_at": "LastUpdatedAt",
@@ -1442,11 +1391,6 @@ class CustomMetric(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::CustomMetric"
     name_field: ClassVar[str] = "metric_name"
-    METRIC_NAME = "MetricName"
-    METRIC_TYPE = "MetricType"
-    DISPLAY_NAME = "DisplayName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metric_type": "MetricType",
@@ -1472,11 +1416,6 @@ class Dimension(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::Dimension"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    STRING_VALUES = "StringValues"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "string_values": "StringValues",
@@ -1502,20 +1441,6 @@ class DomainConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::DomainConfiguration"
     name_field: ClassVar[str] = "domain_configuration_name"
-    APPLICATION_PROTOCOL = "ApplicationProtocol"
-    CLIENT_CERTIFICATE_CONFIG = "ClientCertificateConfig"
-    DOMAIN_CONFIGURATION_NAME = "DomainConfigurationName"
-    DOMAIN_NAME = "DomainName"
-    DOMAIN_CONFIGURATION_STATUS = "DomainConfigurationStatus"
-    SERVER_CERTIFICATE_ARNS = "ServerCertificateArns"
-    SERVER_CERTIFICATE_CONFIG = "ServerCertificateConfig"
-    AUTHORIZER_CONFIG = "AuthorizerConfig"
-    SERVICE_TYPE = "ServiceType"
-    VALIDATION_CERTIFICATE_ARN = "ValidationCertificateArn"
-    TLS_CONFIG = "TlsConfig"
-    TAGS = "Tags"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_protocol": "ApplicationProtocol",
         "client_certificate_config": "ClientCertificateConfig",
@@ -1568,10 +1493,6 @@ class EncryptionConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-e"""
 
     resource_type: ClassVar[str] = "AWS::IoT::EncryptionConfiguration"
-    ENCRYPTION_TYPE = "EncryptionType"
-    KMS_KEY_ARN = "KmsKeyArn"
-    KMS_ACCESS_ROLE_ARN = "KmsAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "kms_key_arn": "KmsKeyArn",
@@ -1620,17 +1541,6 @@ class FleetMetric(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::FleetMetric"
     name_field: ClassVar[str] = "index_name"
-    INDEX_NAME = "IndexName"
-    METRIC_NAME = "MetricName"
-    DESCRIPTION = "Description"
-    QUERY_STRING = "QueryString"
-    PERIOD = "Period"
-    QUERY_VERSION = "QueryVersion"
-    UNIT = "Unit"
-    AGGREGATION_TYPE = "AggregationType"
-    AGGREGATION_FIELD = "AggregationField"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "metric_name": "MetricName",
@@ -1682,20 +1592,6 @@ class JobTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-j"""
 
     resource_type: ClassVar[str] = "AWS::IoT::JobTemplate"
-    TIMEOUT_CONFIG = "TimeoutConfig"
-    DESCRIPTION = "Description"
-    JOB_EXECUTIONS_RETRY_CONFIG = "JobExecutionsRetryConfig"
-    ABORT_CONFIG = "AbortConfig"
-    JOB_TEMPLATE_ID = "JobTemplateId"
-    DOCUMENT = "Document"
-    DESTINATION_PACKAGE_VERSIONS = "DestinationPackageVersions"
-    JOB_ARN = "JobArn"
-    JOB_EXECUTIONS_ROLLOUT_CONFIG = "JobExecutionsRolloutConfig"
-    DOCUMENT_SOURCE = "DocumentSource"
-    MAINTENANCE_WINDOWS = "MaintenanceWindows"
-    PRESIGNED_URL_CONFIG = "PresignedUrlConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_config": "TimeoutConfig",
         "description": "Description",
@@ -1738,10 +1634,6 @@ class Logging(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-l"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Logging"
-    ACCOUNT_ID = "AccountId"
-    ROLE_ARN = "RoleArn"
-    DEFAULT_LOG_LEVEL = "DefaultLogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "role_arn": "RoleArn",
@@ -1759,11 +1651,6 @@ class MitigationAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::MitigationAction"
     name_field: ClassVar[str] = "action_name"
-    ACTION_NAME = "ActionName"
-    ACTION_PARAMS = "ActionParams"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "action_params": "ActionParams",
@@ -1794,10 +1681,6 @@ class Policy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::Policy"
     name_field: ClassVar[str] = "policy_name"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",
@@ -1826,9 +1709,6 @@ class PolicyPrincipalAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::PolicyPrincipalAttachment"
     name_field: ClassVar[str] = "policy_name"
-    POLICY_NAME = "PolicyName"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "principal": "Principal",
@@ -1844,15 +1724,6 @@ class ProvisioningTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ProvisioningTemplate"
     name_field: ClassVar[str] = "template_name"
-    PROVISIONING_ROLE_ARN = "ProvisioningRoleArn"
-    DESCRIPTION = "Description"
-    PRE_PROVISIONING_HOOK = "PreProvisioningHook"
-    TEMPLATE_NAME = "TemplateName"
-    ENABLED = "Enabled"
-    TEMPLATE_BODY = "TemplateBody"
-    TEMPLATE_TYPE = "TemplateType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioning_role_arn": "ProvisioningRoleArn",
         "description": "Description",
@@ -1886,10 +1757,6 @@ class ResourceSpecificLogging(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ResourceSpecificLogging"
     name_field: ClassVar[str] = "target_name"
-    TARGET_TYPE = "TargetType"
-    TARGET_NAME = "TargetName"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_type": "TargetType",
         "target_name": "TargetName",
@@ -1912,11 +1779,6 @@ class RoleAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-r"""
 
     resource_type: ClassVar[str] = "AWS::IoT::RoleAlias"
-    ROLE_ALIAS = "RoleAlias"
-    CREDENTIAL_DURATION_SECONDS = "CredentialDurationSeconds"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_alias": "RoleAlias",
         "credential_duration_seconds": "CredentialDurationSeconds",
@@ -1942,13 +1804,6 @@ class ScheduledAudit(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ScheduledAudit"
     name_field: ClassVar[str] = "scheduled_audit_name"
-    DAY_OF_WEEK = "DayOfWeek"
-    TARGET_CHECK_NAMES = "TargetCheckNames"
-    SCHEDULED_AUDIT_NAME = "ScheduledAuditName"
-    DAY_OF_MONTH = "DayOfMonth"
-    FREQUENCY = "Frequency"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "target_check_names": "TargetCheckNames",
@@ -1978,15 +1833,6 @@ class SecurityProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::SecurityProfile"
     name_field: ClassVar[str] = "security_profile_name"
-    ADDITIONAL_METRICS_TO_RETAIN_V2 = "AdditionalMetricsToRetainV2"
-    METRICS_EXPORT_CONFIG = "MetricsExportConfig"
-    SECURITY_PROFILE_DESCRIPTION = "SecurityProfileDescription"
-    BEHAVIORS = "Behaviors"
-    SECURITY_PROFILE_NAME = "SecurityProfileName"
-    ALERT_TARGETS = "AlertTargets"
-    TARGET_ARNS = "TargetArns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_metrics_to_retain_v2": "AdditionalMetricsToRetainV2",
         "metrics_export_config": "MetricsExportConfig",
@@ -2020,10 +1866,6 @@ class SoftwarePackage(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::SoftwarePackage"
     name_field: ClassVar[str] = "package_name"
-    DESCRIPTION = "Description"
-    PACKAGE_NAME = "PackageName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "package_name": "PackageName",
@@ -2047,15 +1889,6 @@ class SoftwarePackageVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::SoftwarePackageVersion"
     name_field: ClassVar[str] = "package_name"
-    DESCRIPTION = "Description"
-    PACKAGE_NAME = "PackageName"
-    RECIPE = "Recipe"
-    ATTRIBUTES = "Attributes"
-    SBOM = "Sbom"
-    VERSION_NAME = "VersionName"
-    ARTIFACT = "Artifact"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "package_name": "PackageName",
@@ -2104,9 +1937,6 @@ class Thing(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::Thing"
     name_field: ClassVar[str] = "thing_name"
-    ATTRIBUTE_PAYLOAD = "AttributePayload"
-    THING_NAME = "ThingName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_payload": "AttributePayload",
         "thing_name": "ThingName",
@@ -2133,12 +1963,6 @@ class ThingGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingGroup"
     name_field: ClassVar[str] = "thing_group_name"
-    PARENT_GROUP_NAME = "ParentGroupName"
-    THING_GROUP_NAME = "ThingGroupName"
-    THING_GROUP_PROPERTIES = "ThingGroupProperties"
-    QUERY_STRING = "QueryString"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parent_group_name": "ParentGroupName",
         "thing_group_name": "ThingGroupName",
@@ -2171,10 +1995,6 @@ class ThingPrincipalAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingPrincipalAttachment"
     name_field: ClassVar[str] = "thing_name"
-    PRINCIPAL = "Principal"
-    THING_NAME = "ThingName"
-    THING_PRINCIPAL_TYPE = "ThingPrincipalType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal": "Principal",
         "thing_name": "ThingName",
@@ -2192,11 +2012,6 @@ class ThingType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingType"
     name_field: ClassVar[str] = "thing_type_name"
-    DEPRECATE_THING_TYPE = "DeprecateThingType"
-    THING_TYPE_NAME = "ThingTypeName"
-    THING_TYPE_PROPERTIES = "ThingTypeProperties"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deprecate_thing_type": "DeprecateThingType",
         "thing_type_name": "ThingTypeName",
@@ -2227,10 +2042,6 @@ class TopicRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoT::TopicRule"
     name_field: ClassVar[str] = "rule_name"
-    TOPIC_RULE_PAYLOAD = "TopicRulePayload"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_rule_payload": "TopicRulePayload",
         "rule_name": "RuleName",
@@ -2253,10 +2064,6 @@ class TopicRuleDestination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::TopicRuleDestination"
-    STATUS = "Status"
-    HTTP_URL_PROPERTIES = "HttpUrlProperties"
-    VPC_PROPERTIES = "VpcProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "http_url_properties": "HttpUrlProperties",

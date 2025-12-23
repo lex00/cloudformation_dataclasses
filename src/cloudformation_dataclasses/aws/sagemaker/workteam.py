@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CognitoMemberDefinition(PropertyType):
-    COGNITO_USER_POOL = "CognitoUserPool"
-    COGNITO_CLIENT_ID = "CognitoClientId"
-    COGNITO_USER_GROUP = "CognitoUserGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cognito_user_pool": "CognitoUserPool",
         "cognito_client_id": "CognitoClientId",
@@ -28,9 +24,6 @@ class CognitoMemberDefinition(PropertyType):
 
 @dataclass
 class MemberDefinition(PropertyType):
-    OIDC_MEMBER_DEFINITION = "OidcMemberDefinition"
-    COGNITO_MEMBER_DEFINITION = "CognitoMemberDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oidc_member_definition": "OidcMemberDefinition",
         "cognito_member_definition": "CognitoMemberDefinition",
@@ -42,8 +35,6 @@ class MemberDefinition(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    NOTIFICATION_TOPIC_ARN = "NotificationTopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_topic_arn": "NotificationTopicArn",
     }
@@ -53,8 +44,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class OidcMemberDefinition(PropertyType):
-    OIDC_GROUPS = "OidcGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oidc_groups": "OidcGroups",
     }

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CampaignHook(PropertyType):
-    MODE = "Mode"
-    WEB_URL = "WebUrl"
-    LAMBDA_FUNCTION_NAME = "LambdaFunctionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "web_url": "WebUrl",
@@ -28,11 +24,6 @@ class CampaignHook(PropertyType):
 
 @dataclass
 class Limits(PropertyType):
-    DAILY = "Daily"
-    MAXIMUM_DURATION = "MaximumDuration"
-    TOTAL = "Total"
-    MESSAGES_PER_SECOND = "MessagesPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily": "Daily",
         "maximum_duration": "MaximumDuration",
@@ -48,9 +39,6 @@ class Limits(PropertyType):
 
 @dataclass
 class QuietTime(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",

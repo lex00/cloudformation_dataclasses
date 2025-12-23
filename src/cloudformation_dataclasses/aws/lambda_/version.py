@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FunctionScalingConfig(PropertyType):
-    MIN_EXECUTION_ENVIRONMENTS = "MinExecutionEnvironments"
-    MAX_EXECUTION_ENVIRONMENTS = "MaxExecutionEnvironments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_execution_environments": "MinExecutionEnvironments",
         "max_execution_environments": "MaxExecutionEnvironments",
@@ -25,8 +22,6 @@ class FunctionScalingConfig(PropertyType):
 
 @dataclass
 class ProvisionedConcurrencyConfiguration(PropertyType):
-    PROVISIONED_CONCURRENT_EXECUTIONS = "ProvisionedConcurrentExecutions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_concurrent_executions": "ProvisionedConcurrentExecutions",
     }
@@ -36,9 +31,6 @@ class ProvisionedConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class RuntimePolicy(PropertyType):
-    UPDATE_RUNTIME_ON = "UpdateRuntimeOn"
-    RUNTIME_VERSION_ARN = "RuntimeVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_runtime_on": "UpdateRuntimeOn",
         "runtime_version_arn": "RuntimeVersionArn",

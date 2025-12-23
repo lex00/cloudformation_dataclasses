@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HomeDirectoryMapEntry(PropertyType):
-    ENTRY = "Entry"
-    TARGET = "Target"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry": "Entry",
         "target": "Target",
@@ -28,10 +24,6 @@ class HomeDirectoryMapEntry(PropertyType):
 
 @dataclass
 class PosixProfile(PropertyType):
-    UID = "Uid"
-    SECONDARY_GIDS = "SecondaryGids"
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",

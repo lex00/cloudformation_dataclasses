@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EventSubscription(PropertyType):
-    EVENT_TYPE = "EventType"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_type": "EventType",
         "sns_topic_arn": "SnsTopicArn",
@@ -28,10 +24,6 @@ class EventSubscription(PropertyType):
 
 @dataclass
 class PermissionModel(PropertyType):
-    TYPE = "Type"
-    CROSS_ACCOUNT_ROLE_ARNS = "CrossAccountRoleArns"
-    INVOKER_ROLE_NAME = "InvokerRoleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "cross_account_role_arns": "CrossAccountRoleArns",
@@ -45,11 +37,6 @@ class PermissionModel(PropertyType):
 
 @dataclass
 class PhysicalResourceId(PropertyType):
-    TYPE = "Type"
-    IDENTIFIER = "Identifier"
-    AWS_REGION = "AwsRegion"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",
@@ -65,13 +52,6 @@ class PhysicalResourceId(PropertyType):
 
 @dataclass
 class ResourceMapping(PropertyType):
-    MAPPING_TYPE = "MappingType"
-    LOGICAL_STACK_NAME = "LogicalStackName"
-    RESOURCE_NAME = "ResourceName"
-    TERRAFORM_SOURCE_NAME = "TerraformSourceName"
-    PHYSICAL_RESOURCE_ID = "PhysicalResourceId"
-    EKS_SOURCE_NAME = "EksSourceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_type": "MappingType",
         "logical_stack_name": "LogicalStackName",

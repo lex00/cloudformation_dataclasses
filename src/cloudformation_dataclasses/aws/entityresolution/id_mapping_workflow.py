@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IdMappingIncrementalRunConfig(PropertyType):
-    INCREMENTAL_RUN_TYPE = "IncrementalRunType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incremental_run_type": "IncrementalRunType",
     }
@@ -22,11 +20,6 @@ class IdMappingIncrementalRunConfig(PropertyType):
 
 @dataclass
 class IdMappingRuleBasedProperties(PropertyType):
-    ATTRIBUTE_MATCHING_MODEL = "AttributeMatchingModel"
-    RULE_DEFINITION_TYPE = "RuleDefinitionType"
-    RULES = "Rules"
-    RECORD_MATCHING_MODEL = "RecordMatchingModel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "rule_definition_type": "RuleDefinitionType",
@@ -42,11 +35,6 @@ class IdMappingRuleBasedProperties(PropertyType):
 
 @dataclass
 class IdMappingTechniques(PropertyType):
-    RULE_BASED_PROPERTIES = "RuleBasedProperties"
-    PROVIDER_PROPERTIES = "ProviderProperties"
-    ID_MAPPING_TYPE = "IdMappingType"
-    NORMALIZATION_VERSION = "NormalizationVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -62,10 +50,6 @@ class IdMappingTechniques(PropertyType):
 
 @dataclass
 class IdMappingWorkflowInputSource(PropertyType):
-    TYPE = "Type"
-    INPUT_SOURCE_ARN = "InputSourceARN"
-    SCHEMA_ARN = "SchemaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_source_arn": "InputSourceARN",
@@ -79,9 +63,6 @@ class IdMappingWorkflowInputSource(PropertyType):
 
 @dataclass
 class IdMappingWorkflowOutputSource(PropertyType):
-    KMS_ARN = "KMSArn"
-    OUTPUT_S3_PATH = "OutputS3Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_arn": "KMSArn",
         "output_s3_path": "OutputS3Path",
@@ -93,8 +74,6 @@ class IdMappingWorkflowOutputSource(PropertyType):
 
 @dataclass
 class IntermediateSourceConfiguration(PropertyType):
-    INTERMEDIATE_S3_PATH = "IntermediateS3Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_s3_path": "IntermediateS3Path",
     }
@@ -104,10 +83,6 @@ class IntermediateSourceConfiguration(PropertyType):
 
 @dataclass
 class ProviderProperties(PropertyType):
-    INTERMEDIATE_SOURCE_CONFIGURATION = "IntermediateSourceConfiguration"
-    PROVIDER_SERVICE_ARN = "ProviderServiceArn"
-    PROVIDER_CONFIGURATION = "ProviderConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_source_configuration": "IntermediateSourceConfiguration",
         "provider_service_arn": "ProviderServiceArn",
@@ -121,9 +96,6 @@ class ProviderProperties(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    MATCHING_KEYS = "MatchingKeys"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",

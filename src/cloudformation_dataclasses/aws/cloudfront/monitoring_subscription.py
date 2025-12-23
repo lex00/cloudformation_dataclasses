@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MonitoringSubscription(PropertyType):
-    REALTIME_METRICS_SUBSCRIPTION_CONFIG = "RealtimeMetricsSubscriptionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "realtime_metrics_subscription_config": "RealtimeMetricsSubscriptionConfig",
     }
@@ -22,8 +20,6 @@ class MonitoringSubscription(PropertyType):
 
 @dataclass
 class RealtimeMetricsSubscriptionConfig(PropertyType):
-    REALTIME_METRICS_SUBSCRIPTION_STATUS = "RealtimeMetricsSubscriptionStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "realtime_metrics_subscription_status": "RealtimeMetricsSubscriptionStatus",
     }

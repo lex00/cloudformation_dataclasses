@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomDocumentEnrichmentConfiguration(PropertyType):
-    INLINE_CONFIGURATIONS = "InlineConfigurations"
-    PRE_EXTRACTION_HOOK_CONFIGURATION = "PreExtractionHookConfiguration"
-    POST_EXTRACTION_HOOK_CONFIGURATION = "PostExtractionHookConfiguration"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_configurations": "InlineConfigurations",
         "pre_extraction_hook_configuration": "PreExtractionHookConfiguration",
@@ -31,8 +26,6 @@ class CustomDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_configuration": "TemplateConfiguration",
     }
@@ -42,10 +35,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttributeCondition(PropertyType):
-    OPERATOR = "Operator"
-    CONDITION_DOCUMENT_ATTRIBUTE_KEY = "ConditionDocumentAttributeKey"
-    CONDITION_ON_VALUE = "ConditionOnValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "condition_document_attribute_key": "ConditionDocumentAttributeKey",
@@ -59,10 +48,6 @@ class DocumentAttributeCondition(PropertyType):
 
 @dataclass
 class DocumentAttributeTarget(PropertyType):
-    TARGET_DOCUMENT_ATTRIBUTE_KEY = "TargetDocumentAttributeKey"
-    TARGET_DOCUMENT_ATTRIBUTE_VALUE_DELETION = "TargetDocumentAttributeValueDeletion"
-    TARGET_DOCUMENT_ATTRIBUTE_VALUE = "TargetDocumentAttributeValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_document_attribute_key": "TargetDocumentAttributeKey",
         "target_document_attribute_value_deletion": "TargetDocumentAttributeValueDeletion",
@@ -76,11 +61,6 @@ class DocumentAttributeTarget(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    DATE_VALUE = "DateValue"
-    LONG_VALUE = "LongValue"
-    STRING_VALUE = "StringValue"
-    STRING_LIST_VALUE = "StringListValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",
@@ -96,10 +76,6 @@ class DocumentAttributeValue(PropertyType):
 
 @dataclass
 class HookConfiguration(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    LAMBDA_ARN = "LambdaArn"
-    INVOCATION_CONDITION = "InvocationCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "lambda_arn": "LambdaArn",
@@ -113,10 +89,6 @@ class HookConfiguration(PropertyType):
 
 @dataclass
 class InlineCustomDocumentEnrichmentConfiguration(PropertyType):
-    CONDITION = "Condition"
-    TARGET = "Target"
-    DOCUMENT_CONTENT_DELETION = "DocumentContentDeletion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "target": "Target",
@@ -130,8 +102,6 @@ class InlineCustomDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class TemplateConfiguration(PropertyType):
-    TEMPLATE = "Template"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template": "Template",
     }

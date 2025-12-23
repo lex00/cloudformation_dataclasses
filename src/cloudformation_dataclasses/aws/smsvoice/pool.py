@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MandatoryKeyword(PropertyType):
-    MESSAGE = "Message"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
     }
@@ -22,9 +20,6 @@ class MandatoryKeyword(PropertyType):
 
 @dataclass
 class MandatoryKeywords(PropertyType):
-    HELP = "HELP"
-    STOP = "STOP"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "help": "HELP",
         "stop": "STOP",
@@ -36,10 +31,6 @@ class MandatoryKeywords(PropertyType):
 
 @dataclass
 class OptionalKeyword(PropertyType):
-    ACTION = "Action"
-    KEYWORD = "Keyword"
-    MESSAGE = "Message"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "keyword": "Keyword",
@@ -53,10 +44,6 @@ class OptionalKeyword(PropertyType):
 
 @dataclass
 class TwoWay(PropertyType):
-    CHANNEL_ARN = "ChannelArn"
-    CHANNEL_ROLE = "ChannelRole"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_arn": "ChannelArn",
         "channel_role": "ChannelRole",

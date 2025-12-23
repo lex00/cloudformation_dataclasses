@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AudioExtractionCategory(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-    TYPE_CONFIGURATION = "TypeConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -28,8 +24,6 @@ class AudioExtractionCategory(PropertyType):
 
 @dataclass
 class AudioExtractionCategoryTypeConfiguration(PropertyType):
-    TRANSCRIPT = "Transcript"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transcript": "Transcript",
     }
@@ -39,10 +33,6 @@ class AudioExtractionCategoryTypeConfiguration(PropertyType):
 
 @dataclass
 class AudioLanguageConfiguration(PropertyType):
-    IDENTIFY_MULTIPLE_LANGUAGES = "IdentifyMultipleLanguages"
-    GENERATIVE_OUTPUT_LANGUAGE = "GenerativeOutputLanguage"
-    INPUT_LANGUAGES = "InputLanguages"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identify_multiple_languages": "IdentifyMultipleLanguages",
         "generative_output_language": "GenerativeOutputLanguage",
@@ -56,10 +46,6 @@ class AudioLanguageConfiguration(PropertyType):
 
 @dataclass
 class AudioOverrideConfiguration(PropertyType):
-    SENSITIVE_DATA_CONFIGURATION = "SensitiveDataConfiguration"
-    LANGUAGE_CONFIGURATION = "LanguageConfiguration"
-    MODALITY_PROCESSING = "ModalityProcessing"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "language_configuration": "LanguageConfiguration",
@@ -73,8 +59,6 @@ class AudioOverrideConfiguration(PropertyType):
 
 @dataclass
 class AudioStandardExtraction(PropertyType):
-    CATEGORY = "Category"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
     }
@@ -84,9 +68,6 @@ class AudioStandardExtraction(PropertyType):
 
 @dataclass
 class AudioStandardGenerativeField(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -98,9 +79,6 @@ class AudioStandardGenerativeField(PropertyType):
 
 @dataclass
 class AudioStandardOutputConfiguration(PropertyType):
-    GENERATIVE_FIELD = "GenerativeField"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",
@@ -112,10 +90,6 @@ class AudioStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class BlueprintItem(PropertyType):
-    BLUEPRINT_VERSION = "BlueprintVersion"
-    BLUEPRINT_STAGE = "BlueprintStage"
-    BLUEPRINT_ARN = "BlueprintArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blueprint_version": "BlueprintVersion",
         "blueprint_stage": "BlueprintStage",
@@ -129,8 +103,6 @@ class BlueprintItem(PropertyType):
 
 @dataclass
 class ChannelLabelingConfiguration(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -140,8 +112,6 @@ class ChannelLabelingConfiguration(PropertyType):
 
 @dataclass
 class CustomOutputConfiguration(PropertyType):
-    BLUEPRINTS = "Blueprints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blueprints": "Blueprints",
     }
@@ -151,8 +121,6 @@ class CustomOutputConfiguration(PropertyType):
 
 @dataclass
 class DocumentBoundingBox(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -162,8 +130,6 @@ class DocumentBoundingBox(PropertyType):
 
 @dataclass
 class DocumentExtractionGranularity(PropertyType):
-    TYPES = "Types"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
     }
@@ -173,8 +139,6 @@ class DocumentExtractionGranularity(PropertyType):
 
 @dataclass
 class DocumentOutputAdditionalFileFormat(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -184,9 +148,6 @@ class DocumentOutputAdditionalFileFormat(PropertyType):
 
 @dataclass
 class DocumentOutputFormat(PropertyType):
-    TEXT_FORMAT = "TextFormat"
-    ADDITIONAL_FILE_FORMAT = "AdditionalFileFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_format": "TextFormat",
         "additional_file_format": "AdditionalFileFormat",
@@ -198,8 +159,6 @@ class DocumentOutputFormat(PropertyType):
 
 @dataclass
 class DocumentOutputTextFormat(PropertyType):
-    TYPES = "Types"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
     }
@@ -209,10 +168,6 @@ class DocumentOutputTextFormat(PropertyType):
 
 @dataclass
 class DocumentOverrideConfiguration(PropertyType):
-    SENSITIVE_DATA_CONFIGURATION = "SensitiveDataConfiguration"
-    SPLITTER = "Splitter"
-    MODALITY_PROCESSING = "ModalityProcessing"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "splitter": "Splitter",
@@ -226,9 +181,6 @@ class DocumentOverrideConfiguration(PropertyType):
 
 @dataclass
 class DocumentStandardExtraction(PropertyType):
-    BOUNDING_BOX = "BoundingBox"
-    GRANULARITY = "Granularity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounding_box": "BoundingBox",
         "granularity": "Granularity",
@@ -240,8 +192,6 @@ class DocumentStandardExtraction(PropertyType):
 
 @dataclass
 class DocumentStandardGenerativeField(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -251,10 +201,6 @@ class DocumentStandardGenerativeField(PropertyType):
 
 @dataclass
 class DocumentStandardOutputConfiguration(PropertyType):
-    OUTPUT_FORMAT = "OutputFormat"
-    GENERATIVE_FIELD = "GenerativeField"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_format": "OutputFormat",
         "generative_field": "GenerativeField",
@@ -268,8 +214,6 @@ class DocumentStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class ImageBoundingBox(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -279,9 +223,6 @@ class ImageBoundingBox(PropertyType):
 
 @dataclass
 class ImageExtractionCategory(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -293,9 +234,6 @@ class ImageExtractionCategory(PropertyType):
 
 @dataclass
 class ImageOverrideConfiguration(PropertyType):
-    SENSITIVE_DATA_CONFIGURATION = "SensitiveDataConfiguration"
-    MODALITY_PROCESSING = "ModalityProcessing"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "modality_processing": "ModalityProcessing",
@@ -307,9 +245,6 @@ class ImageOverrideConfiguration(PropertyType):
 
 @dataclass
 class ImageStandardExtraction(PropertyType):
-    CATEGORY = "Category"
-    BOUNDING_BOX = "BoundingBox"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "bounding_box": "BoundingBox",
@@ -321,9 +256,6 @@ class ImageStandardExtraction(PropertyType):
 
 @dataclass
 class ImageStandardGenerativeField(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -335,9 +267,6 @@ class ImageStandardGenerativeField(PropertyType):
 
 @dataclass
 class ImageStandardOutputConfiguration(PropertyType):
-    GENERATIVE_FIELD = "GenerativeField"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",
@@ -349,8 +278,6 @@ class ImageStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class ModalityProcessingConfiguration(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -360,11 +287,6 @@ class ModalityProcessingConfiguration(PropertyType):
 
 @dataclass
 class ModalityRoutingConfiguration(PropertyType):
-    MP4 = "mp4"
-    MOV = "mov"
-    PNG = "png"
-    JPEG = "jpeg"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mp4": "mp4",
         "mov": "mov",
@@ -380,12 +302,6 @@ class ModalityRoutingConfiguration(PropertyType):
 
 @dataclass
 class OverrideConfiguration(PropertyType):
-    VIDEO = "Video"
-    MODALITY_ROUTING = "ModalityRouting"
-    DOCUMENT = "Document"
-    AUDIO = "Audio"
-    IMAGE = "Image"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video": "Video",
         "modality_routing": "ModalityRouting",
@@ -403,9 +319,6 @@ class OverrideConfiguration(PropertyType):
 
 @dataclass
 class PIIEntitiesConfiguration(PropertyType):
-    PII_ENTITY_TYPES = "PiiEntityTypes"
-    REDACTION_MASK_MODE = "RedactionMaskMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pii_entity_types": "PiiEntityTypes",
         "redaction_mask_mode": "RedactionMaskMode",
@@ -417,10 +330,6 @@ class PIIEntitiesConfiguration(PropertyType):
 
 @dataclass
 class SensitiveDataConfiguration(PropertyType):
-    DETECTION_MODE = "DetectionMode"
-    PII_ENTITIES_CONFIGURATION = "PiiEntitiesConfiguration"
-    DETECTION_SCOPE = "DetectionScope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detection_mode": "DetectionMode",
         "pii_entities_configuration": "PiiEntitiesConfiguration",
@@ -434,8 +343,6 @@ class SensitiveDataConfiguration(PropertyType):
 
 @dataclass
 class SpeakerLabelingConfiguration(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -445,8 +352,6 @@ class SpeakerLabelingConfiguration(PropertyType):
 
 @dataclass
 class SplitterConfiguration(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -456,11 +361,6 @@ class SplitterConfiguration(PropertyType):
 
 @dataclass
 class StandardOutputConfiguration(PropertyType):
-    VIDEO = "Video"
-    DOCUMENT = "Document"
-    IMAGE = "Image"
-    AUDIO = "Audio"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video": "Video",
         "document": "Document",
@@ -476,9 +376,6 @@ class StandardOutputConfiguration(PropertyType):
 
 @dataclass
 class TranscriptConfiguration(PropertyType):
-    CHANNEL_LABELING = "ChannelLabeling"
-    SPEAKER_LABELING = "SpeakerLabeling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_labeling": "ChannelLabeling",
         "speaker_labeling": "SpeakerLabeling",
@@ -490,8 +387,6 @@ class TranscriptConfiguration(PropertyType):
 
 @dataclass
 class VideoBoundingBox(PropertyType):
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -501,9 +396,6 @@ class VideoBoundingBox(PropertyType):
 
 @dataclass
 class VideoExtractionCategory(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -515,9 +407,6 @@ class VideoExtractionCategory(PropertyType):
 
 @dataclass
 class VideoOverrideConfiguration(PropertyType):
-    SENSITIVE_DATA_CONFIGURATION = "SensitiveDataConfiguration"
-    MODALITY_PROCESSING = "ModalityProcessing"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "modality_processing": "ModalityProcessing",
@@ -529,9 +418,6 @@ class VideoOverrideConfiguration(PropertyType):
 
 @dataclass
 class VideoStandardExtraction(PropertyType):
-    CATEGORY = "Category"
-    BOUNDING_BOX = "BoundingBox"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "bounding_box": "BoundingBox",
@@ -543,9 +429,6 @@ class VideoStandardExtraction(PropertyType):
 
 @dataclass
 class VideoStandardGenerativeField(PropertyType):
-    TYPES = "Types"
-    STATE = "State"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -557,9 +440,6 @@ class VideoStandardGenerativeField(PropertyType):
 
 @dataclass
 class VideoStandardOutputConfiguration(PropertyType):
-    GENERATIVE_FIELD = "GenerativeField"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",

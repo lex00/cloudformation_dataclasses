@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppMesh
@@ -274,13 +274,6 @@ class GatewayRoute(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::GatewayRoute"
     name_field: ClassVar[str] = "gateway_route_name"
-    MESH_NAME = "MeshName"
-    VIRTUAL_GATEWAY_NAME = "VirtualGatewayName"
-    MESH_OWNER = "MeshOwner"
-    GATEWAY_ROUTE_NAME = "GatewayRouteName"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "virtual_gateway_name": "VirtualGatewayName",
@@ -340,10 +333,6 @@ class Mesh(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::Mesh"
     name_field: ClassVar[str] = "mesh_name"
-    MESH_NAME = "MeshName"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "spec": "Spec",
@@ -387,13 +376,6 @@ class Route(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::Route"
     name_field: ClassVar[str] = "route_name"
-    MESH_NAME = "MeshName"
-    VIRTUAL_ROUTER_NAME = "VirtualRouterName"
-    MESH_OWNER = "MeshOwner"
-    ROUTE_NAME = "RouteName"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "virtual_router_name": "VirtualRouterName",
@@ -453,12 +435,6 @@ class VirtualGateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualGateway"
     name_field: ClassVar[str] = "virtual_gateway_name"
-    VIRTUAL_GATEWAY_NAME = "VirtualGatewayName"
-    MESH_NAME = "MeshName"
-    MESH_OWNER = "MeshOwner"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_gateway_name": "VirtualGatewayName",
         "mesh_name": "MeshName",
@@ -511,12 +487,6 @@ class VirtualNode(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualNode"
     name_field: ClassVar[str] = "virtual_node_name"
-    MESH_NAME = "MeshName"
-    MESH_OWNER = "MeshOwner"
-    SPEC = "Spec"
-    VIRTUAL_NODE_NAME = "VirtualNodeName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "mesh_owner": "MeshOwner",
@@ -569,12 +539,6 @@ class VirtualRouter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualRouter"
     name_field: ClassVar[str] = "virtual_router_name"
-    MESH_NAME = "MeshName"
-    VIRTUAL_ROUTER_NAME = "VirtualRouterName"
-    MESH_OWNER = "MeshOwner"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "virtual_router_name": "VirtualRouterName",
@@ -627,12 +591,6 @@ class VirtualService(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualService"
     name_field: ClassVar[str] = "virtual_service_name"
-    MESH_NAME = "MeshName"
-    MESH_OWNER = "MeshOwner"
-    VIRTUAL_SERVICE_NAME = "VirtualServiceName"
-    SPEC = "Spec"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mesh_name": "MeshName",
         "mesh_owner": "MeshOwner",

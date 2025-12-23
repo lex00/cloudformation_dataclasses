@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    VERSION = "Version"
-    ID = "Id"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "id": "Id",
@@ -28,13 +24,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class NodeRepairConfig(PropertyType):
-    NODE_REPAIR_CONFIG_OVERRIDES = "NodeRepairConfigOverrides"
-    MAX_PARALLEL_NODES_REPAIRED_COUNT = "MaxParallelNodesRepairedCount"
-    ENABLED = "Enabled"
-    MAX_UNHEALTHY_NODE_THRESHOLD_PERCENTAGE = "MaxUnhealthyNodeThresholdPercentage"
-    MAX_PARALLEL_NODES_REPAIRED_PERCENTAGE = "MaxParallelNodesRepairedPercentage"
-    MAX_UNHEALTHY_NODE_THRESHOLD_COUNT = "MaxUnhealthyNodeThresholdCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_repair_config_overrides": "NodeRepairConfigOverrides",
         "max_parallel_nodes_repaired_count": "MaxParallelNodesRepairedCount",
@@ -54,11 +43,6 @@ class NodeRepairConfig(PropertyType):
 
 @dataclass
 class NodeRepairConfigOverrides(PropertyType):
-    NODE_UNHEALTHY_REASON = "NodeUnhealthyReason"
-    REPAIR_ACTION = "RepairAction"
-    MIN_REPAIR_WAIT_TIME_MINS = "MinRepairWaitTimeMins"
-    NODE_MONITORING_CONDITION = "NodeMonitoringCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_unhealthy_reason": "NodeUnhealthyReason",
         "repair_action": "RepairAction",
@@ -74,9 +58,6 @@ class NodeRepairConfigOverrides(PropertyType):
 
 @dataclass
 class RemoteAccess(PropertyType):
-    SOURCE_SECURITY_GROUPS = "SourceSecurityGroups"
-    EC2_SSH_KEY = "Ec2SshKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_security_groups": "SourceSecurityGroups",
         "ec2_ssh_key": "Ec2SshKey",
@@ -88,10 +69,6 @@ class RemoteAccess(PropertyType):
 
 @dataclass
 class ScalingConfig(PropertyType):
-    MIN_SIZE = "MinSize"
-    DESIRED_SIZE = "DesiredSize"
-    MAX_SIZE = "MaxSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_size": "DesiredSize",
@@ -105,10 +82,6 @@ class ScalingConfig(PropertyType):
 
 @dataclass
 class Taint(PropertyType):
-    VALUE = "Value"
-    EFFECT = "Effect"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "effect": "Effect",
@@ -122,10 +95,6 @@ class Taint(PropertyType):
 
 @dataclass
 class UpdateConfig(PropertyType):
-    MAX_UNAVAILABLE_PERCENTAGE = "MaxUnavailablePercentage"
-    UPDATE_STRATEGY = "UpdateStrategy"
-    MAX_UNAVAILABLE = "MaxUnavailable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_unavailable_percentage": "MaxUnavailablePercentage",
         "update_strategy": "UpdateStrategy",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Certificate(PropertyType):
-    CERTIFICATE_TYPE = "CertificateType"
-    CERTIFICATE_VERIFICATION_DNS_RECORD = "CertificateVerificationDNSRecord"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
         "certificate_verification_dns_record": "CertificateVerificationDNSRecord",
@@ -28,9 +24,6 @@ class Certificate(PropertyType):
 
 @dataclass
 class CertificateSettings(PropertyType):
-    CERTIFICATE_TYPE = "CertificateType"
-    CUSTOM_CERTIFICATE_ARN = "CustomCertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
         "custom_certificate_arn": "CustomCertificateArn",
@@ -42,9 +35,6 @@ class CertificateSettings(PropertyType):
 
 @dataclass
 class SubDomainSetting(PropertyType):
-    PREFIX = "Prefix"
-    BRANCH_NAME = "BranchName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "branch_name": "BranchName",

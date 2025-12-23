@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationItem(PropertyType):
-    TYPE = "Type"
-    PARAMETERS = "Parameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -25,9 +22,6 @@ class ConfigurationItem(PropertyType):
 
 @dataclass
 class ConfigurationParameter(PropertyType):
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -39,10 +33,6 @@ class ConfigurationParameter(PropertyType):
 
 @dataclass
 class Query(PropertyType):
-    TAG_FILTERS = "TagFilters"
-    RESOURCE_TYPE_FILTERS = "ResourceTypeFilters"
-    STACK_IDENTIFIER = "StackIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_filters": "TagFilters",
         "resource_type_filters": "ResourceTypeFilters",
@@ -56,9 +46,6 @@ class Query(PropertyType):
 
 @dataclass
 class ResourceQuery(PropertyType):
-    TYPE = "Type"
-    QUERY = "Query"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "query": "Query",
@@ -70,9 +57,6 @@ class ResourceQuery(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

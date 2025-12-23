@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTWireless
@@ -630,13 +630,6 @@ class Destination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::Destination"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    EXPRESSION = "Expression"
-    EXPRESSION_TYPE = "ExpressionType"
-    TAGS = "Tags"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "expression": "Expression",
@@ -666,10 +659,6 @@ class DeviceProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::DeviceProfile"
     name_field: ClassVar[str] = "name"
-    LO_RA_WAN = "LoRaWAN"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lo_ra_wan": "LoRaWAN",
         "tags": "Tags",
@@ -698,17 +687,6 @@ class FuotaTask(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::FuotaTask"
     name_field: ClassVar[str] = "name"
-    FIRMWARE_UPDATE_IMAGE = "FirmwareUpdateImage"
-    DESCRIPTION = "Description"
-    LO_RA_WAN = "LoRaWAN"
-    FIRMWARE_UPDATE_ROLE = "FirmwareUpdateRole"
-    ASSOCIATE_MULTICAST_GROUP = "AssociateMulticastGroup"
-    DISASSOCIATE_WIRELESS_DEVICE = "DisassociateWirelessDevice"
-    DISASSOCIATE_MULTICAST_GROUP = "DisassociateMulticastGroup"
-    ASSOCIATE_WIRELESS_DEVICE = "AssociateWirelessDevice"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firmware_update_image": "FirmwareUpdateImage",
         "description": "Description",
@@ -761,13 +739,6 @@ class MulticastGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::MulticastGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    LO_RA_WAN = "LoRaWAN"
-    DISASSOCIATE_WIRELESS_DEVICE = "DisassociateWirelessDevice"
-    ASSOCIATE_WIRELESS_DEVICE = "AssociateWirelessDevice"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "lo_ra_wan": "LoRaWAN",
@@ -817,13 +788,6 @@ class NetworkAnalyzerConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::NetworkAnalyzerConfiguration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TRACE_CONTENT = "TraceContent"
-    WIRELESS_GATEWAYS = "WirelessGateways"
-    WIRELESS_DEVICES = "WirelessDevices"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "trace_content": "TraceContent",
@@ -852,14 +816,6 @@ class PartnerAccount(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::PartnerAccount"
-    PARTNER_TYPE = "PartnerType"
-    SIDEWALK_RESPONSE = "SidewalkResponse"
-    ACCOUNT_LINKED = "AccountLinked"
-    SIDEWALK = "Sidewalk"
-    PARTNER_ACCOUNT_ID = "PartnerAccountId"
-    SIDEWALK_UPDATE = "SidewalkUpdate"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partner_type": "PartnerType",
         "sidewalk_response": "SidewalkResponse",
@@ -896,10 +852,6 @@ class ServiceProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::ServiceProfile"
     name_field: ClassVar[str] = "name"
-    LO_RA_WAN = "LoRaWAN"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lo_ra_wan": "LoRaWAN",
         "tags": "Tags",
@@ -1008,13 +960,6 @@ class TaskDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::TaskDefinition"
     name_field: ClassVar[str] = "name"
-    AUTO_CREATE_TASKS = "AutoCreateTasks"
-    LO_RA_WAN_UPDATE_GATEWAY_TASK_ENTRY = "LoRaWANUpdateGatewayTaskEntry"
-    UPDATE = "Update"
-    TASK_DEFINITION_TYPE = "TaskDefinitionType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_create_tasks": "AutoCreateTasks",
         "lo_ra_wan_update_gateway_task_entry": "LoRaWANUpdateGatewayTaskEntry",
@@ -1049,16 +994,6 @@ class WirelessDevice(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessDevice"
     name_field: ClassVar[str] = "name"
-    LAST_UPLINK_RECEIVED_AT = "LastUplinkReceivedAt"
-    POSITIONING = "Positioning"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    LO_RA_WAN = "LoRaWAN"
-    DESTINATION_NAME = "DestinationName"
-    THING_ARN = "ThingArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "last_uplink_received_at": "LastUplinkReceivedAt",
         "positioning": "Positioning",
@@ -1104,10 +1039,6 @@ class WirelessDeviceImportTask(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessDeviceImportTask"
     name_field: ClassVar[str] = "destination_name"
-    DESTINATION_NAME = "DestinationName"
-    SIDEWALK = "Sidewalk"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_name": "DestinationName",
         "sidewalk": "Sidewalk",
@@ -1176,14 +1107,6 @@ class WirelessGateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessGateway"
     name_field: ClassVar[str] = "name"
-    LAST_UPLINK_RECEIVED_AT = "LastUplinkReceivedAt"
-    DESCRIPTION = "Description"
-    LO_RA_WAN = "LoRaWAN"
-    THING_ARN = "ThingArn"
-    THING_NAME = "ThingName"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "last_uplink_received_at": "LastUplinkReceivedAt",
         "description": "Description",

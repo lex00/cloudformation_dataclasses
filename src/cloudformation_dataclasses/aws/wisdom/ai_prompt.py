@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AIPromptTemplateConfiguration(PropertyType):
-    TEXT_FULL_AI_PROMPT_EDIT_TEMPLATE_CONFIGURATION = "TextFullAIPromptEditTemplateConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_full_ai_prompt_edit_template_configuration": "TextFullAIPromptEditTemplateConfiguration",
     }
@@ -22,8 +20,6 @@ class AIPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class TextFullAIPromptEditTemplateConfiguration(PropertyType):
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }

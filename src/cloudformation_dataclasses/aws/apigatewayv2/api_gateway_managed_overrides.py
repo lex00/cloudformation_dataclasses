@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLogSettings(PropertyType):
-    FORMAT = "Format"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -25,11 +22,6 @@ class AccessLogSettings(PropertyType):
 
 @dataclass
 class IntegrationOverrides(PropertyType):
-    DESCRIPTION = "Description"
-    PAYLOAD_FORMAT_VERSION = "PayloadFormatVersion"
-    TIMEOUT_IN_MILLIS = "TimeoutInMillis"
-    INTEGRATION_METHOD = "IntegrationMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "payload_format_version": "PayloadFormatVersion",
@@ -45,12 +37,6 @@ class IntegrationOverrides(PropertyType):
 
 @dataclass
 class RouteOverrides(PropertyType):
-    TARGET = "Target"
-    AUTHORIZER_ID = "AuthorizerId"
-    OPERATION_NAME = "OperationName"
-    AUTHORIZATION_SCOPES = "AuthorizationScopes"
-    AUTHORIZATION_TYPE = "AuthorizationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "authorizer_id": "AuthorizerId",
@@ -68,12 +54,6 @@ class RouteOverrides(PropertyType):
 
 @dataclass
 class RouteSettings(PropertyType):
-    LOGGING_LEVEL = "LoggingLevel"
-    DATA_TRACE_ENABLED = "DataTraceEnabled"
-    THROTTLING_BURST_LIMIT = "ThrottlingBurstLimit"
-    DETAILED_METRICS_ENABLED = "DetailedMetricsEnabled"
-    THROTTLING_RATE_LIMIT = "ThrottlingRateLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_level": "LoggingLevel",
         "data_trace_enabled": "DataTraceEnabled",
@@ -91,13 +71,6 @@ class RouteSettings(PropertyType):
 
 @dataclass
 class StageOverrides(PropertyType):
-    DESCRIPTION = "Description"
-    ACCESS_LOG_SETTINGS = "AccessLogSettings"
-    AUTO_DEPLOY = "AutoDeploy"
-    ROUTE_SETTINGS = "RouteSettings"
-    STAGE_VARIABLES = "StageVariables"
-    DEFAULT_ROUTE_SETTINGS = "DefaultRouteSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "access_log_settings": "AccessLogSettings",

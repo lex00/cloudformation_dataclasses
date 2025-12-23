@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CreateDetails(PropertyType):
-    GITLAB_SELF_MANAGED = "gitlabSelfManaged"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gitlab_self_managed": "gitlabSelfManaged",
     }
@@ -22,9 +20,6 @@ class CreateDetails(PropertyType):
 
 @dataclass
 class CreateGitLabSelfManagedIntegrationDetail(PropertyType):
-    ACCESS_TOKEN = "accessToken"
-    INSTANCE_URL = "instanceUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_token": "accessToken",
         "instance_url": "instanceUrl",
@@ -36,9 +31,6 @@ class CreateGitLabSelfManagedIntegrationDetail(PropertyType):
 
 @dataclass
 class UpdateDetails(PropertyType):
-    GITLAB_SELF_MANAGED = "gitlabSelfManaged"
-    GITHUB = "github"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gitlab_self_managed": "gitlabSelfManaged",
         "github": "github",
@@ -50,9 +42,6 @@ class UpdateDetails(PropertyType):
 
 @dataclass
 class UpdateGitHubIntegrationDetail(PropertyType):
-    CODE = "code"
-    INSTALLATION_ID = "installationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "code",
         "installation_id": "installationId",
@@ -64,8 +53,6 @@ class UpdateGitHubIntegrationDetail(PropertyType):
 
 @dataclass
 class UpdateGitLabSelfManagedIntegrationDetail(PropertyType):
-    AUTH_CODE = "authCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_code": "authCode",
     }

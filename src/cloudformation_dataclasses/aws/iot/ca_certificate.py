@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RegistrationConfig(PropertyType):
-    TEMPLATE_NAME = "TemplateName"
-    TEMPLATE_BODY = "TemplateBody"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_name": "TemplateName",
         "template_body": "TemplateBody",

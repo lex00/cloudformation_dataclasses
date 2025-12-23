@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VpcOriginEndpointConfig(PropertyType):
-    HTTPS_PORT = "HTTPSPort"
-    ORIGIN_SSL_PROTOCOLS = "OriginSSLProtocols"
-    ARN = "Arn"
-    HTTP_PORT = "HTTPPort"
-    NAME = "Name"
-    ORIGIN_PROTOCOL_POLICY = "OriginProtocolPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_port": "HTTPSPort",
         "origin_ssl_protocols": "OriginSSLProtocols",

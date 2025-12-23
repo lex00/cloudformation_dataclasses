@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:59
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GuardDuty
@@ -1044,12 +1044,6 @@ class Detector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::Detector"
-    FINDING_PUBLISHING_FREQUENCY = "FindingPublishingFrequency"
-    DATA_SOURCES = "DataSources"
-    ENABLE = "Enable"
-    FEATURES = "Features"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "finding_publishing_frequency": "FindingPublishingFrequency",
         "data_sources": "DataSources",
@@ -1077,14 +1071,6 @@ class Filter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::Filter"
     name_field: ClassVar[str] = "name"
-    ACTION = "Action"
-    DESCRIPTION = "Description"
-    DETECTOR_ID = "DetectorId"
-    FINDING_CRITERIA = "FindingCriteria"
-    RANK = "Rank"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "description": "Description",
@@ -1110,14 +1096,6 @@ class IPSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::IPSet"
     name_field: ClassVar[str] = "name"
-    FORMAT = "Format"
-    ACTIVATE = "Activate"
-    DETECTOR_ID = "DetectorId"
-    EXPECTED_BUCKET_OWNER = "ExpectedBucketOwner"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "activate": "Activate",
@@ -1148,11 +1126,6 @@ class MalwareProtectionPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::MalwareProtectionPlan"
-    ROLE = "Role"
-    PROTECTED_RESOURCE = "ProtectedResource"
-    ACTIONS = "Actions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "protected_resource": "ProtectedResource",
@@ -1197,10 +1170,6 @@ class Master(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::Master"
-    DETECTOR_ID = "DetectorId"
-    MASTER_ID = "MasterId"
-    INVITATION_ID = "InvitationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detector_id": "DetectorId",
         "master_id": "MasterId",
@@ -1217,13 +1186,6 @@ class Member(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::Member"
-    STATUS = "Status"
-    MEMBER_ID = "MemberId"
-    EMAIL = "Email"
-    MESSAGE = "Message"
-    DISABLE_EMAIL_NOTIFICATION = "DisableEmailNotification"
-    DETECTOR_ID = "DetectorId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "member_id": "MemberId",
@@ -1246,11 +1208,6 @@ class PublishingDestination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::PublishingDestination"
-    DESTINATION_PROPERTIES = "DestinationProperties"
-    DETECTOR_ID = "DetectorId"
-    DESTINATION_TYPE = "DestinationType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_properties": "DestinationProperties",
         "detector_id": "DetectorId",
@@ -1286,14 +1243,6 @@ class ThreatEntitySet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::ThreatEntitySet"
     name_field: ClassVar[str] = "name"
-    FORMAT = "Format"
-    ACTIVATE = "Activate"
-    DETECTOR_ID = "DetectorId"
-    EXPECTED_BUCKET_OWNER = "ExpectedBucketOwner"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "activate": "Activate",
@@ -1345,14 +1294,6 @@ class ThreatIntelSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::ThreatIntelSet"
     name_field: ClassVar[str] = "name"
-    FORMAT = "Format"
-    ACTIVATE = "Activate"
-    DETECTOR_ID = "DetectorId"
-    EXPECTED_BUCKET_OWNER = "ExpectedBucketOwner"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "activate": "Activate",
@@ -1384,14 +1325,6 @@ class TrustedEntitySet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::TrustedEntitySet"
     name_field: ClassVar[str] = "name"
-    FORMAT = "Format"
-    ACTIVATE = "Activate"
-    DETECTOR_ID = "DetectorId"
-    EXPECTED_BUCKET_OWNER = "ExpectedBucketOwner"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "activate": "Activate",

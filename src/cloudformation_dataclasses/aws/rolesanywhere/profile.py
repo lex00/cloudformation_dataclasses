@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeMapping(PropertyType):
-    MAPPING_RULES = "MappingRules"
-    CERTIFICATE_FIELD = "CertificateField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_rules": "MappingRules",
         "certificate_field": "CertificateField",
@@ -25,8 +22,6 @@ class AttributeMapping(PropertyType):
 
 @dataclass
 class MappingRule(PropertyType):
-    SPECIFIER = "Specifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "specifier": "Specifier",
     }

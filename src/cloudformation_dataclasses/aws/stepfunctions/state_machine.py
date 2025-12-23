@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogsLogGroup(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -22,10 +20,6 @@ class CloudWatchLogsLogGroup(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    TYPE = "Type"
-    KMS_KEY_ID = "KmsKeyId"
-    KMS_DATA_KEY_REUSE_PERIOD_SECONDS = "KmsDataKeyReusePeriodSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "kms_key_id": "KmsKeyId",
@@ -39,8 +33,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class LogDestination(PropertyType):
-    CLOUD_WATCH_LOGS_LOG_GROUP = "CloudWatchLogsLogGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group": "CloudWatchLogsLogGroup",
     }
@@ -50,10 +42,6 @@ class LogDestination(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    INCLUDE_EXECUTION_DATA = "IncludeExecutionData"
-    DESTINATIONS = "Destinations"
-    LEVEL = "Level"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_execution_data": "IncludeExecutionData",
         "destinations": "Destinations",
@@ -67,10 +55,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -84,9 +68,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -98,8 +79,6 @@ class TagsEntry(PropertyType):
 
 @dataclass
 class TracingConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VpcSettings(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    VPC_ID = "VpcId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "vpc_id": "VpcId",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SAMLPrivateKey(PropertyType):
-    KEY_ID = "KeyId"
-    TIMESTAMP = "Timestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_id": "KeyId",
         "timestamp": "Timestamp",

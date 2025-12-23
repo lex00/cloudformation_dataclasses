@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CookiesConfig(PropertyType):
-    COOKIES = "Cookies"
-    COOKIE_BEHAVIOR = "CookieBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "cookie_behavior": "CookieBehavior",
@@ -25,9 +22,6 @@ class CookiesConfig(PropertyType):
 
 @dataclass
 class HeadersConfig(PropertyType):
-    HEADERS = "Headers"
-    HEADER_BEHAVIOR = "HeaderBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "header_behavior": "HeaderBehavior",
@@ -39,12 +33,6 @@ class HeadersConfig(PropertyType):
 
 @dataclass
 class OriginRequestPolicyConfig(PropertyType):
-    COMMENT = "Comment"
-    HEADERS_CONFIG = "HeadersConfig"
-    COOKIES_CONFIG = "CookiesConfig"
-    QUERY_STRINGS_CONFIG = "QueryStringsConfig"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "headers_config": "HeadersConfig",
@@ -62,9 +50,6 @@ class OriginRequestPolicyConfig(PropertyType):
 
 @dataclass
 class QueryStringsConfig(PropertyType):
-    QUERY_STRINGS = "QueryStrings"
-    QUERY_STRING_BEHAVIOR = "QueryStringBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_strings": "QueryStrings",
         "query_string_behavior": "QueryStringBehavior",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Greengrass
@@ -220,10 +220,6 @@ class ConnectorDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ConnectorDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -261,9 +257,6 @@ class ConnectorDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ConnectorDefinitionVersion"
-    CONNECTORS = "Connectors"
-    CONNECTOR_DEFINITION_ID = "ConnectorDefinitionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connectors": "Connectors",
         "connector_definition_id": "ConnectorDefinitionId",
@@ -279,10 +272,6 @@ class CoreDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::CoreDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -320,9 +309,6 @@ class CoreDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::CoreDefinitionVersion"
-    CORES = "Cores"
-    CORE_DEFINITION_ID = "CoreDefinitionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cores": "Cores",
         "core_definition_id": "CoreDefinitionId",
@@ -338,10 +324,6 @@ class DeviceDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::DeviceDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -379,9 +361,6 @@ class DeviceDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::DeviceDefinitionVersion"
-    DEVICE_DEFINITION_ID = "DeviceDefinitionId"
-    DEVICES = "Devices"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_definition_id": "DeviceDefinitionId",
         "devices": "Devices",
@@ -397,10 +376,6 @@ class FunctionDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::FunctionDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -438,10 +413,6 @@ class FunctionDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::FunctionDefinitionVersion"
-    DEFAULT_CONFIG = "DefaultConfig"
-    FUNCTIONS = "Functions"
-    FUNCTION_DEFINITION_ID = "FunctionDefinitionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_config": "DefaultConfig",
         "functions": "Functions",
@@ -459,11 +430,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::Group"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "role_arn": "RoleArn",
@@ -513,15 +479,6 @@ class GroupVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::GroupVersion"
-    LOGGER_DEFINITION_VERSION_ARN = "LoggerDefinitionVersionArn"
-    DEVICE_DEFINITION_VERSION_ARN = "DeviceDefinitionVersionArn"
-    FUNCTION_DEFINITION_VERSION_ARN = "FunctionDefinitionVersionArn"
-    CORE_DEFINITION_VERSION_ARN = "CoreDefinitionVersionArn"
-    RESOURCE_DEFINITION_VERSION_ARN = "ResourceDefinitionVersionArn"
-    CONNECTOR_DEFINITION_VERSION_ARN = "ConnectorDefinitionVersionArn"
-    SUBSCRIPTION_DEFINITION_VERSION_ARN = "SubscriptionDefinitionVersionArn"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logger_definition_version_arn": "LoggerDefinitionVersionArn",
         "device_definition_version_arn": "DeviceDefinitionVersionArn",
@@ -549,10 +506,6 @@ class LoggerDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::LoggerDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -590,9 +543,6 @@ class LoggerDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::LoggerDefinitionVersion"
-    LOGGER_DEFINITION_ID = "LoggerDefinitionId"
-    LOGGERS = "Loggers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logger_definition_id": "LoggerDefinitionId",
         "loggers": "Loggers",
@@ -608,10 +558,6 @@ class ResourceDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ResourceDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -649,9 +595,6 @@ class ResourceDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ResourceDefinitionVersion"
-    RESOURCES = "Resources"
-    RESOURCE_DEFINITION_ID = "ResourceDefinitionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resources": "Resources",
         "resource_definition_id": "ResourceDefinitionId",
@@ -667,10 +610,6 @@ class SubscriptionDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Greengrass::SubscriptionDefinition"
     name_field: ClassVar[str] = "name"
-    INITIAL_VERSION = "InitialVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "initial_version": "InitialVersion",
         "tags": "Tags",
@@ -708,9 +647,6 @@ class SubscriptionDefinitionVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::SubscriptionDefinitionVersion"
-    SUBSCRIPTION_DEFINITION_ID = "SubscriptionDefinitionId"
-    SUBSCRIPTIONS = "Subscriptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscription_definition_id": "SubscriptionDefinitionId",
         "subscriptions": "Subscriptions",

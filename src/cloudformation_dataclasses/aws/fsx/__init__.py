@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:57
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FSx
@@ -899,14 +899,6 @@ class DataRepositoryAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-d"""
 
     resource_type: ClassVar[str] = "AWS::FSx::DataRepositoryAssociation"
-    FILE_SYSTEM_PATH = "FileSystemPath"
-    DATA_REPOSITORY_PATH = "DataRepositoryPath"
-    BATCH_IMPORT_META_DATA_ON_CREATE = "BatchImportMetaDataOnCreate"
-    S3 = "S3"
-    FILE_SYSTEM_ID = "FileSystemId"
-    IMPORTED_FILE_CHUNK_SIZE = "ImportedFileChunkSize"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "data_repository_path": "DataRepositoryPath",
@@ -942,21 +934,6 @@ class FileSystem(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-f"""
 
     resource_type: ClassVar[str] = "AWS::FSx::FileSystem"
-    STORAGE_TYPE = "StorageType"
-    KMS_KEY_ID = "KmsKeyId"
-    STORAGE_CAPACITY = "StorageCapacity"
-    LUSTRE_CONFIGURATION = "LustreConfiguration"
-    BACKUP_ID = "BackupId"
-    ONTAP_CONFIGURATION = "OntapConfiguration"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    WINDOWS_CONFIGURATION = "WindowsConfiguration"
-    FILE_SYSTEM_TYPE_VERSION = "FileSystemTypeVersion"
-    OPEN_ZFS_CONFIGURATION = "OpenZFSConfiguration"
-    NETWORK_TYPE = "NetworkType"
-    FILE_SYSTEM_TYPE = "FileSystemType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_type": "StorageType",
         "kms_key_id": "KmsKeyId",
@@ -1017,12 +994,6 @@ class S3AccessPointAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FSx::S3AccessPointAttachment"
     name_field: ClassVar[str] = "name"
-    OPEN_ZFS_CONFIGURATION = "OpenZFSConfiguration"
-    TYPE = "Type"
-    S3_ACCESS_POINT = "S3AccessPoint"
-    ONTAP_CONFIGURATION = "OntapConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_zfs_configuration": "OpenZFSConfiguration",
         "type_": "Type",
@@ -1055,10 +1026,6 @@ class Snapshot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FSx::Snapshot"
     name_field: ClassVar[str] = "name"
-    VOLUME_ID = "VolumeId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "tags": "Tags",
@@ -1082,13 +1049,6 @@ class StorageVirtualMachine(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FSx::StorageVirtualMachine"
     name_field: ClassVar[str] = "name"
-    SVM_ADMIN_PASSWORD = "SvmAdminPassword"
-    ACTIVE_DIRECTORY_CONFIGURATION = "ActiveDirectoryConfiguration"
-    ROOT_VOLUME_SECURITY_STYLE = "RootVolumeSecurityStyle"
-    FILE_SYSTEM_ID = "FileSystemId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "svm_admin_password": "SvmAdminPassword",
         "active_directory_configuration": "ActiveDirectoryConfiguration",
@@ -1128,13 +1088,6 @@ class Volume(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FSx::Volume"
     name_field: ClassVar[str] = "name"
-    OPEN_ZFS_CONFIGURATION = "OpenZFSConfiguration"
-    VOLUME_TYPE = "VolumeType"
-    BACKUP_ID = "BackupId"
-    ONTAP_CONFIGURATION = "OntapConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_zfs_configuration": "OpenZFSConfiguration",
         "volume_type": "VolumeType",

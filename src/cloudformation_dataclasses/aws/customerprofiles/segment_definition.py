@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AddressDimension(PropertyType):
-    STATE = "State"
-    COUNTRY = "Country"
-    POSTAL_CODE = "PostalCode"
-    CITY = "City"
-    COUNTY = "County"
-    PROVINCE = "Province"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "country": "Country",
@@ -37,9 +30,6 @@ class AddressDimension(PropertyType):
 
 @dataclass
 class AttributeDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -51,10 +41,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class CalculatedAttributeDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-    CONDITION_OVERRIDES = "ConditionOverrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -68,8 +54,6 @@ class CalculatedAttributeDimension(PropertyType):
 
 @dataclass
 class ConditionOverrides(PropertyType):
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
     }
@@ -79,9 +63,6 @@ class ConditionOverrides(PropertyType):
 
 @dataclass
 class DateDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -93,9 +74,6 @@ class DateDimension(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    CALCULATED_ATTRIBUTES = "CalculatedAttributes"
-    PROFILE_ATTRIBUTES = "ProfileAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "calculated_attributes": "CalculatedAttributes",
         "profile_attributes": "ProfileAttributes",
@@ -107,9 +85,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class ExtraLengthValueProfileDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -121,11 +96,6 @@ class ExtraLengthValueProfileDimension(PropertyType):
 
 @dataclass
 class Group(PropertyType):
-    TYPE = "Type"
-    SOURCE_TYPE = "SourceType"
-    DIMENSIONS = "Dimensions"
-    SOURCE_SEGMENTS = "SourceSegments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source_type": "SourceType",
@@ -141,29 +111,6 @@ class Group(PropertyType):
 
 @dataclass
 class ProfileAttributes(PropertyType):
-    ADDITIONAL_INFORMATION = "AdditionalInformation"
-    PROFILE_TYPE = "ProfileType"
-    BUSINESS_NAME = "BusinessName"
-    ADDRESS = "Address"
-    FIRST_NAME = "FirstName"
-    PERSONAL_EMAIL_ADDRESS = "PersonalEmailAddress"
-    BUSINESS_EMAIL_ADDRESS = "BusinessEmailAddress"
-    ATTRIBUTES = "Attributes"
-    MAILING_ADDRESS = "MailingAddress"
-    BUSINESS_PHONE_NUMBER = "BusinessPhoneNumber"
-    MIDDLE_NAME = "MiddleName"
-    MOBILE_PHONE_NUMBER = "MobilePhoneNumber"
-    EMAIL_ADDRESS = "EmailAddress"
-    ACCOUNT_NUMBER = "AccountNumber"
-    BILLING_ADDRESS = "BillingAddress"
-    GENDER_STRING = "GenderString"
-    HOME_PHONE_NUMBER = "HomePhoneNumber"
-    SHIPPING_ADDRESS = "ShippingAddress"
-    PHONE_NUMBER = "PhoneNumber"
-    LAST_NAME = "LastName"
-    PARTY_TYPE_STRING = "PartyTypeString"
-    BIRTH_DATE = "BirthDate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_information": "AdditionalInformation",
         "profile_type": "ProfileType",
@@ -215,9 +162,6 @@ class ProfileAttributes(PropertyType):
 
 @dataclass
 class ProfileDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -229,9 +173,6 @@ class ProfileDimension(PropertyType):
 
 @dataclass
 class ProfileTypeDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -243,10 +184,6 @@ class ProfileTypeDimension(PropertyType):
 
 @dataclass
 class RangeOverride(PropertyType):
-    START = "Start"
-    END = "End"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -260,9 +197,6 @@ class RangeOverride(PropertyType):
 
 @dataclass
 class SegmentGroup(PropertyType):
-    GROUPS = "Groups"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "groups": "Groups",
         "include": "Include",
@@ -274,8 +208,6 @@ class SegmentGroup(PropertyType):
 
 @dataclass
 class SourceSegment(PropertyType):
-    SEGMENT_DEFINITION_NAME = "SegmentDefinitionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_definition_name": "SegmentDefinitionName",
     }

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributePayload(PropertyType):
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }

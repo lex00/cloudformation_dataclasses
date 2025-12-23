@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DocDbSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -34,12 +28,6 @@ class DocDbSettings(PropertyType):
 
 @dataclass
 class IbmDb2LuwSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -57,12 +45,6 @@ class IbmDb2LuwSettings(PropertyType):
 
 @dataclass
 class IbmDb2zOsSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -80,11 +62,6 @@ class IbmDb2zOsSettings(PropertyType):
 
 @dataclass
 class MariaDbSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -100,12 +77,6 @@ class MariaDbSettings(PropertyType):
 
 @dataclass
 class MicrosoftSqlServerSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -123,15 +94,6 @@ class MicrosoftSqlServerSettings(PropertyType):
 
 @dataclass
 class MongoDbSettings(PropertyType):
-    AUTH_SOURCE = "AuthSource"
-    AUTH_MECHANISM = "AuthMechanism"
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    AUTH_TYPE = "AuthType"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_source": "AuthSource",
         "auth_mechanism": "AuthMechanism",
@@ -155,11 +117,6 @@ class MongoDbSettings(PropertyType):
 
 @dataclass
 class MySqlSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -175,17 +132,6 @@ class MySqlSettings(PropertyType):
 
 @dataclass
 class OracleSettings(PropertyType):
-    SECRETS_MANAGER_ORACLE_ASM_ACCESS_ROLE_ARN = "SecretsManagerOracleAsmAccessRoleArn"
-    SECRETS_MANAGER_ORACLE_ASM_SECRET_ID = "SecretsManagerOracleAsmSecretId"
-    SSL_MODE = "SslMode"
-    SECRETS_MANAGER_SECURITY_DB_ENCRYPTION_SECRET_ID = "SecretsManagerSecurityDbEncryptionSecretId"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    ASM_SERVER = "AsmServer"
-    CERTIFICATE_ARN = "CertificateArn"
-    SECRETS_MANAGER_SECURITY_DB_ENCRYPTION_ACCESS_ROLE_ARN = "SecretsManagerSecurityDbEncryptionAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_oracle_asm_access_role_arn": "SecretsManagerOracleAsmAccessRoleArn",
         "secrets_manager_oracle_asm_secret_id": "SecretsManagerOracleAsmSecretId",
@@ -213,12 +159,6 @@ class OracleSettings(PropertyType):
 
 @dataclass
 class PostgreSqlSettings(PropertyType):
-    SSL_MODE = "SslMode"
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -236,10 +176,6 @@ class PostgreSqlSettings(PropertyType):
 
 @dataclass
 class RedshiftSettings(PropertyType):
-    SERVER_NAME = "ServerName"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_name": "ServerName",
         "port": "Port",
@@ -253,17 +189,6 @@ class RedshiftSettings(PropertyType):
 
 @dataclass
 class Settings(PropertyType):
-    MARIA_DB_SETTINGS = "MariaDbSettings"
-    ORACLE_SETTINGS = "OracleSettings"
-    MICROSOFT_SQL_SERVER_SETTINGS = "MicrosoftSqlServerSettings"
-    REDSHIFT_SETTINGS = "RedshiftSettings"
-    IBM_DB2Z_OS_SETTINGS = "IbmDb2zOsSettings"
-    MY_SQL_SETTINGS = "MySqlSettings"
-    IBM_DB2_LUW_SETTINGS = "IbmDb2LuwSettings"
-    DOC_DB_SETTINGS = "DocDbSettings"
-    POSTGRE_SQL_SETTINGS = "PostgreSqlSettings"
-    MONGO_DB_SETTINGS = "MongoDbSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maria_db_settings": "MariaDbSettings",
         "oracle_settings": "OracleSettings",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    TYPE = "Type"
-    INCLUDE_RESOURCES = "IncludeResources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "include_resources": "IncludeResources",
@@ -25,12 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class AmiExclusionRules(PropertyType):
-    IS_PUBLIC = "IsPublic"
-    LAST_LAUNCHED = "LastLaunched"
-    REGIONS = "Regions"
-    SHARED_ACCOUNTS = "SharedAccounts"
-    TAG_MAP = "TagMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_public": "IsPublic",
         "last_launched": "LastLaunched",
@@ -48,9 +39,6 @@ class AmiExclusionRules(PropertyType):
 
 @dataclass
 class ExclusionRules(PropertyType):
-    AMIS = "Amis"
-    TAG_MAP = "TagMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amis": "Amis",
         "tag_map": "TagMap",
@@ -62,11 +50,6 @@ class ExclusionRules(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-    RETAIN_AT_LEAST = "RetainAtLeast"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -82,10 +65,6 @@ class Filter(PropertyType):
 
 @dataclass
 class IncludeResources(PropertyType):
-    CONTAINERS = "Containers"
-    AMIS = "Amis"
-    SNAPSHOTS = "Snapshots"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "containers": "Containers",
         "amis": "Amis",
@@ -99,9 +78,6 @@ class IncludeResources(PropertyType):
 
 @dataclass
 class LastLaunched(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -113,10 +89,6 @@ class LastLaunched(PropertyType):
 
 @dataclass
 class PolicyDetail(PropertyType):
-    ACTION = "Action"
-    EXCLUSION_RULES = "ExclusionRules"
-    FILTER = "Filter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "exclusion_rules": "ExclusionRules",
@@ -130,9 +102,6 @@ class PolicyDetail(PropertyType):
 
 @dataclass
 class RecipeSelection(PropertyType):
-    NAME = "Name"
-    SEMANTIC_VERSION = "SemanticVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "semantic_version": "SemanticVersion",
@@ -144,9 +113,6 @@ class RecipeSelection(PropertyType):
 
 @dataclass
 class ResourceSelection(PropertyType):
-    RECIPES = "Recipes"
-    TAG_MAP = "TagMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recipes": "Recipes",
         "tag_map": "TagMap",

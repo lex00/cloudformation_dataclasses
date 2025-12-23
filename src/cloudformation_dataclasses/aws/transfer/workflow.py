@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CopyStepDetails(PropertyType):
-    DESTINATION_FILE_LOCATION = "DestinationFileLocation"
-    SOURCE_FILE_LOCATION = "SourceFileLocation"
-    NAME = "Name"
-    OVERWRITE_EXISTING = "OverwriteExisting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_file_location": "DestinationFileLocation",
         "source_file_location": "SourceFileLocation",
@@ -31,11 +26,6 @@ class CopyStepDetails(PropertyType):
 
 @dataclass
 class CustomStepDetails(PropertyType):
-    TIMEOUT_SECONDS = "TimeoutSeconds"
-    TARGET = "Target"
-    SOURCE_FILE_LOCATION = "SourceFileLocation"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_seconds": "TimeoutSeconds",
         "target": "Target",
@@ -51,12 +41,6 @@ class CustomStepDetails(PropertyType):
 
 @dataclass
 class DecryptStepDetails(PropertyType):
-    DESTINATION_FILE_LOCATION = "DestinationFileLocation"
-    TYPE = "Type"
-    SOURCE_FILE_LOCATION = "SourceFileLocation"
-    NAME = "Name"
-    OVERWRITE_EXISTING = "OverwriteExisting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_file_location": "DestinationFileLocation",
         "type_": "Type",
@@ -74,9 +58,6 @@ class DecryptStepDetails(PropertyType):
 
 @dataclass
 class DeleteStepDetails(PropertyType):
-    SOURCE_FILE_LOCATION = "SourceFileLocation"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_file_location": "SourceFileLocation",
         "name": "Name",
@@ -88,9 +69,6 @@ class DeleteStepDetails(PropertyType):
 
 @dataclass
 class EfsInputFileLocation(PropertyType):
-    PATH = "Path"
-    FILE_SYSTEM_ID = "FileSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "file_system_id": "FileSystemId",
@@ -102,9 +80,6 @@ class EfsInputFileLocation(PropertyType):
 
 @dataclass
 class InputFileLocation(PropertyType):
-    EFS_FILE_LOCATION = "EfsFileLocation"
-    S3_FILE_LOCATION = "S3FileLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_file_location": "EfsFileLocation",
         "s3_file_location": "S3FileLocation",
@@ -116,8 +91,6 @@ class InputFileLocation(PropertyType):
 
 @dataclass
 class S3FileLocation(PropertyType):
-    S3_FILE_LOCATION = "S3FileLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_file_location": "S3FileLocation",
     }
@@ -127,9 +100,6 @@ class S3FileLocation(PropertyType):
 
 @dataclass
 class S3InputFileLocation(PropertyType):
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -141,9 +111,6 @@ class S3InputFileLocation(PropertyType):
 
 @dataclass
 class S3Tag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -155,10 +122,6 @@ class S3Tag(PropertyType):
 
 @dataclass
 class TagStepDetails(PropertyType):
-    SOURCE_FILE_LOCATION = "SourceFileLocation"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_file_location": "SourceFileLocation",
         "tags": "Tags",
@@ -172,13 +135,6 @@ class TagStepDetails(PropertyType):
 
 @dataclass
 class WorkflowStep(PropertyType):
-    CUSTOM_STEP_DETAILS = "CustomStepDetails"
-    COPY_STEP_DETAILS = "CopyStepDetails"
-    DECRYPT_STEP_DETAILS = "DecryptStepDetails"
-    TYPE = "Type"
-    TAG_STEP_DETAILS = "TagStepDetails"
-    DELETE_STEP_DETAILS = "DeleteStepDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_step_details": "CustomStepDetails",
         "copy_step_details": "CopyStepDetails",

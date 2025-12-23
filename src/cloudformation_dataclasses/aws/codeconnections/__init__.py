@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:49
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeConnections
@@ -144,11 +144,6 @@ class Connection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeConnections::Connection"
     name_field: ClassVar[str] = "connection_name"
-    CONNECTION_NAME = "ConnectionName"
-    HOST_ARN = "HostArn"
-    PROVIDER_TYPE = "ProviderType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "host_arn": "HostArn",

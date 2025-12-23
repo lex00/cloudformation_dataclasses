@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnomalyDetectorConfiguration(PropertyType):
-    RANDOM_CUT_FOREST = "RandomCutForest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "random_cut_forest": "RandomCutForest",
     }
@@ -22,9 +20,6 @@ class AnomalyDetectorConfiguration(PropertyType):
 
 @dataclass
 class IgnoreNearExpected(PropertyType):
-    AMOUNT = "Amount"
-    RATIO = "Ratio"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amount": "Amount",
         "ratio": "Ratio",
@@ -36,9 +31,6 @@ class IgnoreNearExpected(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -50,9 +42,6 @@ class Label(PropertyType):
 
 @dataclass
 class MissingDataAction(PropertyType):
-    MARK_AS_ANOMALY = "MarkAsAnomaly"
-    SKIP = "Skip"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mark_as_anomaly": "MarkAsAnomaly",
         "skip": "Skip",
@@ -64,12 +53,6 @@ class MissingDataAction(PropertyType):
 
 @dataclass
 class RandomCutForestConfiguration(PropertyType):
-    SAMPLE_SIZE = "SampleSize"
-    QUERY = "Query"
-    SHINGLE_SIZE = "ShingleSize"
-    IGNORE_NEAR_EXPECTED_FROM_BELOW = "IgnoreNearExpectedFromBelow"
-    IGNORE_NEAR_EXPECTED_FROM_ABOVE = "IgnoreNearExpectedFromAbove"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sample_size": "SampleSize",
         "query": "Query",

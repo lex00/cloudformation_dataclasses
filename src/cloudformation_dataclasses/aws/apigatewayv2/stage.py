@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLogSettings(PropertyType):
-    FORMAT = "Format"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -25,12 +22,6 @@ class AccessLogSettings(PropertyType):
 
 @dataclass
 class RouteSettings(PropertyType):
-    LOGGING_LEVEL = "LoggingLevel"
-    DATA_TRACE_ENABLED = "DataTraceEnabled"
-    THROTTLING_BURST_LIMIT = "ThrottlingBurstLimit"
-    DETAILED_METRICS_ENABLED = "DetailedMetricsEnabled"
-    THROTTLING_RATE_LIMIT = "ThrottlingRateLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_level": "LoggingLevel",
         "data_trace_enabled": "DataTraceEnabled",

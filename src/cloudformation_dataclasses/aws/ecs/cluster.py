@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    WEIGHT = "Weight"
-    BASE = "Base"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "weight": "Weight",
@@ -28,9 +24,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class ClusterConfiguration(PropertyType):
-    MANAGED_STORAGE_CONFIGURATION = "ManagedStorageConfiguration"
-    EXECUTE_COMMAND_CONFIGURATION = "ExecuteCommandConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_storage_configuration": "ManagedStorageConfiguration",
         "execute_command_configuration": "ExecuteCommandConfiguration",
@@ -42,9 +35,6 @@ class ClusterConfiguration(PropertyType):
 
 @dataclass
 class ClusterSettings(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -56,10 +46,6 @@ class ClusterSettings(PropertyType):
 
 @dataclass
 class ExecuteCommandConfiguration(PropertyType):
-    LOGGING = "Logging"
-    KMS_KEY_ID = "KmsKeyId"
-    LOG_CONFIGURATION = "LogConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "kms_key_id": "KmsKeyId",
@@ -73,12 +59,6 @@ class ExecuteCommandConfiguration(PropertyType):
 
 @dataclass
 class ExecuteCommandLogConfiguration(PropertyType):
-    S3_ENCRYPTION_ENABLED = "S3EncryptionEnabled"
-    CLOUD_WATCH_ENCRYPTION_ENABLED = "CloudWatchEncryptionEnabled"
-    CLOUD_WATCH_LOG_GROUP_NAME = "CloudWatchLogGroupName"
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    S3_BUCKET_NAME = "S3BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_encryption_enabled": "S3EncryptionEnabled",
         "cloud_watch_encryption_enabled": "CloudWatchEncryptionEnabled",
@@ -96,9 +76,6 @@ class ExecuteCommandLogConfiguration(PropertyType):
 
 @dataclass
 class ManagedStorageConfiguration(PropertyType):
-    FARGATE_EPHEMERAL_STORAGE_KMS_KEY_ID = "FargateEphemeralStorageKmsKeyId"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fargate_ephemeral_storage_kms_key_id": "FargateEphemeralStorageKmsKeyId",
         "kms_key_id": "KmsKeyId",
@@ -110,8 +87,6 @@ class ManagedStorageConfiguration(PropertyType):
 
 @dataclass
 class ServiceConnectDefaults(PropertyType):
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }

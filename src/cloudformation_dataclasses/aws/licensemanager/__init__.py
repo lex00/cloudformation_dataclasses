@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LicenseManager
@@ -397,13 +397,6 @@ class Grant(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::LicenseManager::Grant"
     name_field: ClassVar[str] = "grant_name"
-    STATUS = "Status"
-    PRINCIPALS = "Principals"
-    HOME_REGION = "HomeRegion"
-    ALLOWED_OPERATIONS = "AllowedOperations"
-    LICENSE_ARN = "LicenseArn"
-    GRANT_NAME = "GrantName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "principals": "Principals",
@@ -438,18 +431,6 @@ class License(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::LicenseManager::License"
     name_field: ClassVar[str] = "license_name"
-    PRODUCT_SKU = "ProductSKU"
-    STATUS = "Status"
-    CONSUMPTION_CONFIGURATION = "ConsumptionConfiguration"
-    VALIDITY = "Validity"
-    PRODUCT_NAME = "ProductName"
-    ISSUER = "Issuer"
-    HOME_REGION = "HomeRegion"
-    ENTITLEMENTS = "Entitlements"
-    LICENSE_METADATA = "LicenseMetadata"
-    LICENSE_NAME = "LicenseName"
-    BENEFICIARY = "Beneficiary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_sku": "ProductSKU",
         "status": "Status",

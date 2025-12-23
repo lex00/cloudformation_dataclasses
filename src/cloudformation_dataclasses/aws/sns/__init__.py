@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:17
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SNS
@@ -103,18 +103,6 @@ class Subscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-s"""
 
     resource_type: ClassVar[str] = "AWS::SNS::Subscription"
-    REPLAY_POLICY = "ReplayPolicy"
-    RAW_MESSAGE_DELIVERY = "RawMessageDelivery"
-    ENDPOINT = "Endpoint"
-    FILTER_POLICY = "FilterPolicy"
-    TOPIC_ARN = "TopicArn"
-    REDRIVE_POLICY = "RedrivePolicy"
-    DELIVERY_POLICY = "DeliveryPolicy"
-    REGION = "Region"
-    SUBSCRIPTION_ROLE_ARN = "SubscriptionRoleArn"
-    FILTER_POLICY_SCOPE = "FilterPolicyScope"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replay_policy": "ReplayPolicy",
         "raw_message_delivery": "RawMessageDelivery",
@@ -154,20 +142,6 @@ class Topic(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SNS::Topic"
     name_field: ClassVar[str] = "topic_name"
-    KMS_MASTER_KEY_ID = "KmsMasterKeyId"
-    TRACING_CONFIG = "TracingConfig"
-    FIFO_TOPIC = "FifoTopic"
-    DATA_PROTECTION_POLICY = "DataProtectionPolicy"
-    TOPIC_NAME = "TopicName"
-    SIGNATURE_VERSION = "SignatureVersion"
-    DELIVERY_STATUS_LOGGING = "DeliveryStatusLogging"
-    DISPLAY_NAME = "DisplayName"
-    CONTENT_BASED_DEDUPLICATION = "ContentBasedDeduplication"
-    SUBSCRIPTION = "Subscription"
-    FIFO_THROUGHPUT_SCOPE = "FifoThroughputScope"
-    TAGS = "Tags"
-    ARCHIVE_POLICY = "ArchivePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_master_key_id": "KmsMasterKeyId",
         "tracing_config": "TracingConfig",
@@ -215,9 +189,6 @@ class TopicInlinePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-t"""
 
     resource_type: ClassVar[str] = "AWS::SNS::TopicInlinePolicy"
-    TOPIC_ARN = "TopicArn"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "policy_document": "PolicyDocument",
@@ -232,9 +203,6 @@ class TopicPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-t"""
 
     resource_type: ClassVar[str] = "AWS::SNS::TopicPolicy"
-    TOPICS = "Topics"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topics": "Topics",
         "policy_document": "PolicyDocument",

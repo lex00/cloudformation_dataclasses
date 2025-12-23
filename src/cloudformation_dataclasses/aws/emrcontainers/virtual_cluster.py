@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ContainerInfo(PropertyType):
-    EKS_INFO = "EksInfo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_info": "EksInfo",
     }
@@ -22,10 +20,6 @@ class ContainerInfo(PropertyType):
 
 @dataclass
 class ContainerProvider(PropertyType):
-    TYPE = "Type"
-    ID = "Id"
-    INFO = "Info"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -39,8 +33,6 @@ class ContainerProvider(PropertyType):
 
 @dataclass
 class EksInfo(PropertyType):
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }

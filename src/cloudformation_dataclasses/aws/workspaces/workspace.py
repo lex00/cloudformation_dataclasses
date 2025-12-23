@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class WorkspaceProperties(PropertyType):
-    COMPUTE_TYPE_NAME = "ComputeTypeName"
-    ROOT_VOLUME_SIZE_GIB = "RootVolumeSizeGib"
-    RUNNING_MODE = "RunningMode"
-    RUNNING_MODE_AUTO_STOP_TIMEOUT_IN_MINUTES = "RunningModeAutoStopTimeoutInMinutes"
-    USER_VOLUME_SIZE_GIB = "UserVolumeSizeGib"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_type_name": "ComputeTypeName",
         "root_volume_size_gib": "RootVolumeSizeGib",

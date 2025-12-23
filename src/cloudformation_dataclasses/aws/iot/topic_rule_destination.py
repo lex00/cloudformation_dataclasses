@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HttpUrlDestinationSummary(PropertyType):
-    CONFIRMATION_URL = "ConfirmationUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "confirmation_url": "ConfirmationUrl",
     }
@@ -22,11 +20,6 @@ class HttpUrlDestinationSummary(PropertyType):
 
 @dataclass
 class VpcDestinationProperties(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    VPC_ID = "VpcId"
-    SUBNET_IDS = "SubnetIds"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "vpc_id": "VpcId",

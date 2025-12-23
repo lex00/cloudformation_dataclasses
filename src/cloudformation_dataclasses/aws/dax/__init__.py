@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:51
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DAX
@@ -115,22 +115,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DAX::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    SSE_SPECIFICATION = "SSESpecification"
-    DESCRIPTION = "Description"
-    REPLICATION_FACTOR = "ReplicationFactor"
-    PARAMETER_GROUP_NAME = "ParameterGroupName"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    IAM_ROLE_ARN = "IAMRoleARN"
-    SUBNET_GROUP_NAME = "SubnetGroupName"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    CLUSTER_ENDPOINT_ENCRYPTION_TYPE = "ClusterEndpointEncryptionType"
-    NOTIFICATION_TOPIC_ARN = "NotificationTopicARN"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    NETWORK_TYPE = "NetworkType"
-    NODE_TYPE = "NodeType"
-    CLUSTER_NAME = "ClusterName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_specification": "SSESpecification",
         "description": "Description",
@@ -188,10 +172,6 @@ class ParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DAX::ParameterGroup"
     name_field: ClassVar[str] = "parameter_group_name"
-    PARAMETER_NAME_VALUES = "ParameterNameValues"
-    DESCRIPTION = "Description"
-    PARAMETER_GROUP_NAME = "ParameterGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_name_values": "ParameterNameValues",
         "description": "Description",
@@ -209,10 +189,6 @@ class SubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DAX::SubnetGroup"
     name_field: ClassVar[str] = "subnet_group_name"
-    DESCRIPTION = "Description"
-    SUBNET_GROUP_NAME = "SubnetGroupName"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "subnet_group_name": "SubnetGroupName",

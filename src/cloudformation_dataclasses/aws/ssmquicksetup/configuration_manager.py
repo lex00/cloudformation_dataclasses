@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationDefinition(PropertyType):
-    TYPE = "Type"
-    PARAMETERS = "Parameters"
-    LOCAL_DEPLOYMENT_EXECUTION_ROLE_NAME = "LocalDeploymentExecutionRoleName"
-    TYPE_VERSION = "TypeVersion"
-    LOCAL_DEPLOYMENT_ADMINISTRATION_ROLE_ARN = "LocalDeploymentAdministrationRoleArn"
-    ID = "id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -37,12 +30,6 @@ class ConfigurationDefinition(PropertyType):
 
 @dataclass
 class StatusSummary(PropertyType):
-    STATUS = "Status"
-    LAST_UPDATED_AT = "LastUpdatedAt"
-    STATUS_TYPE = "StatusType"
-    STATUS_DETAILS = "StatusDetails"
-    STATUS_MESSAGE = "StatusMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "last_updated_at": "LastUpdatedAt",

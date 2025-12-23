@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:45
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Bedrock
@@ -874,27 +874,6 @@ class Agent(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Agent"
     name_field: ClassVar[str] = "agent_name"
-    AGENT_COLLABORATORS = "AgentCollaborators"
-    DESCRIPTION = "Description"
-    SKIP_RESOURCE_IN_USE_CHECK_ON_DELETE = "SkipResourceInUseCheckOnDelete"
-    GUARDRAIL_CONFIGURATION = "GuardrailConfiguration"
-    PROMPT_OVERRIDE_CONFIGURATION = "PromptOverrideConfiguration"
-    MEMORY_CONFIGURATION = "MemoryConfiguration"
-    AGENT_COLLABORATION = "AgentCollaboration"
-    INSTRUCTION = "Instruction"
-    CUSTOM_ORCHESTRATION = "CustomOrchestration"
-    TEST_ALIAS_TAGS = "TestAliasTags"
-    AGENT_RESOURCE_ROLE_ARN = "AgentResourceRoleArn"
-    ORCHESTRATION_TYPE = "OrchestrationType"
-    IDLE_SESSION_TTL_IN_SECONDS = "IdleSessionTTLInSeconds"
-    FOUNDATION_MODEL = "FoundationModel"
-    CUSTOMER_ENCRYPTION_KEY_ARN = "CustomerEncryptionKeyArn"
-    AGENT_NAME = "AgentName"
-    KNOWLEDGE_BASES = "KnowledgeBases"
-    ACTION_GROUPS = "ActionGroups"
-    AUTO_PREPARE = "AutoPrepare"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_collaborators": "AgentCollaborators",
         "description": "Description",
@@ -992,12 +971,6 @@ class AgentAlias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::AgentAlias"
     name_field: ClassVar[str] = "agent_alias_name"
-    AGENT_ALIAS_NAME = "AgentAliasName"
-    DESCRIPTION = "Description"
-    ROUTING_CONFIGURATION = "RoutingConfiguration"
-    AGENT_ID = "AgentId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_alias_name": "AgentAliasName",
         "description": "Description",
@@ -1050,11 +1023,6 @@ class ApplicationInferenceProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::ApplicationInferenceProfile"
     name_field: ClassVar[str] = "inference_profile_name"
-    DESCRIPTION = "Description"
-    INFERENCE_PROFILE_NAME = "InferenceProfileName"
-    MODEL_SOURCE = "ModelSource"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "inference_profile_name": "InferenceProfileName",
@@ -1115,13 +1083,6 @@ class AutomatedReasoningPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::AutomatedReasoningPolicy"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    POLICY_DEFINITION = "PolicyDefinition"
-    FORCE_DELETE = "ForceDelete"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_id": "KmsKeyId",
@@ -1180,10 +1141,6 @@ class AutomatedReasoningPolicyVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::AutomatedReasoningPolicyVersion"
-    LAST_UPDATED_DEFINITION_HASH = "LastUpdatedDefinitionHash"
-    POLICY_ARN = "PolicyArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "last_updated_definition_hash": "LastUpdatedDefinitionHash",
         "policy_arn": "PolicyArn",
@@ -1237,13 +1194,6 @@ class Blueprint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Blueprint"
     name_field: ClassVar[str] = "blueprint_name"
-    TYPE = "Type"
-    BLUEPRINT_NAME = "BlueprintName"
-    KMS_KEY_ID = "KmsKeyId"
-    SCHEMA = "Schema"
-    KMS_ENCRYPTION_CONTEXT = "KmsEncryptionContext"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "blueprint_name": "BlueprintName",
@@ -1288,16 +1238,6 @@ class DataAutomationProject(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::DataAutomationProject"
     name_field: ClassVar[str] = "project_name"
-    KMS_KEY_ID = "KmsKeyId"
-    PROJECT_NAME = "ProjectName"
-    STANDARD_OUTPUT_CONFIGURATION = "StandardOutputConfiguration"
-    OVERRIDE_CONFIGURATION = "OverrideConfiguration"
-    PROJECT_TYPE = "ProjectType"
-    KMS_ENCRYPTION_CONTEXT = "KmsEncryptionContext"
-    CUSTOM_OUTPUT_CONFIGURATION = "CustomOutputConfiguration"
-    PROJECT_DESCRIPTION = "ProjectDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "project_name": "ProjectName",
@@ -1353,14 +1293,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::DataSource"
     name_field: ClassVar[str] = "name"
-    DATA_DELETION_POLICY = "DataDeletionPolicy"
-    DESCRIPTION = "Description"
-    KNOWLEDGE_BASE_ID = "KnowledgeBaseId"
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-    VECTOR_INGESTION_CONFIGURATION = "VectorIngestionConfiguration"
-    DATA_SOURCE_CONFIGURATION = "DataSourceConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_deletion_policy": "DataDeletionPolicy",
         "description": "Description",
@@ -1417,17 +1349,6 @@ class Flow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Flow"
     name_field: ClassVar[str] = "name"
-    TEST_ALIAS_TAGS = "TestAliasTags"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    DESCRIPTION = "Description"
-    DEFINITION_STRING = "DefinitionString"
-    DEFINITION = "Definition"
-    DEFINITION_SUBSTITUTIONS = "DefinitionSubstitutions"
-    CUSTOMER_ENCRYPTION_KEY_ARN = "CustomerEncryptionKeyArn"
-    DEFINITION_S3_LOCATION = "DefinitionS3Location"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "test_alias_tags": "TestAliasTags",
         "execution_role_arn": "ExecutionRoleArn",
@@ -1495,13 +1416,6 @@ class FlowAlias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::FlowAlias"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONCURRENCY_CONFIGURATION = "ConcurrencyConfiguration"
-    ROUTING_CONFIGURATION = "RoutingConfiguration"
-    FLOW_ARN = "FlowArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "concurrency_configuration": "ConcurrencyConfiguration",
@@ -1550,9 +1464,6 @@ class FlowVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::FlowVersion"
-    DESCRIPTION = "Description"
-    FLOW_ARN = "FlowArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "flow_arn": "FlowArn",
@@ -1619,20 +1530,6 @@ class Guardrail(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Guardrail"
     name_field: ClassVar[str] = "name"
-    TOPIC_POLICY_CONFIG = "TopicPolicyConfig"
-    DESCRIPTION = "Description"
-    CROSS_REGION_CONFIG = "CrossRegionConfig"
-    NAME = "Name"
-    WORD_POLICY_CONFIG = "WordPolicyConfig"
-    CONTEXTUAL_GROUNDING_POLICY_CONFIG = "ContextualGroundingPolicyConfig"
-    KMS_KEY_ARN = "KmsKeyArn"
-    BLOCKED_INPUT_MESSAGING = "BlockedInputMessaging"
-    BLOCKED_OUTPUTS_MESSAGING = "BlockedOutputsMessaging"
-    SENSITIVE_INFORMATION_POLICY_CONFIG = "SensitiveInformationPolicyConfig"
-    CONTENT_POLICY_CONFIG = "ContentPolicyConfig"
-    TAGS = "Tags"
-    AUTOMATED_REASONING_POLICY_CONFIG = "AutomatedReasoningPolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_policy_config": "TopicPolicyConfig",
         "description": "Description",
@@ -1710,9 +1607,6 @@ class GuardrailVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::GuardrailVersion"
-    GUARDRAIL_IDENTIFIER = "GuardrailIdentifier"
-    DESCRIPTION = "Description"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "description": "Description",
@@ -1744,13 +1638,6 @@ class IntelligentPromptRouter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::IntelligentPromptRouter"
     name_field: ClassVar[str] = "prompt_router_name"
-    DESCRIPTION = "Description"
-    PROMPT_ROUTER_NAME = "PromptRouterName"
-    FALLBACK_MODEL = "FallbackModel"
-    ROUTING_CRITERIA = "RoutingCriteria"
-    MODELS = "Models"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "prompt_router_name": "PromptRouterName",
@@ -1800,13 +1687,6 @@ class KnowledgeBase(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::KnowledgeBase"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KNOWLEDGE_BASE_CONFIGURATION = "KnowledgeBaseConfiguration"
-    STORAGE_CONFIGURATION = "StorageConfiguration"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "knowledge_base_configuration": "KnowledgeBaseConfiguration",
@@ -1861,13 +1741,6 @@ class Prompt(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Prompt"
     name_field: ClassVar[str] = "name"
-    VARIANTS = "Variants"
-    DESCRIPTION = "Description"
-    CUSTOMER_ENCRYPTION_KEY_ARN = "CustomerEncryptionKeyArn"
-    DEFAULT_VARIANT = "DefaultVariant"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variants": "Variants",
         "description": "Description",
@@ -1916,10 +1789,6 @@ class PromptVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::PromptVersion"
-    DESCRIPTION = "Description"
-    PROMPT_ARN = "PromptArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "prompt_arn": "PromptArn",

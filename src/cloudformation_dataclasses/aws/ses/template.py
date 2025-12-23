@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Template(PropertyType):
-    HTML_PART = "HtmlPart"
-    TEXT_PART = "TextPart"
-    TEMPLATE_NAME = "TemplateName"
-    SUBJECT_PART = "SubjectPart"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "html_part": "HtmlPart",
         "text_part": "TextPart",

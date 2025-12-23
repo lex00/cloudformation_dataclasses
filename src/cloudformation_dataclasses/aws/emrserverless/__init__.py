@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:55
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMRServerless
@@ -35,24 +35,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMRServerless::Application"
     name_field: ClassVar[str] = "name"
-    AUTO_START_CONFIGURATION = "AutoStartConfiguration"
-    ARCHITECTURE = "Architecture"
-    WORKER_TYPE_SPECIFICATIONS = "WorkerTypeSpecifications"
-    MONITORING_CONFIGURATION = "MonitoringConfiguration"
-    MAXIMUM_CAPACITY = "MaximumCapacity"
-    AUTO_STOP_CONFIGURATION = "AutoStopConfiguration"
-    RUNTIME_CONFIGURATION = "RuntimeConfiguration"
-    NAME = "Name"
-    TYPE = "Type"
-    SCHEDULER_CONFIGURATION = "SchedulerConfiguration"
-    INITIAL_CAPACITY = "InitialCapacity"
-    INTERACTIVE_CONFIGURATION = "InteractiveConfiguration"
-    IMAGE_CONFIGURATION = "ImageConfiguration"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    RELEASE_LABEL = "ReleaseLabel"
-    IDENTITY_CENTER_CONFIGURATION = "IdentityCenterConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_start_configuration": "AutoStartConfiguration",
         "architecture": "Architecture",

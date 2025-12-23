@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BoundingBox(PropertyType):
-    LEFT = "Left"
-    TOP = "Top"
-    HEIGHT = "Height"
-    WIDTH = "Width"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -31,9 +26,6 @@ class BoundingBox(PropertyType):
 
 @dataclass
 class ConnectedHomeSettings(PropertyType):
-    MIN_CONFIDENCE = "MinConfidence"
-    LABELS = "Labels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_confidence": "MinConfidence",
         "labels": "Labels",
@@ -45,8 +37,6 @@ class ConnectedHomeSettings(PropertyType):
 
 @dataclass
 class DataSharingPreference(PropertyType):
-    OPT_IN = "OptIn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_in": "OptIn",
     }
@@ -56,9 +46,6 @@ class DataSharingPreference(PropertyType):
 
 @dataclass
 class FaceSearchSettings(PropertyType):
-    COLLECTION_ID = "CollectionId"
-    FACE_MATCH_THRESHOLD = "FaceMatchThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "face_match_threshold": "FaceMatchThreshold",
@@ -70,8 +57,6 @@ class FaceSearchSettings(PropertyType):
 
 @dataclass
 class KinesisDataStream(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -81,8 +66,6 @@ class KinesisDataStream(PropertyType):
 
 @dataclass
 class KinesisVideoStream(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -92,8 +75,6 @@ class KinesisVideoStream(PropertyType):
 
 @dataclass
 class NotificationChannel(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -103,9 +84,6 @@ class NotificationChannel(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    BUCKET_NAME = "BucketName"
-    OBJECT_KEY_PREFIX = "ObjectKeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key_prefix": "ObjectKeyPrefix",

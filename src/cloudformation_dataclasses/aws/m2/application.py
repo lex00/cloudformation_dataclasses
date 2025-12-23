@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Definition(PropertyType):
-    CONTENT = "Content"
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "s3_location": "S3Location",

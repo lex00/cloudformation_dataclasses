@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssertionRule(PropertyType):
-    ASSERTED_CONTROLS = "AssertedControls"
-    WAIT_PERIOD_MS = "WaitPeriodMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asserted_controls": "AssertedControls",
         "wait_period_ms": "WaitPeriodMs",
@@ -25,10 +22,6 @@ class AssertionRule(PropertyType):
 
 @dataclass
 class GatingRule(PropertyType):
-    TARGET_CONTROLS = "TargetControls"
-    GATING_CONTROLS = "GatingControls"
-    WAIT_PERIOD_MS = "WaitPeriodMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_controls": "TargetControls",
         "gating_controls": "GatingControls",
@@ -42,10 +35,6 @@ class GatingRule(PropertyType):
 
 @dataclass
 class RuleConfig(PropertyType):
-    TYPE = "Type"
-    INVERTED = "Inverted"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "inverted": "Inverted",

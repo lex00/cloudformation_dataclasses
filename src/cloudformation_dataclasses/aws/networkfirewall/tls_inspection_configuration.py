@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Address(PropertyType):
-    ADDRESS_DEFINITION = "AddressDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_definition": "AddressDefinition",
     }
@@ -22,9 +20,6 @@ class Address(PropertyType):
 
 @dataclass
 class CheckCertificateRevocationStatus(PropertyType):
-    UNKNOWN_STATUS_ACTION = "UnknownStatusAction"
-    REVOKED_STATUS_ACTION = "RevokedStatusAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unknown_status_action": "UnknownStatusAction",
         "revoked_status_action": "RevokedStatusAction",
@@ -36,9 +31,6 @@ class CheckCertificateRevocationStatus(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -50,8 +42,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class ServerCertificate(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
     }
@@ -61,11 +51,6 @@ class ServerCertificate(PropertyType):
 
 @dataclass
 class ServerCertificateConfiguration(PropertyType):
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    CHECK_CERTIFICATE_REVOCATION_STATUS = "CheckCertificateRevocationStatus"
-    SCOPES = "Scopes"
-    SERVER_CERTIFICATES = "ServerCertificates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "check_certificate_revocation_status": "CheckCertificateRevocationStatus",
@@ -81,12 +66,6 @@ class ServerCertificateConfiguration(PropertyType):
 
 @dataclass
 class ServerCertificateScope(PropertyType):
-    PROTOCOLS = "Protocols"
-    DESTINATION_PORTS = "DestinationPorts"
-    DESTINATIONS = "Destinations"
-    SOURCES = "Sources"
-    SOURCE_PORTS = "SourcePorts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "destination_ports": "DestinationPorts",
@@ -104,8 +83,6 @@ class ServerCertificateScope(PropertyType):
 
 @dataclass
 class TLSInspectionConfiguration(PropertyType):
-    SERVER_CERTIFICATE_CONFIGURATIONS = "ServerCertificateConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_certificate_configurations": "ServerCertificateConfigurations",
     }

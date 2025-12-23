@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Authorization(PropertyType):
-    SECRETS_ROLE_ARN = "SecretsRoleArn"
-    CDN_IDENTIFIER_SECRET = "CdnIdentifierSecret"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_role_arn": "SecretsRoleArn",
         "cdn_identifier_secret": "CdnIdentifierSecret",
@@ -25,11 +22,6 @@ class Authorization(PropertyType):
 
 @dataclass
 class CmafEncryption(PropertyType):
-    KEY_ROTATION_INTERVAL_SECONDS = "KeyRotationIntervalSeconds"
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    ENCRYPTION_METHOD = "EncryptionMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "speke_key_provider": "SpekeKeyProvider",
@@ -45,12 +37,6 @@ class CmafEncryption(PropertyType):
 
 @dataclass
 class CmafPackage(PropertyType):
-    SEGMENT_PREFIX = "SegmentPrefix"
-    STREAM_SELECTION = "StreamSelection"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-    HLS_MANIFESTS = "HlsManifests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_prefix": "SegmentPrefix",
         "stream_selection": "StreamSelection",
@@ -68,9 +54,6 @@ class CmafPackage(PropertyType):
 
 @dataclass
 class DashEncryption(PropertyType):
-    KEY_ROTATION_INTERVAL_SECONDS = "KeyRotationIntervalSeconds"
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "speke_key_provider": "SpekeKeyProvider",
@@ -82,23 +65,6 @@ class DashEncryption(PropertyType):
 
 @dataclass
 class DashPackage(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    ADS_ON_DELIVERY_RESTRICTIONS = "AdsOnDeliveryRestrictions"
-    MANIFEST_LAYOUT = "ManifestLayout"
-    STREAM_SELECTION = "StreamSelection"
-    INCLUDE_IFRAME_ONLY_STREAM = "IncludeIframeOnlyStream"
-    SEGMENT_TEMPLATE_FORMAT = "SegmentTemplateFormat"
-    ENCRYPTION = "Encryption"
-    AD_TRIGGERS = "AdTriggers"
-    PROFILE = "Profile"
-    PERIOD_TRIGGERS = "PeriodTriggers"
-    SUGGESTED_PRESENTATION_DELAY_SECONDS = "SuggestedPresentationDelaySeconds"
-    UTC_TIMING = "UtcTiming"
-    MIN_BUFFER_TIME_SECONDS = "MinBufferTimeSeconds"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    MIN_UPDATE_PERIOD_SECONDS = "MinUpdatePeriodSeconds"
-    UTC_TIMING_URI = "UtcTimingUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
@@ -143,12 +109,6 @@ class EncryptionContractConfiguration(PropertyType):
 
 @dataclass
 class HlsEncryption(PropertyType):
-    KEY_ROTATION_INTERVAL_SECONDS = "KeyRotationIntervalSeconds"
-    REPEAT_EXT_X_KEY = "RepeatExtXKey"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-    ENCRYPTION_METHOD = "EncryptionMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "repeat_ext_x_key": "RepeatExtXKey",
@@ -166,17 +126,6 @@ class HlsEncryption(PropertyType):
 
 @dataclass
 class HlsManifest(PropertyType):
-    ADS_ON_DELIVERY_RESTRICTIONS = "AdsOnDeliveryRestrictions"
-    MANIFEST_NAME = "ManifestName"
-    AD_MARKERS = "AdMarkers"
-    PROGRAM_DATE_TIME_INTERVAL_SECONDS = "ProgramDateTimeIntervalSeconds"
-    PLAYLIST_WINDOW_SECONDS = "PlaylistWindowSeconds"
-    INCLUDE_IFRAME_ONLY_STREAM = "IncludeIframeOnlyStream"
-    ID = "Id"
-    PLAYLIST_TYPE = "PlaylistType"
-    AD_TRIGGERS = "AdTriggers"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
         "manifest_name": "ManifestName",
@@ -204,19 +153,6 @@ class HlsManifest(PropertyType):
 
 @dataclass
 class HlsPackage(PropertyType):
-    ADS_ON_DELIVERY_RESTRICTIONS = "AdsOnDeliveryRestrictions"
-    AD_MARKERS = "AdMarkers"
-    PROGRAM_DATE_TIME_INTERVAL_SECONDS = "ProgramDateTimeIntervalSeconds"
-    STREAM_SELECTION = "StreamSelection"
-    PLAYLIST_WINDOW_SECONDS = "PlaylistWindowSeconds"
-    INCLUDE_IFRAME_ONLY_STREAM = "IncludeIframeOnlyStream"
-    USE_AUDIO_RENDITION_GROUP = "UseAudioRenditionGroup"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-    PLAYLIST_TYPE = "PlaylistType"
-    AD_TRIGGERS = "AdTriggers"
-    INCLUDE_DVB_SUBTITLES = "IncludeDvbSubtitles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
         "ad_markers": "AdMarkers",
@@ -248,8 +184,6 @@ class HlsPackage(PropertyType):
 
 @dataclass
 class MssEncryption(PropertyType):
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -259,11 +193,6 @@ class MssEncryption(PropertyType):
 
 @dataclass
 class MssPackage(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    STREAM_SELECTION = "StreamSelection"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "stream_selection": "StreamSelection",
@@ -279,13 +208,6 @@ class MssPackage(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    RESOURCE_ID = "ResourceId"
-    SYSTEM_IDS = "SystemIds"
-    ENCRYPTION_CONTRACT_CONFIGURATION = "EncryptionContractConfiguration"
-    URL = "Url"
-    ROLE_ARN = "RoleArn"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "system_ids": "SystemIds",
@@ -305,10 +227,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StreamSelection(PropertyType):
-    MIN_VIDEO_BITS_PER_SECOND = "MinVideoBitsPerSecond"
-    STREAM_ORDER = "StreamOrder"
-    MAX_VIDEO_BITS_PER_SECOND = "MaxVideoBitsPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_video_bits_per_second": "MinVideoBitsPerSecond",
         "stream_order": "StreamOrder",

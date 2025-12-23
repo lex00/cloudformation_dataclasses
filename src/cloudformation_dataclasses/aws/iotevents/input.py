@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Attribute(PropertyType):
-    JSON_PATH = "JsonPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
     }
@@ -22,8 +20,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class InputDefinition(PropertyType):
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }

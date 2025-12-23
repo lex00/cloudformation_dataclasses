@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BrokerLogs(PropertyType):
-    S3 = "S3"
-    FIREHOSE = "Firehose"
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",
@@ -28,13 +24,6 @@ class BrokerLogs(PropertyType):
 
 @dataclass
 class BrokerNodeGroupInfo(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    CLIENT_SUBNETS = "ClientSubnets"
-    CONNECTIVITY_INFO = "ConnectivityInfo"
-    STORAGE_INFO = "StorageInfo"
-    BROKER_AZ_DISTRIBUTION = "BrokerAZDistribution"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "client_subnets": "ClientSubnets",
@@ -54,10 +43,6 @@ class BrokerNodeGroupInfo(PropertyType):
 
 @dataclass
 class ClientAuthentication(PropertyType):
-    SASL = "Sasl"
-    UNAUTHENTICATED = "Unauthenticated"
-    TLS = "Tls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
         "unauthenticated": "Unauthenticated",
@@ -71,9 +56,6 @@ class ClientAuthentication(PropertyType):
 
 @dataclass
 class CloudWatchLogs(PropertyType):
-    LOG_GROUP = "LogGroup"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -85,9 +67,6 @@ class CloudWatchLogs(PropertyType):
 
 @dataclass
 class ConfigurationInfo(PropertyType):
-    REVISION = "Revision"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "arn": "Arn",
@@ -99,10 +78,6 @@ class ConfigurationInfo(PropertyType):
 
 @dataclass
 class ConnectivityInfo(PropertyType):
-    NETWORK_TYPE = "NetworkType"
-    VPC_CONNECTIVITY = "VpcConnectivity"
-    PUBLIC_ACCESS = "PublicAccess"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "vpc_connectivity": "VpcConnectivity",
@@ -116,9 +91,6 @@ class ConnectivityInfo(PropertyType):
 
 @dataclass
 class EBSStorageInfo(PropertyType):
-    PROVISIONED_THROUGHPUT = "ProvisionedThroughput"
-    VOLUME_SIZE = "VolumeSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_throughput": "ProvisionedThroughput",
         "volume_size": "VolumeSize",
@@ -130,8 +102,6 @@ class EBSStorageInfo(PropertyType):
 
 @dataclass
 class EncryptionAtRest(PropertyType):
-    DATA_VOLUME_KMS_KEY_ID = "DataVolumeKMSKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_volume_kms_key_id": "DataVolumeKMSKeyId",
     }
@@ -141,9 +111,6 @@ class EncryptionAtRest(PropertyType):
 
 @dataclass
 class EncryptionInTransit(PropertyType):
-    CLIENT_BROKER = "ClientBroker"
-    IN_CLUSTER = "InCluster"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_broker": "ClientBroker",
         "in_cluster": "InCluster",
@@ -155,9 +122,6 @@ class EncryptionInTransit(PropertyType):
 
 @dataclass
 class EncryptionInfo(PropertyType):
-    ENCRYPTION_AT_REST = "EncryptionAtRest"
-    ENCRYPTION_IN_TRANSIT = "EncryptionInTransit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_at_rest": "EncryptionAtRest",
         "encryption_in_transit": "EncryptionInTransit",
@@ -169,9 +133,6 @@ class EncryptionInfo(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    DELIVERY_STREAM = "DeliveryStream"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -183,8 +144,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class Iam(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -194,8 +153,6 @@ class Iam(PropertyType):
 
 @dataclass
 class JmxExporter(PropertyType):
-    ENABLED_IN_BROKER = "EnabledInBroker"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_in_broker": "EnabledInBroker",
     }
@@ -205,8 +162,6 @@ class JmxExporter(PropertyType):
 
 @dataclass
 class LoggingInfo(PropertyType):
-    BROKER_LOGS = "BrokerLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "broker_logs": "BrokerLogs",
     }
@@ -216,8 +171,6 @@ class LoggingInfo(PropertyType):
 
 @dataclass
 class NodeExporter(PropertyType):
-    ENABLED_IN_BROKER = "EnabledInBroker"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_in_broker": "EnabledInBroker",
     }
@@ -227,8 +180,6 @@ class NodeExporter(PropertyType):
 
 @dataclass
 class OpenMonitoring(PropertyType):
-    PROMETHEUS = "Prometheus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus": "Prometheus",
     }
@@ -238,9 +189,6 @@ class OpenMonitoring(PropertyType):
 
 @dataclass
 class Prometheus(PropertyType):
-    JMX_EXPORTER = "JmxExporter"
-    NODE_EXPORTER = "NodeExporter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jmx_exporter": "JmxExporter",
         "node_exporter": "NodeExporter",
@@ -252,9 +200,6 @@ class Prometheus(PropertyType):
 
 @dataclass
 class ProvisionedThroughput(PropertyType):
-    VOLUME_THROUGHPUT = "VolumeThroughput"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_throughput": "VolumeThroughput",
         "enabled": "Enabled",
@@ -266,8 +211,6 @@ class ProvisionedThroughput(PropertyType):
 
 @dataclass
 class PublicAccess(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -277,8 +220,6 @@ class PublicAccess(PropertyType):
 
 @dataclass
 class Rebalancing(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -288,10 +229,6 @@ class Rebalancing(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    BUCKET = "Bucket"
-    ENABLED = "Enabled"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -305,9 +242,6 @@ class S3(PropertyType):
 
 @dataclass
 class Sasl(PropertyType):
-    IAM = "Iam"
-    SCRAM = "Scram"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "scram": "Scram",
@@ -319,8 +253,6 @@ class Sasl(PropertyType):
 
 @dataclass
 class Scram(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -330,8 +262,6 @@ class Scram(PropertyType):
 
 @dataclass
 class StorageInfo(PropertyType):
-    EBS_STORAGE_INFO = "EBSStorageInfo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_storage_info": "EBSStorageInfo",
     }
@@ -341,9 +271,6 @@ class StorageInfo(PropertyType):
 
 @dataclass
 class Tls(PropertyType):
-    ENABLED = "Enabled"
-    CERTIFICATE_AUTHORITY_ARN_LIST = "CertificateAuthorityArnList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "certificate_authority_arn_list": "CertificateAuthorityArnList",
@@ -355,8 +282,6 @@ class Tls(PropertyType):
 
 @dataclass
 class Unauthenticated(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -366,8 +291,6 @@ class Unauthenticated(PropertyType):
 
 @dataclass
 class VpcConnectivity(PropertyType):
-    CLIENT_AUTHENTICATION = "ClientAuthentication"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_authentication": "ClientAuthentication",
     }
@@ -377,9 +300,6 @@ class VpcConnectivity(PropertyType):
 
 @dataclass
 class VpcConnectivityClientAuthentication(PropertyType):
-    SASL = "Sasl"
-    TLS = "Tls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
         "tls": "Tls",
@@ -391,8 +311,6 @@ class VpcConnectivityClientAuthentication(PropertyType):
 
 @dataclass
 class VpcConnectivityIam(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -402,9 +320,6 @@ class VpcConnectivityIam(PropertyType):
 
 @dataclass
 class VpcConnectivitySasl(PropertyType):
-    IAM = "Iam"
-    SCRAM = "Scram"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "scram": "Scram",
@@ -416,8 +331,6 @@ class VpcConnectivitySasl(PropertyType):
 
 @dataclass
 class VpcConnectivityScram(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -427,8 +340,6 @@ class VpcConnectivityScram(PropertyType):
 
 @dataclass
 class VpcConnectivityTls(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }

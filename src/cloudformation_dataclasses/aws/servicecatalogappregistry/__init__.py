@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalogAppRegistry
@@ -31,10 +31,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::Application"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -78,11 +74,6 @@ class AttributeGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::AttributeGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ATTRIBUTES = "Attributes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "attributes": "Attributes",
@@ -112,9 +103,6 @@ class AttributeGroupAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation"
-    ATTRIBUTE_GROUP = "AttributeGroup"
-    APPLICATION = "Application"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_group": "AttributeGroup",
         "application": "Application",
@@ -140,10 +128,6 @@ class ResourceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::ResourceAssociation"
-    RESOURCE = "Resource"
-    RESOURCE_TYPE = "ResourceType"
-    APPLICATION = "Application"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "resource_type": "ResourceType",

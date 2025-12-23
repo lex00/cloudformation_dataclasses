@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AgentlessDialerConfig(PropertyType):
-    DIALING_CAPACITY = "DialingCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
     }
@@ -22,9 +20,6 @@ class AgentlessDialerConfig(PropertyType):
 
 @dataclass
 class AnswerMachineDetectionConfig(PropertyType):
-    ENABLE_ANSWER_MACHINE_DETECTION = "EnableAnswerMachineDetection"
-    AWAIT_ANSWER_MACHINE_PROMPT = "AwaitAnswerMachinePrompt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_answer_machine_detection": "EnableAnswerMachineDetection",
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
@@ -36,10 +31,6 @@ class AnswerMachineDetectionConfig(PropertyType):
 
 @dataclass
 class DialerConfig(PropertyType):
-    AGENTLESS_DIALER_CONFIG = "AgentlessDialerConfig"
-    PREDICTIVE_DIALER_CONFIG = "PredictiveDialerConfig"
-    PROGRESSIVE_DIALER_CONFIG = "ProgressiveDialerConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_dialer_config": "AgentlessDialerConfig",
         "predictive_dialer_config": "PredictiveDialerConfig",
@@ -53,11 +44,6 @@ class DialerConfig(PropertyType):
 
 @dataclass
 class OutboundCallConfig(PropertyType):
-    CONNECT_CONTACT_FLOW_ARN = "ConnectContactFlowArn"
-    CONNECT_QUEUE_ARN = "ConnectQueueArn"
-    ANSWER_MACHINE_DETECTION_CONFIG = "AnswerMachineDetectionConfig"
-    CONNECT_SOURCE_PHONE_NUMBER = "ConnectSourcePhoneNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_contact_flow_arn": "ConnectContactFlowArn",
         "connect_queue_arn": "ConnectQueueArn",
@@ -73,9 +59,6 @@ class OutboundCallConfig(PropertyType):
 
 @dataclass
 class PredictiveDialerConfig(PropertyType):
-    DIALING_CAPACITY = "DialingCapacity"
-    BANDWIDTH_ALLOCATION = "BandwidthAllocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
         "bandwidth_allocation": "BandwidthAllocation",
@@ -87,9 +70,6 @@ class PredictiveDialerConfig(PropertyType):
 
 @dataclass
 class ProgressiveDialerConfig(PropertyType):
-    DIALING_CAPACITY = "DialingCapacity"
-    BANDWIDTH_ALLOCATION = "BandwidthAllocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
         "bandwidth_allocation": "BandwidthAllocation",

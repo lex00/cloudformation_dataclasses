@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssetModelCompositeModel(PropertyType):
-    PATH = "Path"
-    PARENT_ASSET_MODEL_COMPOSITE_MODEL_EXTERNAL_ID = "ParentAssetModelCompositeModelExternalId"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    COMPOSED_ASSET_MODEL_ID = "ComposedAssetModelId"
-    EXTERNAL_ID = "ExternalId"
-    COMPOSITE_MODEL_PROPERTIES = "CompositeModelProperties"
-    ID = "Id"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "parent_asset_model_composite_model_external_id": "ParentAssetModelCompositeModelExternalId",
@@ -46,12 +36,6 @@ class AssetModelCompositeModel(PropertyType):
 
 @dataclass
 class AssetModelHierarchy(PropertyType):
-    LOGICAL_ID = "LogicalId"
-    EXTERNAL_ID = "ExternalId"
-    ID = "Id"
-    CHILD_ASSET_MODEL_ID = "ChildAssetModelId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "external_id": "ExternalId",
@@ -69,15 +53,6 @@ class AssetModelHierarchy(PropertyType):
 
 @dataclass
 class AssetModelProperty(PropertyType):
-    TYPE = "Type"
-    LOGICAL_ID = "LogicalId"
-    EXTERNAL_ID = "ExternalId"
-    DATA_TYPE_SPEC = "DataTypeSpec"
-    DATA_TYPE = "DataType"
-    ID = "Id"
-    UNIT = "Unit"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "logical_id": "LogicalId",
@@ -101,8 +76,6 @@ class AssetModelProperty(PropertyType):
 
 @dataclass
 class Attribute(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
     }
@@ -112,10 +85,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class EnforcedAssetModelInterfacePropertyMapping(PropertyType):
-    INTERFACE_ASSET_MODEL_PROPERTY_EXTERNAL_ID = "InterfaceAssetModelPropertyExternalId"
-    ASSET_MODEL_PROPERTY_LOGICAL_ID = "AssetModelPropertyLogicalId"
-    ASSET_MODEL_PROPERTY_EXTERNAL_ID = "AssetModelPropertyExternalId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_asset_model_property_external_id": "InterfaceAssetModelPropertyExternalId",
         "asset_model_property_logical_id": "AssetModelPropertyLogicalId",
@@ -129,9 +98,6 @@ class EnforcedAssetModelInterfacePropertyMapping(PropertyType):
 
 @dataclass
 class EnforcedAssetModelInterfaceRelationship(PropertyType):
-    INTERFACE_ASSET_MODEL_ID = "InterfaceAssetModelId"
-    PROPERTY_MAPPINGS = "PropertyMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_asset_model_id": "InterfaceAssetModelId",
         "property_mappings": "PropertyMappings",
@@ -143,9 +109,6 @@ class EnforcedAssetModelInterfaceRelationship(PropertyType):
 
 @dataclass
 class ExpressionVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -157,10 +120,6 @@ class ExpressionVariable(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    VARIABLES = "Variables"
-    WINDOW = "Window"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "window": "Window",
@@ -174,8 +133,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricWindow(PropertyType):
-    TUMBLING = "Tumbling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tumbling": "Tumbling",
     }
@@ -185,8 +142,6 @@ class MetricWindow(PropertyType):
 
 @dataclass
 class PropertyPathDefinition(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -196,11 +151,6 @@ class PropertyPathDefinition(PropertyType):
 
 @dataclass
 class PropertyType(PropertyType):
-    TYPE_NAME = "TypeName"
-    ATTRIBUTE = "Attribute"
-    METRIC = "Metric"
-    TRANSFORM = "Transform"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "attribute": "Attribute",
@@ -216,9 +166,6 @@ class PropertyType(PropertyType):
 
 @dataclass
 class Transform(PropertyType):
-    VARIABLES = "Variables"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "expression": "Expression",
@@ -230,9 +177,6 @@ class Transform(PropertyType):
 
 @dataclass
 class TumblingWindow(PropertyType):
-    INTERVAL = "Interval"
-    OFFSET = "Offset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval": "Interval",
         "offset": "Offset",
@@ -244,14 +188,6 @@ class TumblingWindow(PropertyType):
 
 @dataclass
 class VariableValue(PropertyType):
-    PROPERTY_EXTERNAL_ID = "PropertyExternalId"
-    HIERARCHY_ID = "HierarchyId"
-    PROPERTY_LOGICAL_ID = "PropertyLogicalId"
-    HIERARCHY_LOGICAL_ID = "HierarchyLogicalId"
-    PROPERTY_PATH = "PropertyPath"
-    HIERARCHY_EXTERNAL_ID = "HierarchyExternalId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_external_id": "PropertyExternalId",
         "hierarchy_id": "HierarchyId",

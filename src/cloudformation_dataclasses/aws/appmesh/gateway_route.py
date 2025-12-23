@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GatewayRouteHostnameMatch(PropertyType):
-    SUFFIX = "Suffix"
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "exact": "Exact",
@@ -25,8 +22,6 @@ class GatewayRouteHostnameMatch(PropertyType):
 
 @dataclass
 class GatewayRouteHostnameRewrite(PropertyType):
-    DEFAULT_TARGET_HOSTNAME = "DefaultTargetHostname"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_target_hostname": "DefaultTargetHostname",
     }
@@ -36,12 +31,6 @@ class GatewayRouteHostnameRewrite(PropertyType):
 
 @dataclass
 class GatewayRouteMetadataMatch(PropertyType):
-    SUFFIX = "Suffix"
-    REGEX = "Regex"
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -59,9 +48,6 @@ class GatewayRouteMetadataMatch(PropertyType):
 
 @dataclass
 class GatewayRouteRangeMatch(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -73,11 +59,6 @@ class GatewayRouteRangeMatch(PropertyType):
 
 @dataclass
 class GatewayRouteSpec(PropertyType):
-    HTTP_ROUTE = "HttpRoute"
-    PRIORITY = "Priority"
-    HTTP2_ROUTE = "Http2Route"
-    GRPC_ROUTE = "GrpcRoute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_route": "HttpRoute",
         "priority": "Priority",
@@ -93,9 +74,6 @@ class GatewayRouteSpec(PropertyType):
 
 @dataclass
 class GatewayRouteTarget(PropertyType):
-    PORT = "Port"
-    VIRTUAL_SERVICE = "VirtualService"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "virtual_service": "VirtualService",
@@ -107,8 +85,6 @@ class GatewayRouteTarget(PropertyType):
 
 @dataclass
 class GatewayRouteVirtualService(PropertyType):
-    VIRTUAL_SERVICE_NAME = "VirtualServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_service_name": "VirtualServiceName",
     }
@@ -118,9 +94,6 @@ class GatewayRouteVirtualService(PropertyType):
 
 @dataclass
 class GrpcGatewayRoute(PropertyType):
-    ACTION = "Action"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "match": "Match",
@@ -132,9 +105,6 @@ class GrpcGatewayRoute(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteAction(PropertyType):
-    TARGET = "Target"
-    REWRITE = "Rewrite"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "rewrite": "Rewrite",
@@ -146,11 +116,6 @@ class GrpcGatewayRouteAction(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteMatch(PropertyType):
-    SERVICE_NAME = "ServiceName"
-    PORT = "Port"
-    HOSTNAME = "Hostname"
-    METADATA = "Metadata"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "port": "Port",
@@ -166,10 +131,6 @@ class GrpcGatewayRouteMatch(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteMetadata(PropertyType):
-    INVERT = "Invert"
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -183,8 +144,6 @@ class GrpcGatewayRouteMetadata(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteRewrite(PropertyType):
-    HOSTNAME = "Hostname"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hostname": "Hostname",
     }
@@ -194,9 +153,6 @@ class GrpcGatewayRouteRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRoute(PropertyType):
-    ACTION = "Action"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "match": "Match",
@@ -208,9 +164,6 @@ class HttpGatewayRoute(PropertyType):
 
 @dataclass
 class HttpGatewayRouteAction(PropertyType):
-    TARGET = "Target"
-    REWRITE = "Rewrite"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "rewrite": "Rewrite",
@@ -222,10 +175,6 @@ class HttpGatewayRouteAction(PropertyType):
 
 @dataclass
 class HttpGatewayRouteHeader(PropertyType):
-    INVERT = "Invert"
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -239,12 +188,6 @@ class HttpGatewayRouteHeader(PropertyType):
 
 @dataclass
 class HttpGatewayRouteHeaderMatch(PropertyType):
-    SUFFIX = "Suffix"
-    REGEX = "Regex"
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -262,14 +205,6 @@ class HttpGatewayRouteHeaderMatch(PropertyType):
 
 @dataclass
 class HttpGatewayRouteMatch(PropertyType):
-    PATH = "Path"
-    HEADERS = "Headers"
-    PORT = "Port"
-    HOSTNAME = "Hostname"
-    PREFIX = "Prefix"
-    METHOD = "Method"
-    QUERY_PARAMETERS = "QueryParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "headers": "Headers",
@@ -291,8 +226,6 @@ class HttpGatewayRouteMatch(PropertyType):
 
 @dataclass
 class HttpGatewayRoutePathRewrite(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -302,9 +235,6 @@ class HttpGatewayRoutePathRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRoutePrefixRewrite(PropertyType):
-    VALUE = "Value"
-    DEFAULT_PREFIX = "DefaultPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "default_prefix": "DefaultPrefix",
@@ -316,10 +246,6 @@ class HttpGatewayRoutePrefixRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRouteRewrite(PropertyType):
-    PATH = "Path"
-    HOSTNAME = "Hostname"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "hostname": "Hostname",
@@ -333,9 +259,6 @@ class HttpGatewayRouteRewrite(PropertyType):
 
 @dataclass
 class HttpPathMatch(PropertyType):
-    REGEX = "Regex"
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "exact": "Exact",
@@ -347,8 +270,6 @@ class HttpPathMatch(PropertyType):
 
 @dataclass
 class HttpQueryParameterMatch(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -358,9 +279,6 @@ class HttpQueryParameterMatch(PropertyType):
 
 @dataclass
 class QueryParameter(PropertyType):
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "match": "Match",

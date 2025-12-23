@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service InternetMonitor
@@ -180,19 +180,6 @@ class Monitor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::InternetMonitor::Monitor"
     name_field: ClassVar[str] = "monitor_name"
-    STATUS = "Status"
-    LINKED_ACCOUNT_ID = "LinkedAccountId"
-    TRAFFIC_PERCENTAGE_TO_MONITOR = "TrafficPercentageToMonitor"
-    INCLUDE_LINKED_ACCOUNTS = "IncludeLinkedAccounts"
-    HEALTH_EVENTS_CONFIG = "HealthEventsConfig"
-    RESOURCES_TO_ADD = "ResourcesToAdd"
-    INTERNET_MEASUREMENTS_LOG_DELIVERY = "InternetMeasurementsLogDelivery"
-    MONITOR_NAME = "MonitorName"
-    RESOURCES_TO_REMOVE = "ResourcesToRemove"
-    RESOURCES = "Resources"
-    MAX_CITY_NETWORKS_TO_MONITOR = "MaxCityNetworksToMonitor"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "linked_account_id": "LinkedAccountId",

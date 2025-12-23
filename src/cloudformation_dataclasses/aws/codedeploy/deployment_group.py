@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alarm(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -22,10 +20,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AlarmConfiguration(PropertyType):
-    ALARMS = "Alarms"
-    ENABLED = "Enabled"
-    IGNORE_POLL_ALARM_FAILURE = "IgnorePollAlarmFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarms": "Alarms",
         "enabled": "Enabled",
@@ -39,9 +33,6 @@ class AlarmConfiguration(PropertyType):
 
 @dataclass
 class AutoRollbackConfiguration(PropertyType):
-    ENABLED = "Enabled"
-    EVENTS = "Events"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "events": "Events",
@@ -53,10 +44,6 @@ class AutoRollbackConfiguration(PropertyType):
 
 @dataclass
 class BlueGreenDeploymentConfiguration(PropertyType):
-    DEPLOYMENT_READY_OPTION = "DeploymentReadyOption"
-    GREEN_FLEET_PROVISIONING_OPTION = "GreenFleetProvisioningOption"
-    TERMINATE_BLUE_INSTANCES_ON_DEPLOYMENT_SUCCESS = "TerminateBlueInstancesOnDeploymentSuccess"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_ready_option": "DeploymentReadyOption",
         "green_fleet_provisioning_option": "GreenFleetProvisioningOption",
@@ -70,9 +57,6 @@ class BlueGreenDeploymentConfiguration(PropertyType):
 
 @dataclass
 class BlueInstanceTerminationOption(PropertyType):
-    ACTION = "Action"
-    TERMINATION_WAIT_TIME_IN_MINUTES = "TerminationWaitTimeInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "termination_wait_time_in_minutes": "TerminationWaitTimeInMinutes",
@@ -84,10 +68,6 @@ class BlueInstanceTerminationOption(PropertyType):
 
 @dataclass
 class Deployment(PropertyType):
-    DESCRIPTION = "Description"
-    IGNORE_APPLICATION_STOP_FAILURES = "IgnoreApplicationStopFailures"
-    REVISION = "Revision"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "ignore_application_stop_failures": "IgnoreApplicationStopFailures",
@@ -101,9 +81,6 @@ class Deployment(PropertyType):
 
 @dataclass
 class DeploymentReadyOption(PropertyType):
-    ACTION_ON_TIMEOUT = "ActionOnTimeout"
-    WAIT_TIME_IN_MINUTES = "WaitTimeInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_on_timeout": "ActionOnTimeout",
         "wait_time_in_minutes": "WaitTimeInMinutes",
@@ -115,9 +92,6 @@ class DeploymentReadyOption(PropertyType):
 
 @dataclass
 class DeploymentStyle(PropertyType):
-    DEPLOYMENT_OPTION = "DeploymentOption"
-    DEPLOYMENT_TYPE = "DeploymentType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_option": "DeploymentOption",
         "deployment_type": "DeploymentType",
@@ -129,10 +103,6 @@ class DeploymentStyle(PropertyType):
 
 @dataclass
 class EC2TagFilter(PropertyType):
-    KEY = "Key"
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "type_": "Type",
@@ -146,8 +116,6 @@ class EC2TagFilter(PropertyType):
 
 @dataclass
 class EC2TagSet(PropertyType):
-    EC2_TAG_SET_LIST = "Ec2TagSetList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_tag_set_list": "Ec2TagSetList",
     }
@@ -157,8 +125,6 @@ class EC2TagSet(PropertyType):
 
 @dataclass
 class EC2TagSetListObject(PropertyType):
-    EC2_TAG_GROUP = "Ec2TagGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_tag_group": "Ec2TagGroup",
     }
@@ -168,9 +134,6 @@ class EC2TagSetListObject(PropertyType):
 
 @dataclass
 class ECSService(PropertyType):
-    CLUSTER_NAME = "ClusterName"
-    SERVICE_NAME = "ServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
         "service_name": "ServiceName",
@@ -182,8 +145,6 @@ class ECSService(PropertyType):
 
 @dataclass
 class ELBInfo(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -193,9 +154,6 @@ class ELBInfo(PropertyType):
 
 @dataclass
 class GitHubLocation(PropertyType):
-    COMMIT_ID = "CommitId"
-    REPOSITORY = "Repository"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "commit_id": "CommitId",
         "repository": "Repository",
@@ -207,8 +165,6 @@ class GitHubLocation(PropertyType):
 
 @dataclass
 class GreenFleetProvisioningOption(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -218,10 +174,6 @@ class GreenFleetProvisioningOption(PropertyType):
 
 @dataclass
 class LoadBalancerInfo(PropertyType):
-    ELB_INFO_LIST = "ElbInfoList"
-    TARGET_GROUP_INFO_LIST = "TargetGroupInfoList"
-    TARGET_GROUP_PAIR_INFO_LIST = "TargetGroupPairInfoList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elb_info_list": "ElbInfoList",
         "target_group_info_list": "TargetGroupInfoList",
@@ -235,8 +187,6 @@ class LoadBalancerInfo(PropertyType):
 
 @dataclass
 class OnPremisesTagSet(PropertyType):
-    ON_PREMISES_TAG_SET_LIST = "OnPremisesTagSetList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_premises_tag_set_list": "OnPremisesTagSetList",
     }
@@ -246,8 +196,6 @@ class OnPremisesTagSet(PropertyType):
 
 @dataclass
 class OnPremisesTagSetListObject(PropertyType):
-    ON_PREMISES_TAG_GROUP = "OnPremisesTagGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_premises_tag_group": "OnPremisesTagGroup",
     }
@@ -257,10 +205,6 @@ class OnPremisesTagSetListObject(PropertyType):
 
 @dataclass
 class RevisionLocation(PropertyType):
-    GIT_HUB_LOCATION = "GitHubLocation"
-    REVISION_TYPE = "RevisionType"
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "git_hub_location": "GitHubLocation",
         "revision_type": "RevisionType",
@@ -274,12 +218,6 @@ class RevisionLocation(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    BUNDLE_TYPE = "BundleType"
-    E_TAG = "ETag"
-    KEY = "Key"
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bundle_type": "BundleType",
@@ -297,10 +235,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    KEY = "Key"
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "type_": "Type",
@@ -314,8 +248,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetGroupInfo(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -325,10 +257,6 @@ class TargetGroupInfo(PropertyType):
 
 @dataclass
 class TargetGroupPairInfo(PropertyType):
-    PROD_TRAFFIC_ROUTE = "ProdTrafficRoute"
-    TARGET_GROUPS = "TargetGroups"
-    TEST_TRAFFIC_ROUTE = "TestTrafficRoute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prod_traffic_route": "ProdTrafficRoute",
         "target_groups": "TargetGroups",
@@ -342,8 +270,6 @@ class TargetGroupPairInfo(PropertyType):
 
 @dataclass
 class TrafficRoute(PropertyType):
-    LISTENER_ARNS = "ListenerArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_arns": "ListenerArns",
     }
@@ -353,10 +279,6 @@ class TrafficRoute(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    TRIGGER_EVENTS = "TriggerEvents"
-    TRIGGER_NAME = "TriggerName"
-    TRIGGER_TARGET_ARN = "TriggerTargetArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_events": "TriggerEvents",
         "trigger_name": "TriggerName",

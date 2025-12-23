@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:01
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTFleetWise
@@ -510,26 +510,6 @@ class Campaign(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::Campaign"
     name_field: ClassVar[str] = "name"
-    ACTION = "Action"
-    COMPRESSION = "Compression"
-    DESCRIPTION = "Description"
-    DATA_PARTITIONS = "DataPartitions"
-    PRIORITY = "Priority"
-    SIGNALS_TO_COLLECT = "SignalsToCollect"
-    START_TIME = "StartTime"
-    SIGNALS_TO_FETCH = "SignalsToFetch"
-    EXPIRY_TIME = "ExpiryTime"
-    SPOOLING_MODE = "SpoolingMode"
-    DATA_DESTINATION_CONFIGS = "DataDestinationConfigs"
-    SIGNAL_CATALOG_ARN = "SignalCatalogArn"
-    NAME = "Name"
-    POST_TRIGGER_COLLECTION_DURATION = "PostTriggerCollectionDuration"
-    DATA_EXTRA_DIMENSIONS = "DataExtraDimensions"
-    DIAGNOSTICS_MODE = "DiagnosticsMode"
-    TARGET_ARN = "TargetArn"
-    COLLECTION_SCHEME = "CollectionScheme"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "compression": "Compression",
@@ -600,15 +580,6 @@ class DecoderManifest(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::DecoderManifest"
     name_field: ClassVar[str] = "name"
-    SIGNAL_DECODERS = "SignalDecoders"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    MODEL_MANIFEST_ARN = "ModelManifestArn"
-    DEFAULT_FOR_UNMAPPED_SIGNALS = "DefaultForUnmappedSignals"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signal_decoders": "SignalDecoders",
         "status": "Status",
@@ -651,11 +622,6 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::Fleet"
-    DESCRIPTION = "Description"
-    ID = "Id"
-    SIGNAL_CATALOG_ARN = "SignalCatalogArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "id": "Id",
@@ -691,13 +657,6 @@ class ModelManifest(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::ModelManifest"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    SIGNAL_CATALOG_ARN = "SignalCatalogArn"
-    NODES = "Nodes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -737,12 +696,6 @@ class SignalCatalog(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::SignalCatalog"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    NODE_COUNTS = "NodeCounts"
-    NODES = "Nodes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "node_counts": "NodeCounts",
@@ -805,14 +758,6 @@ class StateTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::StateTemplate"
     name_field: ClassVar[str] = "name"
-    STATE_TEMPLATE_PROPERTIES = "StateTemplateProperties"
-    DESCRIPTION = "Description"
-    DATA_EXTRA_DIMENSIONS = "DataExtraDimensions"
-    SIGNAL_CATALOG_ARN = "SignalCatalogArn"
-    METADATA_EXTRA_DIMENSIONS = "MetadataExtraDimensions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state_template_properties": "StateTemplateProperties",
         "description": "Description",
@@ -859,14 +804,6 @@ class Vehicle(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::Vehicle"
     name_field: ClassVar[str] = "name"
-    ASSOCIATION_BEHAVIOR = "AssociationBehavior"
-    ATTRIBUTES = "Attributes"
-    DECODER_MANIFEST_ARN = "DecoderManifestArn"
-    STATE_TEMPLATES = "StateTemplates"
-    MODEL_MANIFEST_ARN = "ModelManifestArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_behavior": "AssociationBehavior",
         "attributes": "Attributes",

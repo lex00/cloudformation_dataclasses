@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomPattern(PropertyType):
-    KEYWORD_REGEX = "KeywordRegex"
-    PATTERN_DESCRIPTION = "PatternDescription"
-    PATTERN_NAME = "PatternName"
-    PATTERN_REGEX = "PatternRegex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "keyword_regex": "KeywordRegex",
         "pattern_description": "PatternDescription",
@@ -31,11 +26,6 @@ class CustomPattern(PropertyType):
 
 @dataclass
 class InlineRedactionConfiguration(PropertyType):
-    INLINE_REDACTION_PATTERNS = "InlineRedactionPatterns"
-    GLOBAL_CONFIDENCE_LEVEL = "GlobalConfidenceLevel"
-    GLOBAL_EXEMPT_URLS = "GlobalExemptUrls"
-    GLOBAL_ENFORCED_URLS = "GlobalEnforcedUrls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_redaction_patterns": "InlineRedactionPatterns",
         "global_confidence_level": "GlobalConfidenceLevel",
@@ -51,13 +41,6 @@ class InlineRedactionConfiguration(PropertyType):
 
 @dataclass
 class InlineRedactionPattern(PropertyType):
-    ENFORCED_URLS = "EnforcedUrls"
-    CONFIDENCE_LEVEL = "ConfidenceLevel"
-    CUSTOM_PATTERN = "CustomPattern"
-    EXEMPT_URLS = "ExemptUrls"
-    BUILT_IN_PATTERN_ID = "BuiltInPatternId"
-    REDACTION_PLACE_HOLDER = "RedactionPlaceHolder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforced_urls": "EnforcedUrls",
         "confidence_level": "ConfidenceLevel",
@@ -77,9 +60,6 @@ class InlineRedactionPattern(PropertyType):
 
 @dataclass
 class RedactionPlaceHolder(PropertyType):
-    REDACTION_PLACE_HOLDER_TYPE = "RedactionPlaceHolderType"
-    REDACTION_PLACE_HOLDER_TEXT = "RedactionPlaceHolderText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redaction_place_holder_type": "RedactionPlaceHolderType",
         "redaction_place_holder_text": "RedactionPlaceHolderText",

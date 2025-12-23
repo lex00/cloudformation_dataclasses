@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWAN(PropertyType):
-    RF_REGION = "RfRegion"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rf_region": "RfRegion",
         "start_time": "StartTime",

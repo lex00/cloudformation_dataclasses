@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataSource(PropertyType):
-    ARN = "Arn"
-    DATABASE_NAME = "DatabaseName"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "database_name": "DatabaseName",
@@ -28,10 +24,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    KEY = "Key"
-    SECURE = "Secure"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "secure": "Secure",
@@ -45,13 +37,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    PASSWORD = "Password"
-    REVISION = "Revision"
-    SSH_KEY = "SshKey"
-    TYPE = "Type"
-    URL = "Url"
-    USERNAME = "Username"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password": "Password",
         "revision": "Revision",
@@ -71,10 +56,6 @@ class Source(PropertyType):
 
 @dataclass
 class SslConfiguration(PropertyType):
-    CERTIFICATE = "Certificate"
-    CHAIN = "Chain"
-    PRIVATE_KEY = "PrivateKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate": "Certificate",
         "chain": "Chain",

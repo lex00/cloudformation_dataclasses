@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RUM
@@ -102,17 +102,6 @@ class AppMonitor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RUM::AppMonitor"
     name_field: ClassVar[str] = "name"
-    CUSTOM_EVENTS = "CustomEvents"
-    PLATFORM = "Platform"
-    CW_LOG_ENABLED = "CwLogEnabled"
-    RESOURCE_POLICY = "ResourcePolicy"
-    DOMAIN_LIST = "DomainList"
-    DEOBFUSCATION_CONFIGURATION = "DeobfuscationConfiguration"
-    DOMAIN = "Domain"
-    APP_MONITOR_CONFIGURATION = "AppMonitorConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_events": "CustomEvents",
         "platform": "Platform",

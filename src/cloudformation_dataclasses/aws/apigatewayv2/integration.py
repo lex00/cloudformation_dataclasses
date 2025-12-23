@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResponseParameter(PropertyType):
-    DESTINATION = "Destination"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -25,8 +22,6 @@ class ResponseParameter(PropertyType):
 
 @dataclass
 class ResponseParameterMap(PropertyType):
-    RESPONSE_PARAMETERS = "ResponseParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_parameters": "ResponseParameters",
     }
@@ -36,8 +31,6 @@ class ResponseParameterMap(PropertyType):
 
 @dataclass
 class TlsConfig(PropertyType):
-    SERVER_NAME_TO_VERIFY = "ServerNameToVerify"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_name_to_verify": "ServerNameToVerify",
     }

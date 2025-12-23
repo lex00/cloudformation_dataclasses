@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MembershipJobComputePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -22,10 +20,6 @@ class MembershipJobComputePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipMLPaymentConfig(PropertyType):
-    MODEL_INFERENCE = "ModelInference"
-    SYNTHETIC_DATA_GENERATION = "SyntheticDataGeneration"
-    MODEL_TRAINING = "ModelTraining"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_inference": "ModelInference",
         "synthetic_data_generation": "SyntheticDataGeneration",
@@ -39,8 +33,6 @@ class MembershipMLPaymentConfig(PropertyType):
 
 @dataclass
 class MembershipModelInferencePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -50,8 +42,6 @@ class MembershipModelInferencePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipModelTrainingPaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -61,10 +51,6 @@ class MembershipModelTrainingPaymentConfig(PropertyType):
 
 @dataclass
 class MembershipPaymentConfiguration(PropertyType):
-    JOB_COMPUTE = "JobCompute"
-    QUERY_COMPUTE = "QueryCompute"
-    MACHINE_LEARNING = "MachineLearning"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_compute": "JobCompute",
         "query_compute": "QueryCompute",
@@ -78,8 +64,6 @@ class MembershipPaymentConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedJobOutputConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -89,9 +73,6 @@ class MembershipProtectedJobOutputConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedJobResultConfiguration(PropertyType):
-    OUTPUT_CONFIGURATION = "OutputConfiguration"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_configuration": "OutputConfiguration",
         "role_arn": "RoleArn",
@@ -103,8 +84,6 @@ class MembershipProtectedJobResultConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedQueryOutputConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -114,9 +93,6 @@ class MembershipProtectedQueryOutputConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedQueryResultConfiguration(PropertyType):
-    OUTPUT_CONFIGURATION = "OutputConfiguration"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_configuration": "OutputConfiguration",
         "role_arn": "RoleArn",
@@ -128,8 +104,6 @@ class MembershipProtectedQueryResultConfiguration(PropertyType):
 
 @dataclass
 class MembershipQueryComputePaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -139,8 +113,6 @@ class MembershipQueryComputePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipSyntheticDataGenerationPaymentConfig(PropertyType):
-    IS_RESPONSIBLE = "IsResponsible"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -150,9 +122,6 @@ class MembershipSyntheticDataGenerationPaymentConfig(PropertyType):
 
 @dataclass
 class ProtectedJobS3OutputConfigurationInput(PropertyType):
-    BUCKET = "Bucket"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key_prefix": "KeyPrefix",
@@ -164,11 +133,6 @@ class ProtectedJobS3OutputConfigurationInput(PropertyType):
 
 @dataclass
 class ProtectedQueryS3OutputConfiguration(PropertyType):
-    BUCKET = "Bucket"
-    RESULT_FORMAT = "ResultFormat"
-    KEY_PREFIX = "KeyPrefix"
-    SINGLE_FILE_OUTPUT = "SingleFileOutput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "result_format": "ResultFormat",

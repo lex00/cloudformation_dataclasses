@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:01
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTEvents
@@ -157,16 +157,6 @@ class AlarmModel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTEvents::AlarmModel"
     name_field: ClassVar[str] = "alarm_model_name"
-    ALARM_RULE = "AlarmRule"
-    ALARM_MODEL_NAME = "AlarmModelName"
-    ALARM_MODEL_DESCRIPTION = "AlarmModelDescription"
-    SEVERITY = "Severity"
-    ALARM_CAPABILITIES = "AlarmCapabilities"
-    ROLE_ARN = "RoleArn"
-    KEY = "Key"
-    ALARM_EVENT_ACTIONS = "AlarmEventActions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_rule": "AlarmRule",
         "alarm_model_name": "AlarmModelName",
@@ -196,14 +186,6 @@ class DetectorModel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTEvents::DetectorModel"
     name_field: ClassVar[str] = "detector_model_name"
-    DETECTOR_MODEL_DEFINITION = "DetectorModelDefinition"
-    EVALUATION_METHOD = "EvaluationMethod"
-    DETECTOR_MODEL_NAME = "DetectorModelName"
-    DETECTOR_MODEL_DESCRIPTION = "DetectorModelDescription"
-    KEY = "Key"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detector_model_definition": "DetectorModelDefinition",
         "evaluation_method": "EvaluationMethod",
@@ -229,11 +211,6 @@ class Input(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTEvents::Input"
     name_field: ClassVar[str] = "input_name"
-    INPUT_DEFINITION = "InputDefinition"
-    INPUT_NAME = "InputName"
-    INPUT_DESCRIPTION = "InputDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_definition": "InputDefinition",
         "input_name": "InputName",

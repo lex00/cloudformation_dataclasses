@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IdMappingTableInputReferenceConfig(PropertyType):
-    INPUT_REFERENCE_ARN = "InputReferenceArn"
-    MANAGE_RESOURCE_POLICIES = "ManageResourcePolicies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_reference_arn": "InputReferenceArn",
         "manage_resource_policies": "ManageResourcePolicies",
@@ -25,8 +22,6 @@ class IdMappingTableInputReferenceConfig(PropertyType):
 
 @dataclass
 class IdMappingTableInputReferenceProperties(PropertyType):
-    ID_MAPPING_TABLE_INPUT_SOURCE = "IdMappingTableInputSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_mapping_table_input_source": "IdMappingTableInputSource",
     }
@@ -36,9 +31,6 @@ class IdMappingTableInputReferenceProperties(PropertyType):
 
 @dataclass
 class IdMappingTableInputSource(PropertyType):
-    TYPE = "Type"
-    ID_NAMESPACE_ASSOCIATION_ID = "IdNamespaceAssociationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id_namespace_association_id": "IdNamespaceAssociationId",

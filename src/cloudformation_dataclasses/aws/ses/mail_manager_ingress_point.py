@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IngressPointConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    SMTP_PASSWORD = "SmtpPassword"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "smtp_password": "SmtpPassword",
@@ -25,9 +22,6 @@ class IngressPointConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    PUBLIC_NETWORK_CONFIGURATION = "PublicNetworkConfiguration"
-    PRIVATE_NETWORK_CONFIGURATION = "PrivateNetworkConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_network_configuration": "PublicNetworkConfiguration",
         "private_network_configuration": "PrivateNetworkConfiguration",
@@ -39,8 +33,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PrivateNetworkConfiguration(PropertyType):
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_endpoint_id": "VpcEndpointId",
     }
@@ -50,8 +42,6 @@ class PrivateNetworkConfiguration(PropertyType):
 
 @dataclass
 class PublicNetworkConfiguration(PropertyType):
-    IP_TYPE = "IpType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_type": "IpType",
     }

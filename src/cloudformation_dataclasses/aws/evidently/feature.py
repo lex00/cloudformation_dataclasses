@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EntityOverride(PropertyType):
-    ENTITY_ID = "EntityId"
-    VARIATION = "Variation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "variation": "Variation",
@@ -25,12 +22,6 @@ class EntityOverride(PropertyType):
 
 @dataclass
 class VariationObject(PropertyType):
-    VARIATION_NAME = "VariationName"
-    DOUBLE_VALUE = "DoubleValue"
-    BOOLEAN_VALUE = "BooleanValue"
-    LONG_VALUE = "LongValue"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variation_name": "VariationName",
         "double_value": "DoubleValue",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:16
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Outposts
@@ -68,11 +68,6 @@ class AccessPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::AccessPoint"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    BUCKET = "Bucket"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "bucket": "Bucket",
@@ -98,11 +93,6 @@ class Bucket(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::Bucket"
     name_field: ClassVar[str] = "bucket_name"
-    OUTPOST_ID = "OutpostId"
-    BUCKET_NAME = "BucketName"
-    LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outpost_id": "OutpostId",
         "bucket_name": "BucketName",
@@ -127,9 +117,6 @@ class BucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3out"""
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::BucketPolicy"
-    BUCKET = "Bucket"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "policy_document": "PolicyDocument",
@@ -144,13 +131,6 @@ class Endpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3out"""
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::Endpoint"
-    OUTPOST_ID = "OutpostId"
-    SECURITY_GROUP_ID = "SecurityGroupId"
-    FAILED_REASON = "FailedReason"
-    SUBNET_ID = "SubnetId"
-    ACCESS_TYPE = "AccessType"
-    CUSTOMER_OWNED_IPV4_POOL = "CustomerOwnedIpv4Pool"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outpost_id": "OutpostId",
         "security_group_id": "SecurityGroupId",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -158,10 +158,6 @@ class Database(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Timestream::Database"
     name_field: ClassVar[str] = "database_name"
-    KMS_KEY_ID = "KmsKeyId"
-    DATABASE_NAME = "DatabaseName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "database_name": "DatabaseName",
@@ -185,24 +181,6 @@ class InfluxDBInstance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Timestream::InfluxDBInstance"
     name_field: ClassVar[str] = "name"
-    DB_PARAMETER_GROUP_IDENTIFIER = "DbParameterGroupIdentifier"
-    ORGANIZATION = "Organization"
-    PORT = "Port"
-    DB_INSTANCE_TYPE = "DbInstanceType"
-    VPC_SUBNET_IDS = "VpcSubnetIds"
-    DEPLOYMENT_TYPE = "DeploymentType"
-    ALLOCATED_STORAGE = "AllocatedStorage"
-    NAME = "Name"
-    DB_STORAGE_TYPE = "DbStorageType"
-    LOG_DELIVERY_CONFIGURATION = "LogDeliveryConfiguration"
-    USERNAME = "Username"
-    BUCKET = "Bucket"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    NETWORK_TYPE = "NetworkType"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    TAGS = "Tags"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_parameter_group_identifier": "DbParameterGroupIdentifier",
         "organization": "Organization",
@@ -284,17 +262,6 @@ class ScheduledQuery(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Timestream::ScheduledQuery"
     name_field: ClassVar[str] = "scheduled_query_name"
-    SCHEDULED_QUERY_EXECUTION_ROLE_ARN = "ScheduledQueryExecutionRoleArn"
-    ERROR_REPORT_CONFIGURATION = "ErrorReportConfiguration"
-    SCHEDULE_CONFIGURATION = "ScheduleConfiguration"
-    TARGET_CONFIGURATION = "TargetConfiguration"
-    KMS_KEY_ID = "KmsKeyId"
-    QUERY_STRING = "QueryString"
-    NOTIFICATION_CONFIGURATION = "NotificationConfiguration"
-    SCHEDULED_QUERY_NAME = "ScheduledQueryName"
-    CLIENT_TOKEN = "ClientToken"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled_query_execution_role_arn": "ScheduledQueryExecutionRoleArn",
         "error_report_configuration": "ErrorReportConfiguration",
@@ -372,13 +339,6 @@ class Table(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Timestream::Table"
     name_field: ClassVar[str] = "table_name"
-    TABLE_NAME = "TableName"
-    RETENTION_PROPERTIES = "RetentionProperties"
-    SCHEMA = "Schema"
-    DATABASE_NAME = "DatabaseName"
-    TAGS = "Tags"
-    MAGNETIC_STORE_WRITE_PROPERTIES = "MagneticStoreWriteProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "retention_properties": "RetentionProperties",

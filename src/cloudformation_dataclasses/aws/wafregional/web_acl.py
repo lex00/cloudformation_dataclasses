@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -22,10 +20,6 @@ class Action(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    ACTION = "Action"
-    PRIORITY = "Priority"
-    RULE_ID = "RuleId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",

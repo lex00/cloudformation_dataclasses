@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:03
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisVideo
@@ -232,11 +232,6 @@ class SignalingChannel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisVideo::SignalingChannel"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    MESSAGE_TTL_SECONDS = "MessageTtlSeconds"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message_ttl_seconds": "MessageTtlSeconds",
@@ -262,14 +257,6 @@ class Stream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisVideo::Stream"
     name_field: ClassVar[str] = "name"
-    STREAM_STORAGE_CONFIGURATION = "StreamStorageConfiguration"
-    KMS_KEY_ID = "KmsKeyId"
-    MEDIA_TYPE = "MediaType"
-    DATA_RETENTION_IN_HOURS = "DataRetentionInHours"
-    TAGS = "Tags"
-    NAME = "Name"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_storage_configuration": "StreamStorageConfiguration",
         "kms_key_id": "KmsKeyId",

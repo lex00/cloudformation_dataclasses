@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AvailabilityZoneAddress(PropertyType):
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    ALLOCATION_IDS = "AllocationIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_id": "AvailabilityZoneId",
         "availability_zone": "AvailabilityZone",

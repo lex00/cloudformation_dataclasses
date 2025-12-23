@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:41
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmazonMQ
@@ -162,27 +162,6 @@ class Broker(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AmazonMQ::Broker"
     name_field: ClassVar[str] = "broker_name"
-    DATA_REPLICATION_PRIMARY_BROKER_ARN = "DataReplicationPrimaryBrokerArn"
-    SECURITY_GROUPS = "SecurityGroups"
-    ENGINE_VERSION = "EngineVersion"
-    STORAGE_TYPE = "StorageType"
-    CONFIGURATION = "Configuration"
-    AUTHENTICATION_STRATEGY = "AuthenticationStrategy"
-    MAINTENANCE_WINDOW_START_TIME = "MaintenanceWindowStartTime"
-    HOST_INSTANCE_TYPE = "HostInstanceType"
-    USERS = "Users"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    LOGS = "Logs"
-    SUBNET_IDS = "SubnetIds"
-    DATA_REPLICATION_MODE = "DataReplicationMode"
-    BROKER_NAME = "BrokerName"
-    LDAP_SERVER_METADATA = "LdapServerMetadata"
-    DEPLOYMENT_MODE = "DeploymentMode"
-    ENGINE_TYPE = "EngineType"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    ENCRYPTION_OPTIONS = "EncryptionOptions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_replication_primary_broker_arn": "DataReplicationPrimaryBrokerArn",
         "security_groups": "SecurityGroups",
@@ -295,14 +274,6 @@ class Configuration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AmazonMQ::Configuration"
     name_field: ClassVar[str] = "name"
-    ENGINE_VERSION = "EngineVersion"
-    DESCRIPTION = "Description"
-    AUTHENTICATION_STRATEGY = "AuthenticationStrategy"
-    ENGINE_TYPE = "EngineType"
-    DATA = "Data"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engine_version": "EngineVersion",
         "description": "Description",
@@ -343,9 +314,6 @@ class ConfigurationAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazo"""
 
     resource_type: ClassVar[str] = "AWS::AmazonMQ::ConfigurationAssociation"
-    BROKER = "Broker"
-    CONFIGURATION = "Configuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "broker": "Broker",
         "configuration": "Configuration",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SingleSignOn(PropertyType):
-    TYPE = "Type"
-    USER_ASSIGNMENT = "UserAssignment"
-    IDC_INSTANCE_ARN = "IdcInstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "user_assignment": "UserAssignment",

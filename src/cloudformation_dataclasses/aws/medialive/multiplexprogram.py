@@ -11,20 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MultiplexProgramPacketIdentifiersMap(PropertyType):
-    ETV_PLATFORM_PID = "EtvPlatformPid"
-    DVB_TELETEXT_PID = "DvbTeletextPid"
-    KLV_DATA_PIDS = "KlvDataPids"
-    PCR_PID = "PcrPid"
-    VIDEO_PID = "VideoPid"
-    PMT_PID = "PmtPid"
-    SCTE27_PIDS = "Scte27Pids"
-    DVB_SUB_PIDS = "DvbSubPids"
-    SCTE35_PID = "Scte35Pid"
-    ETV_SIGNAL_PID = "EtvSignalPid"
-    PRIVATE_METADATA_PID = "PrivateMetadataPid"
-    TIMED_METADATA_PID = "TimedMetadataPid"
-    AUDIO_PIDS = "AudioPids"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etv_platform_pid": "EtvPlatformPid",
         "dvb_teletext_pid": "DvbTeletextPid",
@@ -58,9 +44,6 @@ class MultiplexProgramPacketIdentifiersMap(PropertyType):
 
 @dataclass
 class MultiplexProgramPipelineDetail(PropertyType):
-    ACTIVE_CHANNEL_PIPELINE = "ActiveChannelPipeline"
-    PIPELINE_ID = "PipelineId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active_channel_pipeline": "ActiveChannelPipeline",
         "pipeline_id": "PipelineId",
@@ -72,9 +55,6 @@ class MultiplexProgramPipelineDetail(PropertyType):
 
 @dataclass
 class MultiplexProgramServiceDescriptor(PropertyType):
-    PROVIDER_NAME = "ProviderName"
-    SERVICE_NAME = "ServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_name": "ProviderName",
         "service_name": "ServiceName",
@@ -86,11 +66,6 @@ class MultiplexProgramServiceDescriptor(PropertyType):
 
 @dataclass
 class MultiplexProgramSettings(PropertyType):
-    PREFERRED_CHANNEL_PIPELINE = "PreferredChannelPipeline"
-    SERVICE_DESCRIPTOR = "ServiceDescriptor"
-    VIDEO_SETTINGS = "VideoSettings"
-    PROGRAM_NUMBER = "ProgramNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_channel_pipeline": "PreferredChannelPipeline",
         "service_descriptor": "ServiceDescriptor",
@@ -106,10 +81,6 @@ class MultiplexProgramSettings(PropertyType):
 
 @dataclass
 class MultiplexStatmuxVideoSettings(PropertyType):
-    PRIORITY = "Priority"
-    MAXIMUM_BITRATE = "MaximumBitrate"
-    MINIMUM_BITRATE = "MinimumBitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "maximum_bitrate": "MaximumBitrate",
@@ -123,9 +94,6 @@ class MultiplexStatmuxVideoSettings(PropertyType):
 
 @dataclass
 class MultiplexVideoSettings(PropertyType):
-    STATMUX_SETTINGS = "StatmuxSettings"
-    CONSTANT_BITRATE = "ConstantBitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statmux_settings": "StatmuxSettings",
         "constant_bitrate": "ConstantBitrate",

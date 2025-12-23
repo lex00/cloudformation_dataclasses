@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:42
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApiGatewayV2
@@ -263,25 +263,6 @@ class Api(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Api"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    ROUTE_SELECTION_EXPRESSION = "RouteSelectionExpression"
-    BODY_S3_LOCATION = "BodyS3Location"
-    DESCRIPTION = "Description"
-    BASE_PATH = "BasePath"
-    FAIL_ON_WARNINGS = "FailOnWarnings"
-    DISABLE_EXECUTE_API_ENDPOINT = "DisableExecuteApiEndpoint"
-    DISABLE_SCHEMA_VALIDATION = "DisableSchemaValidation"
-    NAME = "Name"
-    TARGET = "Target"
-    CREDENTIALS_ARN = "CredentialsArn"
-    CORS_CONFIGURATION = "CorsConfiguration"
-    VERSION = "Version"
-    PROTOCOL_TYPE = "ProtocolType"
-    ROUTE_KEY = "RouteKey"
-    BODY = "Body"
-    TAGS = "Tags"
-    API_KEY_SELECTION_EXPRESSION = "ApiKeySelectionExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "route_selection_expression": "RouteSelectionExpression",
@@ -339,11 +320,6 @@ class ApiGatewayManagedOverrides(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides"
-    INTEGRATION = "Integration"
-    STAGE = "Stage"
-    API_ID = "ApiId"
-    ROUTE = "Route"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration": "Integration",
         "stage": "Stage",
@@ -363,11 +339,6 @@ class ApiMapping(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::ApiMapping"
     name_field: ClassVar[str] = "domain_name"
-    DOMAIN_NAME = "DomainName"
-    STAGE = "Stage"
-    API_MAPPING_KEY = "ApiMappingKey"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "stage": "Stage",
@@ -393,18 +364,6 @@ class Authorizer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Authorizer"
     name_field: ClassVar[str] = "name"
-    IDENTITY_VALIDATION_EXPRESSION = "IdentityValidationExpression"
-    AUTHORIZER_URI = "AuthorizerUri"
-    AUTHORIZER_CREDENTIALS_ARN = "AuthorizerCredentialsArn"
-    AUTHORIZER_TYPE = "AuthorizerType"
-    JWT_CONFIGURATION = "JwtConfiguration"
-    AUTHORIZER_RESULT_TTL_IN_SECONDS = "AuthorizerResultTtlInSeconds"
-    IDENTITY_SOURCE = "IdentitySource"
-    AUTHORIZER_PAYLOAD_FORMAT_VERSION = "AuthorizerPayloadFormatVersion"
-    ENABLE_SIMPLE_RESPONSES = "EnableSimpleResponses"
-    API_ID = "ApiId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_validation_expression": "IdentityValidationExpression",
         "authorizer_uri": "AuthorizerUri",
@@ -444,10 +403,6 @@ class Deployment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Deployment"
     name_field: ClassVar[str] = "stage_name"
-    DESCRIPTION = "Description"
-    STAGE_NAME = "StageName"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "stage_name": "StageName",
@@ -471,12 +426,6 @@ class DomainName(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::DomainName"
     name_field: ClassVar[str] = "domain_name"
-    MUTUAL_TLS_AUTHENTICATION = "MutualTlsAuthentication"
-    ROUTING_MODE = "RoutingMode"
-    DOMAIN_NAME = "DomainName"
-    DOMAIN_NAME_CONFIGURATIONS = "DomainNameConfigurations"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mutual_tls_authentication": "MutualTlsAuthentication",
         "routing_mode": "RoutingMode",
@@ -513,25 +462,6 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Integration"
-    DESCRIPTION = "Description"
-    TEMPLATE_SELECTION_EXPRESSION = "TemplateSelectionExpression"
-    CONNECTION_TYPE = "ConnectionType"
-    RESPONSE_PARAMETERS = "ResponseParameters"
-    INTEGRATION_METHOD = "IntegrationMethod"
-    PASSTHROUGH_BEHAVIOR = "PassthroughBehavior"
-    REQUEST_PARAMETERS = "RequestParameters"
-    CONNECTION_ID = "ConnectionId"
-    INTEGRATION_URI = "IntegrationUri"
-    PAYLOAD_FORMAT_VERSION = "PayloadFormatVersion"
-    CREDENTIALS_ARN = "CredentialsArn"
-    REQUEST_TEMPLATES = "RequestTemplates"
-    TIMEOUT_IN_MILLIS = "TimeoutInMillis"
-    TLS_CONFIG = "TlsConfig"
-    CONTENT_HANDLING_STRATEGY = "ContentHandlingStrategy"
-    INTEGRATION_SUBTYPE = "IntegrationSubtype"
-    API_ID = "ApiId"
-    INTEGRATION_TYPE = "IntegrationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "template_selection_expression": "TemplateSelectionExpression",
@@ -584,14 +514,6 @@ class IntegrationResponse(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::IntegrationResponse"
-    RESPONSE_TEMPLATES = "ResponseTemplates"
-    TEMPLATE_SELECTION_EXPRESSION = "TemplateSelectionExpression"
-    RESPONSE_PARAMETERS = "ResponseParameters"
-    CONTENT_HANDLING_STRATEGY = "ContentHandlingStrategy"
-    INTEGRATION_ID = "IntegrationId"
-    INTEGRATION_RESPONSE_KEY = "IntegrationResponseKey"
-    API_ID = "ApiId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_templates": "ResponseTemplates",
         "template_selection_expression": "TemplateSelectionExpression",
@@ -623,12 +545,6 @@ class Model(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Model"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONTENT_TYPE = "ContentType"
-    SCHEMA = "Schema"
-    API_ID = "ApiId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "content_type": "ContentType",
@@ -656,19 +572,6 @@ class Route(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Route"
     name_field: ClassVar[str] = "operation_name"
-    TARGET = "Target"
-    ROUTE_RESPONSE_SELECTION_EXPRESSION = "RouteResponseSelectionExpression"
-    REQUEST_MODELS = "RequestModels"
-    OPERATION_NAME = "OperationName"
-    AUTHORIZER_ID = "AuthorizerId"
-    AUTHORIZATION_SCOPES = "AuthorizationScopes"
-    API_KEY_REQUIRED = "ApiKeyRequired"
-    ROUTE_KEY = "RouteKey"
-    AUTHORIZATION_TYPE = "AuthorizationType"
-    MODEL_SELECTION_EXPRESSION = "ModelSelectionExpression"
-    API_ID = "ApiId"
-    REQUEST_PARAMETERS = "RequestParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "route_response_selection_expression": "RouteResponseSelectionExpression",
@@ -709,13 +612,6 @@ class RouteResponse(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::RouteResponse"
-    ROUTE_RESPONSE_KEY = "RouteResponseKey"
-    RESPONSE_PARAMETERS = "ResponseParameters"
-    ROUTE_ID = "RouteId"
-    MODEL_SELECTION_EXPRESSION = "ModelSelectionExpression"
-    API_ID = "ApiId"
-    RESPONSE_MODELS = "ResponseModels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_response_key": "RouteResponseKey",
         "response_parameters": "ResponseParameters",
@@ -744,11 +640,6 @@ class RoutingRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::RoutingRule"
-    ACTIONS = "Actions"
-    PRIORITY = "Priority"
-    DOMAIN_NAME_ARN = "DomainNameArn"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "priority": "Priority",
@@ -779,19 +670,6 @@ class Stage(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Stage"
     name_field: ClassVar[str] = "stage_name"
-    CLIENT_CERTIFICATE_ID = "ClientCertificateId"
-    DEPLOYMENT_ID = "DeploymentId"
-    DESCRIPTION = "Description"
-    ACCESS_LOG_SETTINGS = "AccessLogSettings"
-    AUTO_DEPLOY = "AutoDeploy"
-    ROUTE_SETTINGS = "RouteSettings"
-    STAGE_NAME = "StageName"
-    STAGE_VARIABLES = "StageVariables"
-    ACCESS_POLICY_ID = "AccessPolicyId"
-    API_ID = "ApiId"
-    DEFAULT_ROUTE_SETTINGS = "DefaultRouteSettings"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_certificate_id": "ClientCertificateId",
         "deployment_id": "DeploymentId",
@@ -827,11 +705,6 @@ class VpcLink(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::VpcLink"
     name_field: ClassVar[str] = "name"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",

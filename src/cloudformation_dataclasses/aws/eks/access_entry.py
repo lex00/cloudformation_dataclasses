@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessPolicy(PropertyType):
-    POLICY_ARN = "PolicyArn"
-    ACCESS_SCOPE = "AccessScope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
         "access_scope": "AccessScope",
@@ -25,9 +22,6 @@ class AccessPolicy(PropertyType):
 
 @dataclass
 class AccessScope(PropertyType):
-    NAMESPACES = "Namespaces"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespaces": "Namespaces",
         "type_": "Type",

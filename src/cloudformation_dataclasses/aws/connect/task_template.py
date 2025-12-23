@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Constraints(PropertyType):
-    READ_ONLY_FIELDS = "ReadOnlyFields"
-    INVISIBLE_FIELDS = "InvisibleFields"
-    REQUIRED_FIELDS = "RequiredFields"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only_fields": "ReadOnlyFields",
         "invisible_fields": "InvisibleFields",
@@ -28,9 +24,6 @@ class Constraints(PropertyType):
 
 @dataclass
 class DefaultFieldValue(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "id": "Id",
@@ -42,11 +35,6 @@ class DefaultFieldValue(PropertyType):
 
 @dataclass
 class Field(PropertyType):
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    ID = "Id"
-    SINGLE_SELECT_OPTIONS = "SingleSelectOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -62,8 +50,6 @@ class Field(PropertyType):
 
 @dataclass
 class FieldIdentifier(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -73,8 +59,6 @@ class FieldIdentifier(PropertyType):
 
 @dataclass
 class InvisibleFieldInfo(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -84,8 +68,6 @@ class InvisibleFieldInfo(PropertyType):
 
 @dataclass
 class ReadOnlyFieldInfo(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -95,8 +77,6 @@ class ReadOnlyFieldInfo(PropertyType):
 
 @dataclass
 class RequiredFieldInfo(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }

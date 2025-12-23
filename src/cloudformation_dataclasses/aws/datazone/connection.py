@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmazonQPropertiesInput(PropertyType):
-    IS_ENABLED = "IsEnabled"
-    PROFILE_ARN = "ProfileArn"
-    AUTH_MODE = "AuthMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "profile_arn": "ProfileArn",
@@ -28,8 +24,6 @@ class AmazonQPropertiesInput(PropertyType):
 
 @dataclass
 class AthenaPropertiesInput(PropertyType):
-    WORKGROUP_NAME = "WorkgroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_name": "WorkgroupName",
     }
@@ -39,13 +33,6 @@ class AthenaPropertiesInput(PropertyType):
 
 @dataclass
 class AuthenticationConfigurationInput(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KMS_KEY_ARN = "KmsKeyArn"
-    O_AUTH2_PROPERTIES = "OAuth2Properties"
-    CUSTOM_AUTHENTICATION_CREDENTIALS = "CustomAuthenticationCredentials"
-    BASIC_AUTHENTICATION_CREDENTIALS = "BasicAuthenticationCredentials"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -65,9 +52,6 @@ class AuthenticationConfigurationInput(PropertyType):
 
 @dataclass
 class AuthorizationCodeProperties(PropertyType):
-    AUTHORIZATION_CODE = "AuthorizationCode"
-    REDIRECT_URI = "RedirectUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code": "AuthorizationCode",
         "redirect_uri": "RedirectUri",
@@ -79,11 +63,6 @@ class AuthorizationCodeProperties(PropertyType):
 
 @dataclass
 class AwsLocation(PropertyType):
-    AWS_REGION = "AwsRegion"
-    ACCESS_ROLE = "AccessRole"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    IAM_CONNECTION_ID = "IamConnectionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "access_role": "AccessRole",
@@ -99,9 +78,6 @@ class AwsLocation(PropertyType):
 
 @dataclass
 class BasicAuthenticationCredentials(PropertyType):
-    USER_NAME = "UserName"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_name": "UserName",
         "password": "Password",
@@ -113,17 +89,6 @@ class BasicAuthenticationCredentials(PropertyType):
 
 @dataclass
 class ConnectionPropertiesInput(PropertyType):
-    AMAZON_Q_PROPERTIES = "AmazonQProperties"
-    IAM_PROPERTIES = "IamProperties"
-    S3_PROPERTIES = "S3Properties"
-    SPARK_EMR_PROPERTIES = "SparkEmrProperties"
-    HYPER_POD_PROPERTIES = "HyperPodProperties"
-    SPARK_GLUE_PROPERTIES = "SparkGlueProperties"
-    MLFLOW_PROPERTIES = "MlflowProperties"
-    ATHENA_PROPERTIES = "AthenaProperties"
-    GLUE_PROPERTIES = "GlueProperties"
-    REDSHIFT_PROPERTIES = "RedshiftProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amazon_q_properties": "AmazonQProperties",
         "iam_properties": "IamProperties",
@@ -151,19 +116,6 @@ class ConnectionPropertiesInput(PropertyType):
 
 @dataclass
 class GlueConnectionInput(PropertyType):
-    PYTHON_PROPERTIES = "PythonProperties"
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    SPARK_PROPERTIES = "SparkProperties"
-    DESCRIPTION = "Description"
-    CONNECTION_TYPE = "ConnectionType"
-    MATCH_CRITERIA = "MatchCriteria"
-    PHYSICAL_CONNECTION_REQUIREMENTS = "PhysicalConnectionRequirements"
-    CONNECTION_PROPERTIES = "ConnectionProperties"
-    ATHENA_PROPERTIES = "AthenaProperties"
-    VALIDATE_FOR_COMPUTE_ENVIRONMENTS = "ValidateForComputeEnvironments"
-    VALIDATE_CREDENTIALS = "ValidateCredentials"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "python_properties": "PythonProperties",
         "authentication_configuration": "AuthenticationConfiguration",
@@ -195,11 +147,6 @@ class GlueConnectionInput(PropertyType):
 
 @dataclass
 class GlueOAuth2Credentials(PropertyType):
-    USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET = "UserManagedClientApplicationClientSecret"
-    JWT_TOKEN = "JwtToken"
-    REFRESH_TOKEN = "RefreshToken"
-    ACCESS_TOKEN = "AccessToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_managed_client_application_client_secret": "UserManagedClientApplicationClientSecret",
         "jwt_token": "JwtToken",
@@ -215,8 +162,6 @@ class GlueOAuth2Credentials(PropertyType):
 
 @dataclass
 class GluePropertiesInput(PropertyType):
-    GLUE_CONNECTION_INPUT = "GlueConnectionInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_connection_input": "GlueConnectionInput",
     }
@@ -226,8 +171,6 @@ class GluePropertiesInput(PropertyType):
 
 @dataclass
 class HyperPodPropertiesInput(PropertyType):
-    CLUSTER_NAME = "ClusterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
     }
@@ -237,8 +180,6 @@ class HyperPodPropertiesInput(PropertyType):
 
 @dataclass
 class IamPropertiesInput(PropertyType):
-    GLUE_LINEAGE_SYNC_ENABLED = "GlueLineageSyncEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_lineage_sync_enabled": "GlueLineageSyncEnabled",
     }
@@ -248,8 +189,6 @@ class IamPropertiesInput(PropertyType):
 
 @dataclass
 class LineageSyncSchedule(PropertyType):
-    SCHEDULE = "Schedule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
     }
@@ -259,8 +198,6 @@ class LineageSyncSchedule(PropertyType):
 
 @dataclass
 class MlflowPropertiesInput(PropertyType):
-    TRACKING_SERVER_ARN = "TrackingServerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracking_server_arn": "TrackingServerArn",
     }
@@ -270,9 +207,6 @@ class MlflowPropertiesInput(PropertyType):
 
 @dataclass
 class OAuth2ClientApplication(PropertyType):
-    AWS_MANAGED_CLIENT_APPLICATION_REFERENCE = "AWSManagedClientApplicationReference"
-    USER_MANAGED_CLIENT_APPLICATION_CLIENT_ID = "UserManagedClientApplicationClientId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_client_application_reference": "AWSManagedClientApplicationReference",
         "user_managed_client_application_client_id": "UserManagedClientApplicationClientId",
@@ -284,13 +218,6 @@ class OAuth2ClientApplication(PropertyType):
 
 @dataclass
 class OAuth2Properties(PropertyType):
-    AUTHORIZATION_CODE_PROPERTIES = "AuthorizationCodeProperties"
-    O_AUTH2_CLIENT_APPLICATION = "OAuth2ClientApplication"
-    TOKEN_URL = "TokenUrl"
-    O_AUTH2_CREDENTIALS = "OAuth2Credentials"
-    O_AUTH2_GRANT_TYPE = "OAuth2GrantType"
-    TOKEN_URL_PARAMETERS_MAP = "TokenUrlParametersMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code_properties": "AuthorizationCodeProperties",
         "o_auth2_client_application": "OAuth2ClientApplication",
@@ -310,11 +237,6 @@ class OAuth2Properties(PropertyType):
 
 @dataclass
 class PhysicalConnectionRequirements(PropertyType):
-    SUBNET_ID_LIST = "SubnetIdList"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    SECURITY_GROUP_ID_LIST = "SecurityGroupIdList"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id_list": "SubnetIdList",
         "availability_zone": "AvailabilityZone",
@@ -330,9 +252,6 @@ class PhysicalConnectionRequirements(PropertyType):
 
 @dataclass
 class RedshiftCredentials(PropertyType):
-    SECRET_ARN = "SecretArn"
-    USERNAME_PASSWORD = "UsernamePassword"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "username_password": "UsernamePassword",
@@ -344,9 +263,6 @@ class RedshiftCredentials(PropertyType):
 
 @dataclass
 class RedshiftLineageSyncConfigurationInput(PropertyType):
-    SCHEDULE = "Schedule"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
         "enabled": "Enabled",
@@ -358,13 +274,6 @@ class RedshiftLineageSyncConfigurationInput(PropertyType):
 
 @dataclass
 class RedshiftPropertiesInput(PropertyType):
-    STORAGE = "Storage"
-    PORT = "Port"
-    DATABASE_NAME = "DatabaseName"
-    HOST = "Host"
-    CREDENTIALS = "Credentials"
-    LINEAGE_SYNC = "LineageSync"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage": "Storage",
         "port": "Port",
@@ -384,9 +293,6 @@ class RedshiftPropertiesInput(PropertyType):
 
 @dataclass
 class RedshiftStorageProperties(PropertyType):
-    CLUSTER_NAME = "ClusterName"
-    WORKGROUP_NAME = "WorkgroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
         "workgroup_name": "WorkgroupName",
@@ -398,9 +304,6 @@ class RedshiftStorageProperties(PropertyType):
 
 @dataclass
 class S3PropertiesInput(PropertyType):
-    S3_URI = "S3Uri"
-    S3_ACCESS_GRANT_LOCATION_ID = "S3AccessGrantLocationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "s3_access_grant_location_id": "S3AccessGrantLocationId",
@@ -412,15 +315,6 @@ class S3PropertiesInput(PropertyType):
 
 @dataclass
 class SparkEmrPropertiesInput(PropertyType):
-    COMPUTE_ARN = "ComputeArn"
-    TRUSTED_CERTIFICATES_S3_URI = "TrustedCertificatesS3Uri"
-    LOG_URI = "LogUri"
-    JAVA_VIRTUAL_ENV = "JavaVirtualEnv"
-    PYTHON_VIRTUAL_ENV = "PythonVirtualEnv"
-    RUNTIME_ROLE = "RuntimeRole"
-    INSTANCE_PROFILE_ARN = "InstanceProfileArn"
-    MANAGED_ENDPOINT_ARN = "ManagedEndpointArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_arn": "ComputeArn",
         "trusted_certificates_s3_uri": "TrustedCertificatesS3Uri",
@@ -444,8 +338,6 @@ class SparkEmrPropertiesInput(PropertyType):
 
 @dataclass
 class SparkGlueArgs(PropertyType):
-    CONNECTION = "Connection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection": "Connection",
     }
@@ -455,15 +347,6 @@ class SparkGlueArgs(PropertyType):
 
 @dataclass
 class SparkGluePropertiesInput(PropertyType):
-    WORKER_TYPE = "WorkerType"
-    ADDITIONAL_ARGS = "AdditionalArgs"
-    JAVA_VIRTUAL_ENV = "JavaVirtualEnv"
-    GLUE_VERSION = "GlueVersion"
-    PYTHON_VIRTUAL_ENV = "PythonVirtualEnv"
-    IDLE_TIMEOUT = "IdleTimeout"
-    GLUE_CONNECTION_NAME = "GlueConnectionName"
-    NUMBER_OF_WORKERS = "NumberOfWorkers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_type": "WorkerType",
         "additional_args": "AdditionalArgs",
@@ -487,9 +370,6 @@ class SparkGluePropertiesInput(PropertyType):
 
 @dataclass
 class UsernamePassword(PropertyType):
-    USERNAME = "Username"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",

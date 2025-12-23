@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:55
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElastiCache
@@ -358,32 +358,6 @@ class CacheCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::CacheCluster"
     name_field: ClassVar[str] = "cluster_name"
-    AZ_MODE = "AZMode"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    CACHE_NODE_TYPE = "CacheNodeType"
-    CACHE_PARAMETER_GROUP_NAME = "CacheParameterGroupName"
-    CACHE_SECURITY_GROUP_NAMES = "CacheSecurityGroupNames"
-    CACHE_SUBNET_GROUP_NAME = "CacheSubnetGroupName"
-    CLUSTER_NAME = "ClusterName"
-    ENGINE = "Engine"
-    ENGINE_VERSION = "EngineVersion"
-    IP_DISCOVERY = "IpDiscovery"
-    LOG_DELIVERY_CONFIGURATIONS = "LogDeliveryConfigurations"
-    NETWORK_TYPE = "NetworkType"
-    NOTIFICATION_TOPIC_ARN = "NotificationTopicArn"
-    NUM_CACHE_NODES = "NumCacheNodes"
-    PORT = "Port"
-    PREFERRED_AVAILABILITY_ZONE = "PreferredAvailabilityZone"
-    PREFERRED_AVAILABILITY_ZONES = "PreferredAvailabilityZones"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    SNAPSHOT_ARNS = "SnapshotArns"
-    SNAPSHOT_NAME = "SnapshotName"
-    SNAPSHOT_RETENTION_LIMIT = "SnapshotRetentionLimit"
-    SNAPSHOT_WINDOW = "SnapshotWindow"
-    TAGS = "Tags"
-    TRANSIT_ENCRYPTION_ENABLED = "TransitEncryptionEnabled"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "az_mode": "AZMode",
         "auto_minor_version_upgrade": "AutoMinorVersionUpgrade",
@@ -466,17 +440,6 @@ class GlobalReplicationGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::GlobalReplicationGroup"
     name_field: ClassVar[str] = "cache_parameter_group_name"
-    GLOBAL_REPLICATION_GROUP_ID_SUFFIX = "GlobalReplicationGroupIdSuffix"
-    CACHE_NODE_TYPE = "CacheNodeType"
-    ENGINE_VERSION = "EngineVersion"
-    GLOBAL_REPLICATION_GROUP_DESCRIPTION = "GlobalReplicationGroupDescription"
-    REGIONAL_CONFIGURATIONS = "RegionalConfigurations"
-    CACHE_PARAMETER_GROUP_NAME = "CacheParameterGroupName"
-    ENGINE = "Engine"
-    MEMBERS = "Members"
-    AUTOMATIC_FAILOVER_ENABLED = "AutomaticFailoverEnabled"
-    GLOBAL_NODE_GROUP_COUNT = "GlobalNodeGroupCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_replication_group_id_suffix": "GlobalReplicationGroupIdSuffix",
         "cache_node_type": "CacheNodeType",
@@ -518,11 +481,6 @@ class ParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::ParameterGroup"
-    DESCRIPTION = "Description"
-    PROPERTIES = "Properties"
-    TAGS = "Tags"
-    CACHE_PARAMETER_GROUP_FAMILY = "CacheParameterGroupFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "properties": "Properties",
@@ -548,46 +506,6 @@ class ReplicationGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::ReplicationGroup"
     name_field: ClassVar[str] = "snapshot_name"
-    AT_REST_ENCRYPTION_ENABLED = "AtRestEncryptionEnabled"
-    AUTH_TOKEN = "AuthToken"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    AUTOMATIC_FAILOVER_ENABLED = "AutomaticFailoverEnabled"
-    CACHE_NODE_TYPE = "CacheNodeType"
-    CACHE_PARAMETER_GROUP_NAME = "CacheParameterGroupName"
-    CACHE_SECURITY_GROUP_NAMES = "CacheSecurityGroupNames"
-    CACHE_SUBNET_GROUP_NAME = "CacheSubnetGroupName"
-    CLUSTER_MODE = "ClusterMode"
-    DATA_TIERING_ENABLED = "DataTieringEnabled"
-    ENGINE = "Engine"
-    ENGINE_VERSION = "EngineVersion"
-    GLOBAL_REPLICATION_GROUP_ID = "GlobalReplicationGroupId"
-    IP_DISCOVERY = "IpDiscovery"
-    KMS_KEY_ID = "KmsKeyId"
-    LOG_DELIVERY_CONFIGURATIONS = "LogDeliveryConfigurations"
-    MULTI_AZ_ENABLED = "MultiAZEnabled"
-    NETWORK_TYPE = "NetworkType"
-    NODE_GROUP_CONFIGURATION = "NodeGroupConfiguration"
-    NOTIFICATION_TOPIC_ARN = "NotificationTopicArn"
-    NUM_CACHE_CLUSTERS = "NumCacheClusters"
-    NUM_NODE_GROUPS = "NumNodeGroups"
-    PORT = "Port"
-    PREFERRED_CACHE_CLUSTER_A_ZS = "PreferredCacheClusterAZs"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    PRIMARY_CLUSTER_ID = "PrimaryClusterId"
-    REPLICAS_PER_NODE_GROUP = "ReplicasPerNodeGroup"
-    REPLICATION_GROUP_DESCRIPTION = "ReplicationGroupDescription"
-    REPLICATION_GROUP_ID = "ReplicationGroupId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SNAPSHOT_ARNS = "SnapshotArns"
-    SNAPSHOT_NAME = "SnapshotName"
-    SNAPSHOT_RETENTION_LIMIT = "SnapshotRetentionLimit"
-    SNAPSHOT_WINDOW = "SnapshotWindow"
-    SNAPSHOTTING_CLUSTER_ID = "SnapshottingClusterId"
-    TAGS = "Tags"
-    TRANSIT_ENCRYPTION_ENABLED = "TransitEncryptionEnabled"
-    TRANSIT_ENCRYPTION_MODE = "TransitEncryptionMode"
-    USER_GROUP_IDS = "UserGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "at_rest_encryption_enabled": "AtRestEncryptionEnabled",
         "auth_token": "AuthToken",
@@ -727,9 +645,6 @@ class SecurityGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::SecurityGroup"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -745,10 +660,6 @@ class SecurityGroupIngress(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::SecurityGroupIngress"
     name_field: ClassVar[str] = "ec2_security_group_name"
-    CACHE_SECURITY_GROUP_NAME = "CacheSecurityGroupName"
-    EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
-    EC2_SECURITY_GROUP_OWNER_ID = "EC2SecurityGroupOwnerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_security_group_name": "CacheSecurityGroupName",
         "ec2_security_group_name": "EC2SecurityGroupName",
@@ -766,23 +677,6 @@ class ServerlessCache(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::ServerlessCache"
     name_field: ClassVar[str] = "serverless_cache_name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    FINAL_SNAPSHOT_NAME = "FinalSnapshotName"
-    USER_GROUP_ID = "UserGroupId"
-    CACHE_USAGE_LIMITS = "CacheUsageLimits"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SNAPSHOT_ARNS_TO_RESTORE = "SnapshotArnsToRestore"
-    SUBNET_IDS = "SubnetIds"
-    DAILY_SNAPSHOT_TIME = "DailySnapshotTime"
-    READER_ENDPOINT = "ReaderEndpoint"
-    SNAPSHOT_RETENTION_LIMIT = "SnapshotRetentionLimit"
-    ENDPOINT = "Endpoint"
-    SERVERLESS_CACHE_NAME = "ServerlessCacheName"
-    MAJOR_ENGINE_VERSION = "MajorEngineVersion"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_id": "KmsKeyId",
@@ -867,11 +761,6 @@ class SubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::SubnetGroup"
     name_field: ClassVar[str] = "cache_subnet_group_name"
-    DESCRIPTION = "Description"
-    CACHE_SUBNET_GROUP_NAME = "CacheSubnetGroupName"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "cache_subnet_group_name": "CacheSubnetGroupName",
@@ -891,15 +780,6 @@ class User(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::User"
     name_field: ClassVar[str] = "user_name"
-    AUTHENTICATION_MODE = "AuthenticationMode"
-    USER_NAME = "UserName"
-    NO_PASSWORD_REQUIRED = "NoPasswordRequired"
-    ACCESS_STRING = "AccessString"
-    USER_ID = "UserId"
-    PASSWORDS = "Passwords"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_mode": "AuthenticationMode",
         "user_name": "UserName",
@@ -937,11 +817,6 @@ class UserGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::UserGroup"
-    USER_GROUP_ID = "UserGroupId"
-    ENGINE = "Engine"
-    USER_IDS = "UserIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_group_id": "UserGroupId",
         "engine": "Engine",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Connector(PropertyType):
-    CONNECTOR_ARN = "ConnectorArn"
-    PARAMETERS = "Parameters"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "parameters": "Parameters",

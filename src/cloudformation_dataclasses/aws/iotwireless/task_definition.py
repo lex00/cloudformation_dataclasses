@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWANGatewayVersion(PropertyType):
-    STATION = "Station"
-    MODEL = "Model"
-    PACKAGE_VERSION = "PackageVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "station": "Station",
         "model": "Model",
@@ -28,11 +24,6 @@ class LoRaWANGatewayVersion(PropertyType):
 
 @dataclass
 class LoRaWANUpdateGatewayTaskCreate(PropertyType):
-    UPDATE_SIGNATURE = "UpdateSignature"
-    SIG_KEY_CRC = "SigKeyCrc"
-    UPDATE_VERSION = "UpdateVersion"
-    CURRENT_VERSION = "CurrentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_signature": "UpdateSignature",
         "sig_key_crc": "SigKeyCrc",
@@ -48,9 +39,6 @@ class LoRaWANUpdateGatewayTaskCreate(PropertyType):
 
 @dataclass
 class LoRaWANUpdateGatewayTaskEntry(PropertyType):
-    UPDATE_VERSION = "UpdateVersion"
-    CURRENT_VERSION = "CurrentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_version": "UpdateVersion",
         "current_version": "CurrentVersion",
@@ -62,10 +50,6 @@ class LoRaWANUpdateGatewayTaskEntry(PropertyType):
 
 @dataclass
 class UpdateWirelessGatewayTaskCreate(PropertyType):
-    LO_RA_WAN = "LoRaWAN"
-    UPDATE_DATA_SOURCE = "UpdateDataSource"
-    UPDATE_DATA_ROLE = "UpdateDataRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lo_ra_wan": "LoRaWAN",
         "update_data_source": "UpdateDataSource",

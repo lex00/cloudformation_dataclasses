@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CriterionAdditionalProperties(PropertyType):
-    LT = "lt"
-    GTE = "gte"
-    NEQ = "neq"
-    LTE = "lte"
-    EQ = "eq"
-    GT = "gt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lt": "lt",
         "gte": "gte",
@@ -37,8 +30,6 @@ class CriterionAdditionalProperties(PropertyType):
 
 @dataclass
 class FindingCriteria(PropertyType):
-    CRITERION = "Criterion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criterion": "Criterion",
     }

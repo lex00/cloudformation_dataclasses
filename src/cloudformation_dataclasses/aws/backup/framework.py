@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ControlInputParameter(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -25,10 +22,6 @@ class ControlInputParameter(PropertyType):
 
 @dataclass
 class ControlScope(PropertyType):
-    COMPLIANCE_RESOURCE_TYPES = "ComplianceResourceTypes"
-    TAGS = "Tags"
-    COMPLIANCE_RESOURCE_IDS = "ComplianceResourceIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compliance_resource_types": "ComplianceResourceTypes",
         "tags": "Tags",
@@ -42,10 +35,6 @@ class ControlScope(PropertyType):
 
 @dataclass
 class FrameworkControl(PropertyType):
-    CONTROL_NAME = "ControlName"
-    CONTROL_INPUT_PARAMETERS = "ControlInputParameters"
-    CONTROL_SCOPE = "ControlScope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_name": "ControlName",
         "control_input_parameters": "ControlInputParameters",

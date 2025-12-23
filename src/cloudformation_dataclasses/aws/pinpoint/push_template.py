@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class APNSPushNotificationTemplate(PropertyType):
-    ACTION = "Action"
-    MEDIA_URL = "MediaUrl"
-    TITLE = "Title"
-    SOUND = "Sound"
-    BODY = "Body"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "media_url": "MediaUrl",
@@ -37,15 +30,6 @@ class APNSPushNotificationTemplate(PropertyType):
 
 @dataclass
 class AndroidPushNotificationTemplate(PropertyType):
-    ACTION = "Action"
-    IMAGE_URL = "ImageUrl"
-    SMALL_IMAGE_ICON_URL = "SmallImageIconUrl"
-    TITLE = "Title"
-    IMAGE_ICON_URL = "ImageIconUrl"
-    SOUND = "Sound"
-    BODY = "Body"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "image_url": "ImageUrl",
@@ -69,12 +53,6 @@ class AndroidPushNotificationTemplate(PropertyType):
 
 @dataclass
 class DefaultPushNotificationTemplate(PropertyType):
-    ACTION = "Action"
-    TITLE = "Title"
-    SOUND = "Sound"
-    BODY = "Body"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "title": "Title",

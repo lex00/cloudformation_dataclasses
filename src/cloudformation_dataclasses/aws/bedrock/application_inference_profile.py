@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InferenceProfileModel(PropertyType):
-    MODEL_ARN = "ModelArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
     }
@@ -22,8 +20,6 @@ class InferenceProfileModel(PropertyType):
 
 @dataclass
 class InferenceProfileModelSource(PropertyType):
-    COPY_FROM = "CopyFrom"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copy_from": "CopyFrom",
     }

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLog(PropertyType):
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -22,9 +20,6 @@ class AccessLog(PropertyType):
 
 @dataclass
 class AwsCloudMapInstanceAttribute(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -36,11 +31,6 @@ class AwsCloudMapInstanceAttribute(PropertyType):
 
 @dataclass
 class AwsCloudMapServiceDiscovery(PropertyType):
-    NAMESPACE_NAME = "NamespaceName"
-    SERVICE_NAME = "ServiceName"
-    IP_PREFERENCE = "IpPreference"
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace_name": "NamespaceName",
         "service_name": "ServiceName",
@@ -56,8 +46,6 @@ class AwsCloudMapServiceDiscovery(PropertyType):
 
 @dataclass
 class Backend(PropertyType):
-    VIRTUAL_SERVICE = "VirtualService"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_service": "VirtualService",
     }
@@ -67,8 +55,6 @@ class Backend(PropertyType):
 
 @dataclass
 class BackendDefaults(PropertyType):
-    CLIENT_POLICY = "ClientPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
     }
@@ -78,8 +64,6 @@ class BackendDefaults(PropertyType):
 
 @dataclass
 class ClientPolicy(PropertyType):
-    TLS = "TLS"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tls": "TLS",
     }
@@ -89,11 +73,6 @@ class ClientPolicy(PropertyType):
 
 @dataclass
 class ClientPolicyTls(PropertyType):
-    VALIDATION = "Validation"
-    ENFORCE = "Enforce"
-    PORTS = "Ports"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "enforce": "Enforce",
@@ -109,9 +88,6 @@ class ClientPolicyTls(PropertyType):
 
 @dataclass
 class ClientTlsCertificate(PropertyType):
-    SDS = "SDS"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -123,10 +99,6 @@ class ClientTlsCertificate(PropertyType):
 
 @dataclass
 class DnsServiceDiscovery(PropertyType):
-    IP_PREFERENCE = "IpPreference"
-    HOSTNAME = "Hostname"
-    RESPONSE_TYPE = "ResponseType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_preference": "IpPreference",
         "hostname": "Hostname",
@@ -140,9 +112,6 @@ class DnsServiceDiscovery(PropertyType):
 
 @dataclass
 class Duration(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -154,9 +123,6 @@ class Duration(PropertyType):
 
 @dataclass
 class FileAccessLog(PropertyType):
-    PATH = "Path"
-    FORMAT = "Format"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "format": "Format",
@@ -168,9 +134,6 @@ class FileAccessLog(PropertyType):
 
 @dataclass
 class GrpcTimeout(PropertyType):
-    PER_REQUEST = "PerRequest"
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -182,14 +145,6 @@ class GrpcTimeout(PropertyType):
 
 @dataclass
 class HealthCheck(PropertyType):
-    PATH = "Path"
-    UNHEALTHY_THRESHOLD = "UnhealthyThreshold"
-    PORT = "Port"
-    HEALTHY_THRESHOLD = "HealthyThreshold"
-    TIMEOUT_MILLIS = "TimeoutMillis"
-    PROTOCOL = "Protocol"
-    INTERVAL_MILLIS = "IntervalMillis"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -211,9 +166,6 @@ class HealthCheck(PropertyType):
 
 @dataclass
 class HttpTimeout(PropertyType):
-    PER_REQUEST = "PerRequest"
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -225,9 +177,6 @@ class HttpTimeout(PropertyType):
 
 @dataclass
 class JsonFormatRef(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -239,13 +188,6 @@ class JsonFormatRef(PropertyType):
 
 @dataclass
 class Listener(PropertyType):
-    CONNECTION_POOL = "ConnectionPool"
-    TIMEOUT = "Timeout"
-    HEALTH_CHECK = "HealthCheck"
-    TLS = "TLS"
-    PORT_MAPPING = "PortMapping"
-    OUTLIER_DETECTION = "OutlierDetection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_pool": "ConnectionPool",
         "timeout": "Timeout",
@@ -265,11 +207,6 @@ class Listener(PropertyType):
 
 @dataclass
 class ListenerTimeout(PropertyType):
-    TCP = "TCP"
-    HTTP2 = "HTTP2"
-    HTTP = "HTTP"
-    GRPC = "GRPC"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp": "TCP",
         "http2": "HTTP2",
@@ -285,10 +222,6 @@ class ListenerTimeout(PropertyType):
 
 @dataclass
 class ListenerTls(PropertyType):
-    VALIDATION = "Validation"
-    MODE = "Mode"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "mode": "Mode",
@@ -302,8 +235,6 @@ class ListenerTls(PropertyType):
 
 @dataclass
 class ListenerTlsAcmCertificate(PropertyType):
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -313,10 +244,6 @@ class ListenerTlsAcmCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsCertificate(PropertyType):
-    SDS = "SDS"
-    ACM = "ACM"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -330,9 +257,6 @@ class ListenerTlsCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsFileCertificate(PropertyType):
-    PRIVATE_KEY = "PrivateKey"
-    CERTIFICATE_CHAIN = "CertificateChain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "certificate_chain": "CertificateChain",
@@ -344,8 +268,6 @@ class ListenerTlsFileCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsSdsCertificate(PropertyType):
-    SECRET_NAME = "SecretName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -355,9 +277,6 @@ class ListenerTlsSdsCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsValidationContext(PropertyType):
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    TRUST = "Trust"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -369,9 +288,6 @@ class ListenerTlsValidationContext(PropertyType):
 
 @dataclass
 class ListenerTlsValidationContextTrust(PropertyType):
-    SDS = "SDS"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -383,8 +299,6 @@ class ListenerTlsValidationContextTrust(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    ACCESS_LOG = "AccessLog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_log": "AccessLog",
     }
@@ -394,9 +308,6 @@ class Logging(PropertyType):
 
 @dataclass
 class LoggingFormat(PropertyType):
-    TEXT = "Text"
-    JSON = "Json"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "json": "Json",
@@ -408,11 +319,6 @@ class LoggingFormat(PropertyType):
 
 @dataclass
 class OutlierDetection(PropertyType):
-    MAX_EJECTION_PERCENT = "MaxEjectionPercent"
-    BASE_EJECTION_DURATION = "BaseEjectionDuration"
-    MAX_SERVER_ERRORS = "MaxServerErrors"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_ejection_percent": "MaxEjectionPercent",
         "base_ejection_duration": "BaseEjectionDuration",
@@ -428,9 +334,6 @@ class OutlierDetection(PropertyType):
 
 @dataclass
 class PortMapping(PropertyType):
-    PORT = "Port"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -442,9 +345,6 @@ class PortMapping(PropertyType):
 
 @dataclass
 class ServiceDiscovery(PropertyType):
-    DNS = "DNS"
-    AWS_CLOUD_MAP = "AWSCloudMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns": "DNS",
         "aws_cloud_map": "AWSCloudMap",
@@ -456,8 +356,6 @@ class ServiceDiscovery(PropertyType):
 
 @dataclass
 class SubjectAlternativeNameMatchers(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -467,8 +365,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
 
 @dataclass
 class SubjectAlternativeNames(PropertyType):
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match": "Match",
     }
@@ -478,8 +374,6 @@ class SubjectAlternativeNames(PropertyType):
 
 @dataclass
 class TcpTimeout(PropertyType):
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle": "Idle",
     }
@@ -489,9 +383,6 @@ class TcpTimeout(PropertyType):
 
 @dataclass
 class TlsValidationContext(PropertyType):
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    TRUST = "Trust"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -503,8 +394,6 @@ class TlsValidationContext(PropertyType):
 
 @dataclass
 class TlsValidationContextAcmTrust(PropertyType):
-    CERTIFICATE_AUTHORITY_ARNS = "CertificateAuthorityArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
@@ -514,8 +403,6 @@ class TlsValidationContextAcmTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextFileTrust(PropertyType):
-    CERTIFICATE_CHAIN = "CertificateChain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_chain": "CertificateChain",
     }
@@ -525,8 +412,6 @@ class TlsValidationContextFileTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextSdsTrust(PropertyType):
-    SECRET_NAME = "SecretName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -536,10 +421,6 @@ class TlsValidationContextSdsTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextTrust(PropertyType):
-    SDS = "SDS"
-    ACM = "ACM"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -553,11 +434,6 @@ class TlsValidationContextTrust(PropertyType):
 
 @dataclass
 class VirtualNodeConnectionPool(PropertyType):
-    TCP = "TCP"
-    HTTP2 = "HTTP2"
-    HTTP = "HTTP"
-    GRPC = "GRPC"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp": "TCP",
         "http2": "HTTP2",
@@ -573,8 +449,6 @@ class VirtualNodeConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeGrpcConnectionPool(PropertyType):
-    MAX_REQUESTS = "MaxRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -584,8 +458,6 @@ class VirtualNodeGrpcConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeHttp2ConnectionPool(PropertyType):
-    MAX_REQUESTS = "MaxRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -595,9 +467,6 @@ class VirtualNodeHttp2ConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeHttpConnectionPool(PropertyType):
-    MAX_CONNECTIONS = "MaxConnections"
-    MAX_PENDING_REQUESTS = "MaxPendingRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
         "max_pending_requests": "MaxPendingRequests",
@@ -609,12 +478,6 @@ class VirtualNodeHttpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeSpec(PropertyType):
-    LOGGING = "Logging"
-    BACKENDS = "Backends"
-    LISTENERS = "Listeners"
-    BACKEND_DEFAULTS = "BackendDefaults"
-    SERVICE_DISCOVERY = "ServiceDiscovery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "backends": "Backends",
@@ -632,8 +495,6 @@ class VirtualNodeSpec(PropertyType):
 
 @dataclass
 class VirtualNodeTcpConnectionPool(PropertyType):
-    MAX_CONNECTIONS = "MaxConnections"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
     }
@@ -643,9 +504,6 @@ class VirtualNodeTcpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualServiceBackend(PropertyType):
-    CLIENT_POLICY = "ClientPolicy"
-    VIRTUAL_SERVICE_NAME = "VirtualServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
         "virtual_service_name": "VirtualServiceName",

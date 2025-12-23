@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FairsharePolicy(PropertyType):
-    SHARE_DISTRIBUTION = "ShareDistribution"
-    SHARE_DECAY_SECONDS = "ShareDecaySeconds"
-    COMPUTE_RESERVATION = "ComputeReservation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "share_distribution": "ShareDistribution",
         "share_decay_seconds": "ShareDecaySeconds",
@@ -28,9 +24,6 @@ class FairsharePolicy(PropertyType):
 
 @dataclass
 class ShareAttributes(PropertyType):
-    WEIGHT_FACTOR = "WeightFactor"
-    SHARE_IDENTIFIER = "ShareIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight_factor": "WeightFactor",
         "share_identifier": "ShareIdentifier",

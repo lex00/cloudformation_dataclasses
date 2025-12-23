@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HttpsNotificationConfiguration(PropertyType):
-    ENDPOINT = "Endpoint"
-    TARGET_ROLE_ARN = "TargetRoleArn"
-    AUTHORIZATION_API_KEY_VALUE = "AuthorizationApiKeyValue"
-    AUTHORIZATION_API_KEY_NAME = "AuthorizationApiKeyName"
-    HTTP_METHOD = "HttpMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "target_role_arn": "TargetRoleArn",
@@ -34,9 +28,6 @@ class HttpsNotificationConfiguration(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    HTTPS_NOTIFICATION_CONFIGURATION = "HttpsNotificationConfiguration"
-    SQS_NOTIFICATION_CONFIGURATION = "SqsNotificationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_notification_configuration": "HttpsNotificationConfiguration",
         "sqs_notification_configuration": "SqsNotificationConfiguration",

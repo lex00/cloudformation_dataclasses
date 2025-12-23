@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:12
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RAM
@@ -200,11 +200,6 @@ class Permission(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RAM::Permission"
     name_field: ClassVar[str] = "name"
-    RESOURCE_TYPE = "ResourceType"
-    POLICY_TEMPLATE = "PolicyTemplate"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "policy_template": "PolicyTemplate",
@@ -245,14 +240,6 @@ class ResourceShare(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RAM::ResourceShare"
     name_field: ClassVar[str] = "name"
-    PERMISSION_ARNS = "PermissionArns"
-    PRINCIPALS = "Principals"
-    ALLOW_EXTERNAL_PRINCIPALS = "AllowExternalPrincipals"
-    SOURCES = "Sources"
-    RESOURCE_ARNS = "ResourceArns"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permission_arns": "PermissionArns",
         "principals": "Principals",

@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class KeyAttributes(PropertyType):
-    KEY_CLASS = "KeyClass"
-    KEY_USAGE = "KeyUsage"
-    KEY_MODES_OF_USE = "KeyModesOfUse"
-    KEY_ALGORITHM = "KeyAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_class": "KeyClass",
         "key_usage": "KeyUsage",
@@ -31,16 +26,6 @@ class KeyAttributes(PropertyType):
 
 @dataclass
 class KeyModesOfUse(PropertyType):
-    UNWRAP = "Unwrap"
-    WRAP = "Wrap"
-    DECRYPT = "Decrypt"
-    NO_RESTRICTIONS = "NoRestrictions"
-    GENERATE = "Generate"
-    SIGN = "Sign"
-    VERIFY = "Verify"
-    DERIVE_KEY = "DeriveKey"
-    ENCRYPT = "Encrypt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unwrap": "Unwrap",
         "wrap": "Wrap",
@@ -66,9 +51,6 @@ class KeyModesOfUse(PropertyType):
 
 @dataclass
 class ReplicationStatusType(PropertyType):
-    STATUS = "Status"
-    STATUS_MESSAGE = "StatusMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "status_message": "StatusMessage",

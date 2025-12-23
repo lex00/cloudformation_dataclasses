@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EFS
@@ -211,12 +211,6 @@ class AccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-a"""
 
     resource_type: ClassVar[str] = "AWS::EFS::AccessPoint"
-    FILE_SYSTEM_ID = "FileSystemId"
-    ROOT_DIRECTORY = "RootDirectory"
-    CLIENT_TOKEN = "ClientToken"
-    ACCESS_POINT_TAGS = "AccessPointTags"
-    POSIX_USER = "PosixUser"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_id": "FileSystemId",
         "root_directory": "RootDirectory",
@@ -249,20 +243,6 @@ class FileSystem(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EFS::FileSystem"
     name_field: ClassVar[str] = "availability_zone_name"
-    KMS_KEY_ID = "KmsKeyId"
-    PERFORMANCE_MODE = "PerformanceMode"
-    ENCRYPTED = "Encrypted"
-    BYPASS_POLICY_LOCKOUT_SAFETY_CHECK = "BypassPolicyLockoutSafetyCheck"
-    FILE_SYSTEM_PROTECTION = "FileSystemProtection"
-    LIFECYCLE_POLICIES = "LifecyclePolicies"
-    THROUGHPUT_MODE = "ThroughputMode"
-    FILE_SYSTEM_TAGS = "FileSystemTags"
-    PROVISIONED_THROUGHPUT_IN_MIBPS = "ProvisionedThroughputInMibps"
-    FILE_SYSTEM_POLICY = "FileSystemPolicy"
-    AVAILABILITY_ZONE_NAME = "AvailabilityZoneName"
-    REPLICATION_CONFIGURATION = "ReplicationConfiguration"
-    BACKUP_POLICY = "BackupPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "performance_mode": "PerformanceMode",
@@ -310,13 +290,6 @@ class MountTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-m"""
 
     resource_type: ClassVar[str] = "AWS::EFS::MountTarget"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SECURITY_GROUPS = "SecurityGroups"
-    FILE_SYSTEM_ID = "FileSystemId"
-    IP_ADDRESS = "IpAddress"
-    SUBNET_ID = "SubnetId"
-    IPV6_ADDRESS = "Ipv6Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "security_groups": "SecurityGroups",

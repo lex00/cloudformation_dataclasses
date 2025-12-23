@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Detective
@@ -195,9 +195,6 @@ class Graph(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::Graph"
-    AUTO_ENABLE_MEMBERS = "AutoEnableMembers"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enable_members": "AutoEnableMembers",
         "tags": "Tags",
@@ -218,12 +215,6 @@ class MemberInvitation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::MemberInvitation"
-    MEMBER_ID = "MemberId"
-    MESSAGE = "Message"
-    GRAPH_ARN = "GraphArn"
-    DISABLE_EMAIL_NOTIFICATION = "DisableEmailNotification"
-    MEMBER_EMAIL_ADDRESS = "MemberEmailAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_id": "MemberId",
         "message": "Message",
@@ -244,8 +235,6 @@ class OrganizationAdmin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::OrganizationAdmin"
-    ACCOUNT_ID = "AccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityLimit(PropertyType):
-    CAPACITY_UNIT = "CapacityUnit"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_unit": "CapacityUnit",
         "max_capacity": "MaxCapacity",

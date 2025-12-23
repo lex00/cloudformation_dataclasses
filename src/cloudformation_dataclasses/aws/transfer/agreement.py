@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomDirectories(PropertyType):
-    FAILED_FILES_DIRECTORY = "FailedFilesDirectory"
-    TEMPORARY_FILES_DIRECTORY = "TemporaryFilesDirectory"
-    MDN_FILES_DIRECTORY = "MdnFilesDirectory"
-    PAYLOAD_FILES_DIRECTORY = "PayloadFilesDirectory"
-    STATUS_FILES_DIRECTORY = "StatusFilesDirectory"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failed_files_directory": "FailedFilesDirectory",
         "temporary_files_directory": "TemporaryFilesDirectory",

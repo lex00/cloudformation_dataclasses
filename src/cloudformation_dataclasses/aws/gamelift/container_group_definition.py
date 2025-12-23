@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ContainerDependency(PropertyType):
-    CONDITION = "Condition"
-    CONTAINER_NAME = "ContainerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "container_name": "ContainerName",
@@ -25,9 +22,6 @@ class ContainerDependency(PropertyType):
 
 @dataclass
 class ContainerEnvironment(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -39,12 +33,6 @@ class ContainerEnvironment(PropertyType):
 
 @dataclass
 class ContainerHealthCheck(PropertyType):
-    COMMAND = "Command"
-    TIMEOUT = "Timeout"
-    RETRIES = "Retries"
-    INTERVAL = "Interval"
-    START_PERIOD = "StartPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command": "Command",
         "timeout": "Timeout",
@@ -62,10 +50,6 @@ class ContainerHealthCheck(PropertyType):
 
 @dataclass
 class ContainerMountPoint(PropertyType):
-    INSTANCE_PATH = "InstancePath"
-    CONTAINER_PATH = "ContainerPath"
-    ACCESS_LEVEL = "AccessLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_path": "InstancePath",
         "container_path": "ContainerPath",
@@ -79,10 +63,6 @@ class ContainerMountPoint(PropertyType):
 
 @dataclass
 class ContainerPortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -96,15 +76,6 @@ class ContainerPortRange(PropertyType):
 
 @dataclass
 class GameServerContainerDefinition(PropertyType):
-    MOUNT_POINTS = "MountPoints"
-    DEPENDS_ON = "DependsOn"
-    CONTAINER_NAME = "ContainerName"
-    ENVIRONMENT_OVERRIDE = "EnvironmentOverride"
-    SERVER_SDK_VERSION = "ServerSdkVersion"
-    IMAGE_URI = "ImageUri"
-    RESOLVED_IMAGE_DIGEST = "ResolvedImageDigest"
-    PORT_CONFIGURATION = "PortConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_points": "MountPoints",
         "depends_on": "DependsOn",
@@ -128,8 +99,6 @@ class GameServerContainerDefinition(PropertyType):
 
 @dataclass
 class PortConfiguration(PropertyType):
-    CONTAINER_PORT_RANGES = "ContainerPortRanges"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_port_ranges": "ContainerPortRanges",
     }
@@ -139,18 +108,6 @@ class PortConfiguration(PropertyType):
 
 @dataclass
 class SupportContainerDefinition(PropertyType):
-    MOUNT_POINTS = "MountPoints"
-    DEPENDS_ON = "DependsOn"
-    CONTAINER_NAME = "ContainerName"
-    MEMORY_HARD_LIMIT_MEBIBYTES = "MemoryHardLimitMebibytes"
-    ENVIRONMENT_OVERRIDE = "EnvironmentOverride"
-    HEALTH_CHECK = "HealthCheck"
-    VCPU = "Vcpu"
-    IMAGE_URI = "ImageUri"
-    RESOLVED_IMAGE_DIGEST = "ResolvedImageDigest"
-    ESSENTIAL = "Essential"
-    PORT_CONFIGURATION = "PortConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_points": "MountPoints",
         "depends_on": "DependsOn",

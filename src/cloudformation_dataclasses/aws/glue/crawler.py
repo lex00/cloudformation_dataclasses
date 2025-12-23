@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CatalogTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    DATABASE_NAME = "DatabaseName"
-    DLQ_EVENT_QUEUE_ARN = "DlqEventQueueArn"
-    TABLES = "Tables"
-    EVENT_QUEUE_ARN = "EventQueueArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "database_name": "DatabaseName",
@@ -34,11 +28,6 @@ class CatalogTarget(PropertyType):
 
 @dataclass
 class DeltaTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    CREATE_NATIVE_DELTA_TABLE = "CreateNativeDeltaTable"
-    WRITE_MANIFEST = "WriteManifest"
-    DELTA_TABLES = "DeltaTables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "create_native_delta_table": "CreateNativeDeltaTable",
@@ -54,10 +43,6 @@ class DeltaTarget(PropertyType):
 
 @dataclass
 class DynamoDBTarget(PropertyType):
-    PATH = "Path"
-    SCAN_RATE = "ScanRate"
-    SCAN_ALL = "ScanAll"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "scan_rate": "ScanRate",
@@ -71,11 +56,6 @@ class DynamoDBTarget(PropertyType):
 
 @dataclass
 class HudiTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    EXCLUSIONS = "Exclusions"
-    PATHS = "Paths"
-    MAXIMUM_TRAVERSAL_DEPTH = "MaximumTraversalDepth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "exclusions": "Exclusions",
@@ -91,11 +71,6 @@ class HudiTarget(PropertyType):
 
 @dataclass
 class IcebergTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    EXCLUSIONS = "Exclusions"
-    PATHS = "Paths"
-    MAXIMUM_TRAVERSAL_DEPTH = "MaximumTraversalDepth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "exclusions": "Exclusions",
@@ -111,11 +86,6 @@ class IcebergTarget(PropertyType):
 
 @dataclass
 class JdbcTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    PATH = "Path"
-    EXCLUSIONS = "Exclusions"
-    ENABLE_ADDITIONAL_METADATA = "EnableAdditionalMetadata"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -131,9 +101,6 @@ class JdbcTarget(PropertyType):
 
 @dataclass
 class LakeFormationConfiguration(PropertyType):
-    ACCOUNT_ID = "AccountId"
-    USE_LAKE_FORMATION_CREDENTIALS = "UseLakeFormationCredentials"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "use_lake_formation_credentials": "UseLakeFormationCredentials",
@@ -145,9 +112,6 @@ class LakeFormationConfiguration(PropertyType):
 
 @dataclass
 class MongoDBTarget(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    PATH = "Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -159,8 +123,6 @@ class MongoDBTarget(PropertyType):
 
 @dataclass
 class RecrawlPolicy(PropertyType):
-    RECRAWL_BEHAVIOR = "RecrawlBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recrawl_behavior": "RecrawlBehavior",
     }
@@ -170,13 +132,6 @@ class RecrawlPolicy(PropertyType):
 
 @dataclass
 class S3Target(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    PATH = "Path"
-    SAMPLE_SIZE = "SampleSize"
-    EXCLUSIONS = "Exclusions"
-    DLQ_EVENT_QUEUE_ARN = "DlqEventQueueArn"
-    EVENT_QUEUE_ARN = "EventQueueArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -196,8 +151,6 @@ class S3Target(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -207,9 +160,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SchemaChangePolicy(PropertyType):
-    UPDATE_BEHAVIOR = "UpdateBehavior"
-    DELETE_BEHAVIOR = "DeleteBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_behavior": "UpdateBehavior",
         "delete_behavior": "DeleteBehavior",
@@ -221,15 +171,6 @@ class SchemaChangePolicy(PropertyType):
 
 @dataclass
 class Targets(PropertyType):
-    HUDI_TARGETS = "HudiTargets"
-    S3_TARGETS = "S3Targets"
-    CATALOG_TARGETS = "CatalogTargets"
-    DELTA_TARGETS = "DeltaTargets"
-    MONGO_DB_TARGETS = "MongoDBTargets"
-    JDBC_TARGETS = "JdbcTargets"
-    DYNAMO_DB_TARGETS = "DynamoDBTargets"
-    ICEBERG_TARGETS = "IcebergTargets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hudi_targets": "HudiTargets",
         "s3_targets": "S3Targets",

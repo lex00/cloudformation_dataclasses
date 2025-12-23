@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataCatalogConfig(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE = "Database"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database": "Database",
@@ -28,9 +24,6 @@ class DataCatalogConfig(PropertyType):
 
 @dataclass
 class FeatureDefinition(PropertyType):
-    FEATURE_TYPE = "FeatureType"
-    FEATURE_NAME = "FeatureName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_type": "FeatureType",
         "feature_name": "FeatureName",
@@ -42,11 +35,6 @@ class FeatureDefinition(PropertyType):
 
 @dataclass
 class OfflineStoreConfig(PropertyType):
-    DATA_CATALOG_CONFIG = "DataCatalogConfig"
-    S3_STORAGE_CONFIG = "S3StorageConfig"
-    DISABLE_GLUE_TABLE_CREATION = "DisableGlueTableCreation"
-    TABLE_FORMAT = "TableFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_catalog_config": "DataCatalogConfig",
         "s3_storage_config": "S3StorageConfig",
@@ -62,11 +50,6 @@ class OfflineStoreConfig(PropertyType):
 
 @dataclass
 class OnlineStoreConfig(PropertyType):
-    ENABLE_ONLINE_STORE = "EnableOnlineStore"
-    STORAGE_TYPE = "StorageType"
-    SECURITY_CONFIG = "SecurityConfig"
-    TTL_DURATION = "TtlDuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_online_store": "EnableOnlineStore",
         "storage_type": "StorageType",
@@ -82,8 +65,6 @@ class OnlineStoreConfig(PropertyType):
 
 @dataclass
 class OnlineStoreSecurityConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -93,9 +74,6 @@ class OnlineStoreSecurityConfig(PropertyType):
 
 @dataclass
 class S3StorageConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_uri": "S3Uri",
@@ -107,10 +85,6 @@ class S3StorageConfig(PropertyType):
 
 @dataclass
 class ThroughputConfig(PropertyType):
-    PROVISIONED_READ_CAPACITY_UNITS = "ProvisionedReadCapacityUnits"
-    PROVISIONED_WRITE_CAPACITY_UNITS = "ProvisionedWriteCapacityUnits"
-    THROUGHPUT_MODE = "ThroughputMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_read_capacity_units": "ProvisionedReadCapacityUnits",
         "provisioned_write_capacity_units": "ProvisionedWriteCapacityUnits",
@@ -124,9 +98,6 @@ class ThroughputConfig(PropertyType):
 
 @dataclass
 class TtlDuration(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",

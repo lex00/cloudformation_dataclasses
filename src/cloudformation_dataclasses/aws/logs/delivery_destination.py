@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationPolicy(PropertyType):
-    DELIVERY_DESTINATION_NAME = "DeliveryDestinationName"
-    DELIVERY_DESTINATION_POLICY = "DeliveryDestinationPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_destination_name": "DeliveryDestinationName",
         "delivery_destination_policy": "DeliveryDestinationPolicy",

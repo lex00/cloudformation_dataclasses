@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ExpiryEventsConfiguration(PropertyType):
-    DAYS_BEFORE_EXPIRY = "DaysBeforeExpiry"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_before_expiry": "DaysBeforeExpiry",
     }

@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeploymentPreference(PropertyType):
-    TYPE = "Type"
-    STATE_MACHINE_VERSION_ARN = "StateMachineVersionArn"
-    PERCENTAGE = "Percentage"
-    ALARMS = "Alarms"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "state_machine_version_arn": "StateMachineVersionArn",
@@ -34,9 +28,6 @@ class DeploymentPreference(PropertyType):
 
 @dataclass
 class RoutingConfigurationVersion(PropertyType):
-    STATE_MACHINE_VERSION_ARN = "StateMachineVersionArn"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state_machine_version_arn": "StateMachineVersionArn",
         "weight": "Weight",

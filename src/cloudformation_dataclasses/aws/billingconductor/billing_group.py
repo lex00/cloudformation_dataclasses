@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccountGrouping(PropertyType):
-    RESPONSIBILITY_TRANSFER_ARN = "ResponsibilityTransferArn"
-    LINKED_ACCOUNT_IDS = "LinkedAccountIds"
-    AUTO_ASSOCIATE = "AutoAssociate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responsibility_transfer_arn": "ResponsibilityTransferArn",
         "linked_account_ids": "LinkedAccountIds",
@@ -28,8 +24,6 @@ class AccountGrouping(PropertyType):
 
 @dataclass
 class ComputationPreference(PropertyType):
-    PRICING_PLAN_ARN = "PricingPlanArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pricing_plan_arn": "PricingPlanArn",
     }

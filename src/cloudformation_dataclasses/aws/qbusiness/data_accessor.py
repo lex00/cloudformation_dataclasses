@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionConfiguration(PropertyType):
-    ACTION = "Action"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "filter_configuration": "FilterConfiguration",
@@ -25,8 +22,6 @@ class ActionConfiguration(PropertyType):
 
 @dataclass
 class ActionFilterConfiguration(PropertyType):
-    DOCUMENT_ATTRIBUTE_FILTER = "DocumentAttributeFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_attribute_filter": "DocumentAttributeFilter",
     }
@@ -36,17 +31,6 @@ class ActionFilterConfiguration(PropertyType):
 
 @dataclass
 class AttributeFilter(PropertyType):
-    CONTAINS_ANY = "ContainsAny"
-    LESS_THAN = "LessThan"
-    GREATER_THAN = "GreaterThan"
-    NOT_FILTER = "NotFilter"
-    LESS_THAN_OR_EQUALS = "LessThanOrEquals"
-    OR_ALL_FILTERS = "OrAllFilters"
-    EQUALS_TO = "EqualsTo"
-    GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals"
-    AND_ALL_FILTERS = "AndAllFilters"
-    CONTAINS_ALL = "ContainsAll"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains_any": "ContainsAny",
         "less_than": "LessThan",
@@ -74,8 +58,6 @@ class AttributeFilter(PropertyType):
 
 @dataclass
 class DataAccessorAuthenticationConfiguration(PropertyType):
-    IDC_TRUSTED_TOKEN_ISSUER_CONFIGURATION = "IdcTrustedTokenIssuerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_trusted_token_issuer_configuration": "IdcTrustedTokenIssuerConfiguration",
     }
@@ -85,10 +67,6 @@ class DataAccessorAuthenticationConfiguration(PropertyType):
 
 @dataclass
 class DataAccessorAuthenticationDetail(PropertyType):
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    EXTERNAL_IDS = "ExternalIds"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "external_ids": "ExternalIds",
@@ -102,8 +80,6 @@ class DataAccessorAuthenticationDetail(PropertyType):
 
 @dataclass
 class DataAccessorIdcTrustedTokenIssuerConfiguration(PropertyType):
-    IDC_TRUSTED_TOKEN_ISSUER_ARN = "IdcTrustedTokenIssuerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_trusted_token_issuer_arn": "IdcTrustedTokenIssuerArn",
     }
@@ -113,9 +89,6 @@ class DataAccessorIdcTrustedTokenIssuerConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttribute(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -127,11 +100,6 @@ class DocumentAttribute(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    DATE_VALUE = "DateValue"
-    LONG_VALUE = "LongValue"
-    STRING_VALUE = "StringValue"
-    STRING_LIST_VALUE = "StringListValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",

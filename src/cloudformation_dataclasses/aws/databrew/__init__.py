@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:52
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataBrew
@@ -279,14 +279,6 @@ class Dataset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Dataset"
     name_field: ClassVar[str] = "name"
-    INPUT = "Input"
-    FORMAT = "Format"
-    FORMAT_OPTIONS = "FormatOptions"
-    SOURCE = "Source"
-    PATH_OPTIONS = "PathOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "format": "Format",
@@ -312,27 +304,6 @@ class Job(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Job"
     name_field: ClassVar[str] = "name"
-    MAX_RETRIES = "MaxRetries"
-    PROJECT_NAME = "ProjectName"
-    RECIPE = "Recipe"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    LOG_SUBSCRIPTION = "LogSubscription"
-    TIMEOUT = "Timeout"
-    DATABASE_OUTPUTS = "DatabaseOutputs"
-    OUTPUT_LOCATION = "OutputLocation"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    TYPE = "Type"
-    DATASET_NAME = "DatasetName"
-    PROFILE_CONFIGURATION = "ProfileConfiguration"
-    OUTPUTS = "Outputs"
-    VALIDATION_CONFIGURATIONS = "ValidationConfigurations"
-    TAGS = "Tags"
-    JOB_SAMPLE = "JobSample"
-    ENCRYPTION_MODE = "EncryptionMode"
-    MAX_CAPACITY = "MaxCapacity"
-    DATA_CATALOG_OUTPUTS = "DataCatalogOutputs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "project_name": "ProjectName",
@@ -384,13 +355,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Project"
     name_field: ClassVar[str] = "name"
-    RECIPE_NAME = "RecipeName"
-    DATASET_NAME = "DatasetName"
-    SAMPLE = "Sample"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recipe_name": "RecipeName",
         "dataset_name": "DatasetName",
@@ -414,11 +378,6 @@ class Recipe(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Recipe"
     name_field: ClassVar[str] = "name"
-    STEPS = "Steps"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "steps": "Steps",
         "description": "Description",
@@ -438,12 +397,6 @@ class Ruleset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Ruleset"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TARGET_ARN = "TargetArn"
-    RULES = "Rules"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "target_arn": "TargetArn",
@@ -465,11 +418,6 @@ class Schedule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Schedule"
     name_field: ClassVar[str] = "name"
-    JOB_NAMES = "JobNames"
-    CRON_EXPRESSION = "CronExpression"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_names": "JobNames",
         "cron_expression": "CronExpression",

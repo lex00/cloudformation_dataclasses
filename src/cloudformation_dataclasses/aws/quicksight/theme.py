@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BorderStyle(PropertyType):
-    SHOW = "Show"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -22,10 +20,6 @@ class BorderStyle(PropertyType):
 
 @dataclass
 class DataColorPalette(PropertyType):
-    EMPTY_FILL_COLOR = "EmptyFillColor"
-    COLORS = "Colors"
-    MIN_MAX_GRADIENT = "MinMaxGradient"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "empty_fill_color": "EmptyFillColor",
         "colors": "Colors",
@@ -39,8 +33,6 @@ class DataColorPalette(PropertyType):
 
 @dataclass
 class Font(PropertyType):
-    FONT_FAMILY = "FontFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
     }
@@ -50,8 +42,6 @@ class Font(PropertyType):
 
 @dataclass
 class GutterStyle(PropertyType):
-    SHOW = "Show"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -61,8 +51,6 @@ class GutterStyle(PropertyType):
 
 @dataclass
 class MarginStyle(PropertyType):
-    SHOW = "Show"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -72,9 +60,6 @@ class MarginStyle(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    ACTIONS = "Actions"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -86,9 +71,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class SheetStyle(PropertyType):
-    TILE_LAYOUT = "TileLayout"
-    TILE = "Tile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tile_layout": "TileLayout",
         "tile": "Tile",
@@ -100,11 +82,6 @@ class SheetStyle(PropertyType):
 
 @dataclass
 class ThemeConfiguration(PropertyType):
-    DATA_COLOR_PALETTE = "DataColorPalette"
-    UI_COLOR_PALETTE = "UIColorPalette"
-    SHEET = "Sheet"
-    TYPOGRAPHY = "Typography"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_color_palette": "DataColorPalette",
         "ui_color_palette": "UIColorPalette",
@@ -120,9 +97,6 @@ class ThemeConfiguration(PropertyType):
 
 @dataclass
 class ThemeError(PropertyType):
-    TYPE = "Type"
-    MESSAGE = "Message"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -134,15 +108,6 @@ class ThemeError(PropertyType):
 
 @dataclass
 class ThemeVersion(PropertyType):
-    STATUS = "Status"
-    ERRORS = "Errors"
-    DESCRIPTION = "Description"
-    CREATED_TIME = "CreatedTime"
-    CONFIGURATION = "Configuration"
-    BASE_THEME_ID = "BaseThemeId"
-    ARN = "Arn"
-    VERSION_NUMBER = "VersionNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "errors": "Errors",
@@ -166,9 +131,6 @@ class ThemeVersion(PropertyType):
 
 @dataclass
 class TileLayoutStyle(PropertyType):
-    GUTTER = "Gutter"
-    MARGIN = "Margin"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gutter": "Gutter",
         "margin": "Margin",
@@ -180,8 +142,6 @@ class TileLayoutStyle(PropertyType):
 
 @dataclass
 class TileStyle(PropertyType):
-    BORDER = "Border"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border": "Border",
     }
@@ -191,8 +151,6 @@ class TileStyle(PropertyType):
 
 @dataclass
 class Typography(PropertyType):
-    FONT_FAMILIES = "FontFamilies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_families": "FontFamilies",
     }
@@ -202,23 +160,6 @@ class Typography(PropertyType):
 
 @dataclass
 class UIColorPalette(PropertyType):
-    WARNING = "Warning"
-    ACCENT = "Accent"
-    ACCENT_FOREGROUND = "AccentForeground"
-    SECONDARY_BACKGROUND = "SecondaryBackground"
-    DANGER_FOREGROUND = "DangerForeground"
-    PRIMARY_BACKGROUND = "PrimaryBackground"
-    DIMENSION = "Dimension"
-    SECONDARY_FOREGROUND = "SecondaryForeground"
-    WARNING_FOREGROUND = "WarningForeground"
-    DIMENSION_FOREGROUND = "DimensionForeground"
-    PRIMARY_FOREGROUND = "PrimaryForeground"
-    SUCCESS = "Success"
-    DANGER = "Danger"
-    SUCCESS_FOREGROUND = "SuccessForeground"
-    MEASURE = "Measure"
-    MEASURE_FOREGROUND = "MeasureForeground"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warning": "Warning",
         "accent": "Accent",

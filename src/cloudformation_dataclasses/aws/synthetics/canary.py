@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ArtifactConfig(PropertyType):
-    S3_ENCRYPTION = "S3Encryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_encryption": "S3Encryption",
     }
@@ -22,9 +20,6 @@ class ArtifactConfig(PropertyType):
 
 @dataclass
 class BaseScreenshot(PropertyType):
-    IGNORE_COORDINATES = "IgnoreCoordinates"
-    SCREENSHOT_NAME = "ScreenshotName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignore_coordinates": "IgnoreCoordinates",
         "screenshot_name": "ScreenshotName",
@@ -36,8 +31,6 @@ class BaseScreenshot(PropertyType):
 
 @dataclass
 class BrowserConfig(PropertyType):
-    BROWSER_TYPE = "BrowserType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "browser_type": "BrowserType",
     }
@@ -47,15 +40,6 @@ class BrowserConfig(PropertyType):
 
 @dataclass
 class Code(PropertyType):
-    SCRIPT = "Script"
-    S3_OBJECT_VERSION = "S3ObjectVersion"
-    S3_BUCKET = "S3Bucket"
-    S3_KEY = "S3Key"
-    BLUEPRINT_TYPES = "BlueprintTypes"
-    HANDLER = "Handler"
-    SOURCE_LOCATION_ARN = "SourceLocationArn"
-    DEPENDENCIES = "Dependencies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "script": "Script",
         "s3_object_version": "S3ObjectVersion",
@@ -79,9 +63,6 @@ class Code(PropertyType):
 
 @dataclass
 class Dependency(PropertyType):
-    TYPE = "Type"
-    REFERENCE = "Reference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "reference": "Reference",
@@ -93,8 +74,6 @@ class Dependency(PropertyType):
 
 @dataclass
 class RetryConfig(PropertyType):
-    MAX_RETRIES = "MaxRetries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
     }
@@ -104,12 +83,6 @@ class RetryConfig(PropertyType):
 
 @dataclass
 class RunConfig(PropertyType):
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    MEMORY_IN_MB = "MemoryInMB"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-    ACTIVE_TRACING = "ActiveTracing"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
         "environment_variables": "EnvironmentVariables",
@@ -127,9 +100,6 @@ class RunConfig(PropertyType):
 
 @dataclass
 class S3Encryption(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    ENCRYPTION_MODE = "EncryptionMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "encryption_mode": "EncryptionMode",
@@ -141,10 +111,6 @@ class S3Encryption(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-    RETRY_CONFIG = "RetryConfig"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
         "retry_config": "RetryConfig",
@@ -158,11 +124,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class VPCConfig(PropertyType):
-    IPV6_ALLOWED_FOR_DUAL_STACK = "Ipv6AllowedForDualStack"
-    VPC_ID = "VpcId"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_allowed_for_dual_stack": "Ipv6AllowedForDualStack",
         "vpc_id": "VpcId",
@@ -178,10 +139,6 @@ class VPCConfig(PropertyType):
 
 @dataclass
 class VisualReference(PropertyType):
-    BASE_SCREENSHOTS = "BaseScreenshots"
-    BROWSER_TYPE = "BrowserType"
-    BASE_CANARY_RUN_ID = "BaseCanaryRunId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_screenshots": "BaseScreenshots",
         "browser_type": "BrowserType",

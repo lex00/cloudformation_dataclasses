@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BodyConfig(PropertyType):
-    ALIGNMENT = "Alignment"
-    TEXT_COLOR = "TextColor"
-    BODY = "Body"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "text_color": "TextColor",
@@ -28,11 +24,6 @@ class BodyConfig(PropertyType):
 
 @dataclass
 class ButtonConfig(PropertyType):
-    WEB = "Web"
-    DEFAULT_CONFIG = "DefaultConfig"
-    IOS = "IOS"
-    ANDROID = "Android"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web": "Web",
         "default_config": "DefaultConfig",
@@ -48,13 +39,6 @@ class ButtonConfig(PropertyType):
 
 @dataclass
 class DefaultButtonConfiguration(PropertyType):
-    BORDER_RADIUS = "BorderRadius"
-    BUTTON_ACTION = "ButtonAction"
-    TEXT = "Text"
-    TEXT_COLOR = "TextColor"
-    LINK = "Link"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border_radius": "BorderRadius",
         "button_action": "ButtonAction",
@@ -74,10 +58,6 @@ class DefaultButtonConfiguration(PropertyType):
 
 @dataclass
 class HeaderConfig(PropertyType):
-    ALIGNMENT = "Alignment"
-    HEADER = "Header"
-    TEXT_COLOR = "TextColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "header": "Header",
@@ -91,13 +71,6 @@ class HeaderConfig(PropertyType):
 
 @dataclass
 class InAppMessageContent(PropertyType):
-    BODY_CONFIG = "BodyConfig"
-    SECONDARY_BTN = "SecondaryBtn"
-    IMAGE_URL = "ImageUrl"
-    PRIMARY_BTN = "PrimaryBtn"
-    HEADER_CONFIG = "HeaderConfig"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body_config": "BodyConfig",
         "secondary_btn": "SecondaryBtn",
@@ -117,9 +90,6 @@ class InAppMessageContent(PropertyType):
 
 @dataclass
 class OverrideButtonConfiguration(PropertyType):
-    BUTTON_ACTION = "ButtonAction"
-    LINK = "Link"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "link": "Link",

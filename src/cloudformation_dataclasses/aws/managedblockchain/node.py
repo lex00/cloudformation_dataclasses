@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NodeConfiguration(PropertyType):
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
         "instance_type": "InstanceType",

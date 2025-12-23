@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class APISchema(PropertyType):
-    S3 = "S3"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "payload": "Payload",
@@ -25,9 +22,6 @@ class APISchema(PropertyType):
 
 @dataclass
 class BasicAuthConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -39,10 +33,6 @@ class BasicAuthConfiguration(PropertyType):
 
 @dataclass
 class CustomPluginConfiguration(PropertyType):
-    DESCRIPTION = "Description"
-    API_SCHEMA = "ApiSchema"
-    API_SCHEMA_TYPE = "ApiSchemaType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "api_schema": "ApiSchema",
@@ -56,11 +46,6 @@ class CustomPluginConfiguration(PropertyType):
 
 @dataclass
 class OAuth2ClientCredentialConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    AUTHORIZATION_URL = "AuthorizationUrl"
-    TOKEN_URL = "TokenUrl"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "authorization_url": "AuthorizationUrl",
@@ -76,10 +61,6 @@ class OAuth2ClientCredentialConfiguration(PropertyType):
 
 @dataclass
 class PluginAuthConfiguration(PropertyType):
-    NO_AUTH_CONFIGURATION = "NoAuthConfiguration"
-    BASIC_AUTH_CONFIGURATION = "BasicAuthConfiguration"
-    O_AUTH2_CLIENT_CREDENTIAL_CONFIGURATION = "OAuth2ClientCredentialConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_auth_configuration": "NoAuthConfiguration",
         "basic_auth_configuration": "BasicAuthConfiguration",
@@ -93,9 +74,6 @@ class PluginAuthConfiguration(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",

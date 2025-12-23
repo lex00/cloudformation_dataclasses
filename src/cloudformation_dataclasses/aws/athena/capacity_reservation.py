@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityAssignment(PropertyType):
-    WORKGROUP_NAMES = "WorkgroupNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_names": "WorkgroupNames",
     }
@@ -22,8 +20,6 @@ class CapacityAssignment(PropertyType):
 
 @dataclass
 class CapacityAssignmentConfiguration(PropertyType):
-    CAPACITY_ASSIGNMENTS = "CapacityAssignments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_assignments": "CapacityAssignments",
     }

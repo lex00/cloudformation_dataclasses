@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttachmentsConfiguration(PropertyType):
-    ATTACHMENTS_CONTROL_MODE = "AttachmentsControlMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachments_control_mode": "AttachmentsControlMode",
     }
@@ -22,9 +20,6 @@ class AttachmentsConfiguration(PropertyType):
 
 @dataclass
 class AutoSubscriptionConfiguration(PropertyType):
-    DEFAULT_SUBSCRIPTION_TYPE = "DefaultSubscriptionType"
-    AUTO_SUBSCRIBE = "AutoSubscribe"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_subscription_type": "DefaultSubscriptionType",
         "auto_subscribe": "AutoSubscribe",
@@ -36,8 +31,6 @@ class AutoSubscriptionConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -47,8 +40,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class PersonalizationConfiguration(PropertyType):
-    PERSONALIZATION_CONTROL_MODE = "PersonalizationControlMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "personalization_control_mode": "PersonalizationControlMode",
     }
@@ -58,8 +49,6 @@ class PersonalizationConfiguration(PropertyType):
 
 @dataclass
 class QAppsConfiguration(PropertyType):
-    Q_APPS_CONTROL_MODE = "QAppsControlMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_apps_control_mode": "QAppsControlMode",
     }
@@ -69,8 +58,6 @@ class QAppsConfiguration(PropertyType):
 
 @dataclass
 class QuickSightConfiguration(PropertyType):
-    CLIENT_NAMESPACE = "ClientNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_namespace": "ClientNamespace",
     }

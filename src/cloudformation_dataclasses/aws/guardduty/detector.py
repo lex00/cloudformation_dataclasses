@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CFNDataSourceConfigurations(PropertyType):
-    MALWARE_PROTECTION = "MalwareProtection"
-    S3_LOGS = "S3Logs"
-    KUBERNETES = "Kubernetes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "malware_protection": "MalwareProtection",
         "s3_logs": "S3Logs",
@@ -28,9 +24,6 @@ class CFNDataSourceConfigurations(PropertyType):
 
 @dataclass
 class CFNFeatureAdditionalConfiguration(PropertyType):
-    STATUS = "Status"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "name": "Name",
@@ -42,10 +35,6 @@ class CFNFeatureAdditionalConfiguration(PropertyType):
 
 @dataclass
 class CFNFeatureConfiguration(PropertyType):
-    STATUS = "Status"
-    ADDITIONAL_CONFIGURATION = "AdditionalConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "additional_configuration": "AdditionalConfiguration",
@@ -59,8 +48,6 @@ class CFNFeatureConfiguration(PropertyType):
 
 @dataclass
 class CFNKubernetesAuditLogsConfiguration(PropertyType):
-    ENABLE = "Enable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable": "Enable",
     }
@@ -70,8 +57,6 @@ class CFNKubernetesAuditLogsConfiguration(PropertyType):
 
 @dataclass
 class CFNKubernetesConfiguration(PropertyType):
-    AUDIT_LOGS = "AuditLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit_logs": "AuditLogs",
     }
@@ -81,8 +66,6 @@ class CFNKubernetesConfiguration(PropertyType):
 
 @dataclass
 class CFNMalwareProtectionConfiguration(PropertyType):
-    SCAN_EC2_INSTANCE_WITH_FINDINGS = "ScanEc2InstanceWithFindings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_ec2_instance_with_findings": "ScanEc2InstanceWithFindings",
     }
@@ -92,8 +75,6 @@ class CFNMalwareProtectionConfiguration(PropertyType):
 
 @dataclass
 class CFNS3LogsConfiguration(PropertyType):
-    ENABLE = "Enable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable": "Enable",
     }
@@ -103,8 +84,6 @@ class CFNS3LogsConfiguration(PropertyType):
 
 @dataclass
 class CFNScanEc2InstanceWithFindingsConfiguration(PropertyType):
-    EBS_VOLUMES = "EbsVolumes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_volumes": "EbsVolumes",
     }
@@ -114,9 +93,6 @@ class CFNScanEc2InstanceWithFindingsConfiguration(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

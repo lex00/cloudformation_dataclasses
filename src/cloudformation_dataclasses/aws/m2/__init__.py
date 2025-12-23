@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:05
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service M2
@@ -204,14 +204,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::M2::Application"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    DEFINITION = "Definition"
-    ENGINE_TYPE = "EngineType"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_id": "KmsKeyId",
@@ -247,10 +239,6 @@ class Deployment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-de"""
 
     resource_type: ClassVar[str] = "AWS::M2::Deployment"
-    ENVIRONMENT_ID = "EnvironmentId"
-    APPLICATION_VERSION = "ApplicationVersion"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "application_version": "ApplicationVersion",
@@ -279,21 +267,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::M2::Environment"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ENGINE_VERSION = "EngineVersion"
-    KMS_KEY_ID = "KmsKeyId"
-    HIGH_AVAILABILITY_CONFIG = "HighAvailabilityConfig"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    NAME = "Name"
-    NETWORK_TYPE = "NetworkType"
-    ENGINE_TYPE = "EngineType"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    INSTANCE_TYPE = "InstanceType"
-    STORAGE_CONFIGURATIONS = "StorageConfigurations"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "engine_version": "EngineVersion",

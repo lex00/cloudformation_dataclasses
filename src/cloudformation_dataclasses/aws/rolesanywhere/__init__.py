@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RolesAnywhere
@@ -81,12 +81,6 @@ class CRL(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RolesAnywhere::CRL"
     name_field: ClassVar[str] = "name"
-    TRUST_ANCHOR_ARN = "TrustAnchorArn"
-    ENABLED = "Enabled"
-    CRL_DATA = "CrlData"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trust_anchor_arn": "TrustAnchorArn",
         "enabled": "Enabled",
@@ -114,17 +108,6 @@ class Profile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RolesAnywhere::Profile"
     name_field: ClassVar[str] = "name"
-    MANAGED_POLICY_ARNS = "ManagedPolicyArns"
-    REQUIRE_INSTANCE_PROPERTIES = "RequireInstanceProperties"
-    ROLE_ARNS = "RoleArns"
-    ACCEPT_ROLE_SESSION_NAME = "AcceptRoleSessionName"
-    SESSION_POLICY = "SessionPolicy"
-    ATTRIBUTE_MAPPINGS = "AttributeMappings"
-    ENABLED = "Enabled"
-    DURATION_SECONDS = "DurationSeconds"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_policy_arns": "ManagedPolicyArns",
         "require_instance_properties": "RequireInstanceProperties",
@@ -167,12 +150,6 @@ class TrustAnchor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RolesAnywhere::TrustAnchor"
     name_field: ClassVar[str] = "name"
-    NOTIFICATION_SETTINGS = "NotificationSettings"
-    ENABLED = "Enabled"
-    SOURCE = "Source"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_settings": "NotificationSettings",
         "enabled": "Enabled",

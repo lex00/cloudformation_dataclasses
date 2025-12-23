@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeDimension(PropertyType):
-    ATTRIBUTE_TYPE = "AttributeType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "values": "Values",
@@ -25,8 +22,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class CampaignCustomMessage(PropertyType):
-    DATA = "Data"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
     }
@@ -36,11 +31,6 @@ class CampaignCustomMessage(PropertyType):
 
 @dataclass
 class CampaignEmailMessage(PropertyType):
-    FROM_ADDRESS = "FromAddress"
-    HTML_BODY = "HtmlBody"
-    TITLE = "Title"
-    BODY = "Body"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_address": "FromAddress",
         "html_body": "HtmlBody",
@@ -56,9 +46,6 @@ class CampaignEmailMessage(PropertyType):
 
 @dataclass
 class CampaignEventFilter(PropertyType):
-    FILTER_TYPE = "FilterType"
-    DIMENSIONS = "Dimensions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "dimensions": "Dimensions",
@@ -70,10 +57,6 @@ class CampaignEventFilter(PropertyType):
 
 @dataclass
 class CampaignHook(PropertyType):
-    MODE = "Mode"
-    WEB_URL = "WebUrl"
-    LAMBDA_FUNCTION_NAME = "LambdaFunctionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "web_url": "WebUrl",
@@ -87,10 +70,6 @@ class CampaignHook(PropertyType):
 
 @dataclass
 class CampaignInAppMessage(PropertyType):
-    CUSTOM_CONFIG = "CustomConfig"
-    LAYOUT = "Layout"
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_config": "CustomConfig",
         "layout": "Layout",
@@ -104,13 +83,6 @@ class CampaignInAppMessage(PropertyType):
 
 @dataclass
 class CampaignSmsMessage(PropertyType):
-    ENTITY_ID = "EntityId"
-    ORIGINATION_NUMBER = "OriginationNumber"
-    SENDER_ID = "SenderId"
-    BODY = "Body"
-    MESSAGE_TYPE = "MessageType"
-    TEMPLATE_ID = "TemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "origination_number": "OriginationNumber",
@@ -130,9 +102,6 @@ class CampaignSmsMessage(PropertyType):
 
 @dataclass
 class CustomDeliveryConfiguration(PropertyType):
-    DELIVERY_URI = "DeliveryUri"
-    ENDPOINT_TYPES = "EndpointTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_uri": "DeliveryUri",
         "endpoint_types": "EndpointTypes",
@@ -144,13 +113,6 @@ class CustomDeliveryConfiguration(PropertyType):
 
 @dataclass
 class DefaultButtonConfiguration(PropertyType):
-    BUTTON_ACTION = "ButtonAction"
-    BORDER_RADIUS = "BorderRadius"
-    TEXT = "Text"
-    TEXT_COLOR = "TextColor"
-    LINK = "Link"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "border_radius": "BorderRadius",
@@ -170,10 +132,6 @@ class DefaultButtonConfiguration(PropertyType):
 
 @dataclass
 class EventDimensions(PropertyType):
-    METRICS = "Metrics"
-    EVENT_TYPE = "EventType"
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "event_type": "EventType",
@@ -187,10 +145,6 @@ class EventDimensions(PropertyType):
 
 @dataclass
 class InAppMessageBodyConfig(PropertyType):
-    ALIGNMENT = "Alignment"
-    TEXT_COLOR = "TextColor"
-    BODY = "Body"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "text_color": "TextColor",
@@ -204,11 +158,6 @@ class InAppMessageBodyConfig(PropertyType):
 
 @dataclass
 class InAppMessageButton(PropertyType):
-    WEB = "Web"
-    DEFAULT_CONFIG = "DefaultConfig"
-    IOS = "IOS"
-    ANDROID = "Android"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web": "Web",
         "default_config": "DefaultConfig",
@@ -224,13 +173,6 @@ class InAppMessageButton(PropertyType):
 
 @dataclass
 class InAppMessageContent(PropertyType):
-    BODY_CONFIG = "BodyConfig"
-    SECONDARY_BTN = "SecondaryBtn"
-    IMAGE_URL = "ImageUrl"
-    PRIMARY_BTN = "PrimaryBtn"
-    HEADER_CONFIG = "HeaderConfig"
-    BACKGROUND_COLOR = "BackgroundColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body_config": "BodyConfig",
         "secondary_btn": "SecondaryBtn",
@@ -250,10 +192,6 @@ class InAppMessageContent(PropertyType):
 
 @dataclass
 class InAppMessageHeaderConfig(PropertyType):
-    ALIGNMENT = "Alignment"
-    HEADER = "Header"
-    TEXT_COLOR = "TextColor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "header": "Header",
@@ -267,12 +205,6 @@ class InAppMessageHeaderConfig(PropertyType):
 
 @dataclass
 class Limits(PropertyType):
-    DAILY = "Daily"
-    MAXIMUM_DURATION = "MaximumDuration"
-    TOTAL = "Total"
-    MESSAGES_PER_SECOND = "MessagesPerSecond"
-    SESSION = "Session"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily": "Daily",
         "maximum_duration": "MaximumDuration",
@@ -290,19 +222,6 @@ class Limits(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    JSON_BODY = "JsonBody"
-    ACTION = "Action"
-    MEDIA_URL = "MediaUrl"
-    TIME_TO_LIVE = "TimeToLive"
-    IMAGE_SMALL_ICON_URL = "ImageSmallIconUrl"
-    IMAGE_URL = "ImageUrl"
-    TITLE = "Title"
-    IMAGE_ICON_URL = "ImageIconUrl"
-    SILENT_PUSH = "SilentPush"
-    BODY = "Body"
-    RAW_CONTENT = "RawContent"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_body": "JsonBody",
         "action": "Action",
@@ -334,16 +253,6 @@ class Message(PropertyType):
 
 @dataclass
 class MessageConfiguration(PropertyType):
-    APNS_MESSAGE = "APNSMessage"
-    BAIDU_MESSAGE = "BaiduMessage"
-    DEFAULT_MESSAGE = "DefaultMessage"
-    IN_APP_MESSAGE = "InAppMessage"
-    EMAIL_MESSAGE = "EmailMessage"
-    GCM_MESSAGE = "GCMMessage"
-    SMS_MESSAGE = "SMSMessage"
-    CUSTOM_MESSAGE = "CustomMessage"
-    ADM_MESSAGE = "ADMMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apns_message": "APNSMessage",
         "baidu_message": "BaiduMessage",
@@ -369,9 +278,6 @@ class MessageConfiguration(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "value": "Value",
@@ -383,9 +289,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class OverrideButtonConfiguration(PropertyType):
-    BUTTON_ACTION = "ButtonAction"
-    LINK = "Link"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "link": "Link",
@@ -397,9 +300,6 @@ class OverrideButtonConfiguration(PropertyType):
 
 @dataclass
 class QuietTime(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -411,14 +311,6 @@ class QuietTime(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    TIME_ZONE = "TimeZone"
-    QUIET_TIME = "QuietTime"
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-    FREQUENCY = "Frequency"
-    EVENT_FILTER = "EventFilter"
-    IS_LOCAL_TIME = "IsLocalTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_zone": "TimeZone",
         "quiet_time": "QuietTime",
@@ -440,9 +332,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SetDimension(PropertyType):
-    DIMENSION_TYPE = "DimensionType"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -454,9 +343,6 @@ class SetDimension(PropertyType):
 
 @dataclass
 class Template(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -468,11 +354,6 @@ class Template(PropertyType):
 
 @dataclass
 class TemplateConfiguration(PropertyType):
-    SMS_TEMPLATE = "SMSTemplate"
-    EMAIL_TEMPLATE = "EmailTemplate"
-    PUSH_TEMPLATE = "PushTemplate"
-    VOICE_TEMPLATE = "VoiceTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sms_template": "SMSTemplate",
         "email_template": "EmailTemplate",
@@ -488,14 +369,6 @@ class TemplateConfiguration(PropertyType):
 
 @dataclass
 class WriteTreatmentResource(PropertyType):
-    TREATMENT_DESCRIPTION = "TreatmentDescription"
-    MESSAGE_CONFIGURATION = "MessageConfiguration"
-    SCHEDULE = "Schedule"
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-    CUSTOM_DELIVERY_CONFIGURATION = "CustomDeliveryConfiguration"
-    SIZE_PERCENT = "SizePercent"
-    TREATMENT_NAME = "TreatmentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_description": "TreatmentDescription",
         "message_configuration": "MessageConfiguration",

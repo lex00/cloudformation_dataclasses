@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AudioExtractionConfiguration(PropertyType):
-    AUDIO_EXTRACTION_STATUS = "AudioExtractionStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_extraction_status": "AudioExtractionStatus",
     }
@@ -22,9 +20,6 @@ class AudioExtractionConfiguration(PropertyType):
 
 @dataclass
 class DataSourceVpcConfiguration(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -36,10 +31,6 @@ class DataSourceVpcConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttributeCondition(PropertyType):
-    OPERATOR = "Operator"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -53,10 +44,6 @@ class DocumentAttributeCondition(PropertyType):
 
 @dataclass
 class DocumentAttributeTarget(PropertyType):
-    VALUE = "Value"
-    ATTRIBUTE_VALUE_OPERATOR = "AttributeValueOperator"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "attribute_value_operator": "AttributeValueOperator",
@@ -70,11 +57,6 @@ class DocumentAttributeTarget(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    DATE_VALUE = "DateValue"
-    LONG_VALUE = "LongValue"
-    STRING_VALUE = "StringValue"
-    STRING_LIST_VALUE = "StringListValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",
@@ -90,10 +72,6 @@ class DocumentAttributeValue(PropertyType):
 
 @dataclass
 class DocumentEnrichmentConfiguration(PropertyType):
-    INLINE_CONFIGURATIONS = "InlineConfigurations"
-    PRE_EXTRACTION_HOOK_CONFIGURATION = "PreExtractionHookConfiguration"
-    POST_EXTRACTION_HOOK_CONFIGURATION = "PostExtractionHookConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_configurations": "InlineConfigurations",
         "pre_extraction_hook_configuration": "PreExtractionHookConfiguration",
@@ -107,11 +85,6 @@ class DocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class HookConfiguration(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    INVOCATION_CONDITION = "InvocationCondition"
-    S3_BUCKET_NAME = "S3BucketName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "invocation_condition": "InvocationCondition",
@@ -127,8 +100,6 @@ class HookConfiguration(PropertyType):
 
 @dataclass
 class ImageExtractionConfiguration(PropertyType):
-    IMAGE_EXTRACTION_STATUS = "ImageExtractionStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_extraction_status": "ImageExtractionStatus",
     }
@@ -138,10 +109,6 @@ class ImageExtractionConfiguration(PropertyType):
 
 @dataclass
 class InlineDocumentEnrichmentConfiguration(PropertyType):
-    CONDITION = "Condition"
-    TARGET = "Target"
-    DOCUMENT_CONTENT_OPERATOR = "DocumentContentOperator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "target": "Target",
@@ -155,10 +122,6 @@ class InlineDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class MediaExtractionConfiguration(PropertyType):
-    VIDEO_EXTRACTION_CONFIGURATION = "VideoExtractionConfiguration"
-    AUDIO_EXTRACTION_CONFIGURATION = "AudioExtractionConfiguration"
-    IMAGE_EXTRACTION_CONFIGURATION = "ImageExtractionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_extraction_configuration": "VideoExtractionConfiguration",
         "audio_extraction_configuration": "AudioExtractionConfiguration",
@@ -172,8 +135,6 @@ class MediaExtractionConfiguration(PropertyType):
 
 @dataclass
 class VideoExtractionConfiguration(PropertyType):
-    VIDEO_EXTRACTION_STATUS = "VideoExtractionStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_extraction_status": "VideoExtractionStatus",
     }

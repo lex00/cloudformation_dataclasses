@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DomainValidationOption(PropertyType):
-    DOMAIN_NAME = "DomainName"
-    HOSTED_ZONE_ID = "HostedZoneId"
-    VALIDATION_DOMAIN = "ValidationDomain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "hosted_zone_id": "HostedZoneId",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class JobAttachmentSettings(PropertyType):
-    ROOT_PREFIX = "RootPrefix"
-    S3_BUCKET_NAME = "S3BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "root_prefix": "RootPrefix",
         "s3_bucket_name": "S3BucketName",
@@ -25,10 +22,6 @@ class JobAttachmentSettings(PropertyType):
 
 @dataclass
 class JobRunAsUser(PropertyType):
-    RUN_AS = "RunAs"
-    POSIX = "Posix"
-    WINDOWS = "Windows"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_as": "RunAs",
         "posix": "Posix",
@@ -42,9 +35,6 @@ class JobRunAsUser(PropertyType):
 
 @dataclass
 class PosixUser(PropertyType):
-    GROUP = "Group"
-    USER = "User"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "user": "User",
@@ -56,9 +46,6 @@ class PosixUser(PropertyType):
 
 @dataclass
 class WindowsUser(PropertyType):
-    USER = "User"
-    PASSWORD_ARN = "PasswordArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "password_arn": "PasswordArn",

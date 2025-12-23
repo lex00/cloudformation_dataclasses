@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EntityIdentifier(PropertyType):
-    ENTITY_TYPE = "EntityType"
-    ENTITY_ID = "EntityId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_type": "EntityType",
         "entity_id": "EntityId",
@@ -25,9 +22,6 @@ class EntityIdentifier(PropertyType):
 
 @dataclass
 class PolicyDefinition(PropertyType):
-    STATIC = "Static"
-    TEMPLATE_LINKED = "TemplateLinked"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static": "Static",
         "template_linked": "TemplateLinked",
@@ -39,9 +33,6 @@ class PolicyDefinition(PropertyType):
 
 @dataclass
 class StaticPolicyDefinition(PropertyType):
-    DESCRIPTION = "Description"
-    STATEMENT = "Statement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "statement": "Statement",
@@ -53,10 +44,6 @@ class StaticPolicyDefinition(PropertyType):
 
 @dataclass
 class TemplateLinkedPolicyDefinition(PropertyType):
-    RESOURCE = "Resource"
-    POLICY_TEMPLATE_ID = "PolicyTemplateId"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "policy_template_id": "PolicyTemplateId",

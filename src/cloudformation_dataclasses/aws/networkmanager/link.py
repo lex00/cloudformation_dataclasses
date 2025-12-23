@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Bandwidth(PropertyType):
-    DOWNLOAD_SPEED = "DownloadSpeed"
-    UPLOAD_SPEED = "UploadSpeed"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "download_speed": "DownloadSpeed",
         "upload_speed": "UploadSpeed",

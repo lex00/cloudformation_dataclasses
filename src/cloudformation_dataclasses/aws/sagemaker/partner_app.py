@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PartnerAppConfig(PropertyType):
-    ADMIN_USERS = "AdminUsers"
-    ARGUMENTS = "Arguments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_users": "AdminUsers",
         "arguments": "Arguments",
@@ -25,8 +22,6 @@ class PartnerAppConfig(PropertyType):
 
 @dataclass
 class PartnerAppMaintenanceConfig(PropertyType):
-    MAINTENANCE_WINDOW_START = "MaintenanceWindowStart"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_window_start": "MaintenanceWindowStart",
     }

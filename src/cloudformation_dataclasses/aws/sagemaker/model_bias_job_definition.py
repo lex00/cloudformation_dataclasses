@@ -11,18 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    DATASET_FORMAT = "DatasetFormat"
-    S3_DATA_DISTRIBUTION_TYPE = "S3DataDistributionType"
-    START_TIME_OFFSET = "StartTimeOffset"
-    END_TIME_OFFSET = "EndTimeOffset"
-    PROBABILITY_THRESHOLD_ATTRIBUTE = "ProbabilityThresholdAttribute"
-    INFERENCE_ATTRIBUTE = "InferenceAttribute"
-    DATA_CAPTURED_DESTINATION_S3_URI = "DataCapturedDestinationS3Uri"
-    S3_INPUT_MODE = "S3InputMode"
-    LOCAL_PATH = "LocalPath"
-    PROBABILITY_ATTRIBUTE = "ProbabilityAttribute"
-    FEATURES_ATTRIBUTE = "FeaturesAttribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -52,11 +40,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    INSTANCE_COUNT = "InstanceCount"
-    VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
-    VOLUME_KMS_KEY_ID = "VolumeKmsKeyId"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -72,8 +55,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -83,8 +64,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    HEADER = "Header"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -94,10 +73,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    PARQUET = "Parquet"
-    CSV = "Csv"
-    JSON = "Json"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -111,17 +86,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    S3_DATA_DISTRIBUTION_TYPE = "S3DataDistributionType"
-    START_TIME_OFFSET = "StartTimeOffset"
-    END_TIME_OFFSET = "EndTimeOffset"
-    PROBABILITY_THRESHOLD_ATTRIBUTE = "ProbabilityThresholdAttribute"
-    ENDPOINT_NAME = "EndpointName"
-    INFERENCE_ATTRIBUTE = "InferenceAttribute"
-    S3_INPUT_MODE = "S3InputMode"
-    LOCAL_PATH = "LocalPath"
-    PROBABILITY_ATTRIBUTE = "ProbabilityAttribute"
-    FEATURES_ATTRIBUTE = "FeaturesAttribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "start_time_offset": "StartTimeOffset",
@@ -149,8 +113,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    LINE = "Line"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -160,10 +122,6 @@ class Json(PropertyType):
 
 @dataclass
 class ModelBiasAppSpecification(PropertyType):
-    CONFIG_URI = "ConfigUri"
-    ENVIRONMENT = "Environment"
-    IMAGE_URI = "ImageUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_uri": "ConfigUri",
         "environment": "Environment",
@@ -177,9 +135,6 @@ class ModelBiasAppSpecification(PropertyType):
 
 @dataclass
 class ModelBiasBaselineConfig(PropertyType):
-    CONSTRAINTS_RESOURCE = "ConstraintsResource"
-    BASELINING_JOB_NAME = "BaseliningJobName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints_resource": "ConstraintsResource",
         "baselining_job_name": "BaseliningJobName",
@@ -191,10 +146,6 @@ class ModelBiasBaselineConfig(PropertyType):
 
 @dataclass
 class ModelBiasJobInput(PropertyType):
-    GROUND_TRUTH_S3_INPUT = "GroundTruthS3Input"
-    BATCH_TRANSFORM_INPUT = "BatchTransformInput"
-    ENDPOINT_INPUT = "EndpointInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ground_truth_s3_input": "GroundTruthS3Input",
         "batch_transform_input": "BatchTransformInput",
@@ -208,8 +159,6 @@ class ModelBiasJobInput(PropertyType):
 
 @dataclass
 class MonitoringGroundTruthS3Input(PropertyType):
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -219,8 +168,6 @@ class MonitoringGroundTruthS3Input(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    S3_OUTPUT = "S3Output"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -230,9 +177,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    MONITORING_OUTPUTS = "MonitoringOutputs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -244,8 +188,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    CLUSTER_CONFIG = "ClusterConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -255,10 +197,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    ENABLE_NETWORK_ISOLATION = "EnableNetworkIsolation"
-    ENABLE_INTER_CONTAINER_TRAFFIC_ENCRYPTION = "EnableInterContainerTrafficEncryption"
-    VPC_CONFIG = "VpcConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -272,10 +210,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    S3_URI = "S3Uri"
-    LOCAL_PATH = "LocalPath"
-    S3_UPLOAD_MODE = "S3UploadMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -289,8 +223,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    MAX_RUNTIME_IN_SECONDS = "MaxRuntimeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -300,9 +232,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

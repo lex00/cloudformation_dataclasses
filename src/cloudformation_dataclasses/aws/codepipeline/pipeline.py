@@ -11,20 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionDeclaration(PropertyType):
-    ACTION_TYPE_ID = "ActionTypeId"
-    CONFIGURATION = "Configuration"
-    OUTPUT_ARTIFACTS = "OutputArtifacts"
-    OUTPUT_VARIABLES = "OutputVariables"
-    NAMESPACE = "Namespace"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    INPUT_ARTIFACTS = "InputArtifacts"
-    COMMANDS = "Commands"
-    REGION = "Region"
-    RUN_ORDER = "RunOrder"
-    TIMEOUT_IN_MINUTES = "TimeoutInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type_id": "ActionTypeId",
         "configuration": "Configuration",
@@ -58,11 +44,6 @@ class ActionDeclaration(PropertyType):
 
 @dataclass
 class ActionTypeId(PropertyType):
-    OWNER = "Owner"
-    CATEGORY = "Category"
-    VERSION = "Version"
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "category": "Category",
@@ -78,10 +59,6 @@ class ActionTypeId(PropertyType):
 
 @dataclass
 class ArtifactStore(PropertyType):
-    TYPE = "Type"
-    ENCRYPTION_KEY = "EncryptionKey"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "encryption_key": "EncryptionKey",
@@ -95,9 +72,6 @@ class ArtifactStore(PropertyType):
 
 @dataclass
 class ArtifactStoreMap(PropertyType):
-    ARTIFACT_STORE = "ArtifactStore"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_store": "ArtifactStore",
         "region": "Region",
@@ -109,8 +83,6 @@ class ArtifactStoreMap(PropertyType):
 
 @dataclass
 class BeforeEntryConditions(PropertyType):
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -120,9 +92,6 @@ class BeforeEntryConditions(PropertyType):
 
 @dataclass
 class BlockerDeclaration(PropertyType):
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -134,9 +103,6 @@ class BlockerDeclaration(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    RULES = "Rules"
-    RESULT = "Result"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
         "result": "Result",
@@ -148,9 +114,6 @@ class Condition(PropertyType):
 
 @dataclass
 class EncryptionKey(PropertyType):
-    TYPE = "Type"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -162,10 +125,6 @@ class EncryptionKey(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -179,10 +138,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class FailureConditions(PropertyType):
-    RETRY_CONFIGURATION = "RetryConfiguration"
-    CONDITIONS = "Conditions"
-    RESULT = "Result"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_configuration": "RetryConfiguration",
         "conditions": "Conditions",
@@ -196,9 +151,6 @@ class FailureConditions(PropertyType):
 
 @dataclass
 class GitBranchFilterCriteria(PropertyType):
-    INCLUDES = "Includes"
-    EXCLUDES = "Excludes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -210,10 +162,6 @@ class GitBranchFilterCriteria(PropertyType):
 
 @dataclass
 class GitConfiguration(PropertyType):
-    PULL_REQUEST = "PullRequest"
-    PUSH = "Push"
-    SOURCE_ACTION_NAME = "SourceActionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pull_request": "PullRequest",
         "push": "Push",
@@ -227,9 +175,6 @@ class GitConfiguration(PropertyType):
 
 @dataclass
 class GitFilePathFilterCriteria(PropertyType):
-    INCLUDES = "Includes"
-    EXCLUDES = "Excludes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -241,10 +186,6 @@ class GitFilePathFilterCriteria(PropertyType):
 
 @dataclass
 class GitPullRequestFilter(PropertyType):
-    FILE_PATHS = "FilePaths"
-    EVENTS = "Events"
-    BRANCHES = "Branches"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_paths": "FilePaths",
         "events": "Events",
@@ -258,10 +199,6 @@ class GitPullRequestFilter(PropertyType):
 
 @dataclass
 class GitPushFilter(PropertyType):
-    FILE_PATHS = "FilePaths"
-    BRANCHES = "Branches"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_paths": "FilePaths",
         "branches": "Branches",
@@ -275,9 +212,6 @@ class GitPushFilter(PropertyType):
 
 @dataclass
 class GitTagFilterCriteria(PropertyType):
-    INCLUDES = "Includes"
-    EXCLUDES = "Excludes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -289,8 +223,6 @@ class GitTagFilterCriteria(PropertyType):
 
 @dataclass
 class InputArtifact(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -300,9 +232,6 @@ class InputArtifact(PropertyType):
 
 @dataclass
 class OutputArtifact(PropertyType):
-    FILES = "Files"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "files": "Files",
         "name": "Name",
@@ -314,9 +243,6 @@ class OutputArtifact(PropertyType):
 
 @dataclass
 class PipelineTriggerDeclaration(PropertyType):
-    GIT_CONFIGURATION = "GitConfiguration"
-    PROVIDER_TYPE = "ProviderType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "git_configuration": "GitConfiguration",
         "provider_type": "ProviderType",
@@ -328,8 +254,6 @@ class PipelineTriggerDeclaration(PropertyType):
 
 @dataclass
 class RetryConfiguration(PropertyType):
-    RETRY_MODE = "RetryMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_mode": "RetryMode",
     }
@@ -339,14 +263,6 @@ class RetryConfiguration(PropertyType):
 
 @dataclass
 class RuleDeclaration(PropertyType):
-    RULE_TYPE_ID = "RuleTypeId"
-    CONFIGURATION = "Configuration"
-    INPUT_ARTIFACTS = "InputArtifacts"
-    COMMANDS = "Commands"
-    REGION = "Region"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_type_id": "RuleTypeId",
         "configuration": "Configuration",
@@ -368,11 +284,6 @@ class RuleDeclaration(PropertyType):
 
 @dataclass
 class RuleTypeId(PropertyType):
-    OWNER = "Owner"
-    CATEGORY = "Category"
-    VERSION = "Version"
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "category": "Category",
@@ -388,13 +299,6 @@ class RuleTypeId(PropertyType):
 
 @dataclass
 class StageDeclaration(PropertyType):
-    BLOCKERS = "Blockers"
-    ACTIONS = "Actions"
-    BEFORE_ENTRY = "BeforeEntry"
-    ON_SUCCESS = "OnSuccess"
-    NAME = "Name"
-    ON_FAILURE = "OnFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blockers": "Blockers",
         "actions": "Actions",
@@ -414,9 +318,6 @@ class StageDeclaration(PropertyType):
 
 @dataclass
 class StageTransition(PropertyType):
-    STAGE_NAME = "StageName"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "reason": "Reason",
@@ -428,8 +329,6 @@ class StageTransition(PropertyType):
 
 @dataclass
 class SuccessConditions(PropertyType):
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -439,10 +338,6 @@ class SuccessConditions(PropertyType):
 
 @dataclass
 class VariableDeclaration(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessControlAttribute(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,8 +22,6 @@ class AccessControlAttribute(PropertyType):
 
 @dataclass
 class AccessControlAttributeValue(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DatasetSource(PropertyType):
-    SOURCE_TYPE = "SourceType"
-    SOURCE_FORMAT = "SourceFormat"
-    SOURCE_DETAIL = "SourceDetail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "source_format": "SourceFormat",
@@ -28,9 +24,6 @@ class DatasetSource(PropertyType):
 
 @dataclass
 class KendraSourceDetail(PropertyType):
-    KNOWLEDGE_BASE_ARN = "KnowledgeBaseArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_arn": "KnowledgeBaseArn",
         "role_arn": "RoleArn",
@@ -42,8 +35,6 @@ class KendraSourceDetail(PropertyType):
 
 @dataclass
 class SourceDetail(PropertyType):
-    KENDRA = "Kendra"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra": "Kendra",
     }

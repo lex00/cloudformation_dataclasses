@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TransitGatewayAttachmentBgpConfiguration(PropertyType):
-    TRANSIT_GATEWAY_ADDRESS = "TransitGatewayAddress"
-    PEER_ADDRESS = "PeerAddress"
-    BGP_STATUS = "BgpStatus"
-    PEER_ASN = "PeerAsn"
-    TRANSIT_GATEWAY_ASN = "TransitGatewayAsn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_address": "TransitGatewayAddress",
         "peer_address": "PeerAddress",
@@ -34,12 +28,6 @@ class TransitGatewayAttachmentBgpConfiguration(PropertyType):
 
 @dataclass
 class TransitGatewayConnectPeerConfiguration(PropertyType):
-    TRANSIT_GATEWAY_ADDRESS = "TransitGatewayAddress"
-    BGP_CONFIGURATIONS = "BgpConfigurations"
-    PEER_ADDRESS = "PeerAddress"
-    INSIDE_CIDR_BLOCKS = "InsideCidrBlocks"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_address": "TransitGatewayAddress",
         "bgp_configurations": "BgpConfigurations",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryControl
@@ -74,10 +74,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::Cluster"
     name_field: ClassVar[str] = "name"
-    NETWORK_TYPE = "NetworkType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "tags": "Tags",
@@ -111,10 +107,6 @@ class ControlPanel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::ControlPanel"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ARN = "ClusterArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "tags": "Tags",
@@ -153,10 +145,6 @@ class RoutingControl(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::RoutingControl"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ARN = "ClusterArn"
-    CONTROL_PANEL_ARN = "ControlPanelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "control_panel_arn": "ControlPanelArn",
@@ -185,13 +173,6 @@ class SafetyRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::SafetyRule"
     name_field: ClassVar[str] = "name"
-    CONTROL_PANEL_ARN = "ControlPanelArn"
-    ASSERTION_RULE = "AssertionRule"
-    RULE_CONFIG = "RuleConfig"
-    GATING_RULE = "GatingRule"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_panel_arn": "ControlPanelArn",
         "assertion_rule": "AssertionRule",

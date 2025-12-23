@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OriginAccessControlConfig(PropertyType):
-    SIGNING_BEHAVIOR = "SigningBehavior"
-    DESCRIPTION = "Description"
-    ORIGIN_ACCESS_CONTROL_ORIGIN_TYPE = "OriginAccessControlOriginType"
-    SIGNING_PROTOCOL = "SigningProtocol"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_behavior": "SigningBehavior",
         "description": "Description",

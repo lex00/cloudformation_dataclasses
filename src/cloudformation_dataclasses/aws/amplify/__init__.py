@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:42
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Amplify
@@ -212,25 +212,6 @@ class App(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Amplify::App"
     name_field: ClassVar[str] = "name"
-    AUTO_BRANCH_CREATION_CONFIG = "AutoBranchCreationConfig"
-    OAUTH_TOKEN = "OauthToken"
-    DESCRIPTION = "Description"
-    PLATFORM = "Platform"
-    ENABLE_BRANCH_AUTO_DELETION = "EnableBranchAutoDeletion"
-    JOB_CONFIG = "JobConfig"
-    NAME = "Name"
-    COMPUTE_ROLE_ARN = "ComputeRoleArn"
-    REPOSITORY = "Repository"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    ACCESS_TOKEN = "AccessToken"
-    BUILD_SPEC = "BuildSpec"
-    CUSTOM_RULES = "CustomRules"
-    BASIC_AUTH_CONFIG = "BasicAuthConfig"
-    CACHE_CONFIG = "CacheConfig"
-    CUSTOM_HEADERS = "CustomHeaders"
-    TAGS = "Tags"
-    IAM_SERVICE_ROLE = "IAMServiceRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_branch_creation_config": "AutoBranchCreationConfig",
         "oauth_token": "OauthToken",
@@ -299,23 +280,6 @@ class Branch(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Amplify::Branch"
     name_field: ClassVar[str] = "branch_name"
-    DESCRIPTION = "Description"
-    ENABLE_PERFORMANCE_MODE = "EnablePerformanceMode"
-    COMPUTE_ROLE_ARN = "ComputeRoleArn"
-    BACKEND = "Backend"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    APP_ID = "AppId"
-    PULL_REQUEST_ENVIRONMENT_NAME = "PullRequestEnvironmentName"
-    ENABLE_PULL_REQUEST_PREVIEW = "EnablePullRequestPreview"
-    ENABLE_SKEW_PROTECTION = "EnableSkewProtection"
-    ENABLE_AUTO_BUILD = "EnableAutoBuild"
-    BUILD_SPEC = "BuildSpec"
-    STAGE = "Stage"
-    BRANCH_NAME = "BranchName"
-    BASIC_AUTH_CONFIG = "BasicAuthConfig"
-    FRAMEWORK = "Framework"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "enable_performance_mode": "EnablePerformanceMode",
@@ -370,14 +334,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Amplify::Domain"
     name_field: ClassVar[str] = "domain_name"
-    SUB_DOMAIN_SETTINGS = "SubDomainSettings"
-    APP_ID = "AppId"
-    AUTO_SUB_DOMAIN_IAM_ROLE = "AutoSubDomainIAMRole"
-    DOMAIN_NAME = "DomainName"
-    CERTIFICATE_SETTINGS = "CertificateSettings"
-    ENABLE_AUTO_SUB_DOMAIN = "EnableAutoSubDomain"
-    AUTO_SUB_DOMAIN_CREATION_PATTERNS = "AutoSubDomainCreationPatterns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_domain_settings": "SubDomainSettings",
         "app_id": "AppId",

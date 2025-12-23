@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Entry(PropertyType):
-    DESCRIPTION = "Description"
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "cidr": "Cidr",

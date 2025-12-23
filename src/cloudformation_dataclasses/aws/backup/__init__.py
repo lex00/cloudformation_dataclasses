@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:45
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Backup
@@ -511,9 +511,6 @@ class BackupPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::BackupPlan"
-    BACKUP_PLAN = "BackupPlan"
-    BACKUP_PLAN_TAGS = "BackupPlanTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_plan": "BackupPlan",
         "backup_plan_tags": "BackupPlanTags",
@@ -544,9 +541,6 @@ class BackupSelection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::BackupSelection"
-    BACKUP_SELECTION = "BackupSelection"
-    BACKUP_PLAN_ID = "BackupPlanId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_selection": "BackupSelection",
         "backup_plan_id": "BackupPlanId",
@@ -578,13 +572,6 @@ class BackupVault(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::BackupVault"
     name_field: ClassVar[str] = "backup_vault_name"
-    BACKUP_VAULT_TAGS = "BackupVaultTags"
-    BACKUP_VAULT_NAME = "BackupVaultName"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    LOCK_CONFIGURATION = "LockConfiguration"
-    NOTIFICATIONS = "Notifications"
-    ACCESS_POLICY = "AccessPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_vault_tags": "BackupVaultTags",
         "backup_vault_name": "BackupVaultName",
@@ -619,11 +606,6 @@ class Framework(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::Framework"
     name_field: ClassVar[str] = "framework_name"
-    FRAMEWORK_CONTROLS = "FrameworkControls"
-    FRAMEWORK_NAME = "FrameworkName"
-    FRAMEWORK_TAGS = "FrameworkTags"
-    FRAMEWORK_DESCRIPTION = "FrameworkDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "framework_controls": "FrameworkControls",
         "framework_name": "FrameworkName",
@@ -664,15 +646,6 @@ class LogicallyAirGappedBackupVault(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::LogicallyAirGappedBackupVault"
     name_field: ClassVar[str] = "backup_vault_name"
-    BACKUP_VAULT_TAGS = "BackupVaultTags"
-    BACKUP_VAULT_NAME = "BackupVaultName"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    MAX_RETENTION_DAYS = "MaxRetentionDays"
-    MIN_RETENTION_DAYS = "MinRetentionDays"
-    NOTIFICATIONS = "Notifications"
-    MPA_APPROVAL_TEAM_ARN = "MpaApprovalTeamArn"
-    ACCESS_POLICY = "AccessPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_vault_tags": "BackupVaultTags",
         "backup_vault_name": "BackupVaultName",
@@ -716,12 +689,6 @@ class ReportPlan(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::ReportPlan"
     name_field: ClassVar[str] = "report_plan_name"
-    REPORT_SETTING = "ReportSetting"
-    REPORT_PLAN_DESCRIPTION = "ReportPlanDescription"
-    REPORT_PLAN_NAME = "ReportPlanName"
-    REPORT_DELIVERY_CHANNEL = "ReportDeliveryChannel"
-    REPORT_PLAN_TAGS = "ReportPlanTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_setting": "ReportSetting",
         "report_plan_description": "ReportPlanDescription",
@@ -749,13 +716,6 @@ class RestoreTestingPlan(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::RestoreTestingPlan"
     name_field: ClassVar[str] = "restore_testing_plan_name"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    START_WINDOW_HOURS = "StartWindowHours"
-    RECOVERY_POINT_SELECTION = "RecoveryPointSelection"
-    RESTORE_TESTING_PLAN_NAME = "RestoreTestingPlanName"
-    SCHEDULE_EXPRESSION_TIMEZONE = "ScheduleExpressionTimezone"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "start_window_hours": "StartWindowHours",
@@ -785,15 +745,6 @@ class RestoreTestingSelection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Backup::RestoreTestingSelection"
     name_field: ClassVar[str] = "restore_testing_selection_name"
-    PROTECTED_RESOURCE_CONDITIONS = "ProtectedResourceConditions"
-    PROTECTED_RESOURCE_TYPE = "ProtectedResourceType"
-    RESTORE_METADATA_OVERRIDES = "RestoreMetadataOverrides"
-    RESTORE_TESTING_SELECTION_NAME = "RestoreTestingSelectionName"
-    PROTECTED_RESOURCE_ARNS = "ProtectedResourceArns"
-    RESTORE_TESTING_PLAN_NAME = "RestoreTestingPlanName"
-    IAM_ROLE_ARN = "IamRoleArn"
-    VALIDATION_WINDOW_HOURS = "ValidationWindowHours"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protected_resource_conditions": "ProtectedResourceConditions",
         "protected_resource_type": "ProtectedResourceType",

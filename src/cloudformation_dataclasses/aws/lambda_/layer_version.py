@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Content(PropertyType):
-    S3_OBJECT_VERSION = "S3ObjectVersion"
-    S3_BUCKET = "S3Bucket"
-    S3_KEY = "S3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_object_version": "S3ObjectVersion",
         "s3_bucket": "S3Bucket",

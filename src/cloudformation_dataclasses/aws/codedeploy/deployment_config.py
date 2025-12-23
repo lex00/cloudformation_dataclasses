@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MinimumHealthyHosts(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -25,9 +22,6 @@ class MinimumHealthyHosts(PropertyType):
 
 @dataclass
 class MinimumHealthyHostsPerZone(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -39,9 +33,6 @@ class MinimumHealthyHostsPerZone(PropertyType):
 
 @dataclass
 class TimeBasedCanary(PropertyType):
-    CANARY_PERCENTAGE = "CanaryPercentage"
-    CANARY_INTERVAL = "CanaryInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canary_percentage": "CanaryPercentage",
         "canary_interval": "CanaryInterval",
@@ -53,9 +44,6 @@ class TimeBasedCanary(PropertyType):
 
 @dataclass
 class TimeBasedLinear(PropertyType):
-    LINEAR_INTERVAL = "LinearInterval"
-    LINEAR_PERCENTAGE = "LinearPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "linear_interval": "LinearInterval",
         "linear_percentage": "LinearPercentage",
@@ -67,10 +55,6 @@ class TimeBasedLinear(PropertyType):
 
 @dataclass
 class TrafficRoutingConfig(PropertyType):
-    TYPE = "Type"
-    TIME_BASED_LINEAR = "TimeBasedLinear"
-    TIME_BASED_CANARY = "TimeBasedCanary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "time_based_linear": "TimeBasedLinear",
@@ -84,10 +68,6 @@ class TrafficRoutingConfig(PropertyType):
 
 @dataclass
 class ZonalConfig(PropertyType):
-    MONITOR_DURATION_IN_SECONDS = "MonitorDurationInSeconds"
-    MINIMUM_HEALTHY_HOSTS_PER_ZONE = "MinimumHealthyHostsPerZone"
-    FIRST_ZONE_MONITOR_DURATION_IN_SECONDS = "FirstZoneMonitorDurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitor_duration_in_seconds": "MonitorDurationInSeconds",
         "minimum_healthy_hosts_per_zone": "MinimumHealthyHostsPerZone",

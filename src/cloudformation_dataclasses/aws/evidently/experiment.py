@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MetricGoalObject(PropertyType):
-    ENTITY_ID_KEY = "EntityIdKey"
-    DESIRED_CHANGE = "DesiredChange"
-    METRIC_NAME = "MetricName"
-    EVENT_PATTERN = "EventPattern"
-    VALUE_KEY = "ValueKey"
-    UNIT_LABEL = "UnitLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id_key": "EntityIdKey",
         "desired_change": "DesiredChange",
@@ -37,9 +30,6 @@ class MetricGoalObject(PropertyType):
 
 @dataclass
 class OnlineAbConfigObject(PropertyType):
-    TREATMENT_WEIGHTS = "TreatmentWeights"
-    CONTROL_TREATMENT_NAME = "ControlTreatmentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_weights": "TreatmentWeights",
         "control_treatment_name": "ControlTreatmentName",
@@ -51,11 +41,6 @@ class OnlineAbConfigObject(PropertyType):
 
 @dataclass
 class RunningStatusObject(PropertyType):
-    STATUS = "Status"
-    DESIRED_STATE = "DesiredState"
-    ANALYSIS_COMPLETE_TIME = "AnalysisCompleteTime"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "desired_state": "DesiredState",
@@ -71,11 +56,6 @@ class RunningStatusObject(PropertyType):
 
 @dataclass
 class TreatmentObject(PropertyType):
-    DESCRIPTION = "Description"
-    VARIATION = "Variation"
-    FEATURE = "Feature"
-    TREATMENT_NAME = "TreatmentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "variation": "Variation",
@@ -91,9 +71,6 @@ class TreatmentObject(PropertyType):
 
 @dataclass
 class TreatmentToWeight(PropertyType):
-    TREATMENT = "Treatment"
-    SPLIT_WEIGHT = "SplitWeight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment": "Treatment",
         "split_weight": "SplitWeight",

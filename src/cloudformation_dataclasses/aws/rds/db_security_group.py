@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Ingress(PropertyType):
-    CIDRIP = "CIDRIP"
-    EC2_SECURITY_GROUP_ID = "EC2SecurityGroupId"
-    EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
-    EC2_SECURITY_GROUP_OWNER_ID = "EC2SecurityGroupOwnerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrip": "CIDRIP",
         "ec2_security_group_id": "EC2SecurityGroupId",

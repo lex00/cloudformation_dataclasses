@@ -11,19 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Attributes(PropertyType):
-    INBOUND_CALLS = "InboundCalls"
-    ENHANCED_CONTACT_MONITORING = "EnhancedContactMonitoring"
-    ENHANCED_CHAT_MONITORING = "EnhancedChatMonitoring"
-    USE_CUSTOM_TTS_VOICES = "UseCustomTTSVoices"
-    OUTBOUND_CALLS = "OutboundCalls"
-    EARLY_MEDIA = "EarlyMedia"
-    MULTI_PARTY_CONFERENCE = "MultiPartyConference"
-    CONTACTFLOW_LOGS = "ContactflowLogs"
-    CONTACT_LENS = "ContactLens"
-    AUTO_RESOLVE_BEST_VOICES = "AutoResolveBestVoices"
-    MULTI_PARTY_CHAT_CONFERENCE = "MultiPartyChatConference"
-    HIGH_VOLUME_OUT_BOUND = "HighVolumeOutBound"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inbound_calls": "InboundCalls",
         "enhanced_contact_monitoring": "EnhancedContactMonitoring",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CodeSecurityScanConfiguration(PropertyType):
-    CONTINUOUS_INTEGRATION_SCAN_CONFIGURATION = "continuousIntegrationScanConfiguration"
-    PERIODIC_SCAN_CONFIGURATION = "periodicScanConfiguration"
-    RULE_SET_CATEGORIES = "ruleSetCategories"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continuous_integration_scan_configuration": "continuousIntegrationScanConfiguration",
         "periodic_scan_configuration": "periodicScanConfiguration",
@@ -28,8 +24,6 @@ class CodeSecurityScanConfiguration(PropertyType):
 
 @dataclass
 class ContinuousIntegrationScanConfiguration(PropertyType):
-    SUPPORTED_EVENTS = "supportedEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supported_events": "supportedEvents",
     }
@@ -39,9 +33,6 @@ class ContinuousIntegrationScanConfiguration(PropertyType):
 
 @dataclass
 class PeriodicScanConfiguration(PropertyType):
-    FREQUENCY_EXPRESSION = "frequencyExpression"
-    FREQUENCY = "frequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency_expression": "frequencyExpression",
         "frequency": "frequency",
@@ -53,8 +44,6 @@ class PeriodicScanConfiguration(PropertyType):
 
 @dataclass
 class ScopeSettings(PropertyType):
-    PROJECT_SELECTION_SCOPE = "projectSelectionScope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_selection_scope": "projectSelectionScope",
     }

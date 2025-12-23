@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:05
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Location
@@ -206,15 +206,6 @@ class APIKey(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::APIKey"
     name_field: ClassVar[str] = "key_name"
-    KEY_NAME = "KeyName"
-    DESCRIPTION = "Description"
-    NO_EXPIRY = "NoExpiry"
-    FORCE_DELETE = "ForceDelete"
-    EXPIRE_TIME = "ExpireTime"
-    FORCE_UPDATE = "ForceUpdate"
-    RESTRICTIONS = "Restrictions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_name": "KeyName",
         "description": "Description",
@@ -263,11 +254,6 @@ class GeofenceCollection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::GeofenceCollection"
     name_field: ClassVar[str] = "collection_name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    COLLECTION_NAME = "CollectionName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_id": "KmsKeyId",
@@ -308,12 +294,6 @@ class Map(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::Map"
     name_field: ClassVar[str] = "map_name"
-    MAP_NAME = "MapName"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    PRICING_PLAN = "PricingPlan"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "map_name": "MapName",
         "description": "Description",
@@ -356,13 +336,6 @@ class PlaceIndex(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::PlaceIndex"
     name_field: ClassVar[str] = "index_name"
-    INDEX_NAME = "IndexName"
-    DESCRIPTION = "Description"
-    PRICING_PLAN = "PricingPlan"
-    DATA_SOURCE_CONFIGURATION = "DataSourceConfiguration"
-    TAGS = "Tags"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "description": "Description",
@@ -407,12 +380,6 @@ class RouteCalculator(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::RouteCalculator"
     name_field: ClassVar[str] = "calculator_name"
-    CALCULATOR_NAME = "CalculatorName"
-    DESCRIPTION = "Description"
-    PRICING_PLAN = "PricingPlan"
-    TAGS = "Tags"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "calculator_name": "CalculatorName",
         "description": "Description",
@@ -455,14 +422,6 @@ class Tracker(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::Tracker"
     name_field: ClassVar[str] = "tracker_name"
-    TRACKER_NAME = "TrackerName"
-    DESCRIPTION = "Description"
-    EVENT_BRIDGE_ENABLED = "EventBridgeEnabled"
-    KMS_KEY_ID = "KmsKeyId"
-    KMS_KEY_ENABLE_GEOSPATIAL_QUERIES = "KmsKeyEnableGeospatialQueries"
-    POSITION_FILTERING = "PositionFiltering"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracker_name": "TrackerName",
         "description": "Description",
@@ -509,9 +468,6 @@ class TrackerConsumer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Location::TrackerConsumer"
     name_field: ClassVar[str] = "tracker_name"
-    TRACKER_NAME = "TrackerName"
-    CONSUMER_ARN = "ConsumerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracker_name": "TrackerName",
         "consumer_arn": "ConsumerArn",

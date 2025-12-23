@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    RESTRICT_PUBLIC_BUCKETS = "RestrictPublicBuckets"
-    BLOCK_PUBLIC_POLICY = "BlockPublicPolicy"
-    BLOCK_PUBLIC_ACLS = "BlockPublicAcls"
-    IGNORE_PUBLIC_ACLS = "IgnorePublicAcls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -31,8 +26,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    VPC_ID = "VpcId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }

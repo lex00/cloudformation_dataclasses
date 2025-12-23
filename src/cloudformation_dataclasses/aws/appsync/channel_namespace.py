@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthMode(PropertyType):
-    AUTH_TYPE = "AuthType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_type": "AuthType",
     }
@@ -22,9 +20,6 @@ class AuthMode(PropertyType):
 
 @dataclass
 class HandlerConfig(PropertyType):
-    INTEGRATION = "Integration"
-    BEHAVIOR = "Behavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration": "Integration",
         "behavior": "Behavior",
@@ -36,9 +31,6 @@ class HandlerConfig(PropertyType):
 
 @dataclass
 class HandlerConfigs(PropertyType):
-    ON_PUBLISH = "OnPublish"
-    ON_SUBSCRIBE = "OnSubscribe"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_publish": "OnPublish",
         "on_subscribe": "OnSubscribe",
@@ -50,9 +42,6 @@ class HandlerConfigs(PropertyType):
 
 @dataclass
 class Integration(PropertyType):
-    DATA_SOURCE_NAME = "DataSourceName"
-    LAMBDA_CONFIG = "LambdaConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_name": "DataSourceName",
         "lambda_config": "LambdaConfig",
@@ -64,8 +53,6 @@ class Integration(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    INVOKE_TYPE = "InvokeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invoke_type": "InvokeType",
     }

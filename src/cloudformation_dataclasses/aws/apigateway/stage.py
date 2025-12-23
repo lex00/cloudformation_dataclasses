@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLogSetting(PropertyType):
-    FORMAT = "Format"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -25,11 +22,6 @@ class AccessLogSetting(PropertyType):
 
 @dataclass
 class CanarySetting(PropertyType):
-    DEPLOYMENT_ID = "DeploymentId"
-    STAGE_VARIABLE_OVERRIDES = "StageVariableOverrides"
-    PERCENT_TRAFFIC = "PercentTraffic"
-    USE_STAGE_CACHE = "UseStageCache"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_id": "DeploymentId",
         "stage_variable_overrides": "StageVariableOverrides",
@@ -45,17 +37,6 @@ class CanarySetting(PropertyType):
 
 @dataclass
 class MethodSetting(PropertyType):
-    CACHE_TTL_IN_SECONDS = "CacheTtlInSeconds"
-    LOGGING_LEVEL = "LoggingLevel"
-    RESOURCE_PATH = "ResourcePath"
-    CACHE_DATA_ENCRYPTED = "CacheDataEncrypted"
-    DATA_TRACE_ENABLED = "DataTraceEnabled"
-    THROTTLING_BURST_LIMIT = "ThrottlingBurstLimit"
-    CACHING_ENABLED = "CachingEnabled"
-    METRICS_ENABLED = "MetricsEnabled"
-    HTTP_METHOD = "HttpMethod"
-    THROTTLING_RATE_LIMIT = "ThrottlingRateLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "logging_level": "LoggingLevel",

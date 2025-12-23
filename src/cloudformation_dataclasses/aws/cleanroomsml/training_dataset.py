@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ColumnSchema(PropertyType):
-    COLUMN_NAME = "ColumnName"
-    COLUMN_TYPES = "ColumnTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_types": "ColumnTypes",
@@ -25,8 +22,6 @@ class ColumnSchema(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    GLUE_DATA_SOURCE = "GlueDataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_data_source": "GlueDataSource",
     }
@@ -36,9 +31,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class Dataset(PropertyType):
-    TYPE = "Type"
-    INPUT_CONFIG = "InputConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_config": "InputConfig",
@@ -50,9 +42,6 @@ class Dataset(PropertyType):
 
 @dataclass
 class DatasetInputConfig(PropertyType):
-    SCHEMA = "Schema"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema": "Schema",
         "data_source": "DataSource",
@@ -64,10 +53,6 @@ class DatasetInputConfig(PropertyType):
 
 @dataclass
 class GlueDataSource(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",

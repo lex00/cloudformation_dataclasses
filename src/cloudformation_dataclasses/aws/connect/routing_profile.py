@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CrossChannelBehavior(PropertyType):
-    BEHAVIOR_TYPE = "BehaviorType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "behavior_type": "BehaviorType",
     }
@@ -22,10 +20,6 @@ class CrossChannelBehavior(PropertyType):
 
 @dataclass
 class MediaConcurrency(PropertyType):
-    CONCURRENCY = "Concurrency"
-    CHANNEL = "Channel"
-    CROSS_CHANNEL_BEHAVIOR = "CrossChannelBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concurrency": "Concurrency",
         "channel": "Channel",
@@ -39,8 +33,6 @@ class MediaConcurrency(PropertyType):
 
 @dataclass
 class RoutingProfileManualAssignmentQueueConfig(PropertyType):
-    QUEUE_REFERENCE = "QueueReference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_reference": "QueueReference",
     }
@@ -50,10 +42,6 @@ class RoutingProfileManualAssignmentQueueConfig(PropertyType):
 
 @dataclass
 class RoutingProfileQueueConfig(PropertyType):
-    PRIORITY = "Priority"
-    QUEUE_REFERENCE = "QueueReference"
-    DELAY = "Delay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "queue_reference": "QueueReference",
@@ -67,9 +55,6 @@ class RoutingProfileQueueConfig(PropertyType):
 
 @dataclass
 class RoutingProfileQueueReference(PropertyType):
-    CHANNEL = "Channel"
-    QUEUE_ARN = "QueueArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel": "Channel",
         "queue_arn": "QueueArn",

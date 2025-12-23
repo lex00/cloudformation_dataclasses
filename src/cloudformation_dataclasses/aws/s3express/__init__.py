@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Express
@@ -36,15 +36,6 @@ class AccessPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Express::AccessPoint"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
-    SCOPE = "Scope"
-    BUCKET = "Bucket"
-    BUCKET_ACCOUNT_ID = "BucketAccountId"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "public_access_block_configuration": "PublicAccessBlockConfiguration",
@@ -82,9 +73,6 @@ class BucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3exp"""
 
     resource_type: ClassVar[str] = "AWS::S3Express::BucketPolicy"
-    BUCKET = "Bucket"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "policy_document": "PolicyDocument",
@@ -100,13 +88,6 @@ class DirectoryBucket(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Express::DirectoryBucket"
     name_field: ClassVar[str] = "bucket_name"
-    BUCKET_NAME = "BucketName"
-    BUCKET_ENCRYPTION = "BucketEncryption"
-    DATA_REDUNDANCY = "DataRedundancy"
-    LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"
-    TAGS = "Tags"
-    LOCATION_NAME = "LocationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_encryption": "BucketEncryption",

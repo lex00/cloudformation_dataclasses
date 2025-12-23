@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DBClusterRole(PropertyType):
-    ROLE_ARN = "RoleArn"
-    FEATURE_NAME = "FeatureName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "feature_name": "FeatureName",
@@ -25,9 +22,6 @@ class DBClusterRole(PropertyType):
 
 @dataclass
 class ServerlessScalingConfiguration(PropertyType):
-    MIN_CAPACITY = "MinCapacity"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "max_capacity": "MaxCapacity",

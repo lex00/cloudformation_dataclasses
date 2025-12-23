@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomerManagedPolicyReference(PropertyType):
-    PATH = "Path"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "name": "Name",
@@ -25,9 +22,6 @@ class CustomerManagedPolicyReference(PropertyType):
 
 @dataclass
 class PermissionsBoundary(PropertyType):
-    CUSTOMER_MANAGED_POLICY_REFERENCE = "CustomerManagedPolicyReference"
-    MANAGED_POLICY_ARN = "ManagedPolicyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_policy_reference": "CustomerManagedPolicyReference",
         "managed_policy_arn": "ManagedPolicyArn",

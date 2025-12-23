@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApiPassthrough(PropertyType):
-    EXTENSIONS = "Extensions"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extensions": "Extensions",
         "subject": "Subject",
@@ -25,9 +22,6 @@ class ApiPassthrough(PropertyType):
 
 @dataclass
 class CustomAttribute(PropertyType):
-    VALUE = "Value"
-    OBJECT_IDENTIFIER = "ObjectIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "object_identifier": "ObjectIdentifier",
@@ -39,10 +33,6 @@ class CustomAttribute(PropertyType):
 
 @dataclass
 class CustomExtension(PropertyType):
-    VALUE = "Value"
-    CRITICAL = "Critical"
-    OBJECT_IDENTIFIER = "ObjectIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "critical": "Critical",
@@ -56,9 +46,6 @@ class CustomExtension(PropertyType):
 
 @dataclass
 class EdiPartyName(PropertyType):
-    PARTY_NAME = "PartyName"
-    NAME_ASSIGNER = "NameAssigner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "party_name": "PartyName",
         "name_assigner": "NameAssigner",
@@ -70,9 +57,6 @@ class EdiPartyName(PropertyType):
 
 @dataclass
 class ExtendedKeyUsage(PropertyType):
-    EXTENDED_KEY_USAGE_TYPE = "ExtendedKeyUsageType"
-    EXTENDED_KEY_USAGE_OBJECT_IDENTIFIER = "ExtendedKeyUsageObjectIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extended_key_usage_type": "ExtendedKeyUsageType",
         "extended_key_usage_object_identifier": "ExtendedKeyUsageObjectIdentifier",
@@ -84,12 +68,6 @@ class ExtendedKeyUsage(PropertyType):
 
 @dataclass
 class Extensions(PropertyType):
-    CUSTOM_EXTENSIONS = "CustomExtensions"
-    CERTIFICATE_POLICIES = "CertificatePolicies"
-    KEY_USAGE = "KeyUsage"
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    EXTENDED_KEY_USAGE = "ExtendedKeyUsage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_extensions": "CustomExtensions",
         "certificate_policies": "CertificatePolicies",
@@ -107,15 +85,6 @@ class Extensions(PropertyType):
 
 @dataclass
 class GeneralName(PropertyType):
-    UNIFORM_RESOURCE_IDENTIFIER = "UniformResourceIdentifier"
-    DNS_NAME = "DnsName"
-    EDI_PARTY_NAME = "EdiPartyName"
-    REGISTERED_ID = "RegisteredId"
-    RFC822_NAME = "Rfc822Name"
-    OTHER_NAME = "OtherName"
-    IP_ADDRESS = "IpAddress"
-    DIRECTORY_NAME = "DirectoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_resource_identifier": "UniformResourceIdentifier",
         "dns_name": "DnsName",
@@ -139,16 +108,6 @@ class GeneralName(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    KEY_ENCIPHERMENT = "KeyEncipherment"
-    DATA_ENCIPHERMENT = "DataEncipherment"
-    DIGITAL_SIGNATURE = "DigitalSignature"
-    KEY_CERT_SIGN = "KeyCertSign"
-    DECIPHER_ONLY = "DecipherOnly"
-    KEY_AGREEMENT = "KeyAgreement"
-    NON_REPUDIATION = "NonRepudiation"
-    CRL_SIGN = "CRLSign"
-    ENCIPHER_ONLY = "EncipherOnly"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -174,9 +133,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class OtherName(PropertyType):
-    TYPE_ID = "TypeId"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_id": "TypeId",
         "value": "Value",
@@ -188,9 +144,6 @@ class OtherName(PropertyType):
 
 @dataclass
 class PolicyInformation(PropertyType):
-    CERT_POLICY_ID = "CertPolicyId"
-    POLICY_QUALIFIERS = "PolicyQualifiers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_policy_id": "CertPolicyId",
         "policy_qualifiers": "PolicyQualifiers",
@@ -202,9 +155,6 @@ class PolicyInformation(PropertyType):
 
 @dataclass
 class PolicyQualifierInfo(PropertyType):
-    QUALIFIER = "Qualifier"
-    POLICY_QUALIFIER_ID = "PolicyQualifierId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qualifier": "Qualifier",
         "policy_qualifier_id": "PolicyQualifierId",
@@ -216,8 +166,6 @@ class PolicyQualifierInfo(PropertyType):
 
 @dataclass
 class Qualifier(PropertyType):
-    CPS_URI = "CpsUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cps_uri": "CpsUri",
     }
@@ -227,22 +175,6 @@ class Qualifier(PropertyType):
 
 @dataclass
 class Subject(PropertyType):
-    ORGANIZATION = "Organization"
-    ORGANIZATIONAL_UNIT = "OrganizationalUnit"
-    LOCALITY = "Locality"
-    TITLE = "Title"
-    GIVEN_NAME = "GivenName"
-    GENERATION_QUALIFIER = "GenerationQualifier"
-    INITIALS = "Initials"
-    CUSTOM_ATTRIBUTES = "CustomAttributes"
-    SERIAL_NUMBER = "SerialNumber"
-    STATE = "State"
-    COUNTRY = "Country"
-    SURNAME = "Surname"
-    DISTINGUISHED_NAME_QUALIFIER = "DistinguishedNameQualifier"
-    COMMON_NAME = "CommonName"
-    PSEUDONYM = "Pseudonym"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization": "Organization",
         "organizational_unit": "OrganizationalUnit",
@@ -280,9 +212,6 @@ class Subject(PropertyType):
 
 @dataclass
 class Validity(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",

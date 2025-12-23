@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PauseClusterMessage(PropertyType):
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_identifier": "ClusterIdentifier",
     }
@@ -22,12 +20,6 @@ class PauseClusterMessage(PropertyType):
 
 @dataclass
 class ResizeClusterMessage(PropertyType):
-    NODE_TYPE = "NodeType"
-    NUMBER_OF_NODES = "NumberOfNodes"
-    CLUSTER_TYPE = "ClusterType"
-    CLASSIC = "Classic"
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_type": "NodeType",
         "number_of_nodes": "NumberOfNodes",
@@ -45,8 +37,6 @@ class ResizeClusterMessage(PropertyType):
 
 @dataclass
 class ResumeClusterMessage(PropertyType):
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_identifier": "ClusterIdentifier",
     }
@@ -56,10 +46,6 @@ class ResumeClusterMessage(PropertyType):
 
 @dataclass
 class ScheduledActionType(PropertyType):
-    PAUSE_CLUSTER = "PauseCluster"
-    RESUME_CLUSTER = "ResumeCluster"
-    RESIZE_CLUSTER = "ResizeCluster"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pause_cluster": "PauseCluster",
         "resume_cluster": "ResumeCluster",

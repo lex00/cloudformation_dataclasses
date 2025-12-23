@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SseSpecification(PropertyType):
-    CUSTOMER_MANAGED_KEY_ENABLED = "CustomerManagedKeyEnabled"
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",

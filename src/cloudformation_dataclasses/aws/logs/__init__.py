@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:05
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Logs
@@ -524,12 +524,6 @@ class AccountPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::AccountPolicy"
     name_field: ClassVar[str] = "policy_name"
-    POLICY_TYPE = "PolicyType"
-    SCOPE = "Scope"
-    POLICY_NAME = "PolicyName"
-    SELECTION_CRITERIA = "SelectionCriteria"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_type": "PolicyType",
         "scope": "Scope",
@@ -557,14 +551,6 @@ class Delivery(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::Delivery"
     name_field: ClassVar[str] = "delivery_source_name"
-    S3_ENABLE_HIVE_COMPATIBLE_PATH = "S3EnableHiveCompatiblePath"
-    FIELD_DELIMITER = "FieldDelimiter"
-    DELIVERY_DESTINATION_ARN = "DeliveryDestinationArn"
-    DELIVERY_SOURCE_NAME = "DeliverySourceName"
-    RECORD_FIELDS = "RecordFields"
-    S3_SUFFIX_PATH = "S3SuffixPath"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_enable_hive_compatible_path": "S3EnableHiveCompatiblePath",
         "field_delimiter": "FieldDelimiter",
@@ -606,13 +592,6 @@ class DeliveryDestination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::DeliveryDestination"
     name_field: ClassVar[str] = "name"
-    DESTINATION_RESOURCE_ARN = "DestinationResourceArn"
-    OUTPUT_FORMAT = "OutputFormat"
-    DELIVERY_DESTINATION_POLICY = "DeliveryDestinationPolicy"
-    TAGS = "Tags"
-    DELIVERY_DESTINATION_TYPE = "DeliveryDestinationType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_resource_arn": "DestinationResourceArn",
         "output_format": "OutputFormat",
@@ -642,11 +621,6 @@ class DeliverySource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::DeliverySource"
     name_field: ClassVar[str] = "name"
-    RESOURCE_ARN = "ResourceArn"
-    LOG_TYPE = "LogType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "log_type": "LogType",
@@ -682,12 +656,6 @@ class Destination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::Destination"
     name_field: ClassVar[str] = "destination_name"
-    DESTINATION_POLICY = "DestinationPolicy"
-    DESTINATION_NAME = "DestinationName"
-    TARGET_ARN = "TargetArn"
-    TAGS = "Tags"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_policy": "DestinationPolicy",
         "destination_name": "DestinationName",
@@ -715,10 +683,6 @@ class Integration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::Integration"
     name_field: ClassVar[str] = "integration_name"
-    INTEGRATION_NAME = "IntegrationName"
-    RESOURCE_CONFIG = "ResourceConfig"
-    INTEGRATION_TYPE = "IntegrationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration_name": "IntegrationName",
         "resource_config": "ResourceConfig",
@@ -742,14 +706,6 @@ class LogAnomalyDetector(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::LogAnomalyDetector"
     name_field: ClassVar[str] = "detector_name"
-    ANOMALY_VISIBILITY_TIME = "AnomalyVisibilityTime"
-    FILTER_PATTERN = "FilterPattern"
-    ACCOUNT_ID = "AccountId"
-    KMS_KEY_ID = "KmsKeyId"
-    LOG_GROUP_ARN_LIST = "LogGroupArnList"
-    EVALUATION_FREQUENCY = "EvaluationFrequency"
-    DETECTOR_NAME = "DetectorName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anomaly_visibility_time": "AnomalyVisibilityTime",
         "filter_pattern": "FilterPattern",
@@ -796,15 +752,6 @@ class LogGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::LogGroup"
     name_field: ClassVar[str] = "log_group_name"
-    FIELD_INDEX_POLICIES = "FieldIndexPolicies"
-    RETENTION_IN_DAYS = "RetentionInDays"
-    KMS_KEY_ID = "KmsKeyId"
-    LOG_GROUP_CLASS = "LogGroupClass"
-    RESOURCE_POLICY_DOCUMENT = "ResourcePolicyDocument"
-    LOG_GROUP_NAME = "LogGroupName"
-    TAGS = "Tags"
-    DATA_PROTECTION_POLICY = "DataProtectionPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_index_policies": "FieldIndexPolicies",
         "retention_in_days": "RetentionInDays",
@@ -838,9 +785,6 @@ class LogStream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::LogStream"
     name_field: ClassVar[str] = "log_stream_name"
-    LOG_STREAM_NAME = "LogStreamName"
-    LOG_GROUP_NAME = "LogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_name": "LogStreamName",
         "log_group_name": "LogGroupName",
@@ -856,14 +800,6 @@ class MetricFilter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::MetricFilter"
     name_field: ClassVar[str] = "filter_name"
-    FIELD_SELECTION_CRITERIA = "FieldSelectionCriteria"
-    METRIC_TRANSFORMATIONS = "MetricTransformations"
-    FILTER_PATTERN = "FilterPattern"
-    EMIT_SYSTEM_FIELD_DIMENSIONS = "EmitSystemFieldDimensions"
-    LOG_GROUP_NAME = "LogGroupName"
-    APPLY_ON_TRANSFORMED_LOGS = "ApplyOnTransformedLogs"
-    FILTER_NAME = "FilterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selection_criteria": "FieldSelectionCriteria",
         "metric_transformations": "MetricTransformations",
@@ -889,11 +825,6 @@ class QueryDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::QueryDefinition"
     name_field: ClassVar[str] = "name"
-    QUERY_STRING = "QueryString"
-    LOG_GROUP_NAMES = "LogGroupNames"
-    QUERY_LANGUAGE = "QueryLanguage"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_string": "QueryString",
         "log_group_names": "LogGroupNames",
@@ -919,9 +850,6 @@ class ResourcePolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::ResourcePolicy"
     name_field: ClassVar[str] = "policy_name"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",
@@ -937,16 +865,6 @@ class SubscriptionFilter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Logs::SubscriptionFilter"
     name_field: ClassVar[str] = "filter_name"
-    FIELD_SELECTION_CRITERIA = "FieldSelectionCriteria"
-    FILTER_PATTERN = "FilterPattern"
-    EMIT_SYSTEM_FIELDS = "EmitSystemFields"
-    DISTRIBUTION = "Distribution"
-    LOG_GROUP_NAME = "LogGroupName"
-    APPLY_ON_TRANSFORMED_LOGS = "ApplyOnTransformedLogs"
-    FILTER_NAME = "FilterName"
-    DESTINATION_ARN = "DestinationArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selection_criteria": "FieldSelectionCriteria",
         "filter_pattern": "FilterPattern",
@@ -975,9 +893,6 @@ class Transformer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::Transformer"
-    TRANSFORMER_CONFIG = "TransformerConfig"
-    LOG_GROUP_IDENTIFIER = "LogGroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transformer_config": "TransformerConfig",
         "log_group_identifier": "LogGroupIdentifier",

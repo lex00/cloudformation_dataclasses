@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceDiscovery
@@ -230,10 +230,6 @@ class HttpNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::HttpNamespace"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -261,10 +257,6 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::Instance"
-    INSTANCE_ATTRIBUTES = "InstanceAttributes"
-    INSTANCE_ID = "InstanceId"
-    SERVICE_ID = "ServiceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_attributes": "InstanceAttributes",
         "instance_id": "InstanceId",
@@ -282,12 +274,6 @@ class PrivateDnsNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::PrivateDnsNamespace"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    VPC = "Vpc"
-    PROPERTIES = "Properties"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "vpc": "Vpc",
@@ -325,11 +311,6 @@ class PublicDnsNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::PublicDnsNamespace"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PROPERTIES = "Properties"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "properties": "Properties",
@@ -365,16 +346,6 @@ class Service(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::Service"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    HEALTH_CHECK_CUSTOM_CONFIG = "HealthCheckCustomConfig"
-    DNS_CONFIG = "DnsConfig"
-    SERVICE_ATTRIBUTES = "ServiceAttributes"
-    NAMESPACE_ID = "NamespaceId"
-    HEALTH_CHECK_CONFIG = "HealthCheckConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:41
+  Generated: 2025-12-22 19:26:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCZonalShift
@@ -34,8 +34,6 @@ class AutoshiftObserverNotificationStatus(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczo"""
 
     resource_type: ClassVar[str] = "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus"
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -59,10 +57,6 @@ class ZonalAutoshiftConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczo"""
 
     resource_type: ClassVar[str] = "AWS::ARCZonalShift::ZonalAutoshiftConfiguration"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    ZONAL_AUTOSHIFT_STATUS = "ZonalAutoshiftStatus"
-    PRACTICE_RUN_CONFIGURATION = "PracticeRunConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_identifier": "ResourceIdentifier",
         "zonal_autoshift_status": "ZonalAutoshiftStatus",

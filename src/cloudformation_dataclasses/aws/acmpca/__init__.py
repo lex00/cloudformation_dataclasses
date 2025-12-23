@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:40
+  Generated: 2025-12-22 19:26:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ACMPCA
@@ -286,14 +286,6 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpc"""
 
     resource_type: ClassVar[str] = "AWS::ACMPCA::Certificate"
-    TEMPLATE_ARN = "TemplateArn"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    VALIDITY = "Validity"
-    CERTIFICATE_SIGNING_REQUEST = "CertificateSigningRequest"
-    SIGNING_ALGORITHM = "SigningAlgorithm"
-    API_PASSTHROUGH = "ApiPassthrough"
-    VALIDITY_NOT_BEFORE = "ValidityNotBefore"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_arn": "TemplateArn",
         "certificate_authority_arn": "CertificateAuthorityArn",
@@ -329,16 +321,6 @@ class CertificateAuthority(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpc"""
 
     resource_type: ClassVar[str] = "AWS::ACMPCA::CertificateAuthority"
-    CSR_EXTENSIONS = "CsrExtensions"
-    TYPE = "Type"
-    REVOCATION_CONFIGURATION = "RevocationConfiguration"
-    USAGE_MODE = "UsageMode"
-    SIGNING_ALGORITHM = "SigningAlgorithm"
-    KEY_STORAGE_SECURITY_STANDARD = "KeyStorageSecurityStandard"
-    SUBJECT = "Subject"
-    TAGS = "Tags"
-    KEY_ALGORITHM = "KeyAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "csr_extensions": "CsrExtensions",
         "type_": "Type",
@@ -378,11 +360,6 @@ class CertificateAuthorityActivation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpc"""
 
     resource_type: ClassVar[str] = "AWS::ACMPCA::CertificateAuthorityActivation"
-    STATUS = "Status"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    CERTIFICATE_CHAIN = "CertificateChain"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "certificate_authority_arn": "CertificateAuthorityArn",
@@ -407,11 +384,6 @@ class Permission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpc"""
 
     resource_type: ClassVar[str] = "AWS::ACMPCA::Permission"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    ACTIONS = "Actions"
-    SOURCE_ACCOUNT = "SourceAccount"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "actions": "Actions",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionThreshold(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -25,10 +22,6 @@ class ActionThreshold(PropertyType):
 
 @dataclass
 class Definition(PropertyType):
-    SSM_ACTION_DEFINITION = "SsmActionDefinition"
-    IAM_ACTION_DEFINITION = "IamActionDefinition"
-    SCP_ACTION_DEFINITION = "ScpActionDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_action_definition": "SsmActionDefinition",
         "iam_action_definition": "IamActionDefinition",
@@ -42,11 +35,6 @@ class Definition(PropertyType):
 
 @dataclass
 class IamActionDefinition(PropertyType):
-    POLICY_ARN = "PolicyArn"
-    GROUPS = "Groups"
-    ROLES = "Roles"
-    USERS = "Users"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
         "groups": "Groups",
@@ -62,9 +50,6 @@ class IamActionDefinition(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -76,9 +61,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class ScpActionDefinition(PropertyType):
-    TARGET_IDS = "TargetIds"
-    POLICY_ID = "PolicyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_ids": "TargetIds",
         "policy_id": "PolicyId",
@@ -90,10 +72,6 @@ class ScpActionDefinition(PropertyType):
 
 @dataclass
 class SsmActionDefinition(PropertyType):
-    REGION = "Region"
-    INSTANCE_IDS = "InstanceIds"
-    SUBTYPE = "Subtype"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "instance_ids": "InstanceIds",
@@ -107,9 +85,6 @@ class SsmActionDefinition(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    TYPE = "Type"
-    ADDRESS = "Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "address": "Address",

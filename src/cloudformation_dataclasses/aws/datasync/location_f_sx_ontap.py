@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NFS(PropertyType):
-    MOUNT_OPTIONS = "MountOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_options": "MountOptions",
     }
@@ -22,8 +20,6 @@ class NFS(PropertyType):
 
 @dataclass
 class NfsMountOptions(PropertyType):
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -33,9 +29,6 @@ class NfsMountOptions(PropertyType):
 
 @dataclass
 class Protocol(PropertyType):
-    SMB = "SMB"
-    NFS = "NFS"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smb": "SMB",
         "nfs": "NFS",
@@ -47,11 +40,6 @@ class Protocol(PropertyType):
 
 @dataclass
 class SMB(PropertyType):
-    USER = "User"
-    DOMAIN = "Domain"
-    MOUNT_OPTIONS = "MountOptions"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "domain": "Domain",
@@ -67,8 +55,6 @@ class SMB(PropertyType):
 
 @dataclass
 class SmbMountOptions(PropertyType):
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }

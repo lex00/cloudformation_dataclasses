@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogsConfiguration(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -22,8 +20,6 @@ class CloudWatchLogsConfiguration(PropertyType):
 
 @dataclass
 class FirehoseConfiguration(PropertyType):
-    STREAM_ARN = "StreamArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
     }
@@ -33,12 +29,6 @@ class FirehoseConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    FIREHOSE_CONFIGURATION = "FirehoseConfiguration"
-    EVENT_SOURCE = "EventSource"
-    S3_CONFIGURATION = "S3Configuration"
-    CLOUD_WATCH_LOGS_CONFIGURATION = "CloudWatchLogsConfiguration"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_configuration": "FirehoseConfiguration",
         "event_source": "EventSource",
@@ -56,8 +46,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    BUCKET_ARN = "BucketArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
     }

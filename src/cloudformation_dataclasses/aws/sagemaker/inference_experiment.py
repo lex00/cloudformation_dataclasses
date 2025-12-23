@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CaptureContentTypeHeader(PropertyType):
-    JSON_CONTENT_TYPES = "JsonContentTypes"
-    CSV_CONTENT_TYPES = "CsvContentTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_content_types": "JsonContentTypes",
         "csv_content_types": "CsvContentTypes",
@@ -25,10 +22,6 @@ class CaptureContentTypeHeader(PropertyType):
 
 @dataclass
 class DataStorageConfig(PropertyType):
-    DESTINATION = "Destination"
-    CONTENT_TYPE = "ContentType"
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "content_type": "ContentType",
@@ -42,10 +35,6 @@ class DataStorageConfig(PropertyType):
 
 @dataclass
 class EndpointMetadata(PropertyType):
-    ENDPOINT_STATUS = "EndpointStatus"
-    ENDPOINT_NAME = "EndpointName"
-    ENDPOINT_CONFIG_NAME = "EndpointConfigName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_status": "EndpointStatus",
         "endpoint_name": "EndpointName",
@@ -59,9 +48,6 @@ class EndpointMetadata(PropertyType):
 
 @dataclass
 class InferenceExperimentSchedule(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -73,9 +59,6 @@ class InferenceExperimentSchedule(PropertyType):
 
 @dataclass
 class ModelInfrastructureConfig(PropertyType):
-    INFRASTRUCTURE_TYPE = "InfrastructureType"
-    REAL_TIME_INFERENCE_CONFIG = "RealTimeInferenceConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "infrastructure_type": "InfrastructureType",
         "real_time_inference_config": "RealTimeInferenceConfig",
@@ -87,10 +70,6 @@ class ModelInfrastructureConfig(PropertyType):
 
 @dataclass
 class ModelVariantConfig(PropertyType):
-    MODEL_NAME = "ModelName"
-    VARIANT_NAME = "VariantName"
-    INFRASTRUCTURE_CONFIG = "InfrastructureConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_name": "ModelName",
         "variant_name": "VariantName",
@@ -104,9 +83,6 @@ class ModelVariantConfig(PropertyType):
 
 @dataclass
 class RealTimeInferenceConfig(PropertyType):
-    INSTANCE_COUNT = "InstanceCount"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "instance_type": "InstanceType",
@@ -118,9 +94,6 @@ class RealTimeInferenceConfig(PropertyType):
 
 @dataclass
 class ShadowModeConfig(PropertyType):
-    SOURCE_MODEL_VARIANT_NAME = "SourceModelVariantName"
-    SHADOW_MODEL_VARIANTS = "ShadowModelVariants"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_model_variant_name": "SourceModelVariantName",
         "shadow_model_variants": "ShadowModelVariants",
@@ -132,9 +105,6 @@ class ShadowModeConfig(PropertyType):
 
 @dataclass
 class ShadowModelVariantConfig(PropertyType):
-    SHADOW_MODEL_VARIANT_NAME = "ShadowModelVariantName"
-    SAMPLING_PERCENTAGE = "SamplingPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shadow_model_variant_name": "ShadowModelVariantName",
         "sampling_percentage": "SamplingPercentage",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_KEY_ARN = "KMSKeyArn"
-    SSE_ALGORITHM = "SSEAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KMSKeyArn",
         "sse_algorithm": "SSEAlgorithm",
@@ -25,8 +22,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class MetricsConfiguration(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -36,8 +31,6 @@ class MetricsConfiguration(PropertyType):
 
 @dataclass
 class StorageClassConfiguration(PropertyType):
-    STORAGE_CLASS = "StorageClass"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
     }
@@ -47,10 +40,6 @@ class StorageClassConfiguration(PropertyType):
 
 @dataclass
 class UnreferencedFileRemoval(PropertyType):
-    STATUS = "Status"
-    NONCURRENT_DAYS = "NoncurrentDays"
-    UNREFERENCED_DAYS = "UnreferencedDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "noncurrent_days": "NoncurrentDays",

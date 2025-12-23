@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationDetails(PropertyType):
-    CONFIGURATION_STATUS = "ConfigurationStatus"
-    ERROR_CODE = "ErrorCode"
-    ERROR_MESSAGE = "ErrorMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_status": "ConfigurationStatus",
         "error_code": "ErrorCode",

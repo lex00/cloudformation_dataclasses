@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:18
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSO
@@ -244,14 +244,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSO::Application"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    APPLICATION_PROVIDER_ARN = "ApplicationProviderArn"
-    PORTAL_OPTIONS = "PortalOptions"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "application_provider_arn": "ApplicationProviderArn",
@@ -282,10 +274,6 @@ class ApplicationAssignment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-a"""
 
     resource_type: ClassVar[str] = "AWS::SSO::ApplicationAssignment"
-    APPLICATION_ARN = "ApplicationArn"
-    PRINCIPAL_ID = "PrincipalId"
-    PRINCIPAL_TYPE = "PrincipalType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
         "principal_id": "PrincipalId",
@@ -302,13 +290,6 @@ class Assignment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-a"""
 
     resource_type: ClassVar[str] = "AWS::SSO::Assignment"
-    PRINCIPAL_ID = "PrincipalId"
-    INSTANCE_ARN = "InstanceArn"
-    TARGET_TYPE = "TargetType"
-    PERMISSION_SET_ARN = "PermissionSetArn"
-    PRINCIPAL_TYPE = "PrincipalType"
-    TARGET_ID = "TargetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_id": "PrincipalId",
         "instance_arn": "InstanceArn",
@@ -332,9 +313,6 @@ class Instance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSO::Instance"
     name_field: ClassVar[str] = "name"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "name": "Name",
@@ -370,9 +348,6 @@ class InstanceAccessControlAttributeConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-i"""
 
     resource_type: ClassVar[str] = "AWS::SSO::InstanceAccessControlAttributeConfiguration"
-    INSTANCE_ARN = "InstanceArn"
-    ACCESS_CONTROL_ATTRIBUTES = "AccessControlAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_arn": "InstanceArn",
         "access_control_attributes": "AccessControlAttributes",
@@ -388,17 +363,6 @@ class PermissionSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSO::PermissionSet"
     name_field: ClassVar[str] = "name"
-    RELAY_STATE_TYPE = "RelayStateType"
-    CUSTOMER_MANAGED_POLICY_REFERENCES = "CustomerManagedPolicyReferences"
-    SESSION_DURATION = "SessionDuration"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    INLINE_POLICY = "InlinePolicy"
-    MANAGED_POLICIES = "ManagedPolicies"
-    TAGS = "Tags"
-    NAME = "Name"
-    PERMISSIONS_BOUNDARY = "PermissionsBoundary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relay_state_type": "RelayStateType",
         "customer_managed_policy_references": "CustomerManagedPolicyReferences",

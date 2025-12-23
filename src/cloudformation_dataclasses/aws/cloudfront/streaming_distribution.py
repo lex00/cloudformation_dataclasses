@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Logging(PropertyType):
-    BUCKET = "Bucket"
-    ENABLED = "Enabled"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -28,9 +24,6 @@ class Logging(PropertyType):
 
 @dataclass
 class S3Origin(PropertyType):
-    DOMAIN_NAME = "DomainName"
-    ORIGIN_ACCESS_IDENTITY = "OriginAccessIdentity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "origin_access_identity": "OriginAccessIdentity",
@@ -42,14 +35,6 @@ class S3Origin(PropertyType):
 
 @dataclass
 class StreamingDistributionConfig(PropertyType):
-    LOGGING = "Logging"
-    COMMENT = "Comment"
-    PRICE_CLASS = "PriceClass"
-    S3_ORIGIN = "S3Origin"
-    ENABLED = "Enabled"
-    ALIASES = "Aliases"
-    TRUSTED_SIGNERS = "TrustedSigners"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "comment": "Comment",
@@ -71,9 +56,6 @@ class StreamingDistributionConfig(PropertyType):
 
 @dataclass
 class TrustedSigners(PropertyType):
-    ENABLED = "Enabled"
-    AWS_ACCOUNT_NUMBERS = "AwsAccountNumbers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "aws_account_numbers": "AwsAccountNumbers",

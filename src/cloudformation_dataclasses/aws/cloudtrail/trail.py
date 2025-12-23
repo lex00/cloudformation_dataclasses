@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    FIELD_SELECTORS = "FieldSelectors"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -25,14 +22,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    FIELD = "Field"
-    EQUALS = "Equals"
-    NOT_STARTS_WITH = "NotStartsWith"
-    NOT_ENDS_WITH = "NotEndsWith"
-    STARTS_WITH = "StartsWith"
-    ENDS_WITH = "EndsWith"
-    NOT_EQUALS = "NotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -54,9 +43,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class AggregationConfiguration(PropertyType):
-    EVENT_CATEGORY = "EventCategory"
-    TEMPLATES = "Templates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_category": "EventCategory",
         "templates": "Templates",
@@ -68,9 +54,6 @@ class AggregationConfiguration(PropertyType):
 
 @dataclass
 class DataResource(PropertyType):
-    TYPE = "Type"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "values": "Values",
@@ -82,11 +65,6 @@ class DataResource(PropertyType):
 
 @dataclass
 class EventSelector(PropertyType):
-    INCLUDE_MANAGEMENT_EVENTS = "IncludeManagementEvents"
-    READ_WRITE_TYPE = "ReadWriteType"
-    EXCLUDE_MANAGEMENT_EVENT_SOURCES = "ExcludeManagementEventSources"
-    DATA_RESOURCES = "DataResources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_management_events": "IncludeManagementEvents",
         "read_write_type": "ReadWriteType",
@@ -102,9 +80,6 @@ class EventSelector(PropertyType):
 
 @dataclass
 class InsightSelector(PropertyType):
-    INSIGHT_TYPE = "InsightType"
-    EVENT_CATEGORIES = "EventCategories"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insight_type": "InsightType",
         "event_categories": "EventCategories",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:21
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFRegional
@@ -796,9 +796,6 @@ class ByteMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::ByteMatchSet"
     name_field: ClassVar[str] = "name"
-    BYTE_MATCH_TUPLES = "ByteMatchTuples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "byte_match_tuples": "ByteMatchTuples",
         "name": "Name",
@@ -814,9 +811,6 @@ class GeoMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::GeoMatchSet"
     name_field: ClassVar[str] = "name"
-    GEO_MATCH_CONSTRAINTS = "GeoMatchConstraints"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geo_match_constraints": "GeoMatchConstraints",
         "name": "Name",
@@ -832,9 +826,6 @@ class IPSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::IPSet"
     name_field: ClassVar[str] = "name"
-    IP_SET_DESCRIPTORS = "IPSetDescriptors"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_descriptors": "IPSetDescriptors",
         "name": "Name",
@@ -850,12 +841,6 @@ class RateBasedRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::RateBasedRule"
     name_field: ClassVar[str] = "name"
-    METRIC_NAME = "MetricName"
-    RATE_LIMIT = "RateLimit"
-    MATCH_PREDICATES = "MatchPredicates"
-    RATE_KEY = "RateKey"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "rate_limit": "RateLimit",
@@ -877,9 +862,6 @@ class RegexPatternSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::RegexPatternSet"
     name_field: ClassVar[str] = "name"
-    REGEX_PATTERN_STRINGS = "RegexPatternStrings"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex_pattern_strings": "RegexPatternStrings",
         "name": "Name",
@@ -895,10 +877,6 @@ class Rule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::Rule"
     name_field: ClassVar[str] = "name"
-    METRIC_NAME = "MetricName"
-    PREDICATES = "Predicates"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "predicates": "Predicates",
@@ -916,9 +894,6 @@ class SizeConstraintSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::SizeConstraintSet"
     name_field: ClassVar[str] = "name"
-    SIZE_CONSTRAINTS = "SizeConstraints"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_constraints": "SizeConstraints",
         "name": "Name",
@@ -934,9 +909,6 @@ class SqlInjectionMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::SqlInjectionMatchSet"
     name_field: ClassVar[str] = "name"
-    SQL_INJECTION_MATCH_TUPLES = "SqlInjectionMatchTuples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sql_injection_match_tuples": "SqlInjectionMatchTuples",
         "name": "Name",
@@ -952,11 +924,6 @@ class WebACL(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::WebACL"
     name_field: ClassVar[str] = "name"
-    METRIC_NAME = "MetricName"
-    DEFAULT_ACTION = "DefaultAction"
-    RULES = "Rules"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "default_action": "DefaultAction",
@@ -975,9 +942,6 @@ class WebACLAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::WebACLAssociation"
-    RESOURCE_ARN = "ResourceArn"
-    WEB_ACL_ID = "WebACLId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "web_acl_id": "WebACLId",
@@ -993,9 +957,6 @@ class XssMatchSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::XssMatchSet"
     name_field: ClassVar[str] = "name"
-    XSS_MATCH_TUPLES = "XssMatchTuples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "xss_match_tuples": "XssMatchTuples",
         "name": "Name",

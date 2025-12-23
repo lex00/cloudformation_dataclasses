@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GlobalReplicationGroupMember(PropertyType):
-    ROLE = "Role"
-    REPLICATION_GROUP_REGION = "ReplicationGroupRegion"
-    REPLICATION_GROUP_ID = "ReplicationGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "replication_group_region": "ReplicationGroupRegion",
@@ -28,10 +24,6 @@ class GlobalReplicationGroupMember(PropertyType):
 
 @dataclass
 class RegionalConfiguration(PropertyType):
-    REPLICATION_GROUP_REGION = "ReplicationGroupRegion"
-    REPLICATION_GROUP_ID = "ReplicationGroupId"
-    RESHARDING_CONFIGURATIONS = "ReshardingConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_group_region": "ReplicationGroupRegion",
         "replication_group_id": "ReplicationGroupId",
@@ -45,9 +37,6 @@ class RegionalConfiguration(PropertyType):
 
 @dataclass
 class ReshardingConfiguration(PropertyType):
-    NODE_GROUP_ID = "NodeGroupId"
-    PREFERRED_AVAILABILITY_ZONES = "PreferredAvailabilityZones"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_group_id": "NodeGroupId",
         "preferred_availability_zones": "PreferredAvailabilityZones",

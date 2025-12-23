@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FieldToMatch(PropertyType):
-    TYPE = "Type"
-    DATA = "Data"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",
@@ -25,9 +22,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class XssMatchTuple(PropertyType):
-    TEXT_TRANSFORMATION = "TextTransformation"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformation": "TextTransformation",
         "field_to_match": "FieldToMatch",

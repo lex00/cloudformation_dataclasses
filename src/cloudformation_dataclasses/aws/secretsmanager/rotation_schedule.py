@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ExternalSecretRotationMetadataItem(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,18 +22,6 @@ class ExternalSecretRotationMetadataItem(PropertyType):
 
 @dataclass
 class HostedRotationLambda(PropertyType):
-    RUNTIME = "Runtime"
-    KMS_KEY_ARN = "KmsKeyArn"
-    MASTER_SECRET_ARN = "MasterSecretArn"
-    ROTATION_LAMBDA_NAME = "RotationLambdaName"
-    ROTATION_TYPE = "RotationType"
-    EXCLUDE_CHARACTERS = "ExcludeCharacters"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    MASTER_SECRET_KMS_KEY_ARN = "MasterSecretKmsKeyArn"
-    SUPERUSER_SECRET_ARN = "SuperuserSecretArn"
-    SUPERUSER_SECRET_KMS_KEY_ARN = "SuperuserSecretKmsKeyArn"
-    VPC_SUBNET_IDS = "VpcSubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "kms_key_arn": "KmsKeyArn",
@@ -66,10 +51,6 @@ class HostedRotationLambda(PropertyType):
 
 @dataclass
 class RotationRules(PropertyType):
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    DURATION = "Duration"
-    AUTOMATICALLY_AFTER_DAYS = "AutomaticallyAfterDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "duration": "Duration",

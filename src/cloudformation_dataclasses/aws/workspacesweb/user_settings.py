@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CookieSpecification(PropertyType):
-    PATH = "Path"
-    DOMAIN = "Domain"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "domain": "Domain",
@@ -28,9 +24,6 @@ class CookieSpecification(PropertyType):
 
 @dataclass
 class CookieSynchronizationConfiguration(PropertyType):
-    BLOCKLIST = "Blocklist"
-    ALLOWLIST = "Allowlist"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocklist": "Blocklist",
         "allowlist": "Allowlist",
@@ -42,11 +35,6 @@ class CookieSynchronizationConfiguration(PropertyType):
 
 @dataclass
 class ToolbarConfiguration(PropertyType):
-    TOOLBAR_TYPE = "ToolbarType"
-    HIDDEN_TOOLBAR_ITEMS = "HiddenToolbarItems"
-    MAX_DISPLAY_RESOLUTION = "MaxDisplayResolution"
-    VISUAL_MODE = "VisualMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "toolbar_type": "ToolbarType",
         "hidden_toolbar_items": "HiddenToolbarItems",

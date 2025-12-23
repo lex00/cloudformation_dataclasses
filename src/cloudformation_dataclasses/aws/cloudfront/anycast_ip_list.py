@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnycastIpList(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    STATUS = "Status"
-    IP_COUNT = "IpCount"
-    ANYCAST_IPS = "AnycastIps"
-    LAST_MODIFIED_TIME = "LastModifiedTime"
-    ID = "Id"
-    ARN = "Arn"
-    IPAM_CIDR_CONFIG_RESULTS = "IpamCidrConfigResults"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "status": "Status",
@@ -46,9 +36,6 @@ class AnycastIpList(PropertyType):
 
 @dataclass
 class IpamCidrConfig(PropertyType):
-    CIDR = "Cidr"
-    IPAM_POOL_ARN = "IpamPoolArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "ipam_pool_arn": "IpamPoolArn",
@@ -60,11 +47,6 @@ class IpamCidrConfig(PropertyType):
 
 @dataclass
 class IpamCidrConfigResult(PropertyType):
-    STATUS = "Status"
-    ANYCAST_IP = "AnycastIp"
-    CIDR = "Cidr"
-    IPAM_POOL_ARN = "IpamPoolArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "anycast_ip": "AnycastIp",
@@ -80,8 +62,6 @@ class IpamCidrConfigResult(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }

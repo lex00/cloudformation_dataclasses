@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeCapacity(PropertyType):
-    DESIRED_INSTANCES = "DesiredInstances"
-    DESIRED_SESSIONS = "DesiredSessions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_instances": "DesiredInstances",
         "desired_sessions": "DesiredSessions",
@@ -25,9 +22,6 @@ class ComputeCapacity(PropertyType):
 
 @dataclass
 class DomainJoinInfo(PropertyType):
-    ORGANIZATIONAL_UNIT_DISTINGUISHED_NAME = "OrganizationalUnitDistinguishedName"
-    DIRECTORY_NAME = "DirectoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_distinguished_name": "OrganizationalUnitDistinguishedName",
         "directory_name": "DirectoryName",
@@ -39,9 +33,6 @@ class DomainJoinInfo(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    S3_KEY = "S3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -53,9 +44,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",

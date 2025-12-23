@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cassandra
@@ -37,11 +37,6 @@ class Keyspace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Keyspace"
     name_field: ClassVar[str] = "keyspace_name"
-    CLIENT_SIDE_TIMESTAMPS_ENABLED = "ClientSideTimestampsEnabled"
-    KEYSPACE_NAME = "KeyspaceName"
-    REPLICATION_SPECIFICATION = "ReplicationSpecification"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_side_timestamps_enabled": "ClientSideTimestampsEnabled",
         "keyspace_name": "KeyspaceName",
@@ -61,22 +56,6 @@ class Table(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Table"
     name_field: ClassVar[str] = "table_name"
-    REPLICA_SPECIFICATIONS = "ReplicaSpecifications"
-    CLUSTERING_KEY_COLUMNS = "ClusteringKeyColumns"
-    WARM_THROUGHPUT = "WarmThroughput"
-    KEYSPACE_NAME = "KeyspaceName"
-    ENCRYPTION_SPECIFICATION = "EncryptionSpecification"
-    TABLE_NAME = "TableName"
-    POINT_IN_TIME_RECOVERY_ENABLED = "PointInTimeRecoveryEnabled"
-    CDC_SPECIFICATION = "CdcSpecification"
-    AUTO_SCALING_SPECIFICATIONS = "AutoScalingSpecifications"
-    CLIENT_SIDE_TIMESTAMPS_ENABLED = "ClientSideTimestampsEnabled"
-    PARTITION_KEY_COLUMNS = "PartitionKeyColumns"
-    BILLING_MODE = "BillingMode"
-    DEFAULT_TIME_TO_LIVE = "DefaultTimeToLive"
-    REGULAR_COLUMNS = "RegularColumns"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_specifications": "ReplicaSpecifications",
         "clustering_key_columns": "ClusteringKeyColumns",
@@ -118,10 +97,6 @@ class Type(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Type"
     name_field: ClassVar[str] = "type_name"
-    TYPE_NAME = "TypeName"
-    FIELDS = "Fields"
-    KEYSPACE_NAME = "KeyspaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "fields": "Fields",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CfnStackParameter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,11 +22,6 @@ class CfnStackParameter(PropertyType):
 
 @dataclass
 class CfnTemplateProviderDetail(PropertyType):
-    TEMPLATE_URL = "TemplateURL"
-    PARAMETERS = "Parameters"
-    TEMPLATE_NAME = "TemplateName"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_url": "TemplateURL",
         "parameters": "Parameters",
@@ -45,9 +37,6 @@ class CfnTemplateProviderDetail(PropertyType):
 
 @dataclass
 class ProvisioningParameter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -59,9 +48,6 @@ class ProvisioningParameter(PropertyType):
 
 @dataclass
 class ServiceCatalogProvisionedProductDetails(PropertyType):
-    PROVISIONED_PRODUCT_STATUS_MESSAGE = "ProvisionedProductStatusMessage"
-    PROVISIONED_PRODUCT_ID = "ProvisionedProductId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_product_status_message": "ProvisionedProductStatusMessage",
         "provisioned_product_id": "ProvisionedProductId",
@@ -73,11 +59,6 @@ class ServiceCatalogProvisionedProductDetails(PropertyType):
 
 @dataclass
 class ServiceCatalogProvisioningDetails(PropertyType):
-    PATH_ID = "PathId"
-    PROVISIONING_PARAMETERS = "ProvisioningParameters"
-    PRODUCT_ID = "ProductId"
-    PROVISIONING_ARTIFACT_ID = "ProvisioningArtifactId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_id": "PathId",
         "provisioning_parameters": "ProvisioningParameters",
@@ -93,8 +74,6 @@ class ServiceCatalogProvisioningDetails(PropertyType):
 
 @dataclass
 class TemplateProviderDetail(PropertyType):
-    CFN_TEMPLATE_PROVIDER_DETAIL = "CfnTemplateProviderDetail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cfn_template_provider_detail": "CfnTemplateProviderDetail",
     }

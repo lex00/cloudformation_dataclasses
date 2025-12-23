@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InstanceMetadataOptions(PropertyType):
-    HTTP_PUT_RESPONSE_HOP_LIMIT = "HttpPutResponseHopLimit"
-    HTTP_TOKENS = "HttpTokens"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",
@@ -25,8 +22,6 @@ class InstanceMetadataOptions(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    S3_LOGS = "S3Logs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_logs": "S3Logs",
     }
@@ -36,11 +31,6 @@ class Logging(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    TENANCY = "Tenancy"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    HOST_ID = "HostId"
-    HOST_RESOURCE_GROUP_ARN = "HostResourceGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenancy": "Tenancy",
         "availability_zone": "AvailabilityZone",
@@ -56,9 +46,6 @@ class Placement(PropertyType):
 
 @dataclass
 class S3Logs(PropertyType):
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    S3_BUCKET_NAME = "S3BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key_prefix": "S3KeyPrefix",
         "s3_bucket_name": "S3BucketName",

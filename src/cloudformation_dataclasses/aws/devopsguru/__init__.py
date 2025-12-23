@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsGuru
@@ -50,8 +50,6 @@ class NotificationChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devop"""
 
     resource_type: ClassVar[str] = "AWS::DevOpsGuru::NotificationChannel"
-    CONFIG = "Config"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config": "Config",
     }
@@ -70,8 +68,6 @@ class ResourceCollection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devop"""
 
     resource_type: ClassVar[str] = "AWS::DevOpsGuru::ResourceCollection"
-    RESOURCE_COLLECTION_FILTER = "ResourceCollectionFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_collection_filter": "ResourceCollectionFilter",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthorizationConfig(PropertyType):
-    IAM = "IAM"
-    ACCESS_POINT_ID = "AccessPointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "IAM",
         "access_point_id": "AccessPointId",
@@ -25,49 +22,6 @@ class AuthorizationConfig(PropertyType):
 
 @dataclass
 class ContainerDefinition(PropertyType):
-    USER = "User"
-    SECRETS = "Secrets"
-    MEMORY = "Memory"
-    PRIVILEGED = "Privileged"
-    HEALTH_CHECK = "HealthCheck"
-    START_TIMEOUT = "StartTimeout"
-    VOLUMES_FROM = "VolumesFrom"
-    CPU = "Cpu"
-    ENTRY_POINT = "EntryPoint"
-    DNS_SERVERS = "DnsServers"
-    READONLY_ROOT_FILESYSTEM = "ReadonlyRootFilesystem"
-    IMAGE = "Image"
-    ESSENTIAL = "Essential"
-    LOG_CONFIGURATION = "LogConfiguration"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-    ENVIRONMENT_FILES = "EnvironmentFiles"
-    NAME = "Name"
-    FIRELENS_CONFIGURATION = "FirelensConfiguration"
-    DOCKER_SECURITY_OPTIONS = "DockerSecurityOptions"
-    SYSTEM_CONTROLS = "SystemControls"
-    INTERACTIVE = "Interactive"
-    DNS_SEARCH_DOMAINS = "DnsSearchDomains"
-    CREDENTIAL_SPECS = "CredentialSpecs"
-    ULIMITS = "Ulimits"
-    STOP_TIMEOUT = "StopTimeout"
-    WORKING_DIRECTORY = "WorkingDirectory"
-    MEMORY_RESERVATION = "MemoryReservation"
-    REPOSITORY_CREDENTIALS = "RepositoryCredentials"
-    EXTRA_HOSTS = "ExtraHosts"
-    HOSTNAME = "Hostname"
-    LINUX_PARAMETERS = "LinuxParameters"
-    VERSION_CONSISTENCY = "VersionConsistency"
-    RESTART_POLICY = "RestartPolicy"
-    DISABLE_NETWORKING = "DisableNetworking"
-    PSEUDO_TERMINAL = "PseudoTerminal"
-    MOUNT_POINTS = "MountPoints"
-    DEPENDS_ON = "DependsOn"
-    DOCKER_LABELS = "DockerLabels"
-    PORT_MAPPINGS = "PortMappings"
-    COMMAND = "Command"
-    ENVIRONMENT = "Environment"
-    LINKS = "Links"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "secrets": "Secrets",
@@ -159,9 +113,6 @@ class ContainerDefinition(PropertyType):
 
 @dataclass
 class ContainerDependency(PropertyType):
-    CONDITION = "Condition"
-    CONTAINER_NAME = "ContainerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "container_name": "ContainerName",
@@ -173,10 +124,6 @@ class ContainerDependency(PropertyType):
 
 @dataclass
 class Device(PropertyType):
-    HOST_PATH = "HostPath"
-    PERMISSIONS = "Permissions"
-    CONTAINER_PATH = "ContainerPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_path": "HostPath",
         "permissions": "Permissions",
@@ -190,12 +137,6 @@ class Device(PropertyType):
 
 @dataclass
 class DockerVolumeConfiguration(PropertyType):
-    DRIVER_OPTS = "DriverOpts"
-    SCOPE = "Scope"
-    AUTOPROVISION = "Autoprovision"
-    DRIVER = "Driver"
-    LABELS = "Labels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "driver_opts": "DriverOpts",
         "scope": "Scope",
@@ -213,12 +154,6 @@ class DockerVolumeConfiguration(PropertyType):
 
 @dataclass
 class EFSVolumeConfiguration(PropertyType):
-    FILESYSTEM_ID = "FilesystemId"
-    TRANSIT_ENCRYPTION = "TransitEncryption"
-    AUTHORIZATION_CONFIG = "AuthorizationConfig"
-    ROOT_DIRECTORY = "RootDirectory"
-    TRANSIT_ENCRYPTION_PORT = "TransitEncryptionPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filesystem_id": "FilesystemId",
         "transit_encryption": "TransitEncryption",
@@ -236,9 +171,6 @@ class EFSVolumeConfiguration(PropertyType):
 
 @dataclass
 class EnvironmentFile(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -250,8 +182,6 @@ class EnvironmentFile(PropertyType):
 
 @dataclass
 class EphemeralStorage(PropertyType):
-    SIZE_IN_GI_B = "SizeInGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
     }
@@ -261,9 +191,6 @@ class EphemeralStorage(PropertyType):
 
 @dataclass
 class FSxAuthorizationConfig(PropertyType):
-    CREDENTIALS_PARAMETER = "CredentialsParameter"
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_parameter": "CredentialsParameter",
         "domain": "Domain",
@@ -275,10 +202,6 @@ class FSxAuthorizationConfig(PropertyType):
 
 @dataclass
 class FSxWindowsFileServerVolumeConfiguration(PropertyType):
-    AUTHORIZATION_CONFIG = "AuthorizationConfig"
-    FILE_SYSTEM_ID = "FileSystemId"
-    ROOT_DIRECTORY = "RootDirectory"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_config": "AuthorizationConfig",
         "file_system_id": "FileSystemId",
@@ -292,9 +215,6 @@ class FSxWindowsFileServerVolumeConfiguration(PropertyType):
 
 @dataclass
 class FirelensConfiguration(PropertyType):
-    OPTIONS = "Options"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "type_": "Type",
@@ -306,12 +226,6 @@ class FirelensConfiguration(PropertyType):
 
 @dataclass
 class HealthCheck(PropertyType):
-    COMMAND = "Command"
-    TIMEOUT = "Timeout"
-    RETRIES = "Retries"
-    INTERVAL = "Interval"
-    START_PERIOD = "StartPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command": "Command",
         "timeout": "Timeout",
@@ -329,9 +243,6 @@ class HealthCheck(PropertyType):
 
 @dataclass
 class HostEntry(PropertyType):
-    HOSTNAME = "Hostname"
-    IP_ADDRESS = "IpAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hostname": "Hostname",
         "ip_address": "IpAddress",
@@ -343,8 +254,6 @@ class HostEntry(PropertyType):
 
 @dataclass
 class HostVolumeProperties(PropertyType):
-    SOURCE_PATH = "SourcePath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
     }
@@ -354,9 +263,6 @@ class HostVolumeProperties(PropertyType):
 
 @dataclass
 class KernelCapabilities(PropertyType):
-    ADD = "Add"
-    DROP = "Drop"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "add": "Add",
         "drop": "Drop",
@@ -368,9 +274,6 @@ class KernelCapabilities(PropertyType):
 
 @dataclass
 class KeyValuePair(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -382,14 +285,6 @@ class KeyValuePair(PropertyType):
 
 @dataclass
 class LinuxParameters(PropertyType):
-    CAPABILITIES = "Capabilities"
-    SWAPPINESS = "Swappiness"
-    TMPFS = "Tmpfs"
-    SHARED_MEMORY_SIZE = "SharedMemorySize"
-    DEVICES = "Devices"
-    INIT_PROCESS_ENABLED = "InitProcessEnabled"
-    MAX_SWAP = "MaxSwap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capabilities": "Capabilities",
         "swappiness": "Swappiness",
@@ -411,10 +306,6 @@ class LinuxParameters(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    SECRET_OPTIONS = "SecretOptions"
-    OPTIONS = "Options"
-    LOG_DRIVER = "LogDriver"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_options": "SecretOptions",
         "options": "Options",
@@ -428,10 +319,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class MountPoint(PropertyType):
-    READ_ONLY = "ReadOnly"
-    SOURCE_VOLUME = "SourceVolume"
-    CONTAINER_PATH = "ContainerPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "source_volume": "SourceVolume",
@@ -445,13 +332,6 @@ class MountPoint(PropertyType):
 
 @dataclass
 class PortMapping(PropertyType):
-    APP_PROTOCOL = "AppProtocol"
-    CONTAINER_PORT_RANGE = "ContainerPortRange"
-    HOST_PORT = "HostPort"
-    CONTAINER_PORT = "ContainerPort"
-    PROTOCOL = "Protocol"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_protocol": "AppProtocol",
         "container_port_range": "ContainerPortRange",
@@ -471,10 +351,6 @@ class PortMapping(PropertyType):
 
 @dataclass
 class ProxyConfiguration(PropertyType):
-    PROXY_CONFIGURATION_PROPERTIES = "ProxyConfigurationProperties"
-    TYPE = "Type"
-    CONTAINER_NAME = "ContainerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proxy_configuration_properties": "ProxyConfigurationProperties",
         "type_": "Type",
@@ -488,8 +364,6 @@ class ProxyConfiguration(PropertyType):
 
 @dataclass
 class RepositoryCredentials(PropertyType):
-    CREDENTIALS_PARAMETER = "CredentialsParameter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_parameter": "CredentialsParameter",
     }
@@ -499,9 +373,6 @@ class RepositoryCredentials(PropertyType):
 
 @dataclass
 class ResourceRequirement(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -513,10 +384,6 @@ class ResourceRequirement(PropertyType):
 
 @dataclass
 class RestartPolicy(PropertyType):
-    IGNORED_EXIT_CODES = "IgnoredExitCodes"
-    RESTART_ATTEMPT_PERIOD = "RestartAttemptPeriod"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignored_exit_codes": "IgnoredExitCodes",
         "restart_attempt_period": "RestartAttemptPeriod",
@@ -530,9 +397,6 @@ class RestartPolicy(PropertyType):
 
 @dataclass
 class RuntimePlatform(PropertyType):
-    OPERATING_SYSTEM_FAMILY = "OperatingSystemFamily"
-    CPU_ARCHITECTURE = "CpuArchitecture"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system_family": "OperatingSystemFamily",
         "cpu_architecture": "CpuArchitecture",
@@ -544,9 +408,6 @@ class RuntimePlatform(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    VALUE_FROM = "ValueFrom"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_from": "ValueFrom",
         "name": "Name",
@@ -558,9 +419,6 @@ class Secret(PropertyType):
 
 @dataclass
 class SystemControl(PropertyType):
-    VALUE = "Value"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "namespace": "Namespace",
@@ -572,9 +430,6 @@ class SystemControl(PropertyType):
 
 @dataclass
 class TaskDefinitionPlacementConstraint(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -586,10 +441,6 @@ class TaskDefinitionPlacementConstraint(PropertyType):
 
 @dataclass
 class Tmpfs(PropertyType):
-    SIZE = "Size"
-    CONTAINER_PATH = "ContainerPath"
-    MOUNT_OPTIONS = "MountOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
         "container_path": "ContainerPath",
@@ -603,10 +454,6 @@ class Tmpfs(PropertyType):
 
 @dataclass
 class Ulimit(PropertyType):
-    SOFT_LIMIT = "SoftLimit"
-    HARD_LIMIT = "HardLimit"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soft_limit": "SoftLimit",
         "hard_limit": "HardLimit",
@@ -620,13 +467,6 @@ class Ulimit(PropertyType):
 
 @dataclass
 class Volume(PropertyType):
-    EFS_VOLUME_CONFIGURATION = "EFSVolumeConfiguration"
-    HOST = "Host"
-    CONFIGURED_AT_LAUNCH = "ConfiguredAtLaunch"
-    DOCKER_VOLUME_CONFIGURATION = "DockerVolumeConfiguration"
-    F_SX_WINDOWS_FILE_SERVER_VOLUME_CONFIGURATION = "FSxWindowsFileServerVolumeConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_volume_configuration": "EFSVolumeConfiguration",
         "host": "Host",
@@ -646,9 +486,6 @@ class Volume(PropertyType):
 
 @dataclass
 class VolumeFrom(PropertyType):
-    READ_ONLY = "ReadOnly"
-    SOURCE_CONTAINER = "SourceContainer"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "source_container": "SourceContainer",

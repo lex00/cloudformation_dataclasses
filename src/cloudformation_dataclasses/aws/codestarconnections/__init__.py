@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:50
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeStarConnections
@@ -31,11 +31,6 @@ class Connection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::Connection"
     name_field: ClassVar[str] = "connection_name"
-    CONNECTION_NAME = "ConnectionName"
-    HOST_ARN = "HostArn"
-    PROVIDER_TYPE = "ProviderType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "host_arn": "HostArn",
@@ -71,12 +66,6 @@ class RepositoryLink(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::RepositoryLink"
     name_field: ClassVar[str] = "repository_name"
-    OWNER_ID = "OwnerId"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    CONNECTION_ARN = "ConnectionArn"
-    REPOSITORY_NAME = "RepositoryName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_id": "OwnerId",
         "encryption_key_arn": "EncryptionKeyArn",
@@ -114,15 +103,6 @@ class SyncConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::SyncConfiguration"
     name_field: ClassVar[str] = "resource_name"
-    CONFIG_FILE = "ConfigFile"
-    RESOURCE_NAME = "ResourceName"
-    BRANCH = "Branch"
-    SYNC_TYPE = "SyncType"
-    TRIGGER_RESOURCE_UPDATE_ON = "TriggerResourceUpdateOn"
-    REPOSITORY_LINK_ID = "RepositoryLinkId"
-    ROLE_ARN = "RoleArn"
-    PUBLISH_DEPLOYMENT_STATUS = "PublishDeploymentStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_file": "ConfigFile",
         "resource_name": "ResourceName",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alarms(PropertyType):
-    NOTIFICATION_LAMBDA_ARN = "NotificationLambdaArn"
-    ALARM_ROLE_ARN = "AlarmRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_lambda_arn": "NotificationLambdaArn",
         "alarm_role_arn": "AlarmRoleArn",
@@ -25,8 +22,6 @@ class Alarms(PropertyType):
 
 @dataclass
 class PortalTypeEntry(PropertyType):
-    PORTAL_TOOLS = "PortalTools"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "portal_tools": "PortalTools",
     }

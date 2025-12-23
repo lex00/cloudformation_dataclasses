@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SimSpaceWeaver
@@ -145,12 +145,6 @@ class Simulation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SimSpaceWeaver::Simulation"
     name_field: ClassVar[str] = "name"
-    SCHEMA_S3_LOCATION = "SchemaS3Location"
-    SNAPSHOT_S3_LOCATION = "SnapshotS3Location"
-    MAXIMUM_DURATION = "MaximumDuration"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_s3_location": "SchemaS3Location",
         "snapshot_s3_location": "SnapshotS3Location",

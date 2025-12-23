@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -28,8 +24,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class BatchArrayProperties(PropertyType):
-    SIZE = "Size"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -39,11 +33,6 @@ class BatchArrayProperties(PropertyType):
 
 @dataclass
 class BatchContainerOverrides(PropertyType):
-    COMMAND = "Command"
-    ENVIRONMENT = "Environment"
-    INSTANCE_TYPE = "InstanceType"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command": "Command",
         "environment": "Environment",
@@ -59,9 +48,6 @@ class BatchContainerOverrides(PropertyType):
 
 @dataclass
 class BatchEnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -73,9 +59,6 @@ class BatchEnvironmentVariable(PropertyType):
 
 @dataclass
 class BatchJobDependency(PropertyType):
-    TYPE = "Type"
-    JOB_ID = "JobId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "job_id": "JobId",
@@ -87,9 +70,6 @@ class BatchJobDependency(PropertyType):
 
 @dataclass
 class BatchResourceRequirement(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -101,8 +81,6 @@ class BatchResourceRequirement(PropertyType):
 
 @dataclass
 class BatchRetryStrategy(PropertyType):
-    ATTEMPTS = "Attempts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempts": "Attempts",
     }
@@ -112,10 +90,6 @@ class BatchRetryStrategy(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    WEIGHT = "Weight"
-    BASE = "Base"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "weight": "Weight",
@@ -129,8 +103,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class CloudwatchLogsLogDestination(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -140,8 +112,6 @@ class CloudwatchLogsLogDestination(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -151,10 +121,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class DimensionMapping(PropertyType):
-    DIMENSION_VALUE_TYPE = "DimensionValueType"
-    DIMENSION_VALUE = "DimensionValue"
-    DIMENSION_NAME = "DimensionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_type": "DimensionValueType",
         "dimension_value": "DimensionValue",
@@ -168,15 +134,6 @@ class DimensionMapping(PropertyType):
 
 @dataclass
 class EcsContainerOverride(PropertyType):
-    MEMORY_RESERVATION = "MemoryReservation"
-    COMMAND = "Command"
-    MEMORY = "Memory"
-    CPU = "Cpu"
-    ENVIRONMENT = "Environment"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-    ENVIRONMENT_FILES = "EnvironmentFiles"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory_reservation": "MemoryReservation",
         "command": "Command",
@@ -200,9 +157,6 @@ class EcsContainerOverride(PropertyType):
 
 @dataclass
 class EcsEnvironmentFile(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -214,9 +168,6 @@ class EcsEnvironmentFile(PropertyType):
 
 @dataclass
 class EcsEnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -228,8 +179,6 @@ class EcsEnvironmentVariable(PropertyType):
 
 @dataclass
 class EcsEphemeralStorage(PropertyType):
-    SIZE_IN_GI_B = "SizeInGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
     }
@@ -239,9 +188,6 @@ class EcsEphemeralStorage(PropertyType):
 
 @dataclass
 class EcsInferenceAcceleratorOverride(PropertyType):
-    DEVICE_TYPE = "DeviceType"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_type": "DeviceType",
         "device_name": "DeviceName",
@@ -253,9 +199,6 @@ class EcsInferenceAcceleratorOverride(PropertyType):
 
 @dataclass
 class EcsResourceRequirement(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -267,14 +210,6 @@ class EcsResourceRequirement(PropertyType):
 
 @dataclass
 class EcsTaskOverride(PropertyType):
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    MEMORY = "Memory"
-    CPU = "Cpu"
-    INFERENCE_ACCELERATOR_OVERRIDES = "InferenceAcceleratorOverrides"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-    CONTAINER_OVERRIDES = "ContainerOverrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "task_role_arn": "TaskRoleArn",
@@ -296,8 +231,6 @@ class EcsTaskOverride(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    PATTERN = "Pattern"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -307,8 +240,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    FILTERS = "Filters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -318,8 +249,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class FirehoseLogDestination(PropertyType):
-    DELIVERY_STREAM_ARN = "DeliveryStreamArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
     }
@@ -329,8 +258,6 @@ class FirehoseLogDestination(PropertyType):
 
 @dataclass
 class MQBrokerAccessCredentials(PropertyType):
-    BASIC_AUTH = "BasicAuth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic_auth": "BasicAuth",
     }
@@ -340,9 +267,6 @@ class MQBrokerAccessCredentials(PropertyType):
 
 @dataclass
 class MSKAccessCredentials(PropertyType):
-    CLIENT_CERTIFICATE_TLS_AUTH = "ClientCertificateTlsAuth"
-    SASL_SCRAM512_AUTH = "SaslScram512Auth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_certificate_tls_auth": "ClientCertificateTlsAuth",
         "sasl_scram512_auth": "SaslScram512Auth",
@@ -354,10 +278,6 @@ class MSKAccessCredentials(PropertyType):
 
 @dataclass
 class MultiMeasureAttributeMapping(PropertyType):
-    MULTI_MEASURE_ATTRIBUTE_NAME = "MultiMeasureAttributeName"
-    MEASURE_VALUE_TYPE = "MeasureValueType"
-    MEASURE_VALUE = "MeasureValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_measure_attribute_name": "MultiMeasureAttributeName",
         "measure_value_type": "MeasureValueType",
@@ -371,9 +291,6 @@ class MultiMeasureAttributeMapping(PropertyType):
 
 @dataclass
 class MultiMeasureMapping(PropertyType):
-    MULTI_MEASURE_NAME = "MultiMeasureName"
-    MULTI_MEASURE_ATTRIBUTE_MAPPINGS = "MultiMeasureAttributeMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_measure_name": "MultiMeasureName",
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
@@ -385,8 +302,6 @@ class MultiMeasureMapping(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    AWSVPC_CONFIGURATION = "AwsvpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
@@ -396,10 +311,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PipeEnrichmentHttpParameters(PropertyType):
-    PATH_PARAMETER_VALUES = "PathParameterValues"
-    HEADER_PARAMETERS = "HeaderParameters"
-    QUERY_STRING_PARAMETERS = "QueryStringParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -413,9 +324,6 @@ class PipeEnrichmentHttpParameters(PropertyType):
 
 @dataclass
 class PipeEnrichmentParameters(PropertyType):
-    HTTP_PARAMETERS = "HttpParameters"
-    INPUT_TEMPLATE = "InputTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_parameters": "HttpParameters",
         "input_template": "InputTemplate",
@@ -427,12 +335,6 @@ class PipeEnrichmentParameters(PropertyType):
 
 @dataclass
 class PipeLogConfiguration(PropertyType):
-    FIREHOSE_LOG_DESTINATION = "FirehoseLogDestination"
-    CLOUDWATCH_LOGS_LOG_DESTINATION = "CloudwatchLogsLogDestination"
-    INCLUDE_EXECUTION_DATA = "IncludeExecutionData"
-    S3_LOG_DESTINATION = "S3LogDestination"
-    LEVEL = "Level"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_log_destination": "FirehoseLogDestination",
         "cloudwatch_logs_log_destination": "CloudwatchLogsLogDestination",
@@ -450,11 +352,6 @@ class PipeLogConfiguration(PropertyType):
 
 @dataclass
 class PipeSourceActiveMQBrokerParameters(PropertyType):
-    BATCH_SIZE = "BatchSize"
-    QUEUE_NAME = "QueueName"
-    CREDENTIALS = "Credentials"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "queue_name": "QueueName",
@@ -470,15 +367,6 @@ class PipeSourceActiveMQBrokerParameters(PropertyType):
 
 @dataclass
 class PipeSourceDynamoDBStreamParameters(PropertyType):
-    STARTING_POSITION = "StartingPosition"
-    BATCH_SIZE = "BatchSize"
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    ON_PARTIAL_BATCH_ITEM_FAILURE = "OnPartialBatchItemFailure"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    PARALLELIZATION_FACTOR = "ParallelizationFactor"
-    MAXIMUM_RECORD_AGE_IN_SECONDS = "MaximumRecordAgeInSeconds"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -502,16 +390,6 @@ class PipeSourceDynamoDBStreamParameters(PropertyType):
 
 @dataclass
 class PipeSourceKinesisStreamParameters(PropertyType):
-    STARTING_POSITION = "StartingPosition"
-    BATCH_SIZE = "BatchSize"
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    ON_PARTIAL_BATCH_ITEM_FAILURE = "OnPartialBatchItemFailure"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    PARALLELIZATION_FACTOR = "ParallelizationFactor"
-    MAXIMUM_RECORD_AGE_IN_SECONDS = "MaximumRecordAgeInSeconds"
-    STARTING_POSITION_TIMESTAMP = "StartingPositionTimestamp"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -537,13 +415,6 @@ class PipeSourceKinesisStreamParameters(PropertyType):
 
 @dataclass
 class PipeSourceManagedStreamingKafkaParameters(PropertyType):
-    STARTING_POSITION = "StartingPosition"
-    BATCH_SIZE = "BatchSize"
-    CONSUMER_GROUP_ID = "ConsumerGroupID"
-    CREDENTIALS = "Credentials"
-    TOPIC_NAME = "TopicName"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -563,15 +434,6 @@ class PipeSourceManagedStreamingKafkaParameters(PropertyType):
 
 @dataclass
 class PipeSourceParameters(PropertyType):
-    MANAGED_STREAMING_KAFKA_PARAMETERS = "ManagedStreamingKafkaParameters"
-    DYNAMO_DB_STREAM_PARAMETERS = "DynamoDBStreamParameters"
-    SELF_MANAGED_KAFKA_PARAMETERS = "SelfManagedKafkaParameters"
-    RABBIT_MQ_BROKER_PARAMETERS = "RabbitMQBrokerParameters"
-    SQS_QUEUE_PARAMETERS = "SqsQueueParameters"
-    KINESIS_STREAM_PARAMETERS = "KinesisStreamParameters"
-    FILTER_CRITERIA = "FilterCriteria"
-    ACTIVE_MQ_BROKER_PARAMETERS = "ActiveMQBrokerParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_streaming_kafka_parameters": "ManagedStreamingKafkaParameters",
         "dynamo_db_stream_parameters": "DynamoDBStreamParameters",
@@ -595,12 +457,6 @@ class PipeSourceParameters(PropertyType):
 
 @dataclass
 class PipeSourceRabbitMQBrokerParameters(PropertyType):
-    BATCH_SIZE = "BatchSize"
-    VIRTUAL_HOST = "VirtualHost"
-    QUEUE_NAME = "QueueName"
-    CREDENTIALS = "Credentials"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "virtual_host": "VirtualHost",
@@ -618,16 +474,6 @@ class PipeSourceRabbitMQBrokerParameters(PropertyType):
 
 @dataclass
 class PipeSourceSelfManagedKafkaParameters(PropertyType):
-    STARTING_POSITION = "StartingPosition"
-    BATCH_SIZE = "BatchSize"
-    CONSUMER_GROUP_ID = "ConsumerGroupID"
-    ADDITIONAL_BOOTSTRAP_SERVERS = "AdditionalBootstrapServers"
-    VPC = "Vpc"
-    CREDENTIALS = "Credentials"
-    SERVER_ROOT_CA_CERTIFICATE = "ServerRootCaCertificate"
-    TOPIC_NAME = "TopicName"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -653,9 +499,6 @@ class PipeSourceSelfManagedKafkaParameters(PropertyType):
 
 @dataclass
 class PipeSourceSqsQueueParameters(PropertyType):
-    BATCH_SIZE = "BatchSize"
-    MAXIMUM_BATCHING_WINDOW_IN_SECONDS = "MaximumBatchingWindowInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
@@ -667,14 +510,6 @@ class PipeSourceSqsQueueParameters(PropertyType):
 
 @dataclass
 class PipeTargetBatchJobParameters(PropertyType):
-    DEPENDS_ON = "DependsOn"
-    PARAMETERS = "Parameters"
-    ARRAY_PROPERTIES = "ArrayProperties"
-    JOB_NAME = "JobName"
-    RETRY_STRATEGY = "RetryStrategy"
-    JOB_DEFINITION = "JobDefinition"
-    CONTAINER_OVERRIDES = "ContainerOverrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "parameters": "Parameters",
@@ -696,9 +531,6 @@ class PipeTargetBatchJobParameters(PropertyType):
 
 @dataclass
 class PipeTargetCloudWatchLogsParameters(PropertyType):
-    LOG_STREAM_NAME = "LogStreamName"
-    TIMESTAMP = "Timestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_name": "LogStreamName",
         "timestamp": "Timestamp",
@@ -710,22 +542,6 @@ class PipeTargetCloudWatchLogsParameters(PropertyType):
 
 @dataclass
 class PipeTargetEcsTaskParameters(PropertyType):
-    PLATFORM_VERSION = "PlatformVersion"
-    GROUP = "Group"
-    ENABLE_ECS_MANAGED_TAGS = "EnableECSManagedTags"
-    TASK_COUNT = "TaskCount"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    PLACEMENT_CONSTRAINTS = "PlacementConstraints"
-    PROPAGATE_TAGS = "PropagateTags"
-    PLACEMENT_STRATEGY = "PlacementStrategy"
-    LAUNCH_TYPE = "LaunchType"
-    CAPACITY_PROVIDER_STRATEGY = "CapacityProviderStrategy"
-    REFERENCE_ID = "ReferenceId"
-    OVERRIDES = "Overrides"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-    TASK_DEFINITION_ARN = "TaskDefinitionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -763,12 +579,6 @@ class PipeTargetEcsTaskParameters(PropertyType):
 
 @dataclass
 class PipeTargetEventBridgeEventBusParameters(PropertyType):
-    DETAIL_TYPE = "DetailType"
-    ENDPOINT_ID = "EndpointId"
-    TIME = "Time"
-    RESOURCES = "Resources"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detail_type": "DetailType",
         "endpoint_id": "EndpointId",
@@ -786,10 +596,6 @@ class PipeTargetEventBridgeEventBusParameters(PropertyType):
 
 @dataclass
 class PipeTargetHttpParameters(PropertyType):
-    PATH_PARAMETER_VALUES = "PathParameterValues"
-    HEADER_PARAMETERS = "HeaderParameters"
-    QUERY_STRING_PARAMETERS = "QueryStringParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -803,8 +609,6 @@ class PipeTargetHttpParameters(PropertyType):
 
 @dataclass
 class PipeTargetKinesisStreamParameters(PropertyType):
-    PARTITION_KEY = "PartitionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key": "PartitionKey",
     }
@@ -814,8 +618,6 @@ class PipeTargetKinesisStreamParameters(PropertyType):
 
 @dataclass
 class PipeTargetLambdaFunctionParameters(PropertyType):
-    INVOCATION_TYPE = "InvocationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_type": "InvocationType",
     }
@@ -825,20 +627,6 @@ class PipeTargetLambdaFunctionParameters(PropertyType):
 
 @dataclass
 class PipeTargetParameters(PropertyType):
-    STEP_FUNCTION_STATE_MACHINE_PARAMETERS = "StepFunctionStateMachineParameters"
-    HTTP_PARAMETERS = "HttpParameters"
-    TIMESTREAM_PARAMETERS = "TimestreamParameters"
-    INPUT_TEMPLATE = "InputTemplate"
-    EVENT_BRIDGE_EVENT_BUS_PARAMETERS = "EventBridgeEventBusParameters"
-    LAMBDA_FUNCTION_PARAMETERS = "LambdaFunctionParameters"
-    BATCH_JOB_PARAMETERS = "BatchJobParameters"
-    REDSHIFT_DATA_PARAMETERS = "RedshiftDataParameters"
-    SQS_QUEUE_PARAMETERS = "SqsQueueParameters"
-    CLOUD_WATCH_LOGS_PARAMETERS = "CloudWatchLogsParameters"
-    KINESIS_STREAM_PARAMETERS = "KinesisStreamParameters"
-    SAGE_MAKER_PIPELINE_PARAMETERS = "SageMakerPipelineParameters"
-    ECS_TASK_PARAMETERS = "EcsTaskParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_function_state_machine_parameters": "StepFunctionStateMachineParameters",
         "http_parameters": "HttpParameters",
@@ -872,13 +660,6 @@ class PipeTargetParameters(PropertyType):
 
 @dataclass
 class PipeTargetRedshiftDataParameters(PropertyType):
-    STATEMENT_NAME = "StatementName"
-    SQLS = "Sqls"
-    DATABASE = "Database"
-    SECRET_MANAGER_ARN = "SecretManagerArn"
-    DB_USER = "DbUser"
-    WITH_EVENT = "WithEvent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement_name": "StatementName",
         "sqls": "Sqls",
@@ -898,8 +679,6 @@ class PipeTargetRedshiftDataParameters(PropertyType):
 
 @dataclass
 class PipeTargetSageMakerPipelineParameters(PropertyType):
-    PIPELINE_PARAMETER_LIST = "PipelineParameterList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -909,9 +688,6 @@ class PipeTargetSageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class PipeTargetSqsQueueParameters(PropertyType):
-    MESSAGE_GROUP_ID = "MessageGroupId"
-    MESSAGE_DEDUPLICATION_ID = "MessageDeduplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
         "message_deduplication_id": "MessageDeduplicationId",
@@ -923,8 +699,6 @@ class PipeTargetSqsQueueParameters(PropertyType):
 
 @dataclass
 class PipeTargetStateMachineParameters(PropertyType):
-    INVOCATION_TYPE = "InvocationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_type": "InvocationType",
     }
@@ -934,15 +708,6 @@ class PipeTargetStateMachineParameters(PropertyType):
 
 @dataclass
 class PipeTargetTimestreamParameters(PropertyType):
-    VERSION_VALUE = "VersionValue"
-    DIMENSION_MAPPINGS = "DimensionMappings"
-    EPOCH_TIME_UNIT = "EpochTimeUnit"
-    TIME_FIELD_TYPE = "TimeFieldType"
-    TIMESTAMP_FORMAT = "TimestampFormat"
-    MULTI_MEASURE_MAPPINGS = "MultiMeasureMappings"
-    TIME_VALUE = "TimeValue"
-    SINGLE_MEASURE_MAPPINGS = "SingleMeasureMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_value": "VersionValue",
         "dimension_mappings": "DimensionMappings",
@@ -966,9 +731,6 @@ class PipeTargetTimestreamParameters(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -980,9 +742,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    FIELD = "Field"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -994,11 +753,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class S3LogDestination(PropertyType):
-    BUCKET_NAME = "BucketName"
-    OUTPUT_FORMAT = "OutputFormat"
-    PREFIX = "Prefix"
-    BUCKET_OWNER = "BucketOwner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "output_format": "OutputFormat",
@@ -1014,9 +768,6 @@ class S3LogDestination(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1028,11 +779,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SelfManagedKafkaAccessConfigurationCredentials(PropertyType):
-    BASIC_AUTH = "BasicAuth"
-    SASL_SCRAM256_AUTH = "SaslScram256Auth"
-    CLIENT_CERTIFICATE_TLS_AUTH = "ClientCertificateTlsAuth"
-    SASL_SCRAM512_AUTH = "SaslScram512Auth"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic_auth": "BasicAuth",
         "sasl_scram256_auth": "SaslScram256Auth",
@@ -1048,9 +794,6 @@ class SelfManagedKafkaAccessConfigurationCredentials(PropertyType):
 
 @dataclass
 class SelfManagedKafkaAccessConfigurationVpc(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP = "SecurityGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group": "SecurityGroup",
@@ -1062,10 +805,6 @@ class SelfManagedKafkaAccessConfigurationVpc(PropertyType):
 
 @dataclass
 class SingleMeasureMapping(PropertyType):
-    MEASURE_NAME = "MeasureName"
-    MEASURE_VALUE_TYPE = "MeasureValueType"
-    MEASURE_VALUE = "MeasureValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_name": "MeasureName",
         "measure_value_type": "MeasureValueType",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Chatbot
@@ -51,12 +51,6 @@ class CustomAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Chatbot::CustomAction"
     name_field: ClassVar[str] = "alias_name"
-    ACTION_NAME = "ActionName"
-    ALIAS_NAME = "AliasName"
-    DEFINITION = "Definition"
-    ATTACHMENTS = "Attachments"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "alias_name": "AliasName",
@@ -84,19 +78,6 @@ class MicrosoftTeamsChannelConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Chatbot::MicrosoftTeamsChannelConfiguration"
     name_field: ClassVar[str] = "teams_channel_name"
-    USER_ROLE_REQUIRED = "UserRoleRequired"
-    LOGGING_LEVEL = "LoggingLevel"
-    TEAMS_CHANNEL_NAME = "TeamsChannelName"
-    CUSTOMIZATION_RESOURCE_ARNS = "CustomizationResourceArns"
-    SNS_TOPIC_ARNS = "SnsTopicArns"
-    GUARDRAIL_POLICIES = "GuardrailPolicies"
-    IAM_ROLE_ARN = "IamRoleArn"
-    TEAM_ID = "TeamId"
-    CONFIGURATION_NAME = "ConfigurationName"
-    TEAMS_TENANT_ID = "TeamsTenantId"
-    TAGS = "Tags"
-    TEAMS_CHANNEL_ID = "TeamsChannelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_role_required": "UserRoleRequired",
         "logging_level": "LoggingLevel",
@@ -138,17 +119,6 @@ class SlackChannelConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Chatbot::SlackChannelConfiguration"
     name_field: ClassVar[str] = "configuration_name"
-    USER_ROLE_REQUIRED = "UserRoleRequired"
-    LOGGING_LEVEL = "LoggingLevel"
-    CUSTOMIZATION_RESOURCE_ARNS = "CustomizationResourceArns"
-    SNS_TOPIC_ARNS = "SnsTopicArns"
-    GUARDRAIL_POLICIES = "GuardrailPolicies"
-    SLACK_WORKSPACE_ID = "SlackWorkspaceId"
-    SLACK_CHANNEL_ID = "SlackChannelId"
-    IAM_ROLE_ARN = "IamRoleArn"
-    CONFIGURATION_NAME = "ConfigurationName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_role_required": "UserRoleRequired",
         "logging_level": "LoggingLevel",

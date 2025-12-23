@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AgentAliasHistoryEvent(PropertyType):
-    START_DATE = "StartDate"
-    ROUTING_CONFIGURATION = "RoutingConfiguration"
-    END_DATE = "EndDate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "routing_configuration": "RoutingConfiguration",
@@ -28,8 +24,6 @@ class AgentAliasHistoryEvent(PropertyType):
 
 @dataclass
 class AgentAliasRoutingConfigurationListItem(PropertyType):
-    AGENT_VERSION = "AgentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_version": "AgentVersion",
     }

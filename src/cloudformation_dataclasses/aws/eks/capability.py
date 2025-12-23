@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ArgoCd(PropertyType):
-    SERVER_URL = "ServerUrl"
-    NETWORK_ACCESS = "NetworkAccess"
-    AWS_IDC = "AwsIdc"
-    RBAC_ROLE_MAPPINGS = "RbacRoleMappings"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_url": "ServerUrl",
         "network_access": "NetworkAccess",
@@ -34,9 +28,6 @@ class ArgoCd(PropertyType):
 
 @dataclass
 class ArgoCdRoleMapping(PropertyType):
-    ROLE = "Role"
-    IDENTITIES = "Identities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "identities": "Identities",
@@ -48,10 +39,6 @@ class ArgoCdRoleMapping(PropertyType):
 
 @dataclass
 class AwsIdc(PropertyType):
-    IDC_REGION = "IdcRegion"
-    IDC_MANAGED_APPLICATION_ARN = "IdcManagedApplicationArn"
-    IDC_INSTANCE_ARN = "IdcInstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_region": "IdcRegion",
         "idc_managed_application_arn": "IdcManagedApplicationArn",
@@ -65,8 +52,6 @@ class AwsIdc(PropertyType):
 
 @dataclass
 class CapabilityConfiguration(PropertyType):
-    ARGO_CD = "ArgoCd"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "argo_cd": "ArgoCd",
     }
@@ -76,8 +61,6 @@ class CapabilityConfiguration(PropertyType):
 
 @dataclass
 class NetworkAccess(PropertyType):
-    VPCE_IDS = "VpceIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpce_ids": "VpceIds",
     }
@@ -87,9 +70,6 @@ class NetworkAccess(PropertyType):
 
 @dataclass
 class SsoIdentity(PropertyType):
-    TYPE = "Type"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",

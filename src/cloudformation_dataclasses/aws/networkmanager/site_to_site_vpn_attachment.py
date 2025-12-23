@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    TAGS = "Tags"
-    NETWORK_FUNCTION_GROUP_NAME = "NetworkFunctionGroupName"
-    ATTACHMENT_POLICY_RULE_NUMBER = "AttachmentPolicyRuleNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -28,10 +24,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    SEGMENT_NAME = "SegmentName"
-    TAGS = "Tags"
-    ATTACHMENT_POLICY_RULE_NUMBER = "AttachmentPolicyRuleNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",

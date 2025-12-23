@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionsList(PropertyType):
-    CONNECTIONS = "Connections"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
     }
@@ -22,8 +20,6 @@ class ConnectionsList(PropertyType):
 
 @dataclass
 class ExecutionProperty(PropertyType):
-    MAX_CONCURRENT_RUNS = "MaxConcurrentRuns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_runs": "MaxConcurrentRuns",
     }
@@ -33,11 +29,6 @@ class ExecutionProperty(PropertyType):
 
 @dataclass
 class JobCommand(PropertyType):
-    RUNTIME = "Runtime"
-    PYTHON_VERSION = "PythonVersion"
-    SCRIPT_LOCATION = "ScriptLocation"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "python_version": "PythonVersion",
@@ -53,8 +44,6 @@ class JobCommand(PropertyType):
 
 @dataclass
 class NotificationProperty(PropertyType):
-    NOTIFY_DELAY_AFTER = "NotifyDelayAfter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify_delay_after": "NotifyDelayAfter",
     }

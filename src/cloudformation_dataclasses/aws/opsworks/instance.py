@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    DEVICE_NAME = "DeviceName"
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_name": "DeviceName",
         "ebs": "Ebs",
@@ -31,12 +26,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-    IOPS = "Iops"
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_SIZE = "VolumeSize"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_on_termination": "DeleteOnTermination",
         "iops": "Iops",
@@ -54,14 +43,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class TimeBasedAutoScaling(PropertyType):
-    FRIDAY = "Friday"
-    MONDAY = "Monday"
-    SATURDAY = "Saturday"
-    SUNDAY = "Sunday"
-    THURSDAY = "Thursday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "friday": "Friday",
         "monday": "Monday",

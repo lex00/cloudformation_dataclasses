@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoScalingPolicy(PropertyType):
-    TARGET_TRACKING_CONFIGURATION = "TargetTrackingConfiguration"
-    ESTIMATED_INSTANCE_WARMUP = "EstimatedInstanceWarmup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_tracking_configuration": "TargetTrackingConfiguration",
         "estimated_instance_warmup": "EstimatedInstanceWarmup",
@@ -25,9 +22,6 @@ class AutoScalingPolicy(PropertyType):
 
 @dataclass
 class InstanceDefinition(PropertyType):
-    WEIGHTED_CAPACITY = "WeightedCapacity"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_capacity": "WeightedCapacity",
         "instance_type": "InstanceType",
@@ -39,10 +33,6 @@ class InstanceDefinition(PropertyType):
 
 @dataclass
 class LaunchTemplate(PropertyType):
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -56,8 +46,6 @@ class LaunchTemplate(PropertyType):
 
 @dataclass
 class TargetTrackingConfiguration(PropertyType):
-    TARGET_VALUE = "TargetValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }

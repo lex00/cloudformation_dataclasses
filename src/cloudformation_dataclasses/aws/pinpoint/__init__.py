@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:11
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pinpoint
@@ -447,11 +447,6 @@ class ADMChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::ADMChannel"
-    CLIENT_SECRET = "ClientSecret"
-    ENABLED = "Enabled"
-    CLIENT_ID = "ClientId"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "enabled": "Enabled",
@@ -470,16 +465,6 @@ class APNSChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::APNSChannel"
-    BUNDLE_ID = "BundleId"
-    PRIVATE_KEY = "PrivateKey"
-    ENABLED = "Enabled"
-    DEFAULT_AUTHENTICATION_METHOD = "DefaultAuthenticationMethod"
-    TOKEN_KEY = "TokenKey"
-    APPLICATION_ID = "ApplicationId"
-    TEAM_ID = "TeamId"
-    CERTIFICATE = "Certificate"
-    TOKEN_KEY_ID = "TokenKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
         "private_key": "PrivateKey",
@@ -508,16 +493,6 @@ class APNSSandboxChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::APNSSandboxChannel"
-    BUNDLE_ID = "BundleId"
-    PRIVATE_KEY = "PrivateKey"
-    ENABLED = "Enabled"
-    DEFAULT_AUTHENTICATION_METHOD = "DefaultAuthenticationMethod"
-    TOKEN_KEY = "TokenKey"
-    APPLICATION_ID = "ApplicationId"
-    TEAM_ID = "TeamId"
-    CERTIFICATE = "Certificate"
-    TOKEN_KEY_ID = "TokenKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
         "private_key": "PrivateKey",
@@ -546,16 +521,6 @@ class APNSVoipChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::APNSVoipChannel"
-    BUNDLE_ID = "BundleId"
-    PRIVATE_KEY = "PrivateKey"
-    ENABLED = "Enabled"
-    DEFAULT_AUTHENTICATION_METHOD = "DefaultAuthenticationMethod"
-    TOKEN_KEY = "TokenKey"
-    APPLICATION_ID = "ApplicationId"
-    TEAM_ID = "TeamId"
-    CERTIFICATE = "Certificate"
-    TOKEN_KEY_ID = "TokenKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
         "private_key": "PrivateKey",
@@ -584,16 +549,6 @@ class APNSVoipSandboxChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::APNSVoipSandboxChannel"
-    BUNDLE_ID = "BundleId"
-    PRIVATE_KEY = "PrivateKey"
-    ENABLED = "Enabled"
-    DEFAULT_AUTHENTICATION_METHOD = "DefaultAuthenticationMethod"
-    TOKEN_KEY = "TokenKey"
-    APPLICATION_ID = "ApplicationId"
-    TEAM_ID = "TeamId"
-    CERTIFICATE = "Certificate"
-    TOKEN_KEY_ID = "TokenKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
         "private_key": "PrivateKey",
@@ -623,9 +578,6 @@ class App(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::App"
     name_field: ClassVar[str] = "name"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "name": "Name",
@@ -646,12 +598,6 @@ class ApplicationSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::ApplicationSettings"
-    QUIET_TIME = "QuietTime"
-    LIMITS = "Limits"
-    APPLICATION_ID = "ApplicationId"
-    CAMPAIGN_HOOK = "CampaignHook"
-    CLOUD_WATCH_METRICS_ENABLED = "CloudWatchMetricsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quiet_time": "QuietTime",
         "limits": "Limits",
@@ -672,11 +618,6 @@ class BaiduChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::BaiduChannel"
-    SECRET_KEY = "SecretKey"
-    API_KEY = "ApiKey"
-    ENABLED = "Enabled"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_key": "SecretKey",
         "api_key": "ApiKey",
@@ -696,25 +637,6 @@ class Campaign(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::Campaign"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    SEGMENT_ID = "SegmentId"
-    PRIORITY = "Priority"
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-    IS_PAUSED = "IsPaused"
-    ADDITIONAL_TREATMENTS = "AdditionalTreatments"
-    NAME = "Name"
-    SEGMENT_VERSION = "SegmentVersion"
-    TREATMENT_DESCRIPTION = "TreatmentDescription"
-    MESSAGE_CONFIGURATION = "MessageConfiguration"
-    LIMITS = "Limits"
-    HOLDOUT_PERCENT = "HoldoutPercent"
-    SCHEDULE = "Schedule"
-    CUSTOM_DELIVERY_CONFIGURATION = "CustomDeliveryConfiguration"
-    APPLICATION_ID = "ApplicationId"
-    CAMPAIGN_HOOK = "CampaignHook"
-    TAGS = "Tags"
-    TREATMENT_NAME = "TreatmentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "segment_id": "SegmentId",
@@ -772,14 +694,6 @@ class EmailChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::EmailChannel"
-    CONFIGURATION_SET = "ConfigurationSet"
-    FROM_ADDRESS = "FromAddress"
-    ORCHESTRATION_SENDING_ROLE_ARN = "OrchestrationSendingRoleArn"
-    ENABLED = "Enabled"
-    APPLICATION_ID = "ApplicationId"
-    IDENTITY = "Identity"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_set": "ConfigurationSet",
         "from_address": "FromAddress",
@@ -805,14 +719,6 @@ class EmailTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::EmailTemplate"
     name_field: ClassVar[str] = "template_name"
-    HTML_PART = "HtmlPart"
-    TEXT_PART = "TextPart"
-    TEMPLATE_NAME = "TemplateName"
-    TEMPLATE_DESCRIPTION = "TemplateDescription"
-    DEFAULT_SUBSTITUTIONS = "DefaultSubstitutions"
-    SUBJECT = "Subject"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "html_part": "HtmlPart",
         "text_part": "TextPart",
@@ -843,10 +749,6 @@ class EventStream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::EventStream"
-    APPLICATION_ID = "ApplicationId"
-    DESTINATION_STREAM_ARN = "DestinationStreamArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_id": "ApplicationId",
         "destination_stream_arn": "DestinationStreamArn",
@@ -863,12 +765,6 @@ class GCMChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::GCMChannel"
-    API_KEY = "ApiKey"
-    ENABLED = "Enabled"
-    SERVICE_JSON = "ServiceJson"
-    DEFAULT_AUTHENTICATION_METHOD = "DefaultAuthenticationMethod"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_key": "ApiKey",
         "enabled": "Enabled",
@@ -890,13 +786,6 @@ class InAppTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::InAppTemplate"
     name_field: ClassVar[str] = "template_name"
-    CUSTOM_CONFIG = "CustomConfig"
-    LAYOUT = "Layout"
-    CONTENT = "Content"
-    TEMPLATE_NAME = "TemplateName"
-    TEMPLATE_DESCRIPTION = "TemplateDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_config": "CustomConfig",
         "layout": "Layout",
@@ -926,16 +815,6 @@ class PushTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::PushTemplate"
     name_field: ClassVar[str] = "template_name"
-    GCM = "GCM"
-    BAIDU = "Baidu"
-    TEMPLATE_NAME = "TemplateName"
-    ADM = "ADM"
-    APNS = "APNS"
-    TEMPLATE_DESCRIPTION = "TemplateDescription"
-    DEFAULT_SUBSTITUTIONS = "DefaultSubstitutions"
-    DEFAULT = "Default"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gcm": "GCM",
         "baidu": "Baidu",
@@ -970,11 +849,6 @@ class SMSChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::SMSChannel"
-    SHORT_CODE = "ShortCode"
-    ENABLED = "Enabled"
-    APPLICATION_ID = "ApplicationId"
-    SENDER_ID = "SenderId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "short_code": "ShortCode",
         "enabled": "Enabled",
@@ -994,12 +868,6 @@ class Segment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::Segment"
     name_field: ClassVar[str] = "name"
-    SEGMENT_GROUPS = "SegmentGroups"
-    DIMENSIONS = "Dimensions"
-    APPLICATION_ID = "ApplicationId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_groups": "SegmentGroups",
         "dimensions": "Dimensions",
@@ -1032,12 +900,6 @@ class SmsTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::SmsTemplate"
     name_field: ClassVar[str] = "template_name"
-    TEMPLATE_NAME = "TemplateName"
-    TEMPLATE_DESCRIPTION = "TemplateDescription"
-    DEFAULT_SUBSTITUTIONS = "DefaultSubstitutions"
-    BODY = "Body"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_name": "TemplateName",
         "template_description": "TemplateDescription",
@@ -1064,9 +926,6 @@ class VoiceChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::VoiceChannel"
-    ENABLED = "Enabled"
-    APPLICATION_ID = "ApplicationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "application_id": "ApplicationId",

@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResourceExclusions(PropertyType):
-    ELASTIC_FILE_SYSTEM = "ElasticFileSystem"
-    VPC_LATTICE = "VpcLattice"
-    VPC_PEERING = "VpcPeering"
-    INTERNET_GATEWAY = "InternetGateway"
-    EGRESS_ONLY_INTERNET_GATEWAY = "EgressOnlyInternetGateway"
-    VIRTUAL_PRIVATE_GATEWAY = "VirtualPrivateGateway"
-    NAT_GATEWAY = "NatGateway"
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elastic_file_system": "ElasticFileSystem",
         "vpc_lattice": "VpcLattice",
@@ -43,9 +34,6 @@ class ResourceExclusions(PropertyType):
 
 @dataclass
 class VpcEncryptionControlExclusion(PropertyType):
-    STATE = "State"
-    STATE_MESSAGE = "StateMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "state_message": "StateMessage",

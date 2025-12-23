@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoAdjustData(PropertyType):
-    AUTO_ADJUST_TYPE = "AutoAdjustType"
-    HISTORICAL_OPTIONS = "HistoricalOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_adjust_type": "AutoAdjustType",
         "historical_options": "HistoricalOptions",
@@ -25,19 +22,6 @@ class AutoAdjustData(PropertyType):
 
 @dataclass
 class BudgetData(PropertyType):
-    METRICS = "Metrics"
-    BUDGET_LIMIT = "BudgetLimit"
-    TIME_PERIOD = "TimePeriod"
-    BILLING_VIEW_ARN = "BillingViewArn"
-    AUTO_ADJUST_DATA = "AutoAdjustData"
-    TIME_UNIT = "TimeUnit"
-    PLANNED_BUDGET_LIMITS = "PlannedBudgetLimits"
-    COST_FILTERS = "CostFilters"
-    FILTER_EXPRESSION = "FilterExpression"
-    BUDGET_NAME = "BudgetName"
-    COST_TYPES = "CostTypes"
-    BUDGET_TYPE = "BudgetType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "budget_limit": "BudgetLimit",
@@ -69,10 +53,6 @@ class BudgetData(PropertyType):
 
 @dataclass
 class CostCategoryValues(PropertyType):
-    MATCH_OPTIONS = "MatchOptions"
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -86,18 +66,6 @@ class CostCategoryValues(PropertyType):
 
 @dataclass
 class CostTypes(PropertyType):
-    INCLUDE_SUPPORT = "IncludeSupport"
-    INCLUDE_OTHER_SUBSCRIPTION = "IncludeOtherSubscription"
-    INCLUDE_TAX = "IncludeTax"
-    INCLUDE_SUBSCRIPTION = "IncludeSubscription"
-    USE_BLENDED = "UseBlended"
-    INCLUDE_UPFRONT = "IncludeUpfront"
-    INCLUDE_DISCOUNT = "IncludeDiscount"
-    INCLUDE_CREDIT = "IncludeCredit"
-    INCLUDE_RECURRING = "IncludeRecurring"
-    USE_AMORTIZED = "UseAmortized"
-    INCLUDE_REFUND = "IncludeRefund"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_support": "IncludeSupport",
         "include_other_subscription": "IncludeOtherSubscription",
@@ -127,13 +95,6 @@ class CostTypes(PropertyType):
 
 @dataclass
 class Expression(PropertyType):
-    NOT = "Not"
-    OR = "Or"
-    AND = "And"
-    DIMENSIONS = "Dimensions"
-    COST_CATEGORIES = "CostCategories"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "not_": "Not",
         "or_": "Or",
@@ -153,10 +114,6 @@ class Expression(PropertyType):
 
 @dataclass
 class ExpressionDimensionValues(PropertyType):
-    MATCH_OPTIONS = "MatchOptions"
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -170,8 +127,6 @@ class ExpressionDimensionValues(PropertyType):
 
 @dataclass
 class HistoricalOptions(PropertyType):
-    BUDGET_ADJUSTMENT_PERIOD = "BudgetAdjustmentPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "budget_adjustment_period": "BudgetAdjustmentPeriod",
     }
@@ -181,11 +136,6 @@ class HistoricalOptions(PropertyType):
 
 @dataclass
 class Notification(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    NOTIFICATION_TYPE = "NotificationType"
-    THRESHOLD = "Threshold"
-    THRESHOLD_TYPE = "ThresholdType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "notification_type": "NotificationType",
@@ -201,9 +151,6 @@ class Notification(PropertyType):
 
 @dataclass
 class NotificationWithSubscribers(PropertyType):
-    SUBSCRIBERS = "Subscribers"
-    NOTIFICATION = "Notification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscribers": "Subscribers",
         "notification": "Notification",
@@ -215,9 +162,6 @@ class NotificationWithSubscribers(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -229,9 +173,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class Spend(PropertyType):
-    AMOUNT = "Amount"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amount": "Amount",
         "unit": "Unit",
@@ -243,9 +184,6 @@ class Spend(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    SUBSCRIPTION_TYPE = "SubscriptionType"
-    ADDRESS = "Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscription_type": "SubscriptionType",
         "address": "Address",
@@ -257,10 +195,6 @@ class Subscriber(PropertyType):
 
 @dataclass
 class TagValues(PropertyType):
-    MATCH_OPTIONS = "MatchOptions"
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -274,9 +208,6 @@ class TagValues(PropertyType):
 
 @dataclass
 class TimePeriod(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",

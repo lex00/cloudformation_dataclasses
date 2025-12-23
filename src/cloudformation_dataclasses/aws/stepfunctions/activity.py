@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    TYPE = "Type"
-    KMS_KEY_ID = "KmsKeyId"
-    KMS_DATA_KEY_REUSE_PERIOD_SECONDS = "KmsDataKeyReusePeriodSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "kms_key_id": "KmsKeyId",
@@ -28,9 +24,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

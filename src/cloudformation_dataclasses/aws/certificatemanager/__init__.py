@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CertificateManager
@@ -305,8 +305,6 @@ class Account(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certi"""
 
     resource_type: ClassVar[str] = "AWS::CertificateManager::Account"
-    EXPIRY_EVENTS_CONFIGURATION = "ExpiryEventsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expiry_events_configuration": "ExpiryEventsConfiguration",
     }
@@ -326,16 +324,6 @@ class Certificate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CertificateManager::Certificate"
     name_field: ClassVar[str] = "domain_name"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    CERTIFICATE_EXPORT = "CertificateExport"
-    CERTIFICATE_TRANSPARENCY_LOGGING_PREFERENCE = "CertificateTransparencyLoggingPreference"
-    DOMAIN_NAME = "DomainName"
-    DOMAIN_VALIDATION_OPTIONS = "DomainValidationOptions"
-    KEY_ALGORITHM = "KeyAlgorithm"
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    TAGS = "Tags"
-    VALIDATION_METHOD = "ValidationMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "certificate_export": "CertificateExport",

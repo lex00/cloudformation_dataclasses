@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:41
+  Generated: 2025-12-22 19:26:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCRegionSwitch
@@ -35,18 +35,6 @@ class Plan(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ARCRegionSwitch::Plan"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PRIMARY_REGION = "PrimaryRegion"
-    WORKFLOWS = "Workflows"
-    RECOVERY_TIME_OBJECTIVE_MINUTES = "RecoveryTimeObjectiveMinutes"
-    REGIONS = "Regions"
-    TRIGGERS = "Triggers"
-    ASSOCIATED_ALARMS = "AssociatedAlarms"
-    RECOVERY_APPROACH = "RecoveryApproach"
-    EXECUTION_ROLE = "ExecutionRole"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "primary_region": "PrimaryRegion",

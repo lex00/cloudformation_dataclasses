@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -22,8 +20,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class Expiration(PropertyType):
-    DAYS = "Days"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days": "Days",
     }
@@ -33,9 +29,6 @@ class Expiration(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    TRANSITIONS = "Transitions"
-    EXPIRATION = "Expiration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transitions": "Transitions",
         "expiration": "Expiration",
@@ -47,9 +40,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    REGIONS = "Regions"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regions": "Regions",
         "role_arn": "RoleArn",
@@ -61,9 +51,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class Transitions(PropertyType):
-    STORAGE_CLASS = "StorageClass"
-    DAYS = "Days"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
         "days": "Days",

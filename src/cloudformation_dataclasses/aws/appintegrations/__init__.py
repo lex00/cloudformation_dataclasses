@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppIntegrations
@@ -84,17 +84,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::Application"
     name_field: ClassVar[str] = "name"
-    APPLICATION_SOURCE_CONFIG = "ApplicationSourceConfig"
-    DESCRIPTION = "Description"
-    INITIALIZATION_TIMEOUT = "InitializationTimeout"
-    APPLICATION_CONFIG = "ApplicationConfig"
-    IFRAME_CONFIG = "IframeConfig"
-    PERMISSIONS = "Permissions"
-    IS_SERVICE = "IsService"
-    NAMESPACE = "Namespace"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_source_config": "ApplicationSourceConfig",
         "description": "Description",
@@ -137,15 +126,6 @@ class DataIntegration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::DataIntegration"
     name_field: ClassVar[str] = "name"
-    SCHEDULE_CONFIG = "ScheduleConfig"
-    FILE_CONFIGURATION = "FileConfiguration"
-    DESCRIPTION = "Description"
-    SOURCE_URI = "SourceURI"
-    OBJECT_CONFIGURATION = "ObjectConfiguration"
-    KMS_KEY = "KmsKey"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_config": "ScheduleConfig",
         "file_configuration": "FileConfiguration",
@@ -184,12 +164,6 @@ class EventIntegration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::EventIntegration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    EVENT_BRIDGE_BUS = "EventBridgeBus"
-    EVENT_FILTER = "EventFilter"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "event_bridge_bus": "EventBridgeBus",

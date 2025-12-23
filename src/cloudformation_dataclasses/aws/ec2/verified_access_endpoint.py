@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CidrOptions(PropertyType):
-    CIDR = "Cidr"
-    PORT_RANGES = "PortRanges"
-    PROTOCOL = "Protocol"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "port_ranges": "PortRanges",
@@ -31,12 +26,6 @@ class CidrOptions(PropertyType):
 
 @dataclass
 class LoadBalancerOptions(PropertyType):
-    LOAD_BALANCER_ARN = "LoadBalancerArn"
-    PORT = "Port"
-    PORT_RANGES = "PortRanges"
-    PROTOCOL = "Protocol"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "load_balancer_arn": "LoadBalancerArn",
         "port": "Port",
@@ -54,11 +43,6 @@ class LoadBalancerOptions(PropertyType):
 
 @dataclass
 class NetworkInterfaceOptions(PropertyType):
-    PORT = "Port"
-    PORT_RANGES = "PortRanges"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "port_ranges": "PortRanges",
@@ -74,9 +58,6 @@ class NetworkInterfaceOptions(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -88,14 +69,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class RdsOptions(PropertyType):
-    RDS_DB_PROXY_ARN = "RdsDbProxyArn"
-    RDS_DB_CLUSTER_ARN = "RdsDbClusterArn"
-    RDS_ENDPOINT = "RdsEndpoint"
-    PORT = "Port"
-    RDS_DB_INSTANCE_ARN = "RdsDbInstanceArn"
-    PROTOCOL = "Protocol"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rds_db_proxy_arn": "RdsDbProxyArn",
         "rds_db_cluster_arn": "RdsDbClusterArn",
@@ -117,9 +90,6 @@ class RdsOptions(PropertyType):
 
 @dataclass
 class SseSpecification(PropertyType):
-    CUSTOMER_MANAGED_KEY_ENABLED = "CustomerManagedKeyEnabled"
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",

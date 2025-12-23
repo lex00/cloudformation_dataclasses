@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsAccount(PropertyType):
-    AWS_ACCOUNT_ID = "AwsAccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_account_id": "AwsAccountId",
     }
@@ -22,16 +20,6 @@ class AwsAccount(PropertyType):
 
 @dataclass
 class EnvironmentConfiguration(PropertyType):
-    DESCRIPTION = "Description"
-    ENVIRONMENT_CONFIGURATION_ID = "EnvironmentConfigurationId"
-    AWS_REGION = "AwsRegion"
-    AWS_ACCOUNT = "AwsAccount"
-    DEPLOYMENT_MODE = "DeploymentMode"
-    ENVIRONMENT_BLUEPRINT_ID = "EnvironmentBlueprintId"
-    CONFIGURATION_PARAMETERS = "ConfigurationParameters"
-    DEPLOYMENT_ORDER = "DeploymentOrder"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "environment_configuration_id": "EnvironmentConfigurationId",
@@ -57,10 +45,6 @@ class EnvironmentConfiguration(PropertyType):
 
 @dataclass
 class EnvironmentConfigurationParameter(PropertyType):
-    IS_EDITABLE = "IsEditable"
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_editable": "IsEditable",
         "value": "Value",
@@ -74,10 +58,6 @@ class EnvironmentConfigurationParameter(PropertyType):
 
 @dataclass
 class EnvironmentConfigurationParametersDetails(PropertyType):
-    PARAMETER_OVERRIDES = "ParameterOverrides"
-    RESOLVED_PARAMETERS = "ResolvedParameters"
-    SSM_PATH = "SsmPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_overrides": "ParameterOverrides",
         "resolved_parameters": "ResolvedParameters",
@@ -91,8 +71,6 @@ class EnvironmentConfigurationParametersDetails(PropertyType):
 
 @dataclass
 class Region(PropertyType):
-    REGION_NAME = "RegionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
     }

@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Topic(PropertyType):
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    DEFAULT_SUBSCRIPTION_STATUS = "DefaultSubscriptionStatus"
-    TOPIC_NAME = "TopicName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "display_name": "DisplayName",

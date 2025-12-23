@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InstanceMetadataServiceConfiguration(PropertyType):
-    MINIMUM_INSTANCE_METADATA_SERVICE_VERSION = "MinimumInstanceMetadataServiceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_instance_metadata_service_version": "MinimumInstanceMetadataServiceVersion",
     }

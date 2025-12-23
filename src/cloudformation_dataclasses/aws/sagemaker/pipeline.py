@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ParallelismConfiguration(PropertyType):
-    MAX_PARALLEL_EXECUTION_STEPS = "MaxParallelExecutionSteps"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallel_execution_steps": "MaxParallelExecutionSteps",
     }
@@ -22,9 +20,6 @@ class ParallelismConfiguration(PropertyType):
 
 @dataclass
 class PipelineDefinition(PropertyType):
-    PIPELINE_DEFINITION_BODY = "PipelineDefinitionBody"
-    PIPELINE_DEFINITION_S3_LOCATION = "PipelineDefinitionS3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_definition_body": "PipelineDefinitionBody",
         "pipeline_definition_s3_location": "PipelineDefinitionS3Location",
@@ -36,11 +31,6 @@ class PipelineDefinition(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    E_TAG = "ETag"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",

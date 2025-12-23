@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CellValueSynonym(PropertyType):
-    SYNONYMS = "Synonyms"
-    CELL_VALUE = "CellValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "synonyms": "Synonyms",
         "cell_value": "CellValue",
@@ -25,8 +22,6 @@ class CellValueSynonym(PropertyType):
 
 @dataclass
 class CollectiveConstant(PropertyType):
-    VALUE_LIST = "ValueList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_list": "ValueList",
     }
@@ -36,10 +31,6 @@ class CollectiveConstant(PropertyType):
 
 @dataclass
 class ComparativeOrder(PropertyType):
-    SPECIFED_ORDER = "SpecifedOrder"
-    USE_ORDERING = "UseOrdering"
-    TREAT_UNDEFINED_SPECIFIED_VALUES = "TreatUndefinedSpecifiedValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "specifed_order": "SpecifedOrder",
         "use_ordering": "UseOrdering",
@@ -53,8 +44,6 @@ class ComparativeOrder(PropertyType):
 
 @dataclass
 class CustomInstructions(PropertyType):
-    CUSTOM_INSTRUCTIONS_STRING = "CustomInstructionsString"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_instructions_string": "CustomInstructionsString",
     }
@@ -64,9 +53,6 @@ class CustomInstructions(PropertyType):
 
 @dataclass
 class DataAggregation(PropertyType):
-    DATASET_ROW_DATE_GRANULARITY = "DatasetRowDateGranularity"
-    DEFAULT_DATE_COLUMN_NAME = "DefaultDateColumnName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_row_date_granularity": "DatasetRowDateGranularity",
         "default_date_column_name": "DefaultDateColumnName",
@@ -78,15 +64,6 @@ class DataAggregation(PropertyType):
 
 @dataclass
 class DatasetMetadata(PropertyType):
-    DATASET_ARN = "DatasetArn"
-    FILTERS = "Filters"
-    NAMED_ENTITIES = "NamedEntities"
-    DATASET_NAME = "DatasetName"
-    CALCULATED_FIELDS = "CalculatedFields"
-    COLUMNS = "Columns"
-    DATA_AGGREGATION = "DataAggregation"
-    DATASET_DESCRIPTION = "DatasetDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_arn": "DatasetArn",
         "filters": "Filters",
@@ -110,9 +87,6 @@ class DatasetMetadata(PropertyType):
 
 @dataclass
 class DefaultFormatting(PropertyType):
-    DISPLAY_FORMAT_OPTIONS = "DisplayFormatOptions"
-    DISPLAY_FORMAT = "DisplayFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_format_options": "DisplayFormatOptions",
         "display_format": "DisplayFormat",
@@ -124,19 +98,6 @@ class DefaultFormatting(PropertyType):
 
 @dataclass
 class DisplayFormatOptions(PropertyType):
-    DECIMAL_SEPARATOR = "DecimalSeparator"
-    FRACTION_DIGITS = "FractionDigits"
-    SUFFIX = "Suffix"
-    DATE_FORMAT = "DateFormat"
-    UNIT_SCALER = "UnitScaler"
-    NEGATIVE_FORMAT = "NegativeFormat"
-    USE_BLANK_CELL_FORMAT = "UseBlankCellFormat"
-    PREFIX = "Prefix"
-    BLANK_CELL_FORMAT = "BlankCellFormat"
-    CURRENCY_SYMBOL = "CurrencySymbol"
-    GROUPING_SEPARATOR = "GroupingSeparator"
-    USE_GROUPING = "UseGrouping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_separator": "DecimalSeparator",
         "fraction_digits": "FractionDigits",
@@ -168,12 +129,6 @@ class DisplayFormatOptions(PropertyType):
 
 @dataclass
 class NamedEntityDefinition(PropertyType):
-    PROPERTY_NAME = "PropertyName"
-    PROPERTY_USAGE = "PropertyUsage"
-    PROPERTY_ROLE = "PropertyRole"
-    METRIC = "Metric"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_name": "PropertyName",
         "property_usage": "PropertyUsage",
@@ -191,9 +146,6 @@ class NamedEntityDefinition(PropertyType):
 
 @dataclass
 class NamedEntityDefinitionMetric(PropertyType):
-    AGGREGATION = "Aggregation"
-    AGGREGATION_FUNCTION_PARAMETERS = "AggregationFunctionParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "aggregation_function_parameters": "AggregationFunctionParameters",
@@ -205,9 +157,6 @@ class NamedEntityDefinitionMetric(PropertyType):
 
 @dataclass
 class NegativeFormat(PropertyType):
-    SUFFIX = "Suffix"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "prefix": "Prefix",
@@ -219,9 +168,6 @@ class NegativeFormat(PropertyType):
 
 @dataclass
 class RangeConstant(PropertyType):
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -233,10 +179,6 @@ class RangeConstant(PropertyType):
 
 @dataclass
 class SemanticEntityType(PropertyType):
-    TYPE_NAME = "TypeName"
-    TYPE_PARAMETERS = "TypeParameters"
-    SUB_TYPE_NAME = "SubTypeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "type_parameters": "TypeParameters",
@@ -250,14 +192,6 @@ class SemanticEntityType(PropertyType):
 
 @dataclass
 class SemanticType(PropertyType):
-    TRUTHY_CELL_VALUE_SYNONYMS = "TruthyCellValueSynonyms"
-    TYPE_NAME = "TypeName"
-    TYPE_PARAMETERS = "TypeParameters"
-    SUB_TYPE_NAME = "SubTypeName"
-    TRUTHY_CELL_VALUE = "TruthyCellValue"
-    FALSEY_CELL_VALUE = "FalseyCellValue"
-    FALSEY_CELL_VALUE_SYNONYMS = "FalseyCellValueSynonyms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truthy_cell_value_synonyms": "TruthyCellValueSynonyms",
         "type_name": "TypeName",
@@ -279,24 +213,6 @@ class SemanticType(PropertyType):
 
 @dataclass
 class TopicCalculatedField(PropertyType):
-    SEMANTIC_TYPE = "SemanticType"
-    NOT_ALLOWED_AGGREGATIONS = "NotAllowedAggregations"
-    DEFAULT_FORMATTING = "DefaultFormatting"
-    ALLOWED_AGGREGATIONS = "AllowedAggregations"
-    CALCULATED_FIELD_DESCRIPTION = "CalculatedFieldDescription"
-    CALCULATED_FIELD_SYNONYMS = "CalculatedFieldSynonyms"
-    IS_INCLUDED_IN_TOPIC = "IsIncludedInTopic"
-    COLUMN_DATA_ROLE = "ColumnDataRole"
-    AGGREGATION = "Aggregation"
-    EXPRESSION = "Expression"
-    NON_ADDITIVE = "NonAdditive"
-    CALCULATED_FIELD_NAME = "CalculatedFieldName"
-    NEVER_AGGREGATE_IN_FILTER = "NeverAggregateInFilter"
-    TIME_GRANULARITY = "TimeGranularity"
-    DISABLE_INDEXING = "DisableIndexing"
-    COMPARATIVE_ORDER = "ComparativeOrder"
-    CELL_VALUE_SYNONYMS = "CellValueSynonyms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "semantic_type": "SemanticType",
         "not_allowed_aggregations": "NotAllowedAggregations",
@@ -338,11 +254,6 @@ class TopicCalculatedField(PropertyType):
 
 @dataclass
 class TopicCategoryFilter(PropertyType):
-    CATEGORY_FILTER_TYPE = "CategoryFilterType"
-    CATEGORY_FILTER_FUNCTION = "CategoryFilterFunction"
-    CONSTANT = "Constant"
-    INVERSE = "Inverse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_filter_type": "CategoryFilterType",
         "category_filter_function": "CategoryFilterFunction",
@@ -358,10 +269,6 @@ class TopicCategoryFilter(PropertyType):
 
 @dataclass
 class TopicCategoryFilterConstant(PropertyType):
-    SINGULAR_CONSTANT = "SingularConstant"
-    CONSTANT_TYPE = "ConstantType"
-    COLLECTIVE_CONSTANT = "CollectiveConstant"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "singular_constant": "SingularConstant",
         "constant_type": "ConstantType",
@@ -375,24 +282,6 @@ class TopicCategoryFilterConstant(PropertyType):
 
 @dataclass
 class TopicColumn(PropertyType):
-    SEMANTIC_TYPE = "SemanticType"
-    NOT_ALLOWED_AGGREGATIONS = "NotAllowedAggregations"
-    ALLOWED_AGGREGATIONS = "AllowedAggregations"
-    DEFAULT_FORMATTING = "DefaultFormatting"
-    COLUMN_DESCRIPTION = "ColumnDescription"
-    IS_INCLUDED_IN_TOPIC = "IsIncludedInTopic"
-    COLUMN_DATA_ROLE = "ColumnDataRole"
-    AGGREGATION = "Aggregation"
-    COLUMN_NAME = "ColumnName"
-    NON_ADDITIVE = "NonAdditive"
-    COLUMN_SYNONYMS = "ColumnSynonyms"
-    NEVER_AGGREGATE_IN_FILTER = "NeverAggregateInFilter"
-    TIME_GRANULARITY = "TimeGranularity"
-    COLUMN_FRIENDLY_NAME = "ColumnFriendlyName"
-    DISABLE_INDEXING = "DisableIndexing"
-    COMPARATIVE_ORDER = "ComparativeOrder"
-    CELL_VALUE_SYNONYMS = "CellValueSynonyms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "semantic_type": "SemanticType",
         "not_allowed_aggregations": "NotAllowedAggregations",
@@ -434,8 +323,6 @@ class TopicColumn(PropertyType):
 
 @dataclass
 class TopicConfigOptions(PropertyType):
-    Q_BUSINESS_INSIGHTS_ENABLED = "QBusinessInsightsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_business_insights_enabled": "QBusinessInsightsEnabled",
     }
@@ -445,9 +332,6 @@ class TopicConfigOptions(PropertyType):
 
 @dataclass
 class TopicDateRangeFilter(PropertyType):
-    INCLUSIVE = "Inclusive"
-    CONSTANT = "Constant"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusive": "Inclusive",
         "constant": "Constant",
@@ -459,18 +343,6 @@ class TopicDateRangeFilter(PropertyType):
 
 @dataclass
 class TopicFilter(PropertyType):
-    FILTER_CLASS = "FilterClass"
-    FILTER_SYNONYMS = "FilterSynonyms"
-    FILTER_TYPE = "FilterType"
-    RELATIVE_DATE_FILTER = "RelativeDateFilter"
-    OPERAND_FIELD_NAME = "OperandFieldName"
-    NUMERIC_EQUALITY_FILTER = "NumericEqualityFilter"
-    FILTER_DESCRIPTION = "FilterDescription"
-    NUMERIC_RANGE_FILTER = "NumericRangeFilter"
-    DATE_RANGE_FILTER = "DateRangeFilter"
-    FILTER_NAME = "FilterName"
-    CATEGORY_FILTER = "CategoryFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_class": "FilterClass",
         "filter_synonyms": "FilterSynonyms",
@@ -500,12 +372,6 @@ class TopicFilter(PropertyType):
 
 @dataclass
 class TopicNamedEntity(PropertyType):
-    ENTITY_SYNONYMS = "EntitySynonyms"
-    ENTITY_NAME = "EntityName"
-    SEMANTIC_ENTITY_TYPE = "SemanticEntityType"
-    ENTITY_DESCRIPTION = "EntityDescription"
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_synonyms": "EntitySynonyms",
         "entity_name": "EntityName",
@@ -523,9 +389,6 @@ class TopicNamedEntity(PropertyType):
 
 @dataclass
 class TopicNumericEqualityFilter(PropertyType):
-    AGGREGATION = "Aggregation"
-    CONSTANT = "Constant"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "constant": "Constant",
@@ -537,10 +400,6 @@ class TopicNumericEqualityFilter(PropertyType):
 
 @dataclass
 class TopicNumericRangeFilter(PropertyType):
-    AGGREGATION = "Aggregation"
-    INCLUSIVE = "Inclusive"
-    CONSTANT = "Constant"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "inclusive": "Inclusive",
@@ -554,9 +413,6 @@ class TopicNumericRangeFilter(PropertyType):
 
 @dataclass
 class TopicRangeFilterConstant(PropertyType):
-    CONSTANT_TYPE = "ConstantType"
-    RANGE_CONSTANT = "RangeConstant"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constant_type": "ConstantType",
         "range_constant": "RangeConstant",
@@ -568,10 +424,6 @@ class TopicRangeFilterConstant(PropertyType):
 
 @dataclass
 class TopicRelativeDateFilter(PropertyType):
-    RELATIVE_DATE_FILTER_FUNCTION = "RelativeDateFilterFunction"
-    CONSTANT = "Constant"
-    TIME_GRANULARITY = "TimeGranularity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative_date_filter_function": "RelativeDateFilterFunction",
         "constant": "Constant",
@@ -585,9 +437,6 @@ class TopicRelativeDateFilter(PropertyType):
 
 @dataclass
 class TopicSingularFilterConstant(PropertyType):
-    SINGULAR_CONSTANT = "SingularConstant"
-    CONSTANT_TYPE = "ConstantType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "singular_constant": "SingularConstant",
         "constant_type": "ConstantType",

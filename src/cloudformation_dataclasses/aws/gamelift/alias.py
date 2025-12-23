@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RoutingStrategy(PropertyType):
-    TYPE = "Type"
-    MESSAGE = "Message"
-    FLEET_ID = "FleetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",

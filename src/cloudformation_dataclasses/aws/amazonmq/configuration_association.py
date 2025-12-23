@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationId(PropertyType):
-    REVISION = "Revision"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "id": "Id",

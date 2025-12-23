@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alarm(PropertyType):
-    ALARM_NAME = "AlarmName"
-    SEVERITY = "Severity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
         "severity": "Severity",
@@ -25,8 +22,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AlarmMetric(PropertyType):
-    ALARM_METRIC_NAME = "AlarmMetricName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_metric_name": "AlarmMetricName",
     }
@@ -36,9 +31,6 @@ class AlarmMetric(PropertyType):
 
 @dataclass
 class ComponentConfiguration(PropertyType):
-    SUB_COMPONENT_TYPE_CONFIGURATIONS = "SubComponentTypeConfigurations"
-    CONFIGURATION_DETAILS = "ConfigurationDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_component_type_configurations": "SubComponentTypeConfigurations",
         "configuration_details": "ConfigurationDetails",
@@ -50,13 +42,6 @@ class ComponentConfiguration(PropertyType):
 
 @dataclass
 class ComponentMonitoringSetting(PropertyType):
-    CUSTOM_COMPONENT_CONFIGURATION = "CustomComponentConfiguration"
-    TIER = "Tier"
-    COMPONENT_CONFIGURATION_MODE = "ComponentConfigurationMode"
-    DEFAULT_OVERWRITE_COMPONENT_CONFIGURATION = "DefaultOverwriteComponentConfiguration"
-    COMPONENT_NAME = "ComponentName"
-    COMPONENT_ARN = "ComponentARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_component_configuration": "CustomComponentConfiguration",
         "tier": "Tier",
@@ -76,17 +61,6 @@ class ComponentMonitoringSetting(PropertyType):
 
 @dataclass
 class ConfigurationDetails(PropertyType):
-    NET_WEAVER_PROMETHEUS_EXPORTER = "NetWeaverPrometheusExporter"
-    WINDOWS_EVENTS = "WindowsEvents"
-    ALARM_METRICS = "AlarmMetrics"
-    ALARMS = "Alarms"
-    SQL_SERVER_PROMETHEUS_EXPORTER = "SQLServerPrometheusExporter"
-    HA_CLUSTER_PROMETHEUS_EXPORTER = "HAClusterPrometheusExporter"
-    HANA_PROMETHEUS_EXPORTER = "HANAPrometheusExporter"
-    LOGS = "Logs"
-    PROCESSES = "Processes"
-    JMX_PROMETHEUS_EXPORTER = "JMXPrometheusExporter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "net_weaver_prometheus_exporter": "NetWeaverPrometheusExporter",
         "windows_events": "WindowsEvents",
@@ -114,9 +88,6 @@ class ConfigurationDetails(PropertyType):
 
 @dataclass
 class CustomComponent(PropertyType):
-    RESOURCE_LIST = "ResourceList"
-    COMPONENT_NAME = "ComponentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_list": "ResourceList",
         "component_name": "ComponentName",
@@ -128,8 +99,6 @@ class CustomComponent(PropertyType):
 
 @dataclass
 class HAClusterPrometheusExporter(PropertyType):
-    PROMETHEUS_PORT = "PrometheusPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
     }
@@ -139,12 +108,6 @@ class HAClusterPrometheusExporter(PropertyType):
 
 @dataclass
 class HANAPrometheusExporter(PropertyType):
-    HANA_PORT = "HANAPort"
-    PROMETHEUS_PORT = "PrometheusPort"
-    HANA_SECRET_NAME = "HANASecretName"
-    HANASID = "HANASID"
-    AGREE_TO_INSTALL_HANADB_CLIENT = "AgreeToInstallHANADBClient"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hana_port": "HANAPort",
         "prometheus_port": "PrometheusPort",
@@ -162,10 +125,6 @@ class HANAPrometheusExporter(PropertyType):
 
 @dataclass
 class JMXPrometheusExporter(PropertyType):
-    PROMETHEUS_PORT = "PrometheusPort"
-    JMXURL = "JMXURL"
-    HOST_PORT = "HostPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "jmxurl": "JMXURL",
@@ -179,12 +138,6 @@ class JMXPrometheusExporter(PropertyType):
 
 @dataclass
 class Log(PropertyType):
-    LOG_TYPE = "LogType"
-    ENCODING = "Encoding"
-    LOG_GROUP_NAME = "LogGroupName"
-    LOG_PATH = "LogPath"
-    PATTERN_SET = "PatternSet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_type": "LogType",
         "encoding": "Encoding",
@@ -202,10 +155,6 @@ class Log(PropertyType):
 
 @dataclass
 class LogPattern(PropertyType):
-    PATTERN = "Pattern"
-    RANK = "Rank"
-    PATTERN_NAME = "PatternName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "rank": "Rank",
@@ -219,9 +168,6 @@ class LogPattern(PropertyType):
 
 @dataclass
 class LogPatternSet(PropertyType):
-    PATTERN_SET_NAME = "PatternSetName"
-    LOG_PATTERNS = "LogPatterns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern_set_name": "PatternSetName",
         "log_patterns": "LogPatterns",
@@ -233,10 +179,6 @@ class LogPatternSet(PropertyType):
 
 @dataclass
 class NetWeaverPrometheusExporter(PropertyType):
-    PROMETHEUS_PORT = "PrometheusPort"
-    INSTANCE_NUMBERS = "InstanceNumbers"
-    SAPSID = "SAPSID"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "instance_numbers": "InstanceNumbers",
@@ -250,9 +192,6 @@ class NetWeaverPrometheusExporter(PropertyType):
 
 @dataclass
 class Process(PropertyType):
-    PROCESS_NAME = "ProcessName"
-    ALARM_METRICS = "AlarmMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "process_name": "ProcessName",
         "alarm_metrics": "AlarmMetrics",
@@ -264,9 +203,6 @@ class Process(PropertyType):
 
 @dataclass
 class SQLServerPrometheusExporter(PropertyType):
-    PROMETHEUS_PORT = "PrometheusPort"
-    SQL_SECRET_NAME = "SQLSecretName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "sql_secret_name": "SQLSecretName",
@@ -278,11 +214,6 @@ class SQLServerPrometheusExporter(PropertyType):
 
 @dataclass
 class SubComponentConfigurationDetails(PropertyType):
-    WINDOWS_EVENTS = "WindowsEvents"
-    ALARM_METRICS = "AlarmMetrics"
-    LOGS = "Logs"
-    PROCESSES = "Processes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "windows_events": "WindowsEvents",
         "alarm_metrics": "AlarmMetrics",
@@ -298,9 +229,6 @@ class SubComponentConfigurationDetails(PropertyType):
 
 @dataclass
 class SubComponentTypeConfiguration(PropertyType):
-    SUB_COMPONENT_TYPE = "SubComponentType"
-    SUB_COMPONENT_CONFIGURATION_DETAILS = "SubComponentConfigurationDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_component_type": "SubComponentType",
         "sub_component_configuration_details": "SubComponentConfigurationDetails",
@@ -312,11 +240,6 @@ class SubComponentTypeConfiguration(PropertyType):
 
 @dataclass
 class WindowsEvent(PropertyType):
-    EVENT_LEVELS = "EventLevels"
-    LOG_GROUP_NAME = "LogGroupName"
-    EVENT_NAME = "EventName"
-    PATTERN_SET = "PatternSet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_levels": "EventLevels",
         "log_group_name": "LogGroupName",

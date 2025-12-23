@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DefaultRouteInput(PropertyType):
-    ACTIVATION_STATE = "ActivationState"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "activation_state": "ActivationState",
     }
@@ -22,12 +20,6 @@ class DefaultRouteInput(PropertyType):
 
 @dataclass
 class UriPathRouteInput(PropertyType):
-    SOURCE_PATH = "SourcePath"
-    APPEND_SOURCE_PATH = "AppendSourcePath"
-    ACTIVATION_STATE = "ActivationState"
-    METHODS = "Methods"
-    INCLUDE_CHILD_PATHS = "IncludeChildPaths"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "append_source_path": "AppendSourcePath",

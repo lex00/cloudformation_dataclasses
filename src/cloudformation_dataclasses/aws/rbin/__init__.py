@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Rbin
@@ -116,15 +116,6 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-"""
 
     resource_type: ClassVar[str] = "AWS::Rbin::Rule"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    RESOURCE_TAGS = "ResourceTags"
-    LOCK_CONFIGURATION = "LockConfiguration"
-    EXCLUDE_RESOURCE_TAGS = "ExcludeResourceTags"
-    RESOURCE_TYPE = "ResourceType"
-    RETENTION_PERIOD = "RetentionPeriod"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",

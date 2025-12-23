@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BridgeNetworkOutput(PropertyType):
-    NETWORK_NAME = "NetworkName"
-    PORT = "Port"
-    IP_ADDRESS = "IpAddress"
-    PROTOCOL = "Protocol"
-    TTL = "Ttl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "port": "Port",

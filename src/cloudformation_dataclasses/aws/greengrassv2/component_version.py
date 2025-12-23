@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComponentDependencyRequirement(PropertyType):
-    VERSION_REQUIREMENT = "VersionRequirement"
-    DEPENDENCY_TYPE = "DependencyType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_requirement": "VersionRequirement",
         "dependency_type": "DependencyType",
@@ -25,9 +22,6 @@ class ComponentDependencyRequirement(PropertyType):
 
 @dataclass
 class ComponentPlatform(PropertyType):
-    ATTRIBUTES = "Attributes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "name": "Name",
@@ -39,11 +33,6 @@ class ComponentPlatform(PropertyType):
 
 @dataclass
 class LambdaContainerParams(PropertyType):
-    VOLUMES = "Volumes"
-    MOUNT_RO_SYSFS = "MountROSysfs"
-    MEMORY_SIZE_IN_KB = "MemorySizeInKB"
-    DEVICES = "Devices"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volumes": "Volumes",
         "mount_ro_sysfs": "MountROSysfs",
@@ -59,10 +48,6 @@ class LambdaContainerParams(PropertyType):
 
 @dataclass
 class LambdaDeviceMount(PropertyType):
-    PATH = "Path"
-    ADD_GROUP_OWNER = "AddGroupOwner"
-    PERMISSION = "Permission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "add_group_owner": "AddGroupOwner",
@@ -76,9 +61,6 @@ class LambdaDeviceMount(PropertyType):
 
 @dataclass
 class LambdaEventSource(PropertyType):
-    TYPE = "Type"
-    TOPIC = "Topic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "topic": "Topic",
@@ -90,18 +72,6 @@ class LambdaEventSource(PropertyType):
 
 @dataclass
 class LambdaExecutionParameters(PropertyType):
-    MAX_INSTANCES_COUNT = "MaxInstancesCount"
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    EVENT_SOURCES = "EventSources"
-    PINNED = "Pinned"
-    EXEC_ARGS = "ExecArgs"
-    LINUX_PROCESS_PARAMS = "LinuxProcessParams"
-    INPUT_PAYLOAD_ENCODING_TYPE = "InputPayloadEncodingType"
-    MAX_QUEUE_SIZE = "MaxQueueSize"
-    STATUS_TIMEOUT_IN_SECONDS = "StatusTimeoutInSeconds"
-    MAX_IDLE_TIME_IN_SECONDS = "MaxIdleTimeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_instances_count": "MaxInstancesCount",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -131,13 +101,6 @@ class LambdaExecutionParameters(PropertyType):
 
 @dataclass
 class LambdaFunctionRecipeSource(PropertyType):
-    COMPONENT_DEPENDENCIES = "ComponentDependencies"
-    COMPONENT_LAMBDA_PARAMETERS = "ComponentLambdaParameters"
-    LAMBDA_ARN = "LambdaArn"
-    COMPONENT_PLATFORMS = "ComponentPlatforms"
-    COMPONENT_NAME = "ComponentName"
-    COMPONENT_VERSION = "ComponentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_dependencies": "ComponentDependencies",
         "component_lambda_parameters": "ComponentLambdaParameters",
@@ -157,9 +120,6 @@ class LambdaFunctionRecipeSource(PropertyType):
 
 @dataclass
 class LambdaLinuxProcessParams(PropertyType):
-    ISOLATION_MODE = "IsolationMode"
-    CONTAINER_PARAMS = "ContainerParams"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "isolation_mode": "IsolationMode",
         "container_params": "ContainerParams",
@@ -171,11 +131,6 @@ class LambdaLinuxProcessParams(PropertyType):
 
 @dataclass
 class LambdaVolumeMount(PropertyType):
-    SOURCE_PATH = "SourcePath"
-    DESTINATION_PATH = "DestinationPath"
-    ADD_GROUP_OWNER = "AddGroupOwner"
-    PERMISSION = "Permission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "destination_path": "DestinationPath",

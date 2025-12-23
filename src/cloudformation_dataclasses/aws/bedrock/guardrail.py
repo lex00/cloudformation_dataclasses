@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutomatedReasoningPolicyConfig(PropertyType):
-    POLICIES = "Policies"
-    CONFIDENCE_THRESHOLD = "ConfidenceThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policies": "Policies",
         "confidence_threshold": "ConfidenceThreshold",
@@ -25,16 +22,6 @@ class AutomatedReasoningPolicyConfig(PropertyType):
 
 @dataclass
 class ContentFilterConfig(PropertyType):
-    OUTPUT_STRENGTH = "OutputStrength"
-    TYPE = "Type"
-    INPUT_ENABLED = "InputEnabled"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    INPUT_STRENGTH = "InputStrength"
-    INPUT_MODALITIES = "InputModalities"
-    OUTPUT_ENABLED = "OutputEnabled"
-    OUTPUT_MODALITIES = "OutputModalities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_strength": "OutputStrength",
         "type_": "Type",
@@ -60,8 +47,6 @@ class ContentFilterConfig(PropertyType):
 
 @dataclass
 class ContentFiltersTierConfig(PropertyType):
-    TIER_NAME = "TierName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tier_name": "TierName",
     }
@@ -71,9 +56,6 @@ class ContentFiltersTierConfig(PropertyType):
 
 @dataclass
 class ContentPolicyConfig(PropertyType):
-    CONTENT_FILTERS_TIER_CONFIG = "ContentFiltersTierConfig"
-    FILTERS_CONFIG = "FiltersConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_filters_tier_config": "ContentFiltersTierConfig",
         "filters_config": "FiltersConfig",
@@ -85,11 +67,6 @@ class ContentPolicyConfig(PropertyType):
 
 @dataclass
 class ContextualGroundingFilterConfig(PropertyType):
-    TYPE = "Type"
-    ACTION = "Action"
-    ENABLED = "Enabled"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -105,8 +82,6 @@ class ContextualGroundingFilterConfig(PropertyType):
 
 @dataclass
 class ContextualGroundingPolicyConfig(PropertyType):
-    FILTERS_CONFIG = "FiltersConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -116,8 +91,6 @@ class ContextualGroundingPolicyConfig(PropertyType):
 
 @dataclass
 class GuardrailCrossRegionConfig(PropertyType):
-    GUARDRAIL_PROFILE_ARN = "GuardrailProfileArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_profile_arn": "GuardrailProfileArn",
     }
@@ -127,12 +100,6 @@ class GuardrailCrossRegionConfig(PropertyType):
 
 @dataclass
 class ManagedWordsConfig(PropertyType):
-    TYPE = "Type"
-    INPUT_ENABLED = "InputEnabled"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    OUTPUT_ENABLED = "OutputEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_enabled": "InputEnabled",
@@ -150,13 +117,6 @@ class ManagedWordsConfig(PropertyType):
 
 @dataclass
 class PiiEntityConfig(PropertyType):
-    TYPE = "Type"
-    ACTION = "Action"
-    INPUT_ENABLED = "InputEnabled"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    OUTPUT_ENABLED = "OutputEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -176,15 +136,6 @@ class PiiEntityConfig(PropertyType):
 
 @dataclass
 class RegexConfig(PropertyType):
-    PATTERN = "Pattern"
-    ACTION = "Action"
-    INPUT_ENABLED = "InputEnabled"
-    DESCRIPTION = "Description"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    OUTPUT_ENABLED = "OutputEnabled"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "action": "Action",
@@ -208,9 +159,6 @@ class RegexConfig(PropertyType):
 
 @dataclass
 class SensitiveInformationPolicyConfig(PropertyType):
-    REGEXES_CONFIG = "RegexesConfig"
-    PII_ENTITIES_CONFIG = "PiiEntitiesConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regexes_config": "RegexesConfig",
         "pii_entities_config": "PiiEntitiesConfig",
@@ -222,15 +170,6 @@ class SensitiveInformationPolicyConfig(PropertyType):
 
 @dataclass
 class TopicConfig(PropertyType):
-    TYPE = "Type"
-    INPUT_ENABLED = "InputEnabled"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    DEFINITION = "Definition"
-    OUTPUT_ENABLED = "OutputEnabled"
-    EXAMPLES = "Examples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_enabled": "InputEnabled",
@@ -254,9 +193,6 @@ class TopicConfig(PropertyType):
 
 @dataclass
 class TopicPolicyConfig(PropertyType):
-    TOPICS_TIER_CONFIG = "TopicsTierConfig"
-    TOPICS_CONFIG = "TopicsConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topics_tier_config": "TopicsTierConfig",
         "topics_config": "TopicsConfig",
@@ -268,8 +204,6 @@ class TopicPolicyConfig(PropertyType):
 
 @dataclass
 class TopicsTierConfig(PropertyType):
-    TIER_NAME = "TierName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tier_name": "TierName",
     }
@@ -279,12 +213,6 @@ class TopicsTierConfig(PropertyType):
 
 @dataclass
 class WordConfig(PropertyType):
-    INPUT_ENABLED = "InputEnabled"
-    INPUT_ACTION = "InputAction"
-    OUTPUT_ACTION = "OutputAction"
-    OUTPUT_ENABLED = "OutputEnabled"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_enabled": "InputEnabled",
         "input_action": "InputAction",
@@ -302,9 +230,6 @@ class WordConfig(PropertyType):
 
 @dataclass
 class WordPolicyConfig(PropertyType):
-    MANAGED_WORD_LISTS_CONFIG = "ManagedWordListsConfig"
-    WORDS_CONFIG = "WordsConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_word_lists_config": "ManagedWordListsConfig",
         "words_config": "WordsConfig",

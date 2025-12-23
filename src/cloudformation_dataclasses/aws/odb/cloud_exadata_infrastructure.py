@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomerContact(PropertyType):
-    EMAIL = "Email"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
     }
@@ -22,16 +20,6 @@ class CustomerContact(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    CUSTOM_ACTION_TIMEOUT_IN_MINS = "CustomActionTimeoutInMins"
-    DAYS_OF_WEEK = "DaysOfWeek"
-    PREFERENCE = "Preference"
-    LEAD_TIME_IN_WEEKS = "LeadTimeInWeeks"
-    MONTHS = "Months"
-    PATCHING_MODE = "PatchingMode"
-    WEEKS_OF_MONTH = "WeeksOfMonth"
-    IS_CUSTOM_ACTION_TIMEOUT_ENABLED = "IsCustomActionTimeoutEnabled"
-    HOURS_OF_DAY = "HoursOfDay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_action_timeout_in_mins": "CustomActionTimeoutInMins",
         "days_of_week": "DaysOfWeek",

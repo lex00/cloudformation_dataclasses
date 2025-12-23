@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Oam
@@ -60,12 +60,6 @@ class Link(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-l"""
 
     resource_type: ClassVar[str] = "AWS::Oam::Link"
-    SINK_IDENTIFIER = "SinkIdentifier"
-    LABEL_TEMPLATE = "LabelTemplate"
-    RESOURCE_TYPES = "ResourceTypes"
-    LINK_CONFIGURATION = "LinkConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sink_identifier": "SinkIdentifier",
         "label_template": "LabelTemplate",
@@ -98,10 +92,6 @@ class Sink(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Oam::Sink"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "tags": "Tags",

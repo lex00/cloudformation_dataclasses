@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoExportPolicy(PropertyType):
-    EVENTS = "Events"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -22,8 +20,6 @@ class AutoExportPolicy(PropertyType):
 
 @dataclass
 class AutoImportPolicy(PropertyType):
-    EVENTS = "Events"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -33,9 +29,6 @@ class AutoImportPolicy(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    AUTO_IMPORT_POLICY = "AutoImportPolicy"
-    AUTO_EXPORT_POLICY = "AutoExportPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_import_policy": "AutoImportPolicy",
         "auto_export_policy": "AutoExportPolicy",

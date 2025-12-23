@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Configuration(PropertyType):
-    CLASSIFICATION = "Classification"
-    CONFIGURATION_PROPERTIES = "ConfigurationProperties"
-    CONFIGURATIONS = "Configurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classification": "Classification",
         "configuration_properties": "ConfigurationProperties",
@@ -28,9 +24,6 @@ class Configuration(PropertyType):
 
 @dataclass
 class EbsBlockDeviceConfig(PropertyType):
-    VOLUME_SPECIFICATION = "VolumeSpecification"
-    VOLUMES_PER_INSTANCE = "VolumesPerInstance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_specification": "VolumeSpecification",
         "volumes_per_instance": "VolumesPerInstance",
@@ -42,9 +35,6 @@ class EbsBlockDeviceConfig(PropertyType):
 
 @dataclass
 class EbsConfiguration(PropertyType):
-    EBS_BLOCK_DEVICE_CONFIGS = "EbsBlockDeviceConfigs"
-    EBS_OPTIMIZED = "EbsOptimized"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_block_device_configs": "EbsBlockDeviceConfigs",
         "ebs_optimized": "EbsOptimized",
@@ -56,9 +46,6 @@ class EbsConfiguration(PropertyType):
 
 @dataclass
 class InstanceFleetProvisioningSpecifications(PropertyType):
-    ON_DEMAND_SPECIFICATION = "OnDemandSpecification"
-    SPOT_SPECIFICATION = "SpotSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_specification": "OnDemandSpecification",
         "spot_specification": "SpotSpecification",
@@ -70,9 +57,6 @@ class InstanceFleetProvisioningSpecifications(PropertyType):
 
 @dataclass
 class InstanceFleetResizingSpecifications(PropertyType):
-    ON_DEMAND_RESIZE_SPECIFICATION = "OnDemandResizeSpecification"
-    SPOT_RESIZE_SPECIFICATION = "SpotResizeSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_resize_specification": "OnDemandResizeSpecification",
         "spot_resize_specification": "SpotResizeSpecification",
@@ -84,15 +68,6 @@ class InstanceFleetResizingSpecifications(PropertyType):
 
 @dataclass
 class InstanceTypeConfig(PropertyType):
-    BID_PRICE = "BidPrice"
-    BID_PRICE_AS_PERCENTAGE_OF_ON_DEMAND_PRICE = "BidPriceAsPercentageOfOnDemandPrice"
-    CONFIGURATIONS = "Configurations"
-    CUSTOM_AMI_ID = "CustomAmiId"
-    EBS_CONFIGURATION = "EbsConfiguration"
-    INSTANCE_TYPE = "InstanceType"
-    PRIORITY = "Priority"
-    WEIGHTED_CAPACITY = "WeightedCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bid_price": "BidPrice",
         "bid_price_as_percentage_of_on_demand_price": "BidPriceAsPercentageOfOnDemandPrice",
@@ -116,10 +91,6 @@ class InstanceTypeConfig(PropertyType):
 
 @dataclass
 class OnDemandCapacityReservationOptions(PropertyType):
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-    CAPACITY_RESERVATION_RESOURCE_GROUP_ARN = "CapacityReservationResourceGroupArn"
-    USAGE_STRATEGY = "UsageStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
@@ -133,9 +104,6 @@ class OnDemandCapacityReservationOptions(PropertyType):
 
 @dataclass
 class OnDemandProvisioningSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    CAPACITY_RESERVATION_OPTIONS = "CapacityReservationOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "capacity_reservation_options": "CapacityReservationOptions",
@@ -147,10 +115,6 @@ class OnDemandProvisioningSpecification(PropertyType):
 
 @dataclass
 class OnDemandResizingSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    CAPACITY_RESERVATION_OPTIONS = "CapacityReservationOptions"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "capacity_reservation_options": "CapacityReservationOptions",
@@ -164,11 +128,6 @@ class OnDemandResizingSpecification(PropertyType):
 
 @dataclass
 class SpotProvisioningSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    BLOCK_DURATION_MINUTES = "BlockDurationMinutes"
-    TIMEOUT_ACTION = "TimeoutAction"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "block_duration_minutes": "BlockDurationMinutes",
@@ -184,9 +143,6 @@ class SpotProvisioningSpecification(PropertyType):
 
 @dataclass
 class SpotResizingSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "timeout_duration_minutes": "TimeoutDurationMinutes",
@@ -198,11 +154,6 @@ class SpotResizingSpecification(PropertyType):
 
 @dataclass
 class VolumeSpecification(PropertyType):
-    IOPS = "Iops"
-    SIZE_IN_GB = "SizeInGB"
-    THROUGHPUT = "Throughput"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iops": "Iops",
         "size_in_gb": "SizeInGB",

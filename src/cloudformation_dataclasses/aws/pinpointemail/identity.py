@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MailFromAttributes(PropertyType):
-    MAIL_FROM_DOMAIN = "MailFromDomain"
-    BEHAVIOR_ON_MX_FAILURE = "BehaviorOnMxFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mail_from_domain": "MailFromDomain",
         "behavior_on_mx_failure": "BehaviorOnMxFailure",
@@ -25,9 +22,6 @@ class MailFromAttributes(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

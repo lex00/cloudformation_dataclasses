@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Application(PropertyType):
-    ADDITIONAL_INFO = "AdditionalInfo"
-    ARGS = "Args"
-    NAME = "Name"
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_info": "AdditionalInfo",
         "args": "Args",
@@ -31,9 +26,6 @@ class Application(PropertyType):
 
 @dataclass
 class AutoScalingPolicy(PropertyType):
-    CONSTRAINTS = "Constraints"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "rules": "Rules",
@@ -45,8 +37,6 @@ class AutoScalingPolicy(PropertyType):
 
 @dataclass
 class AutoTerminationPolicy(PropertyType):
-    IDLE_TIMEOUT = "IdleTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_timeout": "IdleTimeout",
     }
@@ -56,9 +46,6 @@ class AutoTerminationPolicy(PropertyType):
 
 @dataclass
 class BootstrapActionConfig(PropertyType):
-    NAME = "Name"
-    SCRIPT_BOOTSTRAP_ACTION = "ScriptBootstrapAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "script_bootstrap_action": "ScriptBootstrapAction",
@@ -70,16 +57,6 @@ class BootstrapActionConfig(PropertyType):
 
 @dataclass
 class CloudWatchAlarmDefinition(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    DIMENSIONS = "Dimensions"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    METRIC_NAME = "MetricName"
-    NAMESPACE = "Namespace"
-    PERIOD = "Period"
-    STATISTIC = "Statistic"
-    THRESHOLD = "Threshold"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "dimensions": "Dimensions",
@@ -105,12 +82,6 @@ class CloudWatchAlarmDefinition(PropertyType):
 
 @dataclass
 class ComputeLimits(PropertyType):
-    MAXIMUM_CAPACITY_UNITS = "MaximumCapacityUnits"
-    MAXIMUM_CORE_CAPACITY_UNITS = "MaximumCoreCapacityUnits"
-    MAXIMUM_ON_DEMAND_CAPACITY_UNITS = "MaximumOnDemandCapacityUnits"
-    MINIMUM_CAPACITY_UNITS = "MinimumCapacityUnits"
-    UNIT_TYPE = "UnitType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_capacity_units": "MaximumCapacityUnits",
         "maximum_core_capacity_units": "MaximumCoreCapacityUnits",
@@ -128,10 +99,6 @@ class ComputeLimits(PropertyType):
 
 @dataclass
 class Configuration(PropertyType):
-    CLASSIFICATION = "Classification"
-    CONFIGURATION_PROPERTIES = "ConfigurationProperties"
-    CONFIGURATIONS = "Configurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classification": "Classification",
         "configuration_properties": "ConfigurationProperties",
@@ -145,9 +112,6 @@ class Configuration(PropertyType):
 
 @dataclass
 class EbsBlockDeviceConfig(PropertyType):
-    VOLUME_SPECIFICATION = "VolumeSpecification"
-    VOLUMES_PER_INSTANCE = "VolumesPerInstance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_specification": "VolumeSpecification",
         "volumes_per_instance": "VolumesPerInstance",
@@ -159,9 +123,6 @@ class EbsBlockDeviceConfig(PropertyType):
 
 @dataclass
 class EbsConfiguration(PropertyType):
-    EBS_BLOCK_DEVICE_CONFIGS = "EbsBlockDeviceConfigs"
-    EBS_OPTIMIZED = "EbsOptimized"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_block_device_configs": "EbsBlockDeviceConfigs",
         "ebs_optimized": "EbsOptimized",
@@ -173,11 +134,6 @@ class EbsConfiguration(PropertyType):
 
 @dataclass
 class HadoopJarStepConfig(PropertyType):
-    ARGS = "Args"
-    JAR = "Jar"
-    MAIN_CLASS = "MainClass"
-    STEP_PROPERTIES = "StepProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "args": "Args",
         "jar": "Jar",
@@ -193,13 +149,6 @@ class HadoopJarStepConfig(PropertyType):
 
 @dataclass
 class InstanceFleetConfig(PropertyType):
-    INSTANCE_TYPE_CONFIGS = "InstanceTypeConfigs"
-    LAUNCH_SPECIFICATIONS = "LaunchSpecifications"
-    NAME = "Name"
-    RESIZE_SPECIFICATIONS = "ResizeSpecifications"
-    TARGET_ON_DEMAND_CAPACITY = "TargetOnDemandCapacity"
-    TARGET_SPOT_CAPACITY = "TargetSpotCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_type_configs": "InstanceTypeConfigs",
         "launch_specifications": "LaunchSpecifications",
@@ -219,9 +168,6 @@ class InstanceFleetConfig(PropertyType):
 
 @dataclass
 class InstanceFleetProvisioningSpecifications(PropertyType):
-    ON_DEMAND_SPECIFICATION = "OnDemandSpecification"
-    SPOT_SPECIFICATION = "SpotSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_specification": "OnDemandSpecification",
         "spot_specification": "SpotSpecification",
@@ -233,9 +179,6 @@ class InstanceFleetProvisioningSpecifications(PropertyType):
 
 @dataclass
 class InstanceFleetResizingSpecifications(PropertyType):
-    ON_DEMAND_RESIZE_SPECIFICATION = "OnDemandResizeSpecification"
-    SPOT_RESIZE_SPECIFICATION = "SpotResizeSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_resize_specification": "OnDemandResizeSpecification",
         "spot_resize_specification": "SpotResizeSpecification",
@@ -247,16 +190,6 @@ class InstanceFleetResizingSpecifications(PropertyType):
 
 @dataclass
 class InstanceGroupConfig(PropertyType):
-    AUTO_SCALING_POLICY = "AutoScalingPolicy"
-    BID_PRICE = "BidPrice"
-    CONFIGURATIONS = "Configurations"
-    CUSTOM_AMI_ID = "CustomAmiId"
-    EBS_CONFIGURATION = "EbsConfiguration"
-    INSTANCE_COUNT = "InstanceCount"
-    INSTANCE_TYPE = "InstanceType"
-    MARKET = "Market"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_policy": "AutoScalingPolicy",
         "bid_price": "BidPrice",
@@ -282,15 +215,6 @@ class InstanceGroupConfig(PropertyType):
 
 @dataclass
 class InstanceTypeConfig(PropertyType):
-    BID_PRICE = "BidPrice"
-    BID_PRICE_AS_PERCENTAGE_OF_ON_DEMAND_PRICE = "BidPriceAsPercentageOfOnDemandPrice"
-    CONFIGURATIONS = "Configurations"
-    CUSTOM_AMI_ID = "CustomAmiId"
-    EBS_CONFIGURATION = "EbsConfiguration"
-    INSTANCE_TYPE = "InstanceType"
-    PRIORITY = "Priority"
-    WEIGHTED_CAPACITY = "WeightedCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bid_price": "BidPrice",
         "bid_price_as_percentage_of_on_demand_price": "BidPriceAsPercentageOfOnDemandPrice",
@@ -314,26 +238,6 @@ class InstanceTypeConfig(PropertyType):
 
 @dataclass
 class JobFlowInstancesConfig(PropertyType):
-    ADDITIONAL_MASTER_SECURITY_GROUPS = "AdditionalMasterSecurityGroups"
-    ADDITIONAL_SLAVE_SECURITY_GROUPS = "AdditionalSlaveSecurityGroups"
-    CORE_INSTANCE_FLEET = "CoreInstanceFleet"
-    CORE_INSTANCE_GROUP = "CoreInstanceGroup"
-    EC2_KEY_NAME = "Ec2KeyName"
-    EC2_SUBNET_ID = "Ec2SubnetId"
-    EC2_SUBNET_IDS = "Ec2SubnetIds"
-    EMR_MANAGED_MASTER_SECURITY_GROUP = "EmrManagedMasterSecurityGroup"
-    EMR_MANAGED_SLAVE_SECURITY_GROUP = "EmrManagedSlaveSecurityGroup"
-    HADOOP_VERSION = "HadoopVersion"
-    KEEP_JOB_FLOW_ALIVE_WHEN_NO_STEPS = "KeepJobFlowAliveWhenNoSteps"
-    MASTER_INSTANCE_FLEET = "MasterInstanceFleet"
-    MASTER_INSTANCE_GROUP = "MasterInstanceGroup"
-    PLACEMENT = "Placement"
-    SERVICE_ACCESS_SECURITY_GROUP = "ServiceAccessSecurityGroup"
-    TASK_INSTANCE_FLEETS = "TaskInstanceFleets"
-    TASK_INSTANCE_GROUPS = "TaskInstanceGroups"
-    TERMINATION_PROTECTED = "TerminationProtected"
-    UNHEALTHY_NODE_REPLACEMENT = "UnhealthyNodeReplacement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_master_security_groups": "AdditionalMasterSecurityGroups",
         "additional_slave_security_groups": "AdditionalSlaveSecurityGroups",
@@ -379,12 +283,6 @@ class JobFlowInstancesConfig(PropertyType):
 
 @dataclass
 class KerberosAttributes(PropertyType):
-    AD_DOMAIN_JOIN_PASSWORD = "ADDomainJoinPassword"
-    AD_DOMAIN_JOIN_USER = "ADDomainJoinUser"
-    CROSS_REALM_TRUST_PRINCIPAL_PASSWORD = "CrossRealmTrustPrincipalPassword"
-    KDC_ADMIN_PASSWORD = "KdcAdminPassword"
-    REALM = "Realm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_domain_join_password": "ADDomainJoinPassword",
         "ad_domain_join_user": "ADDomainJoinUser",
@@ -402,9 +300,6 @@ class KerberosAttributes(PropertyType):
 
 @dataclass
 class KeyValue(PropertyType):
-    KEY = "Key"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "value": "Value",
@@ -416,10 +311,6 @@ class KeyValue(PropertyType):
 
 @dataclass
 class ManagedScalingPolicy(PropertyType):
-    COMPUTE_LIMITS = "ComputeLimits"
-    SCALING_STRATEGY = "ScalingStrategy"
-    UTILIZATION_PERFORMANCE_INDEX = "UtilizationPerformanceIndex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_limits": "ComputeLimits",
         "scaling_strategy": "ScalingStrategy",
@@ -433,9 +324,6 @@ class ManagedScalingPolicy(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    KEY = "Key"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "value": "Value",
@@ -447,10 +335,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class OnDemandCapacityReservationOptions(PropertyType):
-    CAPACITY_RESERVATION_PREFERENCE = "CapacityReservationPreference"
-    CAPACITY_RESERVATION_RESOURCE_GROUP_ARN = "CapacityReservationResourceGroupArn"
-    USAGE_STRATEGY = "UsageStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
@@ -464,9 +348,6 @@ class OnDemandCapacityReservationOptions(PropertyType):
 
 @dataclass
 class OnDemandProvisioningSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    CAPACITY_RESERVATION_OPTIONS = "CapacityReservationOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "capacity_reservation_options": "CapacityReservationOptions",
@@ -478,10 +359,6 @@ class OnDemandProvisioningSpecification(PropertyType):
 
 @dataclass
 class OnDemandResizingSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    CAPACITY_RESERVATION_OPTIONS = "CapacityReservationOptions"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "capacity_reservation_options": "CapacityReservationOptions",
@@ -495,9 +372,6 @@ class OnDemandResizingSpecification(PropertyType):
 
 @dataclass
 class PlacementGroupConfig(PropertyType):
-    INSTANCE_ROLE = "InstanceRole"
-    PLACEMENT_STRATEGY = "PlacementStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_role": "InstanceRole",
         "placement_strategy": "PlacementStrategy",
@@ -509,8 +383,6 @@ class PlacementGroupConfig(PropertyType):
 
 @dataclass
 class PlacementType(PropertyType):
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
     }
@@ -520,9 +392,6 @@ class PlacementType(PropertyType):
 
 @dataclass
 class ScalingAction(PropertyType):
-    MARKET = "Market"
-    SIMPLE_SCALING_POLICY_CONFIGURATION = "SimpleScalingPolicyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "market": "Market",
         "simple_scaling_policy_configuration": "SimpleScalingPolicyConfiguration",
@@ -534,9 +403,6 @@ class ScalingAction(PropertyType):
 
 @dataclass
 class ScalingConstraints(PropertyType):
-    MAX_CAPACITY = "MaxCapacity"
-    MIN_CAPACITY = "MinCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_capacity": "MaxCapacity",
         "min_capacity": "MinCapacity",
@@ -548,11 +414,6 @@ class ScalingConstraints(PropertyType):
 
 @dataclass
 class ScalingRule(PropertyType):
-    ACTION = "Action"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-    TRIGGER = "Trigger"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "description": "Description",
@@ -568,8 +429,6 @@ class ScalingRule(PropertyType):
 
 @dataclass
 class ScalingTrigger(PropertyType):
-    CLOUD_WATCH_ALARM_DEFINITION = "CloudWatchAlarmDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_alarm_definition": "CloudWatchAlarmDefinition",
     }
@@ -579,9 +438,6 @@ class ScalingTrigger(PropertyType):
 
 @dataclass
 class ScriptBootstrapActionConfig(PropertyType):
-    ARGS = "Args"
-    PATH = "Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "args": "Args",
         "path": "Path",
@@ -593,10 +449,6 @@ class ScriptBootstrapActionConfig(PropertyType):
 
 @dataclass
 class SimpleScalingPolicyConfiguration(PropertyType):
-    ADJUSTMENT_TYPE = "AdjustmentType"
-    COOL_DOWN = "CoolDown"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "adjustment_type": "AdjustmentType",
         "cool_down": "CoolDown",
@@ -610,11 +462,6 @@ class SimpleScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class SpotProvisioningSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    BLOCK_DURATION_MINUTES = "BlockDurationMinutes"
-    TIMEOUT_ACTION = "TimeoutAction"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "block_duration_minutes": "BlockDurationMinutes",
@@ -630,9 +477,6 @@ class SpotProvisioningSpecification(PropertyType):
 
 @dataclass
 class SpotResizingSpecification(PropertyType):
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    TIMEOUT_DURATION_MINUTES = "TimeoutDurationMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
         "timeout_duration_minutes": "TimeoutDurationMinutes",
@@ -644,10 +488,6 @@ class SpotResizingSpecification(PropertyType):
 
 @dataclass
 class StepConfig(PropertyType):
-    ACTION_ON_FAILURE = "ActionOnFailure"
-    HADOOP_JAR_STEP = "HadoopJarStep"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_on_failure": "ActionOnFailure",
         "hadoop_jar_step": "HadoopJarStep",
@@ -661,11 +501,6 @@ class StepConfig(PropertyType):
 
 @dataclass
 class VolumeSpecification(PropertyType):
-    IOPS = "Iops"
-    SIZE_IN_GB = "SizeInGB"
-    THROUGHPUT = "Throughput"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iops": "Iops",
         "size_in_gb": "SizeInGB",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

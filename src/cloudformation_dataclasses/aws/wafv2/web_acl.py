@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AWSManagedRulesACFPRuleSet(PropertyType):
-    REGISTRATION_PAGE_PATH = "RegistrationPagePath"
-    RESPONSE_INSPECTION = "ResponseInspection"
-    CREATION_PATH = "CreationPath"
-    ENABLE_REGEX_IN_PATH = "EnableRegexInPath"
-    REQUEST_INSPECTION = "RequestInspection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registration_page_path": "RegistrationPagePath",
         "response_inspection": "ResponseInspection",
@@ -34,11 +28,6 @@ class AWSManagedRulesACFPRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesATPRuleSet(PropertyType):
-    RESPONSE_INSPECTION = "ResponseInspection"
-    ENABLE_REGEX_IN_PATH = "EnableRegexInPath"
-    LOGIN_PATH = "LoginPath"
-    REQUEST_INSPECTION = "RequestInspection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_inspection": "ResponseInspection",
         "enable_regex_in_path": "EnableRegexInPath",
@@ -54,9 +43,6 @@ class AWSManagedRulesATPRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesAntiDDoSRuleSet(PropertyType):
-    CLIENT_SIDE_ACTION_CONFIG = "ClientSideActionConfig"
-    SENSITIVITY_TO_BLOCK = "SensitivityToBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_side_action_config": "ClientSideActionConfig",
         "sensitivity_to_block": "SensitivityToBlock",
@@ -68,9 +54,6 @@ class AWSManagedRulesAntiDDoSRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesBotControlRuleSet(PropertyType):
-    INSPECTION_LEVEL = "InspectionLevel"
-    ENABLE_MACHINE_LEARNING = "EnableMachineLearning"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inspection_level": "InspectionLevel",
         "enable_machine_learning": "EnableMachineLearning",
@@ -82,8 +65,6 @@ class AWSManagedRulesBotControlRuleSet(PropertyType):
 
 @dataclass
 class AllowAction(PropertyType):
-    CUSTOM_REQUEST_HANDLING = "CustomRequestHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -93,8 +74,6 @@ class AllowAction(PropertyType):
 
 @dataclass
 class AndStatement(PropertyType):
-    STATEMENTS = "Statements"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -104,9 +83,6 @@ class AndStatement(PropertyType):
 
 @dataclass
 class ApplicationAttribute(PropertyType):
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -118,8 +94,6 @@ class ApplicationAttribute(PropertyType):
 
 @dataclass
 class ApplicationConfig(PropertyType):
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -129,9 +103,6 @@ class ApplicationConfig(PropertyType):
 
 @dataclass
 class AsnMatchStatement(PropertyType):
-    FORWARDED_IP_CONFIG = "ForwardedIPConfig"
-    ASN_LIST = "AsnList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "asn_list": "AsnList",
@@ -143,8 +114,6 @@ class AsnMatchStatement(PropertyType):
 
 @dataclass
 class AssociationConfig(PropertyType):
-    REQUEST_BODY = "RequestBody"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "request_body": "RequestBody",
     }
@@ -154,8 +123,6 @@ class AssociationConfig(PropertyType):
 
 @dataclass
 class BlockAction(PropertyType):
-    CUSTOM_RESPONSE = "CustomResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_response": "CustomResponse",
     }
@@ -165,8 +132,6 @@ class BlockAction(PropertyType):
 
 @dataclass
 class Body(PropertyType):
-    OVERSIZE_HANDLING = "OversizeHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oversize_handling": "OversizeHandling",
     }
@@ -176,12 +141,6 @@ class Body(PropertyType):
 
 @dataclass
 class ByteMatchStatement(PropertyType):
-    SEARCH_STRING_BASE64 = "SearchStringBase64"
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    POSITIONAL_CONSTRAINT = "PositionalConstraint"
-    SEARCH_STRING = "SearchString"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "search_string_base64": "SearchStringBase64",
         "text_transformations": "TextTransformations",
@@ -199,8 +158,6 @@ class ByteMatchStatement(PropertyType):
 
 @dataclass
 class CaptchaAction(PropertyType):
-    CUSTOM_REQUEST_HANDLING = "CustomRequestHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -210,8 +167,6 @@ class CaptchaAction(PropertyType):
 
 @dataclass
 class CaptchaConfig(PropertyType):
-    IMMUNITY_TIME_PROPERTY = "ImmunityTimeProperty"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -221,8 +176,6 @@ class CaptchaConfig(PropertyType):
 
 @dataclass
 class ChallengeAction(PropertyType):
-    CUSTOM_REQUEST_HANDLING = "CustomRequestHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -232,8 +185,6 @@ class ChallengeAction(PropertyType):
 
 @dataclass
 class ChallengeConfig(PropertyType):
-    IMMUNITY_TIME_PROPERTY = "ImmunityTimeProperty"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -243,10 +194,6 @@ class ChallengeConfig(PropertyType):
 
 @dataclass
 class ClientSideAction(PropertyType):
-    USAGE_OF_ACTION = "UsageOfAction"
-    SENSITIVITY = "Sensitivity"
-    EXEMPT_URI_REGULAR_EXPRESSIONS = "ExemptUriRegularExpressions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "usage_of_action": "UsageOfAction",
         "sensitivity": "Sensitivity",
@@ -260,8 +207,6 @@ class ClientSideAction(PropertyType):
 
 @dataclass
 class ClientSideActionConfig(PropertyType):
-    CHALLENGE = "Challenge"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "challenge": "Challenge",
     }
@@ -271,10 +216,6 @@ class ClientSideActionConfig(PropertyType):
 
 @dataclass
 class CookieMatchPattern(PropertyType):
-    ALL = "All"
-    INCLUDED_COOKIES = "IncludedCookies"
-    EXCLUDED_COOKIES = "ExcludedCookies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_cookies": "IncludedCookies",
@@ -288,10 +229,6 @@ class CookieMatchPattern(PropertyType):
 
 @dataclass
 class Cookies(PropertyType):
-    MATCH_SCOPE = "MatchScope"
-    MATCH_PATTERN = "MatchPattern"
-    OVERSIZE_HANDLING = "OversizeHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -305,8 +242,6 @@ class Cookies(PropertyType):
 
 @dataclass
 class CountAction(PropertyType):
-    CUSTOM_REQUEST_HANDLING = "CustomRequestHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -316,9 +251,6 @@ class CountAction(PropertyType):
 
 @dataclass
 class CustomHTTPHeader(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -330,8 +262,6 @@ class CustomHTTPHeader(PropertyType):
 
 @dataclass
 class CustomRequestHandling(PropertyType):
-    INSERT_HEADERS = "InsertHeaders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insert_headers": "InsertHeaders",
     }
@@ -341,10 +271,6 @@ class CustomRequestHandling(PropertyType):
 
 @dataclass
 class CustomResponse(PropertyType):
-    RESPONSE_CODE = "ResponseCode"
-    CUSTOM_RESPONSE_BODY_KEY = "CustomResponseBodyKey"
-    RESPONSE_HEADERS = "ResponseHeaders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_code": "ResponseCode",
         "custom_response_body_key": "CustomResponseBodyKey",
@@ -358,9 +284,6 @@ class CustomResponse(PropertyType):
 
 @dataclass
 class CustomResponseBody(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "content": "Content",
@@ -372,11 +295,6 @@ class CustomResponseBody(PropertyType):
 
 @dataclass
 class DataProtect(PropertyType):
-    FIELD = "Field"
-    ACTION = "Action"
-    EXCLUDE_RATE_BASED_DETAILS = "ExcludeRateBasedDetails"
-    EXCLUDE_RULE_MATCH_DETAILS = "ExcludeRuleMatchDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "action": "Action",
@@ -392,8 +310,6 @@ class DataProtect(PropertyType):
 
 @dataclass
 class DataProtectionConfig(PropertyType):
-    DATA_PROTECTIONS = "DataProtections"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_protections": "DataProtections",
     }
@@ -403,9 +319,6 @@ class DataProtectionConfig(PropertyType):
 
 @dataclass
 class DefaultAction(PropertyType):
-    BLOCK = "Block"
-    ALLOW = "Allow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block": "Block",
         "allow": "Allow",
@@ -417,8 +330,6 @@ class DefaultAction(PropertyType):
 
 @dataclass
 class ExcludedRule(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -428,8 +339,6 @@ class ExcludedRule(PropertyType):
 
 @dataclass
 class FieldIdentifier(PropertyType):
-    IDENTIFIER = "Identifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
     }
@@ -439,20 +348,6 @@ class FieldIdentifier(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    ALL_QUERY_ARGUMENTS = "AllQueryArguments"
-    JA3_FINGERPRINT = "JA3Fingerprint"
-    SINGLE_QUERY_ARGUMENT = "SingleQueryArgument"
-    QUERY_STRING = "QueryString"
-    HEADERS = "Headers"
-    METHOD = "Method"
-    URI_FRAGMENT = "UriFragment"
-    JSON_BODY = "JsonBody"
-    URI_PATH = "UriPath"
-    COOKIES = "Cookies"
-    JA4_FINGERPRINT = "JA4Fingerprint"
-    BODY = "Body"
-    SINGLE_HEADER = "SingleHeader"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_query_arguments": "AllQueryArguments",
         "ja3_fingerprint": "JA3Fingerprint",
@@ -486,9 +381,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class FieldToProtect(PropertyType):
-    FIELD_KEYS = "FieldKeys"
-    FIELD_TYPE = "FieldType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_keys": "FieldKeys",
         "field_type": "FieldType",
@@ -500,9 +392,6 @@ class FieldToProtect(PropertyType):
 
 @dataclass
 class ForwardedIPConfiguration(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-    HEADER_NAME = "HeaderName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -514,9 +403,6 @@ class ForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class GeoMatchStatement(PropertyType):
-    FORWARDED_IP_CONFIG = "ForwardedIPConfig"
-    COUNTRY_CODES = "CountryCodes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "country_codes": "CountryCodes",
@@ -528,10 +414,6 @@ class GeoMatchStatement(PropertyType):
 
 @dataclass
 class HeaderMatchPattern(PropertyType):
-    ALL = "All"
-    INCLUDED_HEADERS = "IncludedHeaders"
-    EXCLUDED_HEADERS = "ExcludedHeaders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_headers": "IncludedHeaders",
@@ -545,10 +427,6 @@ class HeaderMatchPattern(PropertyType):
 
 @dataclass
 class Headers(PropertyType):
-    MATCH_SCOPE = "MatchScope"
-    MATCH_PATTERN = "MatchPattern"
-    OVERSIZE_HANDLING = "OversizeHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -562,10 +440,6 @@ class Headers(PropertyType):
 
 @dataclass
 class IPSetForwardedIPConfiguration(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-    HEADER_NAME = "HeaderName"
-    POSITION = "Position"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -579,9 +453,6 @@ class IPSetForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class IPSetReferenceStatement(PropertyType):
-    IP_SET_FORWARDED_IP_CONFIG = "IPSetForwardedIPConfig"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_forwarded_ip_config": "IPSetForwardedIPConfig",
         "arn": "Arn",
@@ -593,8 +464,6 @@ class IPSetReferenceStatement(PropertyType):
 
 @dataclass
 class ImmunityTimeProperty(PropertyType):
-    IMMUNITY_TIME = "ImmunityTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time": "ImmunityTime",
     }
@@ -604,8 +473,6 @@ class ImmunityTimeProperty(PropertyType):
 
 @dataclass
 class JA3Fingerprint(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -615,8 +482,6 @@ class JA3Fingerprint(PropertyType):
 
 @dataclass
 class JA4Fingerprint(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -626,11 +491,6 @@ class JA4Fingerprint(PropertyType):
 
 @dataclass
 class JsonBody(PropertyType):
-    MATCH_SCOPE = "MatchScope"
-    MATCH_PATTERN = "MatchPattern"
-    INVALID_FALLBACK_BEHAVIOR = "InvalidFallbackBehavior"
-    OVERSIZE_HANDLING = "OversizeHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -646,9 +506,6 @@ class JsonBody(PropertyType):
 
 @dataclass
 class JsonMatchPattern(PropertyType):
-    ALL = "All"
-    INCLUDED_PATHS = "IncludedPaths"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_paths": "IncludedPaths",
@@ -660,8 +517,6 @@ class JsonMatchPattern(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -671,9 +526,6 @@ class Label(PropertyType):
 
 @dataclass
 class LabelMatchStatement(PropertyType):
-    SCOPE = "Scope"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "key": "Key",
@@ -685,15 +537,6 @@ class LabelMatchStatement(PropertyType):
 
 @dataclass
 class ManagedRuleGroupConfig(PropertyType):
-    AWS_MANAGED_RULES_ANTI_D_DO_S_RULE_SET = "AWSManagedRulesAntiDDoSRuleSet"
-    USERNAME_FIELD = "UsernameField"
-    LOGIN_PATH = "LoginPath"
-    AWS_MANAGED_RULES_ATP_RULE_SET = "AWSManagedRulesATPRuleSet"
-    AWS_MANAGED_RULES_BOT_CONTROL_RULE_SET = "AWSManagedRulesBotControlRuleSet"
-    PASSWORD_FIELD = "PasswordField"
-    AWS_MANAGED_RULES_ACFP_RULE_SET = "AWSManagedRulesACFPRuleSet"
-    PAYLOAD_TYPE = "PayloadType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_rules_anti_d_do_s_rule_set": "AWSManagedRulesAntiDDoSRuleSet",
         "username_field": "UsernameField",
@@ -717,14 +560,6 @@ class ManagedRuleGroupConfig(PropertyType):
 
 @dataclass
 class ManagedRuleGroupStatement(PropertyType):
-    VENDOR_NAME = "VendorName"
-    VERSION = "Version"
-    RULE_ACTION_OVERRIDES = "RuleActionOverrides"
-    MANAGED_RULE_GROUP_CONFIGS = "ManagedRuleGroupConfigs"
-    EXCLUDED_RULES = "ExcludedRules"
-    NAME = "Name"
-    SCOPE_DOWN_STATEMENT = "ScopeDownStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vendor_name": "VendorName",
         "version": "Version",
@@ -746,8 +581,6 @@ class ManagedRuleGroupStatement(PropertyType):
 
 @dataclass
 class NotStatement(PropertyType):
-    STATEMENT = "Statement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement": "Statement",
     }
@@ -757,8 +590,6 @@ class NotStatement(PropertyType):
 
 @dataclass
 class OnSourceDDoSProtectionConfig(PropertyType):
-    ALB_LOW_REPUTATION_MODE = "ALBLowReputationMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alb_low_reputation_mode": "ALBLowReputationMode",
     }
@@ -768,8 +599,6 @@ class OnSourceDDoSProtectionConfig(PropertyType):
 
 @dataclass
 class OrStatement(PropertyType):
-    STATEMENTS = "Statements"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -779,9 +608,6 @@ class OrStatement(PropertyType):
 
 @dataclass
 class OverrideAction(PropertyType):
-    COUNT = "Count"
-    NONE = "None"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "count": "Count",
         "none": "None",
@@ -793,13 +619,6 @@ class OverrideAction(PropertyType):
 
 @dataclass
 class RateBasedStatement(PropertyType):
-    AGGREGATE_KEY_TYPE = "AggregateKeyType"
-    CUSTOM_KEYS = "CustomKeys"
-    FORWARDED_IP_CONFIG = "ForwardedIPConfig"
-    LIMIT = "Limit"
-    EVALUATION_WINDOW_SEC = "EvaluationWindowSec"
-    SCOPE_DOWN_STATEMENT = "ScopeDownStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregate_key_type": "AggregateKeyType",
         "custom_keys": "CustomKeys",
@@ -819,19 +638,6 @@ class RateBasedStatement(PropertyType):
 
 @dataclass
 class RateBasedStatementCustomKey(PropertyType):
-    COOKIE = "Cookie"
-    FORWARDED_IP = "ForwardedIP"
-    QUERY_ARGUMENT = "QueryArgument"
-    JA3_FINGERPRINT = "JA3Fingerprint"
-    HEADER = "Header"
-    HTTP_METHOD = "HTTPMethod"
-    QUERY_STRING = "QueryString"
-    URI_PATH = "UriPath"
-    IP = "IP"
-    JA4_FINGERPRINT = "JA4Fingerprint"
-    ASN = "ASN"
-    LABEL_NAMESPACE = "LabelNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie": "Cookie",
         "forwarded_ip": "ForwardedIP",
@@ -863,9 +669,6 @@ class RateBasedStatementCustomKey(PropertyType):
 
 @dataclass
 class RateLimitCookie(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -877,9 +680,6 @@ class RateLimitCookie(PropertyType):
 
 @dataclass
 class RateLimitHeader(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -891,8 +691,6 @@ class RateLimitHeader(PropertyType):
 
 @dataclass
 class RateLimitJA3Fingerprint(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -902,8 +700,6 @@ class RateLimitJA3Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitJA4Fingerprint(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -913,8 +709,6 @@ class RateLimitJA4Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitLabelNamespace(PropertyType):
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }
@@ -924,9 +718,6 @@ class RateLimitLabelNamespace(PropertyType):
 
 @dataclass
 class RateLimitQueryArgument(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -938,8 +729,6 @@ class RateLimitQueryArgument(PropertyType):
 
 @dataclass
 class RateLimitQueryString(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -949,8 +738,6 @@ class RateLimitQueryString(PropertyType):
 
 @dataclass
 class RateLimitUriPath(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -960,8 +747,6 @@ class RateLimitUriPath(PropertyType):
 
 @dataclass
 class Regex(PropertyType):
-    REGEX_STRING = "RegexString"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex_string": "RegexString",
     }
@@ -971,10 +756,6 @@ class Regex(PropertyType):
 
 @dataclass
 class RegexMatchStatement(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    REGEX_STRING = "RegexString"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "regex_string": "RegexString",
@@ -988,10 +769,6 @@ class RegexMatchStatement(PropertyType):
 
 @dataclass
 class RegexPatternSetReferenceStatement(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    ARN = "Arn"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "arn": "Arn",
@@ -1005,8 +782,6 @@ class RegexPatternSetReferenceStatement(PropertyType):
 
 @dataclass
 class RequestBodyAssociatedResourceTypeConfig(PropertyType):
-    DEFAULT_SIZE_INSPECTION_LIMIT = "DefaultSizeInspectionLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_size_inspection_limit": "DefaultSizeInspectionLimit",
     }
@@ -1016,10 +791,6 @@ class RequestBodyAssociatedResourceTypeConfig(PropertyType):
 
 @dataclass
 class RequestInspection(PropertyType):
-    USERNAME_FIELD = "UsernameField"
-    PASSWORD_FIELD = "PasswordField"
-    PAYLOAD_TYPE = "PayloadType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_field": "UsernameField",
         "password_field": "PasswordField",
@@ -1033,13 +804,6 @@ class RequestInspection(PropertyType):
 
 @dataclass
 class RequestInspectionACFP(PropertyType):
-    USERNAME_FIELD = "UsernameField"
-    EMAIL_FIELD = "EmailField"
-    PASSWORD_FIELD = "PasswordField"
-    ADDRESS_FIELDS = "AddressFields"
-    PAYLOAD_TYPE = "PayloadType"
-    PHONE_NUMBER_FIELDS = "PhoneNumberFields"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_field": "UsernameField",
         "email_field": "EmailField",
@@ -1059,11 +823,6 @@ class RequestInspectionACFP(PropertyType):
 
 @dataclass
 class ResponseInspection(PropertyType):
-    HEADER = "Header"
-    BODY_CONTAINS = "BodyContains"
-    JSON = "Json"
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "body_contains": "BodyContains",
@@ -1079,9 +838,6 @@ class ResponseInspection(PropertyType):
 
 @dataclass
 class ResponseInspectionBodyContains(PropertyType):
-    SUCCESS_STRINGS = "SuccessStrings"
-    FAILURE_STRINGS = "FailureStrings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_strings": "SuccessStrings",
         "failure_strings": "FailureStrings",
@@ -1093,10 +849,6 @@ class ResponseInspectionBodyContains(PropertyType):
 
 @dataclass
 class ResponseInspectionHeader(PropertyType):
-    SUCCESS_VALUES = "SuccessValues"
-    FAILURE_VALUES = "FailureValues"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_values": "SuccessValues",
         "failure_values": "FailureValues",
@@ -1110,10 +862,6 @@ class ResponseInspectionHeader(PropertyType):
 
 @dataclass
 class ResponseInspectionJson(PropertyType):
-    IDENTIFIER = "Identifier"
-    SUCCESS_VALUES = "SuccessValues"
-    FAILURE_VALUES = "FailureValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "success_values": "SuccessValues",
@@ -1127,9 +875,6 @@ class ResponseInspectionJson(PropertyType):
 
 @dataclass
 class ResponseInspectionStatusCode(PropertyType):
-    SUCCESS_CODES = "SuccessCodes"
-    FAILURE_CODES = "FailureCodes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_codes": "SuccessCodes",
         "failure_codes": "FailureCodes",
@@ -1141,16 +886,6 @@ class ResponseInspectionStatusCode(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    ACTION = "Action"
-    PRIORITY = "Priority"
-    STATEMENT = "Statement"
-    CHALLENGE_CONFIG = "ChallengeConfig"
-    OVERRIDE_ACTION = "OverrideAction"
-    RULE_LABELS = "RuleLabels"
-    VISIBILITY_CONFIG = "VisibilityConfig"
-    CAPTCHA_CONFIG = "CaptchaConfig"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -1176,12 +911,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleAction(PropertyType):
-    CAPTCHA = "Captcha"
-    BLOCK = "Block"
-    COUNT = "Count"
-    ALLOW = "Allow"
-    CHALLENGE = "Challenge"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "captcha": "Captcha",
         "block": "Block",
@@ -1199,9 +928,6 @@ class RuleAction(PropertyType):
 
 @dataclass
 class RuleActionOverride(PropertyType):
-    ACTION_TO_USE = "ActionToUse"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_to_use": "ActionToUse",
         "name": "Name",
@@ -1213,10 +939,6 @@ class RuleActionOverride(PropertyType):
 
 @dataclass
 class RuleGroupReferenceStatement(PropertyType):
-    RULE_ACTION_OVERRIDES = "RuleActionOverrides"
-    ARN = "Arn"
-    EXCLUDED_RULES = "ExcludedRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_action_overrides": "RuleActionOverrides",
         "arn": "Arn",
@@ -1230,8 +952,6 @@ class RuleGroupReferenceStatement(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1241,8 +961,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class SingleQueryArgument(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1252,11 +970,6 @@ class SingleQueryArgument(PropertyType):
 
 @dataclass
 class SizeConstraintStatement(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    SIZE = "Size"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "text_transformations": "TextTransformations",
@@ -1272,10 +985,6 @@ class SizeConstraintStatement(PropertyType):
 
 @dataclass
 class SqliMatchStatement(PropertyType):
-    SENSITIVITY_LEVEL = "SensitivityLevel"
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitivity_level": "SensitivityLevel",
         "text_transformations": "TextTransformations",
@@ -1289,23 +998,6 @@ class SqliMatchStatement(PropertyType):
 
 @dataclass
 class Statement(PropertyType):
-    SIZE_CONSTRAINT_STATEMENT = "SizeConstraintStatement"
-    AND_STATEMENT = "AndStatement"
-    XSS_MATCH_STATEMENT = "XssMatchStatement"
-    NOT_STATEMENT = "NotStatement"
-    BYTE_MATCH_STATEMENT = "ByteMatchStatement"
-    RATE_BASED_STATEMENT = "RateBasedStatement"
-    GEO_MATCH_STATEMENT = "GeoMatchStatement"
-    RULE_GROUP_REFERENCE_STATEMENT = "RuleGroupReferenceStatement"
-    LABEL_MATCH_STATEMENT = "LabelMatchStatement"
-    REGEX_MATCH_STATEMENT = "RegexMatchStatement"
-    SQLI_MATCH_STATEMENT = "SqliMatchStatement"
-    REGEX_PATTERN_SET_REFERENCE_STATEMENT = "RegexPatternSetReferenceStatement"
-    OR_STATEMENT = "OrStatement"
-    ASN_MATCH_STATEMENT = "AsnMatchStatement"
-    MANAGED_RULE_GROUP_STATEMENT = "ManagedRuleGroupStatement"
-    IP_SET_REFERENCE_STATEMENT = "IPSetReferenceStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_constraint_statement": "SizeConstraintStatement",
         "and_statement": "AndStatement",
@@ -1345,9 +1037,6 @@ class Statement(PropertyType):
 
 @dataclass
 class TextTransformation(PropertyType):
-    TYPE = "Type"
-    PRIORITY = "Priority"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "priority": "Priority",
@@ -1359,8 +1048,6 @@ class TextTransformation(PropertyType):
 
 @dataclass
 class UriFragment(PropertyType):
-    FALLBACK_BEHAVIOR = "FallbackBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -1370,10 +1057,6 @@ class UriFragment(PropertyType):
 
 @dataclass
 class VisibilityConfig(PropertyType):
-    METRIC_NAME = "MetricName"
-    SAMPLED_REQUESTS_ENABLED = "SampledRequestsEnabled"
-    CLOUD_WATCH_METRICS_ENABLED = "CloudWatchMetricsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "sampled_requests_enabled": "SampledRequestsEnabled",
@@ -1387,9 +1070,6 @@ class VisibilityConfig(PropertyType):
 
 @dataclass
 class XssMatchStatement(PropertyType):
-    TEXT_TRANSFORMATIONS = "TextTransformations"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "field_to_match": "FieldToMatch",

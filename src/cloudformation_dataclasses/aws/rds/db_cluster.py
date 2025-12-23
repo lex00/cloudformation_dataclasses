@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DBClusterRole(PropertyType):
-    ROLE_ARN = "RoleArn"
-    FEATURE_NAME = "FeatureName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "feature_name": "FeatureName",
@@ -25,9 +22,6 @@ class DBClusterRole(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    ADDRESS = "Address"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -39,9 +33,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class MasterUserSecret(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_id": "KmsKeyId",
@@ -53,8 +44,6 @@ class MasterUserSecret(PropertyType):
 
 @dataclass
 class ReadEndpoint(PropertyType):
-    ADDRESS = "Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
     }
@@ -64,13 +53,6 @@ class ReadEndpoint(PropertyType):
 
 @dataclass
 class ScalingConfiguration(PropertyType):
-    TIMEOUT_ACTION = "TimeoutAction"
-    SECONDS_BEFORE_TIMEOUT = "SecondsBeforeTimeout"
-    SECONDS_UNTIL_AUTO_PAUSE = "SecondsUntilAutoPause"
-    AUTO_PAUSE = "AutoPause"
-    MIN_CAPACITY = "MinCapacity"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_action": "TimeoutAction",
         "seconds_before_timeout": "SecondsBeforeTimeout",
@@ -90,10 +72,6 @@ class ScalingConfiguration(PropertyType):
 
 @dataclass
 class ServerlessV2ScalingConfiguration(PropertyType):
-    SECONDS_UNTIL_AUTO_PAUSE = "SecondsUntilAutoPause"
-    MIN_CAPACITY = "MinCapacity"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seconds_until_auto_pause": "SecondsUntilAutoPause",
         "min_capacity": "MinCapacity",

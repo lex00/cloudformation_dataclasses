@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationSource(PropertyType):
-    CLOUD_FORMATION_STACK_ARN = "CloudFormationStackARN"
-    TAG_FILTERS = "TagFilters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_formation_stack_arn": "CloudFormationStackARN",
         "tag_filters": "TagFilters",
@@ -25,12 +22,6 @@ class ApplicationSource(PropertyType):
 
 @dataclass
 class CustomizedLoadMetricSpecification(PropertyType):
-    METRIC_NAME = "MetricName"
-    STATISTIC = "Statistic"
-    DIMENSIONS = "Dimensions"
-    UNIT = "Unit"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "statistic": "Statistic",
@@ -48,12 +39,6 @@ class CustomizedLoadMetricSpecification(PropertyType):
 
 @dataclass
 class CustomizedScalingMetricSpecification(PropertyType):
-    METRIC_NAME = "MetricName"
-    STATISTIC = "Statistic"
-    DIMENSIONS = "Dimensions"
-    UNIT = "Unit"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "statistic": "Statistic",
@@ -71,9 +56,6 @@ class CustomizedScalingMetricSpecification(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -85,9 +67,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class PredefinedLoadMetricSpecification(PropertyType):
-    PREDEFINED_LOAD_METRIC_TYPE = "PredefinedLoadMetricType"
-    RESOURCE_LABEL = "ResourceLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_load_metric_type": "PredefinedLoadMetricType",
         "resource_label": "ResourceLabel",
@@ -99,9 +78,6 @@ class PredefinedLoadMetricSpecification(PropertyType):
 
 @dataclass
 class PredefinedScalingMetricSpecification(PropertyType):
-    RESOURCE_LABEL = "ResourceLabel"
-    PREDEFINED_SCALING_METRIC_TYPE = "PredefinedScalingMetricType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_label": "ResourceLabel",
         "predefined_scaling_metric_type": "PredefinedScalingMetricType",
@@ -113,21 +89,6 @@ class PredefinedScalingMetricSpecification(PropertyType):
 
 @dataclass
 class ScalingInstruction(PropertyType):
-    DISABLE_DYNAMIC_SCALING = "DisableDynamicScaling"
-    SERVICE_NAMESPACE = "ServiceNamespace"
-    PREDICTIVE_SCALING_MAX_CAPACITY_BEHAVIOR = "PredictiveScalingMaxCapacityBehavior"
-    SCALABLE_DIMENSION = "ScalableDimension"
-    SCALING_POLICY_UPDATE_BEHAVIOR = "ScalingPolicyUpdateBehavior"
-    MIN_CAPACITY = "MinCapacity"
-    TARGET_TRACKING_CONFIGURATIONS = "TargetTrackingConfigurations"
-    PREDICTIVE_SCALING_MAX_CAPACITY_BUFFER = "PredictiveScalingMaxCapacityBuffer"
-    CUSTOMIZED_LOAD_METRIC_SPECIFICATION = "CustomizedLoadMetricSpecification"
-    PREDEFINED_LOAD_METRIC_SPECIFICATION = "PredefinedLoadMetricSpecification"
-    RESOURCE_ID = "ResourceId"
-    SCHEDULED_ACTION_BUFFER_TIME = "ScheduledActionBufferTime"
-    MAX_CAPACITY = "MaxCapacity"
-    PREDICTIVE_SCALING_MODE = "PredictiveScalingMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disable_dynamic_scaling": "DisableDynamicScaling",
         "service_namespace": "ServiceNamespace",
@@ -163,9 +124,6 @@ class ScalingInstruction(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -177,14 +135,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetTrackingConfiguration(PropertyType):
-    SCALE_OUT_COOLDOWN = "ScaleOutCooldown"
-    TARGET_VALUE = "TargetValue"
-    PREDEFINED_SCALING_METRIC_SPECIFICATION = "PredefinedScalingMetricSpecification"
-    DISABLE_SCALE_IN = "DisableScaleIn"
-    SCALE_IN_COOLDOWN = "ScaleInCooldown"
-    ESTIMATED_INSTANCE_WARMUP = "EstimatedInstanceWarmup"
-    CUSTOMIZED_SCALING_METRIC_SPECIFICATION = "CustomizedScalingMetricSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",

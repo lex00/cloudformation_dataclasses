@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsGroundStationAgentEndpoint(PropertyType):
-    AGENT_STATUS = "AgentStatus"
-    INGRESS_ADDRESS = "IngressAddress"
-    AUDIT_RESULTS = "AuditResults"
-    NAME = "Name"
-    EGRESS_ADDRESS = "EgressAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_status": "AgentStatus",
         "ingress_address": "IngressAddress",
@@ -34,9 +28,6 @@ class AwsGroundStationAgentEndpoint(PropertyType):
 
 @dataclass
 class ConnectionDetails(PropertyType):
-    SOCKET_ADDRESS = "SocketAddress"
-    MTU = "Mtu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "socket_address": "SocketAddress",
         "mtu": "Mtu",
@@ -48,10 +39,6 @@ class ConnectionDetails(PropertyType):
 
 @dataclass
 class DataflowEndpoint(PropertyType):
-    ADDRESS = "Address"
-    NAME = "Name"
-    MTU = "Mtu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "name": "Name",
@@ -65,10 +52,6 @@ class DataflowEndpoint(PropertyType):
 
 @dataclass
 class EndpointDetails(PropertyType):
-    ENDPOINT = "Endpoint"
-    AWS_GROUND_STATION_AGENT_ENDPOINT = "AwsGroundStationAgentEndpoint"
-    SECURITY_DETAILS = "SecurityDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "aws_ground_station_agent_endpoint": "AwsGroundStationAgentEndpoint",
@@ -82,9 +65,6 @@ class EndpointDetails(PropertyType):
 
 @dataclass
 class IntegerRange(PropertyType):
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -96,9 +76,6 @@ class IntegerRange(PropertyType):
 
 @dataclass
 class RangedConnectionDetails(PropertyType):
-    SOCKET_ADDRESS = "SocketAddress"
-    MTU = "Mtu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "socket_address": "SocketAddress",
         "mtu": "Mtu",
@@ -110,9 +87,6 @@ class RangedConnectionDetails(PropertyType):
 
 @dataclass
 class RangedSocketAddress(PropertyType):
-    PORT_RANGE = "PortRange"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "name": "Name",
@@ -124,10 +98,6 @@ class RangedSocketAddress(PropertyType):
 
 @dataclass
 class SecurityDetails(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -141,9 +111,6 @@ class SecurityDetails(PropertyType):
 
 @dataclass
 class SocketAddress(PropertyType):
-    PORT = "Port"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "name": "Name",

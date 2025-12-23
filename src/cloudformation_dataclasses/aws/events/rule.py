@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppSyncParameters(PropertyType):
-    GRAPH_QL_OPERATION = "GraphQLOperation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "graph_ql_operation": "GraphQLOperation",
     }
@@ -22,10 +20,6 @@ class AppSyncParameters(PropertyType):
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -39,8 +33,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class BatchArrayProperties(PropertyType):
-    SIZE = "Size"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -50,11 +42,6 @@ class BatchArrayProperties(PropertyType):
 
 @dataclass
 class BatchParameters(PropertyType):
-    ARRAY_PROPERTIES = "ArrayProperties"
-    JOB_NAME = "JobName"
-    RETRY_STRATEGY = "RetryStrategy"
-    JOB_DEFINITION = "JobDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "array_properties": "ArrayProperties",
         "job_name": "JobName",
@@ -70,8 +57,6 @@ class BatchParameters(PropertyType):
 
 @dataclass
 class BatchRetryStrategy(PropertyType):
-    ATTEMPTS = "Attempts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempts": "Attempts",
     }
@@ -81,10 +66,6 @@ class BatchRetryStrategy(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    BASE = "Base"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "base": "Base",
@@ -98,8 +79,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -109,21 +88,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class EcsParameters(PropertyType):
-    PLATFORM_VERSION = "PlatformVersion"
-    GROUP = "Group"
-    ENABLE_ECS_MANAGED_TAGS = "EnableECSManagedTags"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    PLACEMENT_CONSTRAINTS = "PlacementConstraints"
-    PROPAGATE_TAGS = "PropagateTags"
-    TASK_COUNT = "TaskCount"
-    PLACEMENT_STRATEGIES = "PlacementStrategies"
-    CAPACITY_PROVIDER_STRATEGY = "CapacityProviderStrategy"
-    LAUNCH_TYPE = "LaunchType"
-    REFERENCE_ID = "ReferenceId"
-    TAG_LIST = "TagList"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TASK_DEFINITION_ARN = "TaskDefinitionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -159,10 +123,6 @@ class EcsParameters(PropertyType):
 
 @dataclass
 class HttpParameters(PropertyType):
-    PATH_PARAMETER_VALUES = "PathParameterValues"
-    HEADER_PARAMETERS = "HeaderParameters"
-    QUERY_STRING_PARAMETERS = "QueryStringParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -176,9 +136,6 @@ class HttpParameters(PropertyType):
 
 @dataclass
 class InputTransformer(PropertyType):
-    INPUT_PATHS_MAP = "InputPathsMap"
-    INPUT_TEMPLATE = "InputTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_paths_map": "InputPathsMap",
         "input_template": "InputTemplate",
@@ -190,8 +147,6 @@ class InputTransformer(PropertyType):
 
 @dataclass
 class KinesisParameters(PropertyType):
-    PARTITION_KEY_PATH = "PartitionKeyPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key_path": "PartitionKeyPath",
     }
@@ -201,8 +156,6 @@ class KinesisParameters(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    AWS_VPC_CONFIGURATION = "AwsVpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_vpc_configuration": "AwsVpcConfiguration",
     }
@@ -212,9 +165,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -226,9 +176,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    FIELD = "Field"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -240,14 +187,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class RedshiftDataParameters(PropertyType):
-    STATEMENT_NAME = "StatementName"
-    SQLS = "Sqls"
-    DATABASE = "Database"
-    SECRET_MANAGER_ARN = "SecretManagerArn"
-    DB_USER = "DbUser"
-    SQL = "Sql"
-    WITH_EVENT = "WithEvent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement_name": "StatementName",
         "sqls": "Sqls",
@@ -269,9 +208,6 @@ class RedshiftDataParameters(PropertyType):
 
 @dataclass
 class RetryPolicy(PropertyType):
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    MAXIMUM_EVENT_AGE_IN_SECONDS = "MaximumEventAgeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_retry_attempts": "MaximumRetryAttempts",
         "maximum_event_age_in_seconds": "MaximumEventAgeInSeconds",
@@ -283,8 +219,6 @@ class RetryPolicy(PropertyType):
 
 @dataclass
 class RunCommandParameters(PropertyType):
-    RUN_COMMAND_TARGETS = "RunCommandTargets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_command_targets": "RunCommandTargets",
     }
@@ -294,9 +228,6 @@ class RunCommandParameters(PropertyType):
 
 @dataclass
 class RunCommandTarget(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -308,9 +239,6 @@ class RunCommandTarget(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -322,8 +250,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameters(PropertyType):
-    PIPELINE_PARAMETER_LIST = "PipelineParameterList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -333,8 +259,6 @@ class SageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class SqsParameters(PropertyType):
-    MESSAGE_GROUP_ID = "MessageGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
     }
@@ -344,24 +268,6 @@ class SqsParameters(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    INPUT_PATH = "InputPath"
-    HTTP_PARAMETERS = "HttpParameters"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    RUN_COMMAND_PARAMETERS = "RunCommandParameters"
-    INPUT_TRANSFORMER = "InputTransformer"
-    KINESIS_PARAMETERS = "KinesisParameters"
-    ROLE_ARN = "RoleArn"
-    REDSHIFT_DATA_PARAMETERS = "RedshiftDataParameters"
-    APP_SYNC_PARAMETERS = "AppSyncParameters"
-    INPUT = "Input"
-    SQS_PARAMETERS = "SqsParameters"
-    ECS_PARAMETERS = "EcsParameters"
-    BATCH_PARAMETERS = "BatchParameters"
-    ID = "Id"
-    ARN = "Arn"
-    SAGE_MAKER_PIPELINE_PARAMETERS = "SageMakerPipelineParameters"
-    RETRY_POLICY = "RetryPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_path": "InputPath",
         "http_parameters": "HttpParameters",

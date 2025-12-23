@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RegionConfiguration(PropertyType):
-    SSE_KMS_KEY_ID = "SseKmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_kms_key_id": "SseKmsKeyId",
     }
@@ -22,9 +20,6 @@ class RegionConfiguration(PropertyType):
 
 @dataclass
 class ReplicationRegion(PropertyType):
-    REGION_CONFIGURATION = "RegionConfiguration"
-    REGION_NAME = "RegionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_configuration": "RegionConfiguration",
         "region_name": "RegionName",

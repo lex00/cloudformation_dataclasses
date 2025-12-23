@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AliasRoutingConfiguration(PropertyType):
-    ADDITIONAL_VERSION_WEIGHTS = "AdditionalVersionWeights"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_version_weights": "AdditionalVersionWeights",
     }
@@ -22,8 +20,6 @@ class AliasRoutingConfiguration(PropertyType):
 
 @dataclass
 class ProvisionedConcurrencyConfiguration(PropertyType):
-    PROVISIONED_CONCURRENT_EXECUTIONS = "ProvisionedConcurrentExecutions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_concurrent_executions": "ProvisionedConcurrentExecutions",
     }
@@ -33,9 +29,6 @@ class ProvisionedConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class VersionWeight(PropertyType):
-    FUNCTION_VERSION = "FunctionVersion"
-    FUNCTION_WEIGHT = "FunctionWeight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_version": "FunctionVersion",
         "function_weight": "FunctionWeight",

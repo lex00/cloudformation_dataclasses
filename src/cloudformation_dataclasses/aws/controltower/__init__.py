@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:51
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ControlTower
@@ -174,12 +174,6 @@ class EnabledBaseline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::EnabledBaseline"
-    BASELINE_VERSION = "BaselineVersion"
-    PARAMETERS = "Parameters"
-    BASELINE_IDENTIFIER = "BaselineIdentifier"
-    TARGET_IDENTIFIER = "TargetIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "baseline_version": "BaselineVersion",
         "parameters": "Parameters",
@@ -206,11 +200,6 @@ class EnabledControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::EnabledControl"
-    PARAMETERS = "Parameters"
-    CONTROL_IDENTIFIER = "ControlIdentifier"
-    TARGET_IDENTIFIER = "TargetIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "control_identifier": "ControlIdentifier",
@@ -229,11 +218,6 @@ class LandingZone(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::LandingZone"
-    VERSION = "Version"
-    REMEDIATION_TYPES = "RemediationTypes"
-    MANIFEST = "Manifest"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "remediation_types": "RemediationTypes",

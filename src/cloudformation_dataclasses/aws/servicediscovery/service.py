@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DnsConfig(PropertyType):
-    DNS_RECORDS = "DnsRecords"
-    ROUTING_POLICY = "RoutingPolicy"
-    NAMESPACE_ID = "NamespaceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_records": "DnsRecords",
         "routing_policy": "RoutingPolicy",
@@ -28,9 +24,6 @@ class DnsConfig(PropertyType):
 
 @dataclass
 class DnsRecord(PropertyType):
-    TYPE = "Type"
-    TTL = "TTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ttl": "TTL",
@@ -42,10 +35,6 @@ class DnsRecord(PropertyType):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    TYPE = "Type"
-    RESOURCE_PATH = "ResourcePath"
-    FAILURE_THRESHOLD = "FailureThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "resource_path": "ResourcePath",
@@ -59,8 +48,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class HealthCheckCustomConfig(PropertyType):
-    FAILURE_THRESHOLD = "FailureThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_threshold": "FailureThreshold",
     }

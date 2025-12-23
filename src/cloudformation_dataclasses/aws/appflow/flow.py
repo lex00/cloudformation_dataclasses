@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AggregationConfig(PropertyType):
-    TARGET_FILE_SIZE = "TargetFileSize"
-    AGGREGATION_TYPE = "AggregationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_file_size": "TargetFileSize",
         "aggregation_type": "AggregationType",
@@ -25,8 +22,6 @@ class AggregationConfig(PropertyType):
 
 @dataclass
 class AmplitudeSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -36,24 +31,6 @@ class AmplitudeSourceProperties(PropertyType):
 
 @dataclass
 class ConnectorOperator(PropertyType):
-    AMPLITUDE = "Amplitude"
-    S3 = "S3"
-    GOOGLE_ANALYTICS = "GoogleAnalytics"
-    SERVICE_NOW = "ServiceNow"
-    CUSTOM_CONNECTOR = "CustomConnector"
-    SAPO_DATA = "SAPOData"
-    PARDOT = "Pardot"
-    VEEVA = "Veeva"
-    TRENDMICRO = "Trendmicro"
-    DATADOG = "Datadog"
-    MARKETO = "Marketo"
-    SINGULAR = "Singular"
-    SLACK = "Slack"
-    DYNATRACE = "Dynatrace"
-    ZENDESK = "Zendesk"
-    INFOR_NEXUS = "InforNexus"
-    SALESFORCE = "Salesforce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amplitude": "Amplitude",
         "s3": "S3",
@@ -95,12 +72,6 @@ class ConnectorOperator(PropertyType):
 
 @dataclass
 class CustomConnectorDestinationProperties(PropertyType):
-    ID_FIELD_NAMES = "IdFieldNames"
-    ENTITY_NAME = "EntityName"
-    WRITE_OPERATION_TYPE = "WriteOperationType"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-    CUSTOM_PROPERTIES = "CustomProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "entity_name": "EntityName",
@@ -118,10 +89,6 @@ class CustomConnectorDestinationProperties(PropertyType):
 
 @dataclass
 class CustomConnectorSourceProperties(PropertyType):
-    ENTITY_NAME = "EntityName"
-    DATA_TRANSFER_API = "DataTransferApi"
-    CUSTOM_PROPERTIES = "CustomProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_name": "EntityName",
         "data_transfer_api": "DataTransferApi",
@@ -135,9 +102,6 @@ class CustomConnectorSourceProperties(PropertyType):
 
 @dataclass
 class DataTransferApi(PropertyType):
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -149,8 +113,6 @@ class DataTransferApi(PropertyType):
 
 @dataclass
 class DatadogSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -160,18 +122,6 @@ class DatadogSourceProperties(PropertyType):
 
 @dataclass
 class DestinationConnectorProperties(PropertyType):
-    S3 = "S3"
-    CUSTOM_CONNECTOR = "CustomConnector"
-    UPSOLVER = "Upsolver"
-    SAPO_DATA = "SAPOData"
-    SNOWFLAKE = "Snowflake"
-    LOOKOUT_METRICS = "LookoutMetrics"
-    EVENT_BRIDGE = "EventBridge"
-    ZENDESK = "Zendesk"
-    MARKETO = "Marketo"
-    REDSHIFT = "Redshift"
-    SALESFORCE = "Salesforce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "custom_connector": "CustomConnector",
@@ -201,11 +151,6 @@ class DestinationConnectorProperties(PropertyType):
 
 @dataclass
 class DestinationFlowConfig(PropertyType):
-    CONNECTOR_PROFILE_NAME = "ConnectorProfileName"
-    API_VERSION = "ApiVersion"
-    CONNECTOR_TYPE = "ConnectorType"
-    DESTINATION_CONNECTOR_PROPERTIES = "DestinationConnectorProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "api_version": "ApiVersion",
@@ -221,8 +166,6 @@ class DestinationFlowConfig(PropertyType):
 
 @dataclass
 class DynatraceSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -232,10 +175,6 @@ class DynatraceSourceProperties(PropertyType):
 
 @dataclass
 class ErrorHandlingConfig(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-    FAIL_ON_FIRST_ERROR = "FailOnFirstError"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -249,9 +188,6 @@ class ErrorHandlingConfig(PropertyType):
 
 @dataclass
 class EventBridgeDestinationProperties(PropertyType):
-    OBJECT = "Object"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "error_handling_config": "ErrorHandlingConfig",
@@ -263,10 +199,6 @@ class EventBridgeDestinationProperties(PropertyType):
 
 @dataclass
 class GlueDataCatalog(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    ROLE_ARN = "RoleArn"
-    TABLE_PREFIX = "TablePrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "role_arn": "RoleArn",
@@ -280,8 +212,6 @@ class GlueDataCatalog(PropertyType):
 
 @dataclass
 class GoogleAnalyticsSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -291,8 +221,6 @@ class GoogleAnalyticsSourceProperties(PropertyType):
 
 @dataclass
 class IncrementalPullConfig(PropertyType):
-    DATETIME_TYPE_FIELD_NAME = "DatetimeTypeFieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datetime_type_field_name": "DatetimeTypeFieldName",
     }
@@ -302,8 +230,6 @@ class IncrementalPullConfig(PropertyType):
 
 @dataclass
 class InforNexusSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -313,8 +239,6 @@ class InforNexusSourceProperties(PropertyType):
 
 @dataclass
 class LookoutMetricsDestinationProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -324,9 +248,6 @@ class LookoutMetricsDestinationProperties(PropertyType):
 
 @dataclass
 class MarketoDestinationProperties(PropertyType):
-    OBJECT = "Object"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "error_handling_config": "ErrorHandlingConfig",
@@ -338,8 +259,6 @@ class MarketoDestinationProperties(PropertyType):
 
 @dataclass
 class MarketoSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -349,8 +268,6 @@ class MarketoSourceProperties(PropertyType):
 
 @dataclass
 class MetadataCatalogConfig(PropertyType):
-    GLUE_DATA_CATALOG = "GlueDataCatalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_data_catalog": "GlueDataCatalog",
     }
@@ -360,8 +277,6 @@ class MetadataCatalogConfig(PropertyType):
 
 @dataclass
 class PardotSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -371,10 +286,6 @@ class PardotSourceProperties(PropertyType):
 
 @dataclass
 class PrefixConfig(PropertyType):
-    PREFIX_TYPE = "PrefixType"
-    PATH_PREFIX_HIERARCHY = "PathPrefixHierarchy"
-    PREFIX_FORMAT = "PrefixFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_type": "PrefixType",
         "path_prefix_hierarchy": "PathPrefixHierarchy",
@@ -388,11 +299,6 @@ class PrefixConfig(PropertyType):
 
 @dataclass
 class RedshiftDestinationProperties(PropertyType):
-    OBJECT = "Object"
-    BUCKET_PREFIX = "BucketPrefix"
-    INTERMEDIATE_BUCKET_NAME = "IntermediateBucketName"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "bucket_prefix": "BucketPrefix",
@@ -408,10 +314,6 @@ class RedshiftDestinationProperties(PropertyType):
 
 @dataclass
 class S3DestinationProperties(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-    S3_OUTPUT_FORMAT_CONFIG = "S3OutputFormatConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -425,8 +327,6 @@ class S3DestinationProperties(PropertyType):
 
 @dataclass
 class S3InputFormatConfig(PropertyType):
-    S3_INPUT_FILE_TYPE = "S3InputFileType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_file_type": "S3InputFileType",
     }
@@ -436,11 +336,6 @@ class S3InputFormatConfig(PropertyType):
 
 @dataclass
 class S3OutputFormatConfig(PropertyType):
-    PREFIX_CONFIG = "PrefixConfig"
-    FILE_TYPE = "FileType"
-    AGGREGATION_CONFIG = "AggregationConfig"
-    PRESERVE_SOURCE_DATA_TYPING = "PreserveSourceDataTyping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_config": "PrefixConfig",
         "file_type": "FileType",
@@ -456,10 +351,6 @@ class S3OutputFormatConfig(PropertyType):
 
 @dataclass
 class S3SourceProperties(PropertyType):
-    S3_INPUT_FORMAT_CONFIG = "S3InputFormatConfig"
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_format_config": "S3InputFormatConfig",
         "bucket_name": "BucketName",
@@ -473,12 +364,6 @@ class S3SourceProperties(PropertyType):
 
 @dataclass
 class SAPODataDestinationProperties(PropertyType):
-    ID_FIELD_NAMES = "IdFieldNames"
-    OBJECT_PATH = "ObjectPath"
-    WRITE_OPERATION_TYPE = "WriteOperationType"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-    SUCCESS_RESPONSE_HANDLING_CONFIG = "SuccessResponseHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "object_path": "ObjectPath",
@@ -496,8 +381,6 @@ class SAPODataDestinationProperties(PropertyType):
 
 @dataclass
 class SAPODataPaginationConfig(PropertyType):
-    MAX_PAGE_SIZE = "maxPageSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_page_size": "maxPageSize",
     }
@@ -507,8 +390,6 @@ class SAPODataPaginationConfig(PropertyType):
 
 @dataclass
 class SAPODataParallelismConfig(PropertyType):
-    MAX_PARALLELISM = "maxParallelism"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallelism": "maxParallelism",
     }
@@ -518,10 +399,6 @@ class SAPODataParallelismConfig(PropertyType):
 
 @dataclass
 class SAPODataSourceProperties(PropertyType):
-    OBJECT_PATH = "ObjectPath"
-    PAGINATION_CONFIG = "paginationConfig"
-    PARALLELISM_CONFIG = "parallelismConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_path": "ObjectPath",
         "pagination_config": "paginationConfig",
@@ -535,12 +412,6 @@ class SAPODataSourceProperties(PropertyType):
 
 @dataclass
 class SalesforceDestinationProperties(PropertyType):
-    ID_FIELD_NAMES = "IdFieldNames"
-    WRITE_OPERATION_TYPE = "WriteOperationType"
-    DATA_TRANSFER_API = "DataTransferApi"
-    OBJECT = "Object"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "write_operation_type": "WriteOperationType",
@@ -558,11 +429,6 @@ class SalesforceDestinationProperties(PropertyType):
 
 @dataclass
 class SalesforceSourceProperties(PropertyType):
-    INCLUDE_DELETED_RECORDS = "IncludeDeletedRecords"
-    DATA_TRANSFER_API = "DataTransferApi"
-    OBJECT = "Object"
-    ENABLE_DYNAMIC_FIELD_UPDATE = "EnableDynamicFieldUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_deleted_records": "IncludeDeletedRecords",
         "data_transfer_api": "DataTransferApi",
@@ -578,15 +444,6 @@ class SalesforceSourceProperties(PropertyType):
 
 @dataclass
 class ScheduledTriggerProperties(PropertyType):
-    SCHEDULE_END_TIME = "ScheduleEndTime"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    FIRST_EXECUTION_FROM = "FirstExecutionFrom"
-    TIME_ZONE = "TimeZone"
-    SCHEDULE_START_TIME = "ScheduleStartTime"
-    DATA_PULL_MODE = "DataPullMode"
-    SCHEDULE_OFFSET = "ScheduleOffset"
-    FLOW_ERROR_DEACTIVATION_THRESHOLD = "FlowErrorDeactivationThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_end_time": "ScheduleEndTime",
         "schedule_expression": "ScheduleExpression",
@@ -610,8 +467,6 @@ class ScheduledTriggerProperties(PropertyType):
 
 @dataclass
 class ServiceNowSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -621,8 +476,6 @@ class ServiceNowSourceProperties(PropertyType):
 
 @dataclass
 class SingularSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -632,8 +485,6 @@ class SingularSourceProperties(PropertyType):
 
 @dataclass
 class SlackSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -643,11 +494,6 @@ class SlackSourceProperties(PropertyType):
 
 @dataclass
 class SnowflakeDestinationProperties(PropertyType):
-    OBJECT = "Object"
-    BUCKET_PREFIX = "BucketPrefix"
-    INTERMEDIATE_BUCKET_NAME = "IntermediateBucketName"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "bucket_prefix": "BucketPrefix",
@@ -663,24 +509,6 @@ class SnowflakeDestinationProperties(PropertyType):
 
 @dataclass
 class SourceConnectorProperties(PropertyType):
-    AMPLITUDE = "Amplitude"
-    S3 = "S3"
-    GOOGLE_ANALYTICS = "GoogleAnalytics"
-    SERVICE_NOW = "ServiceNow"
-    CUSTOM_CONNECTOR = "CustomConnector"
-    SAPO_DATA = "SAPOData"
-    PARDOT = "Pardot"
-    VEEVA = "Veeva"
-    TRENDMICRO = "Trendmicro"
-    DATADOG = "Datadog"
-    MARKETO = "Marketo"
-    SINGULAR = "Singular"
-    SLACK = "Slack"
-    DYNATRACE = "Dynatrace"
-    ZENDESK = "Zendesk"
-    INFOR_NEXUS = "InforNexus"
-    SALESFORCE = "Salesforce"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amplitude": "Amplitude",
         "s3": "S3",
@@ -722,12 +550,6 @@ class SourceConnectorProperties(PropertyType):
 
 @dataclass
 class SourceFlowConfig(PropertyType):
-    CONNECTOR_PROFILE_NAME = "ConnectorProfileName"
-    API_VERSION = "ApiVersion"
-    SOURCE_CONNECTOR_PROPERTIES = "SourceConnectorProperties"
-    CONNECTOR_TYPE = "ConnectorType"
-    INCREMENTAL_PULL_CONFIG = "IncrementalPullConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "api_version": "ApiVersion",
@@ -745,9 +567,6 @@ class SourceFlowConfig(PropertyType):
 
 @dataclass
 class SuccessResponseHandlingConfig(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -759,12 +578,6 @@ class SuccessResponseHandlingConfig(PropertyType):
 
 @dataclass
 class Task(PropertyType):
-    SOURCE_FIELDS = "SourceFields"
-    DESTINATION_FIELD = "DestinationField"
-    CONNECTOR_OPERATOR = "ConnectorOperator"
-    TASK_TYPE = "TaskType"
-    TASK_PROPERTIES = "TaskProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_fields": "SourceFields",
         "destination_field": "DestinationField",
@@ -782,9 +595,6 @@ class Task(PropertyType):
 
 @dataclass
 class TaskPropertiesObject(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -796,8 +606,6 @@ class TaskPropertiesObject(PropertyType):
 
 @dataclass
 class TrendmicroSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -807,9 +615,6 @@ class TrendmicroSourceProperties(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    TRIGGER_TYPE = "TriggerType"
-    TRIGGER_PROPERTIES = "TriggerProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_type": "TriggerType",
         "trigger_properties": "TriggerProperties",
@@ -821,10 +626,6 @@ class TriggerConfig(PropertyType):
 
 @dataclass
 class UpsolverDestinationProperties(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-    S3_OUTPUT_FORMAT_CONFIG = "S3OutputFormatConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -838,10 +639,6 @@ class UpsolverDestinationProperties(PropertyType):
 
 @dataclass
 class UpsolverS3OutputFormatConfig(PropertyType):
-    PREFIX_CONFIG = "PrefixConfig"
-    FILE_TYPE = "FileType"
-    AGGREGATION_CONFIG = "AggregationConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_config": "PrefixConfig",
         "file_type": "FileType",
@@ -855,12 +652,6 @@ class UpsolverS3OutputFormatConfig(PropertyType):
 
 @dataclass
 class VeevaSourceProperties(PropertyType):
-    INCLUDE_ALL_VERSIONS = "IncludeAllVersions"
-    INCLUDE_RENDITIONS = "IncludeRenditions"
-    DOCUMENT_TYPE = "DocumentType"
-    OBJECT = "Object"
-    INCLUDE_SOURCE_FILES = "IncludeSourceFiles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_all_versions": "IncludeAllVersions",
         "include_renditions": "IncludeRenditions",
@@ -878,11 +669,6 @@ class VeevaSourceProperties(PropertyType):
 
 @dataclass
 class ZendeskDestinationProperties(PropertyType):
-    ID_FIELD_NAMES = "IdFieldNames"
-    WRITE_OPERATION_TYPE = "WriteOperationType"
-    OBJECT = "Object"
-    ERROR_HANDLING_CONFIG = "ErrorHandlingConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "write_operation_type": "WriteOperationType",
@@ -898,8 +684,6 @@ class ZendeskDestinationProperties(PropertyType):
 
 @dataclass
 class ZendeskSourceProperties(PropertyType):
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }

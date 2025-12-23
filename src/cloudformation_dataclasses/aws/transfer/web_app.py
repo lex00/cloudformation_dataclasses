@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IdentityProviderDetails(PropertyType):
-    ROLE = "Role"
-    APPLICATION_ARN = "ApplicationArn"
-    INSTANCE_ARN = "InstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "application_arn": "ApplicationArn",
@@ -28,10 +24,6 @@ class IdentityProviderDetails(PropertyType):
 
 @dataclass
 class WebAppCustomization(PropertyType):
-    FAVICON_FILE = "FaviconFile"
-    TITLE = "Title"
-    LOGO_FILE = "LogoFile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "favicon_file": "FaviconFile",
         "title": "Title",
@@ -45,8 +37,6 @@ class WebAppCustomization(PropertyType):
 
 @dataclass
 class WebAppUnits(PropertyType):
-    PROVISIONED = "Provisioned"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned": "Provisioned",
     }

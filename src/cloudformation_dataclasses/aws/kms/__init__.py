@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KMS
@@ -488,9 +488,6 @@ class Alias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KMS::Alias"
     name_field: ClassVar[str] = "alias_name"
-    TARGET_KEY_ID = "TargetKeyId"
-    ALIAS_NAME = "AliasName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_key_id": "TargetKeyId",
         "alias_name": "AliasName",
@@ -505,19 +502,6 @@ class Key(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-k"""
 
     resource_type: ClassVar[str] = "AWS::KMS::Key"
-    ORIGIN = "Origin"
-    MULTI_REGION = "MultiRegion"
-    DESCRIPTION = "Description"
-    PENDING_WINDOW_IN_DAYS = "PendingWindowInDays"
-    BYPASS_POLICY_LOCKOUT_SAFETY_CHECK = "BypassPolicyLockoutSafetyCheck"
-    KEY_POLICY = "KeyPolicy"
-    KEY_SPEC = "KeySpec"
-    ENABLED = "Enabled"
-    KEY_USAGE = "KeyUsage"
-    ROTATION_PERIOD_IN_DAYS = "RotationPeriodInDays"
-    ENABLE_KEY_ROTATION = "EnableKeyRotation"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "multi_region": "MultiRegion",
@@ -563,13 +547,6 @@ class ReplicaKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-r"""
 
     resource_type: ClassVar[str] = "AWS::KMS::ReplicaKey"
-    DESCRIPTION = "Description"
-    PENDING_WINDOW_IN_DAYS = "PendingWindowInDays"
-    KEY_POLICY = "KeyPolicy"
-    PRIMARY_KEY_ARN = "PrimaryKeyArn"
-    ENABLED = "Enabled"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "pending_window_in_days": "PendingWindowInDays",

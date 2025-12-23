@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SourceProcessingProperties(PropertyType):
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
     }
@@ -22,11 +20,6 @@ class SourceProcessingProperties(PropertyType):
 
 @dataclass
 class TargetProcessingProperties(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    KMS_ARN = "KmsArn"
-    ROLE_ARN = "RoleArn"
-    EVENT_BUS_ARN = "EventBusArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "kms_arn": "KmsArn",

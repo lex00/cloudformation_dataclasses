@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:57
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FinSpace
@@ -339,14 +339,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FinSpace::Environment"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    FEDERATION_PARAMETERS = "FederationParameters"
-    FEDERATION_MODE = "FederationMode"
-    SUPERUSER_PARAMETERS = "SuperuserParameters"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_id": "KmsKeyId",

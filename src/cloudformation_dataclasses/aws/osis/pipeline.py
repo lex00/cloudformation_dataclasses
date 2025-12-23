@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BufferOptions(PropertyType):
-    PERSISTENT_BUFFER_ENABLED = "PersistentBufferEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "persistent_buffer_enabled": "PersistentBufferEnabled",
     }
@@ -22,8 +20,6 @@ class BufferOptions(PropertyType):
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    LOG_GROUP = "LogGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
     }
@@ -33,8 +29,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
     }
@@ -44,9 +38,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class LogPublishingOptions(PropertyType):
-    CLOUD_WATCH_LOG_DESTINATION = "CloudWatchLogDestination"
-    IS_LOGGING_ENABLED = "IsLoggingEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_destination": "CloudWatchLogDestination",
         "is_logging_enabled": "IsLoggingEnabled",
@@ -58,8 +49,6 @@ class LogPublishingOptions(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    POLICY = "Policy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
     }
@@ -69,9 +58,6 @@ class ResourcePolicy(PropertyType):
 
 @dataclass
 class VpcAttachmentOptions(PropertyType):
-    ATTACH_TO_VPC = "AttachToVpc"
-    CIDR_BLOCK = "CidrBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attach_to_vpc": "AttachToVpc",
         "cidr_block": "CidrBlock",
@@ -83,10 +69,6 @@ class VpcAttachmentOptions(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    VPC_ID = "VpcId"
-    VPC_OPTIONS = "VpcOptions"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "vpc_options": "VpcOptions",
@@ -100,11 +82,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class VpcOptions(PropertyType):
-    VPC_ATTACHMENT_OPTIONS = "VpcAttachmentOptions"
-    VPC_ENDPOINT_MANAGEMENT = "VpcEndpointManagement"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_attachment_options": "VpcAttachmentOptions",
         "vpc_endpoint_management": "VpcEndpointManagement",

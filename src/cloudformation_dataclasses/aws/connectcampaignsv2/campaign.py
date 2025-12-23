@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnswerMachineDetectionConfig(PropertyType):
-    ENABLE_ANSWER_MACHINE_DETECTION = "EnableAnswerMachineDetection"
-    AWAIT_ANSWER_MACHINE_PROMPT = "AwaitAnswerMachinePrompt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_answer_machine_detection": "EnableAnswerMachineDetection",
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
@@ -25,11 +22,6 @@ class AnswerMachineDetectionConfig(PropertyType):
 
 @dataclass
 class ChannelSubtypeConfig(PropertyType):
-    EMAIL = "Email"
-    TELEPHONY = "Telephony"
-    SMS = "Sms"
-    WHATS_APP = "WhatsApp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
         "telephony": "Telephony",
@@ -45,10 +37,6 @@ class ChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class CommunicationLimit(PropertyType):
-    FREQUENCY = "Frequency"
-    MAX_COUNT_PER_RECIPIENT = "MaxCountPerRecipient"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency": "Frequency",
         "max_count_per_recipient": "MaxCountPerRecipient",
@@ -62,8 +50,6 @@ class CommunicationLimit(PropertyType):
 
 @dataclass
 class CommunicationLimits(PropertyType):
-    COMMUNICATION_LIMIT_LIST = "CommunicationLimitList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "communication_limit_list": "CommunicationLimitList",
     }
@@ -73,9 +59,6 @@ class CommunicationLimits(PropertyType):
 
 @dataclass
 class CommunicationLimitsConfig(PropertyType):
-    ALL_CHANNELS_SUBTYPES = "AllChannelsSubtypes"
-    INSTANCE_LIMITS_HANDLING = "InstanceLimitsHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_channels_subtypes": "AllChannelsSubtypes",
         "instance_limits_handling": "InstanceLimitsHandling",
@@ -87,12 +70,6 @@ class CommunicationLimitsConfig(PropertyType):
 
 @dataclass
 class CommunicationTimeConfig(PropertyType):
-    LOCAL_TIME_ZONE_CONFIG = "LocalTimeZoneConfig"
-    EMAIL = "Email"
-    TELEPHONY = "Telephony"
-    SMS = "Sms"
-    WHATS_APP = "WhatsApp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_time_zone_config": "LocalTimeZoneConfig",
         "email": "Email",
@@ -110,9 +87,6 @@ class CommunicationTimeConfig(PropertyType):
 
 @dataclass
 class DailyHour(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -124,10 +98,6 @@ class DailyHour(PropertyType):
 
 @dataclass
 class EmailChannelSubtypeConfig(PropertyType):
-    OUTBOUND_MODE = "OutboundMode"
-    CAPACITY = "Capacity"
-    DEFAULT_OUTBOUND_CONFIG = "DefaultOutboundConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -141,10 +111,6 @@ class EmailChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class EmailOutboundConfig(PropertyType):
-    CONNECT_SOURCE_EMAIL_ADDRESS = "ConnectSourceEmailAddress"
-    SOURCE_EMAIL_ADDRESS_DISPLAY_NAME = "SourceEmailAddressDisplayName"
-    WISDOM_TEMPLATE_ARN = "WisdomTemplateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_email_address": "ConnectSourceEmailAddress",
         "source_email_address_display_name": "SourceEmailAddressDisplayName",
@@ -158,8 +124,6 @@ class EmailOutboundConfig(PropertyType):
 
 @dataclass
 class EmailOutboundMode(PropertyType):
-    AGENTLESS_CONFIG = "AgentlessConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }
@@ -169,8 +133,6 @@ class EmailOutboundMode(PropertyType):
 
 @dataclass
 class EventTrigger(PropertyType):
-    CUSTOMER_PROFILES_DOMAIN_ARN = "CustomerProfilesDomainArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_profiles_domain_arn": "CustomerProfilesDomainArn",
     }
@@ -180,9 +142,6 @@ class EventTrigger(PropertyType):
 
 @dataclass
 class LocalTimeZoneConfig(PropertyType):
-    DEFAULT_TIME_ZONE = "DefaultTimeZone"
-    LOCAL_TIME_ZONE_DETECTION = "LocalTimeZoneDetection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_time_zone": "DefaultTimeZone",
         "local_time_zone_detection": "LocalTimeZoneDetection",
@@ -194,8 +153,6 @@ class LocalTimeZoneConfig(PropertyType):
 
 @dataclass
 class OpenHours(PropertyType):
-    DAILY_HOURS = "DailyHours"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily_hours": "DailyHours",
     }
@@ -205,8 +162,6 @@ class OpenHours(PropertyType):
 
 @dataclass
 class PredictiveConfig(PropertyType):
-    BANDWIDTH_ALLOCATION = "BandwidthAllocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_allocation": "BandwidthAllocation",
     }
@@ -216,10 +171,6 @@ class PredictiveConfig(PropertyType):
 
 @dataclass
 class PreviewConfig(PropertyType):
-    TIMEOUT_CONFIG = "TimeoutConfig"
-    AGENT_ACTIONS = "AgentActions"
-    BANDWIDTH_ALLOCATION = "BandwidthAllocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_config": "TimeoutConfig",
         "agent_actions": "AgentActions",
@@ -233,8 +184,6 @@ class PreviewConfig(PropertyType):
 
 @dataclass
 class ProgressiveConfig(PropertyType):
-    BANDWIDTH_ALLOCATION = "BandwidthAllocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_allocation": "BandwidthAllocation",
     }
@@ -244,10 +193,6 @@ class ProgressiveConfig(PropertyType):
 
 @dataclass
 class RestrictedPeriod(PropertyType):
-    START_DATE = "StartDate"
-    END_DATE = "EndDate"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "end_date": "EndDate",
@@ -261,8 +206,6 @@ class RestrictedPeriod(PropertyType):
 
 @dataclass
 class RestrictedPeriods(PropertyType):
-    RESTRICTED_PERIOD_LIST = "RestrictedPeriodList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restricted_period_list": "RestrictedPeriodList",
     }
@@ -272,10 +215,6 @@ class RestrictedPeriods(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-    REFRESH_FREQUENCY = "RefreshFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -289,10 +228,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SmsChannelSubtypeConfig(PropertyType):
-    OUTBOUND_MODE = "OutboundMode"
-    CAPACITY = "Capacity"
-    DEFAULT_OUTBOUND_CONFIG = "DefaultOutboundConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -306,9 +241,6 @@ class SmsChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class SmsOutboundConfig(PropertyType):
-    CONNECT_SOURCE_PHONE_NUMBER_ARN = "ConnectSourcePhoneNumberArn"
-    WISDOM_TEMPLATE_ARN = "WisdomTemplateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_phone_number_arn": "ConnectSourcePhoneNumberArn",
         "wisdom_template_arn": "WisdomTemplateArn",
@@ -320,8 +252,6 @@ class SmsOutboundConfig(PropertyType):
 
 @dataclass
 class SmsOutboundMode(PropertyType):
-    AGENTLESS_CONFIG = "AgentlessConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }
@@ -331,9 +261,6 @@ class SmsOutboundMode(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    CUSTOMER_PROFILES_SEGMENT_ARN = "CustomerProfilesSegmentArn"
-    EVENT_TRIGGER = "EventTrigger"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_profiles_segment_arn": "CustomerProfilesSegmentArn",
         "event_trigger": "EventTrigger",
@@ -345,11 +272,6 @@ class Source(PropertyType):
 
 @dataclass
 class TelephonyChannelSubtypeConfig(PropertyType):
-    OUTBOUND_MODE = "OutboundMode"
-    CAPACITY = "Capacity"
-    CONNECT_QUEUE_ID = "ConnectQueueId"
-    DEFAULT_OUTBOUND_CONFIG = "DefaultOutboundConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -365,11 +287,6 @@ class TelephonyChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class TelephonyOutboundConfig(PropertyType):
-    CONNECT_CONTACT_FLOW_ID = "ConnectContactFlowId"
-    RING_TIMEOUT = "RingTimeout"
-    ANSWER_MACHINE_DETECTION_CONFIG = "AnswerMachineDetectionConfig"
-    CONNECT_SOURCE_PHONE_NUMBER = "ConnectSourcePhoneNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_contact_flow_id": "ConnectContactFlowId",
         "ring_timeout": "RingTimeout",
@@ -385,11 +302,6 @@ class TelephonyOutboundConfig(PropertyType):
 
 @dataclass
 class TelephonyOutboundMode(PropertyType):
-    PROGRESSIVE_CONFIG = "ProgressiveConfig"
-    PREDICTIVE_CONFIG = "PredictiveConfig"
-    AGENTLESS_CONFIG = "AgentlessConfig"
-    PREVIEW_CONFIG = "PreviewConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "progressive_config": "ProgressiveConfig",
         "predictive_config": "PredictiveConfig",
@@ -405,9 +317,6 @@ class TelephonyOutboundMode(PropertyType):
 
 @dataclass
 class TimeRange(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -419,9 +328,6 @@ class TimeRange(PropertyType):
 
 @dataclass
 class TimeWindow(PropertyType):
-    OPEN_HOURS = "OpenHours"
-    RESTRICTED_PERIODS = "RestrictedPeriods"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_hours": "OpenHours",
         "restricted_periods": "RestrictedPeriods",
@@ -433,8 +339,6 @@ class TimeWindow(PropertyType):
 
 @dataclass
 class TimeoutConfig(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -444,10 +348,6 @@ class TimeoutConfig(PropertyType):
 
 @dataclass
 class WhatsAppChannelSubtypeConfig(PropertyType):
-    OUTBOUND_MODE = "OutboundMode"
-    CAPACITY = "Capacity"
-    DEFAULT_OUTBOUND_CONFIG = "DefaultOutboundConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -461,9 +361,6 @@ class WhatsAppChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class WhatsAppOutboundConfig(PropertyType):
-    CONNECT_SOURCE_PHONE_NUMBER_ARN = "ConnectSourcePhoneNumberArn"
-    WISDOM_TEMPLATE_ARN = "WisdomTemplateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_phone_number_arn": "ConnectSourcePhoneNumberArn",
         "wisdom_template_arn": "WisdomTemplateArn",
@@ -475,8 +372,6 @@ class WhatsAppOutboundConfig(PropertyType):
 
 @dataclass
 class WhatsAppOutboundMode(PropertyType):
-    AGENTLESS_CONFIG = "AgentlessConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AggregateConfiguration(PropertyType):
-    AGGREGATES = "Aggregates"
-    CONSTITUENTS_PER_AGGREGATE = "ConstituentsPerAggregate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregates": "Aggregates",
         "constituents_per_aggregate": "ConstituentsPerAggregate",
@@ -25,9 +22,6 @@ class AggregateConfiguration(PropertyType):
 
 @dataclass
 class AutocommitPeriod(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -39,9 +33,6 @@ class AutocommitPeriod(PropertyType):
 
 @dataclass
 class ClientConfigurations(PropertyType):
-    OPTIONS = "Options"
-    CLIENTS = "Clients"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "clients": "Clients",
@@ -53,8 +44,6 @@ class ClientConfigurations(PropertyType):
 
 @dataclass
 class NfsExports(PropertyType):
-    CLIENT_CONFIGURATIONS = "ClientConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_configurations": "ClientConfigurations",
     }
@@ -64,20 +53,6 @@ class NfsExports(PropertyType):
 
 @dataclass
 class OntapConfiguration(PropertyType):
-    JUNCTION_PATH = "JunctionPath"
-    STORAGE_VIRTUAL_MACHINE_ID = "StorageVirtualMachineId"
-    TIERING_POLICY = "TieringPolicy"
-    SIZE_IN_MEGABYTES = "SizeInMegabytes"
-    VOLUME_STYLE = "VolumeStyle"
-    SIZE_IN_BYTES = "SizeInBytes"
-    SECURITY_STYLE = "SecurityStyle"
-    SNAPLOCK_CONFIGURATION = "SnaplockConfiguration"
-    AGGREGATE_CONFIGURATION = "AggregateConfiguration"
-    SNAPSHOT_POLICY = "SnapshotPolicy"
-    STORAGE_EFFICIENCY_ENABLED = "StorageEfficiencyEnabled"
-    COPY_TAGS_TO_BACKUPS = "CopyTagsToBackups"
-    ONTAP_VOLUME_TYPE = "OntapVolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "junction_path": "JunctionPath",
         "storage_virtual_machine_id": "StorageVirtualMachineId",
@@ -111,18 +86,6 @@ class OntapConfiguration(PropertyType):
 
 @dataclass
 class OpenZFSConfiguration(PropertyType):
-    READ_ONLY = "ReadOnly"
-    OPTIONS = "Options"
-    DATA_COMPRESSION_TYPE = "DataCompressionType"
-    NFS_EXPORTS = "NfsExports"
-    STORAGE_CAPACITY_QUOTA_GI_B = "StorageCapacityQuotaGiB"
-    COPY_TAGS_TO_SNAPSHOTS = "CopyTagsToSnapshots"
-    PARENT_VOLUME_ID = "ParentVolumeId"
-    STORAGE_CAPACITY_RESERVATION_GI_B = "StorageCapacityReservationGiB"
-    RECORD_SIZE_KI_B = "RecordSizeKiB"
-    ORIGIN_SNAPSHOT = "OriginSnapshot"
-    USER_AND_GROUP_QUOTAS = "UserAndGroupQuotas"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "options": "Options",
@@ -152,9 +115,6 @@ class OpenZFSConfiguration(PropertyType):
 
 @dataclass
 class OriginSnapshot(PropertyType):
-    COPY_STRATEGY = "CopyStrategy"
-    SNAPSHOT_ARN = "SnapshotARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copy_strategy": "CopyStrategy",
         "snapshot_arn": "SnapshotARN",
@@ -166,9 +126,6 @@ class OriginSnapshot(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -180,13 +137,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class SnaplockConfiguration(PropertyType):
-    AUDIT_LOG_VOLUME = "AuditLogVolume"
-    VOLUME_APPEND_MODE_ENABLED = "VolumeAppendModeEnabled"
-    AUTOCOMMIT_PERIOD = "AutocommitPeriod"
-    RETENTION_PERIOD = "RetentionPeriod"
-    PRIVILEGED_DELETE = "PrivilegedDelete"
-    SNAPLOCK_TYPE = "SnaplockType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit_log_volume": "AuditLogVolume",
         "volume_append_mode_enabled": "VolumeAppendModeEnabled",
@@ -206,10 +156,6 @@ class SnaplockConfiguration(PropertyType):
 
 @dataclass
 class SnaplockRetentionPeriod(PropertyType):
-    DEFAULT_RETENTION = "DefaultRetention"
-    MAXIMUM_RETENTION = "MaximumRetention"
-    MINIMUM_RETENTION = "MinimumRetention"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_retention": "DefaultRetention",
         "maximum_retention": "MaximumRetention",
@@ -223,9 +169,6 @@ class SnaplockRetentionPeriod(PropertyType):
 
 @dataclass
 class TieringPolicy(PropertyType):
-    COOLING_PERIOD = "CoolingPeriod"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cooling_period": "CoolingPeriod",
         "name": "Name",
@@ -237,10 +180,6 @@ class TieringPolicy(PropertyType):
 
 @dataclass
 class UserAndGroupQuotas(PropertyType):
-    TYPE = "Type"
-    ID = "Id"
-    STORAGE_CAPACITY_QUOTA_GI_B = "StorageCapacityQuotaGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",

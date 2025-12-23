@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Compliance(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -22,10 +20,6 @@ class Compliance(PropertyType):
 
 @dataclass
 class CustomPolicyDetails(PropertyType):
-    ENABLE_DEBUG_LOG_DELIVERY = "EnableDebugLogDelivery"
-    POLICY_TEXT = "PolicyText"
-    POLICY_RUNTIME = "PolicyRuntime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_debug_log_delivery": "EnableDebugLogDelivery",
         "policy_text": "PolicyText",
@@ -39,8 +33,6 @@ class CustomPolicyDetails(PropertyType):
 
 @dataclass
 class EvaluationModeConfiguration(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -50,11 +42,6 @@ class EvaluationModeConfiguration(PropertyType):
 
 @dataclass
 class Scope(PropertyType):
-    COMPLIANCE_RESOURCE_ID = "ComplianceResourceId"
-    TAG_KEY = "TagKey"
-    COMPLIANCE_RESOURCE_TYPES = "ComplianceResourceTypes"
-    TAG_VALUE = "TagValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compliance_resource_id": "ComplianceResourceId",
         "tag_key": "TagKey",
@@ -70,11 +57,6 @@ class Scope(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    OWNER = "Owner"
-    CUSTOM_POLICY_DETAILS = "CustomPolicyDetails"
-    SOURCE_IDENTIFIER = "SourceIdentifier"
-    SOURCE_DETAILS = "SourceDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "custom_policy_details": "CustomPolicyDetails",
@@ -90,10 +72,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceDetail(PropertyType):
-    EVENT_SOURCE = "EventSource"
-    MAXIMUM_EXECUTION_FREQUENCY = "MaximumExecutionFrequency"
-    MESSAGE_TYPE = "MessageType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_source": "EventSource",
         "maximum_execution_frequency": "MaximumExecutionFrequency",

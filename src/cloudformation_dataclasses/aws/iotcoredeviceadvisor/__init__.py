@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:01
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTCoreDeviceAdvisor
@@ -34,9 +34,6 @@ class SuiteDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotco"""
 
     resource_type: ClassVar[str] = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
-    SUITE_DEFINITION_CONFIGURATION = "SuiteDefinitionConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suite_definition_configuration": "SuiteDefinitionConfiguration",
         "tags": "Tags",

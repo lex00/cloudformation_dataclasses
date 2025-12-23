@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InsightsConfiguration(PropertyType):
-    NOTIFICATIONS_ENABLED = "NotificationsEnabled"
-    INSIGHTS_ENABLED = "InsightsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notifications_enabled": "NotificationsEnabled",
         "insights_enabled": "InsightsEnabled",

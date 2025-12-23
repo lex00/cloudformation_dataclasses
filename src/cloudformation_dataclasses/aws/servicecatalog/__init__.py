@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalog
@@ -454,9 +454,6 @@ class AcceptedPortfolioShare(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::AcceptedPortfolioShare"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_language": "AcceptLanguage",
         "portfolio_id": "PortfolioId",
@@ -472,20 +469,6 @@ class CloudFormationProduct(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::CloudFormationProduct"
     name_field: ClassVar[str] = "name"
-    OWNER = "Owner"
-    DESCRIPTION = "Description"
-    SUPPORT_EMAIL = "SupportEmail"
-    PRODUCT_TYPE = "ProductType"
-    NAME = "Name"
-    REPLACE_PROVISIONING_ARTIFACTS = "ReplaceProvisioningArtifacts"
-    SUPPORT_DESCRIPTION = "SupportDescription"
-    DISTRIBUTOR = "Distributor"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    SUPPORT_URL = "SupportUrl"
-    SOURCE_CONNECTION = "SourceConnection"
-    TAGS = "Tags"
-    PROVISIONING_ARTIFACT_PARAMETERS = "ProvisioningArtifactParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "description": "Description",
@@ -539,19 +522,6 @@ class CloudFormationProvisionedProduct(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
     name_field: ClassVar[str] = "path_name"
-    PATH_ID = "PathId"
-    PROVISIONING_PARAMETERS = "ProvisioningParameters"
-    PROVISIONING_PREFERENCES = "ProvisioningPreferences"
-    PRODUCT_NAME = "ProductName"
-    PROVISIONING_ARTIFACT_NAME = "ProvisioningArtifactName"
-    NOTIFICATION_ARNS = "NotificationArns"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PRODUCT_ID = "ProductId"
-    PATH_NAME = "PathName"
-    TAGS = "Tags"
-    PROVISIONED_PRODUCT_NAME = "ProvisionedProductName"
-    PROVISIONING_ARTIFACT_ID = "ProvisioningArtifactId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_id": "PathId",
         "provisioning_parameters": "ProvisioningParameters",
@@ -607,12 +577,6 @@ class LaunchNotificationConstraint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::LaunchNotificationConstraint"
-    DESCRIPTION = "Description"
-    NOTIFICATION_ARNS = "NotificationArns"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "notification_arns": "NotificationArns",
@@ -640,13 +604,6 @@ class LaunchRoleConstraint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::LaunchRoleConstraint"
     name_field: ClassVar[str] = "local_role_name"
-    DESCRIPTION = "Description"
-    LOCAL_ROLE_NAME = "LocalRoleName"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "local_role_name": "LocalRoleName",
@@ -669,12 +626,6 @@ class LaunchTemplateConstraint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::LaunchTemplateConstraint"
-    DESCRIPTION = "Description"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "accept_language": "AcceptLanguage",
@@ -702,12 +653,6 @@ class Portfolio(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::Portfolio"
     name_field: ClassVar[str] = "display_name"
-    PROVIDER_NAME = "ProviderName"
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_name": "ProviderName",
         "description": "Description",
@@ -734,11 +679,6 @@ class PortfolioPrincipalAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
-    PRINCIPAL_ARN = "PrincipalARN"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRINCIPAL_TYPE = "PrincipalType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_arn": "PrincipalARN",
         "accept_language": "AcceptLanguage",
@@ -757,11 +697,6 @@ class PortfolioProductAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::PortfolioProductAssociation"
-    SOURCE_PORTFOLIO_ID = "SourcePortfolioId"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_portfolio_id": "SourcePortfolioId",
         "accept_language": "AcceptLanguage",
@@ -780,11 +715,6 @@ class PortfolioShare(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::PortfolioShare"
-    ACCOUNT_ID = "AccountId"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    SHARE_TAG_OPTIONS = "ShareTagOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "accept_language": "AcceptLanguage",
@@ -803,12 +733,6 @@ class ResourceUpdateConstraint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::ResourceUpdateConstraint"
-    DESCRIPTION = "Description"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    TAG_UPDATE_ON_PROVISIONED_PRODUCT = "TagUpdateOnProvisionedProduct"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "accept_language": "AcceptLanguage",
@@ -836,12 +760,6 @@ class ServiceAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::ServiceAction"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    DEFINITION = "Definition"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    DEFINITION_TYPE = "DefinitionType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "definition": "Definition",
@@ -868,10 +786,6 @@ class ServiceActionAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::ServiceActionAssociation"
-    SERVICE_ACTION_ID = "ServiceActionId"
-    PRODUCT_ID = "ProductId"
-    PROVISIONING_ARTIFACT_ID = "ProvisioningArtifactId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_action_id": "ServiceActionId",
         "product_id": "ProductId",
@@ -888,16 +802,6 @@ class StackSetConstraint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::StackSetConstraint"
-    DESCRIPTION = "Description"
-    STACK_INSTANCE_CONTROL = "StackInstanceControl"
-    ACCEPT_LANGUAGE = "AcceptLanguage"
-    PORTFOLIO_ID = "PortfolioId"
-    PRODUCT_ID = "ProductId"
-    REGION_LIST = "RegionList"
-    ADMIN_ROLE = "AdminRole"
-    ACCOUNT_LIST = "AccountList"
-    EXECUTION_ROLE = "ExecutionRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "stack_instance_control": "StackInstanceControl",
@@ -926,10 +830,6 @@ class TagOption(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::TagOption"
-    ACTIVE = "Active"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active": "Active",
         "value": "Value",
@@ -952,9 +852,6 @@ class TagOptionAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::TagOptionAssociation"
-    TAG_OPTION_ID = "TagOptionId"
-    RESOURCE_ID = "ResourceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_option_id": "TagOptionId",
         "resource_id": "ResourceId",

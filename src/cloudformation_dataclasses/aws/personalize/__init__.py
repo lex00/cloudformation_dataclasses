@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:11
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Personalize
@@ -130,12 +130,6 @@ class Dataset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Personalize::Dataset"
     name_field: ClassVar[str] = "name"
-    DATASET_GROUP_ARN = "DatasetGroupArn"
-    DATASET_TYPE = "DatasetType"
-    DATASET_IMPORT_JOB = "DatasetImportJob"
-    SCHEMA_ARN = "SchemaArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_group_arn": "DatasetGroupArn",
         "dataset_type": "DatasetType",
@@ -163,11 +157,6 @@ class DatasetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Personalize::DatasetGroup"
     name_field: ClassVar[str] = "name"
-    KMS_KEY_ARN = "KmsKeyArn"
-    DOMAIN = "Domain"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "domain": "Domain",
@@ -193,10 +182,6 @@ class Schema(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Personalize::Schema"
     name_field: ClassVar[str] = "name"
-    SCHEMA = "Schema"
-    DOMAIN = "Domain"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema": "Schema",
         "domain": "Domain",
@@ -220,14 +205,6 @@ class Solution(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Personalize::Solution"
     name_field: ClassVar[str] = "name"
-    PERFORM_AUTO_ML = "PerformAutoML"
-    PERFORM_HPO = "PerformHPO"
-    EVENT_TYPE = "EventType"
-    DATASET_GROUP_ARN = "DatasetGroupArn"
-    SOLUTION_CONFIG = "SolutionConfig"
-    RECIPE_ARN = "RecipeArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "perform_auto_ml": "PerformAutoML",
         "perform_hpo": "PerformHPO",

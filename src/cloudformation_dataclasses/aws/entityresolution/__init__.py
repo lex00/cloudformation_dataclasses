@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EntityResolution
@@ -246,15 +246,6 @@ class IdMappingWorkflow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::IdMappingWorkflow"
     name_field: ClassVar[str] = "workflow_name"
-    DESCRIPTION = "Description"
-    INPUT_SOURCE_CONFIG = "InputSourceConfig"
-    ID_MAPPING_TECHNIQUES = "IdMappingTechniques"
-    WORKFLOW_NAME = "WorkflowName"
-    OUTPUT_SOURCE_CONFIG = "OutputSourceConfig"
-    ID_MAPPING_INCREMENTAL_RUN_CONFIG = "IdMappingIncrementalRunConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "input_source_config": "InputSourceConfig",
@@ -298,14 +289,6 @@ class IdNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::IdNamespace"
     name_field: ClassVar[str] = "id_namespace_name"
-    ID_NAMESPACE_NAME = "IdNamespaceName"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    INPUT_SOURCE_CONFIG = "InputSourceConfig"
-    ID_MAPPING_WORKFLOW_PROPERTIES = "IdMappingWorkflowProperties"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_namespace_name": "IdNamespaceName",
         "type_": "Type",
@@ -347,15 +330,6 @@ class MatchingWorkflow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::MatchingWorkflow"
     name_field: ClassVar[str] = "workflow_name"
-    RESOLUTION_TECHNIQUES = "ResolutionTechniques"
-    DESCRIPTION = "Description"
-    INPUT_SOURCE_CONFIG = "InputSourceConfig"
-    WORKFLOW_NAME = "WorkflowName"
-    INCREMENTAL_RUN_CONFIG = "IncrementalRunConfig"
-    OUTPUT_SOURCE_CONFIG = "OutputSourceConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resolution_techniques": "ResolutionTechniques",
         "description": "Description",
@@ -398,13 +372,6 @@ class PolicyStatement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entit"""
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::PolicyStatement"
-    CONDITION = "Condition"
-    ACTION = "Action"
-    STATEMENT_ID = "StatementId"
-    EFFECT = "Effect"
-    ARN = "Arn"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "action": "Action",
@@ -428,11 +395,6 @@ class SchemaMapping(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::SchemaMapping"
     name_field: ClassVar[str] = "schema_name"
-    DESCRIPTION = "Description"
-    MAPPED_INPUT_FIELDS = "MappedInputFields"
-    SCHEMA_NAME = "SchemaName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "mapped_input_fields": "MappedInputFields",

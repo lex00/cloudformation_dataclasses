@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ScalableTargetAction(PropertyType):
-    MIN_CAPACITY = "MinCapacity"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "max_capacity": "MaxCapacity",
@@ -25,13 +22,6 @@ class ScalableTargetAction(PropertyType):
 
 @dataclass
 class ScheduledAction(PropertyType):
-    TIMEZONE = "Timezone"
-    SCHEDULED_ACTION_NAME = "ScheduledActionName"
-    END_TIME = "EndTime"
-    SCHEDULE = "Schedule"
-    START_TIME = "StartTime"
-    SCALABLE_TARGET_ACTION = "ScalableTargetAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "scheduled_action_name": "ScheduledActionName",
@@ -51,10 +41,6 @@ class ScheduledAction(PropertyType):
 
 @dataclass
 class SuspendedState(PropertyType):
-    DYNAMIC_SCALING_OUT_SUSPENDED = "DynamicScalingOutSuspended"
-    SCHEDULED_SCALING_SUSPENDED = "ScheduledScalingSuspended"
-    DYNAMIC_SCALING_IN_SUSPENDED = "DynamicScalingInSuspended"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_scaling_out_suspended": "DynamicScalingOutSuspended",
         "scheduled_scaling_suspended": "ScheduledScalingSuspended",

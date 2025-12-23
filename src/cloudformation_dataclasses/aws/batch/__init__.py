@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:45
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Batch
@@ -402,18 +402,6 @@ class ComputeEnvironment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::ComputeEnvironment"
     name_field: ClassVar[str] = "compute_environment_name"
-    CONTEXT = "Context"
-    UNMANAGEDV_CPUS = "UnmanagedvCpus"
-    TYPE = "Type"
-    REPLACE_COMPUTE_ENVIRONMENT = "ReplaceComputeEnvironment"
-    SERVICE_ROLE = "ServiceRole"
-    UPDATE_POLICY = "UpdatePolicy"
-    EKS_CONFIGURATION = "EksConfiguration"
-    COMPUTE_ENVIRONMENT_NAME = "ComputeEnvironmentName"
-    COMPUTE_RESOURCES = "ComputeResources"
-    STATE = "State"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context": "Context",
         "unmanagedv_cpus": "UnmanagedvCpus",
@@ -453,11 +441,6 @@ class ConsumableResource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::ConsumableResource"
     name_field: ClassVar[str] = "consumable_resource_name"
-    TOTAL_QUANTITY = "TotalQuantity"
-    CONSUMABLE_RESOURCE_NAME = "ConsumableResourceName"
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_quantity": "TotalQuantity",
         "consumable_resource_name": "ConsumableResourceName",
@@ -498,22 +481,6 @@ class JobDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::JobDefinition"
     name_field: ClassVar[str] = "job_definition_name"
-    PARAMETERS = "Parameters"
-    TIMEOUT = "Timeout"
-    JOB_DEFINITION_NAME = "JobDefinitionName"
-    PROPAGATE_TAGS = "PropagateTags"
-    PLATFORM_CAPABILITIES = "PlatformCapabilities"
-    EKS_PROPERTIES = "EksProperties"
-    CONSUMABLE_RESOURCE_PROPERTIES = "ConsumableResourceProperties"
-    TYPE = "Type"
-    NODE_PROPERTIES = "NodeProperties"
-    SCHEDULING_PRIORITY = "SchedulingPriority"
-    CONTAINER_PROPERTIES = "ContainerProperties"
-    ECS_PROPERTIES = "EcsProperties"
-    RESOURCE_RETENTION_POLICY = "ResourceRetentionPolicy"
-    RETRY_STRATEGY = "RetryStrategy"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "timeout": "Timeout",
@@ -561,16 +528,6 @@ class JobQueue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::JobQueue"
     name_field: ClassVar[str] = "job_queue_name"
-    COMPUTE_ENVIRONMENT_ORDER = "ComputeEnvironmentOrder"
-    PRIORITY = "Priority"
-    STATE = "State"
-    JOB_QUEUE_TYPE = "JobQueueType"
-    SERVICE_ENVIRONMENT_ORDER = "ServiceEnvironmentOrder"
-    SCHEDULING_POLICY_ARN = "SchedulingPolicyArn"
-    JOB_STATE_TIME_LIMIT_ACTIONS = "JobStateTimeLimitActions"
-    JOB_QUEUE_NAME = "JobQueueName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_environment_order": "ComputeEnvironmentOrder",
         "priority": "Priority",
@@ -606,10 +563,6 @@ class SchedulingPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::SchedulingPolicy"
     name_field: ClassVar[str] = "name"
-    FAIRSHARE_POLICY = "FairsharePolicy"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fairshare_policy": "FairsharePolicy",
         "tags": "Tags",
@@ -633,12 +586,6 @@ class ServiceEnvironment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Batch::ServiceEnvironment"
     name_field: ClassVar[str] = "service_environment_name"
-    SERVICE_ENVIRONMENT_NAME = "ServiceEnvironmentName"
-    STATE = "State"
-    SERVICE_ENVIRONMENT_TYPE = "ServiceEnvironmentType"
-    CAPACITY_LIMITS = "CapacityLimits"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_environment_name": "ServiceEnvironmentName",
         "state": "State",

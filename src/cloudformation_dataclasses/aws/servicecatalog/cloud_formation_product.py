@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CodeStarParameters(PropertyType):
-    ARTIFACT_PATH = "ArtifactPath"
-    REPOSITORY = "Repository"
-    BRANCH = "Branch"
-    CONNECTION_ARN = "ConnectionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_path": "ArtifactPath",
         "repository": "Repository",
@@ -31,8 +26,6 @@ class CodeStarParameters(PropertyType):
 
 @dataclass
 class ConnectionParameters(PropertyType):
-    CODE_STAR = "CodeStar"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_star": "CodeStar",
     }
@@ -42,12 +35,6 @@ class ConnectionParameters(PropertyType):
 
 @dataclass
 class ProvisioningArtifactProperties(PropertyType):
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    DISABLE_TEMPLATE_VALIDATION = "DisableTemplateValidation"
-    INFO = "Info"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -65,9 +52,6 @@ class ProvisioningArtifactProperties(PropertyType):
 
 @dataclass
 class SourceConnection(PropertyType):
-    TYPE = "Type"
-    CONNECTION_PARAMETERS = "ConnectionParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "connection_parameters": "ConnectionParameters",

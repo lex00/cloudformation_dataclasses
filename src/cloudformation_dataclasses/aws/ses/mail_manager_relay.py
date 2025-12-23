@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RelayAuthentication(PropertyType):
-    SECRET_ARN = "SecretArn"
-    NO_AUTHENTICATION = "NoAuthentication"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "no_authentication": "NoAuthentication",

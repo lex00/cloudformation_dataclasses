@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Code(PropertyType):
-    S3 = "S3"
-    BRANCH_NAME = "BranchName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "branch_name": "BranchName",
@@ -25,12 +22,6 @@ class Code(PropertyType):
 
 @dataclass
 class RepositoryTrigger(PropertyType):
-    EVENTS = "Events"
-    BRANCHES = "Branches"
-    CUSTOM_DATA = "CustomData"
-    DESTINATION_ARN = "DestinationArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
         "branches": "Branches",
@@ -48,10 +39,6 @@ class RepositoryTrigger(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    OBJECT_VERSION = "ObjectVersion"
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_version": "ObjectVersion",
         "bucket": "Bucket",

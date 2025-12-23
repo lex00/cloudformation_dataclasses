@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SchemaInputAttribute(PropertyType):
-    GROUP_NAME = "GroupName"
-    TYPE = "Type"
-    SUB_TYPE = "SubType"
-    HASHED = "Hashed"
-    MATCH_KEY = "MatchKey"
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "type_": "Type",

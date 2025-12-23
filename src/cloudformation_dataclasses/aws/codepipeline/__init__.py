@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:49
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodePipeline
@@ -442,15 +442,6 @@ class CustomActionType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codep"""
 
     resource_type: ClassVar[str] = "AWS::CodePipeline::CustomActionType"
-    CATEGORY = "Category"
-    INPUT_ARTIFACT_DETAILS = "InputArtifactDetails"
-    VERSION = "Version"
-    OUTPUT_ARTIFACT_DETAILS = "OutputArtifactDetails"
-    CONFIGURATION_PROPERTIES = "ConfigurationProperties"
-    SETTINGS = "Settings"
-    TAGS = "Tags"
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "input_artifact_details": "InputArtifactDetails",
@@ -484,19 +475,6 @@ class Pipeline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodePipeline::Pipeline"
     name_field: ClassVar[str] = "name"
-    VARIABLES = "Variables"
-    ARTIFACT_STORES = "ArtifactStores"
-    ARTIFACT_STORE = "ArtifactStore"
-    DISABLE_INBOUND_STAGE_TRANSITIONS = "DisableInboundStageTransitions"
-    STAGES = "Stages"
-    PIPELINE_TYPE = "PipelineType"
-    EXECUTION_MODE = "ExecutionMode"
-    RESTART_EXECUTION_ON_UPDATE = "RestartExecutionOnUpdate"
-    TRIGGERS = "Triggers"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "artifact_stores": "ArtifactStores",
@@ -538,15 +516,6 @@ class Webhook(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodePipeline::Webhook"
     name_field: ClassVar[str] = "name"
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    FILTERS = "Filters"
-    AUTHENTICATION = "Authentication"
-    TARGET_PIPELINE = "TargetPipeline"
-    TARGET_ACTION = "TargetAction"
-    NAME = "Name"
-    TARGET_PIPELINE_VERSION = "TargetPipelineVersion"
-    REGISTER_WITH_THIRD_PARTY = "RegisterWithThirdParty"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "filters": "Filters",

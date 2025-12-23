@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutomationRulesAction(PropertyType):
-    TYPE = "Type"
-    FINDING_FIELDS_UPDATE = "FindingFieldsUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "finding_fields_update": "FindingFieldsUpdate",
@@ -25,16 +22,6 @@ class AutomationRulesAction(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFieldsUpdate(PropertyType):
-    TYPES = "Types"
-    CONFIDENCE = "Confidence"
-    NOTE = "Note"
-    VERIFICATION_STATE = "VerificationState"
-    RELATED_FINDINGS = "RelatedFindings"
-    WORKFLOW = "Workflow"
-    SEVERITY = "Severity"
-    USER_DEFINED_FIELDS = "UserDefinedFields"
-    CRITICALITY = "Criticality"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "confidence": "Confidence",
@@ -60,42 +47,6 @@ class AutomationRulesFindingFieldsUpdate(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFilters(PropertyType):
-    PRODUCT_ARN = "ProductArn"
-    SOURCE_URL = "SourceUrl"
-    RESOURCE_DETAILS_OTHER = "ResourceDetailsOther"
-    DESCRIPTION = "Description"
-    PRODUCT_NAME = "ProductName"
-    RESOURCE_TAGS = "ResourceTags"
-    FIRST_OBSERVED_AT = "FirstObservedAt"
-    CREATED_AT = "CreatedAt"
-    NOTE_TEXT = "NoteText"
-    LAST_OBSERVED_AT = "LastObservedAt"
-    USER_DEFINED_FIELDS = "UserDefinedFields"
-    NOTE_UPDATED_AT = "NoteUpdatedAt"
-    COMPLIANCE_SECURITY_CONTROL_ID = "ComplianceSecurityControlId"
-    COMPANY_NAME = "CompanyName"
-    RESOURCE_REGION = "ResourceRegion"
-    NOTE_UPDATED_BY = "NoteUpdatedBy"
-    CONFIDENCE = "Confidence"
-    RESOURCE_PARTITION = "ResourcePartition"
-    VERIFICATION_STATE = "VerificationState"
-    CRITICALITY = "Criticality"
-    SEVERITY_LABEL = "SeverityLabel"
-    RELATED_FINDINGS_PRODUCT_ARN = "RelatedFindingsProductArn"
-    COMPLIANCE_STATUS = "ComplianceStatus"
-    GENERATOR_ID = "GeneratorId"
-    RECORD_STATE = "RecordState"
-    TITLE = "Title"
-    RESOURCE_TYPE = "ResourceType"
-    COMPLIANCE_ASSOCIATED_STANDARDS_ID = "ComplianceAssociatedStandardsId"
-    UPDATED_AT = "UpdatedAt"
-    RELATED_FINDINGS_ID = "RelatedFindingsId"
-    WORKFLOW_STATUS = "WorkflowStatus"
-    TYPE = "Type"
-    RESOURCE_ID = "ResourceId"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_arn": "ProductArn",
         "source_url": "SourceUrl",
@@ -173,10 +124,6 @@ class AutomationRulesFindingFilters(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    DATE_RANGE = "DateRange"
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -190,9 +137,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -204,10 +148,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -221,9 +161,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NoteUpdate(PropertyType):
-    UPDATED_BY = "UpdatedBy"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "updated_by": "UpdatedBy",
         "text": "Text",
@@ -235,10 +172,6 @@ class NoteUpdate(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    GTE = "Gte"
-    EQ = "Eq"
-    LTE = "Lte"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -252,9 +185,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class RelatedFinding(PropertyType):
-    PRODUCT_ARN = "ProductArn"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_arn": "ProductArn",
         "id": "Id",
@@ -266,10 +196,6 @@ class RelatedFinding(PropertyType):
 
 @dataclass
 class SeverityUpdate(PropertyType):
-    NORMALIZED = "Normalized"
-    LABEL = "Label"
-    PRODUCT = "Product"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "normalized": "Normalized",
         "label": "Label",
@@ -283,9 +209,6 @@ class SeverityUpdate(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    COMPARISON = "Comparison"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -297,8 +220,6 @@ class StringFilter(PropertyType):
 
 @dataclass
 class WorkflowUpdate(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }

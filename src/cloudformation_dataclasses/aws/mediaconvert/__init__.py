@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConvert
@@ -5664,17 +5664,6 @@ class JobTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConvert::JobTemplate"
     name_field: ClassVar[str] = "name"
-    CATEGORY = "Category"
-    DESCRIPTION = "Description"
-    ACCELERATION_SETTINGS = "AccelerationSettings"
-    PRIORITY = "Priority"
-    STATUS_UPDATE_INTERVAL = "StatusUpdateInterval"
-    SETTINGS_JSON = "SettingsJson"
-    QUEUE = "Queue"
-    HOP_DESTINATIONS = "HopDestinations"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "description": "Description",
@@ -5717,12 +5706,6 @@ class Preset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConvert::Preset"
     name_field: ClassVar[str] = "name"
-    CATEGORY = "Category"
-    DESCRIPTION = "Description"
-    SETTINGS_JSON = "SettingsJson"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "description": "Description",
@@ -5755,13 +5738,6 @@ class Queue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConvert::Queue"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    PRICING_PLAN = "PricingPlan"
-    TAGS = "Tags"
-    CONCURRENT_JOBS = "ConcurrentJobs"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",

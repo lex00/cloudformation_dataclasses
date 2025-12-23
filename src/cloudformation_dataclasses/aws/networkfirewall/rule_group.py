@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionDefinition(PropertyType):
-    PUBLISH_METRIC_ACTION = "PublishMetricAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_metric_action": "PublishMetricAction",
     }
@@ -22,8 +20,6 @@ class ActionDefinition(PropertyType):
 
 @dataclass
 class Address(PropertyType):
-    ADDRESS_DEFINITION = "AddressDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_definition": "AddressDefinition",
     }
@@ -33,9 +29,6 @@ class Address(PropertyType):
 
 @dataclass
 class CustomAction(PropertyType):
-    ACTION_NAME = "ActionName"
-    ACTION_DEFINITION = "ActionDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "action_definition": "ActionDefinition",
@@ -47,8 +40,6 @@ class CustomAction(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -58,13 +49,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class Header(PropertyType):
-    DESTINATION = "Destination"
-    PROTOCOL = "Protocol"
-    SOURCE_PORT = "SourcePort"
-    DIRECTION = "Direction"
-    DESTINATION_PORT = "DestinationPort"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "protocol": "Protocol",
@@ -84,8 +68,6 @@ class Header(PropertyType):
 
 @dataclass
 class IPSet(PropertyType):
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -95,8 +77,6 @@ class IPSet(PropertyType):
 
 @dataclass
 class IPSetReference(PropertyType):
-    REFERENCE_ARN = "ReferenceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_arn": "ReferenceArn",
     }
@@ -106,13 +86,6 @@ class IPSetReference(PropertyType):
 
 @dataclass
 class MatchAttributes(PropertyType):
-    PROTOCOLS = "Protocols"
-    TCP_FLAGS = "TCPFlags"
-    DESTINATION_PORTS = "DestinationPorts"
-    DESTINATIONS = "Destinations"
-    SOURCES = "Sources"
-    SOURCE_PORTS = "SourcePorts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "tcp_flags": "TCPFlags",
@@ -132,9 +105,6 @@ class MatchAttributes(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -146,8 +116,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class PortSet(PropertyType):
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -157,8 +125,6 @@ class PortSet(PropertyType):
 
 @dataclass
 class PublishMetricAction(PropertyType):
-    DIMENSIONS = "Dimensions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimensions": "Dimensions",
     }
@@ -168,8 +134,6 @@ class PublishMetricAction(PropertyType):
 
 @dataclass
 class ReferenceSets(PropertyType):
-    IP_SET_REFERENCES = "IPSetReferences"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_references": "IPSetReferences",
     }
@@ -179,9 +143,6 @@ class ReferenceSets(PropertyType):
 
 @dataclass
 class RuleDefinition(PropertyType):
-    ACTIONS = "Actions"
-    MATCH_ATTRIBUTES = "MatchAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "match_attributes": "MatchAttributes",
@@ -193,11 +154,6 @@ class RuleDefinition(PropertyType):
 
 @dataclass
 class RuleGroup(PropertyType):
-    STATEFUL_RULE_OPTIONS = "StatefulRuleOptions"
-    REFERENCE_SETS = "ReferenceSets"
-    RULES_SOURCE = "RulesSource"
-    RULE_VARIABLES = "RuleVariables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateful_rule_options": "StatefulRuleOptions",
         "reference_sets": "ReferenceSets",
@@ -213,9 +169,6 @@ class RuleGroup(PropertyType):
 
 @dataclass
 class RuleOption(PropertyType):
-    KEYWORD = "Keyword"
-    SETTINGS = "Settings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "keyword": "Keyword",
         "settings": "Settings",
@@ -227,9 +180,6 @@ class RuleOption(PropertyType):
 
 @dataclass
 class RuleVariables(PropertyType):
-    PORT_SETS = "PortSets"
-    IP_SETS = "IPSets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_sets": "PortSets",
         "ip_sets": "IPSets",
@@ -241,11 +191,6 @@ class RuleVariables(PropertyType):
 
 @dataclass
 class RulesSource(PropertyType):
-    STATELESS_RULES_AND_CUSTOM_ACTIONS = "StatelessRulesAndCustomActions"
-    STATEFUL_RULES = "StatefulRules"
-    RULES_STRING = "RulesString"
-    RULES_SOURCE_LIST = "RulesSourceList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rules_and_custom_actions": "StatelessRulesAndCustomActions",
         "stateful_rules": "StatefulRules",
@@ -261,10 +206,6 @@ class RulesSource(PropertyType):
 
 @dataclass
 class RulesSourceList(PropertyType):
-    GENERATED_RULES_TYPE = "GeneratedRulesType"
-    TARGET_TYPES = "TargetTypes"
-    TARGETS = "Targets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generated_rules_type": "GeneratedRulesType",
         "target_types": "TargetTypes",
@@ -278,10 +219,6 @@ class RulesSourceList(PropertyType):
 
 @dataclass
 class StatefulRule(PropertyType):
-    ACTION = "Action"
-    HEADER = "Header"
-    RULE_OPTIONS = "RuleOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "header": "Header",
@@ -295,8 +232,6 @@ class StatefulRule(PropertyType):
 
 @dataclass
 class StatefulRuleOptions(PropertyType):
-    RULE_ORDER = "RuleOrder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_order": "RuleOrder",
     }
@@ -306,9 +241,6 @@ class StatefulRuleOptions(PropertyType):
 
 @dataclass
 class StatelessRule(PropertyType):
-    PRIORITY = "Priority"
-    RULE_DEFINITION = "RuleDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "rule_definition": "RuleDefinition",
@@ -320,9 +252,6 @@ class StatelessRule(PropertyType):
 
 @dataclass
 class StatelessRulesAndCustomActions(PropertyType):
-    STATELESS_RULES = "StatelessRules"
-    CUSTOM_ACTIONS = "CustomActions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rules": "StatelessRules",
         "custom_actions": "CustomActions",
@@ -334,8 +263,6 @@ class StatelessRulesAndCustomActions(PropertyType):
 
 @dataclass
 class SummaryConfiguration(PropertyType):
-    RULE_OPTIONS = "RuleOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_options": "RuleOptions",
     }
@@ -345,9 +272,6 @@ class SummaryConfiguration(PropertyType):
 
 @dataclass
 class TCPFlagField(PropertyType):
-    FLAGS = "Flags"
-    MASKS = "Masks"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flags": "Flags",
         "masks": "Masks",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service InspectorV2
@@ -38,12 +38,6 @@ class CisScanConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CisScanConfiguration"
     name_field: ClassVar[str] = "scan_name"
-    SECURITY_LEVEL = "SecurityLevel"
-    SCHEDULE = "Schedule"
-    TARGETS = "Targets"
-    SCAN_NAME = "ScanName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_level": "SecurityLevel",
         "schedule": "Schedule",
@@ -71,12 +65,6 @@ class CodeSecurityIntegration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CodeSecurityIntegration"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    CREATE_INTEGRATION_DETAILS = "CreateIntegrationDetails"
-    UPDATE_INTEGRATION_DETAILS = "UpdateIntegrationDetails"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "create_integration_details": "CreateIntegrationDetails",
@@ -129,12 +117,6 @@ class CodeSecurityScanConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CodeSecurityScanConfiguration"
     name_field: ClassVar[str] = "name"
-    SCOPE_SETTINGS = "ScopeSettings"
-    CONFIGURATION = "Configuration"
-    LEVEL = "Level"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope_settings": "ScopeSettings",
         "configuration": "Configuration",
@@ -162,12 +144,6 @@ class Filter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::Filter"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    FILTER_CRITERIA = "FilterCriteria"
-    FILTER_ACTION = "FilterAction"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "filter_criteria": "FilterCriteria",

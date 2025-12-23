@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BodyS3Location(PropertyType):
-    ETAG = "Etag"
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etag": "Etag",
         "bucket": "Bucket",
@@ -31,13 +26,6 @@ class BodyS3Location(PropertyType):
 
 @dataclass
 class Cors(PropertyType):
-    ALLOW_ORIGINS = "AllowOrigins"
-    ALLOW_CREDENTIALS = "AllowCredentials"
-    EXPOSE_HEADERS = "ExposeHeaders"
-    ALLOW_HEADERS = "AllowHeaders"
-    MAX_AGE = "MaxAge"
-    ALLOW_METHODS = "AllowMethods"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_origins": "AllowOrigins",
         "allow_credentials": "AllowCredentials",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:46
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CE
@@ -574,12 +574,6 @@ class AnomalyMonitor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CE::AnomalyMonitor"
     name_field: ClassVar[str] = "monitor_name"
-    MONITOR_TYPE = "MonitorType"
-    RESOURCE_TAGS = "ResourceTags"
-    MONITOR_NAME = "MonitorName"
-    MONITOR_SPECIFICATION = "MonitorSpecification"
-    MONITOR_DIMENSION = "MonitorDimension"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitor_type": "MonitorType",
         "resource_tags": "ResourceTags",
@@ -627,14 +621,6 @@ class AnomalySubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CE::AnomalySubscription"
     name_field: ClassVar[str] = "subscription_name"
-    MONITOR_ARN_LIST = "MonitorArnList"
-    RESOURCE_TAGS = "ResourceTags"
-    FREQUENCY = "Frequency"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SUBSCRIBERS = "Subscribers"
-    THRESHOLD = "Threshold"
-    THRESHOLD_EXPRESSION = "ThresholdExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitor_arn_list": "MonitorArnList",
         "resource_tags": "ResourceTags",
@@ -671,13 +657,6 @@ class CostCategory(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CE::CostCategory"
     name_field: ClassVar[str] = "name"
-    DEFAULT_VALUE = "DefaultValue"
-    SPLIT_CHARGE_RULES = "SplitChargeRules"
-    RULE_VERSION = "RuleVersion"
-    RULES = "Rules"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "split_charge_rules": "SplitChargeRules",

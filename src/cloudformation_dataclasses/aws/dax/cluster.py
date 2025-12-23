@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SSESpecification(PropertyType):
-    SSE_ENABLED = "SSEEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_enabled": "SSEEnabled",
     }

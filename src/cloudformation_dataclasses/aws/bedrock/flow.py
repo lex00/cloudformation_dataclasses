@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AgentFlowNodeConfiguration(PropertyType):
-    AGENT_ALIAS_ARN = "AgentAliasArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_alias_arn": "AgentAliasArn",
     }
@@ -22,8 +20,6 @@ class AgentFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class ConditionFlowNodeConfiguration(PropertyType):
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -33,8 +29,6 @@ class ConditionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FieldForReranking(PropertyType):
-    FIELD_NAME = "FieldName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_name": "FieldName",
     }
@@ -44,9 +38,6 @@ class FieldForReranking(PropertyType):
 
 @dataclass
 class FlowCondition(PropertyType):
-    EXPRESSION = "Expression"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "name": "Name",
@@ -58,8 +49,6 @@ class FlowCondition(PropertyType):
 
 @dataclass
 class FlowConditionalConnectionConfiguration(PropertyType):
-    CONDITION = "Condition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
     }
@@ -69,12 +58,6 @@ class FlowConditionalConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowConnection(PropertyType):
-    TYPE = "Type"
-    TARGET = "Target"
-    CONFIGURATION = "Configuration"
-    SOURCE = "Source"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "target": "Target",
@@ -92,9 +75,6 @@ class FlowConnection(PropertyType):
 
 @dataclass
 class FlowConnectionConfiguration(PropertyType):
-    DATA = "Data"
-    CONDITIONAL = "Conditional"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "conditional": "Conditional",
@@ -106,9 +86,6 @@ class FlowConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDataConnectionConfiguration(PropertyType):
-    SOURCE_OUTPUT = "SourceOutput"
-    TARGET_INPUT = "TargetInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_output": "SourceOutput",
         "target_input": "TargetInput",
@@ -120,9 +97,6 @@ class FlowDataConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDefinition(PropertyType):
-    CONNECTIONS = "Connections"
-    NODES = "Nodes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
         "nodes": "Nodes",
@@ -134,12 +108,6 @@ class FlowDefinition(PropertyType):
 
 @dataclass
 class FlowNode(PropertyType):
-    TYPE = "Type"
-    CONFIGURATION = "Configuration"
-    OUTPUTS = "Outputs"
-    INPUTS = "Inputs"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -157,23 +125,6 @@ class FlowNode(PropertyType):
 
 @dataclass
 class FlowNodeConfiguration(PropertyType):
-    CONDITION = "Condition"
-    RETRIEVAL = "Retrieval"
-    LOOP = "Loop"
-    AGENT = "Agent"
-    LAMBDA_FUNCTION = "LambdaFunction"
-    INLINE_CODE = "InlineCode"
-    LOOP_CONTROLLER = "LoopController"
-    INPUT = "Input"
-    STORAGE = "Storage"
-    KNOWLEDGE_BASE = "KnowledgeBase"
-    OUTPUT = "Output"
-    ITERATOR = "Iterator"
-    COLLECTOR = "Collector"
-    LOOP_INPUT = "LoopInput"
-    PROMPT = "Prompt"
-    LEX = "Lex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "retrieval": "Retrieval",
@@ -213,11 +164,6 @@ class FlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FlowNodeInput(PropertyType):
-    TYPE = "Type"
-    CATEGORY = "Category"
-    EXPRESSION = "Expression"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -233,9 +179,6 @@ class FlowNodeInput(PropertyType):
 
 @dataclass
 class FlowNodeOutput(PropertyType):
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -247,8 +190,6 @@ class FlowNodeOutput(PropertyType):
 
 @dataclass
 class FlowValidation(PropertyType):
-    MESSAGE = "Message"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
     }
@@ -258,9 +199,6 @@ class FlowValidation(PropertyType):
 
 @dataclass
 class GuardrailConfiguration(PropertyType):
-    GUARDRAIL_IDENTIFIER = "GuardrailIdentifier"
-    GUARDRAIL_VERSION = "GuardrailVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "guardrail_version": "GuardrailVersion",
@@ -272,9 +210,6 @@ class GuardrailConfiguration(PropertyType):
 
 @dataclass
 class InlineCodeFlowNodeConfiguration(PropertyType):
-    LANGUAGE = "Language"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "code": "Code",
@@ -286,15 +221,6 @@ class InlineCodeFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseFlowNodeConfiguration(PropertyType):
-    ORCHESTRATION_CONFIGURATION = "OrchestrationConfiguration"
-    GUARDRAIL_CONFIGURATION = "GuardrailConfiguration"
-    INFERENCE_CONFIGURATION = "InferenceConfiguration"
-    KNOWLEDGE_BASE_ID = "KnowledgeBaseId"
-    PROMPT_TEMPLATE = "PromptTemplate"
-    RERANKING_CONFIGURATION = "RerankingConfiguration"
-    NUMBER_OF_RESULTS = "NumberOfResults"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orchestration_configuration": "OrchestrationConfiguration",
         "guardrail_configuration": "GuardrailConfiguration",
@@ -318,11 +244,6 @@ class KnowledgeBaseFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseOrchestrationConfiguration(PropertyType):
-    INFERENCE_CONFIG = "InferenceConfig"
-    ADDITIONAL_MODEL_REQUEST_FIELDS = "AdditionalModelRequestFields"
-    PERFORMANCE_CONFIG = "PerformanceConfig"
-    PROMPT_TEMPLATE = "PromptTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_config": "InferenceConfig",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -338,8 +259,6 @@ class KnowledgeBaseOrchestrationConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBasePromptTemplate(PropertyType):
-    TEXT_PROMPT_TEMPLATE = "TextPromptTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_prompt_template": "TextPromptTemplate",
     }
@@ -349,8 +268,6 @@ class KnowledgeBasePromptTemplate(PropertyType):
 
 @dataclass
 class LambdaFunctionFlowNodeConfiguration(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -360,9 +277,6 @@ class LambdaFunctionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LexFlowNodeConfiguration(PropertyType):
-    BOT_ALIAS_ARN = "BotAliasArn"
-    LOCALE_ID = "LocaleId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bot_alias_arn": "BotAliasArn",
         "locale_id": "LocaleId",
@@ -374,9 +288,6 @@ class LexFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopControllerFlowNodeConfiguration(PropertyType):
-    CONTINUE_CONDITION = "ContinueCondition"
-    MAX_ITERATIONS = "MaxIterations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continue_condition": "ContinueCondition",
         "max_iterations": "MaxIterations",
@@ -388,8 +299,6 @@ class LoopControllerFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopFlowNodeConfiguration(PropertyType):
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -399,9 +308,6 @@ class LoopFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfigurationForReranking(PropertyType):
-    SELECTIVE_MODE_CONFIGURATION = "SelectiveModeConfiguration"
-    SELECTION_MODE = "SelectionMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selective_mode_configuration": "SelectiveModeConfiguration",
         "selection_mode": "SelectionMode",
@@ -413,8 +319,6 @@ class MetadataConfigurationForReranking(PropertyType):
 
 @dataclass
 class PerformanceConfiguration(PropertyType):
-    LATENCY = "Latency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latency": "Latency",
     }
@@ -424,9 +328,6 @@ class PerformanceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeConfiguration(PropertyType):
-    GUARDRAIL_CONFIGURATION = "GuardrailConfiguration"
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_configuration": "GuardrailConfiguration",
         "source_configuration": "SourceConfiguration",
@@ -438,11 +339,6 @@ class PromptFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeInlineConfiguration(PropertyType):
-    INFERENCE_CONFIGURATION = "InferenceConfiguration"
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-    TEMPLATE_TYPE = "TemplateType"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_configuration": "InferenceConfiguration",
         "template_configuration": "TemplateConfiguration",
@@ -458,8 +354,6 @@ class PromptFlowNodeInlineConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeResourceConfiguration(PropertyType):
-    PROMPT_ARN = "PromptArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_arn": "PromptArn",
     }
@@ -469,9 +363,6 @@ class PromptFlowNodeResourceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeSourceConfiguration(PropertyType):
-    RESOURCE = "Resource"
-    INLINE = "Inline"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "inline": "Inline",
@@ -483,8 +374,6 @@ class PromptFlowNodeSourceConfiguration(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -494,8 +383,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -505,11 +392,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    TEMPERATURE = "Temperature"
-    STOP_SEQUENCES = "StopSequences"
-    MAX_TOKENS = "MaxTokens"
-    TOP_P = "TopP"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -525,8 +407,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -536,9 +416,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class RerankingMetadataSelectiveModeConfiguration(PropertyType):
-    FIELDS_TO_INCLUDE = "FieldsToInclude"
-    FIELDS_TO_EXCLUDE = "FieldsToExclude"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields_to_include": "FieldsToInclude",
         "fields_to_exclude": "FieldsToExclude",
@@ -550,8 +427,6 @@ class RerankingMetadataSelectiveModeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeConfiguration(PropertyType):
-    SERVICE_CONFIGURATION = "ServiceConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -561,8 +436,6 @@ class RetrievalFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeS3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -572,8 +445,6 @@ class RetrievalFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeServiceConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -583,10 +454,6 @@ class RetrievalFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -600,8 +467,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class StorageFlowNodeConfiguration(PropertyType):
-    SERVICE_CONFIGURATION = "ServiceConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -611,8 +476,6 @@ class StorageFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class StorageFlowNodeS3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -622,8 +485,6 @@ class StorageFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class StorageFlowNodeServiceConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -633,9 +494,6 @@ class StorageFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    INPUT_VARIABLES = "InputVariables"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "text": "Text",
@@ -647,10 +505,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingConfiguration(PropertyType):
-    NUMBER_OF_RERANKED_RESULTS = "NumberOfRerankedResults"
-    METADATA_CONFIGURATION = "MetadataConfiguration"
-    MODEL_CONFIGURATION = "ModelConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_reranked_results": "NumberOfRerankedResults",
         "metadata_configuration": "MetadataConfiguration",
@@ -664,9 +518,6 @@ class VectorSearchBedrockRerankingConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
-    MODEL_ARN = "ModelArn"
-    ADDITIONAL_MODEL_REQUEST_FIELDS = "AdditionalModelRequestFields"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -678,9 +529,6 @@ class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchRerankingConfiguration(PropertyType):
-    TYPE = "Type"
-    BEDROCK_RERANKING_CONFIGURATION = "BedrockRerankingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "bedrock_reranking_configuration": "BedrockRerankingConfiguration",

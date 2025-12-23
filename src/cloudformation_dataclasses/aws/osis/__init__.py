@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OSIS
@@ -126,18 +126,6 @@ class Pipeline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OSIS::Pipeline"
     name_field: ClassVar[str] = "pipeline_name"
-    PIPELINE_CONFIGURATION_BODY = "PipelineConfigurationBody"
-    BUFFER_OPTIONS = "BufferOptions"
-    PIPELINE_ROLE_ARN = "PipelineRoleArn"
-    MIN_UNITS = "MinUnits"
-    PIPELINE_NAME = "PipelineName"
-    VPC_OPTIONS = "VpcOptions"
-    MAX_UNITS = "MaxUnits"
-    LOG_PUBLISHING_OPTIONS = "LogPublishingOptions"
-    RESOURCE_POLICY = "ResourcePolicy"
-    ENCRYPTION_AT_REST_OPTIONS = "EncryptionAtRestOptions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_configuration_body": "PipelineConfigurationBody",
         "buffer_options": "BufferOptions",

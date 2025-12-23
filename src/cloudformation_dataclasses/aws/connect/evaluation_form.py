@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoEvaluationConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -22,8 +20,6 @@ class AutoEvaluationConfiguration(PropertyType):
 
 @dataclass
 class AutomaticFailConfiguration(PropertyType):
-    TARGET_SECTION = "TargetSection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_section": "TargetSection",
     }
@@ -33,8 +29,6 @@ class AutomaticFailConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormBaseItem(PropertyType):
-    SECTION = "Section"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "section": "Section",
     }
@@ -44,9 +38,6 @@ class EvaluationFormBaseItem(PropertyType):
 
 @dataclass
 class EvaluationFormItem(PropertyType):
-    QUESTION = "Question"
-    SECTION = "Section"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "question": "Question",
         "section": "Section",
@@ -58,9 +49,6 @@ class EvaluationFormItem(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementCondition(PropertyType):
-    OPERATOR = "Operator"
-    OPERANDS = "Operands"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "operands": "Operands",
@@ -72,8 +60,6 @@ class EvaluationFormItemEnablementCondition(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementConditionOperand(PropertyType):
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
     }
@@ -83,10 +69,6 @@ class EvaluationFormItemEnablementConditionOperand(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementConfiguration(PropertyType):
-    CONDITION = "Condition"
-    ACTION = "Action"
-    DEFAULT_ACTION = "DefaultAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "action": "Action",
@@ -100,10 +82,6 @@ class EvaluationFormItemEnablementConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementExpression(PropertyType):
-    VALUES = "Values"
-    SOURCE = "Source"
-    COMPARATOR = "Comparator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "source": "Source",
@@ -117,9 +95,6 @@ class EvaluationFormItemEnablementExpression(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementSource(PropertyType):
-    TYPE = "Type"
-    REF_ID = "RefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ref_id": "RefId",
@@ -131,9 +106,6 @@ class EvaluationFormItemEnablementSource(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementSourceValue(PropertyType):
-    TYPE = "Type"
-    REF_ID = "RefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ref_id": "RefId",
@@ -145,8 +117,6 @@ class EvaluationFormItemEnablementSourceValue(PropertyType):
 
 @dataclass
 class EvaluationFormLanguageConfiguration(PropertyType):
-    FORM_LANGUAGE = "FormLanguage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "form_language": "FormLanguage",
     }
@@ -156,10 +126,6 @@ class EvaluationFormLanguageConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionAutomation(PropertyType):
-    OPTIONS = "Options"
-    ANSWER_SOURCE = "AnswerSource"
-    DEFAULT_OPTION_REF_IDS = "DefaultOptionRefIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "answer_source": "AnswerSource",
@@ -173,8 +139,6 @@ class EvaluationFormMultiSelectQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionAutomationOption(PropertyType):
-    RULE_CATEGORY = "RuleCategory"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_category": "RuleCategory",
     }
@@ -184,9 +148,6 @@ class EvaluationFormMultiSelectQuestionAutomationOption(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionOption(PropertyType):
-    TEXT = "Text"
-    REF_ID = "RefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "ref_id": "RefId",
@@ -198,10 +159,6 @@ class EvaluationFormMultiSelectQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionProperties(PropertyType):
-    DISPLAY_AS = "DisplayAs"
-    OPTIONS = "Options"
-    AUTOMATION = "Automation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "options": "Options",
@@ -215,9 +172,6 @@ class EvaluationFormMultiSelectQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionAutomation(PropertyType):
-    ANSWER_SOURCE = "AnswerSource"
-    PROPERTY_VALUE = "PropertyValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_source": "AnswerSource",
         "property_value": "PropertyValue",
@@ -229,12 +183,6 @@ class EvaluationFormNumericQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionOption(PropertyType):
-    SCORE = "Score"
-    AUTOMATIC_FAIL_CONFIGURATION = "AutomaticFailConfiguration"
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-    AUTOMATIC_FAIL = "AutomaticFail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "score": "Score",
         "automatic_fail_configuration": "AutomaticFailConfiguration",
@@ -252,11 +200,6 @@ class EvaluationFormNumericQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionProperties(PropertyType):
-    OPTIONS = "Options"
-    AUTOMATION = "Automation"
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "automation": "Automation",
@@ -272,15 +215,6 @@ class EvaluationFormNumericQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormQuestion(PropertyType):
-    NOT_APPLICABLE_ENABLED = "NotApplicableEnabled"
-    ENABLEMENT = "Enablement"
-    TITLE = "Title"
-    QUESTION_TYPE = "QuestionType"
-    INSTRUCTIONS = "Instructions"
-    REF_ID = "RefId"
-    QUESTION_TYPE_PROPERTIES = "QuestionTypeProperties"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "not_applicable_enabled": "NotApplicableEnabled",
         "enablement": "Enablement",
@@ -304,8 +238,6 @@ class EvaluationFormQuestion(PropertyType):
 
 @dataclass
 class EvaluationFormQuestionAutomationAnswerSource(PropertyType):
-    SOURCE_TYPE = "SourceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
     }
@@ -315,11 +247,6 @@ class EvaluationFormQuestionAutomationAnswerSource(PropertyType):
 
 @dataclass
 class EvaluationFormQuestionTypeProperties(PropertyType):
-    NUMERIC = "Numeric"
-    SINGLE_SELECT = "SingleSelect"
-    MULTI_SELECT = "MultiSelect"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric": "Numeric",
         "single_select": "SingleSelect",
@@ -335,12 +262,6 @@ class EvaluationFormQuestionTypeProperties(PropertyType):
 
 @dataclass
 class EvaluationFormSection(PropertyType):
-    TITLE = "Title"
-    INSTRUCTIONS = "Instructions"
-    ITEMS = "Items"
-    REF_ID = "RefId"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title": "Title",
         "instructions": "Instructions",
@@ -358,10 +279,6 @@ class EvaluationFormSection(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionAutomation(PropertyType):
-    OPTIONS = "Options"
-    ANSWER_SOURCE = "AnswerSource"
-    DEFAULT_OPTION_REF_ID = "DefaultOptionRefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "answer_source": "AnswerSource",
@@ -375,8 +292,6 @@ class EvaluationFormSingleSelectQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionAutomationOption(PropertyType):
-    RULE_CATEGORY = "RuleCategory"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_category": "RuleCategory",
     }
@@ -386,12 +301,6 @@ class EvaluationFormSingleSelectQuestionAutomationOption(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionOption(PropertyType):
-    SCORE = "Score"
-    AUTOMATIC_FAIL_CONFIGURATION = "AutomaticFailConfiguration"
-    TEXT = "Text"
-    REF_ID = "RefId"
-    AUTOMATIC_FAIL = "AutomaticFail"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "score": "Score",
         "automatic_fail_configuration": "AutomaticFailConfiguration",
@@ -409,10 +318,6 @@ class EvaluationFormSingleSelectQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionProperties(PropertyType):
-    DISPLAY_AS = "DisplayAs"
-    OPTIONS = "Options"
-    AUTOMATION = "Automation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "options": "Options",
@@ -426,8 +331,6 @@ class EvaluationFormSingleSelectQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormTargetConfiguration(PropertyType):
-    CONTACT_INTERACTION_TYPE = "ContactInteractionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_interaction_type": "ContactInteractionType",
     }
@@ -437,8 +340,6 @@ class EvaluationFormTargetConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormTextQuestionAutomation(PropertyType):
-    ANSWER_SOURCE = "AnswerSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_source": "AnswerSource",
     }
@@ -448,8 +349,6 @@ class EvaluationFormTextQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormTextQuestionProperties(PropertyType):
-    AUTOMATION = "Automation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automation": "Automation",
     }
@@ -459,10 +358,6 @@ class EvaluationFormTextQuestionProperties(PropertyType):
 
 @dataclass
 class MultiSelectQuestionRuleCategoryAutomation(PropertyType):
-    CONDITION = "Condition"
-    CATEGORY = "Category"
-    OPTION_REF_IDS = "OptionRefIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "category": "Category",
@@ -476,8 +371,6 @@ class MultiSelectQuestionRuleCategoryAutomation(PropertyType):
 
 @dataclass
 class NumericQuestionPropertyValueAutomation(PropertyType):
-    LABEL = "Label"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label": "Label",
     }
@@ -487,9 +380,6 @@ class NumericQuestionPropertyValueAutomation(PropertyType):
 
 @dataclass
 class ScoringStrategy(PropertyType):
-    STATUS = "Status"
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "mode": "Mode",
@@ -501,10 +391,6 @@ class ScoringStrategy(PropertyType):
 
 @dataclass
 class SingleSelectQuestionRuleCategoryAutomation(PropertyType):
-    CONDITION = "Condition"
-    CATEGORY = "Category"
-    OPTION_REF_ID = "OptionRefId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "category": "Category",

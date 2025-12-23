@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Actions(PropertyType):
-    EVENT_BRIDGE_ACTIONS = "EventBridgeActions"
-    UPDATE_CASE_ACTIONS = "UpdateCaseActions"
-    CREATE_CASE_ACTIONS = "CreateCaseActions"
-    ASSIGN_CONTACT_CATEGORY_ACTIONS = "AssignContactCategoryActions"
-    TASK_ACTIONS = "TaskActions"
-    SUBMIT_AUTO_EVALUATION_ACTIONS = "SubmitAutoEvaluationActions"
-    SEND_NOTIFICATION_ACTIONS = "SendNotificationActions"
-    END_ASSOCIATED_TASKS_ACTIONS = "EndAssociatedTasksActions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bridge_actions": "EventBridgeActions",
         "update_case_actions": "UpdateCaseActions",
@@ -43,9 +34,6 @@ class Actions(PropertyType):
 
 @dataclass
 class CreateCaseAction(PropertyType):
-    FIELDS = "Fields"
-    TEMPLATE_ID = "TemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
         "template_id": "TemplateId",
@@ -57,8 +45,6 @@ class CreateCaseAction(PropertyType):
 
 @dataclass
 class EventBridgeAction(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -68,9 +54,6 @@ class EventBridgeAction(PropertyType):
 
 @dataclass
 class Field(PropertyType):
-    VALUE = "Value"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "id": "Id",
@@ -82,11 +65,6 @@ class Field(PropertyType):
 
 @dataclass
 class FieldValue(PropertyType):
-    DOUBLE_VALUE = "DoubleValue"
-    BOOLEAN_VALUE = "BooleanValue"
-    STRING_VALUE = "StringValue"
-    EMPTY_VALUE = "EmptyValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -102,9 +80,6 @@ class FieldValue(PropertyType):
 
 @dataclass
 class NotificationRecipientType(PropertyType):
-    USER_TAGS = "UserTags"
-    USER_ARNS = "UserArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_tags": "UserTags",
         "user_arns": "UserArns",
@@ -116,9 +91,6 @@ class NotificationRecipientType(PropertyType):
 
 @dataclass
 class Reference(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -130,9 +102,6 @@ class Reference(PropertyType):
 
 @dataclass
 class RuleTriggerEventSource(PropertyType):
-    INTEGRATION_ASSOCIATION_ARN = "IntegrationAssociationArn"
-    EVENT_SOURCE_NAME = "EventSourceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration_association_arn": "IntegrationAssociationArn",
         "event_source_name": "EventSourceName",
@@ -144,12 +113,6 @@ class RuleTriggerEventSource(PropertyType):
 
 @dataclass
 class SendNotificationAction(PropertyType):
-    DELIVERY_METHOD = "DeliveryMethod"
-    CONTENT_TYPE = "ContentType"
-    CONTENT = "Content"
-    RECIPIENT = "Recipient"
-    SUBJECT = "Subject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_method": "DeliveryMethod",
         "content_type": "ContentType",
@@ -167,8 +130,6 @@ class SendNotificationAction(PropertyType):
 
 @dataclass
 class SubmitAutoEvaluationAction(PropertyType):
-    EVALUATION_FORM_ARN = "EvaluationFormArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "evaluation_form_arn": "EvaluationFormArn",
     }
@@ -178,11 +139,6 @@ class SubmitAutoEvaluationAction(PropertyType):
 
 @dataclass
 class TaskAction(PropertyType):
-    DESCRIPTION = "Description"
-    REFERENCES = "References"
-    CONTACT_FLOW_ARN = "ContactFlowArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "references": "References",
@@ -198,8 +154,6 @@ class TaskAction(PropertyType):
 
 @dataclass
 class UpdateCaseAction(PropertyType):
-    FIELDS = "Fields"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
     }

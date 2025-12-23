@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BridgeFlowSource(PropertyType):
-    FLOW_VPC_INTERFACE_ATTACHMENT = "FlowVpcInterfaceAttachment"
-    FLOW_ARN = "FlowArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_vpc_interface_attachment": "FlowVpcInterfaceAttachment",
         "flow_arn": "FlowArn",
@@ -28,13 +24,6 @@ class BridgeFlowSource(PropertyType):
 
 @dataclass
 class BridgeNetworkOutput(PropertyType):
-    NETWORK_NAME = "NetworkName"
-    PORT = "Port"
-    IP_ADDRESS = "IpAddress"
-    PROTOCOL = "Protocol"
-    TTL = "Ttl"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "port": "Port",
@@ -54,13 +43,6 @@ class BridgeNetworkOutput(PropertyType):
 
 @dataclass
 class BridgeNetworkSource(PropertyType):
-    MULTICAST_SOURCE_SETTINGS = "MulticastSourceSettings"
-    NETWORK_NAME = "NetworkName"
-    MULTICAST_IP = "MulticastIp"
-    PORT = "Port"
-    PROTOCOL = "Protocol"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_settings": "MulticastSourceSettings",
         "network_name": "NetworkName",
@@ -80,8 +62,6 @@ class BridgeNetworkSource(PropertyType):
 
 @dataclass
 class BridgeOutput(PropertyType):
-    NETWORK_OUTPUT = "NetworkOutput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_output": "NetworkOutput",
     }
@@ -91,9 +71,6 @@ class BridgeOutput(PropertyType):
 
 @dataclass
 class BridgeSource(PropertyType):
-    NETWORK_SOURCE = "NetworkSource"
-    FLOW_SOURCE = "FlowSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_source": "NetworkSource",
         "flow_source": "FlowSource",
@@ -105,8 +82,6 @@ class BridgeSource(PropertyType):
 
 @dataclass
 class EgressGatewayBridge(PropertyType):
-    MAX_BITRATE = "MaxBitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_bitrate": "MaxBitrate",
     }
@@ -116,10 +91,6 @@ class EgressGatewayBridge(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    STATE = "State"
-    SOURCE_PRIORITY = "SourcePriority"
-    FAILOVER_MODE = "FailoverMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "source_priority": "SourcePriority",
@@ -133,9 +104,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class IngressGatewayBridge(PropertyType):
-    MAX_OUTPUTS = "MaxOutputs"
-    MAX_BITRATE = "MaxBitrate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_outputs": "MaxOutputs",
         "max_bitrate": "MaxBitrate",
@@ -147,8 +115,6 @@ class IngressGatewayBridge(PropertyType):
 
 @dataclass
 class MulticastSourceSettings(PropertyType):
-    MULTICAST_SOURCE_IP = "MulticastSourceIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_ip": "MulticastSourceIp",
     }
@@ -158,8 +124,6 @@ class MulticastSourceSettings(PropertyType):
 
 @dataclass
 class SourcePriority(PropertyType):
-    PRIMARY_SOURCE = "PrimarySource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_source": "PrimarySource",
     }
@@ -169,8 +133,6 @@ class SourcePriority(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }

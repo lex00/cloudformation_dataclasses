@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    DAYS_AFTER_INITIATION = "DaysAfterInitiation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -22,8 +20,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class BucketEncryption(PropertyType):
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_encryption_configuration": "ServerSideEncryptionConfiguration",
     }
@@ -33,8 +29,6 @@ class BucketEncryption(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -44,14 +38,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    STATUS = "Status"
-    EXPIRATION_IN_DAYS = "ExpirationInDays"
-    OBJECT_SIZE_GREATER_THAN = "ObjectSizeGreaterThan"
-    ID = "Id"
-    PREFIX = "Prefix"
-    ABORT_INCOMPLETE_MULTIPART_UPLOAD = "AbortIncompleteMultipartUpload"
-    OBJECT_SIZE_LESS_THAN = "ObjectSizeLessThan"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expiration_in_days": "ExpirationInDays",
@@ -73,9 +59,6 @@ class Rule(PropertyType):
 
 @dataclass
 class ServerSideEncryptionByDefault(PropertyType):
-    SSE_ALGORITHM = "SSEAlgorithm"
-    KMS_MASTER_KEY_ID = "KMSMasterKeyID"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_algorithm": "SSEAlgorithm",
         "kms_master_key_id": "KMSMasterKeyID",
@@ -87,9 +70,6 @@ class ServerSideEncryptionByDefault(PropertyType):
 
 @dataclass
 class ServerSideEncryptionRule(PropertyType):
-    BUCKET_KEY_ENABLED = "BucketKeyEnabled"
-    SERVER_SIDE_ENCRYPTION_BY_DEFAULT = "ServerSideEncryptionByDefault"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_key_enabled": "BucketKeyEnabled",
         "server_side_encryption_by_default": "ServerSideEncryptionByDefault",

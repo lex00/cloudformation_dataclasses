@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CodeInterpreterNetworkConfiguration(PropertyType):
-    VPC_CONFIG = "VpcConfig"
-    NETWORK_MODE = "NetworkMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "network_mode": "NetworkMode",
@@ -25,9 +22,6 @@ class CodeInterpreterNetworkConfiguration(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",

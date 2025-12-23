@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -25,9 +22,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -39,9 +33,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -53,8 +44,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactorsRequest(PropertyType):
-    CPU = "Cpu"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -64,11 +53,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -84,9 +68,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityRebalance(PropertyType):
-    TERMINATION_DELAY = "TerminationDelay"
-    REPLACEMENT_STRATEGY = "ReplacementStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "termination_delay": "TerminationDelay",
         "replacement_strategy": "ReplacementStrategy",
@@ -98,8 +79,6 @@ class CapacityRebalance(PropertyType):
 
 @dataclass
 class CapacityReservationOptionsRequest(PropertyType):
-    USAGE_STRATEGY = "UsageStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "usage_strategy": "UsageStrategy",
     }
@@ -109,8 +88,6 @@ class CapacityReservationOptionsRequest(PropertyType):
 
 @dataclass
 class CpuPerformanceFactorRequest(PropertyType):
-    REFERENCES = "References"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -120,14 +97,6 @@ class CpuPerformanceFactorRequest(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -149,9 +118,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateConfigRequest(PropertyType):
-    LAUNCH_TEMPLATE_SPECIFICATION = "LaunchTemplateSpecification"
-    OVERRIDES = "Overrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "overrides": "Overrides",
@@ -163,16 +129,6 @@ class FleetLaunchTemplateConfigRequest(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateOverridesRequest(PropertyType):
-    WEIGHTED_CAPACITY = "WeightedCapacity"
-    PLACEMENT = "Placement"
-    PRIORITY = "Priority"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    SUBNET_ID = "SubnetId"
-    INSTANCE_REQUIREMENTS = "InstanceRequirements"
-    INSTANCE_TYPE = "InstanceType"
-    MAX_PRICE = "MaxPrice"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_capacity": "WeightedCapacity",
         "placement": "Placement",
@@ -198,10 +154,6 @@ class FleetLaunchTemplateOverridesRequest(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateSpecificationRequest(PropertyType):
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -215,33 +167,6 @@ class FleetLaunchTemplateSpecificationRequest(PropertyType):
 
 @dataclass
 class InstanceRequirementsRequest(PropertyType):
-    INSTANCE_GENERATIONS = "InstanceGenerations"
-    REQUIRE_ENCRYPTION_IN_TRANSIT = "RequireEncryptionInTransit"
-    MEMORY_GI_B_PER_V_CPU = "MemoryGiBPerVCpu"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    V_CPU_COUNT = "VCpuCount"
-    ACCELERATOR_MANUFACTURERS = "AcceleratorManufacturers"
-    LOCAL_STORAGE = "LocalStorage"
-    CPU_MANUFACTURERS = "CpuManufacturers"
-    BARE_METAL = "BareMetal"
-    REQUIRE_HIBERNATE_SUPPORT = "RequireHibernateSupport"
-    MAX_SPOT_PRICE_AS_PERCENTAGE_OF_OPTIMAL_ON_DEMAND_PRICE = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
-    ON_DEMAND_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "OnDemandMaxPricePercentageOverLowestPrice"
-    MEMORY_MI_B = "MemoryMiB"
-    LOCAL_STORAGE_TYPES = "LocalStorageTypes"
-    NETWORK_INTERFACE_COUNT = "NetworkInterfaceCount"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    NETWORK_BANDWIDTH_GBPS = "NetworkBandwidthGbps"
-    ACCELERATOR_COUNT = "AcceleratorCount"
-    BASELINE_PERFORMANCE_FACTORS = "BaselinePerformanceFactors"
-    SPOT_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "SpotMaxPricePercentageOverLowestPrice"
-    BASELINE_EBS_BANDWIDTH_MBPS = "BaselineEbsBandwidthMbps"
-    ACCELERATOR_NAMES = "AcceleratorNames"
-    ACCELERATOR_TOTAL_MEMORY_MI_B = "AcceleratorTotalMemoryMiB"
-    BURSTABLE_PERFORMANCE = "BurstablePerformance"
-    TOTAL_LOCAL_STORAGE_GB = "TotalLocalStorageGB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "require_encryption_in_transit": "RequireEncryptionInTransit",
@@ -301,8 +226,6 @@ class InstanceRequirementsRequest(PropertyType):
 
 @dataclass
 class MaintenanceStrategies(PropertyType):
-    CAPACITY_REBALANCE = "CapacityRebalance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_rebalance": "CapacityRebalance",
     }
@@ -312,9 +235,6 @@ class MaintenanceStrategies(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -326,9 +246,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -340,9 +257,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -354,9 +268,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -368,13 +279,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class OnDemandOptionsRequest(PropertyType):
-    SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    SINGLE_INSTANCE_TYPE = "SingleInstanceType"
-    MIN_TARGET_CAPACITY = "MinTargetCapacity"
-    MAX_TOTAL_PRICE = "MaxTotalPrice"
-    CAPACITY_RESERVATION_OPTIONS = "CapacityReservationOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_availability_zone": "SingleAvailabilityZone",
         "allocation_strategy": "AllocationStrategy",
@@ -394,8 +298,6 @@ class OnDemandOptionsRequest(PropertyType):
 
 @dataclass
 class PerformanceFactorReferenceRequest(PropertyType):
-    INSTANCE_FAMILY = "InstanceFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -405,15 +307,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    GROUP_NAME = "GroupName"
-    TENANCY = "Tenancy"
-    SPREAD_DOMAIN = "SpreadDomain"
-    PARTITION_NUMBER = "PartitionNumber"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    AFFINITY = "Affinity"
-    HOST_ID = "HostId"
-    HOST_RESOURCE_GROUP_ARN = "HostResourceGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -437,15 +330,6 @@ class Placement(PropertyType):
 
 @dataclass
 class SpotOptionsRequest(PropertyType):
-    SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    SINGLE_INSTANCE_TYPE = "SingleInstanceType"
-    MIN_TARGET_CAPACITY = "MinTargetCapacity"
-    MAX_TOTAL_PRICE = "MaxTotalPrice"
-    MAINTENANCE_STRATEGIES = "MaintenanceStrategies"
-    INSTANCE_INTERRUPTION_BEHAVIOR = "InstanceInterruptionBehavior"
-    INSTANCE_POOLS_TO_USE_COUNT = "InstancePoolsToUseCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_availability_zone": "SingleAvailabilityZone",
         "allocation_strategy": "AllocationStrategy",
@@ -469,9 +353,6 @@ class SpotOptionsRequest(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -483,12 +364,6 @@ class TagSpecification(PropertyType):
 
 @dataclass
 class TargetCapacitySpecificationRequest(PropertyType):
-    DEFAULT_TARGET_CAPACITY_TYPE = "DefaultTargetCapacityType"
-    TOTAL_TARGET_CAPACITY = "TotalTargetCapacity"
-    ON_DEMAND_TARGET_CAPACITY = "OnDemandTargetCapacity"
-    SPOT_TARGET_CAPACITY = "SpotTargetCapacity"
-    TARGET_CAPACITY_UNIT_TYPE = "TargetCapacityUnitType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_target_capacity_type": "DefaultTargetCapacityType",
         "total_target_capacity": "TotalTargetCapacity",
@@ -506,9 +381,6 @@ class TargetCapacitySpecificationRequest(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -520,9 +392,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class VCpuCountRangeRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",

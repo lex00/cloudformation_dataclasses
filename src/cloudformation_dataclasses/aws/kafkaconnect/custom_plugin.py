@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomPluginFileDescription(PropertyType):
-    FILE_MD5 = "FileMd5"
-    FILE_SIZE = "FileSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_md5": "FileMd5",
         "file_size": "FileSize",
@@ -25,8 +22,6 @@ class CustomPluginFileDescription(PropertyType):
 
 @dataclass
 class CustomPluginLocation(PropertyType):
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -36,10 +31,6 @@ class CustomPluginLocation(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET_ARN = "BucketArn"
-    FILE_KEY = "FileKey"
-    OBJECT_VERSION = "ObjectVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "file_key": "FileKey",

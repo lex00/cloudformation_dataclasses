@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FieldToMatch(PropertyType):
-    DATA = "Data"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -25,9 +22,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SqlInjectionMatchTuple(PropertyType):
-    FIELD_TO_MATCH = "FieldToMatch"
-    TEXT_TRANSFORMATION = "TextTransformation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_to_match": "FieldToMatch",
         "text_transformation": "TextTransformation",

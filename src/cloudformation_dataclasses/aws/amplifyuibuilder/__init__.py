@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:42
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmplifyUIBuilder
@@ -215,21 +215,6 @@ class Component(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Component"
     name_field: ClassVar[str] = "name"
-    COMPONENT_TYPE = "ComponentType"
-    SCHEMA_VERSION = "SchemaVersion"
-    ENVIRONMENT_NAME = "EnvironmentName"
-    BINDING_PROPERTIES = "BindingProperties"
-    SOURCE_ID = "SourceId"
-    PROPERTIES = "Properties"
-    COLLECTION_PROPERTIES = "CollectionProperties"
-    NAME = "Name"
-    VARIANTS = "Variants"
-    APP_ID = "AppId"
-    EVENTS = "Events"
-    OVERRIDES = "Overrides"
-    CHILDREN = "Children"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_type": "ComponentType",
         "schema_version": "SchemaVersion",
@@ -285,19 +270,6 @@ class Form(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Form"
     name_field: ClassVar[str] = "name"
-    FORM_ACTION_TYPE = "FormActionType"
-    CTA = "Cta"
-    FIELDS = "Fields"
-    SCHEMA_VERSION = "SchemaVersion"
-    APP_ID = "AppId"
-    ENVIRONMENT_NAME = "EnvironmentName"
-    LABEL_DECORATOR = "LabelDecorator"
-    SECTIONAL_ELEMENTS = "SectionalElements"
-    DATA_TYPE = "DataType"
-    STYLE = "Style"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "form_action_type": "FormActionType",
         "cta": "Cta",
@@ -339,13 +311,6 @@ class Theme(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Theme"
     name_field: ClassVar[str] = "name"
-    APP_ID = "AppId"
-    ENVIRONMENT_NAME = "EnvironmentName"
-    VALUES = "Values"
-    OVERRIDES = "Overrides"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_id": "AppId",
         "environment_name": "EnvironmentName",

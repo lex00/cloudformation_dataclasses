@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigParameter(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_KEY = "ParameterKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_key": "ParameterKey",
@@ -25,10 +22,6 @@ class ConfigParameter(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    ADDRESS = "Address"
-    VPC_ENDPOINTS = "VpcEndpoints"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "vpc_endpoints": "VpcEndpoints",
@@ -42,11 +35,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    SUBNET_ID = "SubnetId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "availability_zone": "AvailabilityZone",
@@ -62,9 +50,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class PerformanceTarget(PropertyType):
-    STATUS = "Status"
-    LEVEL = "Level"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "level": "Level",
@@ -76,10 +61,6 @@ class PerformanceTarget(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    VPC_ID = "VpcId"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "network_interfaces": "NetworkInterfaces",
@@ -93,23 +74,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class Workgroup(PropertyType):
-    STATUS = "Status"
-    CREATION_DATE = "CreationDate"
-    WORKGROUP_NAME = "WorkgroupName"
-    WORKGROUP_ARN = "WorkgroupArn"
-    BASE_CAPACITY = "BaseCapacity"
-    ENHANCED_VPC_ROUTING = "EnhancedVpcRouting"
-    WORKGROUP_ID = "WorkgroupId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    NAMESPACE_NAME = "NamespaceName"
-    ENDPOINT = "Endpoint"
-    CONFIG_PARAMETERS = "ConfigParameters"
-    TRACK_NAME = "TrackName"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    PRICE_PERFORMANCE_TARGET = "PricePerformanceTarget"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "creation_date": "CreationDate",

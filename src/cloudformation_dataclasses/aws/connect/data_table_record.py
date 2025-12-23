@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataTableRecord(PropertyType):
-    PRIMARY_VALUES = "PrimaryValues"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_values": "PrimaryValues",
         "values": "Values",
@@ -25,9 +22,6 @@ class DataTableRecord(PropertyType):
 
 @dataclass
 class Value(PropertyType):
-    ATTRIBUTE_VALUE = "AttributeValue"
-    ATTRIBUTE_ID = "AttributeId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_id": "AttributeId",

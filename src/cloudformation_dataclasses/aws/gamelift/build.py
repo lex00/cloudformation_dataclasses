@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StorageLocation(PropertyType):
-    OBJECT_VERSION = "ObjectVersion"
-    BUCKET = "Bucket"
-    KEY = "Key"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_version": "ObjectVersion",
         "bucket": "Bucket",

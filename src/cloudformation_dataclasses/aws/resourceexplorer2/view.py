@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IncludedProperty(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -22,8 +20,6 @@ class IncludedProperty(PropertyType):
 
 @dataclass
 class SearchFilter(PropertyType):
-    FILTER_STRING = "FilterString"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_string": "FilterString",
     }

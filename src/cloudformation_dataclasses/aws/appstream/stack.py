@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessEndpoint(PropertyType):
-    ENDPOINT_TYPE = "EndpointType"
-    VPCE_ID = "VpceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_type": "EndpointType",
         "vpce_id": "VpceId",
@@ -25,9 +22,6 @@ class AccessEndpoint(PropertyType):
 
 @dataclass
 class ApplicationSettings(PropertyType):
-    SETTINGS_GROUP = "SettingsGroup"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "settings_group": "SettingsGroup",
         "enabled": "Enabled",
@@ -39,10 +33,6 @@ class ApplicationSettings(PropertyType):
 
 @dataclass
 class StorageConnector(PropertyType):
-    DOMAINS = "Domains"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    CONNECTOR_TYPE = "ConnectorType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domains": "Domains",
         "resource_identifier": "ResourceIdentifier",
@@ -56,8 +46,6 @@ class StorageConnector(PropertyType):
 
 @dataclass
 class StreamingExperienceSettings(PropertyType):
-    PREFERRED_PROTOCOL = "PreferredProtocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_protocol": "PreferredProtocol",
     }
@@ -67,10 +55,6 @@ class StreamingExperienceSettings(PropertyType):
 
 @dataclass
 class UserSetting(PropertyType):
-    ACTION = "Action"
-    MAXIMUM_LENGTH = "MaximumLength"
-    PERMISSION = "Permission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "maximum_length": "MaximumLength",

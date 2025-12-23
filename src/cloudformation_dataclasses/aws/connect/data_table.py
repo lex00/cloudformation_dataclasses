@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LockVersion(PropertyType):
-    DATA_TABLE = "DataTable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table": "DataTable",
     }

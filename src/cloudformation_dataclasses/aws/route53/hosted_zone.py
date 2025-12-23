@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HostedZoneConfig(PropertyType):
-    COMMENT = "Comment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
     }
@@ -22,8 +20,6 @@ class HostedZoneConfig(PropertyType):
 
 @dataclass
 class HostedZoneFeatures(PropertyType):
-    ENABLE_ACCELERATED_RECOVERY = "EnableAcceleratedRecovery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_accelerated_recovery": "EnableAcceleratedRecovery",
     }
@@ -33,9 +29,6 @@ class HostedZoneFeatures(PropertyType):
 
 @dataclass
 class HostedZoneTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -47,8 +40,6 @@ class HostedZoneTag(PropertyType):
 
 @dataclass
 class QueryLoggingConfig(PropertyType):
-    CLOUD_WATCH_LOGS_LOG_GROUP_ARN = "CloudWatchLogsLogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
     }
@@ -58,9 +49,6 @@ class QueryLoggingConfig(PropertyType):
 
 @dataclass
 class VPC(PropertyType):
-    VPC_REGION = "VPCRegion"
-    VPC_ID = "VPCId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_region": "VPCRegion",
         "vpc_id": "VPCId",

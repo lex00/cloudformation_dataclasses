@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AndroidApp(PropertyType):
-    CERTIFICATE_FINGERPRINT = "CertificateFingerprint"
-    PACKAGE = "Package"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_fingerprint": "CertificateFingerprint",
         "package": "Package",
@@ -25,12 +22,6 @@ class AndroidApp(PropertyType):
 
 @dataclass
 class ApiKeyRestrictions(PropertyType):
-    ALLOW_ACTIONS = "AllowActions"
-    ALLOW_RESOURCES = "AllowResources"
-    ALLOW_ANDROID_APPS = "AllowAndroidApps"
-    ALLOW_REFERERS = "AllowReferers"
-    ALLOW_APPLE_APPS = "AllowAppleApps"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_actions": "AllowActions",
         "allow_resources": "AllowResources",
@@ -48,8 +39,6 @@ class ApiKeyRestrictions(PropertyType):
 
 @dataclass
 class AppleApp(PropertyType):
-    BUNDLE_ID = "BundleId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
     }

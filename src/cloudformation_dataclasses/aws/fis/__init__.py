@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:57
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FIS
@@ -147,16 +147,6 @@ class ExperimentTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-e"""
 
     resource_type: ClassVar[str] = "AWS::FIS::ExperimentTemplate"
-    EXPERIMENT_REPORT_CONFIGURATION = "ExperimentReportConfiguration"
-    DESCRIPTION = "Description"
-    ACTIONS = "Actions"
-    EXPERIMENT_OPTIONS = "ExperimentOptions"
-    STOP_CONDITIONS = "StopConditions"
-    TARGETS = "Targets"
-    LOG_CONFIGURATION = "LogConfiguration"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "experiment_report_configuration": "ExperimentReportConfiguration",
         "description": "Description",
@@ -191,11 +181,6 @@ class TargetAccountConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-t"""
 
     resource_type: ClassVar[str] = "AWS::FIS::TargetAccountConfiguration"
-    ACCOUNT_ID = "AccountId"
-    DESCRIPTION = "Description"
-    EXPERIMENT_TEMPLATE_ID = "ExperimentTemplateId"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "description": "Description",

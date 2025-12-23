@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:57
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FMS
@@ -386,9 +386,6 @@ class NotificationChannel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FMS::NotificationChannel"
     name_field: ClassVar[str] = "sns_role_name"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    SNS_ROLE_NAME = "SnsRoleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SnsTopicArn",
         "sns_role_name": "SnsRoleName",
@@ -404,22 +401,6 @@ class Policy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FMS::Policy"
     name_field: ClassVar[str] = "policy_name"
-    RESOURCE_TAG_LOGICAL_OPERATOR = "ResourceTagLogicalOperator"
-    RESOURCES_CLEAN_UP = "ResourcesCleanUp"
-    RESOURCE_TAGS = "ResourceTags"
-    EXCLUDE_RESOURCE_TAGS = "ExcludeResourceTags"
-    RESOURCE_TYPE = "ResourceType"
-    RESOURCE_SET_IDS = "ResourceSetIds"
-    SECURITY_SERVICE_POLICY_DATA = "SecurityServicePolicyData"
-    REMEDIATION_ENABLED = "RemediationEnabled"
-    DELETE_ALL_POLICY_RESOURCES = "DeleteAllPolicyResources"
-    EXCLUDE_MAP = "ExcludeMap"
-    INCLUDE_MAP = "IncludeMap"
-    POLICY_DESCRIPTION = "PolicyDescription"
-    POLICY_NAME = "PolicyName"
-    RESOURCE_TYPE_LIST = "ResourceTypeList"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_tag_logical_operator": "ResourceTagLogicalOperator",
         "resources_clean_up": "ResourcesCleanUp",
@@ -472,12 +453,6 @@ class ResourceSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::FMS::ResourceSet"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    RESOURCE_TYPE_LIST = "ResourceTypeList"
-    RESOURCES = "Resources"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "resource_type_list": "ResourceTypeList",

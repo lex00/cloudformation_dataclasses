@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MediaResource(PropertyType):
-    DESTINATIONS = "Destinations"
-    SOURCES = "Sources"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
         "sources": "Sources",
@@ -28,9 +24,6 @@ class MediaResource(PropertyType):
 
 @dataclass
 class MediaResourceNeighbor(PropertyType):
-    ARN = "Arn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -42,10 +35,6 @@ class MediaResourceNeighbor(PropertyType):
 
 @dataclass
 class MonitorDeployment(PropertyType):
-    DETAILS_URI = "DetailsUri"
-    STATUS = "Status"
-    ERROR_MESSAGE = "ErrorMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "details_uri": "DetailsUri",
         "status": "Status",
@@ -59,9 +48,6 @@ class MonitorDeployment(PropertyType):
 
 @dataclass
 class SuccessfulMonitorDeployment(PropertyType):
-    DETAILS_URI = "DetailsUri"
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "details_uri": "DetailsUri",
         "status": "Status",

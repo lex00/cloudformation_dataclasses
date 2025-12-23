@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataFilterExpression(PropertyType):
-    DIMENSIONS = "Dimensions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimensions": "Dimensions",
         "tags": "Tags",
@@ -25,9 +22,6 @@ class DataFilterExpression(PropertyType):
 
 @dataclass
 class Dimensions(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -39,9 +33,6 @@ class Dimensions(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

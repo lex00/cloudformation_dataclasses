@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoStartConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -22,9 +20,6 @@ class AutoStartConfiguration(PropertyType):
 
 @dataclass
 class AutoStopConfiguration(PropertyType):
-    ENABLED = "Enabled"
-    IDLE_TIMEOUT_MINUTES = "IdleTimeoutMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "idle_timeout_minutes": "IdleTimeoutMinutes",
@@ -36,12 +31,6 @@ class AutoStopConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLoggingConfiguration(PropertyType):
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    ENABLED = "Enabled"
-    LOG_STREAM_NAME_PREFIX = "LogStreamNamePrefix"
-    LOG_GROUP_NAME = "LogGroupName"
-    LOG_TYPE_MAP = "LogTypeMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_arn": "EncryptionKeyArn",
         "enabled": "Enabled",
@@ -59,10 +48,6 @@ class CloudWatchLoggingConfiguration(PropertyType):
 
 @dataclass
 class ConfigurationObject(PropertyType):
-    CLASSIFICATION = "Classification"
-    PROPERTIES = "Properties"
-    CONFIGURATIONS = "Configurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classification": "Classification",
         "properties": "Properties",
@@ -76,8 +61,6 @@ class ConfigurationObject(PropertyType):
 
 @dataclass
 class IdentityCenterConfiguration(PropertyType):
-    IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_instance_arn": "IdentityCenterInstanceArn",
     }
@@ -87,8 +70,6 @@ class IdentityCenterConfiguration(PropertyType):
 
 @dataclass
 class ImageConfigurationInput(PropertyType):
-    IMAGE_URI = "ImageUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_uri": "ImageUri",
     }
@@ -98,9 +79,6 @@ class ImageConfigurationInput(PropertyType):
 
 @dataclass
 class InitialCapacityConfig(PropertyType):
-    WORKER_CONFIGURATION = "WorkerConfiguration"
-    WORKER_COUNT = "WorkerCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_configuration": "WorkerConfiguration",
         "worker_count": "WorkerCount",
@@ -112,9 +90,6 @@ class InitialCapacityConfig(PropertyType):
 
 @dataclass
 class InitialCapacityConfigKeyValuePair(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -126,9 +101,6 @@ class InitialCapacityConfigKeyValuePair(PropertyType):
 
 @dataclass
 class InteractiveConfiguration(PropertyType):
-    STUDIO_ENABLED = "StudioEnabled"
-    LIVY_ENDPOINT_ENABLED = "LivyEndpointEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "studio_enabled": "StudioEnabled",
         "livy_endpoint_enabled": "LivyEndpointEnabled",
@@ -140,9 +112,6 @@ class InteractiveConfiguration(PropertyType):
 
 @dataclass
 class LogTypeMapKeyValuePair(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -154,9 +123,6 @@ class LogTypeMapKeyValuePair(PropertyType):
 
 @dataclass
 class ManagedPersistenceMonitoringConfiguration(PropertyType):
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_arn": "EncryptionKeyArn",
         "enabled": "Enabled",
@@ -168,10 +134,6 @@ class ManagedPersistenceMonitoringConfiguration(PropertyType):
 
 @dataclass
 class MaximumAllowedResources(PropertyType):
-    MEMORY = "Memory"
-    CPU = "Cpu"
-    DISK = "Disk"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory": "Memory",
         "cpu": "Cpu",
@@ -185,11 +147,6 @@ class MaximumAllowedResources(PropertyType):
 
 @dataclass
 class MonitoringConfiguration(PropertyType):
-    S3_MONITORING_CONFIGURATION = "S3MonitoringConfiguration"
-    PROMETHEUS_MONITORING_CONFIGURATION = "PrometheusMonitoringConfiguration"
-    MANAGED_PERSISTENCE_MONITORING_CONFIGURATION = "ManagedPersistenceMonitoringConfiguration"
-    CLOUD_WATCH_LOGGING_CONFIGURATION = "CloudWatchLoggingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_monitoring_configuration": "S3MonitoringConfiguration",
         "prometheus_monitoring_configuration": "PrometheusMonitoringConfiguration",
@@ -205,9 +162,6 @@ class MonitoringConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -219,8 +173,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PrometheusMonitoringConfiguration(PropertyType):
-    REMOTE_WRITE_URL = "RemoteWriteUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "remote_write_url": "RemoteWriteUrl",
     }
@@ -230,9 +182,6 @@ class PrometheusMonitoringConfiguration(PropertyType):
 
 @dataclass
 class S3MonitoringConfiguration(PropertyType):
-    LOG_URI = "LogUri"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_uri": "LogUri",
         "encryption_key_arn": "EncryptionKeyArn",
@@ -244,9 +193,6 @@ class S3MonitoringConfiguration(PropertyType):
 
 @dataclass
 class SchedulerConfiguration(PropertyType):
-    QUEUE_TIMEOUT_MINUTES = "QueueTimeoutMinutes"
-    MAX_CONCURRENT_RUNS = "MaxConcurrentRuns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_timeout_minutes": "QueueTimeoutMinutes",
         "max_concurrent_runs": "MaxConcurrentRuns",
@@ -258,11 +204,6 @@ class SchedulerConfiguration(PropertyType):
 
 @dataclass
 class WorkerConfiguration(PropertyType):
-    DISK_TYPE = "DiskType"
-    MEMORY = "Memory"
-    CPU = "Cpu"
-    DISK = "Disk"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disk_type": "DiskType",
         "memory": "Memory",
@@ -278,8 +219,6 @@ class WorkerConfiguration(PropertyType):
 
 @dataclass
 class WorkerTypeSpecificationInput(PropertyType):
-    IMAGE_CONFIGURATION = "ImageConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_configuration": "ImageConfiguration",
     }

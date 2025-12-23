@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AlarmIdentifier(PropertyType):
-    REGION = "Region"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "name": "Name",
@@ -25,24 +22,6 @@ class AlarmIdentifier(PropertyType):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    ENABLE_SNI = "EnableSNI"
-    CHILD_HEALTH_CHECKS = "ChildHealthChecks"
-    MEASURE_LATENCY = "MeasureLatency"
-    PORT = "Port"
-    REGIONS = "Regions"
-    INSUFFICIENT_DATA_HEALTH_STATUS = "InsufficientDataHealthStatus"
-    SEARCH_STRING = "SearchString"
-    TYPE = "Type"
-    RESOURCE_PATH = "ResourcePath"
-    ROUTING_CONTROL_ARN = "RoutingControlArn"
-    FULLY_QUALIFIED_DOMAIN_NAME = "FullyQualifiedDomainName"
-    INVERTED = "Inverted"
-    HEALTH_THRESHOLD = "HealthThreshold"
-    REQUEST_INTERVAL = "RequestInterval"
-    ALARM_IDENTIFIER = "AlarmIdentifier"
-    FAILURE_THRESHOLD = "FailureThreshold"
-    IP_ADDRESS = "IPAddress"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_sni": "EnableSNI",
         "child_health_checks": "ChildHealthChecks",
@@ -84,9 +63,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class HealthCheckTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

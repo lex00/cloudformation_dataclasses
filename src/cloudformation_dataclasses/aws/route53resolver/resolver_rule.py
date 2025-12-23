@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TargetAddress(PropertyType):
-    IPV6 = "Ipv6"
-    IP = "Ip"
-    PORT = "Port"
-    PROTOCOL = "Protocol"
-    SERVER_NAME_INDICATION = "ServerNameIndication"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6": "Ipv6",
         "ip": "Ip",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityProviderPermissionsConfig(PropertyType):
-    CAPACITY_PROVIDER_OPERATOR_ROLE_ARN = "CapacityProviderOperatorRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider_operator_role_arn": "CapacityProviderOperatorRoleArn",
     }
@@ -22,10 +20,6 @@ class CapacityProviderPermissionsConfig(PropertyType):
 
 @dataclass
 class CapacityProviderScalingConfig(PropertyType):
-    SCALING_POLICIES = "ScalingPolicies"
-    SCALING_MODE = "ScalingMode"
-    MAX_V_CPU_COUNT = "MaxVCpuCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_policies": "ScalingPolicies",
         "scaling_mode": "ScalingMode",
@@ -39,9 +33,6 @@ class CapacityProviderScalingConfig(PropertyType):
 
 @dataclass
 class CapacityProviderVpcConfig(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -53,10 +44,6 @@ class CapacityProviderVpcConfig(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    ARCHITECTURES = "Architectures"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_instance_types": "AllowedInstanceTypes",
         "excluded_instance_types": "ExcludedInstanceTypes",
@@ -70,9 +57,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicy(PropertyType):
-    PREDEFINED_METRIC_TYPE = "PredefinedMetricType"
-    TARGET_VALUE = "TargetValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "target_value": "TargetValue",

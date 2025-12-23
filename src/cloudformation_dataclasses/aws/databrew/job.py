@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AllowedStatistics(PropertyType):
-    STATISTICS = "Statistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics": "Statistics",
     }
@@ -22,9 +20,6 @@ class AllowedStatistics(PropertyType):
 
 @dataclass
 class ColumnSelector(PropertyType):
-    REGEX = "Regex"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "name": "Name",
@@ -36,9 +31,6 @@ class ColumnSelector(PropertyType):
 
 @dataclass
 class ColumnStatisticsConfiguration(PropertyType):
-    STATISTICS = "Statistics"
-    SELECTORS = "Selectors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics": "Statistics",
         "selectors": "Selectors",
@@ -50,8 +42,6 @@ class ColumnStatisticsConfiguration(PropertyType):
 
 @dataclass
 class CsvOutputOptions(PropertyType):
-    DELIMITER = "Delimiter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
     }
@@ -61,13 +51,6 @@ class CsvOutputOptions(PropertyType):
 
 @dataclass
 class DataCatalogOutput(PropertyType):
-    TABLE_NAME = "TableName"
-    OVERWRITE = "Overwrite"
-    S3_OPTIONS = "S3Options"
-    DATABASE_OPTIONS = "DatabaseOptions"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "overwrite": "Overwrite",
@@ -87,10 +70,6 @@ class DataCatalogOutput(PropertyType):
 
 @dataclass
 class DatabaseOutput(PropertyType):
-    DATABASE_OUTPUT_MODE = "DatabaseOutputMode"
-    DATABASE_OPTIONS = "DatabaseOptions"
-    GLUE_CONNECTION_NAME = "GlueConnectionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_output_mode": "DatabaseOutputMode",
         "database_options": "DatabaseOptions",
@@ -104,9 +83,6 @@ class DatabaseOutput(PropertyType):
 
 @dataclass
 class DatabaseTableOutputOptions(PropertyType):
-    TEMP_DIRECTORY = "TempDirectory"
-    TABLE_NAME = "TableName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temp_directory": "TempDirectory",
         "table_name": "TableName",
@@ -118,9 +94,6 @@ class DatabaseTableOutputOptions(PropertyType):
 
 @dataclass
 class EntityDetectorConfiguration(PropertyType):
-    ENTITY_TYPES = "EntityTypes"
-    ALLOWED_STATISTICS = "AllowedStatistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
         "allowed_statistics": "AllowedStatistics",
@@ -132,9 +105,6 @@ class EntityDetectorConfiguration(PropertyType):
 
 @dataclass
 class JobSample(PropertyType):
-    SIZE = "Size"
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
         "mode": "Mode",
@@ -146,14 +116,6 @@ class JobSample(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    OVERWRITE = "Overwrite"
-    FORMAT = "Format"
-    MAX_OUTPUT_FILES = "MaxOutputFiles"
-    COMPRESSION_FORMAT = "CompressionFormat"
-    PARTITION_COLUMNS = "PartitionColumns"
-    FORMAT_OPTIONS = "FormatOptions"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite": "Overwrite",
         "format": "Format",
@@ -175,8 +137,6 @@ class Output(PropertyType):
 
 @dataclass
 class OutputFormatOptions(PropertyType):
-    CSV = "Csv"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "csv": "Csv",
     }
@@ -186,10 +146,6 @@ class OutputFormatOptions(PropertyType):
 
 @dataclass
 class OutputLocation(PropertyType):
-    BUCKET = "Bucket"
-    BUCKET_OWNER = "BucketOwner"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",
@@ -203,11 +159,6 @@ class OutputLocation(PropertyType):
 
 @dataclass
 class ProfileConfiguration(PropertyType):
-    PROFILE_COLUMNS = "ProfileColumns"
-    DATASET_STATISTICS_CONFIGURATION = "DatasetStatisticsConfiguration"
-    COLUMN_STATISTICS_CONFIGURATIONS = "ColumnStatisticsConfigurations"
-    ENTITY_DETECTOR_CONFIGURATION = "EntityDetectorConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_columns": "ProfileColumns",
         "dataset_statistics_configuration": "DatasetStatisticsConfiguration",
@@ -223,9 +174,6 @@ class ProfileConfiguration(PropertyType):
 
 @dataclass
 class Recipe(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -237,10 +185,6 @@ class Recipe(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    BUCKET_OWNER = "BucketOwner"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",
@@ -254,8 +198,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class S3TableOutputOptions(PropertyType):
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location": "Location",
     }
@@ -265,9 +207,6 @@ class S3TableOutputOptions(PropertyType):
 
 @dataclass
 class StatisticOverride(PropertyType):
-    PARAMETERS = "Parameters"
-    STATISTIC = "Statistic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "statistic": "Statistic",
@@ -279,9 +218,6 @@ class StatisticOverride(PropertyType):
 
 @dataclass
 class StatisticsConfiguration(PropertyType):
-    INCLUDED_STATISTICS = "IncludedStatistics"
-    OVERRIDES = "Overrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "included_statistics": "IncludedStatistics",
         "overrides": "Overrides",
@@ -293,9 +229,6 @@ class StatisticsConfiguration(PropertyType):
 
 @dataclass
 class ValidationConfiguration(PropertyType):
-    RULESET_ARN = "RulesetArn"
-    VALIDATION_MODE = "ValidationMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ruleset_arn": "RulesetArn",
         "validation_mode": "ValidationMode",

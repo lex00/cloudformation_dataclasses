@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpacesThinClient
@@ -35,17 +35,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesThinClient::Environment"
     name_field: ClassVar[str] = "name"
-    DESIRED_SOFTWARE_SET_ID = "DesiredSoftwareSetId"
-    KMS_KEY_ARN = "KmsKeyArn"
-    DESKTOP_ARN = "DesktopArn"
-    DEVICE_CREATION_TAGS = "DeviceCreationTags"
-    SOFTWARE_SET_UPDATE_MODE = "SoftwareSetUpdateMode"
-    SOFTWARE_SET_UPDATE_SCHEDULE = "SoftwareSetUpdateSchedule"
-    MAINTENANCE_WINDOW = "MaintenanceWindow"
-    DESKTOP_ENDPOINT = "DesktopEndpoint"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_software_set_id": "DesiredSoftwareSetId",
         "kms_key_arn": "KmsKeyArn",

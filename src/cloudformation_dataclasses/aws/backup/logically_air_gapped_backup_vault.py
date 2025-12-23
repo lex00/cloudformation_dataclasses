@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NotificationObjectType(PropertyType):
-    SNS_TOPIC_ARN = "SNSTopicArn"
-    BACKUP_VAULT_EVENTS = "BackupVaultEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "backup_vault_events": "BackupVaultEvents",

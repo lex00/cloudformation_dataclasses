@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Accounting(PropertyType):
-    DEFAULT_PURGE_TIME_IN_DAYS = "DefaultPurgeTimeInDays"
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_purge_time_in_days": "DefaultPurgeTimeInDays",
         "mode": "Mode",
@@ -25,9 +22,6 @@ class Accounting(PropertyType):
 
 @dataclass
 class AuthKey(PropertyType):
-    SECRET_ARN = "SecretArn"
-    SECRET_VERSION = "SecretVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_version": "SecretVersion",
@@ -39,12 +33,6 @@ class AuthKey(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    PUBLIC_IP_ADDRESS = "PublicIpAddress"
-    TYPE = "Type"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PORT = "Port"
-    IPV6_ADDRESS = "Ipv6Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_ip_address": "PublicIpAddress",
         "type_": "Type",
@@ -62,9 +50,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    MESSAGE = "Message"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -76,8 +61,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class JwtAuth(PropertyType):
-    JWT_KEY = "JwtKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_key": "JwtKey",
     }
@@ -87,9 +70,6 @@ class JwtAuth(PropertyType):
 
 @dataclass
 class JwtKey(PropertyType):
-    SECRET_ARN = "SecretArn"
-    SECRET_VERSION = "SecretVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_version": "SecretVersion",
@@ -101,10 +81,6 @@ class JwtKey(PropertyType):
 
 @dataclass
 class Networking(PropertyType):
-    NETWORK_TYPE = "NetworkType"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "security_group_ids": "SecurityGroupIds",
@@ -118,9 +94,6 @@ class Networking(PropertyType):
 
 @dataclass
 class Scheduler(PropertyType):
-    TYPE = "Type"
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "version": "Version",
@@ -132,13 +105,6 @@ class Scheduler(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    JWT_AUTH = "JwtAuth"
-    ACCOUNTING = "Accounting"
-    AUTH_KEY = "AuthKey"
-    SCALE_DOWN_IDLE_TIME_IN_SECONDS = "ScaleDownIdleTimeInSeconds"
-    SLURM_CUSTOM_SETTINGS = "SlurmCustomSettings"
-    SLURM_REST = "SlurmRest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_auth": "JwtAuth",
         "accounting": "Accounting",
@@ -158,9 +124,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -172,8 +135,6 @@ class SlurmCustomSetting(PropertyType):
 
 @dataclass
 class SlurmRest(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }

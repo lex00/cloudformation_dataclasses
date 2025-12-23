@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityUnitsConfiguration(PropertyType):
-    RESCORE_CAPACITY_UNITS = "RescoreCapacityUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rescore_capacity_units": "RescoreCapacityUnits",
     }

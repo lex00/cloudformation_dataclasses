@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ODB
@@ -340,23 +340,6 @@ class CloudAutonomousVmCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudAutonomousVmCluster"
     name_field: ClassVar[str] = "display_name"
-    CLOUD_EXADATA_INFRASTRUCTURE_ID = "CloudExadataInfrastructureId"
-    LICENSE_MODEL = "LicenseModel"
-    DESCRIPTION = "Description"
-    CPU_CORE_COUNT_PER_NODE = "CpuCoreCountPerNode"
-    MEMORY_PER_ORACLE_COMPUTE_UNIT_IN_G_BS = "MemoryPerOracleComputeUnitInGBs"
-    DB_SERVERS = "DbServers"
-    TOTAL_CONTAINER_DATABASES = "TotalContainerDatabases"
-    TIME_ZONE = "TimeZone"
-    AUTONOMOUS_DATA_STORAGE_SIZE_IN_T_BS = "AutonomousDataStorageSizeInTBs"
-    SCAN_LISTENER_PORT_NON_TLS = "ScanListenerPortNonTls"
-    ODB_NETWORK_ID = "OdbNetworkId"
-    IS_MTLS_ENABLED_VM_CLUSTER = "IsMtlsEnabledVmCluster"
-    DISPLAY_NAME = "DisplayName"
-    SCAN_LISTENER_PORT_TLS = "ScanListenerPortTls"
-    MAINTENANCE_WINDOW = "MaintenanceWindow"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_exadata_infrastructure_id": "CloudExadataInfrastructureId",
         "license_model": "LicenseModel",
@@ -541,18 +524,6 @@ class CloudExadataInfrastructure(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudExadataInfrastructure"
     name_field: ClassVar[str] = "display_name"
-    STORAGE_SERVER_TYPE = "StorageServerType"
-    DATABASE_SERVER_TYPE = "DatabaseServerType"
-    SHAPE = "Shape"
-    STORAGE_COUNT = "StorageCount"
-    DISPLAY_NAME = "DisplayName"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    CUSTOMER_CONTACTS_TO_SEND_TO_OCI = "CustomerContactsToSendToOCI"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    MAINTENANCE_WINDOW = "MaintenanceWindow"
-    TAGS = "Tags"
-    COMPUTE_COUNT = "ComputeCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_server_type": "StorageServerType",
         "database_server_type": "DatabaseServerType",
@@ -692,28 +663,6 @@ class CloudVmCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudVmCluster"
     name_field: ClassVar[str] = "display_name"
-    CLOUD_EXADATA_INFRASTRUCTURE_ID = "CloudExadataInfrastructureId"
-    DATA_COLLECTION_OPTIONS = "DataCollectionOptions"
-    LICENSE_MODEL = "LicenseModel"
-    MEMORY_SIZE_IN_G_BS = "MemorySizeInGBs"
-    CPU_CORE_COUNT = "CpuCoreCount"
-    SSH_PUBLIC_KEYS = "SshPublicKeys"
-    HOSTNAME = "Hostname"
-    SYSTEM_VERSION = "SystemVersion"
-    DATA_STORAGE_SIZE_IN_T_BS = "DataStorageSizeInTBs"
-    IS_LOCAL_BACKUP_ENABLED = "IsLocalBackupEnabled"
-    DB_SERVERS = "DbServers"
-    DB_NODES = "DbNodes"
-    TIME_ZONE = "TimeZone"
-    IS_SPARSE_DISKGROUP_ENABLED = "IsSparseDiskgroupEnabled"
-    GI_VERSION = "GiVersion"
-    ODB_NETWORK_ID = "OdbNetworkId"
-    DB_NODE_STORAGE_SIZE_IN_G_BS = "DbNodeStorageSizeInGBs"
-    DISPLAY_NAME = "DisplayName"
-    CLUSTER_NAME = "ClusterName"
-    TAGS = "Tags"
-    SCAN_LISTENER_PORT_TCP = "ScanListenerPortTcp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_exadata_infrastructure_id": "CloudExadataInfrastructureId",
         "data_collection_options": "DataCollectionOptions",
@@ -843,19 +792,6 @@ class OdbNetwork(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ODB::OdbNetwork"
     name_field: ClassVar[str] = "display_name"
-    DEFAULT_DNS_PREFIX = "DefaultDnsPrefix"
-    CUSTOM_DOMAIN_NAME = "CustomDomainName"
-    ZERO_ETL_ACCESS = "ZeroEtlAccess"
-    DELETE_ASSOCIATED_RESOURCES = "DeleteAssociatedResources"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    DISPLAY_NAME = "DisplayName"
-    S3_POLICY_DOCUMENT = "S3PolicyDocument"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    BACKUP_SUBNET_CIDR = "BackupSubnetCidr"
-    CLIENT_SUBNET_CIDR = "ClientSubnetCidr"
-    TAGS = "Tags"
-    S3_ACCESS = "S3Access"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_dns_prefix": "DefaultDnsPrefix",
         "custom_domain_name": "CustomDomainName",
@@ -1007,11 +943,6 @@ class OdbPeeringConnection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ODB::OdbPeeringConnection"
     name_field: ClassVar[str] = "display_name"
-    ODB_NETWORK_ID = "OdbNetworkId"
-    DISPLAY_NAME = "DisplayName"
-    PEER_NETWORK_ID = "PeerNetworkId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "odb_network_id": "OdbNetworkId",
         "display_name": "DisplayName",

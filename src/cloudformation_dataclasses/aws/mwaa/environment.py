@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    SCHEDULER_LOGS = "SchedulerLogs"
-    TASK_LOGS = "TaskLogs"
-    DAG_PROCESSING_LOGS = "DagProcessingLogs"
-    WEBSERVER_LOGS = "WebserverLogs"
-    WORKER_LOGS = "WorkerLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduler_logs": "SchedulerLogs",
         "task_logs": "TaskLogs",
@@ -34,10 +28,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class ModuleLoggingConfiguration(PropertyType):
-    CLOUD_WATCH_LOG_GROUP_ARN = "CloudWatchLogGroupArn"
-    ENABLED = "Enabled"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_group_arn": "CloudWatchLogGroupArn",
         "enabled": "Enabled",
@@ -51,9 +41,6 @@ class ModuleLoggingConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",

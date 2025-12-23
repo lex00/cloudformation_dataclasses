@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AllowedPublishers(PropertyType):
-    SIGNING_PROFILE_VERSION_ARNS = "SigningProfileVersionArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_profile_version_arns": "SigningProfileVersionArns",
     }
@@ -22,8 +20,6 @@ class AllowedPublishers(PropertyType):
 
 @dataclass
 class CodeSigningPolicies(PropertyType):
-    UNTRUSTED_ARTIFACT_ON_DEPLOYMENT = "UntrustedArtifactOnDeployment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "untrusted_artifact_on_deployment": "UntrustedArtifactOnDeployment",
     }

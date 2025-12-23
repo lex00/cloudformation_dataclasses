@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AliasTarget(PropertyType):
-    DNS_NAME = "DNSName"
-    EVALUATE_TARGET_HEALTH = "EvaluateTargetHealth"
-    HOSTED_ZONE_ID = "HostedZoneId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name": "DNSName",
         "evaluate_target_health": "EvaluateTargetHealth",
@@ -28,9 +24,6 @@ class AliasTarget(PropertyType):
 
 @dataclass
 class CidrRoutingConfig(PropertyType):
-    COLLECTION_ID = "CollectionId"
-    LOCATION_NAME = "LocationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "location_name": "LocationName",
@@ -42,9 +35,6 @@ class CidrRoutingConfig(PropertyType):
 
 @dataclass
 class Coordinates(PropertyType):
-    LATITUDE = "Latitude"
-    LONGITUDE = "Longitude"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latitude": "Latitude",
         "longitude": "Longitude",
@@ -56,10 +46,6 @@ class Coordinates(PropertyType):
 
 @dataclass
 class GeoLocation(PropertyType):
-    CONTINENT_CODE = "ContinentCode"
-    COUNTRY_CODE = "CountryCode"
-    SUBDIVISION_CODE = "SubdivisionCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continent_code": "ContinentCode",
         "country_code": "CountryCode",
@@ -73,11 +59,6 @@ class GeoLocation(PropertyType):
 
 @dataclass
 class GeoProximityLocation(PropertyType):
-    AWS_REGION = "AWSRegion"
-    BIAS = "Bias"
-    COORDINATES = "Coordinates"
-    LOCAL_ZONE_GROUP = "LocalZoneGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AWSRegion",
         "bias": "Bias",

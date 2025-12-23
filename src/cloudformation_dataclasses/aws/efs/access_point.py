@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessPointTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,10 +22,6 @@ class AccessPointTag(PropertyType):
 
 @dataclass
 class CreationInfo(PropertyType):
-    OWNER_GID = "OwnerGid"
-    OWNER_UID = "OwnerUid"
-    PERMISSIONS = "Permissions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_gid": "OwnerGid",
         "owner_uid": "OwnerUid",
@@ -42,10 +35,6 @@ class CreationInfo(PropertyType):
 
 @dataclass
 class PosixUser(PropertyType):
-    UID = "Uid"
-    SECONDARY_GIDS = "SecondaryGids"
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",
@@ -59,9 +48,6 @@ class PosixUser(PropertyType):
 
 @dataclass
 class RootDirectory(PropertyType):
-    PATH = "Path"
-    CREATION_INFO = "CreationInfo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "creation_info": "CreationInfo",

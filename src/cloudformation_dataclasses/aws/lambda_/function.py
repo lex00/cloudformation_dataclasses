@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityProviderConfig(PropertyType):
-    LAMBDA_MANAGED_INSTANCES_CAPACITY_PROVIDER_CONFIG = "LambdaManagedInstancesCapacityProviderConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_managed_instances_capacity_provider_config": "LambdaManagedInstancesCapacityProviderConfig",
     }
@@ -22,13 +20,6 @@ class CapacityProviderConfig(PropertyType):
 
 @dataclass
 class Code(PropertyType):
-    SOURCE_KMS_KEY_ARN = "SourceKMSKeyArn"
-    S3_OBJECT_VERSION = "S3ObjectVersion"
-    S3_BUCKET = "S3Bucket"
-    ZIP_FILE = "ZipFile"
-    S3_KEY = "S3Key"
-    IMAGE_URI = "ImageUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_kms_key_arn": "SourceKMSKeyArn",
         "s3_object_version": "S3ObjectVersion",
@@ -48,8 +39,6 @@ class Code(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    TARGET_ARN = "TargetArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
     }
@@ -59,9 +48,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class DurableConfig(PropertyType):
-    EXECUTION_TIMEOUT = "ExecutionTimeout"
-    RETENTION_PERIOD_IN_DAYS = "RetentionPeriodInDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_timeout": "ExecutionTimeout",
         "retention_period_in_days": "RetentionPeriodInDays",
@@ -73,8 +59,6 @@ class DurableConfig(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    VARIABLES = "Variables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
     }
@@ -84,8 +68,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EphemeralStorage(PropertyType):
-    SIZE = "Size"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -95,9 +77,6 @@ class EphemeralStorage(PropertyType):
 
 @dataclass
 class FileSystemConfig(PropertyType):
-    ARN = "Arn"
-    LOCAL_MOUNT_PATH = "LocalMountPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "local_mount_path": "LocalMountPath",
@@ -109,9 +88,6 @@ class FileSystemConfig(PropertyType):
 
 @dataclass
 class FunctionScalingConfig(PropertyType):
-    MIN_EXECUTION_ENVIRONMENTS = "MinExecutionEnvironments"
-    MAX_EXECUTION_ENVIRONMENTS = "MaxExecutionEnvironments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_execution_environments": "MinExecutionEnvironments",
         "max_execution_environments": "MaxExecutionEnvironments",
@@ -123,10 +99,6 @@ class FunctionScalingConfig(PropertyType):
 
 @dataclass
 class ImageConfig(PropertyType):
-    WORKING_DIRECTORY = "WorkingDirectory"
-    COMMAND = "Command"
-    ENTRY_POINT = "EntryPoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "working_directory": "WorkingDirectory",
         "command": "Command",
@@ -140,10 +112,6 @@ class ImageConfig(PropertyType):
 
 @dataclass
 class LambdaManagedInstancesCapacityProviderConfig(PropertyType):
-    EXECUTION_ENVIRONMENT_MEMORY_GI_B_PER_V_CPU = "ExecutionEnvironmentMemoryGiBPerVCpu"
-    CAPACITY_PROVIDER_ARN = "CapacityProviderArn"
-    PER_EXECUTION_ENVIRONMENT_MAX_CONCURRENCY = "PerExecutionEnvironmentMaxConcurrency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_environment_memory_gi_b_per_v_cpu": "ExecutionEnvironmentMemoryGiBPerVCpu",
         "capacity_provider_arn": "CapacityProviderArn",
@@ -157,11 +125,6 @@ class LambdaManagedInstancesCapacityProviderConfig(PropertyType):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    LOG_FORMAT = "LogFormat"
-    APPLICATION_LOG_LEVEL = "ApplicationLogLevel"
-    LOG_GROUP = "LogGroup"
-    SYSTEM_LOG_LEVEL = "SystemLogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "application_log_level": "ApplicationLogLevel",
@@ -177,9 +140,6 @@ class LoggingConfig(PropertyType):
 
 @dataclass
 class RuntimeManagementConfig(PropertyType):
-    UPDATE_RUNTIME_ON = "UpdateRuntimeOn"
-    RUNTIME_VERSION_ARN = "RuntimeVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_runtime_on": "UpdateRuntimeOn",
         "runtime_version_arn": "RuntimeVersionArn",
@@ -191,8 +151,6 @@ class RuntimeManagementConfig(PropertyType):
 
 @dataclass
 class SnapStart(PropertyType):
-    APPLY_ON = "ApplyOn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_on": "ApplyOn",
     }
@@ -202,9 +160,6 @@ class SnapStart(PropertyType):
 
 @dataclass
 class SnapStartResponse(PropertyType):
-    OPTIMIZATION_STATUS = "OptimizationStatus"
-    APPLY_ON = "ApplyOn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimization_status": "OptimizationStatus",
         "apply_on": "ApplyOn",
@@ -216,8 +171,6 @@ class SnapStartResponse(PropertyType):
 
 @dataclass
 class TenancyConfig(PropertyType):
-    TENANT_ISOLATION_MODE = "TenantIsolationMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenant_isolation_mode": "TenantIsolationMode",
     }
@@ -227,8 +180,6 @@ class TenancyConfig(PropertyType):
 
 @dataclass
 class TracingConfig(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -238,10 +189,6 @@ class TracingConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    IPV6_ALLOWED_FOR_DUAL_STACK = "Ipv6AllowedForDualStack"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_allowed_for_dual_stack": "Ipv6AllowedForDualStack",
         "security_group_ids": "SecurityGroupIds",

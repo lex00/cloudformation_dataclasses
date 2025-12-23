@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CertificateAuthenticationRequest(PropertyType):
-    CLIENT_ROOT_CERTIFICATE_CHAIN_ARN = "ClientRootCertificateChainArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_root_certificate_chain_arn": "ClientRootCertificateChainArn",
     }
@@ -22,11 +20,6 @@ class CertificateAuthenticationRequest(PropertyType):
 
 @dataclass
 class ClientAuthenticationRequest(PropertyType):
-    MUTUAL_AUTHENTICATION = "MutualAuthentication"
-    TYPE = "Type"
-    FEDERATED_AUTHENTICATION = "FederatedAuthentication"
-    ACTIVE_DIRECTORY = "ActiveDirectory"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mutual_authentication": "MutualAuthentication",
         "type_": "Type",
@@ -42,9 +35,6 @@ class ClientAuthenticationRequest(PropertyType):
 
 @dataclass
 class ClientConnectOptions(PropertyType):
-    LAMBDA_FUNCTION_ARN = "LambdaFunctionArn"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function_arn": "LambdaFunctionArn",
         "enabled": "Enabled",
@@ -56,9 +46,6 @@ class ClientConnectOptions(PropertyType):
 
 @dataclass
 class ClientLoginBannerOptions(PropertyType):
-    ENABLED = "Enabled"
-    BANNER_TEXT = "BannerText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "banner_text": "BannerText",
@@ -70,8 +57,6 @@ class ClientLoginBannerOptions(PropertyType):
 
 @dataclass
 class ClientRouteEnforcementOptions(PropertyType):
-    ENFORCED = "Enforced"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforced": "Enforced",
     }
@@ -81,10 +66,6 @@ class ClientRouteEnforcementOptions(PropertyType):
 
 @dataclass
 class ConnectionLogOptions(PropertyType):
-    CLOUDWATCH_LOG_STREAM = "CloudwatchLogStream"
-    ENABLED = "Enabled"
-    CLOUDWATCH_LOG_GROUP = "CloudwatchLogGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloudwatch_log_stream": "CloudwatchLogStream",
         "enabled": "Enabled",
@@ -98,8 +79,6 @@ class ConnectionLogOptions(PropertyType):
 
 @dataclass
 class DirectoryServiceAuthenticationRequest(PropertyType):
-    DIRECTORY_ID = "DirectoryId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_id": "DirectoryId",
     }
@@ -109,9 +88,6 @@ class DirectoryServiceAuthenticationRequest(PropertyType):
 
 @dataclass
 class FederatedAuthenticationRequest(PropertyType):
-    SELF_SERVICE_SAML_PROVIDER_ARN = "SelfServiceSAMLProviderArn"
-    SAML_PROVIDER_ARN = "SAMLProviderArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_service_saml_provider_arn": "SelfServiceSAMLProviderArn",
         "saml_provider_arn": "SAMLProviderArn",
@@ -123,9 +99,6 @@ class FederatedAuthenticationRequest(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

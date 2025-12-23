@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:12
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RDS
@@ -478,19 +478,6 @@ class CustomDBEngineVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::CustomDBEngineVersion"
     name_field: ClassVar[str] = "database_installation_files_s3_bucket_name"
-    STATUS = "Status"
-    DATABASE_INSTALLATION_FILES_S3_BUCKET_NAME = "DatabaseInstallationFilesS3BucketName"
-    DESCRIPTION = "Description"
-    ENGINE_VERSION = "EngineVersion"
-    KMS_KEY_ID = "KMSKeyId"
-    USE_AWS_PROVIDED_LATEST_IMAGE = "UseAwsProvidedLatestImage"
-    IMAGE_ID = "ImageId"
-    DATABASE_INSTALLATION_FILES_S3_PREFIX = "DatabaseInstallationFilesS3Prefix"
-    MANIFEST = "Manifest"
-    SOURCE_CUSTOM_DB_ENGINE_VERSION_IDENTIFIER = "SourceCustomDbEngineVersionIdentifier"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "database_installation_files_s3_bucket_name": "DatabaseInstallationFilesS3BucketName",
@@ -532,68 +519,6 @@ class DBCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBCluster"
     name_field: ClassVar[str] = "database_name"
-    DATABASE_INSIGHTS_MODE = "DatabaseInsightsMode"
-    STORAGE_ENCRYPTED = "StorageEncrypted"
-    DB_SYSTEM_ID = "DBSystemId"
-    RESTORE_TO_TIME = "RestoreToTime"
-    ENGINE_MODE = "EngineMode"
-    PORT = "Port"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    MASTER_USER_AUTHENTICATION_TYPE = "MasterUserAuthenticationType"
-    MONITORING_INTERVAL = "MonitoringInterval"
-    REPLICATION_SOURCE_IDENTIFIER = "ReplicationSourceIdentifier"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-    ENGINE_VERSION = "EngineVersion"
-    STORAGE_TYPE = "StorageType"
-    KMS_KEY_ID = "KmsKeyId"
-    SERVERLESS_V2_SCALING_CONFIGURATION = "ServerlessV2ScalingConfiguration"
-    DELETE_AUTOMATED_BACKUPS = "DeleteAutomatedBackups"
-    PERFORMANCE_INSIGHTS_RETENTION_PERIOD = "PerformanceInsightsRetentionPeriod"
-    DATABASE_NAME = "DatabaseName"
-    ENABLE_LOCAL_WRITE_FORWARDING = "EnableLocalWriteForwarding"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DELETION_PROTECTION = "DeletionProtection"
-    ALLOCATED_STORAGE = "AllocatedStorage"
-    SOURCE_DB_CLUSTER_RESOURCE_ID = "SourceDbClusterResourceId"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    MASTER_USER_SECRET = "MasterUserSecret"
-    SOURCE_DB_CLUSTER_IDENTIFIER = "SourceDBClusterIdentifier"
-    MASTER_USERNAME = "MasterUsername"
-    SCALING_CONFIGURATION = "ScalingConfiguration"
-    PERFORMANCE_INSIGHTS_KMS_KEY_ID = "PerformanceInsightsKmsKeyId"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    DOMAIN = "Domain"
-    BACKTRACK_WINDOW = "BacktrackWindow"
-    DB_INSTANCE_PARAMETER_GROUP_NAME = "DBInstanceParameterGroupName"
-    ENABLE_GLOBAL_WRITE_FORWARDING = "EnableGlobalWriteForwarding"
-    MONITORING_ROLE_ARN = "MonitoringRoleArn"
-    ASSOCIATED_ROLES = "AssociatedRoles"
-    ENABLE_HTTP_ENDPOINT = "EnableHttpEndpoint"
-    SNAPSHOT_IDENTIFIER = "SnapshotIdentifier"
-    CLUSTER_SCALABILITY_TYPE = "ClusterScalabilityType"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    NETWORK_TYPE = "NetworkType"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    COPY_TAGS_TO_SNAPSHOT = "CopyTagsToSnapshot"
-    GLOBAL_CLUSTER_IDENTIFIER = "GlobalClusterIdentifier"
-    RESTORE_TYPE = "RestoreType"
-    DOMAIN_IAM_ROLE_NAME = "DomainIAMRoleName"
-    ENGINE_LIFECYCLE_SUPPORT = "EngineLifecycleSupport"
-    DB_CLUSTER_INSTANCE_CLASS = "DBClusterInstanceClass"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    IOPS = "Iops"
-    SOURCE_REGION = "SourceRegion"
-    USE_LATEST_RESTORABLE_TIME = "UseLatestRestorableTime"
-    MANAGE_MASTER_USER_PASSWORD = "ManageMasterUserPassword"
-    ENABLE_IAM_DATABASE_AUTHENTICATION = "EnableIAMDatabaseAuthentication"
-    DB_CLUSTER_PARAMETER_GROUP_NAME = "DBClusterParameterGroupName"
-    PERFORMANCE_INSIGHTS_ENABLED = "PerformanceInsightsEnabled"
-    BACKUP_RETENTION_PERIOD = "BackupRetentionPeriod"
-    ENABLE_CLOUDWATCH_LOGS_EXPORTS = "EnableCloudwatchLogsExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_insights_mode": "DatabaseInsightsMode",
         "storage_encrypted": "StorageEncrypted",
@@ -773,12 +698,6 @@ class DBClusterParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBClusterParameterGroup"
     name_field: ClassVar[str] = "db_cluster_parameter_group_name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    FAMILY = "Family"
-    DB_CLUSTER_PARAMETER_GROUP_NAME = "DBClusterParameterGroupName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -800,87 +719,6 @@ class DBInstance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBInstance"
     name_field: ClassVar[str] = "db_name"
-    TIMEZONE = "Timezone"
-    DATABASE_INSIGHTS_MODE = "DatabaseInsightsMode"
-    STORAGE_ENCRYPTED = "StorageEncrypted"
-    DB_SYSTEM_ID = "DBSystemId"
-    PORT = "Port"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    STORAGE_THROUGHPUT = "StorageThroughput"
-    AUTOMATIC_BACKUP_REPLICATION_RETENTION_PERIOD = "AutomaticBackupReplicationRetentionPeriod"
-    MASTER_USER_AUTHENTICATION_TYPE = "MasterUserAuthenticationType"
-    MONITORING_INTERVAL = "MonitoringInterval"
-    DB_PARAMETER_GROUP_NAME = "DBParameterGroupName"
-    MULTI_AZ = "MultiAZ"
-    AUTOMATIC_BACKUP_REPLICATION_KMS_KEY_ID = "AutomaticBackupReplicationKmsKeyId"
-    TAGS = "Tags"
-    ENGINE = "Engine"
-    PERFORMANCE_INSIGHTS_KMS_KEY_ID = "PerformanceInsightsKMSKeyId"
-    SOURCE_DB_INSTANCE_IDENTIFIER = "SourceDBInstanceIdentifier"
-    ENGINE_VERSION = "EngineVersion"
-    STORAGE_TYPE = "StorageType"
-    KMS_KEY_ID = "KmsKeyId"
-    DB_INSTANCE_CLASS = "DBInstanceClass"
-    DELETE_AUTOMATED_BACKUPS = "DeleteAutomatedBackups"
-    PERFORMANCE_INSIGHTS_RETENTION_PERIOD = "PerformanceInsightsRetentionPeriod"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    OPTION_GROUP_NAME = "OptionGroupName"
-    ENABLE_PERFORMANCE_INSIGHTS = "EnablePerformanceInsights"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    DELETION_PROTECTION = "DeletionProtection"
-    DB_INSTANCE_IDENTIFIER = "DBInstanceIdentifier"
-    ALLOCATED_STORAGE = "AllocatedStorage"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    MASTER_USER_SECRET = "MasterUserSecret"
-    NCHAR_CHARACTER_SET_NAME = "NcharCharacterSetName"
-    SOURCE_DB_CLUSTER_IDENTIFIER = "SourceDBClusterIdentifier"
-    DB_SECURITY_GROUPS = "DBSecurityGroups"
-    MASTER_USERNAME = "MasterUsername"
-    MAX_ALLOCATED_STORAGE = "MaxAllocatedStorage"
-    PROMOTION_TIER = "PromotionTier"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    DOMAIN = "Domain"
-    APPLY_IMMEDIATELY = "ApplyImmediately"
-    DOMAIN_FQDN = "DomainFqdn"
-    CHARACTER_SET_NAME = "CharacterSetName"
-    MONITORING_ROLE_ARN = "MonitoringRoleArn"
-    ASSOCIATED_ROLES = "AssociatedRoles"
-    DOMAIN_OU = "DomainOu"
-    DB_CLUSTER_SNAPSHOT_IDENTIFIER = "DBClusterSnapshotIdentifier"
-    SOURCE_DB_INSTANCE_AUTOMATED_BACKUPS_ARN = "SourceDBInstanceAutomatedBackupsArn"
-    PROCESSOR_FEATURES = "ProcessorFeatures"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    RESTORE_TIME = "RestoreTime"
-    CERTIFICATE_ROTATION_RESTART = "CertificateRotationRestart"
-    NETWORK_TYPE = "NetworkType"
-    DEDICATED_LOG_VOLUME = "DedicatedLogVolume"
-    COPY_TAGS_TO_SNAPSHOT = "CopyTagsToSnapshot"
-    DOMAIN_IAM_ROLE_NAME = "DomainIAMRoleName"
-    REPLICA_MODE = "ReplicaMode"
-    ENGINE_LIFECYCLE_SUPPORT = "EngineLifecycleSupport"
-    LICENSE_MODEL = "LicenseModel"
-    DOMAIN_DNS_IPS = "DomainDnsIps"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    IOPS = "Iops"
-    SOURCE_REGION = "SourceRegion"
-    BACKUP_TARGET = "BackupTarget"
-    USE_LATEST_RESTORABLE_TIME = "UseLatestRestorableTime"
-    CA_CERTIFICATE_IDENTIFIER = "CACertificateIdentifier"
-    MANAGE_MASTER_USER_PASSWORD = "ManageMasterUserPassword"
-    SOURCE_DBI_RESOURCE_ID = "SourceDbiResourceId"
-    DOMAIN_AUTH_SECRET_ARN = "DomainAuthSecretArn"
-    VPC_SECURITY_GROUPS = "VPCSecurityGroups"
-    AUTOMATIC_BACKUP_REPLICATION_REGION = "AutomaticBackupReplicationRegion"
-    ALLOW_MAJOR_VERSION_UPGRADE = "AllowMajorVersionUpgrade"
-    DB_NAME = "DBName"
-    ENABLE_IAM_DATABASE_AUTHENTICATION = "EnableIAMDatabaseAuthentication"
-    BACKUP_RETENTION_PERIOD = "BackupRetentionPeriod"
-    CUSTOM_IAM_INSTANCE_PROFILE = "CustomIAMInstanceProfile"
-    DB_SNAPSHOT_IDENTIFIER = "DBSnapshotIdentifier"
-    ENABLE_CLOUDWATCH_LOGS_EXPORTS = "EnableCloudwatchLogsExports"
-    USE_DEFAULT_PROCESSOR_FEATURES = "UseDefaultProcessorFeatures"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "database_insights_mode": "DatabaseInsightsMode",
@@ -1183,12 +1021,6 @@ class DBParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBParameterGroup"
     name_field: ClassVar[str] = "db_parameter_group_name"
-    DB_PARAMETER_GROUP_NAME = "DBParameterGroupName"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    FAMILY = "Family"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_parameter_group_name": "DBParameterGroupName",
         "description": "Description",
@@ -1216,20 +1048,6 @@ class DBProxy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxy"
     name_field: ClassVar[str] = "db_proxy_name"
-    DB_PROXY_NAME = "DBProxyName"
-    DEBUG_LOGGING = "DebugLogging"
-    VPC_SUBNET_IDS = "VpcSubnetIds"
-    ROLE_ARN = "RoleArn"
-    REQUIRE_TLS = "RequireTLS"
-    IDLE_CLIENT_TIMEOUT = "IdleClientTimeout"
-    TARGET_CONNECTION_NETWORK_TYPE = "TargetConnectionNetworkType"
-    DEFAULT_AUTH_SCHEME = "DefaultAuthScheme"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    AUTH = "Auth"
-    ENGINE_FAMILY = "EngineFamily"
-    TAGS = "Tags"
-    ENDPOINT_NETWORK_TYPE = "EndpointNetworkType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_proxy_name": "DBProxyName",
         "debug_logging": "DebugLogging",
@@ -1283,14 +1101,6 @@ class DBProxyEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxyEndpoint"
     name_field: ClassVar[str] = "db_proxy_endpoint_name"
-    DB_PROXY_ENDPOINT_NAME = "DBProxyEndpointName"
-    DB_PROXY_NAME = "DBProxyName"
-    TARGET_ROLE = "TargetRole"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    VPC_SUBNET_IDS = "VpcSubnetIds"
-    TAGS = "Tags"
-    ENDPOINT_NETWORK_TYPE = "EndpointNetworkType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_proxy_endpoint_name": "DBProxyEndpointName",
         "db_proxy_name": "DBProxyName",
@@ -1337,12 +1147,6 @@ class DBProxyTargetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxyTargetGroup"
     name_field: ClassVar[str] = "db_proxy_name"
-    DB_PROXY_NAME = "DBProxyName"
-    DB_INSTANCE_IDENTIFIERS = "DBInstanceIdentifiers"
-    TARGET_GROUP_NAME = "TargetGroupName"
-    CONNECTION_POOL_CONFIGURATION_INFO = "ConnectionPoolConfigurationInfo"
-    DB_CLUSTER_IDENTIFIERS = "DBClusterIdentifiers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_proxy_name": "DBProxyName",
         "db_instance_identifiers": "DBInstanceIdentifiers",
@@ -1369,11 +1173,6 @@ class DBSecurityGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBSecurityGroup"
-    DB_SECURITY_GROUP_INGRESS = "DBSecurityGroupIngress"
-    EC2_VPC_ID = "EC2VpcId"
-    GROUP_DESCRIPTION = "GroupDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_security_group_ingress": "DBSecurityGroupIngress",
         "ec2_vpc_id": "EC2VpcId",
@@ -1393,12 +1192,6 @@ class DBSecurityGroupIngress(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBSecurityGroupIngress"
     name_field: ClassVar[str] = "db_security_group_name"
-    CIDRIP = "CIDRIP"
-    DB_SECURITY_GROUP_NAME = "DBSecurityGroupName"
-    EC2_SECURITY_GROUP_ID = "EC2SecurityGroupId"
-    EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
-    EC2_SECURITY_GROUP_OWNER_ID = "EC2SecurityGroupOwnerId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrip": "CIDRIP",
         "db_security_group_name": "DBSecurityGroupName",
@@ -1419,14 +1212,6 @@ class DBShardGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBShardGroup"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    COMPUTE_REDUNDANCY = "ComputeRedundancy"
-    DB_SHARD_GROUP_IDENTIFIER = "DBShardGroupIdentifier"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    MAX_ACU = "MaxACU"
-    MIN_ACU = "MinACU"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_cluster_identifier": "DBClusterIdentifier",
         "compute_redundancy": "ComputeRedundancy",
@@ -1463,11 +1248,6 @@ class DBSubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::DBSubnetGroup"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_subnet_group_name": "DBSubnetGroupName",
         "db_subnet_group_description": "DBSubnetGroupDescription",
@@ -1487,14 +1267,6 @@ class EventSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::EventSubscription"
     name_field: ClassVar[str] = "subscription_name"
-    SOURCE_TYPE = "SourceType"
-    ENABLED = "Enabled"
-    EVENT_CATEGORIES = "EventCategories"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    SOURCE_IDS = "SourceIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "enabled": "Enabled",
@@ -1519,15 +1291,6 @@ class GlobalCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-g"""
 
     resource_type: ClassVar[str] = "AWS::RDS::GlobalCluster"
-    ENGINE_LIFECYCLE_SUPPORT = "EngineLifecycleSupport"
-    STORAGE_ENCRYPTED = "StorageEncrypted"
-    ENGINE_VERSION = "EngineVersion"
-    SOURCE_DB_CLUSTER_IDENTIFIER = "SourceDBClusterIdentifier"
-    DELETION_PROTECTION = "DeletionProtection"
-    GLOBAL_CLUSTER_IDENTIFIER = "GlobalClusterIdentifier"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engine_lifecycle_support": "EngineLifecycleSupport",
         "storage_encrypted": "StorageEncrypted",
@@ -1566,15 +1329,6 @@ class Integration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::Integration"
     name_field: ClassVar[str] = "integration_name"
-    DATA_FILTER = "DataFilter"
-    INTEGRATION_NAME = "IntegrationName"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KMSKeyId"
-    SOURCE_ARN = "SourceArn"
-    TARGET_ARN = "TargetArn"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_filter": "DataFilter",
         "integration_name": "IntegrationName",
@@ -1613,13 +1367,6 @@ class OptionGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RDS::OptionGroup"
     name_field: ClassVar[str] = "option_group_name"
-    OPTION_GROUP_DESCRIPTION = "OptionGroupDescription"
-    OPTION_GROUP_NAME = "OptionGroupName"
-    OPTION_CONFIGURATIONS = "OptionConfigurations"
-    MAJOR_ENGINE_VERSION = "MajorEngineVersion"
-    ENGINE_NAME = "EngineName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "option_group_description": "OptionGroupDescription",
         "option_group_name": "OptionGroupName",

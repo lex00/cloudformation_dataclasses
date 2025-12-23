@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoScalingThresholds(PropertyType):
-    CPU_THRESHOLD = "CpuThreshold"
-    IGNORE_METRICS_TIME = "IgnoreMetricsTime"
-    INSTANCE_COUNT = "InstanceCount"
-    LOAD_THRESHOLD = "LoadThreshold"
-    MEMORY_THRESHOLD = "MemoryThreshold"
-    THRESHOLDS_WAIT_TIME = "ThresholdsWaitTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_threshold": "CpuThreshold",
         "ignore_metrics_time": "IgnoreMetricsTime",
@@ -37,8 +30,6 @@ class AutoScalingThresholds(PropertyType):
 
 @dataclass
 class LifecycleEventConfiguration(PropertyType):
-    SHUTDOWN_EVENT_CONFIGURATION = "ShutdownEventConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shutdown_event_configuration": "ShutdownEventConfiguration",
     }
@@ -48,10 +39,6 @@ class LifecycleEventConfiguration(PropertyType):
 
 @dataclass
 class LoadBasedAutoScaling(PropertyType):
-    DOWN_SCALING = "DownScaling"
-    ENABLE = "Enable"
-    UP_SCALING = "UpScaling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "down_scaling": "DownScaling",
         "enable": "Enable",
@@ -65,12 +52,6 @@ class LoadBasedAutoScaling(PropertyType):
 
 @dataclass
 class Recipes(PropertyType):
-    CONFIGURE = "Configure"
-    DEPLOY = "Deploy"
-    SETUP = "Setup"
-    SHUTDOWN = "Shutdown"
-    UNDEPLOY = "Undeploy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configure": "Configure",
         "deploy": "Deploy",
@@ -88,9 +69,6 @@ class Recipes(PropertyType):
 
 @dataclass
 class ShutdownEventConfiguration(PropertyType):
-    DELAY_UNTIL_ELB_CONNECTIONS_DRAINED = "DelayUntilElbConnectionsDrained"
-    EXECUTION_TIMEOUT = "ExecutionTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delay_until_elb_connections_drained": "DelayUntilElbConnectionsDrained",
         "execution_timeout": "ExecutionTimeout",
@@ -102,14 +80,6 @@ class ShutdownEventConfiguration(PropertyType):
 
 @dataclass
 class VolumeConfiguration(PropertyType):
-    ENCRYPTED = "Encrypted"
-    IOPS = "Iops"
-    MOUNT_POINT = "MountPoint"
-    NUMBER_OF_DISKS = "NumberOfDisks"
-    RAID_LEVEL = "RaidLevel"
-    SIZE = "Size"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted": "Encrypted",
         "iops": "Iops",

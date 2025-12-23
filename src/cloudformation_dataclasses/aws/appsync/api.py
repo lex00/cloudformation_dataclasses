@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthMode(PropertyType):
-    AUTH_TYPE = "AuthType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_type": "AuthType",
     }
@@ -22,11 +20,6 @@ class AuthMode(PropertyType):
 
 @dataclass
 class AuthProvider(PropertyType):
-    OPEN_ID_CONNECT_CONFIG = "OpenIDConnectConfig"
-    COGNITO_CONFIG = "CognitoConfig"
-    LAMBDA_AUTHORIZER_CONFIG = "LambdaAuthorizerConfig"
-    AUTH_TYPE = "AuthType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_id_connect_config": "OpenIDConnectConfig",
         "cognito_config": "CognitoConfig",
@@ -42,10 +35,6 @@ class AuthProvider(PropertyType):
 
 @dataclass
 class CognitoConfig(PropertyType):
-    APP_ID_CLIENT_REGEX = "AppIdClientRegex"
-    USER_POOL_ID = "UserPoolId"
-    AWS_REGION = "AwsRegion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_id_client_regex": "AppIdClientRegex",
         "user_pool_id": "UserPoolId",
@@ -59,9 +48,6 @@ class CognitoConfig(PropertyType):
 
 @dataclass
 class DnsMap(PropertyType):
-    HTTP = "Http"
-    REALTIME = "Realtime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http": "Http",
         "realtime": "Realtime",
@@ -73,12 +59,6 @@ class DnsMap(PropertyType):
 
 @dataclass
 class EventConfig(PropertyType):
-    AUTH_PROVIDERS = "AuthProviders"
-    CONNECTION_AUTH_MODES = "ConnectionAuthModes"
-    DEFAULT_PUBLISH_AUTH_MODES = "DefaultPublishAuthModes"
-    DEFAULT_SUBSCRIBE_AUTH_MODES = "DefaultSubscribeAuthModes"
-    LOG_CONFIG = "LogConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_providers": "AuthProviders",
         "connection_auth_modes": "ConnectionAuthModes",
@@ -96,9 +76,6 @@ class EventConfig(PropertyType):
 
 @dataclass
 class EventLogConfig(PropertyType):
-    CLOUD_WATCH_LOGS_ROLE_ARN = "CloudWatchLogsRoleArn"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_role_arn": "CloudWatchLogsRoleArn",
         "log_level": "LogLevel",
@@ -110,10 +87,6 @@ class EventLogConfig(PropertyType):
 
 @dataclass
 class LambdaAuthorizerConfig(PropertyType):
-    IDENTITY_VALIDATION_EXPRESSION = "IdentityValidationExpression"
-    AUTHORIZER_URI = "AuthorizerUri"
-    AUTHORIZER_RESULT_TTL_IN_SECONDS = "AuthorizerResultTtlInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_validation_expression": "IdentityValidationExpression",
         "authorizer_uri": "AuthorizerUri",
@@ -127,11 +100,6 @@ class LambdaAuthorizerConfig(PropertyType):
 
 @dataclass
 class OpenIDConnectConfig(PropertyType):
-    ISSUER = "Issuer"
-    CLIENT_ID = "ClientId"
-    AUTH_TTL = "AuthTTL"
-    IAT_TTL = "IatTTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "client_id": "ClientId",

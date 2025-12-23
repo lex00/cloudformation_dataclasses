@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmazonOpenSearchServerlessBufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -25,17 +22,6 @@ class AmazonOpenSearchServerlessBufferingHints(PropertyType):
 
 @dataclass
 class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
-    INDEX_NAME = "IndexName"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    RETRY_OPTIONS = "RetryOptions"
-    COLLECTION_ENDPOINT = "CollectionEndpoint"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    ROLE_ARN = "RoleARN"
-    S3_BACKUP_MODE = "S3BackupMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "s3_configuration": "S3Configuration",
@@ -63,8 +49,6 @@ class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
 
 @dataclass
 class AmazonOpenSearchServerlessRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -74,9 +58,6 @@ class AmazonOpenSearchServerlessRetryOptions(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceBufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -88,21 +69,6 @@ class AmazonopensearchserviceBufferingHints(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceDestinationConfiguration(PropertyType):
-    TYPE_NAME = "TypeName"
-    INDEX_ROTATION_PERIOD = "IndexRotationPeriod"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    CLUSTER_ENDPOINT = "ClusterEndpoint"
-    DOMAIN_ARN = "DomainARN"
-    ROLE_ARN = "RoleARN"
-    S3_BACKUP_MODE = "S3BackupMode"
-    INDEX_NAME = "IndexName"
-    DOCUMENT_ID_OPTIONS = "DocumentIdOptions"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    RETRY_OPTIONS = "RetryOptions"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "index_rotation_period": "IndexRotationPeriod",
@@ -138,8 +104,6 @@ class AmazonopensearchserviceDestinationConfiguration(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -149,9 +113,6 @@ class AmazonopensearchserviceRetryOptions(PropertyType):
 
 @dataclass
 class AuthenticationConfiguration(PropertyType):
-    CONNECTIVITY = "Connectivity"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connectivity": "Connectivity",
         "role_arn": "RoleARN",
@@ -163,9 +124,6 @@ class AuthenticationConfiguration(PropertyType):
 
 @dataclass
 class BufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -177,9 +135,6 @@ class BufferingHints(PropertyType):
 
 @dataclass
 class CatalogConfiguration(PropertyType):
-    CATALOG_ARN = "CatalogArn"
-    WAREHOUSE_LOCATION = "WarehouseLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_arn": "CatalogArn",
         "warehouse_location": "WarehouseLocation",
@@ -191,10 +146,6 @@ class CatalogConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLoggingOptions(PropertyType):
-    LOG_STREAM_NAME = "LogStreamName"
-    ENABLED = "Enabled"
-    LOG_GROUP_NAME = "LogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_name": "LogStreamName",
         "enabled": "Enabled",
@@ -208,10 +159,6 @@ class CloudWatchLoggingOptions(PropertyType):
 
 @dataclass
 class CopyCommand(PropertyType):
-    DATA_TABLE_NAME = "DataTableName"
-    COPY_OPTIONS = "CopyOptions"
-    DATA_TABLE_COLUMNS = "DataTableColumns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table_name": "DataTableName",
         "copy_options": "CopyOptions",
@@ -225,11 +172,6 @@ class CopyCommand(PropertyType):
 
 @dataclass
 class DataFormatConversionConfiguration(PropertyType):
-    INPUT_FORMAT_CONFIGURATION = "InputFormatConfiguration"
-    ENABLED = "Enabled"
-    SCHEMA_CONFIGURATION = "SchemaConfiguration"
-    OUTPUT_FORMAT_CONFIGURATION = "OutputFormatConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_format_configuration": "InputFormatConfiguration",
         "enabled": "Enabled",
@@ -245,9 +187,6 @@ class DataFormatConversionConfiguration(PropertyType):
 
 @dataclass
 class DatabaseColumns(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -259,8 +198,6 @@ class DatabaseColumns(PropertyType):
 
 @dataclass
 class DatabaseSourceAuthenticationConfiguration(PropertyType):
-    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_configuration": "SecretsManagerConfiguration",
     }
@@ -270,20 +207,6 @@ class DatabaseSourceAuthenticationConfiguration(PropertyType):
 
 @dataclass
 class DatabaseSourceConfiguration(PropertyType):
-    DIGEST = "Digest"
-    PORT = "Port"
-    PUBLIC_CERTIFICATE = "PublicCertificate"
-    COLUMNS = "Columns"
-    TYPE = "Type"
-    SURROGATE_KEYS = "SurrogateKeys"
-    DATABASES = "Databases"
-    ENDPOINT = "Endpoint"
-    SSL_MODE = "SSLMode"
-    SNAPSHOT_WATERMARK_TABLE = "SnapshotWatermarkTable"
-    DATABASE_SOURCE_AUTHENTICATION_CONFIGURATION = "DatabaseSourceAuthenticationConfiguration"
-    TABLES = "Tables"
-    DATABASE_SOURCE_VPC_CONFIGURATION = "DatabaseSourceVPCConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "digest": "Digest",
         "port": "Port",
@@ -317,8 +240,6 @@ class DatabaseSourceConfiguration(PropertyType):
 
 @dataclass
 class DatabaseSourceVPCConfiguration(PropertyType):
-    VPC_ENDPOINT_SERVICE_NAME = "VpcEndpointServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_endpoint_service_name": "VpcEndpointServiceName",
     }
@@ -328,9 +249,6 @@ class DatabaseSourceVPCConfiguration(PropertyType):
 
 @dataclass
 class DatabaseTables(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -342,9 +260,6 @@ class DatabaseTables(PropertyType):
 
 @dataclass
 class Databases(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -356,9 +271,6 @@ class Databases(PropertyType):
 
 @dataclass
 class DeliveryStreamEncryptionConfigurationInput(PropertyType):
-    KEY_TYPE = "KeyType"
-    KEY_ARN = "KeyARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "key_arn": "KeyARN",
@@ -370,9 +282,6 @@ class DeliveryStreamEncryptionConfigurationInput(PropertyType):
 
 @dataclass
 class Deserializer(PropertyType):
-    HIVE_JSON_SER_DE = "HiveJsonSerDe"
-    OPEN_X_JSON_SER_DE = "OpenXJsonSerDe"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hive_json_ser_de": "HiveJsonSerDe",
         "open_x_json_ser_de": "OpenXJsonSerDe",
@@ -384,12 +293,6 @@ class Deserializer(PropertyType):
 
 @dataclass
 class DestinationTableConfiguration(PropertyType):
-    DESTINATION_DATABASE_NAME = "DestinationDatabaseName"
-    S3_ERROR_OUTPUT_PREFIX = "S3ErrorOutputPrefix"
-    DESTINATION_TABLE_NAME = "DestinationTableName"
-    UNIQUE_KEYS = "UniqueKeys"
-    PARTITION_SPEC = "PartitionSpec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_database_name": "DestinationDatabaseName",
         "s3_error_output_prefix": "S3ErrorOutputPrefix",
@@ -407,8 +310,6 @@ class DestinationTableConfiguration(PropertyType):
 
 @dataclass
 class DirectPutSourceConfiguration(PropertyType):
-    THROUGHPUT_HINT_IN_M_BS = "ThroughputHintInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "throughput_hint_in_m_bs": "ThroughputHintInMBs",
     }
@@ -418,8 +319,6 @@ class DirectPutSourceConfiguration(PropertyType):
 
 @dataclass
 class DocumentIdOptions(PropertyType):
-    DEFAULT_DOCUMENT_ID_FORMAT = "DefaultDocumentIdFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_document_id_format": "DefaultDocumentIdFormat",
     }
@@ -429,9 +328,6 @@ class DocumentIdOptions(PropertyType):
 
 @dataclass
 class DynamicPartitioningConfiguration(PropertyType):
-    ENABLED = "Enabled"
-    RETRY_OPTIONS = "RetryOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "retry_options": "RetryOptions",
@@ -443,9 +339,6 @@ class DynamicPartitioningConfiguration(PropertyType):
 
 @dataclass
 class ElasticsearchBufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -457,21 +350,6 @@ class ElasticsearchBufferingHints(PropertyType):
 
 @dataclass
 class ElasticsearchDestinationConfiguration(PropertyType):
-    TYPE_NAME = "TypeName"
-    INDEX_ROTATION_PERIOD = "IndexRotationPeriod"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    CLUSTER_ENDPOINT = "ClusterEndpoint"
-    DOMAIN_ARN = "DomainARN"
-    ROLE_ARN = "RoleARN"
-    S3_BACKUP_MODE = "S3BackupMode"
-    INDEX_NAME = "IndexName"
-    DOCUMENT_ID_OPTIONS = "DocumentIdOptions"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    RETRY_OPTIONS = "RetryOptions"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "index_rotation_period": "IndexRotationPeriod",
@@ -507,8 +385,6 @@ class ElasticsearchDestinationConfiguration(PropertyType):
 
 @dataclass
 class ElasticsearchRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -518,9 +394,6 @@ class ElasticsearchRetryOptions(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_ENCRYPTION_CONFIG = "KMSEncryptionConfig"
-    NO_ENCRYPTION_CONFIG = "NoEncryptionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_encryption_config": "KMSEncryptionConfig",
         "no_encryption_config": "NoEncryptionConfig",
@@ -532,22 +405,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class ExtendedS3DestinationConfiguration(PropertyType):
-    ERROR_OUTPUT_PREFIX = "ErrorOutputPrefix"
-    S3_BACKUP_CONFIGURATION = "S3BackupConfiguration"
-    BUCKET_ARN = "BucketARN"
-    COMPRESSION_FORMAT = "CompressionFormat"
-    DATA_FORMAT_CONVERSION_CONFIGURATION = "DataFormatConversionConfiguration"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    CUSTOM_TIME_ZONE = "CustomTimeZone"
-    DYNAMIC_PARTITIONING_CONFIGURATION = "DynamicPartitioningConfiguration"
-    PREFIX = "Prefix"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    ROLE_ARN = "RoleARN"
-    S3_BACKUP_MODE = "S3BackupMode"
-    BUFFERING_HINTS = "BufferingHints"
-    FILE_EXTENSION = "FileExtension"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_output_prefix": "ErrorOutputPrefix",
         "s3_backup_configuration": "S3BackupConfiguration",
@@ -585,8 +442,6 @@ class ExtendedS3DestinationConfiguration(PropertyType):
 
 @dataclass
 class HiveJsonSerDe(PropertyType):
-    TIMESTAMP_FORMATS = "TimestampFormats"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timestamp_formats": "TimestampFormats",
     }
@@ -596,9 +451,6 @@ class HiveJsonSerDe(PropertyType):
 
 @dataclass
 class HttpEndpointCommonAttribute(PropertyType):
-    ATTRIBUTE_VALUE = "AttributeValue"
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_name": "AttributeName",
@@ -610,10 +462,6 @@ class HttpEndpointCommonAttribute(PropertyType):
 
 @dataclass
 class HttpEndpointConfiguration(PropertyType):
-    ACCESS_KEY = "AccessKey"
-    URL = "Url"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_key": "AccessKey",
         "url": "Url",
@@ -627,17 +475,6 @@ class HttpEndpointConfiguration(PropertyType):
 
 @dataclass
 class HttpEndpointDestinationConfiguration(PropertyType):
-    REQUEST_CONFIGURATION = "RequestConfiguration"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    RETRY_OPTIONS = "RetryOptions"
-    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
-    ENDPOINT_CONFIGURATION = "EndpointConfiguration"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    ROLE_ARN = "RoleARN"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    S3_BACKUP_MODE = "S3BackupMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "request_configuration": "RequestConfiguration",
         "s3_configuration": "S3Configuration",
@@ -665,9 +502,6 @@ class HttpEndpointDestinationConfiguration(PropertyType):
 
 @dataclass
 class HttpEndpointRequestConfiguration(PropertyType):
-    COMMON_ATTRIBUTES = "CommonAttributes"
-    CONTENT_ENCODING = "ContentEncoding"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "common_attributes": "CommonAttributes",
         "content_encoding": "ContentEncoding",
@@ -679,19 +513,6 @@ class HttpEndpointRequestConfiguration(PropertyType):
 
 @dataclass
 class IcebergDestinationConfiguration(PropertyType):
-    CATALOG_CONFIGURATION = "CatalogConfiguration"
-    S3_CONFIGURATION = "S3Configuration"
-    DESTINATION_TABLE_CONFIGURATION_LIST = "DestinationTableConfigurationList"
-    BUFFERING_HINTS = "BufferingHints"
-    TABLE_CREATION_CONFIGURATION = "TableCreationConfiguration"
-    RETRY_OPTIONS = "RetryOptions"
-    S3_BACKUP_MODE = "s3BackupMode"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    SCHEMA_EVOLUTION_CONFIGURATION = "SchemaEvolutionConfiguration"
-    APPEND_ONLY = "AppendOnly"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_configuration": "CatalogConfiguration",
         "s3_configuration": "S3Configuration",
@@ -723,8 +544,6 @@ class IcebergDestinationConfiguration(PropertyType):
 
 @dataclass
 class InputFormatConfiguration(PropertyType):
-    DESERIALIZER = "Deserializer"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deserializer": "Deserializer",
     }
@@ -734,8 +553,6 @@ class InputFormatConfiguration(PropertyType):
 
 @dataclass
 class KMSEncryptionConfig(PropertyType):
-    AWSKMS_KEY_ARN = "AWSKMSKeyARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awskms_key_arn": "AWSKMSKeyARN",
     }
@@ -745,9 +562,6 @@ class KMSEncryptionConfig(PropertyType):
 
 @dataclass
 class KinesisStreamSourceConfiguration(PropertyType):
-    KINESIS_STREAM_ARN = "KinesisStreamARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_arn": "KinesisStreamARN",
         "role_arn": "RoleARN",
@@ -759,11 +573,6 @@ class KinesisStreamSourceConfiguration(PropertyType):
 
 @dataclass
 class MSKSourceConfiguration(PropertyType):
-    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
-    READ_FROM_TIMESTAMP = "ReadFromTimestamp"
-    MSK_CLUSTER_ARN = "MSKClusterARN"
-    TOPIC_NAME = "TopicName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "read_from_timestamp": "ReadFromTimestamp",
@@ -779,10 +588,6 @@ class MSKSourceConfiguration(PropertyType):
 
 @dataclass
 class OpenXJsonSerDe(PropertyType):
-    CONVERT_DOTS_IN_JSON_KEYS_TO_UNDERSCORES = "ConvertDotsInJsonKeysToUnderscores"
-    COLUMN_TO_JSON_KEY_MAPPINGS = "ColumnToJsonKeyMappings"
-    CASE_INSENSITIVE = "CaseInsensitive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "convert_dots_in_json_keys_to_underscores": "ConvertDotsInJsonKeysToUnderscores",
         "column_to_json_key_mappings": "ColumnToJsonKeyMappings",
@@ -796,17 +601,6 @@ class OpenXJsonSerDe(PropertyType):
 
 @dataclass
 class OrcSerDe(PropertyType):
-    PADDING_TOLERANCE = "PaddingTolerance"
-    COMPRESSION = "Compression"
-    STRIPE_SIZE_BYTES = "StripeSizeBytes"
-    BLOOM_FILTER_COLUMNS = "BloomFilterColumns"
-    BLOOM_FILTER_FALSE_POSITIVE_PROBABILITY = "BloomFilterFalsePositiveProbability"
-    ENABLE_PADDING = "EnablePadding"
-    FORMAT_VERSION = "FormatVersion"
-    ROW_INDEX_STRIDE = "RowIndexStride"
-    BLOCK_SIZE_BYTES = "BlockSizeBytes"
-    DICTIONARY_KEY_THRESHOLD = "DictionaryKeyThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "padding_tolerance": "PaddingTolerance",
         "compression": "Compression",
@@ -834,8 +628,6 @@ class OrcSerDe(PropertyType):
 
 @dataclass
 class OutputFormatConfiguration(PropertyType):
-    SERIALIZER = "Serializer"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "serializer": "Serializer",
     }
@@ -845,13 +637,6 @@ class OutputFormatConfiguration(PropertyType):
 
 @dataclass
 class ParquetSerDe(PropertyType):
-    COMPRESSION = "Compression"
-    BLOCK_SIZE_BYTES = "BlockSizeBytes"
-    ENABLE_DICTIONARY_COMPRESSION = "EnableDictionaryCompression"
-    PAGE_SIZE_BYTES = "PageSizeBytes"
-    MAX_PADDING_BYTES = "MaxPaddingBytes"
-    WRITER_VERSION = "WriterVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "block_size_bytes": "BlockSizeBytes",
@@ -871,8 +656,6 @@ class ParquetSerDe(PropertyType):
 
 @dataclass
 class PartitionField(PropertyType):
-    SOURCE_NAME = "SourceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
     }
@@ -882,8 +665,6 @@ class PartitionField(PropertyType):
 
 @dataclass
 class PartitionSpec(PropertyType):
-    IDENTITY = "Identity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity": "Identity",
     }
@@ -893,9 +674,6 @@ class PartitionSpec(PropertyType):
 
 @dataclass
 class ProcessingConfiguration(PropertyType):
-    ENABLED = "Enabled"
-    PROCESSORS = "Processors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "processors": "Processors",
@@ -907,9 +685,6 @@ class ProcessingConfiguration(PropertyType):
 
 @dataclass
 class Processor(PropertyType):
-    TYPE = "Type"
-    PARAMETERS = "Parameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -921,9 +696,6 @@ class Processor(PropertyType):
 
 @dataclass
 class ProcessorParameter(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -935,19 +707,6 @@ class ProcessorParameter(PropertyType):
 
 @dataclass
 class RedshiftDestinationConfiguration(PropertyType):
-    S3_BACKUP_CONFIGURATION = "S3BackupConfiguration"
-    S3_CONFIGURATION = "S3Configuration"
-    USERNAME = "Username"
-    COPY_COMMAND = "CopyCommand"
-    RETRY_OPTIONS = "RetryOptions"
-    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    CLUSTER_JDBCURL = "ClusterJDBCURL"
-    ROLE_ARN = "RoleARN"
-    PASSWORD = "Password"
-    S3_BACKUP_MODE = "S3BackupMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_backup_configuration": "S3BackupConfiguration",
         "s3_configuration": "S3Configuration",
@@ -979,8 +738,6 @@ class RedshiftDestinationConfiguration(PropertyType):
 
 @dataclass
 class RedshiftRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -990,8 +747,6 @@ class RedshiftRetryOptions(PropertyType):
 
 @dataclass
 class RetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1001,15 +756,6 @@ class RetryOptions(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    ERROR_OUTPUT_PREFIX = "ErrorOutputPrefix"
-    BUCKET_ARN = "BucketARN"
-    BUFFERING_HINTS = "BufferingHints"
-    COMPRESSION_FORMAT = "CompressionFormat"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    PREFIX = "Prefix"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_output_prefix": "ErrorOutputPrefix",
         "bucket_arn": "BucketARN",
@@ -1033,13 +779,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class SchemaConfiguration(PropertyType):
-    VERSION_ID = "VersionId"
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    REGION = "Region"
-    CATALOG_ID = "CatalogId"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "table_name": "TableName",
@@ -1059,8 +798,6 @@ class SchemaConfiguration(PropertyType):
 
 @dataclass
 class SchemaEvolutionConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1070,10 +807,6 @@ class SchemaEvolutionConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerConfiguration(PropertyType):
-    SECRET_ARN = "SecretARN"
-    ENABLED = "Enabled"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretARN",
         "enabled": "Enabled",
@@ -1087,9 +820,6 @@ class SecretsManagerConfiguration(PropertyType):
 
 @dataclass
 class Serializer(PropertyType):
-    ORC_SER_DE = "OrcSerDe"
-    PARQUET_SER_DE = "ParquetSerDe"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orc_ser_de": "OrcSerDe",
         "parquet_ser_de": "ParquetSerDe",
@@ -1101,9 +831,6 @@ class Serializer(PropertyType):
 
 @dataclass
 class SnowflakeBufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -1115,27 +842,6 @@ class SnowflakeBufferingHints(PropertyType):
 
 @dataclass
 class SnowflakeDestinationConfiguration(PropertyType):
-    PRIVATE_KEY = "PrivateKey"
-    USER = "User"
-    TABLE = "Table"
-    SNOWFLAKE_VPC_CONFIGURATION = "SnowflakeVpcConfiguration"
-    DATA_LOADING_OPTION = "DataLoadingOption"
-    SCHEMA = "Schema"
-    CONTENT_COLUMN_NAME = "ContentColumnName"
-    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
-    SNOWFLAKE_ROLE_CONFIGURATION = "SnowflakeRoleConfiguration"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    ACCOUNT_URL = "AccountUrl"
-    ROLE_ARN = "RoleARN"
-    S3_BACKUP_MODE = "S3BackupMode"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    META_DATA_COLUMN_NAME = "MetaDataColumnName"
-    DATABASE = "Database"
-    RETRY_OPTIONS = "RetryOptions"
-    KEY_PASSPHRASE = "KeyPassphrase"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "user": "User",
@@ -1183,8 +889,6 @@ class SnowflakeDestinationConfiguration(PropertyType):
 
 @dataclass
 class SnowflakeRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1194,9 +898,6 @@ class SnowflakeRetryOptions(PropertyType):
 
 @dataclass
 class SnowflakeRoleConfiguration(PropertyType):
-    SNOWFLAKE_ROLE = "SnowflakeRole"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snowflake_role": "SnowflakeRole",
         "enabled": "Enabled",
@@ -1208,8 +909,6 @@ class SnowflakeRoleConfiguration(PropertyType):
 
 @dataclass
 class SnowflakeVpcConfiguration(PropertyType):
-    PRIVATE_LINK_VPCE_ID = "PrivateLinkVpceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_link_vpce_id": "PrivateLinkVpceId",
     }
@@ -1219,9 +918,6 @@ class SnowflakeVpcConfiguration(PropertyType):
 
 @dataclass
 class SplunkBufferingHints(PropertyType):
-    INTERVAL_IN_SECONDS = "IntervalInSeconds"
-    SIZE_IN_M_BS = "SizeInMBs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -1233,18 +929,6 @@ class SplunkBufferingHints(PropertyType):
 
 @dataclass
 class SplunkDestinationConfiguration(PropertyType):
-    HEC_ENDPOINT = "HECEndpoint"
-    S3_CONFIGURATION = "S3Configuration"
-    BUFFERING_HINTS = "BufferingHints"
-    HEC_TOKEN = "HECToken"
-    RETRY_OPTIONS = "RetryOptions"
-    HEC_ENDPOINT_TYPE = "HECEndpointType"
-    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
-    HEC_ACKNOWLEDGMENT_TIMEOUT_IN_SECONDS = "HECAcknowledgmentTimeoutInSeconds"
-    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
-    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
-    S3_BACKUP_MODE = "S3BackupMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hec_endpoint": "HECEndpoint",
         "s3_configuration": "S3Configuration",
@@ -1274,8 +958,6 @@ class SplunkDestinationConfiguration(PropertyType):
 
 @dataclass
 class SplunkRetryOptions(PropertyType):
-    DURATION_IN_SECONDS = "DurationInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1285,8 +967,6 @@ class SplunkRetryOptions(PropertyType):
 
 @dataclass
 class TableCreationConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1296,10 +976,6 @@ class TableCreationConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",

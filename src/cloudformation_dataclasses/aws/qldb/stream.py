@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class KinesisConfiguration(PropertyType):
-    AGGREGATION_ENABLED = "AggregationEnabled"
-    STREAM_ARN = "StreamArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_enabled": "AggregationEnabled",
         "stream_arn": "StreamArn",

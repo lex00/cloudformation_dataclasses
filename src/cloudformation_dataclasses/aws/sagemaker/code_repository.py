@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GitConfig(PropertyType):
-    SECRET_ARN = "SecretArn"
-    BRANCH = "Branch"
-    REPOSITORY_URL = "RepositoryUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "branch": "Branch",

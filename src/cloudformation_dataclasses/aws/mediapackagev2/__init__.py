@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackageV2
@@ -527,14 +527,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::Channel"
     name_field: ClassVar[str] = "channel_name"
-    INPUT_SWITCH_CONFIGURATION = "InputSwitchConfiguration"
-    CHANNEL_NAME = "ChannelName"
-    DESCRIPTION = "Description"
-    INPUT_TYPE = "InputType"
-    OUTPUT_HEADER_CONFIGURATION = "OutputHeaderConfiguration"
-    CHANNEL_GROUP_NAME = "ChannelGroupName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_switch_configuration": "InputSwitchConfiguration",
         "channel_name": "ChannelName",
@@ -586,10 +578,6 @@ class ChannelGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::ChannelGroup"
     name_field: ClassVar[str] = "channel_group_name"
-    DESCRIPTION = "Description"
-    CHANNEL_GROUP_NAME = "ChannelGroupName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "channel_group_name": "ChannelGroupName",
@@ -628,10 +616,6 @@ class ChannelPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::ChannelPolicy"
     name_field: ClassVar[str] = "channel_name"
-    POLICY = "Policy"
-    CHANNEL_NAME = "ChannelName"
-    CHANNEL_GROUP_NAME = "ChannelGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "channel_name": "ChannelName",
@@ -649,20 +633,6 @@ class OriginEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::OriginEndpoint"
     name_field: ClassVar[str] = "origin_endpoint_name"
-    MSS_MANIFESTS = "MssManifests"
-    DESCRIPTION = "Description"
-    LOW_LATENCY_HLS_MANIFESTS = "LowLatencyHlsManifests"
-    CONTAINER_TYPE = "ContainerType"
-    FORCE_ENDPOINT_ERROR_CONFIGURATION = "ForceEndpointErrorConfiguration"
-    HLS_MANIFESTS = "HlsManifests"
-    DASH_MANIFESTS = "DashManifests"
-    SEGMENT = "Segment"
-    CHANNEL_NAME = "ChannelName"
-    ORIGIN_ENDPOINT_NAME = "OriginEndpointName"
-    CHANNEL_GROUP_NAME = "ChannelGroupName"
-    TAGS = "Tags"
-    STARTOVER_WINDOW_SECONDS = "StartoverWindowSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mss_manifests": "MssManifests",
         "description": "Description",
@@ -736,12 +706,6 @@ class OriginEndpointPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::OriginEndpointPolicy"
     name_field: ClassVar[str] = "channel_name"
-    POLICY = "Policy"
-    CHANNEL_NAME = "ChannelName"
-    ORIGIN_ENDPOINT_NAME = "OriginEndpointName"
-    CHANNEL_GROUP_NAME = "ChannelGroupName"
-    CDN_AUTH_CONFIGURATION = "CdnAuthConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "channel_name": "ChannelName",

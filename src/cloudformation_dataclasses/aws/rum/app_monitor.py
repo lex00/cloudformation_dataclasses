@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppMonitorConfiguration(PropertyType):
-    METRIC_DESTINATIONS = "MetricDestinations"
-    INCLUDED_PAGES = "IncludedPages"
-    EXCLUDED_PAGES = "ExcludedPages"
-    FAVORITE_PAGES = "FavoritePages"
-    SESSION_SAMPLE_RATE = "SessionSampleRate"
-    ALLOW_COOKIES = "AllowCookies"
-    TELEMETRIES = "Telemetries"
-    IDENTITY_POOL_ID = "IdentityPoolId"
-    GUEST_ROLE_ARN = "GuestRoleArn"
-    ENABLE_X_RAY = "EnableXRay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_destinations": "MetricDestinations",
         "included_pages": "IncludedPages",
@@ -49,8 +38,6 @@ class AppMonitorConfiguration(PropertyType):
 
 @dataclass
 class CustomEvents(PropertyType):
-    STATUS = "Status"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -60,8 +47,6 @@ class CustomEvents(PropertyType):
 
 @dataclass
 class DeobfuscationConfiguration(PropertyType):
-    JAVA_SCRIPT_SOURCE_MAPS = "JavaScriptSourceMaps"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "java_script_source_maps": "JavaScriptSourceMaps",
     }
@@ -71,9 +56,6 @@ class DeobfuscationConfiguration(PropertyType):
 
 @dataclass
 class JavaScriptSourceMaps(PropertyType):
-    STATUS = "Status"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "s3_uri": "S3Uri",
@@ -85,13 +67,6 @@ class JavaScriptSourceMaps(PropertyType):
 
 @dataclass
 class MetricDefinition(PropertyType):
-    EVENT_PATTERN = "EventPattern"
-    VALUE_KEY = "ValueKey"
-    UNIT_LABEL = "UnitLabel"
-    DIMENSION_KEYS = "DimensionKeys"
-    NAMESPACE = "Namespace"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_pattern": "EventPattern",
         "value_key": "ValueKey",
@@ -111,11 +86,6 @@ class MetricDefinition(PropertyType):
 
 @dataclass
 class MetricDestination(PropertyType):
-    DESTINATION = "Destination"
-    IAM_ROLE_ARN = "IamRoleArn"
-    METRIC_DEFINITIONS = "MetricDefinitions"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "iam_role_arn": "IamRoleArn",
@@ -131,9 +101,6 @@ class MetricDestination(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    POLICY_REVISION_ID = "PolicyRevisionId"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_revision_id": "PolicyRevisionId",
         "policy_document": "PolicyDocument",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AIGuardrailContentPolicyConfig(PropertyType):
-    FILTERS_CONFIG = "FiltersConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -22,8 +20,6 @@ class AIGuardrailContentPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailContextualGroundingPolicyConfig(PropertyType):
-    FILTERS_CONFIG = "FiltersConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -33,9 +29,6 @@ class AIGuardrailContextualGroundingPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailSensitiveInformationPolicyConfig(PropertyType):
-    REGEXES_CONFIG = "RegexesConfig"
-    PII_ENTITIES_CONFIG = "PiiEntitiesConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regexes_config": "RegexesConfig",
         "pii_entities_config": "PiiEntitiesConfig",
@@ -47,8 +40,6 @@ class AIGuardrailSensitiveInformationPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailTopicPolicyConfig(PropertyType):
-    TOPICS_CONFIG = "TopicsConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topics_config": "TopicsConfig",
     }
@@ -58,9 +49,6 @@ class AIGuardrailTopicPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailWordPolicyConfig(PropertyType):
-    MANAGED_WORD_LISTS_CONFIG = "ManagedWordListsConfig"
-    WORDS_CONFIG = "WordsConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_word_lists_config": "ManagedWordListsConfig",
         "words_config": "WordsConfig",
@@ -72,10 +60,6 @@ class AIGuardrailWordPolicyConfig(PropertyType):
 
 @dataclass
 class GuardrailContentFilterConfig(PropertyType):
-    OUTPUT_STRENGTH = "OutputStrength"
-    TYPE = "Type"
-    INPUT_STRENGTH = "InputStrength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_strength": "OutputStrength",
         "type_": "Type",
@@ -89,9 +73,6 @@ class GuardrailContentFilterConfig(PropertyType):
 
 @dataclass
 class GuardrailContextualGroundingFilterConfig(PropertyType):
-    TYPE = "Type"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "threshold": "Threshold",
@@ -103,8 +84,6 @@ class GuardrailContextualGroundingFilterConfig(PropertyType):
 
 @dataclass
 class GuardrailManagedWordsConfig(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -114,9 +93,6 @@ class GuardrailManagedWordsConfig(PropertyType):
 
 @dataclass
 class GuardrailPiiEntityConfig(PropertyType):
-    TYPE = "Type"
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -128,11 +104,6 @@ class GuardrailPiiEntityConfig(PropertyType):
 
 @dataclass
 class GuardrailRegexConfig(PropertyType):
-    PATTERN = "Pattern"
-    ACTION = "Action"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "action": "Action",
@@ -148,11 +119,6 @@ class GuardrailRegexConfig(PropertyType):
 
 @dataclass
 class GuardrailTopicConfig(PropertyType):
-    TYPE = "Type"
-    DEFINITION = "Definition"
-    EXAMPLES = "Examples"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "definition": "Definition",
@@ -168,8 +134,6 @@ class GuardrailTopicConfig(PropertyType):
 
 @dataclass
 class GuardrailWordConfig(PropertyType):
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }

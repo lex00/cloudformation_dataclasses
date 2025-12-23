@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:23
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service XRay
@@ -141,11 +141,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::XRay::Group"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    INSIGHTS_CONFIGURATION = "InsightsConfiguration"
-    FILTER_EXPRESSION = "FilterExpression"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "insights_configuration": "InsightsConfiguration",
@@ -171,10 +166,6 @@ class ResourcePolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::XRay::ResourcePolicy"
     name_field: ClassVar[str] = "policy_name"
-    BYPASS_POLICY_LOCKOUT_CHECK = "BypassPolicyLockoutCheck"
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bypass_policy_lockout_check": "BypassPolicyLockoutCheck",
         "policy_name": "PolicyName",
@@ -191,9 +182,6 @@ class SamplingRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-"""
 
     resource_type: ClassVar[str] = "AWS::XRay::SamplingRule"
-    SAMPLING_RULE = "SamplingRule"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sampling_rule": "SamplingRule",
         "tags": "Tags",
@@ -214,8 +202,6 @@ class TransactionSearchConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-"""
 
     resource_type: ClassVar[str] = "AWS::XRay::TransactionSearchConfig"
-    INDEXING_PERCENTAGE = "IndexingPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "indexing_percentage": "IndexingPercentage",
     }

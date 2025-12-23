@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SharingConfig(PropertyType):
-    ENABLED = "enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "enabled",
     }

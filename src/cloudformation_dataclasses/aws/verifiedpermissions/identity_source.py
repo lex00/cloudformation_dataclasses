@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CognitoGroupConfiguration(PropertyType):
-    GROUP_ENTITY_TYPE = "GroupEntityType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_entity_type": "GroupEntityType",
     }
@@ -22,10 +20,6 @@ class CognitoGroupConfiguration(PropertyType):
 
 @dataclass
 class CognitoUserPoolConfiguration(PropertyType):
-    USER_POOL_ARN = "UserPoolArn"
-    GROUP_CONFIGURATION = "GroupConfiguration"
-    CLIENT_IDS = "ClientIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_arn": "UserPoolArn",
         "group_configuration": "GroupConfiguration",
@@ -39,9 +33,6 @@ class CognitoUserPoolConfiguration(PropertyType):
 
 @dataclass
 class IdentitySourceConfiguration(PropertyType):
-    COGNITO_USER_POOL_CONFIGURATION = "CognitoUserPoolConfiguration"
-    OPEN_ID_CONNECT_CONFIGURATION = "OpenIdConnectConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cognito_user_pool_configuration": "CognitoUserPoolConfiguration",
         "open_id_connect_configuration": "OpenIdConnectConfiguration",
@@ -53,9 +44,6 @@ class IdentitySourceConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectAccessTokenConfiguration(PropertyType):
-    AUDIENCES = "Audiences"
-    PRINCIPAL_ID_CLAIM = "PrincipalIdClaim"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audiences": "Audiences",
         "principal_id_claim": "PrincipalIdClaim",
@@ -67,11 +55,6 @@ class OpenIdConnectAccessTokenConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectConfiguration(PropertyType):
-    ISSUER = "Issuer"
-    TOKEN_SELECTION = "TokenSelection"
-    GROUP_CONFIGURATION = "GroupConfiguration"
-    ENTITY_ID_PREFIX = "EntityIdPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "token_selection": "TokenSelection",
@@ -87,9 +70,6 @@ class OpenIdConnectConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectGroupConfiguration(PropertyType):
-    GROUP_ENTITY_TYPE = "GroupEntityType"
-    GROUP_CLAIM = "GroupClaim"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_entity_type": "GroupEntityType",
         "group_claim": "GroupClaim",
@@ -101,9 +81,6 @@ class OpenIdConnectGroupConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectIdentityTokenConfiguration(PropertyType):
-    CLIENT_IDS = "ClientIds"
-    PRINCIPAL_ID_CLAIM = "PrincipalIdClaim"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_ids": "ClientIds",
         "principal_id_claim": "PrincipalIdClaim",
@@ -115,9 +92,6 @@ class OpenIdConnectIdentityTokenConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectTokenSelection(PropertyType):
-    ACCESS_TOKEN_ONLY = "AccessTokenOnly"
-    IDENTITY_TOKEN_ONLY = "IdentityTokenOnly"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_token_only": "AccessTokenOnly",
         "identity_token_only": "IdentityTokenOnly",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Criteria(PropertyType):
-    REGEX = "Regex"
-    S3_WORDS_LIST = "S3WordsList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "s3_words_list": "S3WordsList",
@@ -25,9 +22,6 @@ class Criteria(PropertyType):
 
 @dataclass
 class S3WordsList(PropertyType):
-    BUCKET_NAME = "BucketName"
-    OBJECT_KEY = "ObjectKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key": "ObjectKey",

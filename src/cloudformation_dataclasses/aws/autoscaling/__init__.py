@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScaling
@@ -466,41 +466,6 @@ class AutoScalingGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::AutoScalingGroup"
     name_field: ClassVar[str] = "auto_scaling_group_name"
-    LIFECYCLE_HOOK_SPECIFICATION_LIST = "LifecycleHookSpecificationList"
-    LOAD_BALANCER_NAMES = "LoadBalancerNames"
-    LAUNCH_CONFIGURATION_NAME = "LaunchConfigurationName"
-    SERVICE_LINKED_ROLE_ARN = "ServiceLinkedRoleARN"
-    AVAILABILITY_ZONE_IMPAIRMENT_POLICY = "AvailabilityZoneImpairmentPolicy"
-    TARGET_GROUP_AR_NS = "TargetGroupARNs"
-    COOLDOWN = "Cooldown"
-    NOTIFICATION_CONFIGURATIONS = "NotificationConfigurations"
-    DESIRED_CAPACITY = "DesiredCapacity"
-    HEALTH_CHECK_GRACE_PERIOD = "HealthCheckGracePeriod"
-    DEFAULT_INSTANCE_WARMUP = "DefaultInstanceWarmup"
-    SKIP_ZONAL_SHIFT_VALIDATION = "SkipZonalShiftValidation"
-    NEW_INSTANCES_PROTECTED_FROM_SCALE_IN = "NewInstancesProtectedFromScaleIn"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    MIXED_INSTANCES_POLICY = "MixedInstancesPolicy"
-    VPC_ZONE_IDENTIFIER = "VPCZoneIdentifier"
-    TAGS = "Tags"
-    CONTEXT = "Context"
-    CAPACITY_REBALANCE = "CapacityRebalance"
-    INSTANCE_ID = "InstanceId"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    AVAILABILITY_ZONE_DISTRIBUTION = "AvailabilityZoneDistribution"
-    METRICS_COLLECTION = "MetricsCollection"
-    INSTANCE_MAINTENANCE_POLICY = "InstanceMaintenancePolicy"
-    MAX_SIZE = "MaxSize"
-    MIN_SIZE = "MinSize"
-    TERMINATION_POLICIES = "TerminationPolicies"
-    AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
-    TRAFFIC_SOURCES = "TrafficSources"
-    DESIRED_CAPACITY_TYPE = "DesiredCapacityType"
-    PLACEMENT_GROUP = "PlacementGroup"
-    CAPACITY_RESERVATION_SPECIFICATION = "CapacityReservationSpecification"
-    HEALTH_CHECK_TYPE = "HealthCheckType"
-    MAX_INSTANCE_LIFETIME = "MaxInstanceLifetime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_hook_specification_list": "LifecycleHookSpecificationList",
         "load_balancer_names": "LoadBalancerNames",
@@ -586,26 +551,6 @@ class LaunchConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::LaunchConfiguration"
     name_field: ClassVar[str] = "launch_configuration_name"
-    PLACEMENT_TENANCY = "PlacementTenancy"
-    SECURITY_GROUPS = "SecurityGroups"
-    LAUNCH_CONFIGURATION_NAME = "LaunchConfigurationName"
-    METADATA_OPTIONS = "MetadataOptions"
-    INSTANCE_ID = "InstanceId"
-    USER_DATA = "UserData"
-    CLASSIC_LINK_VPC_SECURITY_GROUPS = "ClassicLinkVPCSecurityGroups"
-    BLOCK_DEVICE_MAPPINGS = "BlockDeviceMappings"
-    IAM_INSTANCE_PROFILE = "IamInstanceProfile"
-    KERNEL_ID = "KernelId"
-    ASSOCIATE_PUBLIC_IP_ADDRESS = "AssociatePublicIpAddress"
-    CLASSIC_LINK_VPC_ID = "ClassicLinkVPCId"
-    EBS_OPTIMIZED = "EbsOptimized"
-    KEY_NAME = "KeyName"
-    SPOT_PRICE = "SpotPrice"
-    IMAGE_ID = "ImageId"
-    INSTANCE_TYPE = "InstanceType"
-    RAM_DISK_ID = "RamDiskId"
-    INSTANCE_MONITORING = "InstanceMonitoring"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "placement_tenancy": "PlacementTenancy",
         "security_groups": "SecurityGroups",
@@ -655,15 +600,6 @@ class LifecycleHook(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::LifecycleHook"
     name_field: ClassVar[str] = "lifecycle_hook_name"
-    LIFECYCLE_HOOK_NAME = "LifecycleHookName"
-    LIFECYCLE_TRANSITION = "LifecycleTransition"
-    AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
-    HEARTBEAT_TIMEOUT = "HeartbeatTimeout"
-    NOTIFICATION_METADATA = "NotificationMetadata"
-    DEFAULT_RESULT = "DefaultResult"
-    NOTIFICATION_TARGET_ARN = "NotificationTargetARN"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_hook_name": "LifecycleHookName",
         "lifecycle_transition": "LifecycleTransition",
@@ -691,18 +627,6 @@ class ScalingPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::ScalingPolicy"
     name_field: ClassVar[str] = "auto_scaling_group_name"
-    METRIC_AGGREGATION_TYPE = "MetricAggregationType"
-    POLICY_TYPE = "PolicyType"
-    PREDICTIVE_SCALING_CONFIGURATION = "PredictiveScalingConfiguration"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-    COOLDOWN = "Cooldown"
-    STEP_ADJUSTMENTS = "StepAdjustments"
-    AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
-    MIN_ADJUSTMENT_MAGNITUDE = "MinAdjustmentMagnitude"
-    TARGET_TRACKING_CONFIGURATION = "TargetTrackingConfiguration"
-    ESTIMATED_INSTANCE_WARMUP = "EstimatedInstanceWarmup"
-    ADJUSTMENT_TYPE = "AdjustmentType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_aggregation_type": "MetricAggregationType",
         "policy_type": "PolicyType",
@@ -747,15 +671,6 @@ class ScheduledAction(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::ScheduledAction"
     name_field: ClassVar[str] = "auto_scaling_group_name"
-    MIN_SIZE = "MinSize"
-    RECURRENCE = "Recurrence"
-    TIME_ZONE = "TimeZone"
-    END_TIME = "EndTime"
-    AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
-    START_TIME = "StartTime"
-    DESIRED_CAPACITY = "DesiredCapacity"
-    MAX_SIZE = "MaxSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "recurrence": "Recurrence",
@@ -789,12 +704,6 @@ class WarmPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::WarmPool"
     name_field: ClassVar[str] = "auto_scaling_group_name"
-    MIN_SIZE = "MinSize"
-    MAX_GROUP_PREPARED_CAPACITY = "MaxGroupPreparedCapacity"
-    AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
-    POOL_STATE = "PoolState"
-    INSTANCE_REUSE_POLICY = "InstanceReusePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "max_group_prepared_capacity": "MaxGroupPreparedCapacity",

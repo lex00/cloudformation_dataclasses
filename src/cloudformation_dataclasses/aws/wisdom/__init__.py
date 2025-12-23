@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Wisdom
@@ -267,13 +267,6 @@ class AIAgent(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIAgent"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    ASSISTANT_ID = "AssistantId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -317,10 +310,6 @@ class AIAgentVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIAgentVersion"
-    ASSISTANT_ID = "AssistantId"
-    AI_AGENT_ID = "AIAgentId"
-    MODIFIED_TIME_SECONDS = "ModifiedTimeSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assistant_id": "AssistantId",
         "ai_agent_id": "AIAgentId",
@@ -359,18 +348,6 @@ class AIGuardrail(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIGuardrail"
     name_field: ClassVar[str] = "name"
-    TOPIC_POLICY_CONFIG = "TopicPolicyConfig"
-    DESCRIPTION = "Description"
-    WORD_POLICY_CONFIG = "WordPolicyConfig"
-    CONTEXTUAL_GROUNDING_POLICY_CONFIG = "ContextualGroundingPolicyConfig"
-    BLOCKED_INPUT_MESSAGING = "BlockedInputMessaging"
-    ASSISTANT_ID = "AssistantId"
-    BLOCKED_OUTPUTS_MESSAGING = "BlockedOutputsMessaging"
-    SENSITIVE_INFORMATION_POLICY_CONFIG = "SensitiveInformationPolicyConfig"
-    CONTENT_POLICY_CONFIG = "ContentPolicyConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_policy_config": "TopicPolicyConfig",
         "description": "Description",
@@ -419,10 +396,6 @@ class AIGuardrailVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIGuardrailVersion"
-    AI_GUARDRAIL_ID = "AIGuardrailId"
-    ASSISTANT_ID = "AssistantId"
-    MODIFIED_TIME_SECONDS = "ModifiedTimeSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ai_guardrail_id": "AIGuardrailId",
         "assistant_id": "AssistantId",
@@ -461,16 +434,6 @@ class AIPrompt(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIPrompt"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    API_FORMAT = "ApiFormat"
-    ASSISTANT_ID = "AssistantId"
-    TEMPLATE_CONFIGURATION = "TemplateConfiguration"
-    TEMPLATE_TYPE = "TemplateType"
-    MODEL_ID = "ModelId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -520,10 +483,6 @@ class AIPromptVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIPromptVersion"
-    ASSISTANT_ID = "AssistantId"
-    MODIFIED_TIME_SECONDS = "ModifiedTimeSeconds"
-    AI_PROMPT_ID = "AIPromptId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assistant_id": "AssistantId",
         "modified_time_seconds": "ModifiedTimeSeconds",
@@ -562,12 +521,6 @@ class Assistant(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::Assistant"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -599,11 +552,6 @@ class AssistantAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AssistantAssociation"
-    ASSOCIATION = "Association"
-    ASSOCIATION_TYPE = "AssociationType"
-    ASSISTANT_ID = "AssistantId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association": "Association",
         "association_type": "AssociationType",
@@ -639,15 +587,6 @@ class KnowledgeBase(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::KnowledgeBase"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KNOWLEDGE_BASE_TYPE = "KnowledgeBaseType"
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-    VECTOR_INGESTION_CONFIGURATION = "VectorIngestionConfiguration"
-    RENDERING_CONFIGURATION = "RenderingConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "knowledge_base_type": "KnowledgeBaseType",
@@ -686,17 +625,6 @@ class MessageTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::MessageTemplate"
     name_field: ClassVar[str] = "name"
-    MESSAGE_TEMPLATE_ATTACHMENTS = "MessageTemplateAttachments"
-    DESCRIPTION = "Description"
-    LANGUAGE = "Language"
-    CONTENT = "Content"
-    GROUPING_CONFIGURATION = "GroupingConfiguration"
-    KNOWLEDGE_BASE_ARN = "KnowledgeBaseArn"
-    CHANNEL_SUBTYPE = "ChannelSubtype"
-    DEFAULT_ATTRIBUTES = "DefaultAttributes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_template_attachments": "MessageTemplateAttachments",
         "description": "Description",
@@ -743,9 +671,6 @@ class MessageTemplateVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::MessageTemplateVersion"
-    MESSAGE_TEMPLATE_ARN = "MessageTemplateArn"
-    MESSAGE_TEMPLATE_CONTENT_SHA256 = "MessageTemplateContentSha256"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_template_arn": "MessageTemplateArn",
         "message_template_content_sha256": "MessageTemplateContentSha256",
@@ -772,18 +697,6 @@ class QuickResponse(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Wisdom::QuickResponse"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONTENT_TYPE = "ContentType"
-    LANGUAGE = "Language"
-    IS_ACTIVE = "IsActive"
-    CONTENT = "Content"
-    GROUPING_CONFIGURATION = "GroupingConfiguration"
-    KNOWLEDGE_BASE_ARN = "KnowledgeBaseArn"
-    CHANNELS = "Channels"
-    SHORTCUT_KEY = "ShortcutKey"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "content_type": "ContentType",

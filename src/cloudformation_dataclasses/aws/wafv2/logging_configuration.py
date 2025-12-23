@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionCondition(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -22,9 +20,6 @@ class ActionCondition(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    LABEL_NAME_CONDITION = "LabelNameCondition"
-    ACTION_CONDITION = "ActionCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name_condition": "LabelNameCondition",
         "action_condition": "ActionCondition",
@@ -36,11 +31,6 @@ class Condition(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    QUERY_STRING = "QueryString"
-    URI_PATH = "UriPath"
-    METHOD = "Method"
-    SINGLE_HEADER = "SingleHeader"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_string": "QueryString",
         "uri_path": "UriPath",
@@ -56,10 +46,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    REQUIREMENT = "Requirement"
-    BEHAVIOR = "Behavior"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "behavior": "Behavior",
@@ -73,8 +59,6 @@ class Filter(PropertyType):
 
 @dataclass
 class LabelNameCondition(PropertyType):
-    LABEL_NAME = "LabelName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name": "LabelName",
     }
@@ -84,9 +68,6 @@ class LabelNameCondition(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    FILTERS = "Filters"
-    DEFAULT_BEHAVIOR = "DefaultBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "default_behavior": "DefaultBehavior",
@@ -98,8 +79,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }

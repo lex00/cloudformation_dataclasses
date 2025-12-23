@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class And(PropertyType):
-    MATCH_OBJECT_AGE = "MatchObjectAge"
-    MATCH_ANY_PREFIX = "MatchAnyPrefix"
-    MATCH_ANY_TAG = "MatchAnyTag"
-    MATCH_ANY_SUFFIX = "MatchAnySuffix"
-    MATCH_OBJECT_SIZE = "MatchObjectSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "match_any_prefix": "MatchAnyPrefix",
@@ -34,14 +28,6 @@ class And(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    MATCH_OBJECT_AGE = "MatchObjectAge"
-    OR = "Or"
-    AND = "And"
-    MATCH_ANY_PREFIX = "MatchAnyPrefix"
-    MATCH_ANY_TAG = "MatchAnyTag"
-    MATCH_ANY_SUFFIX = "MatchAnySuffix"
-    MATCH_OBJECT_SIZE = "MatchObjectSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "or_": "Or",
@@ -63,9 +49,6 @@ class Filter(PropertyType):
 
 @dataclass
 class MatchObjectAge(PropertyType):
-    DAYS_LESS_THAN = "DaysLessThan"
-    DAYS_GREATER_THAN = "DaysGreaterThan"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_less_than": "DaysLessThan",
         "days_greater_than": "DaysGreaterThan",
@@ -77,9 +60,6 @@ class MatchObjectAge(PropertyType):
 
 @dataclass
 class MatchObjectSize(PropertyType):
-    BYTES_LESS_THAN = "BytesLessThan"
-    BYTES_GREATER_THAN = "BytesGreaterThan"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bytes_less_than": "BytesLessThan",
         "bytes_greater_than": "BytesGreaterThan",
@@ -91,12 +71,6 @@ class MatchObjectSize(PropertyType):
 
 @dataclass
 class Or(PropertyType):
-    MATCH_OBJECT_AGE = "MatchObjectAge"
-    MATCH_ANY_PREFIX = "MatchAnyPrefix"
-    MATCH_ANY_TAG = "MatchAnyTag"
-    MATCH_ANY_SUFFIX = "MatchAnySuffix"
-    MATCH_OBJECT_SIZE = "MatchObjectSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "match_any_prefix": "MatchAnyPrefix",

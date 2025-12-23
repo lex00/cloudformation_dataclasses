@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DefaultAction(PropertyType):
-    FORWARD = "Forward"
-    FIXED_RESPONSE = "FixedResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward": "Forward",
         "fixed_response": "FixedResponse",
@@ -25,8 +22,6 @@ class DefaultAction(PropertyType):
 
 @dataclass
 class FixedResponse(PropertyType):
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_code": "StatusCode",
     }
@@ -36,8 +31,6 @@ class FixedResponse(PropertyType):
 
 @dataclass
 class Forward(PropertyType):
-    TARGET_GROUPS = "TargetGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_groups": "TargetGroups",
     }
@@ -47,9 +40,6 @@ class Forward(PropertyType):
 
 @dataclass
 class WeightedTargetGroup(PropertyType):
-    WEIGHT = "Weight"
-    TARGET_GROUP_IDENTIFIER = "TargetGroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight": "Weight",
         "target_group_identifier": "TargetGroupIdentifier",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FileConfiguration(PropertyType):
-    FILTERS = "Filters"
-    FOLDERS = "Folders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "folders": "Folders",
@@ -25,10 +22,6 @@ class FileConfiguration(PropertyType):
 
 @dataclass
 class ScheduleConfig(PropertyType):
-    FIRST_EXECUTION_FROM = "FirstExecutionFrom"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    OBJECT = "Object"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "first_execution_from": "FirstExecutionFrom",
         "schedule_expression": "ScheduleExpression",

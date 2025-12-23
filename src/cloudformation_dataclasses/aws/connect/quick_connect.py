@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PhoneNumberQuickConnectConfig(PropertyType):
-    PHONE_NUMBER = "PhoneNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "phone_number": "PhoneNumber",
     }
@@ -22,9 +20,6 @@ class PhoneNumberQuickConnectConfig(PropertyType):
 
 @dataclass
 class QueueQuickConnectConfig(PropertyType):
-    CONTACT_FLOW_ARN = "ContactFlowArn"
-    QUEUE_ARN = "QueueArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_flow_arn": "ContactFlowArn",
         "queue_arn": "QueueArn",
@@ -36,11 +31,6 @@ class QueueQuickConnectConfig(PropertyType):
 
 @dataclass
 class QuickConnectConfig(PropertyType):
-    QUEUE_CONFIG = "QueueConfig"
-    PHONE_CONFIG = "PhoneConfig"
-    QUICK_CONNECT_TYPE = "QuickConnectType"
-    USER_CONFIG = "UserConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_config": "QueueConfig",
         "phone_config": "PhoneConfig",
@@ -56,9 +46,6 @@ class QuickConnectConfig(PropertyType):
 
 @dataclass
 class UserQuickConnectConfig(PropertyType):
-    USER_ARN = "UserArn"
-    CONTACT_FLOW_ARN = "ContactFlowArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_arn": "UserArn",
         "contact_flow_arn": "ContactFlowArn",

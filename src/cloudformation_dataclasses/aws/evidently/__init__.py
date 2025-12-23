@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Evidently
@@ -229,19 +229,6 @@ class Experiment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Evidently::Experiment"
     name_field: ClassVar[str] = "name"
-    PROJECT = "Project"
-    RUNNING_STATUS = "RunningStatus"
-    DESCRIPTION = "Description"
-    METRIC_GOALS = "MetricGoals"
-    ONLINE_AB_CONFIG = "OnlineAbConfig"
-    REMOVE_SEGMENT = "RemoveSegment"
-    RANDOMIZATION_SALT = "RandomizationSalt"
-    TREATMENTS = "Treatments"
-    SAMPLING_RATE = "SamplingRate"
-    SEGMENT = "Segment"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project": "Project",
         "running_status": "RunningStatus",
@@ -283,15 +270,6 @@ class Feature(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Evidently::Feature"
     name_field: ClassVar[str] = "name"
-    PROJECT = "Project"
-    DESCRIPTION = "Description"
-    EVALUATION_STRATEGY = "EvaluationStrategy"
-    DEFAULT_VARIATION = "DefaultVariation"
-    ENTITY_OVERRIDES = "EntityOverrides"
-    VARIATIONS = "Variations"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project": "Project",
         "description": "Description",
@@ -325,16 +303,6 @@ class Launch(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Evidently::Launch"
     name_field: ClassVar[str] = "name"
-    PROJECT = "Project"
-    DESCRIPTION = "Description"
-    EXECUTION_STATUS = "ExecutionStatus"
-    GROUPS = "Groups"
-    RANDOMIZATION_SALT = "RandomizationSalt"
-    METRIC_MONITORS = "MetricMonitors"
-    SCHEDULED_SPLITS_CONFIG = "ScheduledSplitsConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project": "Project",
         "description": "Description",
@@ -370,12 +338,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Evidently::Project"
     name_field: ClassVar[str] = "name"
-    DATA_DELIVERY = "DataDelivery"
-    DESCRIPTION = "Description"
-    APP_CONFIG_RESOURCE = "AppConfigResource"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_delivery": "DataDelivery",
         "description": "Description",
@@ -403,11 +365,6 @@ class Segment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Evidently::Segment"
     name_field: ClassVar[str] = "name"
-    PATTERN = "Pattern"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "description": "Description",

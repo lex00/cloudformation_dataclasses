@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GenerateSecretString(PropertyType):
-    EXCLUDE_UPPERCASE = "ExcludeUppercase"
-    REQUIRE_EACH_INCLUDED_TYPE = "RequireEachIncludedType"
-    INCLUDE_SPACE = "IncludeSpace"
-    EXCLUDE_CHARACTERS = "ExcludeCharacters"
-    GENERATE_STRING_KEY = "GenerateStringKey"
-    PASSWORD_LENGTH = "PasswordLength"
-    EXCLUDE_PUNCTUATION = "ExcludePunctuation"
-    EXCLUDE_LOWERCASE = "ExcludeLowercase"
-    SECRET_STRING_TEMPLATE = "SecretStringTemplate"
-    EXCLUDE_NUMBERS = "ExcludeNumbers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_uppercase": "ExcludeUppercase",
         "require_each_included_type": "RequireEachIncludedType",
@@ -49,9 +38,6 @@ class GenerateSecretString(PropertyType):
 
 @dataclass
 class ReplicaRegion(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "region": "Region",

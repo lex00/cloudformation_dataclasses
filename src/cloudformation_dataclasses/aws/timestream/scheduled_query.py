@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DimensionMapping(PropertyType):
-    DIMENSION_VALUE_TYPE = "DimensionValueType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_type": "DimensionValueType",
         "name": "Name",
@@ -25,8 +22,6 @@ class DimensionMapping(PropertyType):
 
 @dataclass
 class ErrorReportConfiguration(PropertyType):
-    S3_CONFIGURATION = "S3Configuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -36,12 +31,6 @@ class ErrorReportConfiguration(PropertyType):
 
 @dataclass
 class MixedMeasureMapping(PropertyType):
-    MEASURE_NAME = "MeasureName"
-    SOURCE_COLUMN = "SourceColumn"
-    TARGET_MEASURE_NAME = "TargetMeasureName"
-    MEASURE_VALUE_TYPE = "MeasureValueType"
-    MULTI_MEASURE_ATTRIBUTE_MAPPINGS = "MultiMeasureAttributeMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_name": "MeasureName",
         "source_column": "SourceColumn",
@@ -59,10 +48,6 @@ class MixedMeasureMapping(PropertyType):
 
 @dataclass
 class MultiMeasureAttributeMapping(PropertyType):
-    SOURCE_COLUMN = "SourceColumn"
-    TARGET_MULTI_MEASURE_ATTRIBUTE_NAME = "TargetMultiMeasureAttributeName"
-    MEASURE_VALUE_TYPE = "MeasureValueType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_column": "SourceColumn",
         "target_multi_measure_attribute_name": "TargetMultiMeasureAttributeName",
@@ -76,9 +61,6 @@ class MultiMeasureAttributeMapping(PropertyType):
 
 @dataclass
 class MultiMeasureMappings(PropertyType):
-    TARGET_MULTI_MEASURE_NAME = "TargetMultiMeasureName"
-    MULTI_MEASURE_ATTRIBUTE_MAPPINGS = "MultiMeasureAttributeMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_multi_measure_name": "TargetMultiMeasureName",
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
@@ -90,8 +72,6 @@ class MultiMeasureMappings(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    SNS_CONFIGURATION = "SnsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_configuration": "SnsConfiguration",
     }
@@ -101,10 +81,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-    OBJECT_KEY_PREFIX = "ObjectKeyPrefix"
-    ENCRYPTION_OPTION = "EncryptionOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key_prefix": "ObjectKeyPrefix",
@@ -118,8 +94,6 @@ class S3Configuration(PropertyType):
 
 @dataclass
 class ScheduleConfiguration(PropertyType):
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -129,8 +103,6 @@ class ScheduleConfiguration(PropertyType):
 
 @dataclass
 class SnsConfiguration(PropertyType):
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -140,8 +112,6 @@ class SnsConfiguration(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    TIMESTREAM_CONFIGURATION = "TimestreamConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timestream_configuration": "TimestreamConfiguration",
     }
@@ -151,14 +121,6 @@ class TargetConfiguration(PropertyType):
 
 @dataclass
 class TimestreamConfiguration(PropertyType):
-    TIME_COLUMN = "TimeColumn"
-    TABLE_NAME = "TableName"
-    DIMENSION_MAPPINGS = "DimensionMappings"
-    MIXED_MEASURE_MAPPINGS = "MixedMeasureMappings"
-    MEASURE_NAME_COLUMN = "MeasureNameColumn"
-    DATABASE_NAME = "DatabaseName"
-    MULTI_MEASURE_MAPPINGS = "MultiMeasureMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_column": "TimeColumn",
         "table_name": "TableName",

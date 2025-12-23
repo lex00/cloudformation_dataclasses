@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceExplorer2
@@ -34,8 +34,6 @@ class DefaultViewAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::DefaultViewAssociation"
-    VIEW_ARN = "ViewArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "view_arn": "ViewArn",
     }
@@ -54,9 +52,6 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::Index"
-    TYPE = "Type"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "tags": "Tags",
@@ -83,12 +78,6 @@ class View(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::View"
     name_field: ClassVar[str] = "view_name"
-    FILTERS = "Filters"
-    SCOPE = "Scope"
-    INCLUDED_PROPERTIES = "IncludedProperties"
-    TAGS = "Tags"
-    VIEW_NAME = "ViewName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "scope": "Scope",

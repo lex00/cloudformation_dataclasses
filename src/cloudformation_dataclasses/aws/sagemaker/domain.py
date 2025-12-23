@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppLifecycleManagement(PropertyType):
-    IDLE_SETTINGS = "IdleSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_settings": "IdleSettings",
     }
@@ -22,12 +20,6 @@ class AppLifecycleManagement(PropertyType):
 
 @dataclass
 class CodeEditorAppSettings(PropertyType):
-    CUSTOM_IMAGES = "CustomImages"
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-    LIFECYCLE_CONFIG_ARNS = "LifecycleConfigArns"
-    BUILT_IN_LIFECYCLE_CONFIG_ARN = "BuiltInLifecycleConfigArn"
-    APP_LIFECYCLE_MANAGEMENT = "AppLifecycleManagement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -45,8 +37,6 @@ class CodeEditorAppSettings(PropertyType):
 
 @dataclass
 class CodeRepository(PropertyType):
-    REPOSITORY_URL = "RepositoryUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_url": "RepositoryUrl",
     }
@@ -56,10 +46,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class CustomFileSystemConfig(PropertyType):
-    EFS_FILE_SYSTEM_CONFIG = "EFSFileSystemConfig"
-    S3_FILE_SYSTEM_CONFIG = "S3FileSystemConfig"
-    F_SX_LUSTRE_FILE_SYSTEM_CONFIG = "FSxLustreFileSystemConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_file_system_config": "EFSFileSystemConfig",
         "s3_file_system_config": "S3FileSystemConfig",
@@ -73,10 +59,6 @@ class CustomFileSystemConfig(PropertyType):
 
 @dataclass
 class CustomImage(PropertyType):
-    IMAGE_NAME = "ImageName"
-    APP_IMAGE_CONFIG_NAME = "AppImageConfigName"
-    IMAGE_VERSION_NUMBER = "ImageVersionNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "app_image_config_name": "AppImageConfigName",
@@ -90,9 +72,6 @@ class CustomImage(PropertyType):
 
 @dataclass
 class CustomPosixUserConfig(PropertyType):
-    UID = "Uid"
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",
@@ -104,9 +83,6 @@ class CustomPosixUserConfig(PropertyType):
 
 @dataclass
 class DefaultEbsStorageSettings(PropertyType):
-    MAXIMUM_EBS_VOLUME_SIZE_IN_GB = "MaximumEbsVolumeSizeInGb"
-    DEFAULT_EBS_VOLUME_SIZE_IN_GB = "DefaultEbsVolumeSizeInGb"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_ebs_volume_size_in_gb": "MaximumEbsVolumeSizeInGb",
         "default_ebs_volume_size_in_gb": "DefaultEbsVolumeSizeInGb",
@@ -118,15 +94,6 @@ class DefaultEbsStorageSettings(PropertyType):
 
 @dataclass
 class DefaultSpaceSettings(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    JUPYTER_LAB_APP_SETTINGS = "JupyterLabAppSettings"
-    KERNEL_GATEWAY_APP_SETTINGS = "KernelGatewayAppSettings"
-    JUPYTER_SERVER_APP_SETTINGS = "JupyterServerAppSettings"
-    CUSTOM_FILE_SYSTEM_CONFIGS = "CustomFileSystemConfigs"
-    EXECUTION_ROLE = "ExecutionRole"
-    SPACE_STORAGE_SETTINGS = "SpaceStorageSettings"
-    CUSTOM_POSIX_USER_CONFIG = "CustomPosixUserConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "jupyter_lab_app_settings": "JupyterLabAppSettings",
@@ -150,8 +117,6 @@ class DefaultSpaceSettings(PropertyType):
 
 @dataclass
 class DefaultSpaceStorageSettings(PropertyType):
-    DEFAULT_EBS_STORAGE_SETTINGS = "DefaultEbsStorageSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_ebs_storage_settings": "DefaultEbsStorageSettings",
     }
@@ -161,9 +126,6 @@ class DefaultSpaceStorageSettings(PropertyType):
 
 @dataclass
 class DockerSettings(PropertyType):
-    VPC_ONLY_TRUSTED_ACCOUNTS = "VpcOnlyTrustedAccounts"
-    ENABLE_DOCKER_ACCESS = "EnableDockerAccess"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_only_trusted_accounts": "VpcOnlyTrustedAccounts",
         "enable_docker_access": "EnableDockerAccess",
@@ -175,13 +137,6 @@ class DockerSettings(PropertyType):
 
 @dataclass
 class DomainSettings(PropertyType):
-    DOCKER_SETTINGS = "DockerSettings"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    EXECUTION_ROLE_IDENTITY_CONFIG = "ExecutionRoleIdentityConfig"
-    UNIFIED_STUDIO_SETTINGS = "UnifiedStudioSettings"
-    R_STUDIO_SERVER_PRO_DOMAIN_SETTINGS = "RStudioServerProDomainSettings"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "docker_settings": "DockerSettings",
         "ip_address_type": "IpAddressType",
@@ -201,9 +156,6 @@ class DomainSettings(PropertyType):
 
 @dataclass
 class EFSFileSystemConfig(PropertyType):
-    FILE_SYSTEM_PATH = "FileSystemPath"
-    FILE_SYSTEM_ID = "FileSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -215,9 +167,6 @@ class EFSFileSystemConfig(PropertyType):
 
 @dataclass
 class FSxLustreFileSystemConfig(PropertyType):
-    FILE_SYSTEM_PATH = "FileSystemPath"
-    FILE_SYSTEM_ID = "FileSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -229,9 +178,6 @@ class FSxLustreFileSystemConfig(PropertyType):
 
 @dataclass
 class HiddenSageMakerImage(PropertyType):
-    SAGE_MAKER_IMAGE_NAME = "SageMakerImageName"
-    VERSION_ALIASES = "VersionAliases"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sage_maker_image_name": "SageMakerImageName",
         "version_aliases": "VersionAliases",
@@ -243,11 +189,6 @@ class HiddenSageMakerImage(PropertyType):
 
 @dataclass
 class IdleSettings(PropertyType):
-    MAX_IDLE_TIMEOUT_IN_MINUTES = "MaxIdleTimeoutInMinutes"
-    IDLE_TIMEOUT_IN_MINUTES = "IdleTimeoutInMinutes"
-    MIN_IDLE_TIMEOUT_IN_MINUTES = "MinIdleTimeoutInMinutes"
-    LIFECYCLE_MANAGEMENT = "LifecycleManagement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_idle_timeout_in_minutes": "MaxIdleTimeoutInMinutes",
         "idle_timeout_in_minutes": "IdleTimeoutInMinutes",
@@ -263,13 +204,6 @@ class IdleSettings(PropertyType):
 
 @dataclass
 class JupyterLabAppSettings(PropertyType):
-    CUSTOM_IMAGES = "CustomImages"
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-    LIFECYCLE_CONFIG_ARNS = "LifecycleConfigArns"
-    BUILT_IN_LIFECYCLE_CONFIG_ARN = "BuiltInLifecycleConfigArn"
-    CODE_REPOSITORIES = "CodeRepositories"
-    APP_LIFECYCLE_MANAGEMENT = "AppLifecycleManagement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -289,9 +223,6 @@ class JupyterLabAppSettings(PropertyType):
 
 @dataclass
 class JupyterServerAppSettings(PropertyType):
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-    LIFECYCLE_CONFIG_ARNS = "LifecycleConfigArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "lifecycle_config_arns": "LifecycleConfigArns",
@@ -303,10 +234,6 @@ class JupyterServerAppSettings(PropertyType):
 
 @dataclass
 class KernelGatewayAppSettings(PropertyType):
-    CUSTOM_IMAGES = "CustomImages"
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-    LIFECYCLE_CONFIG_ARNS = "LifecycleConfigArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -320,9 +247,6 @@ class KernelGatewayAppSettings(PropertyType):
 
 @dataclass
 class RSessionAppSettings(PropertyType):
-    CUSTOM_IMAGES = "CustomImages"
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -334,9 +258,6 @@ class RSessionAppSettings(PropertyType):
 
 @dataclass
 class RStudioServerProAppSettings(PropertyType):
-    ACCESS_STATUS = "AccessStatus"
-    USER_GROUP = "UserGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_status": "AccessStatus",
         "user_group": "UserGroup",
@@ -348,11 +269,6 @@ class RStudioServerProAppSettings(PropertyType):
 
 @dataclass
 class RStudioServerProDomainSettings(PropertyType):
-    DOMAIN_EXECUTION_ROLE_ARN = "DomainExecutionRoleArn"
-    R_STUDIO_CONNECT_URL = "RStudioConnectUrl"
-    DEFAULT_RESOURCE_SPEC = "DefaultResourceSpec"
-    R_STUDIO_PACKAGE_MANAGER_URL = "RStudioPackageManagerUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_execution_role_arn": "DomainExecutionRoleArn",
         "r_studio_connect_url": "RStudioConnectUrl",
@@ -368,11 +284,6 @@ class RStudioServerProDomainSettings(PropertyType):
 
 @dataclass
 class ResourceSpec(PropertyType):
-    SAGE_MAKER_IMAGE_ARN = "SageMakerImageArn"
-    INSTANCE_TYPE = "InstanceType"
-    LIFECYCLE_CONFIG_ARN = "LifecycleConfigArn"
-    SAGE_MAKER_IMAGE_VERSION_ARN = "SageMakerImageVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sage_maker_image_arn": "SageMakerImageArn",
         "instance_type": "InstanceType",
@@ -388,9 +299,6 @@ class ResourceSpec(PropertyType):
 
 @dataclass
 class S3FileSystemConfig(PropertyType):
-    MOUNT_PATH = "MountPath"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "s3_uri": "S3Uri",
@@ -402,10 +310,6 @@ class S3FileSystemConfig(PropertyType):
 
 @dataclass
 class SharingSettings(PropertyType):
-    NOTEBOOK_OUTPUT_OPTION = "NotebookOutputOption"
-    S3_KMS_KEY_ID = "S3KmsKeyId"
-    S3_OUTPUT_PATH = "S3OutputPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notebook_output_option": "NotebookOutputOption",
         "s3_kms_key_id": "S3KmsKeyId",
@@ -419,11 +323,6 @@ class SharingSettings(PropertyType):
 
 @dataclass
 class StudioWebPortalSettings(PropertyType):
-    HIDDEN_SAGE_MAKER_IMAGE_VERSION_ALIASES = "HiddenSageMakerImageVersionAliases"
-    HIDDEN_APP_TYPES = "HiddenAppTypes"
-    HIDDEN_INSTANCE_TYPES = "HiddenInstanceTypes"
-    HIDDEN_ML_TOOLS = "HiddenMlTools"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hidden_sage_maker_image_version_aliases": "HiddenSageMakerImageVersionAliases",
         "hidden_app_types": "HiddenAppTypes",
@@ -439,14 +338,6 @@ class StudioWebPortalSettings(PropertyType):
 
 @dataclass
 class UnifiedStudioSettings(PropertyType):
-    ENVIRONMENT_ID = "EnvironmentId"
-    DOMAIN_ID = "DomainId"
-    PROJECT_S3_PATH = "ProjectS3Path"
-    DOMAIN_ACCOUNT_ID = "DomainAccountId"
-    PROJECT_ID = "ProjectId"
-    DOMAIN_REGION = "DomainRegion"
-    STUDIO_WEB_PORTAL_ACCESS = "StudioWebPortalAccess"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "domain_id": "DomainId",
@@ -468,23 +359,6 @@ class UnifiedStudioSettings(PropertyType):
 
 @dataclass
 class UserSettings(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    JUPYTER_LAB_APP_SETTINGS = "JupyterLabAppSettings"
-    KERNEL_GATEWAY_APP_SETTINGS = "KernelGatewayAppSettings"
-    STUDIO_WEB_PORTAL_SETTINGS = "StudioWebPortalSettings"
-    CUSTOM_FILE_SYSTEM_CONFIGS = "CustomFileSystemConfigs"
-    CUSTOM_POSIX_USER_CONFIG = "CustomPosixUserConfig"
-    CODE_EDITOR_APP_SETTINGS = "CodeEditorAppSettings"
-    R_STUDIO_SERVER_PRO_APP_SETTINGS = "RStudioServerProAppSettings"
-    STUDIO_WEB_PORTAL = "StudioWebPortal"
-    R_SESSION_APP_SETTINGS = "RSessionAppSettings"
-    JUPYTER_SERVER_APP_SETTINGS = "JupyterServerAppSettings"
-    AUTO_MOUNT_HOME_EFS = "AutoMountHomeEFS"
-    DEFAULT_LANDING_URI = "DefaultLandingUri"
-    EXECUTION_ROLE = "ExecutionRole"
-    SPACE_STORAGE_SETTINGS = "SpaceStorageSettings"
-    SHARING_SETTINGS = "SharingSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "jupyter_lab_app_settings": "JupyterLabAppSettings",

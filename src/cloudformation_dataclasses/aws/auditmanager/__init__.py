@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AuditManager
@@ -380,17 +380,6 @@ class Assessment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AuditManager::Assessment"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    ASSESSMENT_REPORTS_DESTINATION = "AssessmentReportsDestination"
-    DELEGATIONS = "Delegations"
-    DESCRIPTION = "Description"
-    SCOPE = "Scope"
-    AWS_ACCOUNT = "AwsAccount"
-    ROLES = "Roles"
-    FRAMEWORK_ID = "FrameworkId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "assessment_reports_destination": "AssessmentReportsDestination",

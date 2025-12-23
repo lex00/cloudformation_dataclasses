@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CentralizationRule(PropertyType):
-    DESTINATION = "Destination"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -25,10 +22,6 @@ class CentralizationRule(PropertyType):
 
 @dataclass
 class CentralizationRuleDestination(PropertyType):
-    ACCOUNT = "Account"
-    DESTINATION_LOGS_CONFIGURATION = "DestinationLogsConfiguration"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account": "Account",
         "destination_logs_configuration": "DestinationLogsConfiguration",
@@ -42,10 +35,6 @@ class CentralizationRuleDestination(PropertyType):
 
 @dataclass
 class CentralizationRuleSource(PropertyType):
-    SCOPE = "Scope"
-    SOURCE_LOGS_CONFIGURATION = "SourceLogsConfiguration"
-    REGIONS = "Regions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "source_logs_configuration": "SourceLogsConfiguration",
@@ -59,9 +48,6 @@ class CentralizationRuleSource(PropertyType):
 
 @dataclass
 class DestinationLogsConfiguration(PropertyType):
-    LOGS_ENCRYPTION_CONFIGURATION = "LogsEncryptionConfiguration"
-    BACKUP_CONFIGURATION = "BackupConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logs_encryption_configuration": "LogsEncryptionConfiguration",
         "backup_configuration": "BackupConfiguration",
@@ -73,9 +59,6 @@ class DestinationLogsConfiguration(PropertyType):
 
 @dataclass
 class LogsBackupConfiguration(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "region": "Region",
@@ -87,10 +70,6 @@ class LogsBackupConfiguration(PropertyType):
 
 @dataclass
 class LogsEncryptionConfiguration(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    ENCRYPTION_STRATEGY = "EncryptionStrategy"
-    ENCRYPTION_CONFLICT_RESOLUTION_STRATEGY = "EncryptionConflictResolutionStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "encryption_strategy": "EncryptionStrategy",
@@ -104,9 +83,6 @@ class LogsEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SourceLogsConfiguration(PropertyType):
-    ENCRYPTED_LOG_GROUP_STRATEGY = "EncryptedLogGroupStrategy"
-    LOG_GROUP_SELECTION_CRITERIA = "LogGroupSelectionCriteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted_log_group_strategy": "EncryptedLogGroupStrategy",
         "log_group_selection_criteria": "LogGroupSelectionCriteria",

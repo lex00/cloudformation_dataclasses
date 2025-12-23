@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Destination(PropertyType):
-    TYPE = "Type"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "location": "Location",

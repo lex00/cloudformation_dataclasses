@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Condition(PropertyType):
-    CONDITION_OPERATOR = "ConditionOperator"
-    CONDITION_VALUES = "ConditionValues"
-    CONDITION_KEY = "ConditionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_operator": "ConditionOperator",
         "condition_values": "ConditionValues",

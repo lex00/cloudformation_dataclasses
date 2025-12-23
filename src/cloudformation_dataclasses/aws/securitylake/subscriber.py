@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsLogSource(PropertyType):
-    SOURCE_NAME = "SourceName"
-    SOURCE_VERSION = "SourceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
         "source_version": "SourceVersion",
@@ -25,9 +22,6 @@ class AwsLogSource(PropertyType):
 
 @dataclass
 class CustomLogSource(PropertyType):
-    SOURCE_NAME = "SourceName"
-    SOURCE_VERSION = "SourceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
         "source_version": "SourceVersion",
@@ -39,9 +33,6 @@ class CustomLogSource(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    AWS_LOG_SOURCE = "AwsLogSource"
-    CUSTOM_LOG_SOURCE = "CustomLogSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_log_source": "AwsLogSource",
         "custom_log_source": "CustomLogSource",
@@ -53,9 +44,6 @@ class Source(PropertyType):
 
 @dataclass
 class SubscriberIdentity(PropertyType):
-    EXTERNAL_ID = "ExternalId"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_id": "ExternalId",
         "principal": "Principal",

@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Activity(PropertyType):
-    SELECT_ATTRIBUTES = "SelectAttributes"
-    DATASTORE = "Datastore"
-    FILTER = "Filter"
-    ADD_ATTRIBUTES = "AddAttributes"
-    CHANNEL = "Channel"
-    DEVICE_SHADOW_ENRICH = "DeviceShadowEnrich"
-    MATH = "Math"
-    LAMBDA = "Lambda"
-    DEVICE_REGISTRY_ENRICH = "DeviceRegistryEnrich"
-    REMOVE_ATTRIBUTES = "RemoveAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "select_attributes": "SelectAttributes",
         "datastore": "Datastore",
@@ -49,10 +38,6 @@ class Activity(PropertyType):
 
 @dataclass
 class AddAttributes(PropertyType):
-    NEXT = "Next"
-    ATTRIBUTES = "Attributes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",
@@ -66,10 +51,6 @@ class AddAttributes(PropertyType):
 
 @dataclass
 class Channel(PropertyType):
-    CHANNEL_NAME = "ChannelName"
-    NEXT = "Next"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "next": "Next",
@@ -83,9 +64,6 @@ class Channel(PropertyType):
 
 @dataclass
 class Datastore(PropertyType):
-    DATASTORE_NAME = "DatastoreName"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datastore_name": "DatastoreName",
         "name": "Name",
@@ -97,12 +75,6 @@ class Datastore(PropertyType):
 
 @dataclass
 class DeviceRegistryEnrich(PropertyType):
-    ATTRIBUTE = "Attribute"
-    NEXT = "Next"
-    THING_NAME = "ThingName"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -120,12 +92,6 @@ class DeviceRegistryEnrich(PropertyType):
 
 @dataclass
 class DeviceShadowEnrich(PropertyType):
-    ATTRIBUTE = "Attribute"
-    NEXT = "Next"
-    THING_NAME = "ThingName"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -143,10 +109,6 @@ class DeviceShadowEnrich(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    FILTER = "Filter"
-    NEXT = "Next"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "next": "Next",
@@ -160,11 +122,6 @@ class Filter(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    BATCH_SIZE = "BatchSize"
-    NEXT = "Next"
-    LAMBDA_NAME = "LambdaName"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "next": "Next",
@@ -180,11 +137,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class Math(PropertyType):
-    ATTRIBUTE = "Attribute"
-    NEXT = "Next"
-    MATH = "Math"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -200,10 +152,6 @@ class Math(PropertyType):
 
 @dataclass
 class RemoveAttributes(PropertyType):
-    NEXT = "Next"
-    ATTRIBUTES = "Attributes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",
@@ -217,10 +165,6 @@ class RemoveAttributes(PropertyType):
 
 @dataclass
 class SelectAttributes(PropertyType):
-    NEXT = "Next"
-    ATTRIBUTES = "Attributes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",

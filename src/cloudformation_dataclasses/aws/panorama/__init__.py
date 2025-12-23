@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Panorama
@@ -404,15 +404,6 @@ class ApplicationInstance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Panorama::ApplicationInstance"
     name_field: ClassVar[str] = "name"
-    DEFAULT_RUNTIME_CONTEXT_DEVICE = "DefaultRuntimeContextDevice"
-    DESCRIPTION = "Description"
-    APPLICATION_INSTANCE_ID_TO_REPLACE = "ApplicationInstanceIdToReplace"
-    MANIFEST_OVERRIDES_PAYLOAD = "ManifestOverridesPayload"
-    RUNTIME_ROLE_ARN = "RuntimeRoleArn"
-    MANIFEST_PAYLOAD = "ManifestPayload"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_runtime_context_device": "DefaultRuntimeContextDevice",
         "description": "Description",
@@ -481,10 +472,6 @@ class Package(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Panorama::Package"
     name_field: ClassVar[str] = "package_name"
-    PACKAGE_NAME = "PackageName"
-    STORAGE_LOCATION = "StorageLocation"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "package_name": "PackageName",
         "storage_location": "StorageLocation",
@@ -542,13 +529,6 @@ class PackageVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::PackageVersion"
-    UPDATED_LATEST_PATCH_VERSION = "UpdatedLatestPatchVersion"
-    PATCH_VERSION = "PatchVersion"
-    MARK_LATEST = "MarkLatest"
-    PACKAGE_ID = "PackageId"
-    OWNER_ACCOUNT = "OwnerAccount"
-    PACKAGE_VERSION = "PackageVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "updated_latest_patch_version": "UpdatedLatestPatchVersion",
         "patch_version": "PatchVersion",

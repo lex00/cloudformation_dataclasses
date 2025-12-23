@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:03
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Kinesis
@@ -163,9 +163,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::Kinesis::ResourcePolicy"
-    RESOURCE_ARN = "ResourceArn"
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "resource_policy": "ResourcePolicy",
@@ -181,16 +178,6 @@ class Stream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Kinesis::Stream"
     name_field: ClassVar[str] = "name"
-    STREAM_MODE_DETAILS = "StreamModeDetails"
-    STREAM_ENCRYPTION = "StreamEncryption"
-    WARM_THROUGHPUT_MI_BPS = "WarmThroughputMiBps"
-    MAX_RECORD_SIZE_IN_KI_B = "MaxRecordSizeInKiB"
-    RETENTION_PERIOD_HOURS = "RetentionPeriodHours"
-    DESIRED_SHARD_LEVEL_METRICS = "DesiredShardLevelMetrics"
-    TAGS = "Tags"
-    NAME = "Name"
-    SHARD_COUNT = "ShardCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_mode_details": "StreamModeDetails",
         "stream_encryption": "StreamEncryption",
@@ -241,10 +228,6 @@ class StreamConsumer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Kinesis::StreamConsumer"
     name_field: ClassVar[str] = "consumer_name"
-    CONSUMER_NAME = "ConsumerName"
-    STREAM_ARN = "StreamARN"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_name": "ConsumerName",
         "stream_arn": "StreamARN",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PeeringAttachmentStatus(PropertyType):
-    MESSAGE = "Message"
-    CODE = "Code"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",

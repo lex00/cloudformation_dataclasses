@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Index(PropertyType):
-    KNN_ALGO_PARAM_EF_SEARCH = "KnnAlgoParamEfSearch"
-    REFRESH_INTERVAL = "RefreshInterval"
-    KNN = "Knn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knn_algo_param_ef_search": "KnnAlgoParamEfSearch",
         "refresh_interval": "RefreshInterval",
@@ -28,8 +24,6 @@ class Index(PropertyType):
 
 @dataclass
 class IndexSettings(PropertyType):
-    INDEX = "Index"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index": "Index",
     }
@@ -39,8 +33,6 @@ class IndexSettings(PropertyType):
 
 @dataclass
 class Mappings(PropertyType):
-    PROPERTIES = "Properties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "properties": "Properties",
     }
@@ -50,11 +42,6 @@ class Mappings(PropertyType):
 
 @dataclass
 class Method(PropertyType):
-    PARAMETERS = "Parameters"
-    SPACE_TYPE = "SpaceType"
-    ENGINE = "Engine"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "space_type": "SpaceType",
@@ -70,9 +57,6 @@ class Method(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    EF_CONSTRUCTION = "EfConstruction"
-    M = "M"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ef_construction": "EfConstruction",
         "m": "M",
@@ -84,13 +68,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PropertyMapping(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-    INDEX = "Index"
-    DIMENSION = "Dimension"
-    METHOD = "Method"
-    PROPERTIES = "Properties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VirtualNodeServiceProvider(PropertyType):
-    VIRTUAL_NODE_NAME = "VirtualNodeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node_name": "VirtualNodeName",
     }
@@ -22,8 +20,6 @@ class VirtualNodeServiceProvider(PropertyType):
 
 @dataclass
 class VirtualRouterServiceProvider(PropertyType):
-    VIRTUAL_ROUTER_NAME = "VirtualRouterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_router_name": "VirtualRouterName",
     }
@@ -33,9 +29,6 @@ class VirtualRouterServiceProvider(PropertyType):
 
 @dataclass
 class VirtualServiceProvider(PropertyType):
-    VIRTUAL_NODE = "VirtualNode"
-    VIRTUAL_ROUTER = "VirtualRouter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node": "VirtualNode",
         "virtual_router": "VirtualRouter",
@@ -47,8 +40,6 @@ class VirtualServiceProvider(PropertyType):
 
 @dataclass
 class VirtualServiceSpec(PropertyType):
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider": "Provider",
     }

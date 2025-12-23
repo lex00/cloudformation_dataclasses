@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ProvisioningHook(PropertyType):
-    TARGET_ARN = "TargetArn"
-    PAYLOAD_VERSION = "PayloadVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload_version": "PayloadVersion",

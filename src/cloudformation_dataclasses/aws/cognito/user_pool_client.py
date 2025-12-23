@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnalyticsConfiguration(PropertyType):
-    APPLICATION_ARN = "ApplicationArn"
-    USER_DATA_SHARED = "UserDataShared"
-    EXTERNAL_ID = "ExternalId"
-    APPLICATION_ID = "ApplicationId"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
         "user_data_shared": "UserDataShared",
@@ -34,9 +28,6 @@ class AnalyticsConfiguration(PropertyType):
 
 @dataclass
 class RefreshTokenRotation(PropertyType):
-    RETRY_GRACE_PERIOD_SECONDS = "RetryGracePeriodSeconds"
-    FEATURE = "Feature"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_grace_period_seconds": "RetryGracePeriodSeconds",
         "feature": "Feature",
@@ -48,10 +39,6 @@ class RefreshTokenRotation(PropertyType):
 
 @dataclass
 class TokenValidityUnits(PropertyType):
-    ID_TOKEN = "IdToken"
-    REFRESH_TOKEN = "RefreshToken"
-    ACCESS_TOKEN = "AccessToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_token": "IdToken",
         "refresh_token": "RefreshToken",

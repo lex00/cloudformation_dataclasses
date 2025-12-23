@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:17
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSM
@@ -1493,24 +1493,6 @@ class Association(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::Association"
     name_field: ClassVar[str] = "association_name"
-    ASSOCIATION_NAME = "AssociationName"
-    CALENDAR_NAMES = "CalendarNames"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    MAX_ERRORS = "MaxErrors"
-    PARAMETERS = "Parameters"
-    INSTANCE_ID = "InstanceId"
-    WAIT_FOR_SUCCESS_TIMEOUT_SECONDS = "WaitForSuccessTimeoutSeconds"
-    MAX_CONCURRENCY = "MaxConcurrency"
-    COMPLIANCE_SEVERITY = "ComplianceSeverity"
-    TARGETS = "Targets"
-    SYNC_COMPLIANCE = "SyncCompliance"
-    OUTPUT_LOCATION = "OutputLocation"
-    SCHEDULE_OFFSET = "ScheduleOffset"
-    NAME = "Name"
-    APPLY_ONLY_AT_CRON_INTERVAL = "ApplyOnlyAtCronInterval"
-    DOCUMENT_VERSION = "DocumentVersion"
-    AUTOMATION_TARGET_PARAMETER_NAME = "AutomationTargetParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_name": "AssociationName",
         "calendar_names": "CalendarNames",
@@ -1562,17 +1544,6 @@ class Document(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::Document"
     name_field: ClassVar[str] = "name"
-    DOCUMENT_FORMAT = "DocumentFormat"
-    REQUIRES = "Requires"
-    CONTENT = "Content"
-    TARGET_TYPE = "TargetType"
-    DOCUMENT_TYPE = "DocumentType"
-    VERSION_NAME = "VersionName"
-    UPDATE_METHOD = "UpdateMethod"
-    ATTACHMENTS = "Attachments"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_format": "DocumentFormat",
         "requires": "Requires",
@@ -1604,18 +1575,6 @@ class MaintenanceWindow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindow"
     name_field: ClassVar[str] = "name"
-    START_DATE = "StartDate"
-    DESCRIPTION = "Description"
-    ALLOW_UNASSOCIATED_TARGETS = "AllowUnassociatedTargets"
-    CUTOFF = "Cutoff"
-    SCHEDULE = "Schedule"
-    DURATION = "Duration"
-    SCHEDULE_OFFSET = "ScheduleOffset"
-    END_DATE = "EndDate"
-    TAGS = "Tags"
-    NAME = "Name"
-    SCHEDULE_TIMEZONE = "ScheduleTimezone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "description": "Description",
@@ -1649,13 +1608,6 @@ class MaintenanceWindowTarget(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindowTarget"
     name_field: ClassVar[str] = "name"
-    OWNER_INFORMATION = "OwnerInformation"
-    DESCRIPTION = "Description"
-    WINDOW_ID = "WindowId"
-    RESOURCE_TYPE = "ResourceType"
-    TARGETS = "Targets"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_information": "OwnerInformation",
         "description": "Description",
@@ -1679,21 +1631,6 @@ class MaintenanceWindowTask(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindowTask"
     name_field: ClassVar[str] = "name"
-    MAX_ERRORS = "MaxErrors"
-    DESCRIPTION = "Description"
-    SERVICE_ROLE_ARN = "ServiceRoleArn"
-    PRIORITY = "Priority"
-    MAX_CONCURRENCY = "MaxConcurrency"
-    TARGETS = "Targets"
-    NAME = "Name"
-    TASK_ARN = "TaskArn"
-    TASK_INVOCATION_PARAMETERS = "TaskInvocationParameters"
-    WINDOW_ID = "WindowId"
-    TASK_PARAMETERS = "TaskParameters"
-    TASK_TYPE = "TaskType"
-    CUTOFF_BEHAVIOR = "CutoffBehavior"
-    LOGGING_INFO = "LoggingInfo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_errors": "MaxErrors",
         "description": "Description",
@@ -1733,16 +1670,6 @@ class Parameter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::Parameter"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    POLICIES = "Policies"
-    ALLOWED_PATTERN = "AllowedPattern"
-    TIER = "Tier"
-    VALUE = "Value"
-    DATA_TYPE = "DataType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -1783,22 +1710,6 @@ class PatchBaseline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::PatchBaseline"
     name_field: ClassVar[str] = "name"
-    OPERATING_SYSTEM = "OperatingSystem"
-    DESCRIPTION = "Description"
-    APPROVAL_RULES = "ApprovalRules"
-    SOURCES = "Sources"
-    NAME = "Name"
-    REJECTED_PATCHES = "RejectedPatches"
-    APPROVED_PATCHES = "ApprovedPatches"
-    REJECTED_PATCHES_ACTION = "RejectedPatchesAction"
-    PATCH_GROUPS = "PatchGroups"
-    APPROVED_PATCHES_COMPLIANCE_LEVEL = "ApprovedPatchesComplianceLevel"
-    AVAILABLE_SECURITY_UPDATES_COMPLIANCE_STATUS = "AvailableSecurityUpdatesComplianceStatus"
-    APPROVED_PATCHES_ENABLE_NON_SECURITY = "ApprovedPatchesEnableNonSecurity"
-    DEFAULT_BASELINE = "DefaultBaseline"
-    GLOBAL_FILTERS = "GlobalFilters"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system": "OperatingSystem",
         "description": "Description",
@@ -1846,16 +1757,6 @@ class ResourceDataSync(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSM::ResourceDataSync"
     name_field: ClassVar[str] = "sync_name"
-    S3_DESTINATION = "S3Destination"
-    KMS_KEY_ARN = "KMSKeyArn"
-    SYNC_SOURCE = "SyncSource"
-    BUCKET_NAME = "BucketName"
-    BUCKET_REGION = "BucketRegion"
-    SYNC_FORMAT = "SyncFormat"
-    SYNC_NAME = "SyncName"
-    SYNC_TYPE = "SyncType"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
         "kms_key_arn": "KMSKeyArn",
@@ -1884,9 +1785,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-r"""
 
     resource_type: ClassVar[str] = "AWS::SSM::ResourcePolicy"
-    POLICY = "Policy"
-    RESOURCE_ARN = "ResourceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_arn": "ResourceArn",

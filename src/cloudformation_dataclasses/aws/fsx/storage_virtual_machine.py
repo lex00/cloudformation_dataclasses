@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActiveDirectoryConfiguration(PropertyType):
-    SELF_MANAGED_ACTIVE_DIRECTORY_CONFIGURATION = "SelfManagedActiveDirectoryConfiguration"
-    NET_BIOS_NAME = "NetBiosName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_managed_active_directory_configuration": "SelfManagedActiveDirectoryConfiguration",
         "net_bios_name": "NetBiosName",
@@ -25,14 +22,6 @@ class ActiveDirectoryConfiguration(PropertyType):
 
 @dataclass
 class SelfManagedActiveDirectoryConfiguration(PropertyType):
-    FILE_SYSTEM_ADMINISTRATORS_GROUP = "FileSystemAdministratorsGroup"
-    USER_NAME = "UserName"
-    DOMAIN_NAME = "DomainName"
-    ORGANIZATIONAL_UNIT_DISTINGUISHED_NAME = "OrganizationalUnitDistinguishedName"
-    DOMAIN_JOIN_SERVICE_ACCOUNT_SECRET = "DomainJoinServiceAccountSecret"
-    DNS_IPS = "DnsIps"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_administrators_group": "FileSystemAdministratorsGroup",
         "user_name": "UserName",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GroupOwnerSetting(PropertyType):
-    AUTO_ADD_GROUP_OWNER = "AutoAddGroupOwner"
-    GROUP_OWNER = "GroupOwner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_add_group_owner": "AutoAddGroupOwner",
         "group_owner": "GroupOwner",
@@ -25,9 +22,6 @@ class GroupOwnerSetting(PropertyType):
 
 @dataclass
 class LocalDeviceResourceData(PropertyType):
-    SOURCE_PATH = "SourcePath"
-    GROUP_OWNER_SETTING = "GroupOwnerSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "group_owner_setting": "GroupOwnerSetting",
@@ -39,10 +33,6 @@ class LocalDeviceResourceData(PropertyType):
 
 @dataclass
 class LocalVolumeResourceData(PropertyType):
-    SOURCE_PATH = "SourcePath"
-    DESTINATION_PATH = "DestinationPath"
-    GROUP_OWNER_SETTING = "GroupOwnerSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "destination_path": "DestinationPath",
@@ -56,12 +46,6 @@ class LocalVolumeResourceData(PropertyType):
 
 @dataclass
 class ResourceDataContainer(PropertyType):
-    SECRETS_MANAGER_SECRET_RESOURCE_DATA = "SecretsManagerSecretResourceData"
-    SAGE_MAKER_MACHINE_LEARNING_MODEL_RESOURCE_DATA = "SageMakerMachineLearningModelResourceData"
-    LOCAL_VOLUME_RESOURCE_DATA = "LocalVolumeResourceData"
-    LOCAL_DEVICE_RESOURCE_DATA = "LocalDeviceResourceData"
-    S3_MACHINE_LEARNING_MODEL_RESOURCE_DATA = "S3MachineLearningModelResourceData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_secret_resource_data": "SecretsManagerSecretResourceData",
         "sage_maker_machine_learning_model_resource_data": "SageMakerMachineLearningModelResourceData",
@@ -79,8 +63,6 @@ class ResourceDataContainer(PropertyType):
 
 @dataclass
 class ResourceDefinitionVersion(PropertyType):
-    RESOURCES = "Resources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resources": "Resources",
     }
@@ -90,9 +72,6 @@ class ResourceDefinitionVersion(PropertyType):
 
 @dataclass
 class ResourceDownloadOwnerSetting(PropertyType):
-    GROUP_OWNER = "GroupOwner"
-    GROUP_PERMISSION = "GroupPermission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_owner": "GroupOwner",
         "group_permission": "GroupPermission",
@@ -104,10 +83,6 @@ class ResourceDownloadOwnerSetting(PropertyType):
 
 @dataclass
 class ResourceInstance(PropertyType):
-    RESOURCE_DATA_CONTAINER = "ResourceDataContainer"
-    ID = "Id"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_data_container": "ResourceDataContainer",
         "id": "Id",
@@ -121,10 +96,6 @@ class ResourceInstance(PropertyType):
 
 @dataclass
 class S3MachineLearningModelResourceData(PropertyType):
-    OWNER_SETTING = "OwnerSetting"
-    DESTINATION_PATH = "DestinationPath"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -138,10 +109,6 @@ class S3MachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SageMakerMachineLearningModelResourceData(PropertyType):
-    OWNER_SETTING = "OwnerSetting"
-    DESTINATION_PATH = "DestinationPath"
-    SAGE_MAKER_JOB_ARN = "SageMakerJobArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -155,9 +122,6 @@ class SageMakerMachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SecretsManagerSecretResourceData(PropertyType):
-    ARN = "ARN"
-    ADDITIONAL_STAGING_LABELS_TO_DOWNLOAD = "AdditionalStagingLabelsToDownload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "ARN",
         "additional_staging_labels_to_download": "AdditionalStagingLabelsToDownload",

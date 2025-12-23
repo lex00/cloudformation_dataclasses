@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsOrganizationsSource(PropertyType):
-    ORGANIZATION_SOURCE_TYPE = "OrganizationSourceType"
-    ORGANIZATIONAL_UNITS = "OrganizationalUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization_source_type": "OrganizationSourceType",
         "organizational_units": "OrganizationalUnits",
@@ -25,12 +22,6 @@ class AwsOrganizationsSource(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    KMS_KEY_ARN = "KMSKeyArn"
-    BUCKET_NAME = "BucketName"
-    BUCKET_REGION = "BucketRegion"
-    SYNC_FORMAT = "SyncFormat"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KMSKeyArn",
         "bucket_name": "BucketName",
@@ -48,11 +39,6 @@ class S3Destination(PropertyType):
 
 @dataclass
 class SyncSource(PropertyType):
-    SOURCE_TYPE = "SourceType"
-    AWS_ORGANIZATIONS_SOURCE = "AwsOrganizationsSource"
-    INCLUDE_FUTURE_REGIONS = "IncludeFutureRegions"
-    SOURCE_REGIONS = "SourceRegions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "aws_organizations_source": "AwsOrganizationsSource",

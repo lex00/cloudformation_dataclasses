@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ManagedBlockchain
@@ -207,10 +207,6 @@ class Accessor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-manag"""
 
     resource_type: ClassVar[str] = "AWS::ManagedBlockchain::Accessor"
-    NETWORK_TYPE = "NetworkType"
-    TAGS = "Tags"
-    ACCESSOR_TYPE = "AccessorType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "tags": "Tags",
@@ -253,11 +249,6 @@ class Member(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-manag"""
 
     resource_type: ClassVar[str] = "AWS::ManagedBlockchain::Member"
-    MEMBER_CONFIGURATION = "MemberConfiguration"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    NETWORK_ID = "NetworkId"
-    INVITATION_ID = "InvitationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_configuration": "MemberConfiguration",
         "network_configuration": "NetworkConfiguration",
@@ -287,10 +278,6 @@ class Node(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-manag"""
 
     resource_type: ClassVar[str] = "AWS::ManagedBlockchain::Node"
-    MEMBER_ID = "MemberId"
-    NETWORK_ID = "NetworkId"
-    NODE_CONFIGURATION = "NodeConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_id": "MemberId",
         "network_id": "NetworkId",

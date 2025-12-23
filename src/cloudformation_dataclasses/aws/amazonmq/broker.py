@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationId(PropertyType):
-    REVISION = "Revision"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "id": "Id",
@@ -25,9 +22,6 @@ class ConfigurationId(PropertyType):
 
 @dataclass
 class EncryptionOptions(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    USE_AWS_OWNED_KEY = "UseAwsOwnedKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "use_aws_owned_key": "UseAwsOwnedKey",
@@ -39,18 +33,6 @@ class EncryptionOptions(PropertyType):
 
 @dataclass
 class LdapServerMetadata(PropertyType):
-    HOSTS = "Hosts"
-    USER_ROLE_NAME = "UserRoleName"
-    USER_SEARCH_MATCHING = "UserSearchMatching"
-    ROLE_NAME = "RoleName"
-    USER_BASE = "UserBase"
-    USER_SEARCH_SUBTREE = "UserSearchSubtree"
-    ROLE_SEARCH_MATCHING = "RoleSearchMatching"
-    SERVICE_ACCOUNT_USERNAME = "ServiceAccountUsername"
-    ROLE_BASE = "RoleBase"
-    SERVICE_ACCOUNT_PASSWORD = "ServiceAccountPassword"
-    ROLE_SEARCH_SUBTREE = "RoleSearchSubtree"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hosts": "Hosts",
         "user_role_name": "UserRoleName",
@@ -80,9 +62,6 @@ class LdapServerMetadata(PropertyType):
 
 @dataclass
 class LogList(PropertyType):
-    AUDIT = "Audit"
-    GENERAL = "General"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit": "Audit",
         "general": "General",
@@ -94,10 +73,6 @@ class LogList(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    DAY_OF_WEEK = "DayOfWeek"
-    TIME_OF_DAY = "TimeOfDay"
-    TIME_ZONE = "TimeZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "time_of_day": "TimeOfDay",
@@ -111,9 +86,6 @@ class MaintenanceWindow(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -125,12 +97,6 @@ class TagsEntry(PropertyType):
 
 @dataclass
 class User(PropertyType):
-    REPLICATION_USER = "ReplicationUser"
-    USERNAME = "Username"
-    GROUPS = "Groups"
-    CONSOLE_ACCESS = "ConsoleAccess"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_user": "ReplicationUser",
         "username": "Username",

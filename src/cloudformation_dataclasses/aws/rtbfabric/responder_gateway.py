@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoScalingGroupsConfiguration(PropertyType):
-    AUTO_SCALING_GROUP_NAME_LIST = "AutoScalingGroupNameList"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_group_name_list": "AutoScalingGroupNameList",
         "role_arn": "RoleArn",
@@ -25,13 +22,6 @@ class AutoScalingGroupsConfiguration(PropertyType):
 
 @dataclass
 class EksEndpointsConfiguration(PropertyType):
-    CLUSTER_API_SERVER_CA_CERTIFICATE_CHAIN = "ClusterApiServerCaCertificateChain"
-    ENDPOINTS_RESOURCE_NAME = "EndpointsResourceName"
-    CLUSTER_API_SERVER_ENDPOINT_URI = "ClusterApiServerEndpointUri"
-    CLUSTER_NAME = "ClusterName"
-    ENDPOINTS_RESOURCE_NAMESPACE = "EndpointsResourceNamespace"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_api_server_ca_certificate_chain": "ClusterApiServerCaCertificateChain",
         "endpoints_resource_name": "EndpointsResourceName",
@@ -51,9 +41,6 @@ class EksEndpointsConfiguration(PropertyType):
 
 @dataclass
 class ManagedEndpointConfiguration(PropertyType):
-    EKS_ENDPOINTS_CONFIGURATION = "EksEndpointsConfiguration"
-    AUTO_SCALING_GROUPS_CONFIGURATION = "AutoScalingGroupsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_endpoints_configuration": "EksEndpointsConfiguration",
         "auto_scaling_groups_configuration": "AutoScalingGroupsConfiguration",
@@ -65,8 +52,6 @@ class ManagedEndpointConfiguration(PropertyType):
 
 @dataclass
 class TrustStoreConfiguration(PropertyType):
-    CERTIFICATE_AUTHORITY_CERTIFICATES = "CertificateAuthorityCertificates"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_certificates": "CertificateAuthorityCertificates",
     }

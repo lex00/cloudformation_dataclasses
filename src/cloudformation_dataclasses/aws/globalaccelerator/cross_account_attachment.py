@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Resource(PropertyType):
-    CIDR = "Cidr"
-    ENDPOINT_ID = "EndpointId"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "endpoint_id": "EndpointId",

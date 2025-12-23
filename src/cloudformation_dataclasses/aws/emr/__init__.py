@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:55
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMR
@@ -677,34 +677,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::Cluster"
     name_field: ClassVar[str] = "name"
-    ADDITIONAL_INFO = "AdditionalInfo"
-    APPLICATIONS = "Applications"
-    AUTO_SCALING_ROLE = "AutoScalingRole"
-    AUTO_TERMINATION_POLICY = "AutoTerminationPolicy"
-    BOOTSTRAP_ACTIONS = "BootstrapActions"
-    CONFIGURATIONS = "Configurations"
-    CUSTOM_AMI_ID = "CustomAmiId"
-    EBS_ROOT_VOLUME_IOPS = "EbsRootVolumeIops"
-    EBS_ROOT_VOLUME_SIZE = "EbsRootVolumeSize"
-    EBS_ROOT_VOLUME_THROUGHPUT = "EbsRootVolumeThroughput"
-    INSTANCES = "Instances"
-    JOB_FLOW_ROLE = "JobFlowRole"
-    KERBEROS_ATTRIBUTES = "KerberosAttributes"
-    LOG_ENCRYPTION_KMS_KEY_ID = "LogEncryptionKmsKeyId"
-    LOG_URI = "LogUri"
-    MANAGED_SCALING_POLICY = "ManagedScalingPolicy"
-    NAME = "Name"
-    OS_RELEASE_LABEL = "OSReleaseLabel"
-    PLACEMENT_GROUP_CONFIGS = "PlacementGroupConfigs"
-    RELEASE_LABEL = "ReleaseLabel"
-    SCALE_DOWN_BEHAVIOR = "ScaleDownBehavior"
-    SECURITY_CONFIGURATION = "SecurityConfiguration"
-    SERVICE_ROLE = "ServiceRole"
-    STEP_CONCURRENCY_LEVEL = "StepConcurrencyLevel"
-    STEPS = "Steps"
-    TAGS = "Tags"
-    VISIBLE_TO_ALL_USERS = "VisibleToAllUsers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_info": "AdditionalInfo",
         "applications": "Applications",
@@ -776,15 +748,6 @@ class InstanceFleetConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::InstanceFleetConfig"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ID = "ClusterId"
-    INSTANCE_FLEET_TYPE = "InstanceFleetType"
-    INSTANCE_TYPE_CONFIGS = "InstanceTypeConfigs"
-    LAUNCH_SPECIFICATIONS = "LaunchSpecifications"
-    NAME = "Name"
-    RESIZE_SPECIFICATIONS = "ResizeSpecifications"
-    TARGET_ON_DEMAND_CAPACITY = "TargetOnDemandCapacity"
-    TARGET_SPOT_CAPACITY = "TargetSpotCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_id": "ClusterId",
         "instance_fleet_type": "InstanceFleetType",
@@ -812,18 +775,6 @@ class InstanceGroupConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::InstanceGroupConfig"
     name_field: ClassVar[str] = "name"
-    AUTO_SCALING_POLICY = "AutoScalingPolicy"
-    BID_PRICE = "BidPrice"
-    CONFIGURATIONS = "Configurations"
-    CUSTOM_AMI_ID = "CustomAmiId"
-    EBS_CONFIGURATION = "EbsConfiguration"
-    INSTANCE_COUNT = "InstanceCount"
-    INSTANCE_ROLE = "InstanceRole"
-    INSTANCE_TYPE = "InstanceType"
-    JOB_FLOW_ID = "JobFlowId"
-    MARKET = "Market"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_policy": "AutoScalingPolicy",
         "bid_price": "BidPrice",
@@ -857,9 +808,6 @@ class SecurityConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::SecurityConfiguration"
     name_field: ClassVar[str] = "name"
-    SECURITY_CONFIGURATION = "SecurityConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_configuration": "SecurityConfiguration",
         "name": "Name",
@@ -875,11 +823,6 @@ class Step(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::Step"
     name_field: ClassVar[str] = "name"
-    JOB_FLOW_ID = "JobFlowId"
-    ACTION_ON_FAILURE = "ActionOnFailure"
-    HADOOP_JAR_STEP = "HadoopJarStep"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_flow_id": "JobFlowId",
         "action_on_failure": "ActionOnFailure",
@@ -905,24 +848,6 @@ class Studio(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::Studio"
     name_field: ClassVar[str] = "name"
-    WORKSPACE_SECURITY_GROUP_ID = "WorkspaceSecurityGroupId"
-    DESCRIPTION = "Description"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    DEFAULT_S3_LOCATION = "DefaultS3Location"
-    SUBNET_IDS = "SubnetIds"
-    IDP_AUTH_URL = "IdpAuthUrl"
-    TRUSTED_IDENTITY_PROPAGATION_ENABLED = "TrustedIdentityPropagationEnabled"
-    NAME = "Name"
-    IDC_USER_ASSIGNMENT = "IdcUserAssignment"
-    SERVICE_ROLE = "ServiceRole"
-    VPC_ID = "VpcId"
-    ENGINE_SECURITY_GROUP_ID = "EngineSecurityGroupId"
-    USER_ROLE = "UserRole"
-    IDP_RELAY_STATE_PARAMETER_NAME = "IdpRelayStateParameterName"
-    AUTH_MODE = "AuthMode"
-    TAGS = "Tags"
-    IDC_INSTANCE_ARN = "IdcInstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workspace_security_group_id": "WorkspaceSecurityGroupId",
         "description": "Description",
@@ -984,11 +909,6 @@ class StudioSessionMapping(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::StudioSessionMapping"
     name_field: ClassVar[str] = "identity_name"
-    IDENTITY_TYPE = "IdentityType"
-    SESSION_POLICY_ARN = "SessionPolicyArn"
-    STUDIO_ID = "StudioId"
-    IDENTITY_NAME = "IdentityName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_type": "IdentityType",
         "session_policy_arn": "SessionPolicyArn",
@@ -1008,9 +928,6 @@ class WALWorkspace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EMR::WALWorkspace"
     name_field: ClassVar[str] = "wal_workspace_name"
-    WAL_WORKSPACE_NAME = "WALWorkspaceName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wal_workspace_name": "WALWorkspaceName",
         "tags": "Tags",

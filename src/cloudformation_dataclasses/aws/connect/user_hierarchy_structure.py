@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LevelFive(PropertyType):
-    HIERARCHY_LEVEL_ID = "HierarchyLevelId"
-    HIERARCHY_LEVEL_ARN = "HierarchyLevelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -28,10 +24,6 @@ class LevelFive(PropertyType):
 
 @dataclass
 class LevelFour(PropertyType):
-    HIERARCHY_LEVEL_ID = "HierarchyLevelId"
-    HIERARCHY_LEVEL_ARN = "HierarchyLevelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -45,10 +37,6 @@ class LevelFour(PropertyType):
 
 @dataclass
 class LevelOne(PropertyType):
-    HIERARCHY_LEVEL_ID = "HierarchyLevelId"
-    HIERARCHY_LEVEL_ARN = "HierarchyLevelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -62,10 +50,6 @@ class LevelOne(PropertyType):
 
 @dataclass
 class LevelThree(PropertyType):
-    HIERARCHY_LEVEL_ID = "HierarchyLevelId"
-    HIERARCHY_LEVEL_ARN = "HierarchyLevelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -79,10 +63,6 @@ class LevelThree(PropertyType):
 
 @dataclass
 class LevelTwo(PropertyType):
-    HIERARCHY_LEVEL_ID = "HierarchyLevelId"
-    HIERARCHY_LEVEL_ARN = "HierarchyLevelArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -96,12 +76,6 @@ class LevelTwo(PropertyType):
 
 @dataclass
 class UserHierarchyStructure(PropertyType):
-    LEVEL_THREE = "LevelThree"
-    LEVEL_TWO = "LevelTwo"
-    LEVEL_FIVE = "LevelFive"
-    LEVEL_FOUR = "LevelFour"
-    LEVEL_ONE = "LevelOne"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "level_three": "LevelThree",
         "level_two": "LevelTwo",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApprovalStrategy(PropertyType):
-    MOF_N = "MofN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mof_n": "MofN",
     }
@@ -22,12 +20,6 @@ class ApprovalStrategy(PropertyType):
 
 @dataclass
 class Approver(PropertyType):
-    PRIMARY_IDENTITY_STATUS = "PrimaryIdentityStatus"
-    PRIMARY_IDENTITY_SOURCE_ARN = "PrimaryIdentitySourceArn"
-    APPROVER_ID = "ApproverId"
-    PRIMARY_IDENTITY_ID = "PrimaryIdentityId"
-    RESPONSE_TIME = "ResponseTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_identity_status": "PrimaryIdentityStatus",
         "primary_identity_source_arn": "PrimaryIdentitySourceArn",
@@ -45,8 +37,6 @@ class Approver(PropertyType):
 
 @dataclass
 class MofNApprovalStrategy(PropertyType):
-    MIN_APPROVALS_REQUIRED = "MinApprovalsRequired"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_approvals_required": "MinApprovalsRequired",
     }
@@ -56,8 +46,6 @@ class MofNApprovalStrategy(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    POLICY_ARN = "PolicyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AppConfig(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,9 +22,6 @@ class AppConfig(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    DATA_SOURCE_ARN = "DataSourceArn"
-    DATA_SOURCE_DESCRIPTION = "DataSourceDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "data_source_description": "DataSourceDescription",
@@ -39,10 +33,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class IamIdentityCenterOptions(PropertyType):
-    IAM_IDENTITY_CENTER_INSTANCE_ARN = "IamIdentityCenterInstanceArn"
-    IAM_ROLE_FOR_IDENTITY_CENTER_APPLICATION_ARN = "IamRoleForIdentityCenterApplicationArn"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_identity_center_instance_arn": "IamIdentityCenterInstanceArn",
         "iam_role_for_identity_center_application_arn": "IamRoleForIdentityCenterApplicationArn",

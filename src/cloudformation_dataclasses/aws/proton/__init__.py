@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:11
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Proton
@@ -320,14 +320,6 @@ class EnvironmentAccountConnection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Proton::EnvironmentAccountConnection"
     name_field: ClassVar[str] = "environment_name"
-    ENVIRONMENT_NAME = "EnvironmentName"
-    COMPONENT_ROLE_ARN = "ComponentRoleArn"
-    MANAGEMENT_ACCOUNT_ID = "ManagementAccountId"
-    CODEBUILD_ROLE_ARN = "CodebuildRoleArn"
-    ENVIRONMENT_ACCOUNT_ID = "EnvironmentAccountId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_name": "EnvironmentName",
         "component_role_arn": "ComponentRoleArn",
@@ -369,13 +361,6 @@ class EnvironmentTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Proton::EnvironmentTemplate"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    ENCRYPTION_KEY = "EncryptionKey"
-    PROVISIONING = "Provisioning"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "display_name": "DisplayName",
@@ -405,13 +390,6 @@ class ServiceTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Proton::ServiceTemplate"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    PIPELINE_PROVISIONING = "PipelineProvisioning"
-    ENCRYPTION_KEY = "EncryptionKey"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "display_name": "DisplayName",

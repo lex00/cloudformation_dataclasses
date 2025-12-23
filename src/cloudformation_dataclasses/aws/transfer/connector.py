@@ -11,17 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class As2Config(PropertyType):
-    COMPRESSION = "Compression"
-    MESSAGE_SUBJECT = "MessageSubject"
-    BASIC_AUTH_SECRET_ID = "BasicAuthSecretId"
-    PARTNER_PROFILE_ID = "PartnerProfileId"
-    ENCRYPTION_ALGORITHM = "EncryptionAlgorithm"
-    SIGNING_ALGORITHM = "SigningAlgorithm"
-    LOCAL_PROFILE_ID = "LocalProfileId"
-    MDN_RESPONSE = "MdnResponse"
-    MDN_SIGNING_ALGORITHM = "MdnSigningAlgorithm"
-    PRESERVE_CONTENT_TYPE = "PreserveContentType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "message_subject": "MessageSubject",
@@ -49,8 +38,6 @@ class As2Config(PropertyType):
 
 @dataclass
 class ConnectorEgressConfig(PropertyType):
-    VPC_LATTICE = "VpcLattice"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_lattice": "VpcLattice",
     }
@@ -60,9 +47,6 @@ class ConnectorEgressConfig(PropertyType):
 
 @dataclass
 class ConnectorVpcLatticeEgressConfig(PropertyType):
-    RESOURCE_CONFIGURATION_ARN = "ResourceConfigurationArn"
-    PORT_NUMBER = "PortNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_configuration_arn": "ResourceConfigurationArn",
         "port_number": "PortNumber",
@@ -74,10 +58,6 @@ class ConnectorVpcLatticeEgressConfig(PropertyType):
 
 @dataclass
 class SftpConfig(PropertyType):
-    TRUSTED_HOST_KEYS = "TrustedHostKeys"
-    USER_SECRET_ID = "UserSecretId"
-    MAX_CONCURRENT_CONNECTIONS = "MaxConcurrentConnections"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trusted_host_keys": "TrustedHostKeys",
         "user_secret_id": "UserSecretId",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BillingGroupProperties(PropertyType):
-    BILLING_GROUP_DESCRIPTION = "BillingGroupDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "billing_group_description": "BillingGroupDescription",
     }

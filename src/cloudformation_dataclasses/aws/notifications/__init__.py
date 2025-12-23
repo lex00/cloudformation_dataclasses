@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Notifications
@@ -268,9 +268,6 @@ class ChannelAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ChannelAssociation"
-    NOTIFICATION_CONFIGURATION_ARN = "NotificationConfigurationArn"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_configuration_arn": "NotificationConfigurationArn",
         "arn": "Arn",
@@ -285,12 +282,6 @@ class EventRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::EventRule"
-    EVENT_PATTERN = "EventPattern"
-    EVENT_TYPE = "EventType"
-    NOTIFICATION_CONFIGURATION_ARN = "NotificationConfigurationArn"
-    REGIONS = "Regions"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_pattern": "EventPattern",
         "event_type": "EventType",
@@ -332,9 +323,6 @@ class ManagedNotificationAccountContactAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ManagedNotificationAccountContactAssociation"
-    CONTACT_IDENTIFIER = "ContactIdentifier"
-    MANAGED_NOTIFICATION_CONFIGURATION_ARN = "ManagedNotificationConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_identifier": "ContactIdentifier",
         "managed_notification_configuration_arn": "ManagedNotificationConfigurationArn",
@@ -349,9 +337,6 @@ class ManagedNotificationAdditionalChannelAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation"
-    CHANNEL_ARN = "ChannelArn"
-    MANAGED_NOTIFICATION_CONFIGURATION_ARN = "ManagedNotificationConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_arn": "ChannelArn",
         "managed_notification_configuration_arn": "ManagedNotificationConfigurationArn",
@@ -367,11 +352,6 @@ class NotificationConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Notifications::NotificationConfiguration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    AGGREGATION_DURATION = "AggregationDuration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "aggregation_duration": "AggregationDuration",
@@ -406,8 +386,6 @@ class NotificationHub(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::NotificationHub"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
     }
@@ -441,9 +419,6 @@ class OrganizationalUnitAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::OrganizationalUnitAssociation"
-    ORGANIZATIONAL_UNIT_ID = "OrganizationalUnitId"
-    NOTIFICATION_CONFIGURATION_ARN = "NotificationConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_id": "OrganizationalUnitId",
         "notification_configuration_arn": "NotificationConfigurationArn",

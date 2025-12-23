@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GroupingConfiguration(PropertyType):
-    VALUES = "Values"
-    CRITERIA = "Criteria"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "criteria": "Criteria",
@@ -25,8 +22,6 @@ class GroupingConfiguration(PropertyType):
 
 @dataclass
 class QuickResponseContentProvider(PropertyType):
-    CONTENT = "Content"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
     }
@@ -36,9 +31,6 @@ class QuickResponseContentProvider(PropertyType):
 
 @dataclass
 class QuickResponseContents(PropertyType):
-    PLAIN_TEXT = "PlainText"
-    MARKDOWN = "Markdown"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
         "markdown": "Markdown",

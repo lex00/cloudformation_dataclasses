@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BorrowConfiguration(PropertyType):
-    ALLOW_EARLY_CHECK_IN = "AllowEarlyCheckIn"
-    MAX_TIME_TO_LIVE_IN_MINUTES = "MaxTimeToLiveInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_early_check_in": "AllowEarlyCheckIn",
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
@@ -25,10 +22,6 @@ class BorrowConfiguration(PropertyType):
 
 @dataclass
 class ConsumptionConfiguration(PropertyType):
-    BORROW_CONFIGURATION = "BorrowConfiguration"
-    RENEW_TYPE = "RenewType"
-    PROVISIONAL_CONFIGURATION = "ProvisionalConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "borrow_configuration": "BorrowConfiguration",
         "renew_type": "RenewType",
@@ -42,13 +35,6 @@ class ConsumptionConfiguration(PropertyType):
 
 @dataclass
 class Entitlement(PropertyType):
-    ALLOW_CHECK_IN = "AllowCheckIn"
-    OVERAGE = "Overage"
-    VALUE = "Value"
-    MAX_COUNT = "MaxCount"
-    UNIT = "Unit"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_check_in": "AllowCheckIn",
         "overage": "Overage",
@@ -68,9 +54,6 @@ class Entitlement(PropertyType):
 
 @dataclass
 class IssuerData(PropertyType):
-    SIGN_KEY = "SignKey"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sign_key": "SignKey",
         "name": "Name",
@@ -82,9 +65,6 @@ class IssuerData(PropertyType):
 
 @dataclass
 class Metadata(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -96,8 +76,6 @@ class Metadata(PropertyType):
 
 @dataclass
 class ProvisionalConfiguration(PropertyType):
-    MAX_TIME_TO_LIVE_IN_MINUTES = "MaxTimeToLiveInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
     }
@@ -107,9 +85,6 @@ class ProvisionalConfiguration(PropertyType):
 
 @dataclass
 class ValidityDateFormat(PropertyType):
-    BEGIN = "Begin"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "begin": "Begin",
         "end": "End",

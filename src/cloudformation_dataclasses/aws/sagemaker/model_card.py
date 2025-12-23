@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdditionalInformation(PropertyType):
-    ETHICAL_CONSIDERATIONS = "EthicalConsiderations"
-    CAVEATS_AND_RECOMMENDATIONS = "CaveatsAndRecommendations"
-    CUSTOM_DETAILS = "CustomDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ethical_considerations": "EthicalConsiderations",
         "caveats_and_recommendations": "CaveatsAndRecommendations",
@@ -28,10 +24,6 @@ class AdditionalInformation(PropertyType):
 
 @dataclass
 class BusinessDetails(PropertyType):
-    BUSINESS_STAKEHOLDERS = "BusinessStakeholders"
-    LINE_OF_BUSINESS = "LineOfBusiness"
-    BUSINESS_PROBLEM = "BusinessProblem"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "business_stakeholders": "BusinessStakeholders",
         "line_of_business": "LineOfBusiness",
@@ -45,10 +37,6 @@ class BusinessDetails(PropertyType):
 
 @dataclass
 class Container(PropertyType):
-    NEAREST_MODEL_NAME = "NearestModelName"
-    MODEL_DATA_URL = "ModelDataUrl"
-    IMAGE = "Image"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nearest_model_name": "NearestModelName",
         "model_data_url": "ModelDataUrl",
@@ -62,14 +50,6 @@ class Container(PropertyType):
 
 @dataclass
 class Content(PropertyType):
-    INTENDED_USES = "IntendedUses"
-    ADDITIONAL_INFORMATION = "AdditionalInformation"
-    MODEL_OVERVIEW = "ModelOverview"
-    TRAINING_DETAILS = "TrainingDetails"
-    EVALUATION_DETAILS = "EvaluationDetails"
-    MODEL_PACKAGE_DETAILS = "ModelPackageDetails"
-    BUSINESS_DETAILS = "BusinessDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intended_uses": "IntendedUses",
         "additional_information": "AdditionalInformation",
@@ -91,13 +71,6 @@ class Content(PropertyType):
 
 @dataclass
 class EvaluationDetail(PropertyType):
-    DATASETS = "Datasets"
-    EVALUATION_OBSERVATION = "EvaluationObservation"
-    METRIC_GROUPS = "MetricGroups"
-    METADATA = "Metadata"
-    EVALUATION_JOB_ARN = "EvaluationJobArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datasets": "Datasets",
         "evaluation_observation": "EvaluationObservation",
@@ -117,10 +90,6 @@ class EvaluationDetail(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    CONDITION = "Condition"
-    FUNCTION = "Function"
-    FACET = "Facet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "function": "Function",
@@ -134,8 +103,6 @@ class Function(PropertyType):
 
 @dataclass
 class InferenceEnvironment(PropertyType):
-    CONTAINER_IMAGE = "ContainerImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_image": "ContainerImage",
     }
@@ -145,8 +112,6 @@ class InferenceEnvironment(PropertyType):
 
 @dataclass
 class InferenceSpecification(PropertyType):
-    CONTAINERS = "Containers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "containers": "Containers",
     }
@@ -156,12 +121,6 @@ class InferenceSpecification(PropertyType):
 
 @dataclass
 class IntendedUses(PropertyType):
-    INTENDED_USES = "IntendedUses"
-    FACTORS_AFFECTING_MODEL_EFFICIENCY = "FactorsAffectingModelEfficiency"
-    PURPOSE_OF_MODEL = "PurposeOfModel"
-    RISK_RATING = "RiskRating"
-    EXPLANATIONS_FOR_RISK_RATING = "ExplanationsForRiskRating"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intended_uses": "IntendedUses",
         "factors_affecting_model_efficiency": "FactorsAffectingModelEfficiency",
@@ -179,13 +138,6 @@ class IntendedUses(PropertyType):
 
 @dataclass
 class MetricDataItems(PropertyType):
-    X_AXIS_NAME = "XAxisName"
-    TYPE = "Type"
-    VALUE = "Value"
-    Y_AXIS_NAME = "YAxisName"
-    NOTES = "Notes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x_axis_name": "XAxisName",
         "type_": "Type",
@@ -205,9 +157,6 @@ class MetricDataItems(PropertyType):
 
 @dataclass
 class MetricGroup(PropertyType):
-    NAME = "Name"
-    METRIC_DATA = "MetricData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "metric_data": "MetricData",
@@ -219,17 +168,6 @@ class MetricGroup(PropertyType):
 
 @dataclass
 class ModelOverview(PropertyType):
-    MODEL_OWNER = "ModelOwner"
-    MODEL_ARTIFACT = "ModelArtifact"
-    ALGORITHM_TYPE = "AlgorithmType"
-    MODEL_NAME = "ModelName"
-    INFERENCE_ENVIRONMENT = "InferenceEnvironment"
-    PROBLEM_TYPE = "ProblemType"
-    MODEL_DESCRIPTION = "ModelDescription"
-    MODEL_VERSION = "ModelVersion"
-    MODEL_CREATOR = "ModelCreator"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_owner": "ModelOwner",
         "model_artifact": "ModelArtifact",
@@ -257,8 +195,6 @@ class ModelOverview(PropertyType):
 
 @dataclass
 class ModelPackageCreator(PropertyType):
-    USER_PROFILE_NAME = "UserProfileName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_profile_name": "UserProfileName",
     }
@@ -268,20 +204,6 @@ class ModelPackageCreator(PropertyType):
 
 @dataclass
 class ModelPackageDetails(PropertyType):
-    MODEL_PACKAGE_GROUP_NAME = "ModelPackageGroupName"
-    TASK = "Task"
-    CREATED_BY = "CreatedBy"
-    APPROVAL_DESCRIPTION = "ApprovalDescription"
-    MODEL_APPROVAL_STATUS = "ModelApprovalStatus"
-    MODEL_PACKAGE_VERSION = "ModelPackageVersion"
-    MODEL_PACKAGE_DESCRIPTION = "ModelPackageDescription"
-    MODEL_PACKAGE_NAME = "ModelPackageName"
-    MODEL_PACKAGE_STATUS = "ModelPackageStatus"
-    SOURCE_ALGORITHMS = "SourceAlgorithms"
-    INFERENCE_SPECIFICATION = "InferenceSpecification"
-    MODEL_PACKAGE_ARN = "ModelPackageArn"
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_package_group_name": "ModelPackageGroupName",
         "task": "Task",
@@ -315,9 +237,6 @@ class ModelPackageDetails(PropertyType):
 
 @dataclass
 class ObjectiveFunction(PropertyType):
-    FUNCTION = "Function"
-    NOTES = "Notes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "notes": "Notes",
@@ -329,8 +248,6 @@ class ObjectiveFunction(PropertyType):
 
 @dataclass
 class SecurityConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -340,9 +257,6 @@ class SecurityConfig(PropertyType):
 
 @dataclass
 class SourceAlgorithm(PropertyType):
-    MODEL_DATA_URL = "ModelDataUrl"
-    ALGORITHM_NAME = "AlgorithmName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_url": "ModelDataUrl",
         "algorithm_name": "AlgorithmName",
@@ -354,10 +268,6 @@ class SourceAlgorithm(PropertyType):
 
 @dataclass
 class TrainingDetails(PropertyType):
-    OBJECTIVE_FUNCTION = "ObjectiveFunction"
-    TRAINING_OBSERVATIONS = "TrainingObservations"
-    TRAINING_JOB_DETAILS = "TrainingJobDetails"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "objective_function": "ObjectiveFunction",
         "training_observations": "TrainingObservations",
@@ -371,8 +281,6 @@ class TrainingDetails(PropertyType):
 
 @dataclass
 class TrainingEnvironment(PropertyType):
-    CONTAINER_IMAGE = "ContainerImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_image": "ContainerImage",
     }
@@ -382,9 +290,6 @@ class TrainingEnvironment(PropertyType):
 
 @dataclass
 class TrainingHyperParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -396,14 +301,6 @@ class TrainingHyperParameter(PropertyType):
 
 @dataclass
 class TrainingJobDetails(PropertyType):
-    TRAINING_METRICS = "TrainingMetrics"
-    HYPER_PARAMETERS = "HyperParameters"
-    TRAINING_ARN = "TrainingArn"
-    USER_PROVIDED_TRAINING_METRICS = "UserProvidedTrainingMetrics"
-    TRAINING_ENVIRONMENT = "TrainingEnvironment"
-    TRAINING_DATASETS = "TrainingDatasets"
-    USER_PROVIDED_HYPER_PARAMETERS = "UserProvidedHyperParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "training_metrics": "TrainingMetrics",
         "hyper_parameters": "HyperParameters",
@@ -425,10 +322,6 @@ class TrainingJobDetails(PropertyType):
 
 @dataclass
 class TrainingMetric(PropertyType):
-    VALUE = "Value"
-    NOTES = "Notes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "notes": "Notes",
@@ -442,10 +335,6 @@ class TrainingMetric(PropertyType):
 
 @dataclass
 class UserContext(PropertyType):
-    DOMAIN_ID = "DomainId"
-    USER_PROFILE_ARN = "UserProfileArn"
-    USER_PROFILE_NAME = "UserProfileName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_id": "DomainId",
         "user_profile_arn": "UserProfileArn",

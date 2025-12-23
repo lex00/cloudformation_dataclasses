@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DefaultConfig(PropertyType):
-    EXECUTION = "Execution"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution": "Execution",
     }
@@ -22,11 +20,6 @@ class DefaultConfig(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    VARIABLES = "Variables"
-    EXECUTION = "Execution"
-    RESOURCE_ACCESS_POLICIES = "ResourceAccessPolicies"
-    ACCESS_SYSFS = "AccessSysfs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "execution": "Execution",
@@ -42,9 +35,6 @@ class Environment(PropertyType):
 
 @dataclass
 class Execution(PropertyType):
-    ISOLATION_MODE = "IsolationMode"
-    RUN_AS = "RunAs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "isolation_mode": "IsolationMode",
         "run_as": "RunAs",
@@ -56,10 +46,6 @@ class Execution(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-    FUNCTION_CONFIGURATION = "FunctionConfiguration"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "function_configuration": "FunctionConfiguration",
@@ -73,14 +59,6 @@ class Function(PropertyType):
 
 @dataclass
 class FunctionConfiguration(PropertyType):
-    MEMORY_SIZE = "MemorySize"
-    PINNED = "Pinned"
-    EXEC_ARGS = "ExecArgs"
-    TIMEOUT = "Timeout"
-    ENCODING_TYPE = "EncodingType"
-    ENVIRONMENT = "Environment"
-    EXECUTABLE = "Executable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory_size": "MemorySize",
         "pinned": "Pinned",
@@ -102,9 +80,6 @@ class FunctionConfiguration(PropertyType):
 
 @dataclass
 class FunctionDefinitionVersion(PropertyType):
-    DEFAULT_CONFIG = "DefaultConfig"
-    FUNCTIONS = "Functions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_config": "DefaultConfig",
         "functions": "Functions",
@@ -116,9 +91,6 @@ class FunctionDefinitionVersion(PropertyType):
 
 @dataclass
 class ResourceAccessPolicy(PropertyType):
-    RESOURCE_ID = "ResourceId"
-    PERMISSION = "Permission"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "permission": "Permission",
@@ -130,9 +102,6 @@ class ResourceAccessPolicy(PropertyType):
 
 @dataclass
 class RunAs(PropertyType):
-    UID = "Uid"
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",

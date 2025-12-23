@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    EXCLUDED_COLUMN_NAMES = "ExcludedColumnNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -22,9 +20,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class RowFilter(PropertyType):
-    ALL_ROWS_WILDCARD = "AllRowsWildcard"
-    FILTER_EXPRESSION = "FilterExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_rows_wildcard": "AllRowsWildcard",
         "filter_expression": "FilterExpression",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:40
+  Generated: 2025-12-22 19:26:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AIOps
@@ -51,17 +51,6 @@ class InvestigationGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AIOps::InvestigationGroup"
     name_field: ClassVar[str] = "name"
-    RETENTION_IN_DAYS = "RetentionInDays"
-    CROSS_ACCOUNT_CONFIGURATIONS = "CrossAccountConfigurations"
-    INVESTIGATION_GROUP_POLICY = "InvestigationGroupPolicy"
-    CHATBOT_NOTIFICATION_CHANNELS = "ChatbotNotificationChannels"
-    IS_CLOUD_TRAIL_EVENT_HISTORY_ENABLED = "IsCloudTrailEventHistoryEnabled"
-    TAG_KEY_BOUNDARIES = "TagKeyBoundaries"
-    ENCRYPTION_CONFIG = "EncryptionConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_in_days": "RetentionInDays",
         "cross_account_configurations": "CrossAccountConfigurations",

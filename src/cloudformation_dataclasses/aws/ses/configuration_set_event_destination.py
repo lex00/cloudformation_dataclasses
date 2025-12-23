@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchDestination(PropertyType):
-    DIMENSION_CONFIGURATIONS = "DimensionConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
     }
@@ -22,10 +20,6 @@ class CloudWatchDestination(PropertyType):
 
 @dataclass
 class DimensionConfiguration(PropertyType):
-    DIMENSION_VALUE_SOURCE = "DimensionValueSource"
-    DEFAULT_DIMENSION_VALUE = "DefaultDimensionValue"
-    DIMENSION_NAME = "DimensionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_source": "DimensionValueSource",
         "default_dimension_value": "DefaultDimensionValue",
@@ -39,8 +33,6 @@ class DimensionConfiguration(PropertyType):
 
 @dataclass
 class EventBridgeDestination(PropertyType):
-    EVENT_BUS_ARN = "EventBusArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -50,14 +42,6 @@ class EventBridgeDestination(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    SNS_DESTINATION = "SnsDestination"
-    CLOUD_WATCH_DESTINATION = "CloudWatchDestination"
-    ENABLED = "Enabled"
-    MATCHING_EVENT_TYPES = "MatchingEventTypes"
-    EVENT_BRIDGE_DESTINATION = "EventBridgeDestination"
-    NAME = "Name"
-    KINESIS_FIREHOSE_DESTINATION = "KinesisFirehoseDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_destination": "SnsDestination",
         "cloud_watch_destination": "CloudWatchDestination",
@@ -79,9 +63,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    IAM_ROLE_ARN = "IAMRoleARN"
-    DELIVERY_STREAM_ARN = "DeliveryStreamARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_role_arn": "IAMRoleARN",
         "delivery_stream_arn": "DeliveryStreamARN",
@@ -93,8 +74,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    TOPIC_ARN = "TopicARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicARN",
     }

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    SSE_TYPE = "SseType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "sse_type": "SseType",
@@ -25,8 +22,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfiguration(PropertyType):
-    NON_FILTERABLE_METADATA_KEYS = "NonFilterableMetadataKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "non_filterable_metadata_keys": "NonFilterableMetadataKeys",
     }

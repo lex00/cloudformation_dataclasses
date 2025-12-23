@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class KeyGroupConfig(PropertyType):
-    COMMENT = "Comment"
-    ITEMS = "Items"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "items": "Items",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    EXCLUDED_COLUMN_NAMES = "ExcludedColumnNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -22,8 +20,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    DATA_LAKE_PRINCIPAL_IDENTIFIER = "DataLakePrincipalIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -33,9 +29,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DataLocationResource(PropertyType):
-    S3_RESOURCE = "S3Resource"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_resource": "S3Resource",
         "catalog_id": "CatalogId",
@@ -47,9 +40,6 @@ class DataLocationResource(PropertyType):
 
 @dataclass
 class DatabaseResource(PropertyType):
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -61,11 +51,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    TABLE_RESOURCE = "TableResource"
-    DATABASE_RESOURCE = "DatabaseResource"
-    DATA_LOCATION_RESOURCE = "DataLocationResource"
-    TABLE_WITH_COLUMNS_RESOURCE = "TableWithColumnsResource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_resource": "TableResource",
         "database_resource": "DatabaseResource",
@@ -81,11 +66,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    TABLE_WILDCARD = "TableWildcard"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -106,12 +86,6 @@ class TableWildcard(PropertyType):
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    COLUMN_NAMES = "ColumnNames"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-    COLUMN_WILDCARD = "ColumnWildcard"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",

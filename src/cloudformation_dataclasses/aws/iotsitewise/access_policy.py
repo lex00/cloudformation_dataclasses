@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessPolicyIdentity(PropertyType):
-    USER = "User"
-    IAM_USER = "IamUser"
-    IAM_ROLE = "IamRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "iam_user": "IamUser",
@@ -28,9 +24,6 @@ class AccessPolicyIdentity(PropertyType):
 
 @dataclass
 class AccessPolicyResource(PropertyType):
-    PROJECT = "Project"
-    PORTAL = "Portal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project": "Project",
         "portal": "Portal",
@@ -42,8 +35,6 @@ class AccessPolicyResource(PropertyType):
 
 @dataclass
 class IamRole(PropertyType):
-    ARN = "arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "arn",
     }
@@ -53,8 +44,6 @@ class IamRole(PropertyType):
 
 @dataclass
 class IamUser(PropertyType):
-    ARN = "arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "arn",
     }
@@ -64,8 +53,6 @@ class IamUser(PropertyType):
 
 @dataclass
 class Portal(PropertyType):
-    ID = "id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }
@@ -75,8 +62,6 @@ class Portal(PropertyType):
 
 @dataclass
 class Project(PropertyType):
-    ID = "id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }
@@ -86,8 +71,6 @@ class Project(PropertyType):
 
 @dataclass
 class User(PropertyType):
-    ID = "id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }

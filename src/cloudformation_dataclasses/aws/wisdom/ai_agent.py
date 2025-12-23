@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AIAgentConfiguration(PropertyType):
-    MANUAL_SEARCH_AI_AGENT_CONFIGURATION = "ManualSearchAIAgentConfiguration"
-    EMAIL_OVERVIEW_AI_AGENT_CONFIGURATION = "EmailOverviewAIAgentConfiguration"
-    SELF_SERVICE_AI_AGENT_CONFIGURATION = "SelfServiceAIAgentConfiguration"
-    EMAIL_RESPONSE_AI_AGENT_CONFIGURATION = "EmailResponseAIAgentConfiguration"
-    ANSWER_RECOMMENDATION_AI_AGENT_CONFIGURATION = "AnswerRecommendationAIAgentConfiguration"
-    EMAIL_GENERATIVE_ANSWER_AI_AGENT_CONFIGURATION = "EmailGenerativeAnswerAIAgentConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manual_search_ai_agent_configuration": "ManualSearchAIAgentConfiguration",
         "email_overview_ai_agent_configuration": "EmailOverviewAIAgentConfiguration",
@@ -37,13 +30,6 @@ class AIAgentConfiguration(PropertyType):
 
 @dataclass
 class AnswerRecommendationAIAgentConfiguration(PropertyType):
-    LOCALE = "Locale"
-    ANSWER_GENERATION_AI_PROMPT_ID = "AnswerGenerationAIPromptId"
-    INTENT_LABELING_GENERATION_AI_PROMPT_ID = "IntentLabelingGenerationAIPromptId"
-    QUERY_REFORMULATION_AI_PROMPT_ID = "QueryReformulationAIPromptId"
-    ANSWER_GENERATION_AI_GUARDRAIL_ID = "AnswerGenerationAIGuardrailId"
-    ASSOCIATION_CONFIGURATIONS = "AssociationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "answer_generation_ai_prompt_id": "AnswerGenerationAIPromptId",
@@ -63,10 +49,6 @@ class AnswerRecommendationAIAgentConfiguration(PropertyType):
 
 @dataclass
 class AssociationConfiguration(PropertyType):
-    ASSOCIATION_TYPE = "AssociationType"
-    ASSOCIATION_CONFIGURATION_DATA = "AssociationConfigurationData"
-    ASSOCIATION_ID = "AssociationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_type": "AssociationType",
         "association_configuration_data": "AssociationConfigurationData",
@@ -80,8 +62,6 @@ class AssociationConfiguration(PropertyType):
 
 @dataclass
 class AssociationConfigurationData(PropertyType):
-    KNOWLEDGE_BASE_ASSOCIATION_CONFIGURATION_DATA = "KnowledgeBaseAssociationConfigurationData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_association_configuration_data": "KnowledgeBaseAssociationConfigurationData",
     }
@@ -91,11 +71,6 @@ class AssociationConfigurationData(PropertyType):
 
 @dataclass
 class EmailGenerativeAnswerAIAgentConfiguration(PropertyType):
-    EMAIL_GENERATIVE_ANSWER_AI_PROMPT_ID = "EmailGenerativeAnswerAIPromptId"
-    LOCALE = "Locale"
-    EMAIL_QUERY_REFORMULATION_AI_PROMPT_ID = "EmailQueryReformulationAIPromptId"
-    ASSOCIATION_CONFIGURATIONS = "AssociationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_generative_answer_ai_prompt_id": "EmailGenerativeAnswerAIPromptId",
         "locale": "Locale",
@@ -111,9 +86,6 @@ class EmailGenerativeAnswerAIAgentConfiguration(PropertyType):
 
 @dataclass
 class EmailOverviewAIAgentConfiguration(PropertyType):
-    LOCALE = "Locale"
-    EMAIL_OVERVIEW_AI_PROMPT_ID = "EmailOverviewAIPromptId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "email_overview_ai_prompt_id": "EmailOverviewAIPromptId",
@@ -125,11 +97,6 @@ class EmailOverviewAIAgentConfiguration(PropertyType):
 
 @dataclass
 class EmailResponseAIAgentConfiguration(PropertyType):
-    LOCALE = "Locale"
-    EMAIL_RESPONSE_AI_PROMPT_ID = "EmailResponseAIPromptId"
-    EMAIL_QUERY_REFORMULATION_AI_PROMPT_ID = "EmailQueryReformulationAIPromptId"
-    ASSOCIATION_CONFIGURATIONS = "AssociationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "email_response_ai_prompt_id": "EmailResponseAIPromptId",
@@ -145,10 +112,6 @@ class EmailResponseAIAgentConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseAssociationConfigurationData(PropertyType):
-    MAX_RESULTS = "MaxResults"
-    CONTENT_TAG_FILTER = "ContentTagFilter"
-    OVERRIDE_KNOWLEDGE_BASE_SEARCH_TYPE = "OverrideKnowledgeBaseSearchType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_results": "MaxResults",
         "content_tag_filter": "ContentTagFilter",
@@ -162,11 +125,6 @@ class KnowledgeBaseAssociationConfigurationData(PropertyType):
 
 @dataclass
 class ManualSearchAIAgentConfiguration(PropertyType):
-    LOCALE = "Locale"
-    ANSWER_GENERATION_AI_PROMPT_ID = "AnswerGenerationAIPromptId"
-    ANSWER_GENERATION_AI_GUARDRAIL_ID = "AnswerGenerationAIGuardrailId"
-    ASSOCIATION_CONFIGURATIONS = "AssociationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "answer_generation_ai_prompt_id": "AnswerGenerationAIPromptId",
@@ -182,9 +140,6 @@ class ManualSearchAIAgentConfiguration(PropertyType):
 
 @dataclass
 class OrCondition(PropertyType):
-    AND_CONDITIONS = "AndConditions"
-    TAG_CONDITION = "TagCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_conditions": "AndConditions",
         "tag_condition": "TagCondition",
@@ -196,11 +151,6 @@ class OrCondition(PropertyType):
 
 @dataclass
 class SelfServiceAIAgentConfiguration(PropertyType):
-    SELF_SERVICE_AI_GUARDRAIL_ID = "SelfServiceAIGuardrailId"
-    SELF_SERVICE_PRE_PROCESSING_AI_PROMPT_ID = "SelfServicePreProcessingAIPromptId"
-    SELF_SERVICE_ANSWER_GENERATION_AI_PROMPT_ID = "SelfServiceAnswerGenerationAIPromptId"
-    ASSOCIATION_CONFIGURATIONS = "AssociationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_service_ai_guardrail_id": "SelfServiceAIGuardrailId",
         "self_service_pre_processing_ai_prompt_id": "SelfServicePreProcessingAIPromptId",
@@ -216,9 +166,6 @@ class SelfServiceAIAgentConfiguration(PropertyType):
 
 @dataclass
 class TagCondition(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -230,10 +177,6 @@ class TagCondition(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    OR_CONDITIONS = "OrConditions"
-    AND_CONDITIONS = "AndConditions"
-    TAG_CONDITION = "TagCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "or_conditions": "OrConditions",
         "and_conditions": "AndConditions",

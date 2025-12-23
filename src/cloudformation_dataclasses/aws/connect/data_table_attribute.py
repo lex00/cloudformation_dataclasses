@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Enum(PropertyType):
-    STRICT = "Strict"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "strict": "Strict",
         "values": "Values",
@@ -25,9 +22,6 @@ class Enum(PropertyType):
 
 @dataclass
 class LockVersion(PropertyType):
-    DATA_TABLE = "DataTable"
-    ATTRIBUTE = "Attribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table": "DataTable",
         "attribute": "Attribute",
@@ -39,17 +33,6 @@ class LockVersion(PropertyType):
 
 @dataclass
 class Validation(PropertyType):
-    EXCLUSIVE_MINIMUM = "ExclusiveMinimum"
-    ENUM = "Enum"
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-    EXCLUSIVE_MAXIMUM = "ExclusiveMaximum"
-    MIN_LENGTH = "MinLength"
-    MAX_VALUES = "MaxValues"
-    MAX_LENGTH = "MaxLength"
-    MIN_VALUES = "MinValues"
-    MULTIPLE_OF = "MultipleOf"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusive_minimum": "ExclusiveMinimum",
         "enum": "Enum",

@@ -11,23 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Integration(PropertyType):
-    CACHE_NAMESPACE = "CacheNamespace"
-    CONNECTION_TYPE = "ConnectionType"
-    INTEGRATION_RESPONSES = "IntegrationResponses"
-    INTEGRATION_HTTP_METHOD = "IntegrationHttpMethod"
-    RESPONSE_TRANSFER_MODE = "ResponseTransferMode"
-    URI = "Uri"
-    PASSTHROUGH_BEHAVIOR = "PassthroughBehavior"
-    REQUEST_PARAMETERS = "RequestParameters"
-    CONNECTION_ID = "ConnectionId"
-    TYPE = "Type"
-    CACHE_KEY_PARAMETERS = "CacheKeyParameters"
-    INTEGRATION_TARGET = "IntegrationTarget"
-    CONTENT_HANDLING = "ContentHandling"
-    REQUEST_TEMPLATES = "RequestTemplates"
-    TIMEOUT_IN_MILLIS = "TimeoutInMillis"
-    CREDENTIALS = "Credentials"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_namespace": "CacheNamespace",
         "connection_type": "ConnectionType",
@@ -67,12 +50,6 @@ class Integration(PropertyType):
 
 @dataclass
 class IntegrationResponse(PropertyType):
-    RESPONSE_TEMPLATES = "ResponseTemplates"
-    SELECTION_PATTERN = "SelectionPattern"
-    CONTENT_HANDLING = "ContentHandling"
-    RESPONSE_PARAMETERS = "ResponseParameters"
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_templates": "ResponseTemplates",
         "selection_pattern": "SelectionPattern",
@@ -90,10 +67,6 @@ class IntegrationResponse(PropertyType):
 
 @dataclass
 class MethodResponse(PropertyType):
-    RESPONSE_PARAMETERS = "ResponseParameters"
-    STATUS_CODE = "StatusCode"
-    RESPONSE_MODELS = "ResponseModels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_parameters": "ResponseParameters",
         "status_code": "StatusCode",

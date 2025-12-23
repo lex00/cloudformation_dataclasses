@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Sidewalk(PropertyType):
-    ROLE = "Role"
-    SIDEWALK_MANUFACTURING_SN = "SidewalkManufacturingSn"
-    DEVICE_CREATION_FILE = "DeviceCreationFile"
-    DEVICE_CREATION_FILE_LIST = "DeviceCreationFileList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "sidewalk_manufacturing_sn": "SidewalkManufacturingSn",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:18
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Scheduler
@@ -125,18 +125,6 @@ class Schedule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Scheduler::Schedule"
     name_field: ClassVar[str] = "name"
-    GROUP_NAME = "GroupName"
-    START_DATE = "StartDate"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    TARGET = "Target"
-    DESCRIPTION = "Description"
-    KMS_KEY_ARN = "KmsKeyArn"
-    STATE = "State"
-    FLEXIBLE_TIME_WINDOW = "FlexibleTimeWindow"
-    SCHEDULE_EXPRESSION_TIMEZONE = "ScheduleExpressionTimezone"
-    END_DATE = "EndDate"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "start_date": "StartDate",
@@ -176,9 +164,6 @@ class ScheduleGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Scheduler::ScheduleGroup"
     name_field: ClassVar[str] = "name"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "name": "Name",

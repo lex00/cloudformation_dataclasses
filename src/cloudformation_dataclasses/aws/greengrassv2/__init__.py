@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GreengrassV2
@@ -284,10 +284,6 @@ class ComponentVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::GreengrassV2::ComponentVersion"
-    LAMBDA_FUNCTION = "LambdaFunction"
-    INLINE_RECIPE = "InlineRecipe"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function": "LambdaFunction",
         "inline_recipe": "InlineRecipe",
@@ -321,14 +317,6 @@ class Deployment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GreengrassV2::Deployment"
     name_field: ClassVar[str] = "deployment_name"
-    COMPONENTS = "Components"
-    DEPLOYMENT_NAME = "DeploymentName"
-    IOT_JOB_CONFIGURATION = "IotJobConfiguration"
-    DEPLOYMENT_POLICIES = "DeploymentPolicies"
-    TARGET_ARN = "TargetArn"
-    PARENT_TARGET_ARN = "ParentTargetArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "components": "Components",
         "deployment_name": "DeploymentName",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnalysisRule(PropertyType):
-    EXCLUSIONS = "Exclusions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusions": "Exclusions",
     }
@@ -22,9 +20,6 @@ class AnalysisRule(PropertyType):
 
 @dataclass
 class AnalysisRuleCriteria(PropertyType):
-    ACCOUNT_IDS = "AccountIds"
-    RESOURCE_TAGS = "ResourceTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_ids": "AccountIds",
         "resource_tags": "ResourceTags",
@@ -36,9 +31,6 @@ class AnalysisRuleCriteria(PropertyType):
 
 @dataclass
 class AnalyzerConfiguration(PropertyType):
-    INTERNAL_ACCESS_CONFIGURATION = "InternalAccessConfiguration"
-    UNUSED_ACCESS_CONFIGURATION = "UnusedAccessConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internal_access_configuration": "InternalAccessConfiguration",
         "unused_access_configuration": "UnusedAccessConfiguration",
@@ -50,9 +42,6 @@ class AnalyzerConfiguration(PropertyType):
 
 @dataclass
 class ArchiveRule(PropertyType):
-    FILTER = "Filter"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "rule_name": "RuleName",
@@ -64,12 +53,6 @@ class ArchiveRule(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    EXISTS = "Exists"
-    CONTAINS = "Contains"
-    NEQ = "Neq"
-    EQ = "Eq"
-    PROPERTY = "Property"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exists": "Exists",
         "contains": "Contains",
@@ -87,8 +70,6 @@ class Filter(PropertyType):
 
 @dataclass
 class InternalAccessAnalysisRule(PropertyType):
-    INCLUSIONS = "Inclusions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusions": "Inclusions",
     }
@@ -98,10 +79,6 @@ class InternalAccessAnalysisRule(PropertyType):
 
 @dataclass
 class InternalAccessAnalysisRuleCriteria(PropertyType):
-    RESOURCE_TYPES = "ResourceTypes"
-    ACCOUNT_IDS = "AccountIds"
-    RESOURCE_ARNS = "ResourceArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
         "account_ids": "AccountIds",
@@ -115,8 +92,6 @@ class InternalAccessAnalysisRuleCriteria(PropertyType):
 
 @dataclass
 class InternalAccessConfiguration(PropertyType):
-    INTERNAL_ACCESS_ANALYSIS_RULE = "InternalAccessAnalysisRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internal_access_analysis_rule": "InternalAccessAnalysisRule",
     }
@@ -126,9 +101,6 @@ class InternalAccessConfiguration(PropertyType):
 
 @dataclass
 class UnusedAccessConfiguration(PropertyType):
-    UNUSED_ACCESS_AGE = "UnusedAccessAge"
-    ANALYSIS_RULE = "AnalysisRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unused_access_age": "UnusedAccessAge",
         "analysis_rule": "AnalysisRule",

@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    DAYS_OF_WEEK = "DaysOfWeek"
-    PREFERENCE = "Preference"
-    LEAD_TIME_IN_WEEKS = "LeadTimeInWeeks"
-    MONTHS = "Months"
-    WEEKS_OF_MONTH = "WeeksOfMonth"
-    HOURS_OF_DAY = "HoursOfDay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_of_week": "DaysOfWeek",
         "preference": "Preference",

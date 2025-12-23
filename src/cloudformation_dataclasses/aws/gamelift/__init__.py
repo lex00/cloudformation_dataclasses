@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GameLift
@@ -2016,11 +2016,6 @@ class Alias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::Alias"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ROUTING_STRATEGY = "RoutingStrategy"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "routing_strategy": "RoutingStrategy",
@@ -2051,13 +2046,6 @@ class Build(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::Build"
     name_field: ClassVar[str] = "name"
-    OPERATING_SYSTEM = "OperatingSystem"
-    VERSION = "Version"
-    SERVER_SDK_VERSION = "ServerSdkVersion"
-    STORAGE_LOCATION = "StorageLocation"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system": "OperatingSystem",
         "version": "Version",
@@ -2092,24 +2080,6 @@ class ContainerFleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::ContainerFleet"
     name_field: ClassVar[str] = "game_server_container_group_definition_name"
-    SCALING_POLICIES = "ScalingPolicies"
-    GAME_SERVER_CONTAINER_GROUP_DEFINITION_NAME = "GameServerContainerGroupDefinitionName"
-    DESCRIPTION = "Description"
-    FLEET_ROLE_ARN = "FleetRoleArn"
-    PER_INSTANCE_CONTAINER_GROUP_DEFINITION_NAME = "PerInstanceContainerGroupDefinitionName"
-    LOCATIONS = "Locations"
-    GAME_SESSION_CREATION_LIMIT_POLICY = "GameSessionCreationLimitPolicy"
-    NEW_GAME_SESSION_PROTECTION_POLICY = "NewGameSessionProtectionPolicy"
-    GAME_SERVER_CONTAINER_GROUPS_PER_INSTANCE = "GameServerContainerGroupsPerInstance"
-    LOG_CONFIGURATION = "LogConfiguration"
-    INSTANCE_CONNECTION_PORT_RANGE = "InstanceConnectionPortRange"
-    METRIC_GROUPS = "MetricGroups"
-    INSTANCE_INBOUND_PERMISSIONS = "InstanceInboundPermissions"
-    INSTANCE_TYPE = "InstanceType"
-    TAGS = "Tags"
-    DEPLOYMENT_CONFIGURATION = "DeploymentConfiguration"
-    BILLING_TYPE = "BillingType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_policies": "ScalingPolicies",
         "game_server_container_group_definition_name": "GameServerContainerGroupDefinitionName",
@@ -2201,17 +2171,6 @@ class ContainerGroupDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::ContainerGroupDefinition"
     name_field: ClassVar[str] = "name"
-    OPERATING_SYSTEM = "OperatingSystem"
-    VERSION_DESCRIPTION = "VersionDescription"
-    GAME_SERVER_CONTAINER_DEFINITION = "GameServerContainerDefinition"
-    TOTAL_MEMORY_LIMIT_MEBIBYTES = "TotalMemoryLimitMebibytes"
-    SOURCE_VERSION_NUMBER = "SourceVersionNumber"
-    TOTAL_VCPU_LIMIT = "TotalVcpuLimit"
-    TAGS = "Tags"
-    NAME = "Name"
-    CONTAINER_GROUP_TYPE = "ContainerGroupType"
-    SUPPORT_CONTAINER_DEFINITIONS = "SupportContainerDefinitions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system": "OperatingSystem",
         "version_description": "VersionDescription",
@@ -2269,29 +2228,6 @@ class Fleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::Fleet"
     name_field: ClassVar[str] = "name"
-    SCALING_POLICIES = "ScalingPolicies"
-    DESCRIPTION = "Description"
-    PEER_VPC_ID = "PeerVpcId"
-    APPLY_CAPACITY = "ApplyCapacity"
-    FLEET_TYPE = "FleetType"
-    EC2_INBOUND_PERMISSIONS = "EC2InboundPermissions"
-    LOCATIONS = "Locations"
-    NEW_GAME_SESSION_PROTECTION_POLICY = "NewGameSessionProtectionPolicy"
-    SCRIPT_ID = "ScriptId"
-    COMPUTE_TYPE = "ComputeType"
-    RUNTIME_CONFIGURATION = "RuntimeConfiguration"
-    NAME = "Name"
-    PEER_VPC_AWS_ACCOUNT_ID = "PeerVpcAwsAccountId"
-    ANYWHERE_CONFIGURATION = "AnywhereConfiguration"
-    INSTANCE_ROLE_ARN = "InstanceRoleARN"
-    METRIC_GROUPS = "MetricGroups"
-    BUILD_ID = "BuildId"
-    RESOURCE_CREATION_LIMIT_POLICY = "ResourceCreationLimitPolicy"
-    EC2_INSTANCE_TYPE = "EC2InstanceType"
-    CERTIFICATE_CONFIGURATION = "CertificateConfiguration"
-    INSTANCE_ROLE_CREDENTIALS_PROVIDER = "InstanceRoleCredentialsProvider"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_policies": "ScalingPolicies",
         "description": "Description",
@@ -2358,19 +2294,6 @@ class GameServerGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::GameServerGroup"
     name_field: ClassVar[str] = "game_server_group_name"
-    AUTO_SCALING_POLICY = "AutoScalingPolicy"
-    MIN_SIZE = "MinSize"
-    DELETE_OPTION = "DeleteOption"
-    BALANCING_STRATEGY = "BalancingStrategy"
-    GAME_SERVER_GROUP_NAME = "GameServerGroupName"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    GAME_SERVER_PROTECTION_POLICY = "GameServerProtectionPolicy"
-    VPC_SUBNETS = "VpcSubnets"
-    MAX_SIZE = "MaxSize"
-    INSTANCE_DEFINITIONS = "InstanceDefinitions"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_policy": "AutoScalingPolicy",
         "min_size": "MinSize",
@@ -2417,16 +2340,6 @@ class GameSessionQueue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::GameSessionQueue"
     name_field: ClassVar[str] = "name"
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    PLAYER_LATENCY_POLICIES = "PlayerLatencyPolicies"
-    DESTINATIONS = "Destinations"
-    NOTIFICATION_TARGET = "NotificationTarget"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-    CUSTOM_EVENT_DATA = "CustomEventData"
-    TAGS = "Tags"
-    NAME = "Name"
-    PRIORITY_CONFIGURATION = "PriorityConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
         "player_latency_policies": "PlayerLatencyPolicies",
@@ -2467,9 +2380,6 @@ class Location(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::Location"
     name_field: ClassVar[str] = "location_name"
-    TAGS = "Tags"
-    LOCATION_NAME = "LocationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "location_name": "LocationName",
@@ -2491,24 +2401,6 @@ class MatchmakingConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::MatchmakingConfiguration"
     name_field: ClassVar[str] = "name"
-    GAME_PROPERTIES = "GameProperties"
-    GAME_SESSION_DATA = "GameSessionData"
-    DESCRIPTION = "Description"
-    ACCEPTANCE_TIMEOUT_SECONDS = "AcceptanceTimeoutSeconds"
-    NOTIFICATION_TARGET = "NotificationTarget"
-    CUSTOM_EVENT_DATA = "CustomEventData"
-    NAME = "Name"
-    ADDITIONAL_PLAYER_COUNT = "AdditionalPlayerCount"
-    BACKFILL_MODE = "BackfillMode"
-    REQUEST_TIMEOUT_SECONDS = "RequestTimeoutSeconds"
-    ACCEPTANCE_REQUIRED = "AcceptanceRequired"
-    CREATION_TIME = "CreationTime"
-    FLEX_MATCH_MODE = "FlexMatchMode"
-    RULE_SET_NAME = "RuleSetName"
-    GAME_SESSION_QUEUE_ARNS = "GameSessionQueueArns"
-    TAGS = "Tags"
-    RULE_SET_ARN = "RuleSetArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "game_properties": "GameProperties",
         "game_session_data": "GameSessionData",
@@ -2565,10 +2457,6 @@ class MatchmakingRuleSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::MatchmakingRuleSet"
     name_field: ClassVar[str] = "name"
-    RULE_SET_BODY = "RuleSetBody"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_set_body": "RuleSetBody",
         "tags": "Tags",
@@ -2602,11 +2490,6 @@ class Script(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GameLift::Script"
     name_field: ClassVar[str] = "name"
-    VERSION = "Version"
-    STORAGE_LOCATION = "StorageLocation"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "storage_location": "StorageLocation",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoScalingArns(PropertyType):
-    SCALABLE_TARGET = "ScalableTarget"
-    APPLICATION_AUTO_SCALING_POLICIES = "ApplicationAutoScalingPolicies"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scalable_target": "ScalableTarget",
         "application_auto_scaling_policies": "ApplicationAutoScalingPolicies",
@@ -25,12 +22,6 @@ class AutoScalingArns(PropertyType):
 
 @dataclass
 class ECSManagedResourceArns(PropertyType):
-    LOG_GROUPS = "LogGroups"
-    SERVICE_SECURITY_GROUPS = "ServiceSecurityGroups"
-    METRIC_ALARMS = "MetricAlarms"
-    INGRESS_PATH = "IngressPath"
-    AUTO_SCALING = "AutoScaling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_groups": "LogGroups",
         "service_security_groups": "ServiceSecurityGroups",
@@ -48,14 +39,6 @@ class ECSManagedResourceArns(PropertyType):
 
 @dataclass
 class ExpressGatewayContainer(PropertyType):
-    REPOSITORY_CREDENTIALS = "RepositoryCredentials"
-    SECRETS = "Secrets"
-    COMMAND = "Command"
-    AWS_LOGS_CONFIGURATION = "AwsLogsConfiguration"
-    CONTAINER_PORT = "ContainerPort"
-    ENVIRONMENT = "Environment"
-    IMAGE = "Image"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "secrets": "Secrets",
@@ -77,8 +60,6 @@ class ExpressGatewayContainer(PropertyType):
 
 @dataclass
 class ExpressGatewayRepositoryCredentials(PropertyType):
-    CREDENTIALS_PARAMETER = "CredentialsParameter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_parameter": "CredentialsParameter",
     }
@@ -88,11 +69,6 @@ class ExpressGatewayRepositoryCredentials(PropertyType):
 
 @dataclass
 class ExpressGatewayScalingTarget(PropertyType):
-    MIN_TASK_COUNT = "MinTaskCount"
-    AUTO_SCALING_METRIC = "AutoScalingMetric"
-    AUTO_SCALING_TARGET_VALUE = "AutoScalingTargetValue"
-    MAX_TASK_COUNT = "MaxTaskCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_task_count": "MinTaskCount",
         "auto_scaling_metric": "AutoScalingMetric",
@@ -108,9 +84,6 @@ class ExpressGatewayScalingTarget(PropertyType):
 
 @dataclass
 class ExpressGatewayServiceAwsLogsConfiguration(PropertyType):
-    LOG_STREAM_PREFIX = "LogStreamPrefix"
-    LOG_GROUP = "LogGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_prefix": "LogStreamPrefix",
         "log_group": "LogGroup",
@@ -122,18 +95,6 @@ class ExpressGatewayServiceAwsLogsConfiguration(PropertyType):
 
 @dataclass
 class ExpressGatewayServiceConfiguration(PropertyType):
-    SERVICE_REVISION_ARN = "ServiceRevisionArn"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    SCALING_TARGET = "ScalingTarget"
-    INGRESS_PATHS = "IngressPaths"
-    PRIMARY_CONTAINER = "PrimaryContainer"
-    MEMORY = "Memory"
-    HEALTH_CHECK_PATH = "HealthCheckPath"
-    CREATED_AT = "CreatedAt"
-    CPU = "Cpu"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_revision_arn": "ServiceRevisionArn",
         "execution_role_arn": "ExecutionRoleArn",
@@ -163,9 +124,6 @@ class ExpressGatewayServiceConfiguration(PropertyType):
 
 @dataclass
 class ExpressGatewayServiceNetworkConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -177,8 +135,6 @@ class ExpressGatewayServiceNetworkConfiguration(PropertyType):
 
 @dataclass
 class ExpressGatewayServiceStatus(PropertyType):
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_code": "StatusCode",
     }
@@ -188,13 +144,6 @@ class ExpressGatewayServiceStatus(PropertyType):
 
 @dataclass
 class IngressPathArns(PropertyType):
-    LISTENER_ARN = "ListenerArn"
-    LOAD_BALANCER_ARN = "LoadBalancerArn"
-    TARGET_GROUP_ARNS = "TargetGroupArns"
-    LISTENER_RULE_ARN = "ListenerRuleArn"
-    LOAD_BALANCER_SECURITY_GROUPS = "LoadBalancerSecurityGroups"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_arn": "ListenerArn",
         "load_balancer_arn": "LoadBalancerArn",
@@ -214,9 +163,6 @@ class IngressPathArns(PropertyType):
 
 @dataclass
 class IngressPathSummary(PropertyType):
-    ENDPOINT = "Endpoint"
-    ACCESS_TYPE = "AccessType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "access_type": "AccessType",
@@ -228,9 +174,6 @@ class IngressPathSummary(PropertyType):
 
 @dataclass
 class KeyValuePair(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -242,9 +185,6 @@ class KeyValuePair(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    VALUE_FROM = "ValueFrom"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_from": "ValueFrom",
         "name": "Name",

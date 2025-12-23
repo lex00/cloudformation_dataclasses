@@ -11,32 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Capabilities(PropertyType):
-    INCLUDE_CONTENT_IN_SCHEDULED_REPORTS_EMAIL = "IncludeContentInScheduledReportsEmail"
-    EXPORT_TO_CSV_IN_SCHEDULED_REPORTS = "ExportToCsvInScheduledReports"
-    CREATE_AND_UPDATE_DATA_SOURCES = "CreateAndUpdateDataSources"
-    VIEW_ACCOUNT_SPICE_CAPACITY = "ViewAccountSPICECapacity"
-    DASHBOARD = "Dashboard"
-    EXPORT_TO_PDF_IN_SCHEDULED_REPORTS = "ExportToPdfInScheduledReports"
-    CREATE_SPICE_DATASET = "CreateSPICEDataset"
-    CREATE_AND_UPDATE_DATASETS = "CreateAndUpdateDatasets"
-    PRINT_REPORTS = "PrintReports"
-    SHARE_DATASETS = "ShareDatasets"
-    EXPORT_TO_EXCEL_IN_SCHEDULED_REPORTS = "ExportToExcelInScheduledReports"
-    CREATE_AND_UPDATE_DASHBOARD_EMAIL_REPORTS = "CreateAndUpdateDashboardEmailReports"
-    CREATE_AND_UPDATE_THRESHOLD_ALERTS = "CreateAndUpdateThresholdAlerts"
-    CREATE_SHARED_FOLDERS = "CreateSharedFolders"
-    SHARE_DASHBOARDS = "ShareDashboards"
-    RENAME_SHARED_FOLDERS = "RenameSharedFolders"
-    ADD_OR_RUN_ANOMALY_DETECTION_FOR_ANALYSES = "AddOrRunAnomalyDetectionForAnalyses"
-    SHARE_DATA_SOURCES = "ShareDataSources"
-    EXPORT_TO_EXCEL = "ExportToExcel"
-    EXPORT_TO_PDF = "ExportToPdf"
-    SHARE_ANALYSES = "ShareAnalyses"
-    SUBSCRIBE_DASHBOARD_EMAIL_REPORTS = "SubscribeDashboardEmailReports"
-    ANALYSIS = "Analysis"
-    EXPORT_TO_CSV = "ExportToCsv"
-    CREATE_AND_UPDATE_THEMES = "CreateAndUpdateThemes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_content_in_scheduled_reports_email": "IncludeContentInScheduledReportsEmail",
         "export_to_csv_in_scheduled_reports": "ExportToCsvInScheduledReports",

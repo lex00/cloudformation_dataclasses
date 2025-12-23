@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LinkConfiguration(PropertyType):
-    LOG_GROUP_CONFIGURATION = "LogGroupConfiguration"
-    METRIC_CONFIGURATION = "MetricConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_configuration": "LogGroupConfiguration",
         "metric_configuration": "MetricConfiguration",
@@ -25,8 +22,6 @@ class LinkConfiguration(PropertyType):
 
 @dataclass
 class LinkFilter(PropertyType):
-    FILTER = "Filter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
     }

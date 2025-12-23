@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AWSAccount(PropertyType):
-    EMAIL_ADDRESS = "EmailAddress"
-    ID = "Id"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_address": "EmailAddress",
         "id": "Id",
@@ -28,8 +24,6 @@ class AWSAccount(PropertyType):
 
 @dataclass
 class AWSService(PropertyType):
-    SERVICE_NAME = "ServiceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
     }
@@ -39,9 +33,6 @@ class AWSService(PropertyType):
 
 @dataclass
 class AssessmentReportsDestination(PropertyType):
-    DESTINATION = "Destination"
-    DESTINATION_TYPE = "DestinationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "destination_type": "DestinationType",
@@ -53,18 +44,6 @@ class AssessmentReportsDestination(PropertyType):
 
 @dataclass
 class Delegation(PropertyType):
-    STATUS = "Status"
-    COMMENT = "Comment"
-    CREATED_BY = "CreatedBy"
-    ROLE_TYPE = "RoleType"
-    ASSESSMENT_ID = "AssessmentId"
-    CREATION_TIME = "CreationTime"
-    LAST_UPDATED = "LastUpdated"
-    ID = "Id"
-    ASSESSMENT_NAME = "AssessmentName"
-    ROLE_ARN = "RoleArn"
-    CONTROL_SET_ID = "ControlSetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "comment": "Comment",
@@ -94,9 +73,6 @@ class Delegation(PropertyType):
 
 @dataclass
 class Role(PropertyType):
-    ROLE_TYPE = "RoleType"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_type": "RoleType",
         "role_arn": "RoleArn",
@@ -108,9 +84,6 @@ class Role(PropertyType):
 
 @dataclass
 class Scope(PropertyType):
-    AWS_ACCOUNTS = "AwsAccounts"
-    AWS_SERVICES = "AwsServices"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_accounts": "AwsAccounts",
         "aws_services": "AwsServices",

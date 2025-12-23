@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AbortConfig(PropertyType):
-    CRITERIA_LIST = "CriteriaList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria_list": "CriteriaList",
     }
@@ -22,11 +20,6 @@ class AbortConfig(PropertyType):
 
 @dataclass
 class AbortCriteria(PropertyType):
-    ACTION = "Action"
-    FAILURE_TYPE = "FailureType"
-    THRESHOLD_PERCENTAGE = "ThresholdPercentage"
-    MIN_NUMBER_OF_EXECUTED_THINGS = "MinNumberOfExecutedThings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "failure_type": "FailureType",
@@ -42,10 +35,6 @@ class AbortCriteria(PropertyType):
 
 @dataclass
 class ExponentialRolloutRate(PropertyType):
-    RATE_INCREASE_CRITERIA = "RateIncreaseCriteria"
-    BASE_RATE_PER_MINUTE = "BaseRatePerMinute"
-    INCREMENT_FACTOR = "IncrementFactor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_increase_criteria": "RateIncreaseCriteria",
         "base_rate_per_minute": "BaseRatePerMinute",
@@ -59,8 +48,6 @@ class ExponentialRolloutRate(PropertyType):
 
 @dataclass
 class JobExecutionsRetryConfig(PropertyType):
-    RETRY_CRITERIA_LIST = "RetryCriteriaList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_criteria_list": "RetryCriteriaList",
     }
@@ -70,9 +57,6 @@ class JobExecutionsRetryConfig(PropertyType):
 
 @dataclass
 class JobExecutionsRolloutConfig(PropertyType):
-    MAXIMUM_PER_MINUTE = "MaximumPerMinute"
-    EXPONENTIAL_ROLLOUT_RATE = "ExponentialRolloutRate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_per_minute": "MaximumPerMinute",
         "exponential_rollout_rate": "ExponentialRolloutRate",
@@ -84,9 +68,6 @@ class JobExecutionsRolloutConfig(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    DURATION_IN_MINUTES = "DurationInMinutes"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_minutes": "DurationInMinutes",
         "start_time": "StartTime",
@@ -98,9 +79,6 @@ class MaintenanceWindow(PropertyType):
 
 @dataclass
 class PresignedUrlConfig(PropertyType):
-    EXPIRES_IN_SEC = "ExpiresInSec"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expires_in_sec": "ExpiresInSec",
         "role_arn": "RoleArn",
@@ -112,9 +90,6 @@ class PresignedUrlConfig(PropertyType):
 
 @dataclass
 class RateIncreaseCriteria(PropertyType):
-    NUMBER_OF_SUCCEEDED_THINGS = "NumberOfSucceededThings"
-    NUMBER_OF_NOTIFIED_THINGS = "NumberOfNotifiedThings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_succeeded_things": "NumberOfSucceededThings",
         "number_of_notified_things": "NumberOfNotifiedThings",
@@ -126,9 +101,6 @@ class RateIncreaseCriteria(PropertyType):
 
 @dataclass
 class RetryCriteria(PropertyType):
-    FAILURE_TYPE = "FailureType"
-    NUMBER_OF_RETRIES = "NumberOfRetries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_type": "FailureType",
         "number_of_retries": "NumberOfRetries",
@@ -140,8 +112,6 @@ class RetryCriteria(PropertyType):
 
 @dataclass
 class TimeoutConfig(PropertyType):
-    IN_PROGRESS_TIMEOUT_IN_MINUTES = "InProgressTimeoutInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "in_progress_timeout_in_minutes": "InProgressTimeoutInMinutes",
     }

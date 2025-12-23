@@ -11,19 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FirewallRule(PropertyType):
-    QTYPE = "Qtype"
-    ACTION = "Action"
-    PRIORITY = "Priority"
-    BLOCK_OVERRIDE_DOMAIN = "BlockOverrideDomain"
-    DNS_THREAT_PROTECTION = "DnsThreatProtection"
-    FIREWALL_DOMAIN_LIST_ID = "FirewallDomainListId"
-    FIREWALL_THREAT_PROTECTION_ID = "FirewallThreatProtectionId"
-    CONFIDENCE_THRESHOLD = "ConfidenceThreshold"
-    BLOCK_RESPONSE = "BlockResponse"
-    BLOCK_OVERRIDE_TTL = "BlockOverrideTtl"
-    BLOCK_OVERRIDE_DNS_TYPE = "BlockOverrideDnsType"
-    FIREWALL_DOMAIN_REDIRECTION_ACTION = "FirewallDomainRedirectionAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qtype": "Qtype",
         "action": "Action",

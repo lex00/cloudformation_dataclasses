@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:11
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PinpointEmail
@@ -38,13 +38,6 @@ class ConfigurationSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PinpointEmail::ConfigurationSet"
     name_field: ClassVar[str] = "name"
-    SENDING_OPTIONS = "SendingOptions"
-    TRACKING_OPTIONS = "TrackingOptions"
-    REPUTATION_OPTIONS = "ReputationOptions"
-    DELIVERY_OPTIONS = "DeliveryOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_options": "SendingOptions",
         "tracking_options": "TrackingOptions",
@@ -68,10 +61,6 @@ class ConfigurationSetEventDestination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PinpointEmail::ConfigurationSetEventDestination"
     name_field: ClassVar[str] = "event_destination_name"
-    EVENT_DESTINATION_NAME = "EventDestinationName"
-    CONFIGURATION_SET_NAME = "ConfigurationSetName"
-    EVENT_DESTINATION = "EventDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_destination_name": "EventDestinationName",
         "configuration_set_name": "ConfigurationSetName",
@@ -89,9 +78,6 @@ class DedicatedIpPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PinpointEmail::DedicatedIpPool"
     name_field: ClassVar[str] = "pool_name"
-    POOL_NAME = "PoolName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pool_name": "PoolName",
         "tags": "Tags",
@@ -107,12 +93,6 @@ class Identity(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PinpointEmail::Identity"
     name_field: ClassVar[str] = "name"
-    FEEDBACK_FORWARDING_ENABLED = "FeedbackForwardingEnabled"
-    DKIM_SIGNING_ENABLED = "DkimSigningEnabled"
-    TAGS = "Tags"
-    NAME = "Name"
-    MAIL_FROM_ATTRIBUTES = "MailFromAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feedback_forwarding_enabled": "FeedbackForwardingEnabled",
         "dkim_signing_enabled": "DkimSigningEnabled",

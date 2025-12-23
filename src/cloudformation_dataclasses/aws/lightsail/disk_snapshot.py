@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Location(PropertyType):
-    REGION_NAME = "RegionName"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",

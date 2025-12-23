@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkManager
@@ -558,16 +558,6 @@ class ConnectAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::ConnectAttachment"
     name_field: ClassVar[str] = "network_function_group_name"
-    PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
-    OPTIONS = "Options"
-    TRANSPORT_ATTACHMENT_ID = "TransportAttachmentId"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
-    ROUTING_POLICY_LABEL = "RoutingPolicyLabel"
-    NETWORK_FUNCTION_GROUP_NAME = "NetworkFunctionGroupName"
-    TAGS = "Tags"
-    EDGE_LOCATION = "EdgeLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proposed_segment_change": "ProposedSegmentChange",
         "options": "Options",
@@ -652,14 +642,6 @@ class ConnectPeer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::ConnectPeer"
-    CONNECT_ATTACHMENT_ID = "ConnectAttachmentId"
-    PEER_ADDRESS = "PeerAddress"
-    SUBNET_ARN = "SubnetArn"
-    CORE_NETWORK_ADDRESS = "CoreNetworkAddress"
-    BGP_OPTIONS = "BgpOptions"
-    INSIDE_CIDR_BLOCKS = "InsideCidrBlocks"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_attachment_id": "ConnectAttachmentId",
         "peer_address": "PeerAddress",
@@ -745,11 +727,6 @@ class CoreNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CoreNetwork"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    DESCRIPTION = "Description"
-    POLICY_DOCUMENT = "PolicyDocument"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_network_id": "GlobalNetworkId",
         "description": "Description",
@@ -809,10 +786,6 @@ class CoreNetworkPrefixListAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CoreNetworkPrefixListAssociation"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    PREFIX_LIST_ARN = "PrefixListArn"
-    PREFIX_LIST_ALIAS = "PrefixListAlias"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "core_network_id": "CoreNetworkId",
         "prefix_list_arn": "PrefixListArn",
@@ -829,11 +802,6 @@ class CustomerGatewayAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CustomerGatewayAssociation"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    DEVICE_ID = "DeviceId"
-    CUSTOMER_GATEWAY_ARN = "CustomerGatewayArn"
-    LINK_ID = "LinkId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_network_id": "GlobalNetworkId",
         "device_id": "DeviceId",
@@ -852,17 +820,6 @@ class Device(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Device"
-    SITE_ID = "SiteId"
-    AWS_LOCATION = "AWSLocation"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    SERIAL_NUMBER = "SerialNumber"
-    MODEL = "Model"
-    VENDOR = "Vendor"
-    TAGS = "Tags"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "site_id": "SiteId",
         "aws_location": "AWSLocation",
@@ -914,14 +871,6 @@ class DirectConnectGatewayAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::DirectConnectGatewayAttachment"
-    PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
-    EDGE_LOCATIONS = "EdgeLocations"
-    DIRECT_CONNECT_GATEWAY_ARN = "DirectConnectGatewayArn"
-    ROUTING_POLICY_LABEL = "RoutingPolicyLabel"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proposed_segment_change": "ProposedSegmentChange",
         "core_network_id": "CoreNetworkId",
@@ -1007,11 +956,6 @@ class GlobalNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::GlobalNetwork"
-    DESCRIPTION = "Description"
-    STATE = "State"
-    CREATED_AT = "CreatedAt"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "state": "State",
@@ -1041,14 +985,6 @@ class Link(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Link"
-    SITE_ID = "SiteId"
-    TYPE = "Type"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    DESCRIPTION = "Description"
-    BANDWIDTH = "Bandwidth"
-    TAGS = "Tags"
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "site_id": "SiteId",
         "type_": "Type",
@@ -1094,10 +1030,6 @@ class LinkAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::LinkAssociation"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    DEVICE_ID = "DeviceId"
-    LINK_ID = "LinkId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_network_id": "GlobalNetworkId",
         "device_id": "DeviceId",
@@ -1114,11 +1046,6 @@ class Site(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Site"
-    DESCRIPTION = "Description"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    TAGS = "Tags"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "global_network_id": "GlobalNetworkId",
@@ -1159,14 +1086,6 @@ class SiteToSiteVpnAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::SiteToSiteVpnAttachment"
     name_field: ClassVar[str] = "network_function_group_name"
-    PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
-    VPN_CONNECTION_ARN = "VpnConnectionArn"
-    ROUTING_POLICY_LABEL = "RoutingPolicyLabel"
-    NETWORK_FUNCTION_GROUP_NAME = "NetworkFunctionGroupName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proposed_segment_change": "ProposedSegmentChange",
         "core_network_id": "CoreNetworkId",
@@ -1252,10 +1171,6 @@ class TransitGatewayPeering(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayPeering"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    TRANSIT_GATEWAY_ARN = "TransitGatewayArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "core_network_id": "CoreNetworkId",
         "transit_gateway_arn": "TransitGatewayArn",
@@ -1323,9 +1238,6 @@ class TransitGatewayRegistration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayRegistration"
-    GLOBAL_NETWORK_ID = "GlobalNetworkId"
-    TRANSIT_GATEWAY_ARN = "TransitGatewayArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_network_id": "GlobalNetworkId",
         "transit_gateway_arn": "TransitGatewayArn",
@@ -1341,14 +1253,6 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
     name_field: ClassVar[str] = "network_function_group_name"
-    PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ARN = "TransitGatewayRouteTableArn"
-    PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
-    PEERING_ID = "PeeringId"
-    ROUTING_POLICY_LABEL = "RoutingPolicyLabel"
-    NETWORK_FUNCTION_GROUP_NAME = "NetworkFunctionGroupName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proposed_segment_change": "ProposedSegmentChange",
         "transit_gateway_route_table_arn": "TransitGatewayRouteTableArn",
@@ -1439,15 +1343,6 @@ class VpcAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::VpcAttachment"
-    PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
-    SUBNET_ARNS = "SubnetArns"
-    OPTIONS = "Options"
-    CORE_NETWORK_ID = "CoreNetworkId"
-    PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
-    ROUTING_POLICY_LABEL = "RoutingPolicyLabel"
-    VPC_ARN = "VpcArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "proposed_segment_change": "ProposedSegmentChange",
         "subnet_arns": "SubnetArns",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AddOn(PropertyType):
-    STATUS = "Status"
-    ADD_ON_TYPE = "AddOnType"
-    AUTO_SNAPSHOT_ADD_ON_REQUEST = "AutoSnapshotAddOnRequest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "add_on_type": "AddOnType",
@@ -28,8 +24,6 @@ class AddOn(PropertyType):
 
 @dataclass
 class AutoSnapshotAddOn(PropertyType):
-    SNAPSHOT_TIME_OF_DAY = "SnapshotTimeOfDay"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_time_of_day": "SnapshotTimeOfDay",
     }
@@ -39,9 +33,6 @@ class AutoSnapshotAddOn(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    REGION_NAME = "RegionName"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",

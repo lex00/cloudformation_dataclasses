@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:44
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Athena
@@ -316,11 +316,6 @@ class CapacityReservation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Athena::CapacityReservation"
     name_field: ClassVar[str] = "name"
-    TARGET_DPUS = "TargetDpus"
-    CAPACITY_ASSIGNMENT_CONFIGURATION = "CapacityAssignmentConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_dpus": "TargetDpus",
         "capacity_assignment_configuration": "CapacityAssignmentConfiguration",
@@ -366,15 +361,6 @@ class DataCatalog(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Athena::DataCatalog"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    CONNECTION_TYPE = "ConnectionType"
-    ERROR = "Error"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "type_": "Type",
@@ -402,12 +388,6 @@ class NamedQuery(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Athena::NamedQuery"
     name_field: ClassVar[str] = "name"
-    WORK_GROUP = "WorkGroup"
-    DESCRIPTION = "Description"
-    QUERY_STRING = "QueryString"
-    DATABASE = "Database"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "description": "Description",
@@ -435,11 +415,6 @@ class PreparedStatement(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Athena::PreparedStatement"
     name_field: ClassVar[str] = "statement_name"
-    STATEMENT_NAME = "StatementName"
-    WORK_GROUP = "WorkGroup"
-    DESCRIPTION = "Description"
-    QUERY_STATEMENT = "QueryStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement_name": "StatementName",
         "work_group": "WorkGroup",
@@ -459,13 +434,6 @@ class WorkGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Athena::WorkGroup"
     name_field: ClassVar[str] = "name"
-    RECURSIVE_DELETE_OPTION = "RecursiveDeleteOption"
-    WORK_GROUP_CONFIGURATION = "WorkGroupConfiguration"
-    DESCRIPTION = "Description"
-    STATE = "State"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recursive_delete_option": "RecursiveDeleteOption",
         "work_group_configuration": "WorkGroupConfiguration",

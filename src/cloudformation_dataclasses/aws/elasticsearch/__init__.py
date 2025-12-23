@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Elasticsearch
@@ -554,22 +554,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Elasticsearch::Domain"
     name_field: ClassVar[str] = "domain_name"
-    ACCESS_POLICIES = "AccessPolicies"
-    ADVANCED_OPTIONS = "AdvancedOptions"
-    ADVANCED_SECURITY_OPTIONS = "AdvancedSecurityOptions"
-    COGNITO_OPTIONS = "CognitoOptions"
-    DOMAIN_ENDPOINT_OPTIONS = "DomainEndpointOptions"
-    DOMAIN_NAME = "DomainName"
-    EBS_OPTIONS = "EBSOptions"
-    ELASTICSEARCH_CLUSTER_CONFIG = "ElasticsearchClusterConfig"
-    ELASTICSEARCH_VERSION = "ElasticsearchVersion"
-    ENCRYPTION_AT_REST_OPTIONS = "EncryptionAtRestOptions"
-    LOG_PUBLISHING_OPTIONS = "LogPublishingOptions"
-    NODE_TO_NODE_ENCRYPTION_OPTIONS = "NodeToNodeEncryptionOptions"
-    SNAPSHOT_OPTIONS = "SnapshotOptions"
-    TAGS = "Tags"
-    VPC_OPTIONS = "VPCOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_policies": "AccessPolicies",
         "advanced_options": "AdvancedOptions",

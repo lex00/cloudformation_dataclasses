@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StreamStorageConfiguration(PropertyType):
-    DEFAULT_STORAGE_TIER = "DefaultStorageTier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_storage_tier": "DefaultStorageTier",
     }

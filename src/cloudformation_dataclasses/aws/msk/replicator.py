@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmazonMskCluster(PropertyType):
-    MSK_CLUSTER_ARN = "MskClusterArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "msk_cluster_arn": "MskClusterArn",
     }
@@ -22,11 +20,6 @@ class AmazonMskCluster(PropertyType):
 
 @dataclass
 class ConsumerGroupReplication(PropertyType):
-    CONSUMER_GROUPS_TO_REPLICATE = "ConsumerGroupsToReplicate"
-    CONSUMER_GROUPS_TO_EXCLUDE = "ConsumerGroupsToExclude"
-    SYNCHRONISE_CONSUMER_GROUP_OFFSETS = "SynchroniseConsumerGroupOffsets"
-    DETECT_AND_COPY_NEW_CONSUMER_GROUPS = "DetectAndCopyNewConsumerGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_groups_to_replicate": "ConsumerGroupsToReplicate",
         "consumer_groups_to_exclude": "ConsumerGroupsToExclude",
@@ -42,9 +35,6 @@ class ConsumerGroupReplication(PropertyType):
 
 @dataclass
 class KafkaCluster(PropertyType):
-    VPC_CONFIG = "VpcConfig"
-    AMAZON_MSK_CLUSTER = "AmazonMskCluster"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "amazon_msk_cluster": "AmazonMskCluster",
@@ -56,9 +46,6 @@ class KafkaCluster(PropertyType):
 
 @dataclass
 class KafkaClusterClientVpcConfig(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -70,12 +57,6 @@ class KafkaClusterClientVpcConfig(PropertyType):
 
 @dataclass
 class ReplicationInfo(PropertyType):
-    TARGET_COMPRESSION_TYPE = "TargetCompressionType"
-    TOPIC_REPLICATION = "TopicReplication"
-    CONSUMER_GROUP_REPLICATION = "ConsumerGroupReplication"
-    SOURCE_KAFKA_CLUSTER_ARN = "SourceKafkaClusterArn"
-    TARGET_KAFKA_CLUSTER_ARN = "TargetKafkaClusterArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_compression_type": "TargetCompressionType",
         "topic_replication": "TopicReplication",
@@ -93,8 +74,6 @@ class ReplicationInfo(PropertyType):
 
 @dataclass
 class ReplicationStartingPosition(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -104,8 +83,6 @@ class ReplicationStartingPosition(PropertyType):
 
 @dataclass
 class ReplicationTopicNameConfiguration(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -115,14 +92,6 @@ class ReplicationTopicNameConfiguration(PropertyType):
 
 @dataclass
 class TopicReplication(PropertyType):
-    STARTING_POSITION = "StartingPosition"
-    TOPICS_TO_REPLICATE = "TopicsToReplicate"
-    TOPICS_TO_EXCLUDE = "TopicsToExclude"
-    TOPIC_NAME_CONFIGURATION = "TopicNameConfiguration"
-    COPY_TOPIC_CONFIGURATIONS = "CopyTopicConfigurations"
-    DETECT_AND_COPY_NEW_TOPICS = "DetectAndCopyNewTopics"
-    COPY_ACCESS_CONTROL_LISTS_FOR_TOPICS = "CopyAccessControlListsForTopics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "topics_to_replicate": "TopicsToReplicate",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationAutoScaling
@@ -35,15 +35,6 @@ class ScalableTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appli"""
 
     resource_type: ClassVar[str] = "AWS::ApplicationAutoScaling::ScalableTarget"
-    SCHEDULED_ACTIONS = "ScheduledActions"
-    RESOURCE_ID = "ResourceId"
-    SERVICE_NAMESPACE = "ServiceNamespace"
-    SCALABLE_DIMENSION = "ScalableDimension"
-    SUSPENDED_STATE = "SuspendedState"
-    MIN_CAPACITY = "MinCapacity"
-    ROLE_ARN = "RoleARN"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled_actions": "ScheduledActions",
         "resource_id": "ResourceId",
@@ -77,16 +68,6 @@ class ScalingPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ApplicationAutoScaling::ScalingPolicy"
     name_field: ClassVar[str] = "policy_name"
-    POLICY_TYPE = "PolicyType"
-    RESOURCE_ID = "ResourceId"
-    SCALING_TARGET_ID = "ScalingTargetId"
-    POLICY_NAME = "PolicyName"
-    SERVICE_NAMESPACE = "ServiceNamespace"
-    SCALABLE_DIMENSION = "ScalableDimension"
-    TARGET_TRACKING_SCALING_POLICY_CONFIGURATION = "TargetTrackingScalingPolicyConfiguration"
-    STEP_SCALING_POLICY_CONFIGURATION = "StepScalingPolicyConfiguration"
-    PREDICTIVE_SCALING_POLICY_CONFIGURATION = "PredictiveScalingPolicyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_type": "PolicyType",
         "resource_id": "ResourceId",

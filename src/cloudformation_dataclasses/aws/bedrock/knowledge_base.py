@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AudioConfiguration(PropertyType):
-    SEGMENTATION_CONFIGURATION = "SegmentationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_configuration": "SegmentationConfiguration",
     }
@@ -22,8 +20,6 @@ class AudioConfiguration(PropertyType):
 
 @dataclass
 class AudioSegmentationConfiguration(PropertyType):
-    FIXED_LENGTH_DURATION = "FixedLengthDuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fixed_length_duration": "FixedLengthDuration",
     }
@@ -33,11 +29,6 @@ class AudioSegmentationConfiguration(PropertyType):
 
 @dataclass
 class BedrockEmbeddingModelConfiguration(PropertyType):
-    EMBEDDING_DATA_TYPE = "EmbeddingDataType"
-    VIDEO = "Video"
-    DIMENSIONS = "Dimensions"
-    AUDIO = "Audio"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "embedding_data_type": "EmbeddingDataType",
         "video": "Video",
@@ -53,9 +44,6 @@ class BedrockEmbeddingModelConfiguration(PropertyType):
 
 @dataclass
 class CuratedQuery(PropertyType):
-    NATURAL_LANGUAGE = "NaturalLanguage"
-    SQL = "Sql"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "natural_language": "NaturalLanguage",
         "sql": "Sql",
@@ -67,8 +55,6 @@ class CuratedQuery(PropertyType):
 
 @dataclass
 class EmbeddingModelConfiguration(PropertyType):
-    BEDROCK_EMBEDDING_MODEL_CONFIGURATION = "BedrockEmbeddingModelConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_embedding_model_configuration": "BedrockEmbeddingModelConfiguration",
     }
@@ -78,8 +64,6 @@ class EmbeddingModelConfiguration(PropertyType):
 
 @dataclass
 class KendraKnowledgeBaseConfiguration(PropertyType):
-    KENDRA_INDEX_ARN = "KendraIndexArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra_index_arn": "KendraIndexArn",
     }
@@ -89,11 +73,6 @@ class KendraKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseConfiguration(PropertyType):
-    TYPE = "Type"
-    SQL_KNOWLEDGE_BASE_CONFIGURATION = "SqlKnowledgeBaseConfiguration"
-    KENDRA_KNOWLEDGE_BASE_CONFIGURATION = "KendraKnowledgeBaseConfiguration"
-    VECTOR_KNOWLEDGE_BASE_CONFIGURATION = "VectorKnowledgeBaseConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "sql_knowledge_base_configuration": "SqlKnowledgeBaseConfiguration",
@@ -109,15 +88,6 @@ class KnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class MongoDbAtlasConfiguration(PropertyType):
-    ENDPOINT = "Endpoint"
-    COLLECTION_NAME = "CollectionName"
-    VECTOR_INDEX_NAME = "VectorIndexName"
-    FIELD_MAPPING = "FieldMapping"
-    DATABASE_NAME = "DatabaseName"
-    ENDPOINT_SERVICE_NAME = "EndpointServiceName"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-    TEXT_INDEX_NAME = "TextIndexName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "collection_name": "CollectionName",
@@ -141,10 +111,6 @@ class MongoDbAtlasConfiguration(PropertyType):
 
 @dataclass
 class MongoDbAtlasFieldMapping(PropertyType):
-    VECTOR_FIELD = "VectorField"
-    TEXT_FIELD = "TextField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -158,9 +124,6 @@ class MongoDbAtlasFieldMapping(PropertyType):
 
 @dataclass
 class NeptuneAnalyticsConfiguration(PropertyType):
-    GRAPH_ARN = "GraphArn"
-    FIELD_MAPPING = "FieldMapping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "graph_arn": "GraphArn",
         "field_mapping": "FieldMapping",
@@ -172,9 +135,6 @@ class NeptuneAnalyticsConfiguration(PropertyType):
 
 @dataclass
 class NeptuneAnalyticsFieldMapping(PropertyType):
-    TEXT_FIELD = "TextField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_field": "TextField",
         "metadata_field": "MetadataField",
@@ -186,11 +146,6 @@ class NeptuneAnalyticsFieldMapping(PropertyType):
 
 @dataclass
 class OpenSearchManagedClusterConfiguration(PropertyType):
-    DOMAIN_ENDPOINT = "DomainEndpoint"
-    VECTOR_INDEX_NAME = "VectorIndexName"
-    FIELD_MAPPING = "FieldMapping"
-    DOMAIN_ARN = "DomainArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_endpoint": "DomainEndpoint",
         "vector_index_name": "VectorIndexName",
@@ -206,10 +161,6 @@ class OpenSearchManagedClusterConfiguration(PropertyType):
 
 @dataclass
 class OpenSearchManagedClusterFieldMapping(PropertyType):
-    VECTOR_FIELD = "VectorField"
-    TEXT_FIELD = "TextField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -223,10 +174,6 @@ class OpenSearchManagedClusterFieldMapping(PropertyType):
 
 @dataclass
 class OpenSearchServerlessConfiguration(PropertyType):
-    COLLECTION_ARN = "CollectionArn"
-    VECTOR_INDEX_NAME = "VectorIndexName"
-    FIELD_MAPPING = "FieldMapping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_arn": "CollectionArn",
         "vector_index_name": "VectorIndexName",
@@ -240,10 +187,6 @@ class OpenSearchServerlessConfiguration(PropertyType):
 
 @dataclass
 class OpenSearchServerlessFieldMapping(PropertyType):
-    VECTOR_FIELD = "VectorField"
-    TEXT_FIELD = "TextField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -257,11 +200,6 @@ class OpenSearchServerlessFieldMapping(PropertyType):
 
 @dataclass
 class PineconeConfiguration(PropertyType):
-    FIELD_MAPPING = "FieldMapping"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-    CONNECTION_STRING = "ConnectionString"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_mapping": "FieldMapping",
         "credentials_secret_arn": "CredentialsSecretArn",
@@ -277,9 +215,6 @@ class PineconeConfiguration(PropertyType):
 
 @dataclass
 class PineconeFieldMapping(PropertyType):
-    TEXT_FIELD = "TextField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_field": "TextField",
         "metadata_field": "MetadataField",
@@ -291,10 +226,6 @@ class PineconeFieldMapping(PropertyType):
 
 @dataclass
 class QueryGenerationColumn(PropertyType):
-    DESCRIPTION = "Description"
-    INCLUSION = "Inclusion"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "inclusion": "Inclusion",
@@ -308,9 +239,6 @@ class QueryGenerationColumn(PropertyType):
 
 @dataclass
 class QueryGenerationConfiguration(PropertyType):
-    GENERATION_CONTEXT = "GenerationContext"
-    EXECUTION_TIMEOUT_SECONDS = "ExecutionTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generation_context": "GenerationContext",
         "execution_timeout_seconds": "ExecutionTimeoutSeconds",
@@ -322,9 +250,6 @@ class QueryGenerationConfiguration(PropertyType):
 
 @dataclass
 class QueryGenerationContext(PropertyType):
-    CURATED_QUERIES = "CuratedQueries"
-    TABLES = "Tables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "curated_queries": "CuratedQueries",
         "tables": "Tables",
@@ -336,11 +261,6 @@ class QueryGenerationContext(PropertyType):
 
 @dataclass
 class QueryGenerationTable(PropertyType):
-    DESCRIPTION = "Description"
-    INCLUSION = "Inclusion"
-    COLUMNS = "Columns"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "inclusion": "Inclusion",
@@ -356,12 +276,6 @@ class QueryGenerationTable(PropertyType):
 
 @dataclass
 class RdsConfiguration(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    TABLE_NAME = "TableName"
-    FIELD_MAPPING = "FieldMapping"
-    DATABASE_NAME = "DatabaseName"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "table_name": "TableName",
@@ -379,12 +293,6 @@ class RdsConfiguration(PropertyType):
 
 @dataclass
 class RdsFieldMapping(PropertyType):
-    PRIMARY_KEY_FIELD = "PrimaryKeyField"
-    VECTOR_FIELD = "VectorField"
-    TEXT_FIELD = "TextField"
-    CUSTOM_METADATA_FIELD = "CustomMetadataField"
-    METADATA_FIELD = "MetadataField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_key_field": "PrimaryKeyField",
         "vector_field": "VectorField",
@@ -402,10 +310,6 @@ class RdsFieldMapping(PropertyType):
 
 @dataclass
 class RedshiftConfiguration(PropertyType):
-    QUERY_ENGINE_CONFIGURATION = "QueryEngineConfiguration"
-    STORAGE_CONFIGURATIONS = "StorageConfigurations"
-    QUERY_GENERATION_CONFIGURATION = "QueryGenerationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_engine_configuration": "QueryEngineConfiguration",
         "storage_configurations": "StorageConfigurations",
@@ -419,10 +323,6 @@ class RedshiftConfiguration(PropertyType):
 
 @dataclass
 class RedshiftProvisionedAuthConfiguration(PropertyType):
-    TYPE = "Type"
-    DATABASE_USER = "DatabaseUser"
-    USERNAME_PASSWORD_SECRET_ARN = "UsernamePasswordSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "database_user": "DatabaseUser",
@@ -436,9 +336,6 @@ class RedshiftProvisionedAuthConfiguration(PropertyType):
 
 @dataclass
 class RedshiftProvisionedConfiguration(PropertyType):
-    AUTH_CONFIGURATION = "AuthConfiguration"
-    CLUSTER_IDENTIFIER = "ClusterIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_configuration": "AuthConfiguration",
         "cluster_identifier": "ClusterIdentifier",
@@ -450,8 +347,6 @@ class RedshiftProvisionedConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(PropertyType):
-    TABLE_NAMES = "TableNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_names": "TableNames",
     }
@@ -461,10 +356,6 @@ class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineConfiguration(PropertyType):
-    TYPE = "Type"
-    PROVISIONED_CONFIGURATION = "ProvisionedConfiguration"
-    SERVERLESS_CONFIGURATION = "ServerlessConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "provisioned_configuration": "ProvisionedConfiguration",
@@ -478,8 +369,6 @@ class RedshiftQueryEngineConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineRedshiftStorageConfiguration(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
     }
@@ -489,10 +378,6 @@ class RedshiftQueryEngineRedshiftStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineStorageConfiguration(PropertyType):
-    TYPE = "Type"
-    REDSHIFT_CONFIGURATION = "RedshiftConfiguration"
-    AWS_DATA_CATALOG_CONFIGURATION = "AwsDataCatalogConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "redshift_configuration": "RedshiftConfiguration",
@@ -506,9 +391,6 @@ class RedshiftQueryEngineStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftServerlessAuthConfiguration(PropertyType):
-    TYPE = "Type"
-    USERNAME_PASSWORD_SECRET_ARN = "UsernamePasswordSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "username_password_secret_arn": "UsernamePasswordSecretArn",
@@ -520,9 +402,6 @@ class RedshiftServerlessAuthConfiguration(PropertyType):
 
 @dataclass
 class RedshiftServerlessConfiguration(PropertyType):
-    WORKGROUP_ARN = "WorkgroupArn"
-    AUTH_CONFIGURATION = "AuthConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_arn": "WorkgroupArn",
         "auth_configuration": "AuthConfiguration",
@@ -534,8 +413,6 @@ class RedshiftServerlessConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    URI = "URI"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri": "URI",
     }
@@ -545,10 +422,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class S3VectorsConfiguration(PropertyType):
-    INDEX_NAME = "IndexName"
-    VECTOR_BUCKET_ARN = "VectorBucketArn"
-    INDEX_ARN = "IndexArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "vector_bucket_arn": "VectorBucketArn",
@@ -562,9 +435,6 @@ class S3VectorsConfiguration(PropertyType):
 
 @dataclass
 class SqlKnowledgeBaseConfiguration(PropertyType):
-    TYPE = "Type"
-    REDSHIFT_CONFIGURATION = "RedshiftConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "redshift_configuration": "RedshiftConfiguration",
@@ -576,15 +446,6 @@ class SqlKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class StorageConfiguration(PropertyType):
-    S3_VECTORS_CONFIGURATION = "S3VectorsConfiguration"
-    OPENSEARCH_MANAGED_CLUSTER_CONFIGURATION = "OpensearchManagedClusterConfiguration"
-    OPENSEARCH_SERVERLESS_CONFIGURATION = "OpensearchServerlessConfiguration"
-    NEPTUNE_ANALYTICS_CONFIGURATION = "NeptuneAnalyticsConfiguration"
-    TYPE = "Type"
-    MONGO_DB_ATLAS_CONFIGURATION = "MongoDbAtlasConfiguration"
-    RDS_CONFIGURATION = "RdsConfiguration"
-    PINECONE_CONFIGURATION = "PineconeConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_vectors_configuration": "S3VectorsConfiguration",
         "opensearch_managed_cluster_configuration": "OpensearchManagedClusterConfiguration",
@@ -608,8 +469,6 @@ class StorageConfiguration(PropertyType):
 
 @dataclass
 class SupplementalDataStorageConfiguration(PropertyType):
-    SUPPLEMENTAL_DATA_STORAGE_LOCATIONS = "SupplementalDataStorageLocations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supplemental_data_storage_locations": "SupplementalDataStorageLocations",
     }
@@ -619,9 +478,6 @@ class SupplementalDataStorageConfiguration(PropertyType):
 
 @dataclass
 class SupplementalDataStorageLocation(PropertyType):
-    SUPPLEMENTAL_DATA_STORAGE_LOCATION_TYPE = "SupplementalDataStorageLocationType"
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supplemental_data_storage_location_type": "SupplementalDataStorageLocationType",
         "s3_location": "S3Location",
@@ -633,10 +489,6 @@ class SupplementalDataStorageLocation(PropertyType):
 
 @dataclass
 class VectorKnowledgeBaseConfiguration(PropertyType):
-    EMBEDDING_MODEL_CONFIGURATION = "EmbeddingModelConfiguration"
-    EMBEDDING_MODEL_ARN = "EmbeddingModelArn"
-    SUPPLEMENTAL_DATA_STORAGE_CONFIGURATION = "SupplementalDataStorageConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "embedding_model_configuration": "EmbeddingModelConfiguration",
         "embedding_model_arn": "EmbeddingModelArn",
@@ -650,8 +502,6 @@ class VectorKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class VideoConfiguration(PropertyType):
-    SEGMENTATION_CONFIGURATION = "SegmentationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_configuration": "SegmentationConfiguration",
     }
@@ -661,8 +511,6 @@ class VideoConfiguration(PropertyType):
 
 @dataclass
 class VideoSegmentationConfiguration(PropertyType):
-    FIXED_LENGTH_DURATION = "FixedLengthDuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fixed_length_duration": "FixedLengthDuration",
     }

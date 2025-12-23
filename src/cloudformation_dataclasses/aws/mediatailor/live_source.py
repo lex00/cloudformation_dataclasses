@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HttpPackageConfiguration(PropertyType):
-    PATH = "Path"
-    TYPE = "Type"
-    SOURCE_GROUP = "SourceGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",

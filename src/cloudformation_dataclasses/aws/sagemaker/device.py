@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Device(PropertyType):
-    IOT_THING_NAME = "IotThingName"
-    DESCRIPTION = "Description"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_thing_name": "IotThingName",
         "description": "Description",

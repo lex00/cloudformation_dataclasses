@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:49
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeDeploy
@@ -519,10 +519,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::Application"
     name_field: ClassVar[str] = "application_name"
-    APPLICATION_NAME = "ApplicationName"
-    COMPUTE_PLATFORM = "ComputePlatform"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "compute_platform": "ComputePlatform",
@@ -540,12 +536,6 @@ class DeploymentConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::DeploymentConfig"
     name_field: ClassVar[str] = "deployment_config_name"
-    COMPUTE_PLATFORM = "ComputePlatform"
-    ZONAL_CONFIG = "ZonalConfig"
-    DEPLOYMENT_CONFIG_NAME = "DeploymentConfigName"
-    TRAFFIC_ROUTING_CONFIG = "TrafficRoutingConfig"
-    MINIMUM_HEALTHY_HOSTS = "MinimumHealthyHosts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_platform": "ComputePlatform",
         "zonal_config": "ZonalConfig",
@@ -567,27 +557,6 @@ class DeploymentGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::DeploymentGroup"
     name_field: ClassVar[str] = "deployment_group_name"
-    ALARM_CONFIGURATION = "AlarmConfiguration"
-    APPLICATION_NAME = "ApplicationName"
-    AUTO_ROLLBACK_CONFIGURATION = "AutoRollbackConfiguration"
-    AUTO_SCALING_GROUPS = "AutoScalingGroups"
-    BLUE_GREEN_DEPLOYMENT_CONFIGURATION = "BlueGreenDeploymentConfiguration"
-    DEPLOYMENT = "Deployment"
-    DEPLOYMENT_CONFIG_NAME = "DeploymentConfigName"
-    DEPLOYMENT_GROUP_NAME = "DeploymentGroupName"
-    DEPLOYMENT_STYLE = "DeploymentStyle"
-    ECS_SERVICES = "ECSServices"
-    EC2_TAG_FILTERS = "Ec2TagFilters"
-    EC2_TAG_SET = "Ec2TagSet"
-    LOAD_BALANCER_INFO = "LoadBalancerInfo"
-    ON_PREMISES_INSTANCE_TAG_FILTERS = "OnPremisesInstanceTagFilters"
-    ON_PREMISES_TAG_SET = "OnPremisesTagSet"
-    OUTDATED_INSTANCES_STRATEGY = "OutdatedInstancesStrategy"
-    SERVICE_ROLE_ARN = "ServiceRoleArn"
-    TAGS = "Tags"
-    TERMINATION_HOOK_ENABLED = "TerminationHookEnabled"
-    TRIGGER_CONFIGURATIONS = "TriggerConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_configuration": "AlarmConfiguration",
         "application_name": "ApplicationName",

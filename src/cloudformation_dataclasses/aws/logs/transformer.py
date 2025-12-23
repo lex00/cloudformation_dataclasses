@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AddKeyEntry(PropertyType):
-    OVERWRITE_IF_EXISTS = "OverwriteIfExists"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite_if_exists": "OverwriteIfExists",
         "value": "Value",
@@ -28,8 +24,6 @@ class AddKeyEntry(PropertyType):
 
 @dataclass
 class AddKeys(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -39,8 +33,6 @@ class AddKeys(PropertyType):
 
 @dataclass
 class CopyValue(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -50,10 +42,6 @@ class CopyValue(PropertyType):
 
 @dataclass
 class CopyValueEntry(PropertyType):
-    TARGET = "Target"
-    OVERWRITE_IF_EXISTS = "OverwriteIfExists"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "overwrite_if_exists": "OverwriteIfExists",
@@ -67,11 +55,6 @@ class CopyValueEntry(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    QUOTE_CHARACTER = "QuoteCharacter"
-    DELIMITER = "Delimiter"
-    COLUMNS = "Columns"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quote_character": "QuoteCharacter",
         "delimiter": "Delimiter",
@@ -87,14 +70,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DateTimeConverter(PropertyType):
-    LOCALE = "Locale"
-    TARGET = "Target"
-    MATCH_PATTERNS = "MatchPatterns"
-    SOURCE_TIMEZONE = "SourceTimezone"
-    TARGET_FORMAT = "TargetFormat"
-    TARGET_TIMEZONE = "TargetTimezone"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "target": "Target",
@@ -116,8 +91,6 @@ class DateTimeConverter(PropertyType):
 
 @dataclass
 class DeleteKeys(PropertyType):
-    WITH_KEYS = "WithKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -127,9 +100,6 @@ class DeleteKeys(PropertyType):
 
 @dataclass
 class Grok(PropertyType):
-    SOURCE = "Source"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
         "match": "Match",
@@ -141,13 +111,6 @@ class Grok(PropertyType):
 
 @dataclass
 class ListToMap(PropertyType):
-    VALUE_KEY = "ValueKey"
-    TARGET = "Target"
-    FLATTEN = "Flatten"
-    FLATTENED_ELEMENT = "FlattenedElement"
-    SOURCE = "Source"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_key": "ValueKey",
         "target": "Target",
@@ -167,8 +130,6 @@ class ListToMap(PropertyType):
 
 @dataclass
 class LowerCaseString(PropertyType):
-    WITH_KEYS = "WithKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -178,10 +139,6 @@ class LowerCaseString(PropertyType):
 
 @dataclass
 class MoveKeyEntry(PropertyType):
-    TARGET = "Target"
-    OVERWRITE_IF_EXISTS = "OverwriteIfExists"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "overwrite_if_exists": "OverwriteIfExists",
@@ -195,8 +152,6 @@ class MoveKeyEntry(PropertyType):
 
 @dataclass
 class MoveKeys(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -206,8 +161,6 @@ class MoveKeys(PropertyType):
 
 @dataclass
 class ParseCloudfront(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -217,9 +170,6 @@ class ParseCloudfront(PropertyType):
 
 @dataclass
 class ParseJSON(PropertyType):
-    DESTINATION = "Destination"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -231,14 +181,6 @@ class ParseJSON(PropertyType):
 
 @dataclass
 class ParseKeyValue(PropertyType):
-    DESTINATION = "Destination"
-    KEY_VALUE_DELIMITER = "KeyValueDelimiter"
-    OVERWRITE_IF_EXISTS = "OverwriteIfExists"
-    FIELD_DELIMITER = "FieldDelimiter"
-    NON_MATCH_VALUE = "NonMatchValue"
-    SOURCE = "Source"
-    KEY_PREFIX = "KeyPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "key_value_delimiter": "KeyValueDelimiter",
@@ -260,8 +202,6 @@ class ParseKeyValue(PropertyType):
 
 @dataclass
 class ParsePostgres(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -271,8 +211,6 @@ class ParsePostgres(PropertyType):
 
 @dataclass
 class ParseRoute53(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -282,10 +220,6 @@ class ParseRoute53(PropertyType):
 
 @dataclass
 class ParseToOCSF(PropertyType):
-    EVENT_SOURCE = "EventSource"
-    OCSF_VERSION = "OcsfVersion"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_source": "EventSource",
         "ocsf_version": "OcsfVersion",
@@ -299,8 +233,6 @@ class ParseToOCSF(PropertyType):
 
 @dataclass
 class ParseVPC(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -310,8 +242,6 @@ class ParseVPC(PropertyType):
 
 @dataclass
 class ParseWAF(PropertyType):
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -321,30 +251,6 @@ class ParseWAF(PropertyType):
 
 @dataclass
 class Processor(PropertyType):
-    PARSE_CLOUDFRONT = "ParseCloudfront"
-    LOWER_CASE_STRING = "LowerCaseString"
-    UPPER_CASE_STRING = "UpperCaseString"
-    DELETE_KEYS = "DeleteKeys"
-    RENAME_KEYS = "RenameKeys"
-    GROK = "Grok"
-    SPLIT_STRING = "SplitString"
-    CSV = "Csv"
-    ADD_KEYS = "AddKeys"
-    PARSE_TO_OCSF = "ParseToOCSF"
-    SUBSTITUTE_STRING = "SubstituteString"
-    PARSE_KEY_VALUE = "ParseKeyValue"
-    PARSE_WAF = "ParseWAF"
-    PARSE_VPC = "ParseVPC"
-    PARSE_ROUTE53 = "ParseRoute53"
-    TYPE_CONVERTER = "TypeConverter"
-    PARSE_JSON = "ParseJSON"
-    PARSE_POSTGRES = "ParsePostgres"
-    COPY_VALUE = "CopyValue"
-    MOVE_KEYS = "MoveKeys"
-    DATE_TIME_CONVERTER = "DateTimeConverter"
-    TRIM_STRING = "TrimString"
-    LIST_TO_MAP = "ListToMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parse_cloudfront": "ParseCloudfront",
         "lower_case_string": "LowerCaseString",
@@ -398,10 +304,6 @@ class Processor(PropertyType):
 
 @dataclass
 class RenameKeyEntry(PropertyType):
-    OVERWRITE_IF_EXISTS = "OverwriteIfExists"
-    RENAME_TO = "RenameTo"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite_if_exists": "OverwriteIfExists",
         "rename_to": "RenameTo",
@@ -415,8 +317,6 @@ class RenameKeyEntry(PropertyType):
 
 @dataclass
 class RenameKeys(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -426,8 +326,6 @@ class RenameKeys(PropertyType):
 
 @dataclass
 class SplitString(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -437,9 +335,6 @@ class SplitString(PropertyType):
 
 @dataclass
 class SplitStringEntry(PropertyType):
-    DELIMITER = "Delimiter"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "source": "Source",
@@ -451,8 +346,6 @@ class SplitStringEntry(PropertyType):
 
 @dataclass
 class SubstituteString(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -462,10 +355,6 @@ class SubstituteString(PropertyType):
 
 @dataclass
 class SubstituteStringEntry(PropertyType):
-    FROM = "From"
-    TO = "To"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -479,8 +368,6 @@ class SubstituteStringEntry(PropertyType):
 
 @dataclass
 class TrimString(PropertyType):
-    WITH_KEYS = "WithKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -490,8 +377,6 @@ class TrimString(PropertyType):
 
 @dataclass
 class TypeConverter(PropertyType):
-    ENTRIES = "Entries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -501,9 +386,6 @@ class TypeConverter(PropertyType):
 
 @dataclass
 class TypeConverterEntry(PropertyType):
-    TYPE = "Type"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key": "Key",
@@ -515,8 +397,6 @@ class TypeConverterEntry(PropertyType):
 
 @dataclass
 class UpperCaseString(PropertyType):
-    WITH_KEYS = "WithKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Check(PropertyType):
-    TYPE = "Type"
-    IMPAIRED_SINCE = "ImpairedSince"
-    RESULT = "Result"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "impaired_since": "ImpairedSince",
@@ -28,8 +24,6 @@ class Check(PropertyType):
 
 @dataclass
 class ConnectivityInfo(PropertyType):
-    PRIVATE_ROUTE_SERVER_PEERINGS = "PrivateRouteServerPeerings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_route_server_peerings": "PrivateRouteServerPeerings",
     }
@@ -39,12 +33,6 @@ class ConnectivityInfo(PropertyType):
 
 @dataclass
 class HostInfoForCreate(PropertyType):
-    KEY_NAME = "KeyName"
-    DEDICATED_HOST_ID = "DedicatedHostId"
-    PLACEMENT_GROUP_ID = "PlacementGroupId"
-    INSTANCE_TYPE = "InstanceType"
-    HOST_NAME = "HostName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_name": "KeyName",
         "dedicated_host_id": "DedicatedHostId",
@@ -62,8 +50,6 @@ class HostInfoForCreate(PropertyType):
 
 @dataclass
 class InitialVlanInfo(PropertyType):
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -73,19 +59,6 @@ class InitialVlanInfo(PropertyType):
 
 @dataclass
 class InitialVlans(PropertyType):
-    VMK_MANAGEMENT = "VmkManagement"
-    V_TEP = "VTep"
-    EXPANSION_VLAN2 = "ExpansionVlan2"
-    V_SAN = "VSan"
-    V_MOTION = "VMotion"
-    IS_HCX_PUBLIC = "IsHcxPublic"
-    HCX = "Hcx"
-    EDGE_V_TEP = "EdgeVTep"
-    HCX_NETWORK_ACL_ID = "HcxNetworkAclId"
-    EXPANSION_VLAN1 = "ExpansionVlan1"
-    VM_MANAGEMENT = "VmManagement"
-    NSX_UP_LINK = "NsxUpLink"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vmk_management": "VmkManagement",
         "v_tep": "VTep",
@@ -117,9 +90,6 @@ class InitialVlans(PropertyType):
 
 @dataclass
 class LicenseInfo(PropertyType):
-    SOLUTION_KEY = "SolutionKey"
-    VSAN_KEY = "VsanKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "solution_key": "SolutionKey",
         "vsan_key": "VsanKey",
@@ -131,8 +101,6 @@ class LicenseInfo(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    SECRET_ARN = "SecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }
@@ -142,8 +110,6 @@ class Secret(PropertyType):
 
 @dataclass
 class ServiceAccessSecurityGroups(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
     }
@@ -153,16 +119,6 @@ class ServiceAccessSecurityGroups(PropertyType):
 
 @dataclass
 class VcfHostnames(PropertyType):
-    NSX = "Nsx"
-    V_CENTER = "VCenter"
-    NSX_MANAGER1 = "NsxManager1"
-    NSX_EDGE1 = "NsxEdge1"
-    NSX_MANAGER3 = "NsxManager3"
-    SDDC_MANAGER = "SddcManager"
-    NSX_MANAGER2 = "NsxManager2"
-    NSX_EDGE2 = "NsxEdge2"
-    CLOUD_BUILDER = "CloudBuilder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nsx": "Nsx",
         "v_center": "VCenter",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KafkaConnect
@@ -182,20 +182,6 @@ class Connector(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::Connector"
     name_field: ClassVar[str] = "connector_name"
-    KAFKA_CLUSTER = "KafkaCluster"
-    KAFKA_CONNECT_VERSION = "KafkaConnectVersion"
-    CONNECTOR_CONFIGURATION = "ConnectorConfiguration"
-    LOG_DELIVERY = "LogDelivery"
-    WORKER_CONFIGURATION = "WorkerConfiguration"
-    CAPACITY = "Capacity"
-    KAFKA_CLUSTER_ENCRYPTION_IN_TRANSIT = "KafkaClusterEncryptionInTransit"
-    CONNECTOR_DESCRIPTION = "ConnectorDescription"
-    KAFKA_CLUSTER_CLIENT_AUTHENTICATION = "KafkaClusterClientAuthentication"
-    CONNECTOR_NAME = "ConnectorName"
-    SERVICE_EXECUTION_ROLE_ARN = "ServiceExecutionRoleArn"
-    TAGS = "Tags"
-    PLUGINS = "Plugins"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kafka_cluster": "KafkaCluster",
         "kafka_connect_version": "KafkaConnectVersion",
@@ -239,12 +225,6 @@ class CustomPlugin(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::CustomPlugin"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONTENT_TYPE = "ContentType"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "content_type": "ContentType",
@@ -292,11 +272,6 @@ class WorkerConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::WorkerConfiguration"
     name_field: ClassVar[str] = "name"
-    PROPERTIES_FILE_CONTENT = "PropertiesFileContent"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "properties_file_content": "PropertiesFileContent",
         "description": "Description",

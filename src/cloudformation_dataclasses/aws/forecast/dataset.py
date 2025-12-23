@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributesItems(PropertyType):
-    ATTRIBUTE_TYPE = "AttributeType"
-    ATTRIBUTE_NAME = "AttributeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "attribute_name": "AttributeName",
@@ -25,9 +22,6 @@ class AttributesItems(PropertyType):
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "role_arn": "RoleArn",
@@ -39,8 +33,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class Schema(PropertyType):
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -50,9 +42,6 @@ class Schema(PropertyType):
 
 @dataclass
 class TagsItems(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

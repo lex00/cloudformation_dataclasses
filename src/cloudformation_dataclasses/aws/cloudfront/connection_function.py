@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionFunctionConfig(PropertyType):
-    COMMENT = "Comment"
-    RUNTIME = "Runtime"
-    KEY_VALUE_STORE_ASSOCIATIONS = "KeyValueStoreAssociations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "runtime": "Runtime",
@@ -28,8 +24,6 @@ class ConnectionFunctionConfig(PropertyType):
 
 @dataclass
 class KeyValueStoreAssociation(PropertyType):
-    KEY_VALUE_STORE_ARN = "KeyValueStoreARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_value_store_arn": "KeyValueStoreARN",
     }

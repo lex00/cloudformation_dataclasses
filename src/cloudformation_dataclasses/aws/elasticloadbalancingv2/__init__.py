@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancingV2
@@ -376,16 +376,6 @@ class Listener(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::Listener"
-    MUTUAL_AUTHENTICATION = "MutualAuthentication"
-    LISTENER_ATTRIBUTES = "ListenerAttributes"
-    ALPN_POLICY = "AlpnPolicy"
-    SSL_POLICY = "SslPolicy"
-    LOAD_BALANCER_ARN = "LoadBalancerArn"
-    DEFAULT_ACTIONS = "DefaultActions"
-    PORT = "Port"
-    CERTIFICATES = "Certificates"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mutual_authentication": "MutualAuthentication",
         "listener_attributes": "ListenerAttributes",
@@ -420,9 +410,6 @@ class ListenerCertificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::ListenerCertificate"
-    CERTIFICATES = "Certificates"
-    LISTENER_ARN = "ListenerArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificates": "Certificates",
         "listener_arn": "ListenerArn",
@@ -437,12 +424,6 @@ class ListenerRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::ListenerRule"
-    LISTENER_ARN = "ListenerArn"
-    ACTIONS = "Actions"
-    PRIORITY = "Priority"
-    TRANSFORMS = "Transforms"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_arn": "ListenerArn",
         "actions": "Actions",
@@ -475,21 +456,6 @@ class LoadBalancer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::LoadBalancer"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SECURITY_GROUPS = "SecurityGroups"
-    LOAD_BALANCER_ATTRIBUTES = "LoadBalancerAttributes"
-    SCHEME = "Scheme"
-    NAME = "Name"
-    ENABLE_CAPACITY_RESERVATION_PROVISION_STABILIZE = "EnableCapacityReservationProvisionStabilize"
-    SUBNETS = "Subnets"
-    TYPE = "Type"
-    MINIMUM_LOAD_BALANCER_CAPACITY = "MinimumLoadBalancerCapacity"
-    ENABLE_PREFIX_FOR_IPV6_SOURCE_NAT = "EnablePrefixForIpv6SourceNat"
-    IPV4_IPAM_POOL_ID = "Ipv4IpamPoolId"
-    ENFORCE_SECURITY_GROUP_INBOUND_RULES_ON_PRIVATE_LINK_TRAFFIC = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
-    TAGS = "Tags"
-    SUBNET_MAPPINGS = "SubnetMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "security_groups": "SecurityGroups",
@@ -560,27 +526,6 @@ class TargetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TargetGroup"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    HEALTH_CHECK_INTERVAL_SECONDS = "HealthCheckIntervalSeconds"
-    TARGET_CONTROL_PORT = "TargetControlPort"
-    MATCHER = "Matcher"
-    HEALTH_CHECK_PATH = "HealthCheckPath"
-    PORT = "Port"
-    TARGETS = "Targets"
-    HEALTH_CHECK_ENABLED = "HealthCheckEnabled"
-    PROTOCOL_VERSION = "ProtocolVersion"
-    UNHEALTHY_THRESHOLD_COUNT = "UnhealthyThresholdCount"
-    HEALTH_CHECK_TIMEOUT_SECONDS = "HealthCheckTimeoutSeconds"
-    NAME = "Name"
-    VPC_ID = "VpcId"
-    HEALTHY_THRESHOLD_COUNT = "HealthyThresholdCount"
-    HEALTH_CHECK_PROTOCOL = "HealthCheckProtocol"
-    TARGET_GROUP_ATTRIBUTES = "TargetGroupAttributes"
-    TARGET_TYPE = "TargetType"
-    HEALTH_CHECK_PORT = "HealthCheckPort"
-    PROTOCOL = "Protocol"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "health_check_interval_seconds": "HealthCheckIntervalSeconds",
@@ -653,12 +598,6 @@ class TrustStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TrustStore"
     name_field: ClassVar[str] = "name"
-    CA_CERTIFICATES_BUNDLE_S3_BUCKET = "CaCertificatesBundleS3Bucket"
-    CA_CERTIFICATES_BUNDLE_S3_OBJECT_VERSION = "CaCertificatesBundleS3ObjectVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-    CA_CERTIFICATES_BUNDLE_S3_KEY = "CaCertificatesBundleS3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ca_certificates_bundle_s3_bucket": "CaCertificatesBundleS3Bucket",
         "ca_certificates_bundle_s3_object_version": "CaCertificatesBundleS3ObjectVersion",
@@ -695,9 +634,6 @@ class TrustStoreRevocation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TrustStoreRevocation"
-    REVOCATION_CONTENTS = "RevocationContents"
-    TRUST_STORE_ARN = "TrustStoreArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revocation_contents": "RevocationContents",
         "trust_store_arn": "TrustStoreArn",

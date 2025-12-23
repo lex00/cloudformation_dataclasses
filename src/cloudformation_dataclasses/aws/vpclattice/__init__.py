@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:21
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VpcLattice
@@ -42,11 +42,6 @@ class AccessLogSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::AccessLogSubscription"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-    SERVICE_NETWORK_LOG_TYPE = "ServiceNetworkLogType"
-    DESTINATION_ARN = "DestinationArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_identifier": "ResourceIdentifier",
         "service_network_log_type": "ServiceNetworkLogType",
@@ -86,9 +81,6 @@ class AuthPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::AuthPolicy"
-    POLICY = "Policy"
-    RESOURCE_IDENTIFIER = "ResourceIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_identifier": "ResourceIdentifier",
@@ -110,9 +102,6 @@ class DomainVerification(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::DomainVerification"
     name_field: ClassVar[str] = "domain_name"
-    DOMAIN_NAME = "DomainName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "tags": "Tags",
@@ -159,13 +148,6 @@ class Listener(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Listener"
     name_field: ClassVar[str] = "name"
-    DEFAULT_ACTION = "DefaultAction"
-    PORT = "Port"
-    SERVICE_IDENTIFIER = "ServiceIdentifier"
-    PROTOCOL = "Protocol"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_action": "DefaultAction",
         "port": "Port",
@@ -210,20 +192,6 @@ class ResourceConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ResourceConfiguration"
     name_field: ClassVar[str] = "name"
-    CUSTOM_DOMAIN_NAME = "CustomDomainName"
-    PORT_RANGES = "PortRanges"
-    RESOURCE_CONFIGURATION_DEFINITION = "ResourceConfigurationDefinition"
-    GROUP_DOMAIN = "GroupDomain"
-    RESOURCE_CONFIGURATION_AUTH_TYPE = "ResourceConfigurationAuthType"
-    RESOURCE_CONFIGURATION_GROUP_ID = "ResourceConfigurationGroupId"
-    NAME = "Name"
-    ALLOW_ASSOCIATION_TO_SHARABLE_SERVICE_NETWORK = "AllowAssociationToSharableServiceNetwork"
-    PROTOCOL_TYPE = "ProtocolType"
-    RESOURCE_CONFIGURATION_TYPE = "ResourceConfigurationType"
-    DOMAIN_VERIFICATION_ID = "DomainVerificationId"
-    RESOURCE_GATEWAY_ID = "ResourceGatewayId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_domain_name": "CustomDomainName",
         "port_ranges": "PortRanges",
@@ -272,14 +240,6 @@ class ResourceGateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ResourceGateway"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    VPC_IDENTIFIER = "VpcIdentifier"
-    IPV4_ADDRESSES_PER_ENI = "Ipv4AddressesPerEni"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "vpc_identifier": "VpcIdentifier",
@@ -315,9 +275,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ResourcePolicy"
-    POLICY = "Policy"
-    RESOURCE_ARN = "ResourceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_arn": "ResourceArn",
@@ -333,14 +290,6 @@ class Rule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Rule"
     name_field: ClassVar[str] = "name"
-    ACTION = "Action"
-    PRIORITY = "Priority"
-    SERVICE_IDENTIFIER = "ServiceIdentifier"
-    LISTENER_IDENTIFIER = "ListenerIdentifier"
-    TAGS = "Tags"
-    MATCH = "Match"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -377,13 +326,6 @@ class Service(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Service"
     name_field: ClassVar[str] = "name"
-    DNS_ENTRY = "DnsEntry"
-    CUSTOM_DOMAIN_NAME = "CustomDomainName"
-    AUTH_TYPE = "AuthType"
-    TAGS = "Tags"
-    NAME = "Name"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_entry": "DnsEntry",
         "custom_domain_name": "CustomDomainName",
@@ -443,11 +385,6 @@ class ServiceNetwork(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ServiceNetwork"
     name_field: ClassVar[str] = "name"
-    SHARING_CONFIG = "SharingConfig"
-    AUTH_TYPE = "AuthType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sharing_config": "SharingConfig",
         "auth_type": "AuthType",
@@ -487,11 +424,6 @@ class ServiceNetworkResourceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ServiceNetworkResourceAssociation"
-    PRIVATE_DNS_ENABLED = "PrivateDnsEnabled"
-    RESOURCE_CONFIGURATION_ID = "ResourceConfigurationId"
-    SERVICE_NETWORK_ID = "ServiceNetworkId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_enabled": "PrivateDnsEnabled",
         "resource_configuration_id": "ResourceConfigurationId",
@@ -521,11 +453,6 @@ class ServiceNetworkServiceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ServiceNetworkServiceAssociation"
-    SERVICE_NETWORK_IDENTIFIER = "ServiceNetworkIdentifier"
-    DNS_ENTRY = "DnsEntry"
-    SERVICE_IDENTIFIER = "ServiceIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_network_identifier": "ServiceNetworkIdentifier",
         "dns_entry": "DnsEntry",
@@ -605,13 +532,6 @@ class ServiceNetworkVpcAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ServiceNetworkVpcAssociation"
-    PRIVATE_DNS_ENABLED = "PrivateDnsEnabled"
-    SERVICE_NETWORK_IDENTIFIER = "ServiceNetworkIdentifier"
-    DNS_OPTIONS = "DnsOptions"
-    VPC_IDENTIFIER = "VpcIdentifier"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_enabled": "PrivateDnsEnabled",
         "service_network_identifier": "ServiceNetworkIdentifier",
@@ -676,12 +596,6 @@ class TargetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::TargetGroup"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    CONFIG = "Config"
-    TARGETS = "Targets"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "config": "Config",

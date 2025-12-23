@@ -11,29 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    S3 = "S3"
-    CLOUDWATCH_ALARM = "CloudwatchAlarm"
-    IOT_EVENTS = "IotEvents"
-    FIREHOSE = "Firehose"
-    REPUBLISH = "Republish"
-    KAFKA = "Kafka"
-    STEP_FUNCTIONS = "StepFunctions"
-    DYNAMO_DB = "DynamoDB"
-    HTTP = "Http"
-    OPEN_SEARCH = "OpenSearch"
-    DYNAMO_D_BV2 = "DynamoDBv2"
-    CLOUDWATCH_METRIC = "CloudwatchMetric"
-    IOT_SITE_WISE = "IotSiteWise"
-    ELASTICSEARCH = "Elasticsearch"
-    SQS = "Sqs"
-    KINESIS = "Kinesis"
-    CLOUDWATCH_LOGS = "CloudwatchLogs"
-    TIMESTREAM = "Timestream"
-    IOT_ANALYTICS = "IotAnalytics"
-    SNS = "Sns"
-    LAMBDA = "Lambda"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "cloudwatch_alarm": "CloudwatchAlarm",
@@ -85,9 +62,6 @@ class Action(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    TIME_IN_SECONDS = "TimeInSeconds"
-    OFFSET_IN_NANOS = "OffsetInNanos"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -99,10 +73,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    QUALITY = "Quality"
-    VALUE = "Value"
-    TIMESTAMP = "Timestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -116,11 +86,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    DOUBLE_VALUE = "DoubleValue"
-    BOOLEAN_VALUE = "BooleanValue"
-    INTEGER_VALUE = "IntegerValue"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -136,11 +101,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class CloudwatchAlarmAction(PropertyType):
-    ALARM_NAME = "AlarmName"
-    STATE_REASON = "StateReason"
-    STATE_VALUE = "StateValue"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
         "state_reason": "StateReason",
@@ -156,10 +116,6 @@ class CloudwatchAlarmAction(PropertyType):
 
 @dataclass
 class CloudwatchLogsAction(PropertyType):
-    BATCH_MODE = "BatchMode"
-    LOG_GROUP_NAME = "LogGroupName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_mode": "BatchMode",
         "log_group_name": "LogGroupName",
@@ -173,13 +129,6 @@ class CloudwatchLogsAction(PropertyType):
 
 @dataclass
 class CloudwatchMetricAction(PropertyType):
-    METRIC_NAME = "MetricName"
-    METRIC_VALUE = "MetricValue"
-    METRIC_NAMESPACE = "MetricNamespace"
-    METRIC_UNIT = "MetricUnit"
-    ROLE_ARN = "RoleArn"
-    METRIC_TIMESTAMP = "MetricTimestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metric_value": "MetricValue",
@@ -199,16 +148,6 @@ class CloudwatchMetricAction(PropertyType):
 
 @dataclass
 class DynamoDBAction(PropertyType):
-    TABLE_NAME = "TableName"
-    PAYLOAD_FIELD = "PayloadField"
-    RANGE_KEY_FIELD = "RangeKeyField"
-    HASH_KEY_FIELD = "HashKeyField"
-    RANGE_KEY_VALUE = "RangeKeyValue"
-    RANGE_KEY_TYPE = "RangeKeyType"
-    HASH_KEY_TYPE = "HashKeyType"
-    HASH_KEY_VALUE = "HashKeyValue"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -234,9 +173,6 @@ class DynamoDBAction(PropertyType):
 
 @dataclass
 class DynamoDBv2Action(PropertyType):
-    PUT_ITEM = "PutItem"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "put_item": "PutItem",
         "role_arn": "RoleArn",
@@ -248,12 +184,6 @@ class DynamoDBv2Action(PropertyType):
 
 @dataclass
 class ElasticsearchAction(PropertyType):
-    TYPE = "Type"
-    ENDPOINT = "Endpoint"
-    INDEX = "Index"
-    ID = "Id"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "endpoint": "Endpoint",
@@ -271,11 +201,6 @@ class ElasticsearchAction(PropertyType):
 
 @dataclass
 class FirehoseAction(PropertyType):
-    DELIVERY_STREAM_NAME = "DeliveryStreamName"
-    BATCH_MODE = "BatchMode"
-    ROLE_ARN = "RoleArn"
-    SEPARATOR = "Separator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "batch_mode": "BatchMode",
@@ -291,11 +216,6 @@ class FirehoseAction(PropertyType):
 
 @dataclass
 class HttpAction(PropertyType):
-    HEADERS = "Headers"
-    AUTH = "Auth"
-    CONFIRMATION_URL = "ConfirmationUrl"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "auth": "Auth",
@@ -311,9 +231,6 @@ class HttpAction(PropertyType):
 
 @dataclass
 class HttpActionHeader(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -325,8 +242,6 @@ class HttpActionHeader(PropertyType):
 
 @dataclass
 class HttpAuthorization(PropertyType):
-    SIGV4 = "Sigv4"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sigv4": "Sigv4",
     }
@@ -336,10 +251,6 @@ class HttpAuthorization(PropertyType):
 
 @dataclass
 class IotAnalyticsAction(PropertyType):
-    CHANNEL_NAME = "ChannelName"
-    BATCH_MODE = "BatchMode"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "batch_mode": "BatchMode",
@@ -353,11 +264,6 @@ class IotAnalyticsAction(PropertyType):
 
 @dataclass
 class IotEventsAction(PropertyType):
-    INPUT_NAME = "InputName"
-    BATCH_MODE = "BatchMode"
-    ROLE_ARN = "RoleArn"
-    MESSAGE_ID = "MessageId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "batch_mode": "BatchMode",
@@ -373,9 +279,6 @@ class IotEventsAction(PropertyType):
 
 @dataclass
 class IotSiteWiseAction(PropertyType):
-    PUT_ASSET_PROPERTY_VALUE_ENTRIES = "PutAssetPropertyValueEntries"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "put_asset_property_value_entries": "PutAssetPropertyValueEntries",
         "role_arn": "RoleArn",
@@ -387,13 +290,6 @@ class IotSiteWiseAction(PropertyType):
 
 @dataclass
 class KafkaAction(PropertyType):
-    PARTITION = "Partition"
-    CLIENT_PROPERTIES = "ClientProperties"
-    HEADERS = "Headers"
-    TOPIC = "Topic"
-    DESTINATION_ARN = "DestinationArn"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition": "Partition",
         "client_properties": "ClientProperties",
@@ -413,9 +309,6 @@ class KafkaAction(PropertyType):
 
 @dataclass
 class KafkaActionHeader(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -427,10 +320,6 @@ class KafkaActionHeader(PropertyType):
 
 @dataclass
 class KinesisAction(PropertyType):
-    STREAM_NAME = "StreamName"
-    PARTITION_KEY = "PartitionKey"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "partition_key": "PartitionKey",
@@ -444,8 +333,6 @@ class KinesisAction(PropertyType):
 
 @dataclass
 class LambdaAction(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
     }
@@ -455,13 +342,6 @@ class LambdaAction(PropertyType):
 
 @dataclass
 class LocationAction(PropertyType):
-    TRACKER_NAME = "TrackerName"
-    DEVICE_ID = "DeviceId"
-    LATITUDE = "Latitude"
-    LONGITUDE = "Longitude"
-    TIMESTAMP = "Timestamp"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracker_name": "TrackerName",
         "device_id": "DeviceId",
@@ -481,12 +361,6 @@ class LocationAction(PropertyType):
 
 @dataclass
 class OpenSearchAction(PropertyType):
-    TYPE = "Type"
-    ENDPOINT = "Endpoint"
-    INDEX = "Index"
-    ID = "Id"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "endpoint": "Endpoint",
@@ -504,12 +378,6 @@ class OpenSearchAction(PropertyType):
 
 @dataclass
 class PutAssetPropertyValueEntry(PropertyType):
-    PROPERTY_VALUES = "PropertyValues"
-    ENTRY_ID = "EntryId"
-    PROPERTY_ALIAS = "PropertyAlias"
-    ASSET_ID = "AssetId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_values": "PropertyValues",
         "entry_id": "EntryId",
@@ -527,8 +395,6 @@ class PutAssetPropertyValueEntry(PropertyType):
 
 @dataclass
 class PutItemInput(PropertyType):
-    TABLE_NAME = "TableName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
     }
@@ -538,11 +404,6 @@ class PutItemInput(PropertyType):
 
 @dataclass
 class RepublishAction(PropertyType):
-    QOS = "Qos"
-    HEADERS = "Headers"
-    TOPIC = "Topic"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qos": "Qos",
         "headers": "Headers",
@@ -558,13 +419,6 @@ class RepublishAction(PropertyType):
 
 @dataclass
 class RepublishActionHeaders(PropertyType):
-    CORRELATION_DATA = "CorrelationData"
-    USER_PROPERTIES = "UserProperties"
-    PAYLOAD_FORMAT_INDICATOR = "PayloadFormatIndicator"
-    CONTENT_TYPE = "ContentType"
-    MESSAGE_EXPIRY = "MessageExpiry"
-    RESPONSE_TOPIC = "ResponseTopic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "correlation_data": "CorrelationData",
         "user_properties": "UserProperties",
@@ -584,11 +438,6 @@ class RepublishActionHeaders(PropertyType):
 
 @dataclass
 class S3Action(PropertyType):
-    BUCKET_NAME = "BucketName"
-    CANNED_ACL = "CannedAcl"
-    KEY = "Key"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "canned_acl": "CannedAcl",
@@ -604,10 +453,6 @@ class S3Action(PropertyType):
 
 @dataclass
 class SigV4Authorization(PropertyType):
-    SERVICE_NAME = "ServiceName"
-    SIGNING_REGION = "SigningRegion"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "signing_region": "SigningRegion",
@@ -621,10 +466,6 @@ class SigV4Authorization(PropertyType):
 
 @dataclass
 class SnsAction(PropertyType):
-    MESSAGE_FORMAT = "MessageFormat"
-    TARGET_ARN = "TargetArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_format": "MessageFormat",
         "target_arn": "TargetArn",
@@ -638,10 +479,6 @@ class SnsAction(PropertyType):
 
 @dataclass
 class SqsAction(PropertyType):
-    USE_BASE64 = "UseBase64"
-    ROLE_ARN = "RoleArn"
-    QUEUE_URL = "QueueUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "role_arn": "RoleArn",
@@ -655,10 +492,6 @@ class SqsAction(PropertyType):
 
 @dataclass
 class StepFunctionsAction(PropertyType):
-    EXECUTION_NAME_PREFIX = "ExecutionNamePrefix"
-    STATE_MACHINE_NAME = "StateMachineName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_name_prefix": "ExecutionNamePrefix",
         "state_machine_name": "StateMachineName",
@@ -672,9 +505,6 @@ class StepFunctionsAction(PropertyType):
 
 @dataclass
 class Timestamp(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -686,12 +516,6 @@ class Timestamp(PropertyType):
 
 @dataclass
 class TimestreamAction(PropertyType):
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    DIMENSIONS = "Dimensions"
-    TIMESTAMP = "Timestamp"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -709,9 +533,6 @@ class TimestreamAction(PropertyType):
 
 @dataclass
 class TimestreamDimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -723,9 +544,6 @@ class TimestreamDimension(PropertyType):
 
 @dataclass
 class TimestreamTimestamp(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -737,13 +555,6 @@ class TimestreamTimestamp(PropertyType):
 
 @dataclass
 class TopicRulePayload(PropertyType):
-    RULE_DISABLED = "RuleDisabled"
-    ERROR_ACTION = "ErrorAction"
-    DESCRIPTION = "Description"
-    AWS_IOT_SQL_VERSION = "AwsIotSqlVersion"
-    ACTIONS = "Actions"
-    SQL = "Sql"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_disabled": "RuleDisabled",
         "error_action": "ErrorAction",
@@ -763,9 +574,6 @@ class TopicRulePayload(PropertyType):
 
 @dataclass
 class UserProperty(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

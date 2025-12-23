@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Duration(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -25,12 +22,6 @@ class Duration(PropertyType):
 
 @dataclass
 class GrpcRetryPolicy(PropertyType):
-    MAX_RETRIES = "MaxRetries"
-    PER_RETRY_TIMEOUT = "PerRetryTimeout"
-    GRPC_RETRY_EVENTS = "GrpcRetryEvents"
-    HTTP_RETRY_EVENTS = "HttpRetryEvents"
-    TCP_RETRY_EVENTS = "TcpRetryEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "per_retry_timeout": "PerRetryTimeout",
@@ -48,11 +39,6 @@ class GrpcRetryPolicy(PropertyType):
 
 @dataclass
 class GrpcRoute(PropertyType):
-    ACTION = "Action"
-    TIMEOUT = "Timeout"
-    RETRY_POLICY = "RetryPolicy"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -68,8 +54,6 @@ class GrpcRoute(PropertyType):
 
 @dataclass
 class GrpcRouteAction(PropertyType):
-    WEIGHTED_TARGETS = "WeightedTargets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -79,11 +63,6 @@ class GrpcRouteAction(PropertyType):
 
 @dataclass
 class GrpcRouteMatch(PropertyType):
-    SERVICE_NAME = "ServiceName"
-    PORT = "Port"
-    METADATA = "Metadata"
-    METHOD_NAME = "MethodName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "port": "Port",
@@ -99,10 +78,6 @@ class GrpcRouteMatch(PropertyType):
 
 @dataclass
 class GrpcRouteMetadata(PropertyType):
-    INVERT = "Invert"
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -116,12 +91,6 @@ class GrpcRouteMetadata(PropertyType):
 
 @dataclass
 class GrpcRouteMetadataMatchMethod(PropertyType):
-    SUFFIX = "Suffix"
-    REGEX = "Regex"
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -139,9 +108,6 @@ class GrpcRouteMetadataMatchMethod(PropertyType):
 
 @dataclass
 class GrpcTimeout(PropertyType):
-    PER_REQUEST = "PerRequest"
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -153,12 +119,6 @@ class GrpcTimeout(PropertyType):
 
 @dataclass
 class HeaderMatchMethod(PropertyType):
-    SUFFIX = "Suffix"
-    REGEX = "Regex"
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -176,9 +136,6 @@ class HeaderMatchMethod(PropertyType):
 
 @dataclass
 class HttpPathMatch(PropertyType):
-    REGEX = "Regex"
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "exact": "Exact",
@@ -190,8 +147,6 @@ class HttpPathMatch(PropertyType):
 
 @dataclass
 class HttpQueryParameterMatch(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -201,11 +156,6 @@ class HttpQueryParameterMatch(PropertyType):
 
 @dataclass
 class HttpRetryPolicy(PropertyType):
-    MAX_RETRIES = "MaxRetries"
-    PER_RETRY_TIMEOUT = "PerRetryTimeout"
-    HTTP_RETRY_EVENTS = "HttpRetryEvents"
-    TCP_RETRY_EVENTS = "TcpRetryEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "per_retry_timeout": "PerRetryTimeout",
@@ -221,11 +171,6 @@ class HttpRetryPolicy(PropertyType):
 
 @dataclass
 class HttpRoute(PropertyType):
-    ACTION = "Action"
-    TIMEOUT = "Timeout"
-    RETRY_POLICY = "RetryPolicy"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -241,8 +186,6 @@ class HttpRoute(PropertyType):
 
 @dataclass
 class HttpRouteAction(PropertyType):
-    WEIGHTED_TARGETS = "WeightedTargets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -252,10 +195,6 @@ class HttpRouteAction(PropertyType):
 
 @dataclass
 class HttpRouteHeader(PropertyType):
-    INVERT = "Invert"
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -269,14 +208,6 @@ class HttpRouteHeader(PropertyType):
 
 @dataclass
 class HttpRouteMatch(PropertyType):
-    PATH = "Path"
-    SCHEME = "Scheme"
-    HEADERS = "Headers"
-    PORT = "Port"
-    PREFIX = "Prefix"
-    METHOD = "Method"
-    QUERY_PARAMETERS = "QueryParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "scheme": "Scheme",
@@ -298,9 +229,6 @@ class HttpRouteMatch(PropertyType):
 
 @dataclass
 class HttpTimeout(PropertyType):
-    PER_REQUEST = "PerRequest"
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -312,9 +240,6 @@ class HttpTimeout(PropertyType):
 
 @dataclass
 class MatchRange(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -326,9 +251,6 @@ class MatchRange(PropertyType):
 
 @dataclass
 class QueryParameter(PropertyType):
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "match": "Match",
@@ -340,12 +262,6 @@ class QueryParameter(PropertyType):
 
 @dataclass
 class RouteSpec(PropertyType):
-    HTTP_ROUTE = "HttpRoute"
-    PRIORITY = "Priority"
-    HTTP2_ROUTE = "Http2Route"
-    GRPC_ROUTE = "GrpcRoute"
-    TCP_ROUTE = "TcpRoute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_route": "HttpRoute",
         "priority": "Priority",
@@ -363,10 +279,6 @@ class RouteSpec(PropertyType):
 
 @dataclass
 class TcpRoute(PropertyType):
-    ACTION = "Action"
-    TIMEOUT = "Timeout"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -380,8 +292,6 @@ class TcpRoute(PropertyType):
 
 @dataclass
 class TcpRouteAction(PropertyType):
-    WEIGHTED_TARGETS = "WeightedTargets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -391,8 +301,6 @@ class TcpRouteAction(PropertyType):
 
 @dataclass
 class TcpRouteMatch(PropertyType):
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
     }
@@ -402,8 +310,6 @@ class TcpRouteMatch(PropertyType):
 
 @dataclass
 class TcpTimeout(PropertyType):
-    IDLE = "Idle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle": "Idle",
     }
@@ -413,10 +319,6 @@ class TcpTimeout(PropertyType):
 
 @dataclass
 class WeightedTarget(PropertyType):
-    VIRTUAL_NODE = "VirtualNode"
-    PORT = "Port"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node": "VirtualNode",
         "port": "Port",

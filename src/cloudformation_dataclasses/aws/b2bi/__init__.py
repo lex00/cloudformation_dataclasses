@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:45
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service B2BI
@@ -925,12 +925,6 @@ class Capability(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::B2BI::Capability"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    CONFIGURATION = "Configuration"
-    INSTRUCTIONS_DOCUMENTS = "InstructionsDocuments"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -973,14 +967,6 @@ class Partnership(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::B2BI::Partnership"
     name_field: ClassVar[str] = "name"
-    PROFILE_ID = "ProfileId"
-    EMAIL = "Email"
-    CAPABILITIES = "Capabilities"
-    PHONE = "Phone"
-    CAPABILITY_OPTIONS = "CapabilityOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_id": "ProfileId",
         "email": "Email",
@@ -1032,13 +1018,6 @@ class Profile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::B2BI::Profile"
     name_field: ClassVar[str] = "name"
-    LOGGING = "Logging"
-    EMAIL = "Email"
-    BUSINESS_NAME = "BusinessName"
-    PHONE = "Phone"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "email": "Email",
@@ -1088,14 +1067,6 @@ class Transformer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::B2BI::Transformer"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    MAPPING = "Mapping"
-    INPUT_CONVERSION = "InputConversion"
-    SAMPLE_DOCUMENTS = "SampleDocuments"
-    OUTPUT_CONVERSION = "OutputConversion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "mapping": "Mapping",

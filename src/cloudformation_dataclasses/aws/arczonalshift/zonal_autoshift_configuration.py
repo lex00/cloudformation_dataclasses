@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ControlCondition(PropertyType):
-    TYPE = "Type"
-    ALARM_IDENTIFIER = "AlarmIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "alarm_identifier": "AlarmIdentifier",
@@ -25,11 +22,6 @@ class ControlCondition(PropertyType):
 
 @dataclass
 class PracticeRunConfiguration(PropertyType):
-    BLOCKED_DATES = "BlockedDates"
-    OUTCOME_ALARMS = "OutcomeAlarms"
-    BLOCKING_ALARMS = "BlockingAlarms"
-    BLOCKED_WINDOWS = "BlockedWindows"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocked_dates": "BlockedDates",
         "outcome_alarms": "OutcomeAlarms",

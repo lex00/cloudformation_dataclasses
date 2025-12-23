@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GlobalAccelerator
@@ -165,12 +165,6 @@ class Accelerator(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::Accelerator"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    IP_ADDRESSES = "IpAddresses"
-    ENABLED = "Enabled"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "ip_addresses": "IpAddresses",
@@ -218,11 +212,6 @@ class CrossAccountAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::CrossAccountAttachment"
     name_field: ClassVar[str] = "name"
-    PRINCIPALS = "Principals"
-    RESOURCES = "Resources"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principals": "Principals",
         "resources": "Resources",
@@ -247,17 +236,6 @@ class EndpointGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globa"""
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::EndpointGroup"
-    LISTENER_ARN = "ListenerArn"
-    PORT_OVERRIDES = "PortOverrides"
-    HEALTH_CHECK_INTERVAL_SECONDS = "HealthCheckIntervalSeconds"
-    ENDPOINT_GROUP_REGION = "EndpointGroupRegion"
-    HEALTH_CHECK_PATH = "HealthCheckPath"
-    TRAFFIC_DIAL_PERCENTAGE = "TrafficDialPercentage"
-    HEALTH_CHECK_PROTOCOL = "HealthCheckProtocol"
-    THRESHOLD_COUNT = "ThresholdCount"
-    HEALTH_CHECK_PORT = "HealthCheckPort"
-    ENDPOINT_CONFIGURATIONS = "EndpointConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_arn": "ListenerArn",
         "port_overrides": "PortOverrides",
@@ -294,11 +272,6 @@ class Listener(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globa"""
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::Listener"
-    PORT_RANGES = "PortRanges"
-    ACCELERATOR_ARN = "AcceleratorArn"
-    PROTOCOL = "Protocol"
-    CLIENT_AFFINITY = "ClientAffinity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_ranges": "PortRanges",
         "accelerator_arn": "AcceleratorArn",

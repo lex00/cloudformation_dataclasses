@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:10
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCAConnectorAD
@@ -36,11 +36,6 @@ class Connector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorAD::Connector"
-    CERTIFICATE_AUTHORITY_ARN = "CertificateAuthorityArn"
-    DIRECTORY_ID = "DirectoryId"
-    VPC_INFORMATION = "VpcInformation"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "directory_id": "DirectoryId",
@@ -65,9 +60,6 @@ class DirectoryRegistration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorAD::DirectoryRegistration"
-    DIRECTORY_ID = "DirectoryId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_id": "DirectoryId",
         "tags": "Tags",
@@ -88,9 +80,6 @@ class ServicePrincipalName(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorAD::ServicePrincipalName"
-    CONNECTOR_ARN = "ConnectorArn"
-    DIRECTORY_REGISTRATION_ARN = "DirectoryRegistrationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "directory_registration_arn": "DirectoryRegistrationArn",
@@ -106,12 +95,6 @@ class Template(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorAD::Template"
     name_field: ClassVar[str] = "name"
-    CONNECTOR_ARN = "ConnectorArn"
-    DEFINITION = "Definition"
-    TAGS = "Tags"
-    NAME = "Name"
-    REENROLL_ALL_CERTIFICATE_HOLDERS = "ReenrollAllCertificateHolders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "definition": "Definition",
@@ -138,11 +121,6 @@ class TemplateGroupAccessControlEntry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaco"""
 
     resource_type: ClassVar[str] = "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry"
-    ACCESS_RIGHTS = "AccessRights"
-    TEMPLATE_ARN = "TemplateArn"
-    GROUP_DISPLAY_NAME = "GroupDisplayName"
-    GROUP_SECURITY_IDENTIFIER = "GroupSecurityIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_rights": "AccessRights",
         "template_arn": "TemplateArn",

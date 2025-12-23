@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -28,10 +24,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    CAPACITY_PROVIDER = "CapacityProvider"
-    WEIGHT = "Weight"
-    BASE = "Base"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "weight": "Weight",
@@ -45,8 +37,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -56,21 +46,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class EcsParameters(PropertyType):
-    PLATFORM_VERSION = "PlatformVersion"
-    GROUP = "Group"
-    ENABLE_ECS_MANAGED_TAGS = "EnableECSManagedTags"
-    TASK_COUNT = "TaskCount"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    PLACEMENT_CONSTRAINTS = "PlacementConstraints"
-    PROPAGATE_TAGS = "PropagateTags"
-    PLACEMENT_STRATEGY = "PlacementStrategy"
-    LAUNCH_TYPE = "LaunchType"
-    CAPACITY_PROVIDER_STRATEGY = "CapacityProviderStrategy"
-    REFERENCE_ID = "ReferenceId"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-    TASK_DEFINITION_ARN = "TaskDefinitionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -106,9 +81,6 @@ class EcsParameters(PropertyType):
 
 @dataclass
 class EventBridgeParameters(PropertyType):
-    DETAIL_TYPE = "DetailType"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detail_type": "DetailType",
         "source": "Source",
@@ -120,9 +92,6 @@ class EventBridgeParameters(PropertyType):
 
 @dataclass
 class FlexibleTimeWindow(PropertyType):
-    MODE = "Mode"
-    MAXIMUM_WINDOW_IN_MINUTES = "MaximumWindowInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "maximum_window_in_minutes": "MaximumWindowInMinutes",
@@ -134,8 +103,6 @@ class FlexibleTimeWindow(PropertyType):
 
 @dataclass
 class KinesisParameters(PropertyType):
-    PARTITION_KEY = "PartitionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key": "PartitionKey",
     }
@@ -145,8 +112,6 @@ class KinesisParameters(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    AWSVPC_CONFIGURATION = "AwsvpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
@@ -156,9 +121,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    TYPE = "Type"
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -170,9 +132,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    FIELD = "Field"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -184,9 +143,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class RetryPolicy(PropertyType):
-    MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
-    MAXIMUM_EVENT_AGE_IN_SECONDS = "MaximumEventAgeInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_retry_attempts": "MaximumRetryAttempts",
         "maximum_event_age_in_seconds": "MaximumEventAgeInSeconds",
@@ -198,9 +154,6 @@ class RetryPolicy(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -212,8 +165,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameters(PropertyType):
-    PIPELINE_PARAMETER_LIST = "PipelineParameterList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -223,8 +174,6 @@ class SageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class SqsParameters(PropertyType):
-    MESSAGE_GROUP_ID = "MessageGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
     }
@@ -234,17 +183,6 @@ class SqsParameters(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    INPUT = "Input"
-    SQS_PARAMETERS = "SqsParameters"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    ECS_PARAMETERS = "EcsParameters"
-    EVENT_BRIDGE_PARAMETERS = "EventBridgeParameters"
-    ARN = "Arn"
-    KINESIS_PARAMETERS = "KinesisParameters"
-    SAGE_MAKER_PIPELINE_PARAMETERS = "SageMakerPipelineParameters"
-    RETRY_POLICY = "RetryPolicy"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "sqs_parameters": "SqsParameters",

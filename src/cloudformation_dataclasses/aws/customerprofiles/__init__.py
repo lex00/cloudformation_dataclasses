@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:51
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CustomerProfiles
@@ -41,16 +41,6 @@ class CalculatedAttributeDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::CalculatedAttributeDefinition"
     name_field: ClassVar[str] = "domain_name"
-    USE_HISTORICAL_DATA = "UseHistoricalData"
-    DESCRIPTION = "Description"
-    ATTRIBUTE_DETAILS = "AttributeDetails"
-    STATISTIC = "Statistic"
-    DOMAIN_NAME = "DomainName"
-    DISPLAY_NAME = "DisplayName"
-    CALCULATED_ATTRIBUTE_NAME = "CalculatedAttributeName"
-    CONDITIONS = "Conditions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_historical_data": "UseHistoricalData",
         "description": "Description",
@@ -111,15 +101,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::Domain"
     name_field: ClassVar[str] = "domain_name"
-    MATCHING = "Matching"
-    DEFAULT_EXPIRATION_DAYS = "DefaultExpirationDays"
-    DOMAIN_NAME = "DomainName"
-    DEAD_LETTER_QUEUE_URL = "DeadLetterQueueUrl"
-    DATA_STORE = "DataStore"
-    DEFAULT_ENCRYPTION_KEY = "DefaultEncryptionKey"
-    RULE_BASED_MATCHING = "RuleBasedMatching"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching": "Matching",
         "default_expiration_days": "DefaultExpirationDays",
@@ -203,11 +184,6 @@ class EventStream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::EventStream"
     name_field: ClassVar[str] = "event_stream_name"
-    DOMAIN_NAME = "DomainName"
-    EVENT_STREAM_NAME = "EventStreamName"
-    URI = "Uri"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "event_stream_name": "EventStreamName",
@@ -258,15 +234,6 @@ class EventTrigger(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::EventTrigger"
     name_field: ClassVar[str] = "event_trigger_name"
-    EVENT_TRIGGER_LIMITS = "EventTriggerLimits"
-    DESCRIPTION = "Description"
-    DOMAIN_NAME = "DomainName"
-    OBJECT_TYPE_NAME = "ObjectTypeName"
-    SEGMENT_FILTER = "SegmentFilter"
-    EVENT_TRIGGER_CONDITIONS = "EventTriggerConditions"
-    EVENT_TRIGGER_NAME = "EventTriggerName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_trigger_limits": "EventTriggerLimits",
         "description": "Description",
@@ -305,14 +272,6 @@ class Integration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::Integration"
     name_field: ClassVar[str] = "domain_name"
-    EVENT_TRIGGER_NAMES = "EventTriggerNames"
-    OBJECT_TYPE_NAMES = "ObjectTypeNames"
-    DOMAIN_NAME = "DomainName"
-    OBJECT_TYPE_NAME = "ObjectTypeName"
-    URI = "Uri"
-    FLOW_DEFINITION = "FlowDefinition"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_trigger_names": "EventTriggerNames",
         "object_type_names": "ObjectTypeNames",
@@ -349,19 +308,6 @@ class ObjectType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::ObjectType"
     name_field: ClassVar[str] = "object_type_name"
-    MAX_PROFILE_OBJECT_COUNT = "MaxProfileObjectCount"
-    DESCRIPTION = "Description"
-    FIELDS = "Fields"
-    DOMAIN_NAME = "DomainName"
-    ALLOW_PROFILE_CREATION = "AllowProfileCreation"
-    OBJECT_TYPE_NAME = "ObjectTypeName"
-    KEYS = "Keys"
-    SOURCE_LAST_UPDATED_TIMESTAMP_FORMAT = "SourceLastUpdatedTimestampFormat"
-    ENCRYPTION_KEY = "EncryptionKey"
-    TAGS = "Tags"
-    TEMPLATE_ID = "TemplateId"
-    EXPIRATION_DAYS = "ExpirationDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_profile_object_count": "MaxProfileObjectCount",
         "description": "Description",
@@ -413,14 +359,6 @@ class SegmentDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::SegmentDefinition"
     name_field: ClassVar[str] = "segment_definition_name"
-    DESCRIPTION = "Description"
-    DOMAIN_NAME = "DomainName"
-    SEGMENT_GROUPS = "SegmentGroups"
-    DISPLAY_NAME = "DisplayName"
-    SEGMENT_DEFINITION_NAME = "SegmentDefinitionName"
-    SEGMENT_SQL_QUERY = "SegmentSqlQuery"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "domain_name": "DomainName",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComponentConfigurationUpdate(PropertyType):
-    MERGE = "Merge"
-    RESET = "Reset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "merge": "Merge",
         "reset": "Reset",
@@ -25,10 +22,6 @@ class ComponentConfigurationUpdate(PropertyType):
 
 @dataclass
 class ComponentDeploymentSpecification(PropertyType):
-    RUN_WITH = "RunWith"
-    CONFIGURATION_UPDATE = "ConfigurationUpdate"
-    COMPONENT_VERSION = "ComponentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_with": "RunWith",
         "configuration_update": "ConfigurationUpdate",
@@ -42,10 +35,6 @@ class ComponentDeploymentSpecification(PropertyType):
 
 @dataclass
 class ComponentRunWith(PropertyType):
-    WINDOWS_USER = "WindowsUser"
-    SYSTEM_RESOURCE_LIMITS = "SystemResourceLimits"
-    POSIX_USER = "PosixUser"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "windows_user": "WindowsUser",
         "system_resource_limits": "SystemResourceLimits",
@@ -59,9 +48,6 @@ class ComponentRunWith(PropertyType):
 
 @dataclass
 class DeploymentComponentUpdatePolicy(PropertyType):
-    ACTION = "Action"
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -73,8 +59,6 @@ class DeploymentComponentUpdatePolicy(PropertyType):
 
 @dataclass
 class DeploymentConfigurationValidationPolicy(PropertyType):
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
     }
@@ -84,10 +68,6 @@ class DeploymentConfigurationValidationPolicy(PropertyType):
 
 @dataclass
 class DeploymentIoTJobConfiguration(PropertyType):
-    JOB_EXECUTIONS_ROLLOUT_CONFIG = "JobExecutionsRolloutConfig"
-    TIMEOUT_CONFIG = "TimeoutConfig"
-    ABORT_CONFIG = "AbortConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_executions_rollout_config": "JobExecutionsRolloutConfig",
         "timeout_config": "TimeoutConfig",
@@ -101,10 +81,6 @@ class DeploymentIoTJobConfiguration(PropertyType):
 
 @dataclass
 class DeploymentPolicies(PropertyType):
-    COMPONENT_UPDATE_POLICY = "ComponentUpdatePolicy"
-    CONFIGURATION_VALIDATION_POLICY = "ConfigurationValidationPolicy"
-    FAILURE_HANDLING_POLICY = "FailureHandlingPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_update_policy": "ComponentUpdatePolicy",
         "configuration_validation_policy": "ConfigurationValidationPolicy",
@@ -118,8 +94,6 @@ class DeploymentPolicies(PropertyType):
 
 @dataclass
 class IoTJobAbortConfig(PropertyType):
-    CRITERIA_LIST = "CriteriaList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria_list": "CriteriaList",
     }
@@ -129,11 +103,6 @@ class IoTJobAbortConfig(PropertyType):
 
 @dataclass
 class IoTJobAbortCriteria(PropertyType):
-    FAILURE_TYPE = "FailureType"
-    ACTION = "Action"
-    THRESHOLD_PERCENTAGE = "ThresholdPercentage"
-    MIN_NUMBER_OF_EXECUTED_THINGS = "MinNumberOfExecutedThings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_type": "FailureType",
         "action": "Action",
@@ -149,9 +118,6 @@ class IoTJobAbortCriteria(PropertyType):
 
 @dataclass
 class IoTJobExecutionsRolloutConfig(PropertyType):
-    MAXIMUM_PER_MINUTE = "MaximumPerMinute"
-    EXPONENTIAL_RATE = "ExponentialRate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_per_minute": "MaximumPerMinute",
         "exponential_rate": "ExponentialRate",
@@ -163,10 +129,6 @@ class IoTJobExecutionsRolloutConfig(PropertyType):
 
 @dataclass
 class IoTJobExponentialRolloutRate(PropertyType):
-    RATE_INCREASE_CRITERIA = "RateIncreaseCriteria"
-    BASE_RATE_PER_MINUTE = "BaseRatePerMinute"
-    INCREMENT_FACTOR = "IncrementFactor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_increase_criteria": "RateIncreaseCriteria",
         "base_rate_per_minute": "BaseRatePerMinute",
@@ -180,9 +142,6 @@ class IoTJobExponentialRolloutRate(PropertyType):
 
 @dataclass
 class IoTJobRateIncreaseCriteria(PropertyType):
-    NUMBER_OF_SUCCEEDED_THINGS = "NumberOfSucceededThings"
-    NUMBER_OF_NOTIFIED_THINGS = "NumberOfNotifiedThings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_succeeded_things": "NumberOfSucceededThings",
         "number_of_notified_things": "NumberOfNotifiedThings",
@@ -194,8 +153,6 @@ class IoTJobRateIncreaseCriteria(PropertyType):
 
 @dataclass
 class IoTJobTimeoutConfig(PropertyType):
-    IN_PROGRESS_TIMEOUT_IN_MINUTES = "InProgressTimeoutInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "in_progress_timeout_in_minutes": "InProgressTimeoutInMinutes",
     }
@@ -205,9 +162,6 @@ class IoTJobTimeoutConfig(PropertyType):
 
 @dataclass
 class SystemResourceLimits(PropertyType):
-    MEMORY = "Memory"
-    CPUS = "Cpus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory": "Memory",
         "cpus": "Cpus",

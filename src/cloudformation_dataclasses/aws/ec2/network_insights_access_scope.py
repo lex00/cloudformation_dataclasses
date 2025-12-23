@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessScopePathRequest(PropertyType):
-    DESTINATION = "Destination"
-    THROUGH_RESOURCES = "ThroughResources"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "through_resources": "ThroughResources",
@@ -28,14 +24,6 @@ class AccessScopePathRequest(PropertyType):
 
 @dataclass
 class PacketHeaderStatementRequest(PropertyType):
-    PROTOCOLS = "Protocols"
-    DESTINATION_PORTS = "DestinationPorts"
-    DESTINATION_ADDRESSES = "DestinationAddresses"
-    DESTINATION_PREFIX_LISTS = "DestinationPrefixLists"
-    SOURCE_ADDRESSES = "SourceAddresses"
-    SOURCE_PORTS = "SourcePorts"
-    SOURCE_PREFIX_LISTS = "SourcePrefixLists"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "destination_ports": "DestinationPorts",
@@ -57,9 +45,6 @@ class PacketHeaderStatementRequest(PropertyType):
 
 @dataclass
 class PathStatementRequest(PropertyType):
-    RESOURCE_STATEMENT = "ResourceStatement"
-    PACKET_HEADER_STATEMENT = "PacketHeaderStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_statement": "ResourceStatement",
         "packet_header_statement": "PacketHeaderStatement",
@@ -71,9 +56,6 @@ class PathStatementRequest(PropertyType):
 
 @dataclass
 class ResourceStatementRequest(PropertyType):
-    RESOURCE_TYPES = "ResourceTypes"
-    RESOURCES = "Resources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
         "resources": "Resources",
@@ -85,8 +67,6 @@ class ResourceStatementRequest(PropertyType):
 
 @dataclass
 class ThroughResourcesStatementRequest(PropertyType):
-    RESOURCE_STATEMENT = "ResourceStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_statement": "ResourceStatement",
     }

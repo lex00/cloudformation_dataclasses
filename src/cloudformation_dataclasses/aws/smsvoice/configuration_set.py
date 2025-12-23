@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogsDestination(PropertyType):
-    IAM_ROLE_ARN = "IamRoleArn"
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_role_arn": "IamRoleArn",
         "log_group_arn": "LogGroupArn",
@@ -25,13 +22,6 @@ class CloudWatchLogsDestination(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    EVENT_DESTINATION_NAME = "EventDestinationName"
-    SNS_DESTINATION = "SnsDestination"
-    ENABLED = "Enabled"
-    MATCHING_EVENT_TYPES = "MatchingEventTypes"
-    CLOUD_WATCH_LOGS_DESTINATION = "CloudWatchLogsDestination"
-    KINESIS_FIREHOSE_DESTINATION = "KinesisFirehoseDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_destination_name": "EventDestinationName",
         "sns_destination": "SnsDestination",
@@ -51,9 +41,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    DELIVERY_STREAM_ARN = "DeliveryStreamArn"
-    IAM_ROLE_ARN = "IamRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
         "iam_role_arn": "IamRoleArn",
@@ -65,8 +52,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }

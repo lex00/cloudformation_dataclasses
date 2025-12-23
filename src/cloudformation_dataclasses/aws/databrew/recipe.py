@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    PARAMETERS = "Parameters"
-    OPERATION = "Operation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "operation": "Operation",
@@ -25,10 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class ConditionExpression(PropertyType):
-    CONDITION = "Condition"
-    VALUE = "Value"
-    TARGET_COLUMN = "TargetColumn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "value": "Value",
@@ -42,11 +35,6 @@ class ConditionExpression(PropertyType):
 
 @dataclass
 class DataCatalogInputDefinition(PropertyType):
-    TABLE_NAME = "TableName"
-    TEMP_DIRECTORY = "TempDirectory"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "temp_directory": "TempDirectory",
@@ -62,9 +50,6 @@ class DataCatalogInputDefinition(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    S3_INPUT_DEFINITION = "S3InputDefinition"
-    DATA_CATALOG_INPUT_DEFINITION = "DataCatalogInputDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_definition": "S3InputDefinition",
         "data_catalog_input_definition": "DataCatalogInputDefinition",
@@ -76,108 +61,6 @@ class Input(PropertyType):
 
 @dataclass
 class RecipeParameters(PropertyType):
-    IGNORE_CASE = "IgnoreCase"
-    PATTERN_OPTIONS = "PatternOptions"
-    COUNT = "Count"
-    ORDER_BY_COLUMN = "OrderByColumn"
-    UPPER_BOUND = "UpperBound"
-    JOIN_KEYS = "JoinKeys"
-    REMOVE_LEADING_AND_TRAILING_PUNCTUATION = "RemoveLeadingAndTrailingPunctuation"
-    STEP_INDEX = "StepIndex"
-    GROUP_BY_AGG_FUNCTION_OPTIONS = "GroupByAggFunctionOptions"
-    POSITION = "Position"
-    STOP_WORDS_MODE = "StopWordsMode"
-    SOURCE_COLUMN = "SourceColumn"
-    CUSTOM_CHARACTERS = "CustomCharacters"
-    TIME_ZONE = "TimeZone"
-    REMOVE_LEADING_AND_TRAILING_QUOTES = "RemoveLeadingAndTrailingQuotes"
-    SOURCE_COLUMN2 = "SourceColumn2"
-    COLLAPSE_CONSECUTIVE_WHITESPACE = "CollapseConsecutiveWhitespace"
-    NUM_ROWS_AFTER = "NumRowsAfter"
-    REMOVE_LETTERS = "RemoveLetters"
-    SOURCE_COLUMN1 = "SourceColumn1"
-    USE_NEW_DATA_FRAME = "UseNewDataFrame"
-    INTERVAL = "Interval"
-    LOWER_BOUND = "LowerBound"
-    TOKENIZER_PATTERN = "TokenizerPattern"
-    LEFT_COLUMNS = "LeftColumns"
-    CHARS_TO_REMOVE = "CharsToRemove"
-    VALUE1 = "Value1"
-    DELETE_OTHER_ROWS = "DeleteOtherRows"
-    VALUE2 = "Value2"
-    CATEGORY_MAP = "CategoryMap"
-    START_PATTERN = "StartPattern"
-    START_POSITION = "StartPosition"
-    SHEET_INDEXES = "SheetIndexes"
-    TARGET_INDEX = "TargetIndex"
-    REMOVE_SOURCE_COLUMN = "RemoveSourceColumn"
-    DATE_TIME_PARAMETERS = "DateTimeParameters"
-    END_VALUE = "EndValue"
-    REMOVE_CUSTOM_CHARACTERS = "RemoveCustomCharacters"
-    END_POSITION = "EndPosition"
-    PATTERN = "Pattern"
-    DELIMITER = "Delimiter"
-    REMOVE_SPECIAL_CHARACTERS = "RemoveSpecialCharacters"
-    REMOVE_ALL_QUOTES = "RemoveAllQuotes"
-    END_PATTERN = "EndPattern"
-    START_COLUMN_INDEX = "StartColumnIndex"
-    MODE_TYPE = "ModeType"
-    SECONDARY_INPUTS = "SecondaryInputs"
-    SAMPLE_TYPE = "SampleType"
-    DATE_TIME_FORMAT = "DateTimeFormat"
-    OTHER = "Other"
-    CASE_STATEMENT = "CaseStatement"
-    FALSE_STRING = "FalseString"
-    REMOVE_ALL_PUNCTUATION = "RemoveAllPunctuation"
-    CUSTOM_STOP_WORDS = "CustomStopWords"
-    MAP_TYPE = "MapType"
-    COLUMN_RANGE = "ColumnRange"
-    CUSTOM_VALUE = "CustomValue"
-    INPUT = "Input"
-    STEP_COUNT = "StepCount"
-    TARGET_DATE_FORMAT = "TargetDateFormat"
-    SECOND_INPUT = "SecondInput"
-    GROUP_BY_COLUMNS = "GroupByColumns"
-    NUM_ROWS_BEFORE = "NumRowsBefore"
-    IS_TEXT = "IsText"
-    TARGET_COLUMN = "TargetColumn"
-    REMOVE_NUMBERS = "RemoveNumbers"
-    PERIOD = "Period"
-    NUM_ROWS = "NumRows"
-    RIGHT_COLUMNS = "RightColumns"
-    STEMMING_MODE = "StemmingMode"
-    UNITS = "Units"
-    SAMPLE_SIZE = "SampleSize"
-    INCLUDE_IN_SPLIT = "IncludeInSplit"
-    AGGREGATE_FUNCTION = "AggregateFunction"
-    VALUE = "Value"
-    EXPONENT = "Exponent"
-    START_VALUE = "StartValue"
-    PATTERN_OPTION2 = "PatternOption2"
-    REMOVE_CUSTOM_VALUE = "RemoveCustomValue"
-    PATTERN_OPTION1 = "PatternOption1"
-    MULTI_LINE = "MultiLine"
-    TRUE_STRING = "TrueString"
-    REMOVE_LEADING_AND_TRAILING_WHITESPACE = "RemoveLeadingAndTrailingWhitespace"
-    HIDDEN_COLUMNS = "HiddenColumns"
-    REMOVE_ALL_WHITESPACE = "RemoveAllWhitespace"
-    VIEW_FRAME = "ViewFrame"
-    COLUMN_DATA_TYPE = "ColumnDataType"
-    JOIN_TYPE = "JoinType"
-    BASE = "Base"
-    VALUE_COLUMN = "ValueColumn"
-    DATASETS_COLUMNS = "DatasetsColumns"
-    UDF_LANG = "UdfLang"
-    TARGET_COLUMN_NAMES = "TargetColumnNames"
-    DATE_ADD_VALUE = "DateAddValue"
-    EXPAND_CONTRACTIONS = "ExpandContractions"
-    UNPIVOT_COLUMN = "UnpivotColumn"
-    STRATEGY = "Strategy"
-    SHEET_NAMES = "SheetNames"
-    LIMIT = "Limit"
-    ORDER_BY_COLUMNS = "OrderByColumns"
-    SOURCE_COLUMNS = "SourceColumns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignore_case": "IgnoreCase",
         "pattern_options": "PatternOptions",
@@ -387,9 +270,6 @@ class RecipeParameters(PropertyType):
 
 @dataclass
 class RecipeStep(PropertyType):
-    ACTION = "Action"
-    CONDITION_EXPRESSIONS = "ConditionExpressions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "condition_expressions": "ConditionExpressions",
@@ -401,9 +281,6 @@ class RecipeStep(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -415,9 +292,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SecondaryInput(PropertyType):
-    S3_INPUT_DEFINITION = "S3InputDefinition"
-    DATA_CATALOG_INPUT_DEFINITION = "DataCatalogInputDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_definition": "S3InputDefinition",
         "data_catalog_input_definition": "DataCatalogInputDefinition",

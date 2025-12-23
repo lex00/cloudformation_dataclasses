@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CodeEditorAppImageConfig(PropertyType):
-    CONTAINER_CONFIG = "ContainerConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_config": "ContainerConfig",
     }
@@ -22,10 +20,6 @@ class CodeEditorAppImageConfig(PropertyType):
 
 @dataclass
 class ContainerConfig(PropertyType):
-    CONTAINER_ENTRYPOINT = "ContainerEntrypoint"
-    CONTAINER_ENVIRONMENT_VARIABLES = "ContainerEnvironmentVariables"
-    CONTAINER_ARGUMENTS = "ContainerArguments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "container_environment_variables": "ContainerEnvironmentVariables",
@@ -39,9 +33,6 @@ class ContainerConfig(PropertyType):
 
 @dataclass
 class CustomImageContainerEnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -53,10 +44,6 @@ class CustomImageContainerEnvironmentVariable(PropertyType):
 
 @dataclass
 class FileSystemConfig(PropertyType):
-    MOUNT_PATH = "MountPath"
-    DEFAULT_GID = "DefaultGid"
-    DEFAULT_UID = "DefaultUid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "default_gid": "DefaultGid",
@@ -70,8 +57,6 @@ class FileSystemConfig(PropertyType):
 
 @dataclass
 class JupyterLabAppImageConfig(PropertyType):
-    CONTAINER_CONFIG = "ContainerConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_config": "ContainerConfig",
     }
@@ -81,9 +66,6 @@ class JupyterLabAppImageConfig(PropertyType):
 
 @dataclass
 class KernelGatewayImageConfig(PropertyType):
-    KERNEL_SPECS = "KernelSpecs"
-    FILE_SYSTEM_CONFIG = "FileSystemConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kernel_specs": "KernelSpecs",
         "file_system_config": "FileSystemConfig",
@@ -95,9 +77,6 @@ class KernelGatewayImageConfig(PropertyType):
 
 @dataclass
 class KernelSpec(PropertyType):
-    DISPLAY_NAME = "DisplayName"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_name": "DisplayName",
         "name": "Name",

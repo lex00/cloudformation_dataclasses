@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssociationParameter(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,11 +22,6 @@ class AssociationParameter(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -45,9 +37,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CpuOptions(PropertyType):
-    THREADS_PER_CORE = "ThreadsPerCore"
-    CORE_COUNT = "CoreCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "core_count": "CoreCount",
@@ -59,8 +48,6 @@ class CpuOptions(PropertyType):
 
 @dataclass
 class CreditSpecification(PropertyType):
-    CPU_CREDITS = "CPUCredits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CPUCredits",
     }
@@ -70,14 +57,6 @@ class CreditSpecification(PropertyType):
 
 @dataclass
 class Ebs(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -99,8 +78,6 @@ class Ebs(PropertyType):
 
 @dataclass
 class ElasticGpuSpecification(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -110,9 +87,6 @@ class ElasticGpuSpecification(PropertyType):
 
 @dataclass
 class ElasticInferenceAccelerator(PropertyType):
-    TYPE = "Type"
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "count": "Count",
@@ -124,9 +98,6 @@ class ElasticInferenceAccelerator(PropertyType):
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    ENA_SRD_ENABLED = "EnaSrdEnabled"
-    ENA_SRD_UDP_SPECIFICATION = "EnaSrdUdpSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -138,8 +109,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    ENA_SRD_UDP_ENABLED = "EnaSrdUdpEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }
@@ -149,8 +118,6 @@ class EnaSrdUdpSpecification(PropertyType):
 
 @dataclass
 class EnclaveOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -160,8 +127,6 @@ class EnclaveOptions(PropertyType):
 
 @dataclass
 class HibernationOptions(PropertyType):
-    CONFIGURED = "Configured"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -171,8 +136,6 @@ class HibernationOptions(PropertyType):
 
 @dataclass
 class InstanceIpv6Address(PropertyType):
-    IPV6_ADDRESS = "Ipv6Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -182,10 +145,6 @@ class InstanceIpv6Address(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -199,8 +158,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LicenseSpecification(PropertyType):
-    LICENSE_CONFIGURATION_ARN = "LicenseConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -210,12 +167,6 @@ class LicenseSpecification(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    HTTP_PUT_RESPONSE_HOP_LIMIT = "HttpPutResponseHopLimit"
-    HTTP_PROTOCOL_IPV6 = "HttpProtocolIpv6"
-    HTTP_TOKENS = "HttpTokens"
-    INSTANCE_METADATA_TAGS = "InstanceMetadataTags"
-    HTTP_ENDPOINT = "HttpEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_protocol_ipv6": "HttpProtocolIpv6",
@@ -233,21 +184,6 @@ class MetadataOptions(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    DESCRIPTION = "Description"
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIVATE_IP_ADDRESSES = "PrivateIpAddresses"
-    SECONDARY_PRIVATE_IP_ADDRESS_COUNT = "SecondaryPrivateIpAddressCount"
-    DEVICE_INDEX = "DeviceIndex"
-    GROUP_SET = "GroupSet"
-    IPV6_ADDRESSES = "Ipv6Addresses"
-    SUBNET_ID = "SubnetId"
-    ASSOCIATE_PUBLIC_IP_ADDRESS = "AssociatePublicIpAddress"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    ASSOCIATE_CARRIER_IP_ADDRESS = "AssociateCarrierIpAddress"
-    ENA_SRD_SPECIFICATION = "EnaSrdSpecification"
-    IPV6_ADDRESS_COUNT = "Ipv6AddressCount"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_address": "PrivateIpAddress",
@@ -283,10 +219,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptions(PropertyType):
-    ENABLE_RESOURCE_NAME_DNS_A_RECORD = "EnableResourceNameDnsARecord"
-    HOSTNAME_TYPE = "HostnameType"
-    ENABLE_RESOURCE_NAME_DNS_AAAA_RECORD = "EnableResourceNameDnsAAAARecord"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -300,9 +232,6 @@ class PrivateDnsNameOptions(PropertyType):
 
 @dataclass
 class PrivateIpAddressSpecification(PropertyType):
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    PRIMARY = "Primary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -314,9 +243,6 @@ class PrivateIpAddressSpecification(PropertyType):
 
 @dataclass
 class SsmAssociation(PropertyType):
-    ASSOCIATION_PARAMETERS = "AssociationParameters"
-    DOCUMENT_NAME = "DocumentName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_parameters": "AssociationParameters",
         "document_name": "DocumentName",
@@ -328,9 +254,6 @@ class SsmAssociation(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    CODE = "Code"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "Code",
         "name": "Name",
@@ -342,9 +265,6 @@ class State(PropertyType):
 
 @dataclass
 class Volume(PropertyType):
-    VOLUME_ID = "VolumeId"
-    DEVICE = "Device"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "device": "Device",

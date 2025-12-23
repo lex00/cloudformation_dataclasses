@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ExecutionStatusObject(PropertyType):
-    STATUS = "Status"
-    DESIRED_STATE = "DesiredState"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "desired_state": "DesiredState",
@@ -28,9 +24,6 @@ class ExecutionStatusObject(PropertyType):
 
 @dataclass
 class GroupToWeight(PropertyType):
-    GROUP_NAME = "GroupName"
-    SPLIT_WEIGHT = "SplitWeight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "split_weight": "SplitWeight",
@@ -42,11 +35,6 @@ class GroupToWeight(PropertyType):
 
 @dataclass
 class LaunchGroupObject(PropertyType):
-    GROUP_NAME = "GroupName"
-    DESCRIPTION = "Description"
-    VARIATION = "Variation"
-    FEATURE = "Feature"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "description": "Description",
@@ -62,12 +50,6 @@ class LaunchGroupObject(PropertyType):
 
 @dataclass
 class MetricDefinitionObject(PropertyType):
-    ENTITY_ID_KEY = "EntityIdKey"
-    METRIC_NAME = "MetricName"
-    EVENT_PATTERN = "EventPattern"
-    VALUE_KEY = "ValueKey"
-    UNIT_LABEL = "UnitLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id_key": "EntityIdKey",
         "metric_name": "MetricName",
@@ -85,10 +67,6 @@ class MetricDefinitionObject(PropertyType):
 
 @dataclass
 class SegmentOverride(PropertyType):
-    WEIGHTS = "Weights"
-    EVALUATION_ORDER = "EvaluationOrder"
-    SEGMENT = "Segment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weights": "Weights",
         "evaluation_order": "EvaluationOrder",
@@ -102,10 +80,6 @@ class SegmentOverride(PropertyType):
 
 @dataclass
 class StepConfig(PropertyType):
-    GROUP_WEIGHTS = "GroupWeights"
-    SEGMENT_OVERRIDES = "SegmentOverrides"
-    START_TIME = "StartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_weights": "GroupWeights",
         "segment_overrides": "SegmentOverrides",

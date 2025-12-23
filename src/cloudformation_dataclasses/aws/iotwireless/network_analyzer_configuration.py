@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TraceContent(PropertyType):
-    WIRELESS_DEVICE_FRAME_INFO = "WirelessDeviceFrameInfo"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wireless_device_frame_info": "WirelessDeviceFrameInfo",
         "log_level": "LogLevel",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    FORWARD = "Forward"
-    FIXED_RESPONSE = "FixedResponse"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward": "Forward",
         "fixed_response": "FixedResponse",
@@ -25,8 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class FixedResponse(PropertyType):
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_code": "StatusCode",
     }
@@ -36,8 +31,6 @@ class FixedResponse(PropertyType):
 
 @dataclass
 class Forward(PropertyType):
-    TARGET_GROUPS = "TargetGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_groups": "TargetGroups",
     }
@@ -47,10 +40,6 @@ class Forward(PropertyType):
 
 @dataclass
 class HeaderMatch(PropertyType):
-    CASE_SENSITIVE = "CaseSensitive"
-    NAME = "Name"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
         "name": "Name",
@@ -64,10 +53,6 @@ class HeaderMatch(PropertyType):
 
 @dataclass
 class HeaderMatchType(PropertyType):
-    CONTAINS = "Contains"
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains": "Contains",
         "exact": "Exact",
@@ -81,10 +66,6 @@ class HeaderMatchType(PropertyType):
 
 @dataclass
 class HttpMatch(PropertyType):
-    HEADER_MATCHES = "HeaderMatches"
-    PATH_MATCH = "PathMatch"
-    METHOD = "Method"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_matches": "HeaderMatches",
         "path_match": "PathMatch",
@@ -98,8 +79,6 @@ class HttpMatch(PropertyType):
 
 @dataclass
 class Match(PropertyType):
-    HTTP_MATCH = "HttpMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_match": "HttpMatch",
     }
@@ -109,9 +88,6 @@ class Match(PropertyType):
 
 @dataclass
 class PathMatch(PropertyType):
-    CASE_SENSITIVE = "CaseSensitive"
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
         "match": "Match",
@@ -123,9 +99,6 @@ class PathMatch(PropertyType):
 
 @dataclass
 class PathMatchType(PropertyType):
-    EXACT = "Exact"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
         "prefix": "Prefix",
@@ -137,9 +110,6 @@ class PathMatchType(PropertyType):
 
 @dataclass
 class WeightedTargetGroup(PropertyType):
-    WEIGHT = "Weight"
-    TARGET_GROUP_IDENTIFIER = "TargetGroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight": "Weight",
         "target_group_identifier": "TargetGroupIdentifier",

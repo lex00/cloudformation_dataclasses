@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    FIELD_SELECTORS = "FieldSelectors"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -25,14 +22,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    FIELD = "Field"
-    EQUALS = "Equals"
-    NOT_STARTS_WITH = "NotStartsWith"
-    NOT_ENDS_WITH = "NotEndsWith"
-    STARTS_WITH = "StartsWith"
-    ENDS_WITH = "EndsWith"
-    NOT_EQUALS = "NotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -54,9 +43,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class ContextKeySelector(PropertyType):
-    TYPE = "Type"
-    EQUALS = "Equals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "equals": "Equals",
@@ -68,8 +54,6 @@ class ContextKeySelector(PropertyType):
 
 @dataclass
 class InsightSelector(PropertyType):
-    INSIGHT_TYPE = "InsightType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insight_type": "InsightType",
     }

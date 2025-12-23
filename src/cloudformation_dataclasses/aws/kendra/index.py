@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CapacityUnitsConfiguration(PropertyType):
-    QUERY_CAPACITY_UNITS = "QueryCapacityUnits"
-    STORAGE_CAPACITY_UNITS = "StorageCapacityUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_capacity_units": "QueryCapacityUnits",
         "storage_capacity_units": "StorageCapacityUnits",
@@ -25,11 +22,6 @@ class CapacityUnitsConfiguration(PropertyType):
 
 @dataclass
 class DocumentMetadataConfiguration(PropertyType):
-    RELEVANCE = "Relevance"
-    TYPE = "Type"
-    SEARCH = "Search"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relevance": "Relevance",
         "type_": "Type",
@@ -45,9 +37,6 @@ class DocumentMetadataConfiguration(PropertyType):
 
 @dataclass
 class JsonTokenTypeConfiguration(PropertyType):
-    GROUP_ATTRIBUTE_FIELD = "GroupAttributeField"
-    USER_NAME_ATTRIBUTE_FIELD = "UserNameAttributeField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_attribute_field": "GroupAttributeField",
         "user_name_attribute_field": "UserNameAttributeField",
@@ -59,14 +48,6 @@ class JsonTokenTypeConfiguration(PropertyType):
 
 @dataclass
 class JwtTokenTypeConfiguration(PropertyType):
-    CLAIM_REGEX = "ClaimRegex"
-    ISSUER = "Issuer"
-    KEY_LOCATION = "KeyLocation"
-    SECRET_MANAGER_ARN = "SecretManagerArn"
-    GROUP_ATTRIBUTE_FIELD = "GroupAttributeField"
-    URL = "URL"
-    USER_NAME_ATTRIBUTE_FIELD = "UserNameAttributeField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "claim_regex": "ClaimRegex",
         "issuer": "Issuer",
@@ -88,12 +69,6 @@ class JwtTokenTypeConfiguration(PropertyType):
 
 @dataclass
 class Relevance(PropertyType):
-    IMPORTANCE = "Importance"
-    RANK_ORDER = "RankOrder"
-    VALUE_IMPORTANCE_ITEMS = "ValueImportanceItems"
-    FRESHNESS = "Freshness"
-    DURATION = "Duration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "importance": "Importance",
         "rank_order": "RankOrder",
@@ -111,11 +86,6 @@ class Relevance(PropertyType):
 
 @dataclass
 class Search(PropertyType):
-    DISPLAYABLE = "Displayable"
-    SORTABLE = "Sortable"
-    FACETABLE = "Facetable"
-    SEARCHABLE = "Searchable"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "displayable": "Displayable",
         "sortable": "Sortable",
@@ -131,8 +101,6 @@ class Search(PropertyType):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -142,9 +110,6 @@ class ServerSideEncryptionConfiguration(PropertyType):
 
 @dataclass
 class UserTokenConfiguration(PropertyType):
-    JWT_TOKEN_TYPE_CONFIGURATION = "JwtTokenTypeConfiguration"
-    JSON_TOKEN_TYPE_CONFIGURATION = "JsonTokenTypeConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_token_type_configuration": "JwtTokenTypeConfiguration",
         "json_token_type_configuration": "JsonTokenTypeConfiguration",
@@ -156,9 +121,6 @@ class UserTokenConfiguration(PropertyType):
 
 @dataclass
 class ValueImportanceItem(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

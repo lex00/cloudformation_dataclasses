@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DnsOptions(PropertyType):
-    PRIVATE_DNS_SPECIFIED_DOMAINS = "PrivateDnsSpecifiedDomains"
-    PRIVATE_DNS_PREFERENCE = "PrivateDnsPreference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_specified_domains": "PrivateDnsSpecifiedDomains",
         "private_dns_preference": "PrivateDnsPreference",

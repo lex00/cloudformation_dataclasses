@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:01
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTAnalytics
@@ -136,11 +136,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Channel"
     name_field: ClassVar[str] = "channel_name"
-    CHANNEL_NAME = "ChannelName"
-    CHANNEL_STORAGE = "ChannelStorage"
-    RETENTION_PERIOD = "RetentionPeriod"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "channel_storage": "ChannelStorage",
@@ -166,15 +161,6 @@ class Dataset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Dataset"
     name_field: ClassVar[str] = "dataset_name"
-    ACTIONS = "Actions"
-    LATE_DATA_RULES = "LateDataRules"
-    DATASET_NAME = "DatasetName"
-    CONTENT_DELIVERY_RULES = "ContentDeliveryRules"
-    TRIGGERS = "Triggers"
-    VERSIONING_CONFIGURATION = "VersioningConfiguration"
-    RETENTION_PERIOD = "RetentionPeriod"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "late_data_rules": "LateDataRules",
@@ -208,13 +194,6 @@ class Datastore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Datastore"
     name_field: ClassVar[str] = "datastore_name"
-    DATASTORE_STORAGE = "DatastoreStorage"
-    FILE_FORMAT_CONFIGURATION = "FileFormatConfiguration"
-    DATASTORE_PARTITIONS = "DatastorePartitions"
-    DATASTORE_NAME = "DatastoreName"
-    RETENTION_PERIOD = "RetentionPeriod"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datastore_storage": "DatastoreStorage",
         "file_format_configuration": "FileFormatConfiguration",
@@ -244,10 +223,6 @@ class Pipeline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Pipeline"
     name_field: ClassVar[str] = "pipeline_name"
-    PIPELINE_NAME = "PipelineName"
-    TAGS = "Tags"
-    PIPELINE_ACTIVITIES = "PipelineActivities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_name": "PipelineName",
         "tags": "Tags",

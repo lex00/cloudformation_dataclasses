@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BlockPublicAccessStates(PropertyType):
-    INTERNET_GATEWAY_BLOCK_MODE = "InternetGatewayBlockMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internet_gateway_block_mode": "InternetGatewayBlockMode",
     }
@@ -22,10 +20,6 @@ class BlockPublicAccessStates(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptionsOnLaunch(PropertyType):
-    ENABLE_RESOURCE_NAME_DNS_A_RECORD = "EnableResourceNameDnsARecord"
-    HOSTNAME_TYPE = "HostnameType"
-    ENABLE_RESOURCE_NAME_DNS_AAAA_RECORD = "EnableResourceNameDnsAAAARecord"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",

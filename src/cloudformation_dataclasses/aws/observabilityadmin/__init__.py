@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ObservabilityAdmin
@@ -304,10 +304,6 @@ class OrganizationCentralizationRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ObservabilityAdmin::OrganizationCentralizationRule"
     name_field: ClassVar[str] = "rule_name"
-    RULE = "Rule"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule": "Rule",
         "rule_name": "RuleName",
@@ -331,10 +327,6 @@ class OrganizationTelemetryRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ObservabilityAdmin::OrganizationTelemetryRule"
     name_field: ClassVar[str] = "rule_name"
-    RULE = "Rule"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule": "Rule",
         "rule_name": "RuleName",
@@ -357,11 +349,6 @@ class S3TableIntegration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-obser"""
 
     resource_type: ClassVar[str] = "AWS::ObservabilityAdmin::S3TableIntegration"
-    LOG_SOURCES = "LogSources"
-    ENCRYPTION = "Encryption"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_sources": "LogSources",
         "encryption": "Encryption",
@@ -387,10 +374,6 @@ class TelemetryPipelines(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ObservabilityAdmin::TelemetryPipelines"
     name_field: ClassVar[str] = "name"
-    CONFIGURATION = "Configuration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "tags": "Tags",
@@ -489,10 +472,6 @@ class TelemetryRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ObservabilityAdmin::TelemetryRule"
     name_field: ClassVar[str] = "rule_name"
-    RULE = "Rule"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule": "Rule",
         "rule_name": "RuleName",

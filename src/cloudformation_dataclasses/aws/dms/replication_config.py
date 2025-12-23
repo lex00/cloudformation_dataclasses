@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeConfig(PropertyType):
-    DNS_NAME_SERVERS = "DnsNameServers"
-    KMS_KEY_ID = "KmsKeyId"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    MAX_CAPACITY_UNITS = "MaxCapacityUnits"
-    REPLICATION_SUBNET_GROUP_ID = "ReplicationSubnetGroupId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    MIN_CAPACITY_UNITS = "MinCapacityUnits"
-    MULTI_AZ = "MultiAZ"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name_servers": "DnsNameServers",
         "kms_key_id": "KmsKeyId",

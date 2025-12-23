@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Properties(PropertyType):
-    DNS_PROPERTIES = "DnsProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_properties": "DnsProperties",
     }
@@ -22,8 +20,6 @@ class Properties(PropertyType):
 
 @dataclass
 class PublicDnsPropertiesMutable(PropertyType):
-    SOA = "SOA"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soa": "SOA",
     }
@@ -33,8 +29,6 @@ class PublicDnsPropertiesMutable(PropertyType):
 
 @dataclass
 class SOA(PropertyType):
-    TTL = "TTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttl": "TTL",
     }

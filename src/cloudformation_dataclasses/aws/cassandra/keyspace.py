@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ReplicationSpecification(PropertyType):
-    REPLICATION_STRATEGY = "ReplicationStrategy"
-    REGION_LIST = "RegionList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_strategy": "ReplicationStrategy",
         "region_list": "RegionList",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -22,9 +20,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -36,9 +31,6 @@ class Label(PropertyType):
 
 @dataclass
 class LimitsPerLabelSet(PropertyType):
-    LIMITS = "Limits"
-    LABEL_SET = "LabelSet"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "limits": "Limits",
         "label_set": "LabelSet",
@@ -50,8 +42,6 @@ class LimitsPerLabelSet(PropertyType):
 
 @dataclass
 class LimitsPerLabelSetEntry(PropertyType):
-    MAX_SERIES = "MaxSeries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_series": "MaxSeries",
     }
@@ -61,8 +51,6 @@ class LimitsPerLabelSetEntry(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    LOG_GROUP_ARN = "LogGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -72,9 +60,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class LoggingDestination(PropertyType):
-    FILTERS = "Filters"
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "cloud_watch_logs": "CloudWatchLogs",
@@ -86,8 +71,6 @@ class LoggingDestination(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    QSP_THRESHOLD = "QspThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qsp_threshold": "QspThreshold",
     }
@@ -97,8 +80,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class QueryLoggingConfiguration(PropertyType):
-    DESTINATIONS = "Destinations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
     }
@@ -108,9 +89,6 @@ class QueryLoggingConfiguration(PropertyType):
 
 @dataclass
 class WorkspaceConfiguration(PropertyType):
-    RETENTION_PERIOD_IN_DAYS = "RetentionPeriodInDays"
-    LIMITS_PER_LABEL_SETS = "LimitsPerLabelSets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_period_in_days": "RetentionPeriodInDays",
         "limits_per_label_sets": "LimitsPerLabelSets",

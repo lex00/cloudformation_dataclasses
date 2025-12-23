@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Kendra
@@ -870,17 +870,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Kendra::DataSource"
     name_field: ClassVar[str] = "name"
-    CUSTOM_DOCUMENT_ENRICHMENT_CONFIGURATION = "CustomDocumentEnrichmentConfiguration"
-    INDEX_ID = "IndexId"
-    LANGUAGE_CODE = "LanguageCode"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    SCHEDULE = "Schedule"
-    DATA_SOURCE_CONFIGURATION = "DataSourceConfiguration"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_document_enrichment_configuration": "CustomDocumentEnrichmentConfiguration",
         "index_id": "IndexId",
@@ -923,15 +912,6 @@ class Faq(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Kendra::Faq"
     name_field: ClassVar[str] = "name"
-    INDEX_ID = "IndexId"
-    LANGUAGE_CODE = "LanguageCode"
-    DESCRIPTION = "Description"
-    S3_PATH = "S3Path"
-    FILE_FORMAT = "FileFormat"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
         "language_code": "LanguageCode",
@@ -970,17 +950,6 @@ class Index(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Kendra::Index"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    USER_CONTEXT_POLICY = "UserContextPolicy"
-    CAPACITY_UNITS = "CapacityUnits"
-    SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
-    DOCUMENT_METADATA_CONFIGURATIONS = "DocumentMetadataConfigurations"
-    TAGS = "Tags"
-    ROLE_ARN = "RoleArn"
-    EDITION = "Edition"
-    NAME = "Name"
-    USER_TOKEN_CONFIGURATIONS = "UserTokenConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "user_context_policy": "UserContextPolicy",

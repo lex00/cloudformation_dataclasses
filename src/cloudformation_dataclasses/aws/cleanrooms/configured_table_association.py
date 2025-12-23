@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRule(PropertyType):
-    POLICY = "Policy"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -25,9 +22,6 @@ class ConfiguredTableAssociationAnalysisRule(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleAggregation(PropertyType):
-    ALLOWED_RESULT_RECEIVERS = "AllowedResultReceivers"
-    ALLOWED_ADDITIONAL_ANALYSES = "AllowedAdditionalAnalyses"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -39,9 +33,6 @@ class ConfiguredTableAssociationAnalysisRuleAggregation(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleCustom(PropertyType):
-    ALLOWED_RESULT_RECEIVERS = "AllowedResultReceivers"
-    ALLOWED_ADDITIONAL_ANALYSES = "AllowedAdditionalAnalyses"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -53,9 +44,6 @@ class ConfiguredTableAssociationAnalysisRuleCustom(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleList(PropertyType):
-    ALLOWED_RESULT_RECEIVERS = "AllowedResultReceivers"
-    ALLOWED_ADDITIONAL_ANALYSES = "AllowedAdditionalAnalyses"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -67,8 +55,6 @@ class ConfiguredTableAssociationAnalysisRuleList(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRulePolicy(PropertyType):
-    V1 = "V1"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "v1": "V1",
     }
@@ -78,10 +64,6 @@ class ConfiguredTableAssociationAnalysisRulePolicy(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRulePolicyV1(PropertyType):
-    AGGREGATION = "Aggregation"
-    LIST = "List"
-    CUSTOM = "Custom"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "list": "List",

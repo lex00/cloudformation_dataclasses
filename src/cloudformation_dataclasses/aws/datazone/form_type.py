@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Model(PropertyType):
-    SMITHY = "Smithy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smithy": "Smithy",
     }

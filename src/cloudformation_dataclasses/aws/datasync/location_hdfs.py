@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NameNode(PropertyType):
-    PORT = "Port"
-    HOSTNAME = "Hostname"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "hostname": "Hostname",
@@ -25,9 +22,6 @@ class NameNode(PropertyType):
 
 @dataclass
 class QopConfiguration(PropertyType):
-    RPC_PROTECTION = "RpcProtection"
-    DATA_TRANSFER_PROTECTION = "DataTransferProtection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rpc_protection": "RpcProtection",
         "data_transfer_protection": "DataTransferProtection",

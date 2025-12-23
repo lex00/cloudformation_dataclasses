@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AIMLOptions(PropertyType):
-    S3_VECTORS_ENGINE = "S3VectorsEngine"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_vectors_engine": "S3VectorsEngine",
     }
@@ -22,15 +20,6 @@ class AIMLOptions(PropertyType):
 
 @dataclass
 class AdvancedSecurityOptionsInput(PropertyType):
-    IAM_FEDERATION_OPTIONS = "IAMFederationOptions"
-    ANONYMOUS_AUTH_ENABLED = "AnonymousAuthEnabled"
-    INTERNAL_USER_DATABASE_ENABLED = "InternalUserDatabaseEnabled"
-    SAML_OPTIONS = "SAMLOptions"
-    ENABLED = "Enabled"
-    JWT_OPTIONS = "JWTOptions"
-    ANONYMOUS_AUTH_DISABLE_DATE = "AnonymousAuthDisableDate"
-    MASTER_USER_OPTIONS = "MasterUserOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_federation_options": "IAMFederationOptions",
         "anonymous_auth_enabled": "AnonymousAuthEnabled",
@@ -54,20 +43,6 @@ class AdvancedSecurityOptionsInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    MULTI_AZ_WITH_STANDBY_ENABLED = "MultiAZWithStandbyEnabled"
-    DEDICATED_MASTER_ENABLED = "DedicatedMasterEnabled"
-    ZONE_AWARENESS_CONFIG = "ZoneAwarenessConfig"
-    COLD_STORAGE_OPTIONS = "ColdStorageOptions"
-    NODE_OPTIONS = "NodeOptions"
-    WARM_TYPE = "WarmType"
-    INSTANCE_COUNT = "InstanceCount"
-    WARM_ENABLED = "WarmEnabled"
-    WARM_COUNT = "WarmCount"
-    DEDICATED_MASTER_COUNT = "DedicatedMasterCount"
-    INSTANCE_TYPE = "InstanceType"
-    ZONE_AWARENESS_ENABLED = "ZoneAwarenessEnabled"
-    DEDICATED_MASTER_TYPE = "DedicatedMasterType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_az_with_standby_enabled": "MultiAZWithStandbyEnabled",
         "dedicated_master_enabled": "DedicatedMasterEnabled",
@@ -101,11 +76,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class CognitoOptions(PropertyType):
-    USER_POOL_ID = "UserPoolId"
-    ENABLED = "Enabled"
-    IDENTITY_POOL_ID = "IdentityPoolId"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "enabled": "Enabled",
@@ -121,8 +91,6 @@ class CognitoOptions(PropertyType):
 
 @dataclass
 class ColdStorageOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -132,12 +100,6 @@ class ColdStorageOptions(PropertyType):
 
 @dataclass
 class DomainEndpointOptions(PropertyType):
-    CUSTOM_ENDPOINT_ENABLED = "CustomEndpointEnabled"
-    ENFORCE_HTTPS = "EnforceHTTPS"
-    CUSTOM_ENDPOINT_CERTIFICATE_ARN = "CustomEndpointCertificateArn"
-    CUSTOM_ENDPOINT = "CustomEndpoint"
-    TLS_SECURITY_POLICY = "TLSSecurityPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_endpoint_enabled": "CustomEndpointEnabled",
         "enforce_https": "EnforceHTTPS",
@@ -155,12 +117,6 @@ class DomainEndpointOptions(PropertyType):
 
 @dataclass
 class EBSOptions(PropertyType):
-    EBS_ENABLED = "EBSEnabled"
-    VOLUME_TYPE = "VolumeType"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_enabled": "EBSEnabled",
         "volume_type": "VolumeType",
@@ -178,9 +134,6 @@ class EBSOptions(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "enabled": "Enabled",
@@ -192,10 +145,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class IAMFederationOptions(PropertyType):
-    SUBJECT_KEY = "SubjectKey"
-    ROLES_KEY = "RolesKey"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_key": "SubjectKey",
         "roles_key": "RolesKey",
@@ -209,13 +158,6 @@ class IAMFederationOptions(PropertyType):
 
 @dataclass
 class IdentityCenterOptions(PropertyType):
-    IDENTITY_CENTER_APPLICATION_ARN = "IdentityCenterApplicationARN"
-    IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceARN"
-    SUBJECT_KEY = "SubjectKey"
-    ENABLED_API_ACCESS = "EnabledAPIAccess"
-    ROLES_KEY = "RolesKey"
-    IDENTITY_STORE_ID = "IdentityStoreId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_application_arn": "IdentityCenterApplicationARN",
         "identity_center_instance_arn": "IdentityCenterInstanceARN",
@@ -235,9 +177,6 @@ class IdentityCenterOptions(PropertyType):
 
 @dataclass
 class Idp(PropertyType):
-    ENTITY_ID = "EntityId"
-    METADATA_CONTENT = "MetadataContent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "metadata_content": "MetadataContent",
@@ -249,11 +188,6 @@ class Idp(PropertyType):
 
 @dataclass
 class JWTOptions(PropertyType):
-    SUBJECT_KEY = "SubjectKey"
-    PUBLIC_KEY = "PublicKey"
-    ROLES_KEY = "RolesKey"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_key": "SubjectKey",
         "public_key": "PublicKey",
@@ -269,9 +203,6 @@ class JWTOptions(PropertyType):
 
 @dataclass
 class LogPublishingOption(PropertyType):
-    CLOUD_WATCH_LOGS_LOG_GROUP_ARN = "CloudWatchLogsLogGroupArn"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
         "enabled": "Enabled",
@@ -283,10 +214,6 @@ class LogPublishingOption(PropertyType):
 
 @dataclass
 class MasterUserOptions(PropertyType):
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    MASTER_USER_ARN = "MasterUserARN"
-    MASTER_USER_NAME = "MasterUserName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_user_password": "MasterUserPassword",
         "master_user_arn": "MasterUserARN",
@@ -300,10 +227,6 @@ class MasterUserOptions(PropertyType):
 
 @dataclass
 class NodeConfig(PropertyType):
-    TYPE = "Type"
-    ENABLED = "Enabled"
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "enabled": "Enabled",
@@ -317,9 +240,6 @@ class NodeConfig(PropertyType):
 
 @dataclass
 class NodeOption(PropertyType):
-    NODE_TYPE = "NodeType"
-    NODE_CONFIG = "NodeConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_type": "NodeType",
         "node_config": "NodeConfig",
@@ -331,8 +251,6 @@ class NodeOption(PropertyType):
 
 @dataclass
 class NodeToNodeEncryptionOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -342,8 +260,6 @@ class NodeToNodeEncryptionOptions(PropertyType):
 
 @dataclass
 class OffPeakWindow(PropertyType):
-    WINDOW_START_TIME = "WindowStartTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "window_start_time": "WindowStartTime",
     }
@@ -353,9 +269,6 @@ class OffPeakWindow(PropertyType):
 
 @dataclass
 class OffPeakWindowOptions(PropertyType):
-    OFF_PEAK_WINDOW = "OffPeakWindow"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "off_peak_window": "OffPeakWindow",
         "enabled": "Enabled",
@@ -367,8 +280,6 @@ class OffPeakWindowOptions(PropertyType):
 
 @dataclass
 class S3VectorsEngine(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -378,14 +289,6 @@ class S3VectorsEngine(PropertyType):
 
 @dataclass
 class SAMLOptions(PropertyType):
-    MASTER_BACKEND_ROLE = "MasterBackendRole"
-    SUBJECT_KEY = "SubjectKey"
-    IDP = "Idp"
-    SESSION_TIMEOUT_MINUTES = "SessionTimeoutMinutes"
-    ROLES_KEY = "RolesKey"
-    ENABLED = "Enabled"
-    MASTER_USER_NAME = "MasterUserName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_backend_role": "MasterBackendRole",
         "subject_key": "SubjectKey",
@@ -407,15 +310,6 @@ class SAMLOptions(PropertyType):
 
 @dataclass
 class ServiceSoftwareOptions(PropertyType):
-    NEW_VERSION = "NewVersion"
-    UPDATE_STATUS = "UpdateStatus"
-    DESCRIPTION = "Description"
-    CANCELLABLE = "Cancellable"
-    CURRENT_VERSION = "CurrentVersion"
-    AUTOMATED_UPDATE_DATE = "AutomatedUpdateDate"
-    UPDATE_AVAILABLE = "UpdateAvailable"
-    OPTIONAL_DEPLOYMENT = "OptionalDeployment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "new_version": "NewVersion",
         "update_status": "UpdateStatus",
@@ -439,8 +333,6 @@ class ServiceSoftwareOptions(PropertyType):
 
 @dataclass
 class SnapshotOptions(PropertyType):
-    AUTOMATED_SNAPSHOT_START_HOUR = "AutomatedSnapshotStartHour"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automated_snapshot_start_hour": "AutomatedSnapshotStartHour",
     }
@@ -450,8 +342,6 @@ class SnapshotOptions(PropertyType):
 
 @dataclass
 class SoftwareUpdateOptions(PropertyType):
-    AUTO_SOFTWARE_UPDATE_ENABLED = "AutoSoftwareUpdateEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_software_update_enabled": "AutoSoftwareUpdateEnabled",
     }
@@ -461,9 +351,6 @@ class SoftwareUpdateOptions(PropertyType):
 
 @dataclass
 class VPCOptions(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -475,9 +362,6 @@ class VPCOptions(PropertyType):
 
 @dataclass
 class WindowStartTime(PropertyType):
-    HOURS = "Hours"
-    MINUTES = "Minutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",
@@ -489,8 +373,6 @@ class WindowStartTime(PropertyType):
 
 @dataclass
 class ZoneAwarenessConfig(PropertyType):
-    AVAILABILITY_ZONE_COUNT = "AvailabilityZoneCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_count": "AvailabilityZoneCount",
     }

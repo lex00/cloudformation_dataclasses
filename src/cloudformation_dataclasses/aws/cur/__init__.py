@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:46
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CUR
@@ -172,20 +172,6 @@ class ReportDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CUR::ReportDefinition"
     name_field: ClassVar[str] = "report_name"
-    COMPRESSION = "Compression"
-    REFRESH_CLOSED_REPORTS = "RefreshClosedReports"
-    REPORT_VERSIONING = "ReportVersioning"
-    S3_PREFIX = "S3Prefix"
-    ADDITIONAL_SCHEMA_ELEMENTS = "AdditionalSchemaElements"
-    ADDITIONAL_ARTIFACTS = "AdditionalArtifacts"
-    REPORT_NAME = "ReportName"
-    FORMAT = "Format"
-    S3_BUCKET = "S3Bucket"
-    S3_REGION = "S3Region"
-    TIME_UNIT = "TimeUnit"
-    BILLING_VIEW_ARN = "BillingViewArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "refresh_closed_reports": "RefreshClosedReports",

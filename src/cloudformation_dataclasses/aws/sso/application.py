@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PortalOptionsConfiguration(PropertyType):
-    SIGN_IN_OPTIONS = "SignInOptions"
-    VISIBILITY = "Visibility"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sign_in_options": "SignInOptions",
         "visibility": "Visibility",
@@ -25,9 +22,6 @@ class PortalOptionsConfiguration(PropertyType):
 
 @dataclass
 class SignInOptions(PropertyType):
-    ORIGIN = "Origin"
-    APPLICATION_URL = "ApplicationUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "application_url": "ApplicationUrl",

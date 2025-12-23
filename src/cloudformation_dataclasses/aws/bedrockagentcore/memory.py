@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomConfigurationInput(PropertyType):
-    SUMMARY_OVERRIDE = "SummaryOverride"
-    USER_PREFERENCE_OVERRIDE = "UserPreferenceOverride"
-    SEMANTIC_OVERRIDE = "SemanticOverride"
-    SELF_MANAGED_CONFIGURATION = "SelfManagedConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "summary_override": "SummaryOverride",
         "user_preference_override": "UserPreferenceOverride",
@@ -31,16 +26,6 @@ class CustomConfigurationInput(PropertyType):
 
 @dataclass
 class CustomMemoryStrategy(PropertyType):
-    STATUS = "Status"
-    NAMESPACES = "Namespaces"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    CREATED_AT = "CreatedAt"
-    STRATEGY_ID = "StrategyId"
-    UPDATED_AT = "UpdatedAt"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -66,9 +51,6 @@ class CustomMemoryStrategy(PropertyType):
 
 @dataclass
 class InvocationConfigurationInput(PropertyType):
-    TOPIC_ARN = "TopicArn"
-    PAYLOAD_DELIVERY_BUCKET_NAME = "PayloadDeliveryBucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "payload_delivery_bucket_name": "PayloadDeliveryBucketName",
@@ -80,11 +62,6 @@ class InvocationConfigurationInput(PropertyType):
 
 @dataclass
 class MemoryStrategy(PropertyType):
-    SUMMARY_MEMORY_STRATEGY = "SummaryMemoryStrategy"
-    CUSTOM_MEMORY_STRATEGY = "CustomMemoryStrategy"
-    SEMANTIC_MEMORY_STRATEGY = "SemanticMemoryStrategy"
-    USER_PREFERENCE_MEMORY_STRATEGY = "UserPreferenceMemoryStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "summary_memory_strategy": "SummaryMemoryStrategy",
         "custom_memory_strategy": "CustomMemoryStrategy",
@@ -100,8 +77,6 @@ class MemoryStrategy(PropertyType):
 
 @dataclass
 class MessageBasedTriggerInput(PropertyType):
-    MESSAGE_COUNT = "MessageCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_count": "MessageCount",
     }
@@ -111,10 +86,6 @@ class MessageBasedTriggerInput(PropertyType):
 
 @dataclass
 class SelfManagedConfiguration(PropertyType):
-    TRIGGER_CONDITIONS = "TriggerConditions"
-    INVOCATION_CONFIGURATION = "InvocationConfiguration"
-    HISTORICAL_CONTEXT_WINDOW_SIZE = "HistoricalContextWindowSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_conditions": "TriggerConditions",
         "invocation_configuration": "InvocationConfiguration",
@@ -128,15 +99,6 @@ class SelfManagedConfiguration(PropertyType):
 
 @dataclass
 class SemanticMemoryStrategy(PropertyType):
-    STATUS = "Status"
-    NAMESPACES = "Namespaces"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CREATED_AT = "CreatedAt"
-    STRATEGY_ID = "StrategyId"
-    UPDATED_AT = "UpdatedAt"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -160,9 +122,6 @@ class SemanticMemoryStrategy(PropertyType):
 
 @dataclass
 class SemanticOverride(PropertyType):
-    CONSOLIDATION = "Consolidation"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "extraction": "Extraction",
@@ -174,9 +133,6 @@ class SemanticOverride(PropertyType):
 
 @dataclass
 class SemanticOverrideConsolidationConfigurationInput(PropertyType):
-    APPEND_TO_PROMPT = "AppendToPrompt"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -188,9 +144,6 @@ class SemanticOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class SemanticOverrideExtractionConfigurationInput(PropertyType):
-    APPEND_TO_PROMPT = "AppendToPrompt"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -202,15 +155,6 @@ class SemanticOverrideExtractionConfigurationInput(PropertyType):
 
 @dataclass
 class SummaryMemoryStrategy(PropertyType):
-    STATUS = "Status"
-    NAMESPACES = "Namespaces"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CREATED_AT = "CreatedAt"
-    STRATEGY_ID = "StrategyId"
-    UPDATED_AT = "UpdatedAt"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -234,8 +178,6 @@ class SummaryMemoryStrategy(PropertyType):
 
 @dataclass
 class SummaryOverride(PropertyType):
-    CONSOLIDATION = "Consolidation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
     }
@@ -245,9 +187,6 @@ class SummaryOverride(PropertyType):
 
 @dataclass
 class SummaryOverrideConsolidationConfigurationInput(PropertyType):
-    APPEND_TO_PROMPT = "AppendToPrompt"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -259,8 +198,6 @@ class SummaryOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class TimeBasedTriggerInput(PropertyType):
-    IDLE_SESSION_TIMEOUT = "IdleSessionTimeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_session_timeout": "IdleSessionTimeout",
     }
@@ -270,8 +207,6 @@ class TimeBasedTriggerInput(PropertyType):
 
 @dataclass
 class TokenBasedTriggerInput(PropertyType):
-    TOKEN_COUNT = "TokenCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_count": "TokenCount",
     }
@@ -281,10 +216,6 @@ class TokenBasedTriggerInput(PropertyType):
 
 @dataclass
 class TriggerConditionInput(PropertyType):
-    MESSAGE_BASED_TRIGGER = "MessageBasedTrigger"
-    TOKEN_BASED_TRIGGER = "TokenBasedTrigger"
-    TIME_BASED_TRIGGER = "TimeBasedTrigger"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_based_trigger": "MessageBasedTrigger",
         "token_based_trigger": "TokenBasedTrigger",
@@ -298,15 +229,6 @@ class TriggerConditionInput(PropertyType):
 
 @dataclass
 class UserPreferenceMemoryStrategy(PropertyType):
-    STATUS = "Status"
-    NAMESPACES = "Namespaces"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CREATED_AT = "CreatedAt"
-    STRATEGY_ID = "StrategyId"
-    UPDATED_AT = "UpdatedAt"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -330,9 +252,6 @@ class UserPreferenceMemoryStrategy(PropertyType):
 
 @dataclass
 class UserPreferenceOverride(PropertyType):
-    CONSOLIDATION = "Consolidation"
-    EXTRACTION = "Extraction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "extraction": "Extraction",
@@ -344,9 +263,6 @@ class UserPreferenceOverride(PropertyType):
 
 @dataclass
 class UserPreferenceOverrideConsolidationConfigurationInput(PropertyType):
-    APPEND_TO_PROMPT = "AppendToPrompt"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -358,9 +274,6 @@ class UserPreferenceOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class UserPreferenceOverrideExtractionConfigurationInput(PropertyType):
-    APPEND_TO_PROMPT = "AppendToPrompt"
-    MODEL_ID = "ModelId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",

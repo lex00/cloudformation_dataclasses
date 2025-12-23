@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AliasConfiguration(PropertyType):
-    EMAIL_ADDRESS_ARN = "EmailAddressArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_address_arn": "EmailAddressArn",
     }

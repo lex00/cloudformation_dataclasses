@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaStore
@@ -75,14 +75,6 @@ class Container(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaStore::Container"
     name_field: ClassVar[str] = "container_name"
-    POLICY = "Policy"
-    METRIC_POLICY = "MetricPolicy"
-    CONTAINER_NAME = "ContainerName"
-    CORS_POLICY = "CorsPolicy"
-    LIFECYCLE_POLICY = "LifecyclePolicy"
-    ACCESS_LOGGING_ENABLED = "AccessLoggingEnabled"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "metric_policy": "MetricPolicy",

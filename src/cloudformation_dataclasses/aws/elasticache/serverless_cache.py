@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CacheUsageLimits(PropertyType):
-    DATA_STORAGE = "DataStorage"
-    ECPU_PER_SECOND = "ECPUPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_storage": "DataStorage",
         "ecpu_per_second": "ECPUPerSecond",
@@ -25,10 +22,6 @@ class CacheUsageLimits(PropertyType):
 
 @dataclass
 class DataStorage(PropertyType):
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -42,9 +35,6 @@ class DataStorage(PropertyType):
 
 @dataclass
 class ECPUPerSecond(PropertyType):
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -56,9 +46,6 @@ class ECPUPerSecond(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    ADDRESS = "Address"
-    PORT = "Port"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",

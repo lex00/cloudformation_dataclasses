@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FreeTier(PropertyType):
-    ACTIVATED = "Activated"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "activated": "Activated",
     }
@@ -22,8 +20,6 @@ class FreeTier(PropertyType):
 
 @dataclass
 class Tiering(PropertyType):
-    FREE_TIER = "FreeTier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_tier": "FreeTier",
     }

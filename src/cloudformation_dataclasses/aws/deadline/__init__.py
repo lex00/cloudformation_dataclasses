@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Deadline
@@ -773,11 +773,6 @@ class Farm(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::Farm"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ARN = "KmsKeyArn"
-    DISPLAY_NAME = "DisplayName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_arn": "KmsKeyArn",
@@ -808,16 +803,6 @@ class Fleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::Fleet"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    HOST_CONFIGURATION = "HostConfiguration"
-    MAX_WORKER_COUNT = "MaxWorkerCount"
-    DISPLAY_NAME = "DisplayName"
-    MIN_WORKER_COUNT = "MinWorkerCount"
-    FARM_ID = "FarmId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "configuration": "Configuration",
@@ -887,11 +872,6 @@ class LicenseEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::LicenseEndpoint"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "security_group_ids": "SecurityGroupIds",
@@ -937,12 +917,6 @@ class Limit(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::Limit"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    AMOUNT_REQUIREMENT_NAME = "AmountRequirementName"
-    DISPLAY_NAME = "DisplayName"
-    MAX_COUNT = "MaxCount"
-    FARM_ID = "FarmId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "amount_requirement_name": "AmountRequirementName",
@@ -974,9 +948,6 @@ class MeteredProduct(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::MeteredProduct"
-    LICENSE_ENDPOINT_ID = "LicenseEndpointId"
-    PRODUCT_ID = "ProductId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_endpoint_id": "LicenseEndpointId",
         "product_id": "ProductId",
@@ -1013,12 +984,6 @@ class Monitor(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::Monitor"
     name_field: ClassVar[str] = "display_name"
-    IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceArn"
-    SUBDOMAIN = "Subdomain"
-    DISPLAY_NAME = "DisplayName"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_instance_arn": "IdentityCenterInstanceArn",
         "subdomain": "Subdomain",
@@ -1061,17 +1026,6 @@ class Queue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::Queue"
     name_field: ClassVar[str] = "display_name"
-    JOB_RUN_AS_USER = "JobRunAsUser"
-    ALLOWED_STORAGE_PROFILE_IDS = "AllowedStorageProfileIds"
-    DESCRIPTION = "Description"
-    JOB_ATTACHMENT_SETTINGS = "JobAttachmentSettings"
-    DEFAULT_BUDGET_ACTION = "DefaultBudgetAction"
-    DISPLAY_NAME = "DisplayName"
-    REQUIRED_FILE_SYSTEM_LOCATION_NAMES = "RequiredFileSystemLocationNames"
-    FARM_ID = "FarmId"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_run_as_user": "JobRunAsUser",
         "allowed_storage_profile_ids": "AllowedStorageProfileIds",
@@ -1113,12 +1067,6 @@ class QueueEnvironment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::QueueEnvironment"
-    PRIORITY = "Priority"
-    QUEUE_ID = "QueueId"
-    TEMPLATE_TYPE = "TemplateType"
-    FARM_ID = "FarmId"
-    TEMPLATE = "Template"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "queue_id": "QueueId",
@@ -1150,10 +1098,6 @@ class QueueFleetAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::QueueFleetAssociation"
-    FLEET_ID = "FleetId"
-    QUEUE_ID = "QueueId"
-    FARM_ID = "FarmId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_id": "FleetId",
         "queue_id": "QueueId",
@@ -1170,10 +1114,6 @@ class QueueLimitAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::QueueLimitAssociation"
-    LIMIT_ID = "LimitId"
-    QUEUE_ID = "QueueId"
-    FARM_ID = "FarmId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "limit_id": "LimitId",
         "queue_id": "QueueId",
@@ -1191,11 +1131,6 @@ class StorageProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Deadline::StorageProfile"
     name_field: ClassVar[str] = "display_name"
-    DISPLAY_NAME = "DisplayName"
-    FILE_SYSTEM_LOCATIONS = "FileSystemLocations"
-    FARM_ID = "FarmId"
-    OS_FAMILY = "OsFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_name": "DisplayName",
         "file_system_locations": "FileSystemLocations",

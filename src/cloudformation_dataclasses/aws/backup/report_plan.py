@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ReportDeliveryChannel(PropertyType):
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    FORMATS = "Formats"
-    S3_BUCKET_NAME = "S3BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key_prefix": "S3KeyPrefix",
         "formats": "Formats",
@@ -28,12 +24,6 @@ class ReportDeliveryChannel(PropertyType):
 
 @dataclass
 class ReportSetting(PropertyType):
-    FRAMEWORK_ARNS = "FrameworkArns"
-    REPORT_TEMPLATE = "ReportTemplate"
-    ORGANIZATION_UNITS = "OrganizationUnits"
-    REGIONS = "Regions"
-    ACCOUNTS = "Accounts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "framework_arns": "FrameworkArns",
         "report_template": "ReportTemplate",

@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InstanceTypeSpecification(PropertyType):
-    PRIORITY = "Priority"
-    AVAILABILITY_ZONE_ID = "AvailabilityZoneId"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    INSTANCE_PLATFORM = "InstancePlatform"
-    INSTANCE_TYPE = "InstanceType"
-    WEIGHT = "Weight"
-    EBS_OPTIMIZED = "EbsOptimized"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "availability_zone_id": "AvailabilityZoneId",
@@ -40,9 +32,6 @@ class InstanceTypeSpecification(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    RESOURCE_TYPE = "ResourceType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

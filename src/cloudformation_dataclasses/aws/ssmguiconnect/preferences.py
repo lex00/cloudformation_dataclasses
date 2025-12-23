@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectionRecordingPreferences(PropertyType):
-    KMS_KEY_ARN = "KMSKeyArn"
-    RECORDING_DESTINATIONS = "RecordingDestinations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KMSKeyArn",
         "recording_destinations": "RecordingDestinations",
@@ -25,8 +22,6 @@ class ConnectionRecordingPreferences(PropertyType):
 
 @dataclass
 class RecordingDestinations(PropertyType):
-    S3_BUCKETS = "S3Buckets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_buckets": "S3Buckets",
     }
@@ -36,9 +31,6 @@ class RecordingDestinations(PropertyType):
 
 @dataclass
 class S3Bucket(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_OWNER = "BucketOwner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_owner": "BucketOwner",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:16
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Tables
@@ -180,9 +180,6 @@ class Namespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tab"""
 
     resource_type: ClassVar[str] = "AWS::S3Tables::Namespace"
-    TABLE_BUCKET_ARN = "TableBucketARN"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketARN",
         "namespace": "Namespace",
@@ -198,17 +195,6 @@ class Table(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Tables::Table"
     name_field: ClassVar[str] = "table_name"
-    WITHOUT_METADATA = "WithoutMetadata"
-    STORAGE_CLASS_CONFIGURATION = "StorageClassConfiguration"
-    TABLE_NAME = "TableName"
-    TABLE_BUCKET_ARN = "TableBucketARN"
-    OPEN_TABLE_FORMAT = "OpenTableFormat"
-    ICEBERG_METADATA = "IcebergMetadata"
-    COMPACTION = "Compaction"
-    NAMESPACE = "Namespace"
-    SNAPSHOT_MANAGEMENT = "SnapshotManagement"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "without_metadata": "WithoutMetadata",
         "storage_class_configuration": "StorageClassConfiguration",
@@ -256,13 +242,6 @@ class TableBucket(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3Tables::TableBucket"
     name_field: ClassVar[str] = "table_bucket_name"
-    TABLE_BUCKET_NAME = "TableBucketName"
-    STORAGE_CLASS_CONFIGURATION = "StorageClassConfiguration"
-    METRICS_CONFIGURATION = "MetricsConfiguration"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    UNREFERENCED_FILE_REMOVAL = "UnreferencedFileRemoval"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_name": "TableBucketName",
         "storage_class_configuration": "StorageClassConfiguration",
@@ -291,9 +270,6 @@ class TableBucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tab"""
 
     resource_type: ClassVar[str] = "AWS::S3Tables::TableBucketPolicy"
-    TABLE_BUCKET_ARN = "TableBucketARN"
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketARN",
         "resource_policy": "ResourcePolicy",
@@ -308,9 +284,6 @@ class TablePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tab"""
 
     resource_type: ClassVar[str] = "AWS::S3Tables::TablePolicy"
-    TABLE_ARN = "TableARN"
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_arn": "TableARN",
         "resource_policy": "ResourcePolicy",

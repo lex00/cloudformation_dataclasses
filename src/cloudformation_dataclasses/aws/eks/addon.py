@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NamespaceConfig(PropertyType):
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }
@@ -22,9 +20,6 @@ class NamespaceConfig(PropertyType):
 
 @dataclass
 class PodIdentityAssociation(PropertyType):
-    SERVICE_ACCOUNT = "ServiceAccount"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_account": "ServiceAccount",
         "role_arn": "RoleArn",

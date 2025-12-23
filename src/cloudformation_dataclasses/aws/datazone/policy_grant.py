@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AddToProjectMemberPoolPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -22,8 +20,6 @@ class AddToProjectMemberPoolPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateAssetTypePolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -33,8 +29,6 @@ class CreateAssetTypePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateDomainUnitPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -44,8 +38,6 @@ class CreateDomainUnitPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateEnvironmentProfilePolicyGrantDetail(PropertyType):
-    DOMAIN_UNIT_ID = "DomainUnitId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_id": "DomainUnitId",
     }
@@ -55,8 +47,6 @@ class CreateEnvironmentProfilePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateFormTypePolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -66,8 +56,6 @@ class CreateFormTypePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateGlossaryPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -77,9 +65,6 @@ class CreateGlossaryPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateProjectFromProjectProfilePolicyGrantDetail(PropertyType):
-    PROJECT_PROFILES = "ProjectProfiles"
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_profiles": "ProjectProfiles",
         "include_child_domain_units": "IncludeChildDomainUnits",
@@ -91,8 +76,6 @@ class CreateProjectFromProjectProfilePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateProjectPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -102,9 +85,6 @@ class CreateProjectPolicyGrantDetail(PropertyType):
 
 @dataclass
 class DomainUnitFilterForProject(PropertyType):
-    DOMAIN_UNIT = "DomainUnit"
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit": "DomainUnit",
         "include_child_domain_units": "IncludeChildDomainUnits",
@@ -116,8 +96,6 @@ class DomainUnitFilterForProject(PropertyType):
 
 @dataclass
 class DomainUnitGrantFilter(PropertyType):
-    ALL_DOMAIN_UNITS_GRANT_FILTER = "AllDomainUnitsGrantFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_domain_units_grant_filter": "AllDomainUnitsGrantFilter",
     }
@@ -127,10 +105,6 @@ class DomainUnitGrantFilter(PropertyType):
 
 @dataclass
 class DomainUnitPolicyGrantPrincipal(PropertyType):
-    DOMAIN_UNIT_GRANT_FILTER = "DomainUnitGrantFilter"
-    DOMAIN_UNIT_DESIGNATION = "DomainUnitDesignation"
-    DOMAIN_UNIT_IDENTIFIER = "DomainUnitIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_grant_filter": "DomainUnitGrantFilter",
         "domain_unit_designation": "DomainUnitDesignation",
@@ -144,8 +118,6 @@ class DomainUnitPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class GroupPolicyGrantPrincipal(PropertyType):
-    GROUP_IDENTIFIER = "GroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_identifier": "GroupIdentifier",
     }
@@ -155,8 +127,6 @@ class GroupPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class OverrideDomainUnitOwnersPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -166,8 +136,6 @@ class OverrideDomainUnitOwnersPolicyGrantDetail(PropertyType):
 
 @dataclass
 class OverrideProjectOwnersPolicyGrantDetail(PropertyType):
-    INCLUDE_CHILD_DOMAIN_UNITS = "IncludeChildDomainUnits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -177,20 +145,6 @@ class OverrideProjectOwnersPolicyGrantDetail(PropertyType):
 
 @dataclass
 class PolicyGrantDetail(PropertyType):
-    CREATE_ENVIRONMENT_FROM_BLUEPRINT = "CreateEnvironmentFromBlueprint"
-    CREATE_GLOSSARY = "CreateGlossary"
-    CREATE_ASSET_TYPE = "CreateAssetType"
-    CREATE_DOMAIN_UNIT = "CreateDomainUnit"
-    CREATE_PROJECT = "CreateProject"
-    OVERRIDE_PROJECT_OWNERS = "OverrideProjectOwners"
-    ADD_TO_PROJECT_MEMBER_POOL = "AddToProjectMemberPool"
-    DELEGATE_CREATE_ENVIRONMENT_PROFILE = "DelegateCreateEnvironmentProfile"
-    CREATE_PROJECT_FROM_PROJECT_PROFILE = "CreateProjectFromProjectProfile"
-    CREATE_ENVIRONMENT = "CreateEnvironment"
-    CREATE_ENVIRONMENT_PROFILE = "CreateEnvironmentProfile"
-    CREATE_FORM_TYPE = "CreateFormType"
-    OVERRIDE_DOMAIN_UNIT_OWNERS = "OverrideDomainUnitOwners"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "create_environment_from_blueprint": "CreateEnvironmentFromBlueprint",
         "create_glossary": "CreateGlossary",
@@ -224,11 +178,6 @@ class PolicyGrantDetail(PropertyType):
 
 @dataclass
 class PolicyGrantPrincipal(PropertyType):
-    GROUP = "Group"
-    PROJECT = "Project"
-    USER = "User"
-    DOMAIN_UNIT = "DomainUnit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "project": "Project",
@@ -244,8 +193,6 @@ class PolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class ProjectGrantFilter(PropertyType):
-    DOMAIN_UNIT_FILTER = "DomainUnitFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_filter": "DomainUnitFilter",
     }
@@ -255,10 +202,6 @@ class ProjectGrantFilter(PropertyType):
 
 @dataclass
 class ProjectPolicyGrantPrincipal(PropertyType):
-    PROJECT_IDENTIFIER = "ProjectIdentifier"
-    PROJECT_DESIGNATION = "ProjectDesignation"
-    PROJECT_GRANT_FILTER = "ProjectGrantFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "project_designation": "ProjectDesignation",
@@ -272,9 +215,6 @@ class ProjectPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class UserPolicyGrantPrincipal(PropertyType):
-    ALL_USERS_GRANT_FILTER = "AllUsersGrantFilter"
-    USER_IDENTIFIER = "UserIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_users_grant_filter": "AllUsersGrantFilter",
         "user_identifier": "UserIdentifier",

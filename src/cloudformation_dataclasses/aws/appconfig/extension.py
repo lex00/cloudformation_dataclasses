@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Parameter(PropertyType):
-    DYNAMIC = "Dynamic"
-    DESCRIPTION = "Description"
-    REQUIRED = "Required"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic": "Dynamic",
         "description": "Description",

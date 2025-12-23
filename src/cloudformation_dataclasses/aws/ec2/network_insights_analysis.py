@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdditionalDetail(PropertyType):
-    SERVICE_NAME = "ServiceName"
-    ADDITIONAL_DETAIL_TYPE = "AdditionalDetailType"
-    LOAD_BALANCERS = "LoadBalancers"
-    COMPONENT = "Component"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "additional_detail_type": "AdditionalDetailType",
@@ -31,9 +26,6 @@ class AdditionalDetail(PropertyType):
 
 @dataclass
 class AlternatePathHint(PropertyType):
-    COMPONENT_ARN = "ComponentArn"
-    COMPONENT_ID = "ComponentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_arn": "ComponentArn",
         "component_id": "ComponentId",
@@ -45,13 +37,6 @@ class AlternatePathHint(PropertyType):
 
 @dataclass
 class AnalysisAclRule(PropertyType):
-    PORT_RANGE = "PortRange"
-    CIDR = "Cidr"
-    RULE_ACTION = "RuleAction"
-    EGRESS = "Egress"
-    RULE_NUMBER = "RuleNumber"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "cidr": "Cidr",
@@ -71,9 +56,6 @@ class AnalysisAclRule(PropertyType):
 
 @dataclass
 class AnalysisComponent(PropertyType):
-    ID = "Id"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "arn": "Arn",
@@ -85,9 +67,6 @@ class AnalysisComponent(PropertyType):
 
 @dataclass
 class AnalysisLoadBalancerListener(PropertyType):
-    INSTANCE_PORT = "InstancePort"
-    LOAD_BALANCER_PORT = "LoadBalancerPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_port": "InstancePort",
         "load_balancer_port": "LoadBalancerPort",
@@ -99,11 +78,6 @@ class AnalysisLoadBalancerListener(PropertyType):
 
 @dataclass
 class AnalysisLoadBalancerTarget(PropertyType):
-    ADDRESS = "Address"
-    INSTANCE = "Instance"
-    PORT = "Port"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "instance": "Instance",
@@ -119,12 +93,6 @@ class AnalysisLoadBalancerTarget(PropertyType):
 
 @dataclass
 class AnalysisPacketHeader(PropertyType):
-    DESTINATION_PORT_RANGES = "DestinationPortRanges"
-    SOURCE_PORT_RANGES = "SourcePortRanges"
-    DESTINATION_ADDRESSES = "DestinationAddresses"
-    PROTOCOL = "Protocol"
-    SOURCE_ADDRESSES = "SourceAddresses"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port_ranges": "DestinationPortRanges",
         "source_port_ranges": "SourcePortRanges",
@@ -142,18 +110,6 @@ class AnalysisPacketHeader(PropertyType):
 
 @dataclass
 class AnalysisRouteTableRoute(PropertyType):
-    ORIGIN = "Origin"
-    DESTINATION_PREFIX_LIST_ID = "destinationPrefixListId"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    VPC_PEERING_CONNECTION_ID = "VpcPeeringConnectionId"
-    INSTANCE_ID = "instanceId"
-    STATE = "State"
-    EGRESS_ONLY_INTERNET_GATEWAY_ID = "egressOnlyInternetGatewayId"
-    DESTINATION_CIDR = "destinationCidr"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-    NAT_GATEWAY_ID = "NatGatewayId"
-    GATEWAY_ID = "gatewayId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "destination_prefix_list_id": "destinationPrefixListId",
@@ -183,13 +139,6 @@ class AnalysisRouteTableRoute(PropertyType):
 
 @dataclass
 class AnalysisSecurityGroupRule(PropertyType):
-    PORT_RANGE = "PortRange"
-    CIDR = "Cidr"
-    PREFIX_LIST_ID = "PrefixListId"
-    SECURITY_GROUP_ID = "SecurityGroupId"
-    PROTOCOL = "Protocol"
-    DIRECTION = "Direction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "cidr": "Cidr",
@@ -209,58 +158,6 @@ class AnalysisSecurityGroupRule(PropertyType):
 
 @dataclass
 class Explanation(PropertyType):
-    VPN_GATEWAY = "VpnGateway"
-    PACKET_FIELD = "PacketField"
-    TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
-    PROTOCOLS = "Protocols"
-    INGRESS_ROUTE_TABLE = "IngressRouteTable"
-    CLASSIC_LOAD_BALANCER_LISTENER = "ClassicLoadBalancerListener"
-    VPC_PEERING_CONNECTION = "VpcPeeringConnection"
-    ADDRESS = "Address"
-    PORT = "Port"
-    ADDRESSES = "Addresses"
-    ELASTIC_LOAD_BALANCER_LISTENER = "ElasticLoadBalancerListener"
-    TRANSIT_GATEWAY_ROUTE_TABLE = "TransitGatewayRouteTable"
-    EXPLANATION_CODE = "ExplanationCode"
-    INTERNET_GATEWAY = "InternetGateway"
-    SOURCE_VPC = "SourceVpc"
-    ATTACHED_TO = "AttachedTo"
-    PREFIX_LIST = "PrefixList"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ROUTE = "TransitGatewayRouteTableRoute"
-    COMPONENT_REGION = "ComponentRegion"
-    LOAD_BALANCER_TARGET_GROUP = "LoadBalancerTargetGroup"
-    NETWORK_INTERFACE = "NetworkInterface"
-    CUSTOMER_GATEWAY = "CustomerGateway"
-    DESTINATION_VPC = "DestinationVpc"
-    SECURITY_GROUP = "SecurityGroup"
-    TRANSIT_GATEWAY = "TransitGateway"
-    ROUTE_TABLE = "RouteTable"
-    STATE = "State"
-    LOAD_BALANCER_LISTENER_PORT = "LoadBalancerListenerPort"
-    VPC_ENDPOINT = "vpcEndpoint"
-    SUBNET = "Subnet"
-    CIDRS = "Cidrs"
-    DESTINATION = "Destination"
-    SECURITY_GROUPS = "SecurityGroups"
-    COMPONENT_ACCOUNT = "ComponentAccount"
-    VPN_CONNECTION = "VpnConnection"
-    VPC = "Vpc"
-    NAT_GATEWAY = "NatGateway"
-    DIRECTION = "Direction"
-    LOAD_BALANCER_TARGET_PORT = "LoadBalancerTargetPort"
-    LOAD_BALANCER_TARGET = "LoadBalancerTarget"
-    LOAD_BALANCER_TARGET_GROUPS = "LoadBalancerTargetGroups"
-    COMPONENT = "Component"
-    MISSING_COMPONENT = "MissingComponent"
-    ROUTE_TABLE_ROUTE = "RouteTableRoute"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    PORT_RANGES = "PortRanges"
-    ACL = "Acl"
-    SECURITY_GROUP_RULE = "SecurityGroupRule"
-    SUBNET_ROUTE_TABLE = "SubnetRouteTable"
-    LOAD_BALANCER_ARN = "LoadBalancerArn"
-    ACL_RULE = "AclRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpn_gateway": "VpnGateway",
         "packet_field": "PacketField",
@@ -370,24 +267,6 @@ class Explanation(PropertyType):
 
 @dataclass
 class PathComponent(PropertyType):
-    ADDITIONAL_DETAILS = "AdditionalDetails"
-    INBOUND_HEADER = "InboundHeader"
-    VPC = "Vpc"
-    DESTINATION_VPC = "DestinationVpc"
-    SECURITY_GROUP_RULE = "SecurityGroupRule"
-    TRANSIT_GATEWAY = "TransitGateway"
-    ELASTIC_LOAD_BALANCER_LISTENER = "ElasticLoadBalancerListener"
-    EXPLANATIONS = "Explanations"
-    SERVICE_NAME = "ServiceName"
-    SEQUENCE_NUMBER = "SequenceNumber"
-    SOURCE_VPC = "SourceVpc"
-    OUTBOUND_HEADER = "OutboundHeader"
-    ACL_RULE = "AclRule"
-    TRANSIT_GATEWAY_ROUTE_TABLE_ROUTE = "TransitGatewayRouteTableRoute"
-    COMPONENT = "Component"
-    SUBNET = "Subnet"
-    ROUTE_TABLE_ROUTE = "RouteTableRoute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_details": "AdditionalDetails",
         "inbound_header": "InboundHeader",
@@ -429,9 +308,6 @@ class PathComponent(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    FROM = "From"
-    TO = "To"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -443,14 +319,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class TransitGatewayRouteTableRoute(PropertyType):
-    PREFIX_LIST_ID = "PrefixListId"
-    RESOURCE_ID = "ResourceId"
-    STATE = "State"
-    RESOURCE_TYPE = "ResourceType"
-    ROUTE_ORIGIN = "RouteOrigin"
-    DESTINATION_CIDR = "DestinationCidr"
-    ATTACHMENT_ID = "AttachmentId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_list_id": "PrefixListId",
         "resource_id": "ResourceId",

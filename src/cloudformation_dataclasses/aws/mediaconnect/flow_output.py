@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    DESTINATION_IP = "DestinationIp"
-    DESTINATION_PORT = "DestinationPort"
-    INTERFACE = "Interface"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_ip": "DestinationIp",
         "destination_port": "DestinationPort",
@@ -28,9 +24,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class EncodingParameters(PropertyType):
-    ENCODER_PROFILE = "EncoderProfile"
-    COMPRESSION_FACTOR = "CompressionFactor"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encoder_profile": "EncoderProfile",
         "compression_factor": "CompressionFactor",
@@ -42,11 +35,6 @@ class EncodingParameters(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KEY_TYPE = "KeyType"
-    ALGORITHM = "Algorithm"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -62,9 +50,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    ENCRYPTION_KEY_TYPE = "EncryptionKeyType"
-    ENCRYPTION_KEY_CONFIGURATION = "EncryptionKeyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -76,9 +61,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    SECRETS_MANAGER = "SecretsManager"
-    AUTOMATIC = "Automatic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -90,8 +72,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class Interface(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -101,11 +81,6 @@ class Interface(PropertyType):
 
 @dataclass
 class MediaStreamOutputConfiguration(PropertyType):
-    ENCODING_PARAMETERS = "EncodingParameters"
-    MEDIA_STREAM_NAME = "MediaStreamName"
-    ENCODING_NAME = "EncodingName"
-    DESTINATION_CONFIGURATIONS = "DestinationConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encoding_parameters": "EncodingParameters",
         "media_stream_name": "MediaStreamName",
@@ -121,9 +96,6 @@ class MediaStreamOutputConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -135,8 +107,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }

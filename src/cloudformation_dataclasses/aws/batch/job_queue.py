@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeEnvironmentOrder(PropertyType):
-    COMPUTE_ENVIRONMENT = "ComputeEnvironment"
-    ORDER = "Order"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_environment": "ComputeEnvironment",
         "order": "Order",
@@ -25,11 +22,6 @@ class ComputeEnvironmentOrder(PropertyType):
 
 @dataclass
 class JobStateTimeLimitAction(PropertyType):
-    ACTION = "Action"
-    MAX_TIME_SECONDS = "MaxTimeSeconds"
-    STATE = "State"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "max_time_seconds": "MaxTimeSeconds",
@@ -45,9 +37,6 @@ class JobStateTimeLimitAction(PropertyType):
 
 @dataclass
 class ServiceEnvironmentOrder(PropertyType):
-    ORDER = "Order"
-    SERVICE_ENVIRONMENT = "ServiceEnvironment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "service_environment": "ServiceEnvironment",

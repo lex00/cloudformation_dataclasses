@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:50
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Config
@@ -1376,10 +1376,6 @@ class AggregationAuthorization(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::AggregationAuthorization"
-    AUTHORIZED_ACCOUNT_ID = "AuthorizedAccountId"
-    AUTHORIZED_AWS_REGION = "AuthorizedAwsRegion"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorized_account_id": "AuthorizedAccountId",
         "authorized_aws_region": "AuthorizedAwsRegion",
@@ -1403,15 +1399,6 @@ class ConfigRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigRule"
     name_field: ClassVar[str] = "config_rule_name"
-    EVALUATION_MODES = "EvaluationModes"
-    DESCRIPTION = "Description"
-    SCOPE = "Scope"
-    COMPLIANCE = "Compliance"
-    CONFIG_RULE_NAME = "ConfigRuleName"
-    MAXIMUM_EXECUTION_FREQUENCY = "MaximumExecutionFrequency"
-    SOURCE = "Source"
-    INPUT_PARAMETERS = "InputParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "evaluation_modes": "EvaluationModes",
         "description": "Description",
@@ -1455,11 +1442,6 @@ class ConfigurationAggregator(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigurationAggregator"
     name_field: ClassVar[str] = "configuration_aggregator_name"
-    ACCOUNT_AGGREGATION_SOURCES = "AccountAggregationSources"
-    CONFIGURATION_AGGREGATOR_NAME = "ConfigurationAggregatorName"
-    ORGANIZATION_AGGREGATION_SOURCE = "OrganizationAggregationSource"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_aggregation_sources": "AccountAggregationSources",
         "configuration_aggregator_name": "ConfigurationAggregatorName",
@@ -1485,11 +1467,6 @@ class ConfigurationRecorder(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigurationRecorder"
     name_field: ClassVar[str] = "name"
-    NAME = "Name"
-    RECORDING_GROUP = "RecordingGroup"
-    RECORDING_MODE = "RecordingMode"
-    ROLE_ARN = "RoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "recording_group": "RecordingGroup",
@@ -1509,14 +1486,6 @@ class ConformancePack(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::ConformancePack"
     name_field: ClassVar[str] = "conformance_pack_name"
-    CONFORMANCE_PACK_INPUT_PARAMETERS = "ConformancePackInputParameters"
-    TEMPLATE_SSM_DOCUMENT_DETAILS = "TemplateSSMDocumentDetails"
-    DELIVERY_S3_BUCKET = "DeliveryS3Bucket"
-    CONFORMANCE_PACK_NAME = "ConformancePackName"
-    DELIVERY_S3_KEY_PREFIX = "DeliveryS3KeyPrefix"
-    TEMPLATE_BODY = "TemplateBody"
-    TEMPLATE_S3_URI = "TemplateS3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conformance_pack_input_parameters": "ConformancePackInputParameters",
         "template_ssm_document_details": "TemplateSSMDocumentDetails",
@@ -1542,13 +1511,6 @@ class DeliveryChannel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::DeliveryChannel"
     name_field: ClassVar[str] = "name"
-    CONFIG_SNAPSHOT_DELIVERY_PROPERTIES = "ConfigSnapshotDeliveryProperties"
-    NAME = "Name"
-    S3_BUCKET_NAME = "S3BucketName"
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    S3_KMS_KEY_ARN = "S3KmsKeyArn"
-    SNS_TOPIC_ARN = "SnsTopicARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_snapshot_delivery_properties": "ConfigSnapshotDeliveryProperties",
         "name": "Name",
@@ -1572,12 +1534,6 @@ class OrganizationConfigRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::OrganizationConfigRule"
     name_field: ClassVar[str] = "organization_config_rule_name"
-    ORGANIZATION_MANAGED_RULE_METADATA = "OrganizationManagedRuleMetadata"
-    ORGANIZATION_CONFIG_RULE_NAME = "OrganizationConfigRuleName"
-    ORGANIZATION_CUSTOM_RULE_METADATA = "OrganizationCustomRuleMetadata"
-    EXCLUDED_ACCOUNTS = "ExcludedAccounts"
-    ORGANIZATION_CUSTOM_POLICY_RULE_METADATA = "OrganizationCustomPolicyRuleMetadata"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization_managed_rule_metadata": "OrganizationManagedRuleMetadata",
         "organization_config_rule_name": "OrganizationConfigRuleName",
@@ -1599,14 +1555,6 @@ class OrganizationConformancePack(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::OrganizationConformancePack"
     name_field: ClassVar[str] = "organization_conformance_pack_name"
-    CONFORMANCE_PACK_INPUT_PARAMETERS = "ConformancePackInputParameters"
-    DELIVERY_S3_BUCKET = "DeliveryS3Bucket"
-    EXCLUDED_ACCOUNTS = "ExcludedAccounts"
-    DELIVERY_S3_KEY_PREFIX = "DeliveryS3KeyPrefix"
-    TEMPLATE_BODY = "TemplateBody"
-    ORGANIZATION_CONFORMANCE_PACK_NAME = "OrganizationConformancePackName"
-    TEMPLATE_S3_URI = "TemplateS3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conformance_pack_input_parameters": "ConformancePackInputParameters",
         "delivery_s3_bucket": "DeliveryS3Bucket",
@@ -1632,17 +1580,6 @@ class RemediationConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::RemediationConfiguration"
     name_field: ClassVar[str] = "config_rule_name"
-    TARGET_VERSION = "TargetVersion"
-    EXECUTION_CONTROLS = "ExecutionControls"
-    PARAMETERS = "Parameters"
-    TARGET_TYPE = "TargetType"
-    CONFIG_RULE_NAME = "ConfigRuleName"
-    RESOURCE_TYPE = "ResourceType"
-    RETRY_ATTEMPT_SECONDS = "RetryAttemptSeconds"
-    MAXIMUM_AUTOMATIC_ATTEMPTS = "MaximumAutomaticAttempts"
-    TARGET_ID = "TargetId"
-    AUTOMATIC = "Automatic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_version": "TargetVersion",
         "execution_controls": "ExecutionControls",
@@ -1674,11 +1611,6 @@ class StoredQuery(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Config::StoredQuery"
     name_field: ClassVar[str] = "query_name"
-    QUERY_DESCRIPTION = "QueryDescription"
-    QUERY_EXPRESSION = "QueryExpression"
-    TAGS = "Tags"
-    QUERY_NAME = "QueryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_description": "QueryDescription",
         "query_expression": "QueryExpression",

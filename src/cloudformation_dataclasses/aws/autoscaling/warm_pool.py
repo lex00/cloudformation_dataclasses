@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class InstanceReusePolicy(PropertyType):
-    REUSE_ON_SCALE_IN = "ReuseOnScaleIn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reuse_on_scale_in": "ReuseOnScaleIn",
     }

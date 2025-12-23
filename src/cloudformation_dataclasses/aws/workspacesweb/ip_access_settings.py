@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IpRule(PropertyType):
-    IP_RANGE = "IpRange"
-    DESCRIPTION = "Description"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "description": "Description",

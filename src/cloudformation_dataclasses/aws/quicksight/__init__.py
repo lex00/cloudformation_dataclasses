@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:12
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QuickSight
@@ -3647,21 +3647,6 @@ class Analysis(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Analysis"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    PARAMETERS = "Parameters"
-    SOURCE_ENTITY = "SourceEntity"
-    THEME_ARN = "ThemeArn"
-    DEFINITION = "Definition"
-    VALIDATION_STRATEGY = "ValidationStrategy"
-    FOLDER_ARNS = "FolderArns"
-    NAME = "Name"
-    ERRORS = "Errors"
-    ANALYSIS_ID = "AnalysisId"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    TAGS = "Tags"
-    SHEETS = "Sheets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "parameters": "Parameters",
@@ -3722,11 +3707,6 @@ class CustomPermissions(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::CustomPermissions"
     name_field: ClassVar[str] = "custom_permissions_name"
-    CUSTOM_PERMISSIONS_NAME = "CustomPermissionsName"
-    CAPABILITIES = "Capabilities"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_permissions_name": "CustomPermissionsName",
         "capabilities": "Capabilities",
@@ -3752,22 +3732,6 @@ class Dashboard(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Dashboard"
     name_field: ClassVar[str] = "name"
-    PARAMETERS = "Parameters"
-    VERSION_DESCRIPTION = "VersionDescription"
-    SOURCE_ENTITY = "SourceEntity"
-    THEME_ARN = "ThemeArn"
-    DEFINITION = "Definition"
-    VALIDATION_STRATEGY = "ValidationStrategy"
-    FOLDER_ARNS = "FolderArns"
-    DASHBOARD_ID = "DashboardId"
-    LINK_SHARING_CONFIGURATION = "LinkSharingConfiguration"
-    NAME = "Name"
-    DASHBOARD_PUBLISH_OPTIONS = "DashboardPublishOptions"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    LINK_ENTITIES = "LinkEntities"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "version_description": "VersionDescription",
@@ -3885,26 +3849,6 @@ class DataSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::DataSet"
     name_field: ClassVar[str] = "name"
-    PHYSICAL_TABLE_MAP = "PhysicalTableMap"
-    FIELD_FOLDERS = "FieldFolders"
-    SEMANTIC_MODEL_CONFIGURATION = "SemanticModelConfiguration"
-    FOLDER_ARNS = "FolderArns"
-    DATA_SET_ID = "DataSetId"
-    PERFORMANCE_CONFIGURATION = "PerformanceConfiguration"
-    INGESTION_WAIT_POLICY = "IngestionWaitPolicy"
-    DATA_SET_REFRESH_PROPERTIES = "DataSetRefreshProperties"
-    COLUMN_LEVEL_PERMISSION_RULES = "ColumnLevelPermissionRules"
-    NAME = "Name"
-    COLUMN_GROUPS = "ColumnGroups"
-    IMPORT_MODE = "ImportMode"
-    DATASET_PARAMETERS = "DatasetParameters"
-    PERMISSIONS = "Permissions"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    DATA_SET_USAGE_CONFIGURATION = "DataSetUsageConfiguration"
-    USE_AS = "UseAs"
-    DATA_PREP_CONFIGURATION = "DataPrepConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "physical_table_map": "PhysicalTableMap",
         "field_folders": "FieldFolders",
@@ -3980,20 +3924,6 @@ class DataSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::DataSource"
     name_field: ClassVar[str] = "name"
-    ERROR_INFO = "ErrorInfo"
-    FOLDER_ARNS = "FolderArns"
-    NAME = "Name"
-    DATA_SOURCE_PARAMETERS = "DataSourceParameters"
-    TYPE = "Type"
-    VPC_CONNECTION_PROPERTIES = "VpcConnectionProperties"
-    ALTERNATE_DATA_SOURCE_PARAMETERS = "AlternateDataSourceParameters"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    SSL_PROPERTIES = "SslProperties"
-    CREDENTIALS = "Credentials"
-    DATA_SOURCE_ID = "DataSourceId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_info": "ErrorInfo",
         "folder_arns": "FolderArns",
@@ -4052,15 +3982,6 @@ class Folder(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Folder"
     name_field: ClassVar[str] = "name"
-    SHARING_MODEL = "SharingModel"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    FOLDER_ID = "FolderId"
-    PARENT_FOLDER_ARN = "ParentFolderArn"
-    TAGS = "Tags"
-    FOLDER_TYPE = "FolderType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sharing_model": "SharingModel",
         "aws_account_id": "AwsAccountId",
@@ -4103,10 +4024,6 @@ class RefreshSchedule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::RefreshSchedule"
-    SCHEDULE = "Schedule"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    DATA_SET_ID = "DataSetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
         "aws_account_id": "AwsAccountId",
@@ -4130,16 +4047,6 @@ class Template(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Template"
     name_field: ClassVar[str] = "name"
-    VERSION_DESCRIPTION = "VersionDescription"
-    SOURCE_ENTITY = "SourceEntity"
-    DEFINITION = "Definition"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    VALIDATION_STRATEGY = "ValidationStrategy"
-    TAGS = "Tags"
-    TEMPLATE_ID = "TemplateId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_description": "VersionDescription",
         "source_entity": "SourceEntity",
@@ -4235,15 +4142,6 @@ class Theme(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Theme"
     name_field: ClassVar[str] = "name"
-    THEME_ID = "ThemeId"
-    VERSION_DESCRIPTION = "VersionDescription"
-    CONFIGURATION = "Configuration"
-    BASE_THEME_ID = "BaseThemeId"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    PERMISSIONS = "Permissions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "theme_id": "ThemeId",
         "version_description": "VersionDescription",
@@ -4357,17 +4255,6 @@ class Topic(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Topic"
     name_field: ClassVar[str] = "name"
-    CUSTOM_INSTRUCTIONS = "CustomInstructions"
-    DESCRIPTION = "Description"
-    DATA_SETS = "DataSets"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    FOLDER_ARNS = "FolderArns"
-    TOPIC_ID = "TopicId"
-    USER_EXPERIENCE_VERSION = "UserExperienceVersion"
-    CONFIG_OPTIONS = "ConfigOptions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_instructions": "CustomInstructions",
         "description": "Description",
@@ -4405,16 +4292,6 @@ class VPCConnection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::QuickSight::VPCConnection"
     name_field: ClassVar[str] = "name"
-    DNS_RESOLVERS = "DnsResolvers"
-    AVAILABILITY_STATUS = "AvailabilityStatus"
-    AWS_ACCOUNT_ID = "AwsAccountId"
-    VPC_CONNECTION_ID = "VPCConnectionId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_resolvers": "DnsResolvers",
         "availability_status": "AvailabilityStatus",

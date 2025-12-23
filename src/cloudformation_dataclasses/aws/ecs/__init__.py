@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECS
@@ -1088,12 +1088,6 @@ class CapacityProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECS::CapacityProvider"
     name_field: ClassVar[str] = "name"
-    AUTO_SCALING_GROUP_PROVIDER = "AutoScalingGroupProvider"
-    CLUSTER_NAME = "ClusterName"
-    TAGS = "Tags"
-    NAME = "Name"
-    MANAGED_INSTANCES_PROVIDER = "ManagedInstancesProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_group_provider": "AutoScalingGroupProvider",
         "cluster_name": "ClusterName",
@@ -1115,14 +1109,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECS::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    CLUSTER_SETTINGS = "ClusterSettings"
-    DEFAULT_CAPACITY_PROVIDER_STRATEGY = "DefaultCapacityProviderStrategy"
-    CONFIGURATION = "Configuration"
-    SERVICE_CONNECT_DEFAULTS = "ServiceConnectDefaults"
-    CAPACITY_PROVIDERS = "CapacityProviders"
-    CLUSTER_NAME = "ClusterName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_settings": "ClusterSettings",
         "default_capacity_provider_strategy": "DefaultCapacityProviderStrategy",
@@ -1153,10 +1139,6 @@ class ClusterCapacityProviderAssociations(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-c"""
 
     resource_type: ClassVar[str] = "AWS::ECS::ClusterCapacityProviderAssociations"
-    DEFAULT_CAPACITY_PROVIDER_STRATEGY = "DefaultCapacityProviderStrategy"
-    CAPACITY_PROVIDERS = "CapacityProviders"
-    CLUSTER = "Cluster"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_capacity_provider_strategy": "DefaultCapacityProviderStrategy",
         "capacity_providers": "CapacityProviders",
@@ -1174,19 +1156,6 @@ class ExpressGatewayService(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECS::ExpressGatewayService"
     name_field: ClassVar[str] = "service_name"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    INFRASTRUCTURE_ROLE_ARN = "InfrastructureRoleArn"
-    SCALING_TARGET = "ScalingTarget"
-    PRIMARY_CONTAINER = "PrimaryContainer"
-    SERVICE_NAME = "ServiceName"
-    MEMORY = "Memory"
-    HEALTH_CHECK_PATH = "HealthCheckPath"
-    CLUSTER = "Cluster"
-    CPU = "Cpu"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_role_arn": "TaskRoleArn",
         "execution_role_arn": "ExecutionRoleArn",
@@ -1327,10 +1296,6 @@ class PrimaryTaskSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-p"""
 
     resource_type: ClassVar[str] = "AWS::ECS::PrimaryTaskSet"
-    TASK_SET_ID = "TaskSetId"
-    CLUSTER = "Cluster"
-    SERVICE = "Service"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_set_id": "TaskSetId",
         "cluster": "Cluster",
@@ -1348,33 +1313,6 @@ class Service(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECS::Service"
     name_field: ClassVar[str] = "service_name"
-    PLATFORM_VERSION = "PlatformVersion"
-    PROPAGATE_TAGS = "PropagateTags"
-    PLACEMENT_STRATEGIES = "PlacementStrategies"
-    SERVICE_REGISTRIES = "ServiceRegistries"
-    VOLUME_CONFIGURATIONS = "VolumeConfigurations"
-    CAPACITY_PROVIDER_STRATEGY = "CapacityProviderStrategy"
-    LAUNCH_TYPE = "LaunchType"
-    AVAILABILITY_ZONE_REBALANCING = "AvailabilityZoneRebalancing"
-    SCHEDULING_STRATEGY = "SchedulingStrategy"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-    FORCE_NEW_DEPLOYMENT = "ForceNewDeployment"
-    HEALTH_CHECK_GRACE_PERIOD_SECONDS = "HealthCheckGracePeriodSeconds"
-    ENABLE_ECS_MANAGED_TAGS = "EnableECSManagedTags"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    PLACEMENT_CONSTRAINTS = "PlacementConstraints"
-    CLUSTER = "Cluster"
-    LOAD_BALANCERS = "LoadBalancers"
-    SERVICE_CONNECT_CONFIGURATION = "ServiceConnectConfiguration"
-    DESIRED_COUNT = "DesiredCount"
-    VPC_LATTICE_CONFIGURATIONS = "VpcLatticeConfigurations"
-    DEPLOYMENT_CONTROLLER = "DeploymentController"
-    ROLE = "Role"
-    TASK_DEFINITION = "TaskDefinition"
-    SERVICE_NAME = "ServiceName"
-    DEPLOYMENT_CONFIGURATION = "DeploymentConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "propagate_tags": "PropagateTags",
@@ -1448,24 +1386,6 @@ class TaskDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-t"""
 
     resource_type: ClassVar[str] = "AWS::ECS::TaskDefinition"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    IPC_MODE = "IpcMode"
-    MEMORY = "Memory"
-    PLACEMENT_CONSTRAINTS = "PlacementConstraints"
-    CPU = "Cpu"
-    REQUIRES_COMPATIBILITIES = "RequiresCompatibilities"
-    NETWORK_MODE = "NetworkMode"
-    PID_MODE = "PidMode"
-    ENABLE_FAULT_INJECTION = "EnableFaultInjection"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    RUNTIME_PLATFORM = "RuntimePlatform"
-    PROXY_CONFIGURATION = "ProxyConfiguration"
-    VOLUMES = "Volumes"
-    CONTAINER_DEFINITIONS = "ContainerDefinitions"
-    FAMILY = "Family"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_role_arn": "TaskRoleArn",
         "ipc_mode": "IpcMode",
@@ -1516,19 +1436,6 @@ class TaskSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-t"""
 
     resource_type: ClassVar[str] = "AWS::ECS::TaskSet"
-    PLATFORM_VERSION = "PlatformVersion"
-    TASK_DEFINITION = "TaskDefinition"
-    EXTERNAL_ID = "ExternalId"
-    CLUSTER = "Cluster"
-    LOAD_BALANCERS = "LoadBalancers"
-    SERVICE = "Service"
-    SCALE = "Scale"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    SERVICE_REGISTRIES = "ServiceRegistries"
-    CAPACITY_PROVIDER_STRATEGY = "CapacityProviderStrategy"
-    LAUNCH_TYPE = "LaunchType"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "task_definition": "TaskDefinition",

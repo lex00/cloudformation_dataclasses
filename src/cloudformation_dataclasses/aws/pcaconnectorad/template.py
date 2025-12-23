@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationPolicies(PropertyType):
-    POLICIES = "Policies"
-    CRITICAL = "Critical"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policies": "Policies",
         "critical": "Critical",
@@ -25,9 +22,6 @@ class ApplicationPolicies(PropertyType):
 
 @dataclass
 class ApplicationPolicy(PropertyType):
-    POLICY_TYPE = "PolicyType"
-    POLICY_OBJECT_IDENTIFIER = "PolicyObjectIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_type": "PolicyType",
         "policy_object_identifier": "PolicyObjectIdentifier",
@@ -39,9 +33,6 @@ class ApplicationPolicy(PropertyType):
 
 @dataclass
 class CertificateValidity(PropertyType):
-    VALIDITY_PERIOD = "ValidityPeriod"
-    RENEWAL_PERIOD = "RenewalPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validity_period": "ValidityPeriod",
         "renewal_period": "RenewalPeriod",
@@ -53,12 +44,6 @@ class CertificateValidity(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV2(PropertyType):
-    NO_SECURITY_EXTENSION = "NoSecurityExtension"
-    INCLUDE_SYMMETRIC_ALGORITHMS = "IncludeSymmetricAlgorithms"
-    USER_INTERACTION_REQUIRED = "UserInteractionRequired"
-    ENABLE_KEY_REUSE_ON_NT_TOKEN_KEYSET_STORAGE_FULL = "EnableKeyReuseOnNtTokenKeysetStorageFull"
-    REMOVE_INVALID_CERTIFICATE_FROM_PERSONAL_STORE = "RemoveInvalidCertificateFromPersonalStore"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -76,12 +61,6 @@ class EnrollmentFlagsV2(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV3(PropertyType):
-    NO_SECURITY_EXTENSION = "NoSecurityExtension"
-    INCLUDE_SYMMETRIC_ALGORITHMS = "IncludeSymmetricAlgorithms"
-    USER_INTERACTION_REQUIRED = "UserInteractionRequired"
-    ENABLE_KEY_REUSE_ON_NT_TOKEN_KEYSET_STORAGE_FULL = "EnableKeyReuseOnNtTokenKeysetStorageFull"
-    REMOVE_INVALID_CERTIFICATE_FROM_PERSONAL_STORE = "RemoveInvalidCertificateFromPersonalStore"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -99,12 +78,6 @@ class EnrollmentFlagsV3(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV4(PropertyType):
-    NO_SECURITY_EXTENSION = "NoSecurityExtension"
-    INCLUDE_SYMMETRIC_ALGORITHMS = "IncludeSymmetricAlgorithms"
-    USER_INTERACTION_REQUIRED = "UserInteractionRequired"
-    ENABLE_KEY_REUSE_ON_NT_TOKEN_KEYSET_STORAGE_FULL = "EnableKeyReuseOnNtTokenKeysetStorageFull"
-    REMOVE_INVALID_CERTIFICATE_FROM_PERSONAL_STORE = "RemoveInvalidCertificateFromPersonalStore"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -122,9 +95,6 @@ class EnrollmentFlagsV4(PropertyType):
 
 @dataclass
 class ExtensionsV2(PropertyType):
-    APPLICATION_POLICIES = "ApplicationPolicies"
-    KEY_USAGE = "KeyUsage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -136,9 +106,6 @@ class ExtensionsV2(PropertyType):
 
 @dataclass
 class ExtensionsV3(PropertyType):
-    APPLICATION_POLICIES = "ApplicationPolicies"
-    KEY_USAGE = "KeyUsage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -150,9 +117,6 @@ class ExtensionsV3(PropertyType):
 
 @dataclass
 class ExtensionsV4(PropertyType):
-    APPLICATION_POLICIES = "ApplicationPolicies"
-    KEY_USAGE = "KeyUsage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -164,9 +128,6 @@ class ExtensionsV4(PropertyType):
 
 @dataclass
 class GeneralFlagsV2(PropertyType):
-    AUTO_ENROLLMENT = "AutoEnrollment"
-    MACHINE_TYPE = "MachineType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -178,9 +139,6 @@ class GeneralFlagsV2(PropertyType):
 
 @dataclass
 class GeneralFlagsV3(PropertyType):
-    AUTO_ENROLLMENT = "AutoEnrollment"
-    MACHINE_TYPE = "MachineType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -192,9 +150,6 @@ class GeneralFlagsV3(PropertyType):
 
 @dataclass
 class GeneralFlagsV4(PropertyType):
-    AUTO_ENROLLMENT = "AutoEnrollment"
-    MACHINE_TYPE = "MachineType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -206,9 +161,6 @@ class GeneralFlagsV4(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    CRITICAL = "Critical"
-    USAGE_FLAGS = "UsageFlags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "critical": "Critical",
         "usage_flags": "UsageFlags",
@@ -220,12 +172,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class KeyUsageFlags(PropertyType):
-    KEY_ENCIPHERMENT = "KeyEncipherment"
-    DATA_ENCIPHERMENT = "DataEncipherment"
-    DIGITAL_SIGNATURE = "DigitalSignature"
-    KEY_AGREEMENT = "KeyAgreement"
-    NON_REPUDIATION = "NonRepudiation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -243,9 +189,6 @@ class KeyUsageFlags(PropertyType):
 
 @dataclass
 class KeyUsageProperty(PropertyType):
-    PROPERTY_FLAGS = "PropertyFlags"
-    PROPERTY_TYPE = "PropertyType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_flags": "PropertyFlags",
         "property_type": "PropertyType",
@@ -257,10 +200,6 @@ class KeyUsageProperty(PropertyType):
 
 @dataclass
 class KeyUsagePropertyFlags(PropertyType):
-    DECRYPT = "Decrypt"
-    SIGN = "Sign"
-    KEY_AGREEMENT = "KeyAgreement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decrypt": "Decrypt",
         "sign": "Sign",
@@ -274,10 +213,6 @@ class KeyUsagePropertyFlags(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV2(PropertyType):
-    MINIMAL_KEY_LENGTH = "MinimalKeyLength"
-    KEY_SPEC = "KeySpec"
-    CRYPTO_PROVIDERS = "CryptoProviders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -291,12 +226,6 @@ class PrivateKeyAttributesV2(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV3(PropertyType):
-    MINIMAL_KEY_LENGTH = "MinimalKeyLength"
-    KEY_SPEC = "KeySpec"
-    KEY_USAGE_PROPERTY = "KeyUsageProperty"
-    ALGORITHM = "Algorithm"
-    CRYPTO_PROVIDERS = "CryptoProviders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -314,12 +243,6 @@ class PrivateKeyAttributesV3(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV4(PropertyType):
-    MINIMAL_KEY_LENGTH = "MinimalKeyLength"
-    KEY_SPEC = "KeySpec"
-    KEY_USAGE_PROPERTY = "KeyUsageProperty"
-    ALGORITHM = "Algorithm"
-    CRYPTO_PROVIDERS = "CryptoProviders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -337,10 +260,6 @@ class PrivateKeyAttributesV4(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV2(PropertyType):
-    EXPORTABLE_KEY = "ExportableKey"
-    STRONG_KEY_PROTECTION_REQUIRED = "StrongKeyProtectionRequired"
-    CLIENT_VERSION = "ClientVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exportable_key": "ExportableKey",
         "strong_key_protection_required": "StrongKeyProtectionRequired",
@@ -354,11 +273,6 @@ class PrivateKeyFlagsV2(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV3(PropertyType):
-    REQUIRE_ALTERNATE_SIGNATURE_ALGORITHM = "RequireAlternateSignatureAlgorithm"
-    EXPORTABLE_KEY = "ExportableKey"
-    STRONG_KEY_PROTECTION_REQUIRED = "StrongKeyProtectionRequired"
-    CLIENT_VERSION = "ClientVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_alternate_signature_algorithm": "RequireAlternateSignatureAlgorithm",
         "exportable_key": "ExportableKey",
@@ -374,13 +288,6 @@ class PrivateKeyFlagsV3(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV4(PropertyType):
-    REQUIRE_ALTERNATE_SIGNATURE_ALGORITHM = "RequireAlternateSignatureAlgorithm"
-    EXPORTABLE_KEY = "ExportableKey"
-    USE_LEGACY_PROVIDER = "UseLegacyProvider"
-    STRONG_KEY_PROTECTION_REQUIRED = "StrongKeyProtectionRequired"
-    REQUIRE_SAME_KEY_RENEWAL = "RequireSameKeyRenewal"
-    CLIENT_VERSION = "ClientVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_alternate_signature_algorithm": "RequireAlternateSignatureAlgorithm",
         "exportable_key": "ExportableKey",
@@ -400,17 +307,6 @@ class PrivateKeyFlagsV4(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV2(PropertyType):
-    SAN_REQUIRE_EMAIL = "SanRequireEmail"
-    SAN_REQUIRE_DNS = "SanRequireDns"
-    REQUIRE_COMMON_NAME = "RequireCommonName"
-    SAN_REQUIRE_UPN = "SanRequireUpn"
-    SAN_REQUIRE_DOMAIN_DNS = "SanRequireDomainDns"
-    SAN_REQUIRE_SPN = "SanRequireSpn"
-    REQUIRE_EMAIL = "RequireEmail"
-    REQUIRE_DIRECTORY_PATH = "RequireDirectoryPath"
-    SAN_REQUIRE_DIRECTORY_GUID = "SanRequireDirectoryGuid"
-    REQUIRE_DNS_AS_CN = "RequireDnsAsCn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -438,17 +334,6 @@ class SubjectNameFlagsV2(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV3(PropertyType):
-    SAN_REQUIRE_EMAIL = "SanRequireEmail"
-    SAN_REQUIRE_DNS = "SanRequireDns"
-    REQUIRE_COMMON_NAME = "RequireCommonName"
-    SAN_REQUIRE_UPN = "SanRequireUpn"
-    SAN_REQUIRE_DOMAIN_DNS = "SanRequireDomainDns"
-    SAN_REQUIRE_SPN = "SanRequireSpn"
-    REQUIRE_EMAIL = "RequireEmail"
-    REQUIRE_DIRECTORY_PATH = "RequireDirectoryPath"
-    SAN_REQUIRE_DIRECTORY_GUID = "SanRequireDirectoryGuid"
-    REQUIRE_DNS_AS_CN = "RequireDnsAsCn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -476,17 +361,6 @@ class SubjectNameFlagsV3(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV4(PropertyType):
-    SAN_REQUIRE_EMAIL = "SanRequireEmail"
-    SAN_REQUIRE_DNS = "SanRequireDns"
-    REQUIRE_COMMON_NAME = "RequireCommonName"
-    SAN_REQUIRE_UPN = "SanRequireUpn"
-    SAN_REQUIRE_DOMAIN_DNS = "SanRequireDomainDns"
-    SAN_REQUIRE_SPN = "SanRequireSpn"
-    REQUIRE_EMAIL = "RequireEmail"
-    REQUIRE_DIRECTORY_PATH = "RequireDirectoryPath"
-    SAN_REQUIRE_DIRECTORY_GUID = "SanRequireDirectoryGuid"
-    REQUIRE_DNS_AS_CN = "RequireDnsAsCn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -514,10 +388,6 @@ class SubjectNameFlagsV4(PropertyType):
 
 @dataclass
 class TemplateDefinition(PropertyType):
-    TEMPLATE_V4 = "TemplateV4"
-    TEMPLATE_V3 = "TemplateV3"
-    TEMPLATE_V2 = "TemplateV2"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_v4": "TemplateV4",
         "template_v3": "TemplateV3",
@@ -531,15 +401,6 @@ class TemplateDefinition(PropertyType):
 
 @dataclass
 class TemplateV2(PropertyType):
-    SUBJECT_NAME_FLAGS = "SubjectNameFlags"
-    SUPERSEDED_TEMPLATES = "SupersededTemplates"
-    PRIVATE_KEY_FLAGS = "PrivateKeyFlags"
-    PRIVATE_KEY_ATTRIBUTES = "PrivateKeyAttributes"
-    GENERAL_FLAGS = "GeneralFlags"
-    CERTIFICATE_VALIDITY = "CertificateValidity"
-    EXTENSIONS = "Extensions"
-    ENROLLMENT_FLAGS = "EnrollmentFlags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -563,16 +424,6 @@ class TemplateV2(PropertyType):
 
 @dataclass
 class TemplateV3(PropertyType):
-    SUBJECT_NAME_FLAGS = "SubjectNameFlags"
-    SUPERSEDED_TEMPLATES = "SupersededTemplates"
-    PRIVATE_KEY_FLAGS = "PrivateKeyFlags"
-    PRIVATE_KEY_ATTRIBUTES = "PrivateKeyAttributes"
-    GENERAL_FLAGS = "GeneralFlags"
-    CERTIFICATE_VALIDITY = "CertificateValidity"
-    EXTENSIONS = "Extensions"
-    ENROLLMENT_FLAGS = "EnrollmentFlags"
-    HASH_ALGORITHM = "HashAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -598,16 +449,6 @@ class TemplateV3(PropertyType):
 
 @dataclass
 class TemplateV4(PropertyType):
-    SUBJECT_NAME_FLAGS = "SubjectNameFlags"
-    SUPERSEDED_TEMPLATES = "SupersededTemplates"
-    PRIVATE_KEY_FLAGS = "PrivateKeyFlags"
-    PRIVATE_KEY_ATTRIBUTES = "PrivateKeyAttributes"
-    GENERAL_FLAGS = "GeneralFlags"
-    CERTIFICATE_VALIDITY = "CertificateValidity"
-    EXTENSIONS = "Extensions"
-    ENROLLMENT_FLAGS = "EnrollmentFlags"
-    HASH_ALGORITHM = "HashAlgorithm"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -633,9 +474,6 @@ class TemplateV4(PropertyType):
 
 @dataclass
 class ValidityPeriod(PropertyType):
-    PERIOD_TYPE = "PeriodType"
-    PERIOD = "Period"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_type": "PeriodType",
         "period": "Period",

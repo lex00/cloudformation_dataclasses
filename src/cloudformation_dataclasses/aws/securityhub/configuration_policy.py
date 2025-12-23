@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ParameterConfiguration(PropertyType):
-    VALUE_TYPE = "ValueType"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "value": "Value",
@@ -25,15 +22,6 @@ class ParameterConfiguration(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    ENUM = "Enum"
-    INTEGER = "Integer"
-    STRING_LIST = "StringList"
-    ENUM_LIST = "EnumList"
-    INTEGER_LIST = "IntegerList"
-    STRING = "String"
-    BOOLEAN = "Boolean"
-    DOUBLE = "Double"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enum": "Enum",
         "integer": "Integer",
@@ -57,8 +45,6 @@ class ParameterValue(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    SECURITY_HUB = "SecurityHub"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_hub": "SecurityHub",
     }
@@ -68,9 +54,6 @@ class Policy(PropertyType):
 
 @dataclass
 class SecurityControlCustomParameter(PropertyType):
-    SECURITY_CONTROL_ID = "SecurityControlId"
-    PARAMETERS = "Parameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_control_id": "SecurityControlId",
         "parameters": "Parameters",
@@ -82,10 +65,6 @@ class SecurityControlCustomParameter(PropertyType):
 
 @dataclass
 class SecurityControlsConfiguration(PropertyType):
-    DISABLED_SECURITY_CONTROL_IDENTIFIERS = "DisabledSecurityControlIdentifiers"
-    ENABLED_SECURITY_CONTROL_IDENTIFIERS = "EnabledSecurityControlIdentifiers"
-    SECURITY_CONTROL_CUSTOM_PARAMETERS = "SecurityControlCustomParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disabled_security_control_identifiers": "DisabledSecurityControlIdentifiers",
         "enabled_security_control_identifiers": "EnabledSecurityControlIdentifiers",
@@ -99,10 +78,6 @@ class SecurityControlsConfiguration(PropertyType):
 
 @dataclass
 class SecurityHubPolicy(PropertyType):
-    ENABLED_STANDARD_IDENTIFIERS = "EnabledStandardIdentifiers"
-    SERVICE_ENABLED = "ServiceEnabled"
-    SECURITY_CONTROLS_CONFIGURATION = "SecurityControlsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_standard_identifiers": "EnabledStandardIdentifiers",
         "service_enabled": "ServiceEnabled",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataflowEdge(PropertyType):
-    DESTINATION = "Destination"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -25,10 +22,6 @@ class DataflowEdge(PropertyType):
 
 @dataclass
 class StreamsKmsKey(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    KMS_ALIAS_ARN = "KmsAliasArn"
-    KMS_ALIAS_NAME = "KmsAliasName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "kms_alias_arn": "KmsAliasArn",

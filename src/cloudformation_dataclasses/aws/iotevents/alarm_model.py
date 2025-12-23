@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcknowledgeFlow(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -22,16 +20,6 @@ class AcknowledgeFlow(PropertyType):
 
 @dataclass
 class AlarmAction(PropertyType):
-    DYNAMO_D_BV2 = "DynamoDBv2"
-    IOT_EVENTS = "IotEvents"
-    IOT_SITE_WISE = "IotSiteWise"
-    SQS = "Sqs"
-    FIREHOSE = "Firehose"
-    DYNAMO_DB = "DynamoDB"
-    IOT_TOPIC_PUBLISH = "IotTopicPublish"
-    SNS = "Sns"
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamo_d_bv2": "DynamoDBv2",
         "iot_events": "IotEvents",
@@ -57,9 +45,6 @@ class AlarmAction(PropertyType):
 
 @dataclass
 class AlarmCapabilities(PropertyType):
-    ACKNOWLEDGE_FLOW = "AcknowledgeFlow"
-    INITIALIZATION_CONFIGURATION = "InitializationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acknowledge_flow": "AcknowledgeFlow",
         "initialization_configuration": "InitializationConfiguration",
@@ -71,8 +56,6 @@ class AlarmCapabilities(PropertyType):
 
 @dataclass
 class AlarmEventActions(PropertyType):
-    ALARM_ACTIONS = "AlarmActions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_actions": "AlarmActions",
     }
@@ -82,8 +65,6 @@ class AlarmEventActions(PropertyType):
 
 @dataclass
 class AlarmRule(PropertyType):
-    SIMPLE_RULE = "SimpleRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_rule": "SimpleRule",
     }
@@ -93,9 +74,6 @@ class AlarmRule(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    TIME_IN_SECONDS = "TimeInSeconds"
-    OFFSET_IN_NANOS = "OffsetInNanos"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -107,10 +85,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    QUALITY = "Quality"
-    VALUE = "Value"
-    TIMESTAMP = "Timestamp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -124,11 +98,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    DOUBLE_VALUE = "DoubleValue"
-    BOOLEAN_VALUE = "BooleanValue"
-    INTEGER_VALUE = "IntegerValue"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -144,17 +113,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class DynamoDB(PropertyType):
-    TABLE_NAME = "TableName"
-    PAYLOAD_FIELD = "PayloadField"
-    RANGE_KEY_FIELD = "RangeKeyField"
-    HASH_KEY_FIELD = "HashKeyField"
-    RANGE_KEY_VALUE = "RangeKeyValue"
-    RANGE_KEY_TYPE = "RangeKeyType"
-    HASH_KEY_TYPE = "HashKeyType"
-    HASH_KEY_VALUE = "HashKeyValue"
-    PAYLOAD = "Payload"
-    OPERATION = "Operation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -182,9 +140,6 @@ class DynamoDB(PropertyType):
 
 @dataclass
 class DynamoDBv2(PropertyType):
-    TABLE_NAME = "TableName"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload": "Payload",
@@ -196,10 +151,6 @@ class DynamoDBv2(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    DELIVERY_STREAM_NAME = "DeliveryStreamName"
-    PAYLOAD = "Payload"
-    SEPARATOR = "Separator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "payload": "Payload",
@@ -213,8 +164,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class InitializationConfiguration(PropertyType):
-    DISABLED_ON_INITIALIZATION = "DisabledOnInitialization"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disabled_on_initialization": "DisabledOnInitialization",
     }
@@ -224,9 +173,6 @@ class InitializationConfiguration(PropertyType):
 
 @dataclass
 class IotEvents(PropertyType):
-    INPUT_NAME = "InputName"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "payload": "Payload",
@@ -238,12 +184,6 @@ class IotEvents(PropertyType):
 
 @dataclass
 class IotSiteWise(PropertyType):
-    ENTRY_ID = "EntryId"
-    PROPERTY_ALIAS = "PropertyAlias"
-    PROPERTY_VALUE = "PropertyValue"
-    ASSET_ID = "AssetId"
-    PROPERTY_ID = "PropertyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_id": "EntryId",
         "property_alias": "PropertyAlias",
@@ -261,9 +201,6 @@ class IotSiteWise(PropertyType):
 
 @dataclass
 class IotTopicPublish(PropertyType):
-    MQTT_TOPIC = "MqttTopic"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "payload": "Payload",
@@ -275,9 +212,6 @@ class IotTopicPublish(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "payload": "Payload",
@@ -289,9 +223,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class Payload(PropertyType):
-    CONTENT_EXPRESSION = "ContentExpression"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_expression": "ContentExpression",
         "type_": "Type",
@@ -303,10 +234,6 @@ class Payload(PropertyType):
 
 @dataclass
 class SimpleRule(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    INPUT_PROPERTY = "InputProperty"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "input_property": "InputProperty",
@@ -320,9 +247,6 @@ class SimpleRule(PropertyType):
 
 @dataclass
 class Sns(PropertyType):
-    TARGET_ARN = "TargetArn"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload": "Payload",
@@ -334,10 +258,6 @@ class Sns(PropertyType):
 
 @dataclass
 class Sqs(PropertyType):
-    USE_BASE64 = "UseBase64"
-    PAYLOAD = "Payload"
-    QUEUE_URL = "QueueUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "payload": "Payload",

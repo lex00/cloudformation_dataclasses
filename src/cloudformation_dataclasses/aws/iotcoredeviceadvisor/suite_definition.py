@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeviceUnderTest(PropertyType):
-    THING_ARN = "ThingArn"
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thing_arn": "ThingArn",
         "certificate_arn": "CertificateArn",
@@ -25,12 +22,6 @@ class DeviceUnderTest(PropertyType):
 
 @dataclass
 class SuiteDefinitionConfiguration(PropertyType):
-    DEVICE_PERMISSION_ROLE_ARN = "DevicePermissionRoleArn"
-    SUITE_DEFINITION_NAME = "SuiteDefinitionName"
-    INTENDED_FOR_QUALIFICATION = "IntendedForQualification"
-    DEVICES = "Devices"
-    ROOT_GROUP = "RootGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_permission_role_arn": "DevicePermissionRoleArn",
         "suite_definition_name": "SuiteDefinitionName",

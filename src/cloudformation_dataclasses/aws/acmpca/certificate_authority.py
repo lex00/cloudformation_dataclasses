@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessDescription(PropertyType):
-    ACCESS_METHOD = "AccessMethod"
-    ACCESS_LOCATION = "AccessLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_method": "AccessMethod",
         "access_location": "AccessLocation",
@@ -25,9 +22,6 @@ class AccessDescription(PropertyType):
 
 @dataclass
 class AccessMethod(PropertyType):
-    CUSTOM_OBJECT_IDENTIFIER = "CustomObjectIdentifier"
-    ACCESS_METHOD_TYPE = "AccessMethodType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_object_identifier": "CustomObjectIdentifier",
         "access_method_type": "AccessMethodType",
@@ -39,15 +33,6 @@ class AccessMethod(PropertyType):
 
 @dataclass
 class CrlConfiguration(PropertyType):
-    CRL_DISTRIBUTION_POINT_EXTENSION_CONFIGURATION = "CrlDistributionPointExtensionConfiguration"
-    CUSTOM_CNAME = "CustomCname"
-    S3_OBJECT_ACL = "S3ObjectAcl"
-    CRL_TYPE = "CrlType"
-    EXPIRATION_IN_DAYS = "ExpirationInDays"
-    ENABLED = "Enabled"
-    S3_BUCKET_NAME = "S3BucketName"
-    CUSTOM_PATH = "CustomPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "crl_distribution_point_extension_configuration": "CrlDistributionPointExtensionConfiguration",
         "custom_cname": "CustomCname",
@@ -71,8 +56,6 @@ class CrlConfiguration(PropertyType):
 
 @dataclass
 class CrlDistributionPointExtensionConfiguration(PropertyType):
-    OMIT_EXTENSION = "OmitExtension"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "omit_extension": "OmitExtension",
     }
@@ -82,9 +65,6 @@ class CrlDistributionPointExtensionConfiguration(PropertyType):
 
 @dataclass
 class CsrExtensions(PropertyType):
-    KEY_USAGE = "KeyUsage"
-    SUBJECT_INFORMATION_ACCESS = "SubjectInformationAccess"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_usage": "KeyUsage",
         "subject_information_access": "SubjectInformationAccess",
@@ -96,9 +76,6 @@ class CsrExtensions(PropertyType):
 
 @dataclass
 class CustomAttribute(PropertyType):
-    VALUE = "Value"
-    OBJECT_IDENTIFIER = "ObjectIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "object_identifier": "ObjectIdentifier",
@@ -110,9 +87,6 @@ class CustomAttribute(PropertyType):
 
 @dataclass
 class EdiPartyName(PropertyType):
-    PARTY_NAME = "PartyName"
-    NAME_ASSIGNER = "NameAssigner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "party_name": "PartyName",
         "name_assigner": "NameAssigner",
@@ -124,15 +98,6 @@ class EdiPartyName(PropertyType):
 
 @dataclass
 class GeneralName(PropertyType):
-    UNIFORM_RESOURCE_IDENTIFIER = "UniformResourceIdentifier"
-    DNS_NAME = "DnsName"
-    EDI_PARTY_NAME = "EdiPartyName"
-    REGISTERED_ID = "RegisteredId"
-    RFC822_NAME = "Rfc822Name"
-    OTHER_NAME = "OtherName"
-    IP_ADDRESS = "IpAddress"
-    DIRECTORY_NAME = "DirectoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_resource_identifier": "UniformResourceIdentifier",
         "dns_name": "DnsName",
@@ -156,16 +121,6 @@ class GeneralName(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    KEY_ENCIPHERMENT = "KeyEncipherment"
-    DATA_ENCIPHERMENT = "DataEncipherment"
-    DIGITAL_SIGNATURE = "DigitalSignature"
-    KEY_CERT_SIGN = "KeyCertSign"
-    DECIPHER_ONLY = "DecipherOnly"
-    KEY_AGREEMENT = "KeyAgreement"
-    NON_REPUDIATION = "NonRepudiation"
-    CRL_SIGN = "CRLSign"
-    ENCIPHER_ONLY = "EncipherOnly"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -191,9 +146,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class OcspConfiguration(PropertyType):
-    OCSP_CUSTOM_CNAME = "OcspCustomCname"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsp_custom_cname": "OcspCustomCname",
         "enabled": "Enabled",
@@ -205,9 +157,6 @@ class OcspConfiguration(PropertyType):
 
 @dataclass
 class OtherName(PropertyType):
-    TYPE_ID = "TypeId"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_id": "TypeId",
         "value": "Value",
@@ -219,9 +168,6 @@ class OtherName(PropertyType):
 
 @dataclass
 class RevocationConfiguration(PropertyType):
-    OCSP_CONFIGURATION = "OcspConfiguration"
-    CRL_CONFIGURATION = "CrlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsp_configuration": "OcspConfiguration",
         "crl_configuration": "CrlConfiguration",
@@ -233,22 +179,6 @@ class RevocationConfiguration(PropertyType):
 
 @dataclass
 class Subject(PropertyType):
-    ORGANIZATION = "Organization"
-    ORGANIZATIONAL_UNIT = "OrganizationalUnit"
-    LOCALITY = "Locality"
-    TITLE = "Title"
-    GIVEN_NAME = "GivenName"
-    GENERATION_QUALIFIER = "GenerationQualifier"
-    INITIALS = "Initials"
-    CUSTOM_ATTRIBUTES = "CustomAttributes"
-    SERIAL_NUMBER = "SerialNumber"
-    STATE = "State"
-    COUNTRY = "Country"
-    SURNAME = "Surname"
-    DISTINGUISHED_NAME_QUALIFIER = "DistinguishedNameQualifier"
-    COMMON_NAME = "CommonName"
-    PSEUDONYM = "Pseudonym"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization": "Organization",
         "organizational_unit": "OrganizationalUnit",

@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    CONNECT_ACTION = "ConnectAction"
-    BOUNCE_ACTION = "BounceAction"
-    S3_ACTION = "S3Action"
-    STOP_ACTION = "StopAction"
-    SNS_ACTION = "SNSAction"
-    WORKMAIL_ACTION = "WorkmailAction"
-    ADD_HEADER_ACTION = "AddHeaderAction"
-    LAMBDA_ACTION = "LambdaAction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_action": "ConnectAction",
         "bounce_action": "BounceAction",
@@ -43,9 +34,6 @@ class Action(PropertyType):
 
 @dataclass
 class AddHeaderAction(PropertyType):
-    HEADER_VALUE = "HeaderValue"
-    HEADER_NAME = "HeaderName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_value": "HeaderValue",
         "header_name": "HeaderName",
@@ -57,12 +45,6 @@ class AddHeaderAction(PropertyType):
 
 @dataclass
 class BounceAction(PropertyType):
-    SENDER = "Sender"
-    SMTP_REPLY_CODE = "SmtpReplyCode"
-    MESSAGE = "Message"
-    TOPIC_ARN = "TopicArn"
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sender": "Sender",
         "smtp_reply_code": "SmtpReplyCode",
@@ -80,9 +62,6 @@ class BounceAction(PropertyType):
 
 @dataclass
 class ConnectAction(PropertyType):
-    INSTANCE_ARN = "InstanceARN"
-    IAM_ROLE_ARN = "IAMRoleARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_arn": "InstanceARN",
         "iam_role_arn": "IAMRoleARN",
@@ -94,10 +73,6 @@ class ConnectAction(PropertyType):
 
 @dataclass
 class LambdaAction(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-    TOPIC_ARN = "TopicArn"
-    INVOCATION_TYPE = "InvocationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "topic_arn": "TopicArn",
@@ -111,13 +86,6 @@ class LambdaAction(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    SCAN_ENABLED = "ScanEnabled"
-    RECIPIENTS = "Recipients"
-    ACTIONS = "Actions"
-    ENABLED = "Enabled"
-    NAME = "Name"
-    TLS_POLICY = "TlsPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_enabled": "ScanEnabled",
         "recipients": "Recipients",
@@ -137,12 +105,6 @@ class Rule(PropertyType):
 
 @dataclass
 class S3Action(PropertyType):
-    BUCKET_NAME = "BucketName"
-    KMS_KEY_ARN = "KmsKeyArn"
-    TOPIC_ARN = "TopicArn"
-    OBJECT_KEY_PREFIX = "ObjectKeyPrefix"
-    IAM_ROLE_ARN = "IamRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "kms_key_arn": "KmsKeyArn",
@@ -160,9 +122,6 @@ class S3Action(PropertyType):
 
 @dataclass
 class SNSAction(PropertyType):
-    TOPIC_ARN = "TopicArn"
-    ENCODING = "Encoding"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "encoding": "Encoding",
@@ -174,9 +133,6 @@ class SNSAction(PropertyType):
 
 @dataclass
 class StopAction(PropertyType):
-    SCOPE = "Scope"
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "topic_arn": "TopicArn",
@@ -188,9 +144,6 @@ class StopAction(PropertyType):
 
 @dataclass
 class WorkmailAction(PropertyType):
-    TOPIC_ARN = "TopicArn"
-    ORGANIZATION_ARN = "OrganizationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "organization_arn": "OrganizationArn",

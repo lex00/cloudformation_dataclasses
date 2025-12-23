@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FileSystemGID(PropertyType):
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gid": "Gid",
     }
@@ -22,10 +20,6 @@ class FileSystemGID(PropertyType):
 
 @dataclass
 class OntapFileSystemIdentity(PropertyType):
-    TYPE = "Type"
-    UNIX_USER = "UnixUser"
-    WINDOWS_USER = "WindowsUser"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "unix_user": "UnixUser",
@@ -39,8 +33,6 @@ class OntapFileSystemIdentity(PropertyType):
 
 @dataclass
 class OntapUnixFileSystemUser(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -50,8 +42,6 @@ class OntapUnixFileSystemUser(PropertyType):
 
 @dataclass
 class OntapWindowsFileSystemUser(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -61,9 +51,6 @@ class OntapWindowsFileSystemUser(PropertyType):
 
 @dataclass
 class OpenZFSFileSystemIdentity(PropertyType):
-    TYPE = "Type"
-    POSIX_USER = "PosixUser"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "posix_user": "PosixUser",
@@ -75,10 +62,6 @@ class OpenZFSFileSystemIdentity(PropertyType):
 
 @dataclass
 class OpenZFSPosixFileSystemUser(PropertyType):
-    UID = "Uid"
-    SECONDARY_GIDS = "SecondaryGids"
-    GID = "Gid"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",
@@ -92,11 +75,6 @@ class OpenZFSPosixFileSystemUser(PropertyType):
 
 @dataclass
 class S3AccessPoint(PropertyType):
-    POLICY = "Policy"
-    RESOURCE_ARN = "ResourceARN"
-    ALIAS = "Alias"
-    VPC_CONFIGURATION = "VpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_arn": "ResourceARN",
@@ -112,9 +90,6 @@ class S3AccessPoint(PropertyType):
 
 @dataclass
 class S3AccessPointOntapConfiguration(PropertyType):
-    VOLUME_ID = "VolumeId"
-    FILE_SYSTEM_IDENTITY = "FileSystemIdentity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "file_system_identity": "FileSystemIdentity",
@@ -126,9 +101,6 @@ class S3AccessPointOntapConfiguration(PropertyType):
 
 @dataclass
 class S3AccessPointOpenZFSConfiguration(PropertyType):
-    VOLUME_ID = "VolumeId"
-    FILE_SYSTEM_IDENTITY = "FileSystemIdentity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "file_system_identity": "FileSystemIdentity",
@@ -140,8 +112,6 @@ class S3AccessPointOpenZFSConfiguration(PropertyType):
 
 @dataclass
 class S3AccessPointVpcConfiguration(PropertyType):
-    VPC_ID = "VpcId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }

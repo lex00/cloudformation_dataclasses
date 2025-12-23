@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AzureBlobSasConfiguration(PropertyType):
-    AZURE_BLOB_SAS_TOKEN = "AzureBlobSasToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "azure_blob_sas_token": "AzureBlobSasToken",
     }
@@ -22,9 +20,6 @@ class AzureBlobSasConfiguration(PropertyType):
 
 @dataclass
 class CmkSecretConfig(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -36,9 +31,6 @@ class CmkSecretConfig(PropertyType):
 
 @dataclass
 class CustomSecretConfig(PropertyType):
-    SECRET_ARN = "SecretArn"
-    SECRET_ACCESS_ROLE_ARN = "SecretAccessRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_access_role_arn": "SecretAccessRoleArn",
@@ -50,8 +42,6 @@ class CustomSecretConfig(PropertyType):
 
 @dataclass
 class ManagedSecretConfig(PropertyType):
-    SECRET_ARN = "SecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }

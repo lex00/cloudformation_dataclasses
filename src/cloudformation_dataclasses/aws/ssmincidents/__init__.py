@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:18
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMIncidents
@@ -158,10 +158,6 @@ class ReplicationSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmin"""
 
     resource_type: ClassVar[str] = "AWS::SSMIncidents::ReplicationSet"
-    REGIONS = "Regions"
-    DELETION_PROTECTED = "DeletionProtected"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regions": "Regions",
         "deletion_protected": "DeletionProtected",
@@ -185,15 +181,6 @@ class ResponsePlan(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SSMIncidents::ResponsePlan"
     name_field: ClassVar[str] = "name"
-    CHAT_CHANNEL = "ChatChannel"
-    INTEGRATIONS = "Integrations"
-    ACTIONS = "Actions"
-    DISPLAY_NAME = "DisplayName"
-    INCIDENT_TEMPLATE = "IncidentTemplate"
-    ENGAGEMENTS = "Engagements"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chat_channel": "ChatChannel",
         "integrations": "Integrations",

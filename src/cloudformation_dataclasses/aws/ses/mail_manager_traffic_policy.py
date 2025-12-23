@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IngressAnalysis(PropertyType):
-    ANALYZER = "Analyzer"
-    RESULT_FIELD = "ResultField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "analyzer": "Analyzer",
         "result_field": "ResultField",
@@ -25,9 +22,6 @@ class IngressAnalysis(PropertyType):
 
 @dataclass
 class IngressBooleanExpression(PropertyType):
-    OPERATOR = "Operator"
-    EVALUATE = "Evaluate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -39,9 +33,6 @@ class IngressBooleanExpression(PropertyType):
 
 @dataclass
 class IngressBooleanToEvaluate(PropertyType):
-    IS_IN_ADDRESS_LIST = "IsInAddressList"
-    ANALYSIS = "Analysis"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_in_address_list": "IsInAddressList",
         "analysis": "Analysis",
@@ -53,8 +44,6 @@ class IngressBooleanToEvaluate(PropertyType):
 
 @dataclass
 class IngressIpToEvaluate(PropertyType):
-    ATTRIBUTE = "Attribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -64,10 +53,6 @@ class IngressIpToEvaluate(PropertyType):
 
 @dataclass
 class IngressIpv4Expression(PropertyType):
-    OPERATOR = "Operator"
-    EVALUATE = "Evaluate"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -81,10 +66,6 @@ class IngressIpv4Expression(PropertyType):
 
 @dataclass
 class IngressIpv6Expression(PropertyType):
-    OPERATOR = "Operator"
-    EVALUATE = "Evaluate"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -98,8 +79,6 @@ class IngressIpv6Expression(PropertyType):
 
 @dataclass
 class IngressIpv6ToEvaluate(PropertyType):
-    ATTRIBUTE = "Attribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -109,9 +88,6 @@ class IngressIpv6ToEvaluate(PropertyType):
 
 @dataclass
 class IngressIsInAddressList(PropertyType):
-    ATTRIBUTE = "Attribute"
-    ADDRESS_LISTS = "AddressLists"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "address_lists": "AddressLists",
@@ -123,10 +99,6 @@ class IngressIsInAddressList(PropertyType):
 
 @dataclass
 class IngressStringExpression(PropertyType):
-    OPERATOR = "Operator"
-    EVALUATE = "Evaluate"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -140,9 +112,6 @@ class IngressStringExpression(PropertyType):
 
 @dataclass
 class IngressStringToEvaluate(PropertyType):
-    ATTRIBUTE = "Attribute"
-    ANALYSIS = "Analysis"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "analysis": "Analysis",
@@ -154,10 +123,6 @@ class IngressStringToEvaluate(PropertyType):
 
 @dataclass
 class IngressTlsProtocolExpression(PropertyType):
-    OPERATOR = "Operator"
-    EVALUATE = "Evaluate"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -171,8 +136,6 @@ class IngressTlsProtocolExpression(PropertyType):
 
 @dataclass
 class IngressTlsProtocolToEvaluate(PropertyType):
-    ATTRIBUTE = "Attribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -182,12 +145,6 @@ class IngressTlsProtocolToEvaluate(PropertyType):
 
 @dataclass
 class PolicyCondition(PropertyType):
-    IPV6_EXPRESSION = "Ipv6Expression"
-    BOOLEAN_EXPRESSION = "BooleanExpression"
-    STRING_EXPRESSION = "StringExpression"
-    TLS_EXPRESSION = "TlsExpression"
-    IP_EXPRESSION = "IpExpression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_expression": "Ipv6Expression",
         "boolean_expression": "BooleanExpression",
@@ -205,9 +162,6 @@ class PolicyCondition(PropertyType):
 
 @dataclass
 class PolicyStatement(PropertyType):
-    ACTION = "Action"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "conditions": "Conditions",

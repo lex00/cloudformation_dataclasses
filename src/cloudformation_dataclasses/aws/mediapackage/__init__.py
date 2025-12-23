@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackage
@@ -247,14 +247,6 @@ class Asset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackage::Asset"
-    SOURCE_ARN = "SourceArn"
-    RESOURCE_ID = "ResourceId"
-    ID = "Id"
-    PACKAGING_GROUP_ID = "PackagingGroupId"
-    EGRESS_ENDPOINTS = "EgressEndpoints"
-    TAGS = "Tags"
-    SOURCE_ROLE_ARN = "SourceRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_arn": "SourceArn",
         "resource_id": "ResourceId",
@@ -290,13 +282,6 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackage::Channel"
-    DESCRIPTION = "Description"
-    INGRESS_ACCESS_LOGS = "IngressAccessLogs"
-    HLS_INGEST = "HlsIngest"
-    ID = "Id"
-    EGRESS_ACCESS_LOGS = "EgressAccessLogs"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "ingress_access_logs": "IngressAccessLogs",
@@ -326,21 +311,6 @@ class OriginEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaPackage::OriginEndpoint"
     name_field: ClassVar[str] = "manifest_name"
-    MSS_PACKAGE = "MssPackage"
-    DESCRIPTION = "Description"
-    CHANNEL_ID = "ChannelId"
-    TIME_DELAY_SECONDS = "TimeDelaySeconds"
-    ORIGINATION = "Origination"
-    AUTHORIZATION = "Authorization"
-    MANIFEST_NAME = "ManifestName"
-    CMAF_PACKAGE = "CmafPackage"
-    WHITELIST = "Whitelist"
-    ID = "Id"
-    HLS_PACKAGE = "HlsPackage"
-    DASH_PACKAGE = "DashPackage"
-    TAGS = "Tags"
-    STARTOVER_WINDOW_SECONDS = "StartoverWindowSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mss_package": "MssPackage",
         "description": "Description",
@@ -390,14 +360,6 @@ class PackagingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackage::PackagingConfiguration"
-    MSS_PACKAGE = "MssPackage"
-    CMAF_PACKAGE = "CmafPackage"
-    ID = "Id"
-    HLS_PACKAGE = "HlsPackage"
-    PACKAGING_GROUP_ID = "PackagingGroupId"
-    DASH_PACKAGE = "DashPackage"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mss_package": "MssPackage",
         "cmaf_package": "CmafPackage",
@@ -428,11 +390,6 @@ class PackagingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackage::PackagingGroup"
-    AUTHORIZATION = "Authorization"
-    ID = "Id"
-    EGRESS_ACCESS_LOGS = "EgressAccessLogs"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization": "Authorization",
         "id": "Id",

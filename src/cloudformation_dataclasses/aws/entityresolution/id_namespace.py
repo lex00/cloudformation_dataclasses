@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IdNamespaceIdMappingWorkflowProperties(PropertyType):
-    RULE_BASED_PROPERTIES = "RuleBasedProperties"
-    PROVIDER_PROPERTIES = "ProviderProperties"
-    ID_MAPPING_TYPE = "IdMappingType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -28,9 +24,6 @@ class IdNamespaceIdMappingWorkflowProperties(PropertyType):
 
 @dataclass
 class IdNamespaceInputSource(PropertyType):
-    INPUT_SOURCE_ARN = "InputSourceARN"
-    SCHEMA_NAME = "SchemaName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_source_arn": "InputSourceARN",
         "schema_name": "SchemaName",
@@ -42,9 +35,6 @@ class IdNamespaceInputSource(PropertyType):
 
 @dataclass
 class NamespaceProviderProperties(PropertyType):
-    PROVIDER_SERVICE_ARN = "ProviderServiceArn"
-    PROVIDER_CONFIGURATION = "ProviderConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_service_arn": "ProviderServiceArn",
         "provider_configuration": "ProviderConfiguration",
@@ -56,11 +46,6 @@ class NamespaceProviderProperties(PropertyType):
 
 @dataclass
 class NamespaceRuleBasedProperties(PropertyType):
-    ATTRIBUTE_MATCHING_MODEL = "AttributeMatchingModel"
-    RULE_DEFINITION_TYPES = "RuleDefinitionTypes"
-    RECORD_MATCHING_MODELS = "RecordMatchingModels"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "rule_definition_types": "RuleDefinitionTypes",
@@ -76,9 +61,6 @@ class NamespaceRuleBasedProperties(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    MATCHING_KEYS = "MatchingKeys"
-    RULE_NAME = "RuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",

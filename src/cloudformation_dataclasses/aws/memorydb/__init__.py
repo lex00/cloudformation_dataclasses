@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MemoryDB
@@ -147,10 +147,6 @@ class ACL(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ACL"
     name_field: ClassVar[str] = "acl_name"
-    ACL_NAME = "ACLName"
-    USER_NAMES = "UserNames"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acl_name": "ACLName",
         "user_names": "UserNames",
@@ -179,36 +175,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    NUM_REPLICAS_PER_SHARD = "NumReplicasPerShard"
-    DESCRIPTION = "Description"
-    FINAL_SNAPSHOT_NAME = "FinalSnapshotName"
-    PARAMETER_GROUP_NAME = "ParameterGroupName"
-    SNAPSHOT_ARNS = "SnapshotArns"
-    PORT = "Port"
-    ACL_NAME = "ACLName"
-    SNAPSHOT_NAME = "SnapshotName"
-    NUM_SHARDS = "NumShards"
-    TLS_ENABLED = "TLSEnabled"
-    NETWORK_TYPE = "NetworkType"
-    CLUSTER_NAME = "ClusterName"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-    MULTI_REGION_CLUSTER_NAME = "MultiRegionClusterName"
-    ENGINE_VERSION = "EngineVersion"
-    KMS_KEY_ID = "KmsKeyId"
-    SNS_TOPIC_STATUS = "SnsTopicStatus"
-    SUBNET_GROUP_NAME = "SubnetGroupName"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    CLUSTER_ENDPOINT = "ClusterEndpoint"
-    SNAPSHOT_WINDOW = "SnapshotWindow"
-    SNAPSHOT_RETENTION_LIMIT = "SnapshotRetentionLimit"
-    DATA_TIERING = "DataTiering"
-    NODE_TYPE = "NodeType"
-    IP_DISCOVERY = "IpDiscovery"
-    MAINTENANCE_WINDOW = "MaintenanceWindow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "num_replicas_per_shard": "NumReplicasPerShard",
         "description": "Description",
@@ -304,17 +270,6 @@ class MultiRegionCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::MultiRegionCluster"
     name_field: ClassVar[str] = "multi_region_parameter_group_name"
-    MULTI_REGION_PARAMETER_GROUP_NAME = "MultiRegionParameterGroupName"
-    DESCRIPTION = "Description"
-    ENGINE_VERSION = "EngineVersion"
-    MULTI_REGION_CLUSTER_NAME_SUFFIX = "MultiRegionClusterNameSuffix"
-    TLS_ENABLED = "TLSEnabled"
-    NODE_TYPE = "NodeType"
-    UPDATE_STRATEGY = "UpdateStrategy"
-    ENGINE = "Engine"
-    TAGS = "Tags"
-    NUM_SHARDS = "NumShards"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_region_parameter_group_name": "MultiRegionParameterGroupName",
         "description": "Description",
@@ -362,12 +317,6 @@ class ParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ParameterGroup"
     name_field: ClassVar[str] = "parameter_group_name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    PARAMETER_GROUP_NAME = "ParameterGroupName"
-    FAMILY = "Family"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -395,11 +344,6 @@ class SubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::SubnetGroup"
     name_field: ClassVar[str] = "subnet_group_name"
-    DESCRIPTION = "Description"
-    SUBNET_GROUP_NAME = "SubnetGroupName"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "subnet_group_name": "SubnetGroupName",
@@ -430,11 +374,6 @@ class User(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::User"
     name_field: ClassVar[str] = "user_name"
-    AUTHENTICATION_MODE = "AuthenticationMode"
-    USER_NAME = "UserName"
-    ACCESS_STRING = "AccessString"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_mode": "AuthenticationMode",
         "user_name": "UserName",

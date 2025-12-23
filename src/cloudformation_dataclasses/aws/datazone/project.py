@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EnvironmentConfigurationUserParameter(PropertyType):
-    ENVIRONMENT_ID = "EnvironmentId"
-    ENVIRONMENT_PARAMETERS = "EnvironmentParameters"
-    ENVIRONMENT_CONFIGURATION_NAME = "EnvironmentConfigurationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "environment_parameters": "EnvironmentParameters",
@@ -28,9 +24,6 @@ class EnvironmentConfigurationUserParameter(PropertyType):
 
 @dataclass
 class EnvironmentParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EventSchemas
@@ -72,11 +72,6 @@ class Discoverer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::Discoverer"
-    CROSS_ACCOUNT = "CrossAccount"
-    DESCRIPTION = "Description"
-    SOURCE_ARN = "SourceArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cross_account": "CrossAccount",
         "description": "Description",
@@ -112,10 +107,6 @@ class Registry(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::Registry"
     name_field: ClassVar[str] = "registry_name"
-    DESCRIPTION = "Description"
-    REGISTRY_NAME = "RegistryName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "registry_name": "RegistryName",
@@ -144,10 +135,6 @@ class RegistryPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::RegistryPolicy"
     name_field: ClassVar[str] = "registry_name"
-    POLICY = "Policy"
-    REGISTRY_NAME = "RegistryName"
-    REVISION_ID = "RevisionId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "registry_name": "RegistryName",
@@ -171,13 +158,6 @@ class Schema(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::Schema"
     name_field: ClassVar[str] = "schema_name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CONTENT = "Content"
-    REGISTRY_NAME = "RegistryName"
-    SCHEMA_NAME = "SchemaName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",

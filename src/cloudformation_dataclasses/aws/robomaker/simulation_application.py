@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RenderingEngine(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -25,9 +22,6 @@ class RenderingEngine(PropertyType):
 
 @dataclass
 class RobotSoftwareSuite(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -39,9 +33,6 @@ class RobotSoftwareSuite(PropertyType):
 
 @dataclass
 class SimulationSoftwareSuite(PropertyType):
-    VERSION = "Version"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -53,10 +44,6 @@ class SimulationSoftwareSuite(PropertyType):
 
 @dataclass
 class SourceConfig(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    ARCHITECTURE = "Architecture"
-    S3_KEY = "S3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "architecture": "Architecture",

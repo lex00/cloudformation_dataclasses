@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DashBaseUrl(PropertyType):
-    SERVICE_LOCATION = "ServiceLocation"
-    DVB_WEIGHT = "DvbWeight"
-    DVB_PRIORITY = "DvbPriority"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_location": "ServiceLocation",
         "dvb_weight": "DvbWeight",
@@ -31,10 +26,6 @@ class DashBaseUrl(PropertyType):
 
 @dataclass
 class DashDvbFontDownload(PropertyType):
-    FONT_FAMILY = "FontFamily"
-    URL = "Url"
-    MIME_TYPE = "MimeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "url": "Url",
@@ -48,9 +39,6 @@ class DashDvbFontDownload(PropertyType):
 
 @dataclass
 class DashDvbMetricsReporting(PropertyType):
-    REPORTING_URL = "ReportingUrl"
-    PROBABILITY = "Probability"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reporting_url": "ReportingUrl",
         "probability": "Probability",
@@ -62,9 +50,6 @@ class DashDvbMetricsReporting(PropertyType):
 
 @dataclass
 class DashDvbSettings(PropertyType):
-    FONT_DOWNLOAD = "FontDownload"
-    ERROR_METRICS = "ErrorMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_download": "FontDownload",
         "error_metrics": "ErrorMetrics",
@@ -76,24 +61,6 @@ class DashDvbSettings(PropertyType):
 
 @dataclass
 class DashManifestConfiguration(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    DRM_SIGNALING = "DrmSignaling"
-    COMPACTNESS = "Compactness"
-    PROGRAM_INFORMATION = "ProgramInformation"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-    SEGMENT_TEMPLATE_FORMAT = "SegmentTemplateFormat"
-    BASE_URLS = "BaseUrls"
-    MANIFEST_NAME = "ManifestName"
-    PERIOD_TRIGGERS = "PeriodTriggers"
-    SUGGESTED_PRESENTATION_DELAY_SECONDS = "SuggestedPresentationDelaySeconds"
-    UTC_TIMING = "UtcTiming"
-    SUBTITLE_CONFIGURATION = "SubtitleConfiguration"
-    MIN_BUFFER_TIME_SECONDS = "MinBufferTimeSeconds"
-    PROFILES = "Profiles"
-    DVB_SETTINGS = "DvbSettings"
-    MIN_UPDATE_PERIOD_SECONDS = "MinUpdatePeriodSeconds"
-    SCTE_DASH = "ScteDash"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "drm_signaling": "DrmSignaling",
@@ -135,12 +102,6 @@ class DashManifestConfiguration(PropertyType):
 
 @dataclass
 class DashProgramInformation(PropertyType):
-    COPYRIGHT = "Copyright"
-    LANGUAGE_CODE = "LanguageCode"
-    TITLE = "Title"
-    MORE_INFORMATION_URL = "MoreInformationUrl"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copyright": "Copyright",
         "language_code": "LanguageCode",
@@ -158,8 +119,6 @@ class DashProgramInformation(PropertyType):
 
 @dataclass
 class DashSubtitleConfiguration(PropertyType):
-    TTML_CONFIGURATION = "TtmlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttml_configuration": "TtmlConfiguration",
     }
@@ -169,8 +128,6 @@ class DashSubtitleConfiguration(PropertyType):
 
 @dataclass
 class DashTtmlConfiguration(PropertyType):
-    TTML_PROFILE = "TtmlProfile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttml_profile": "TtmlProfile",
     }
@@ -180,9 +137,6 @@ class DashTtmlConfiguration(PropertyType):
 
 @dataclass
 class DashUtcTiming(PropertyType):
-    TIMING_MODE = "TimingMode"
-    TIMING_SOURCE = "TimingSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timing_mode": "TimingMode",
         "timing_source": "TimingSource",
@@ -194,12 +148,6 @@ class DashUtcTiming(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    KEY_ROTATION_INTERVAL_SECONDS = "KeyRotationIntervalSeconds"
-    CMAF_EXCLUDE_SEGMENT_DRM_METADATA = "CmafExcludeSegmentDrmMetadata"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-    ENCRYPTION_METHOD = "EncryptionMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "cmaf_exclude_segment_drm_metadata": "CmafExcludeSegmentDrmMetadata",
@@ -217,9 +165,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class EncryptionContractConfiguration(PropertyType):
-    PRESET_SPEKE20_AUDIO = "PresetSpeke20Audio"
-    PRESET_SPEKE20_VIDEO = "PresetSpeke20Video"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preset_speke20_audio": "PresetSpeke20Audio",
         "preset_speke20_video": "PresetSpeke20Video",
@@ -231,10 +176,6 @@ class EncryptionContractConfiguration(PropertyType):
 
 @dataclass
 class EncryptionMethod(PropertyType):
-    ISM_ENCRYPTION_METHOD = "IsmEncryptionMethod"
-    CMAF_ENCRYPTION_METHOD = "CmafEncryptionMethod"
-    TS_ENCRYPTION_METHOD = "TsEncryptionMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ism_encryption_method": "IsmEncryptionMethod",
         "cmaf_encryption_method": "CmafEncryptionMethod",
@@ -248,12 +189,6 @@ class EncryptionMethod(PropertyType):
 
 @dataclass
 class FilterConfiguration(PropertyType):
-    START = "Start"
-    END = "End"
-    TIME_DELAY_SECONDS = "TimeDelaySeconds"
-    CLIP_START_TIME = "ClipStartTime"
-    MANIFEST_FILTER = "ManifestFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -271,8 +206,6 @@ class FilterConfiguration(PropertyType):
 
 @dataclass
 class ForceEndpointErrorConfiguration(PropertyType):
-    ENDPOINT_ERROR_CONDITIONS = "EndpointErrorConditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_error_conditions": "EndpointErrorConditions",
     }
@@ -282,16 +215,6 @@ class ForceEndpointErrorConfiguration(PropertyType):
 
 @dataclass
 class HlsManifestConfiguration(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    MANIFEST_NAME = "ManifestName"
-    PROGRAM_DATE_TIME_INTERVAL_SECONDS = "ProgramDateTimeIntervalSeconds"
-    CHILD_MANIFEST_NAME = "ChildManifestName"
-    SCTE_HLS = "ScteHls"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-    URL_ENCODE_CHILD_MANIFEST = "UrlEncodeChildManifest"
-    URL = "Url"
-    START_TAG = "StartTag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -317,16 +240,6 @@ class HlsManifestConfiguration(PropertyType):
 
 @dataclass
 class LowLatencyHlsManifestConfiguration(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    MANIFEST_NAME = "ManifestName"
-    PROGRAM_DATE_TIME_INTERVAL_SECONDS = "ProgramDateTimeIntervalSeconds"
-    CHILD_MANIFEST_NAME = "ChildManifestName"
-    SCTE_HLS = "ScteHls"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-    URL_ENCODE_CHILD_MANIFEST = "UrlEncodeChildManifest"
-    URL = "Url"
-    START_TAG = "StartTag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -352,11 +265,6 @@ class LowLatencyHlsManifestConfiguration(PropertyType):
 
 @dataclass
 class MssManifestConfiguration(PropertyType):
-    MANIFEST_WINDOW_SECONDS = "ManifestWindowSeconds"
-    MANIFEST_NAME = "ManifestName"
-    MANIFEST_LAYOUT = "ManifestLayout"
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -372,8 +280,6 @@ class MssManifestConfiguration(PropertyType):
 
 @dataclass
 class Scte(PropertyType):
-    SCTE_FILTER = "ScteFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte_filter": "ScteFilter",
     }
@@ -383,8 +289,6 @@ class Scte(PropertyType):
 
 @dataclass
 class ScteDash(PropertyType):
-    AD_MARKER_DASH = "AdMarkerDash"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_dash": "AdMarkerDash",
     }
@@ -394,8 +298,6 @@ class ScteDash(PropertyType):
 
 @dataclass
 class ScteHls(PropertyType):
-    AD_MARKER_HLS = "AdMarkerHls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_hls": "AdMarkerHls",
     }
@@ -405,14 +307,6 @@ class ScteHls(PropertyType):
 
 @dataclass
 class Segment(PropertyType):
-    SEGMENT_NAME = "SegmentName"
-    TS_USE_AUDIO_RENDITION_GROUP = "TsUseAudioRenditionGroup"
-    INCLUDE_IFRAME_ONLY_STREAMS = "IncludeIframeOnlyStreams"
-    SCTE = "Scte"
-    TS_INCLUDE_DVB_SUBTITLES = "TsIncludeDvbSubtitles"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "ts_use_audio_rendition_group": "TsUseAudioRenditionGroup",
@@ -434,12 +328,6 @@ class Segment(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    DRM_SYSTEMS = "DrmSystems"
-    RESOURCE_ID = "ResourceId"
-    ENCRYPTION_CONTRACT_CONFIGURATION = "EncryptionContractConfiguration"
-    ROLE_ARN = "RoleArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "drm_systems": "DrmSystems",
         "resource_id": "ResourceId",
@@ -457,9 +345,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StartTag(PropertyType):
-    PRECISE = "Precise"
-    TIME_OFFSET = "TimeOffset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "precise": "Precise",
         "time_offset": "TimeOffset",

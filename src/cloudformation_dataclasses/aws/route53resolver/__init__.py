@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Resolver
@@ -437,11 +437,6 @@ class FirewallDomainList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallDomainList"
     name_field: ClassVar[str] = "name"
-    DOMAINS = "Domains"
-    DOMAIN_FILE_URL = "DomainFileUrl"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domains": "Domains",
         "domain_file_url": "DomainFileUrl",
@@ -507,10 +502,6 @@ class FirewallRuleGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallRuleGroup"
     name_field: ClassVar[str] = "name"
-    FIREWALL_RULES = "FirewallRules"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firewall_rules": "FirewallRules",
         "tags": "Tags",
@@ -579,13 +570,6 @@ class FirewallRuleGroupAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallRuleGroupAssociation"
     name_field: ClassVar[str] = "name"
-    VPC_ID = "VpcId"
-    FIREWALL_RULE_GROUP_ID = "FirewallRuleGroupId"
-    PRIORITY = "Priority"
-    MUTATION_PROTECTION = "MutationProtection"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "firewall_rule_group_id": "FirewallRuleGroupId",
@@ -650,12 +634,6 @@ class OutpostResolver(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::OutpostResolver"
     name_field: ClassVar[str] = "name"
-    INSTANCE_COUNT = "InstanceCount"
-    OUTPOST_ARN = "OutpostArn"
-    PREFERRED_INSTANCE_TYPE = "PreferredInstanceType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "outpost_arn": "OutpostArn",
@@ -712,9 +690,6 @@ class ResolverConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverConfig"
-    RESOURCE_ID = "ResourceId"
-    AUTODEFINED_REVERSE_FLAG = "AutodefinedReverseFlag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "autodefined_reverse_flag": "AutodefinedReverseFlag",
@@ -745,8 +720,6 @@ class ResolverDNSSECConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverDNSSECConfig"
-    RESOURCE_ID = "ResourceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
     }
@@ -776,16 +749,6 @@ class ResolverEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverEndpoint"
     name_field: ClassVar[str] = "name"
-    IP_ADDRESSES = "IpAddresses"
-    PROTOCOLS = "Protocols"
-    OUTPOST_ARN = "OutpostArn"
-    PREFERRED_INSTANCE_TYPE = "PreferredInstanceType"
-    RESOLVER_ENDPOINT_TYPE = "ResolverEndpointType"
-    DIRECTION = "Direction"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_addresses": "IpAddresses",
         "protocols": "Protocols",
@@ -846,10 +809,6 @@ class ResolverQueryLoggingConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverQueryLoggingConfig"
     name_field: ClassVar[str] = "name"
-    DESTINATION_ARN = "DestinationArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_arn": "DestinationArn",
         "tags": "Tags",
@@ -907,9 +866,6 @@ class ResolverQueryLoggingConfigAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
-    RESOURCE_ID = "ResourceId"
-    RESOLVER_QUERY_LOG_CONFIG_ID = "ResolverQueryLogConfigId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "resolver_query_log_config_id": "ResolverQueryLogConfigId",
@@ -951,14 +907,6 @@ class ResolverRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverRule"
     name_field: ClassVar[str] = "name"
-    RESOLVER_ENDPOINT_ID = "ResolverEndpointId"
-    DOMAIN_NAME = "DomainName"
-    RULE_TYPE = "RuleType"
-    DELEGATION_RECORD = "DelegationRecord"
-    TAGS = "Tags"
-    TARGET_IPS = "TargetIps"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resolver_endpoint_id": "ResolverEndpointId",
         "domain_name": "DomainName",
@@ -1015,10 +963,6 @@ class ResolverRuleAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverRuleAssociation"
     name_field: ClassVar[str] = "name"
-    VPC_ID = "VPCId"
-    RESOLVER_RULE_ID = "ResolverRuleId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VPCId",
         "resolver_rule_id": "ResolverRuleId",

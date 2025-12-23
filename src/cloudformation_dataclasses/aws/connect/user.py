@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class UserIdentityInfo(PropertyType):
-    EMAIL = "Email"
-    FIRST_NAME = "FirstName"
-    SECONDARY_EMAIL = "SecondaryEmail"
-    LAST_NAME = "LastName"
-    MOBILE = "Mobile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
         "first_name": "FirstName",
@@ -34,12 +28,6 @@ class UserIdentityInfo(PropertyType):
 
 @dataclass
 class UserPhoneConfig(PropertyType):
-    AUTO_ACCEPT = "AutoAccept"
-    PHONE_TYPE = "PhoneType"
-    PERSISTENT_CONNECTION = "PersistentConnection"
-    DESK_PHONE_NUMBER = "DeskPhoneNumber"
-    AFTER_CONTACT_WORK_TIME_LIMIT = "AfterContactWorkTimeLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_accept": "AutoAccept",
         "phone_type": "PhoneType",
@@ -57,10 +45,6 @@ class UserPhoneConfig(PropertyType):
 
 @dataclass
 class UserProficiency(PropertyType):
-    ATTRIBUTE_VALUE = "AttributeValue"
-    ATTRIBUTE_NAME = "AttributeName"
-    LEVEL = "Level"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_name": "AttributeName",

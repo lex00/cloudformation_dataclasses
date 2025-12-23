@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LockConfigurationType(PropertyType):
-    CHANGEABLE_FOR_DAYS = "ChangeableForDays"
-    MAX_RETENTION_DAYS = "MaxRetentionDays"
-    MIN_RETENTION_DAYS = "MinRetentionDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "changeable_for_days": "ChangeableForDays",
         "max_retention_days": "MaxRetentionDays",
@@ -28,9 +24,6 @@ class LockConfigurationType(PropertyType):
 
 @dataclass
 class NotificationObjectType(PropertyType):
-    SNS_TOPIC_ARN = "SNSTopicArn"
-    BACKUP_VAULT_EVENTS = "BackupVaultEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "backup_vault_events": "BackupVaultEvents",

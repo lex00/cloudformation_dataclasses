@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVSChat
@@ -114,10 +114,6 @@ class LoggingConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVSChat::LoggingConfiguration"
     name_field: ClassVar[str] = "name"
-    DESTINATION_CONFIGURATION = "DestinationConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_configuration": "DestinationConfiguration",
         "tags": "Tags",
@@ -151,13 +147,6 @@ class Room(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IVSChat::Room"
     name_field: ClassVar[str] = "name"
-    MAXIMUM_MESSAGE_RATE_PER_SECOND = "MaximumMessageRatePerSecond"
-    MAXIMUM_MESSAGE_LENGTH = "MaximumMessageLength"
-    MESSAGE_REVIEW_HANDLER = "MessageReviewHandler"
-    LOGGING_CONFIGURATION_IDENTIFIERS = "LoggingConfigurationIdentifiers"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_message_rate_per_second": "MaximumMessageRatePerSecond",
         "maximum_message_length": "MaximumMessageLength",

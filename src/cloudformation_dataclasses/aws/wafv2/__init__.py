@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFv2
@@ -1094,13 +1094,6 @@ class IPSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFv2::IPSet"
     name_field: ClassVar[str] = "name"
-    ADDRESSES = "Addresses"
-    DESCRIPTION = "Description"
-    SCOPE = "Scope"
-    IP_ADDRESS_VERSION = "IPAddressVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "addresses": "Addresses",
         "description": "Description",
@@ -1134,11 +1127,6 @@ class LoggingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::LoggingConfiguration"
-    RESOURCE_ARN = "ResourceArn"
-    LOG_DESTINATION_CONFIGS = "LogDestinationConfigs"
-    REDACTED_FIELDS = "RedactedFields"
-    LOGGING_FILTER = "LoggingFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "log_destination_configs": "LogDestinationConfigs",
@@ -1164,12 +1152,6 @@ class RegexPatternSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFv2::RegexPatternSet"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    REGULAR_EXPRESSION_LIST = "RegularExpressionList"
-    SCOPE = "Scope"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "regular_expression_list": "RegularExpressionList",
@@ -1202,17 +1184,6 @@ class RuleGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFv2::RuleGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    SCOPE = "Scope"
-    CAPACITY = "Capacity"
-    AVAILABLE_LABELS = "AvailableLabels"
-    CUSTOM_RESPONSE_BODIES = "CustomResponseBodies"
-    CONSUMED_LABELS = "ConsumedLabels"
-    RULES = "Rules"
-    VISIBILITY_CONFIG = "VisibilityConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "scope": "Scope",
@@ -1260,22 +1231,6 @@ class WebACL(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::WAFv2::WebACL"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ASSOCIATION_CONFIG = "AssociationConfig"
-    CHALLENGE_CONFIG = "ChallengeConfig"
-    DATA_PROTECTION_CONFIG = "DataProtectionConfig"
-    ON_SOURCE_D_DO_S_PROTECTION_CONFIG = "OnSourceDDoSProtectionConfig"
-    RULES = "Rules"
-    VISIBILITY_CONFIG = "VisibilityConfig"
-    NAME = "Name"
-    TOKEN_DOMAINS = "TokenDomains"
-    DEFAULT_ACTION = "DefaultAction"
-    SCOPE = "Scope"
-    APPLICATION_CONFIG = "ApplicationConfig"
-    CUSTOM_RESPONSE_BODIES = "CustomResponseBodies"
-    CAPTCHA_CONFIG = "CaptchaConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "association_config": "AssociationConfig",
@@ -1337,9 +1292,6 @@ class WebACLAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::WebACLAssociation"
-    RESOURCE_ARN = "ResourceArn"
-    WEB_ACL_ARN = "WebACLArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "web_acl_arn": "WebACLArn",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AlertTarget(PropertyType):
-    ALERT_TARGET_ARN = "AlertTargetArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alert_target_arn": "AlertTargetArn",
         "role_arn": "RoleArn",
@@ -25,13 +22,6 @@ class AlertTarget(PropertyType):
 
 @dataclass
 class Behavior(PropertyType):
-    EXPORT_METRIC = "ExportMetric"
-    SUPPRESS_ALERTS = "SuppressAlerts"
-    METRIC = "Metric"
-    CRITERIA = "Criteria"
-    METRIC_DIMENSION = "MetricDimension"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "export_metric": "ExportMetric",
         "suppress_alerts": "SuppressAlerts",
@@ -51,14 +41,6 @@ class Behavior(PropertyType):
 
 @dataclass
 class BehaviorCriteria(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    ML_DETECTION_CONFIG = "MlDetectionConfig"
-    VALUE = "Value"
-    STATISTICAL_THRESHOLD = "StatisticalThreshold"
-    DURATION_SECONDS = "DurationSeconds"
-    CONSECUTIVE_DATAPOINTS_TO_ALARM = "ConsecutiveDatapointsToAlarm"
-    CONSECUTIVE_DATAPOINTS_TO_CLEAR = "ConsecutiveDatapointsToClear"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "ml_detection_config": "MlDetectionConfig",
@@ -80,8 +62,6 @@ class BehaviorCriteria(PropertyType):
 
 @dataclass
 class MachineLearningDetectionConfig(PropertyType):
-    CONFIDENCE_LEVEL = "ConfidenceLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "confidence_level": "ConfidenceLevel",
     }
@@ -91,9 +71,6 @@ class MachineLearningDetectionConfig(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    OPERATOR = "Operator"
-    DIMENSION_NAME = "DimensionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "dimension_name": "DimensionName",
@@ -105,10 +82,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class MetricToRetain(PropertyType):
-    EXPORT_METRIC = "ExportMetric"
-    METRIC = "Metric"
-    METRIC_DIMENSION = "MetricDimension"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "export_metric": "ExportMetric",
         "metric": "Metric",
@@ -122,13 +95,6 @@ class MetricToRetain(PropertyType):
 
 @dataclass
 class MetricValue(PropertyType):
-    NUMBERS = "Numbers"
-    NUMBER = "Number"
-    PORTS = "Ports"
-    COUNT = "Count"
-    STRINGS = "Strings"
-    CIDRS = "Cidrs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numbers": "Numbers",
         "number": "Number",
@@ -148,9 +114,6 @@ class MetricValue(PropertyType):
 
 @dataclass
 class MetricsExportConfig(PropertyType):
-    MQTT_TOPIC = "MqttTopic"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "role_arn": "RoleArn",
@@ -162,8 +125,6 @@ class MetricsExportConfig(PropertyType):
 
 @dataclass
 class StatisticalThreshold(PropertyType):
-    STATISTIC = "Statistic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistic": "Statistic",
     }

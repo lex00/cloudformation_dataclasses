@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OpenSearchResourceConfig(PropertyType):
-    DASHBOARD_VIEWER_PRINCIPALS = "DashboardViewerPrincipals"
-    APPLICATION_ARN = "ApplicationARN"
-    KMS_KEY_ARN = "KmsKeyArn"
-    RETENTION_DAYS = "RetentionDays"
-    DATA_SOURCE_ROLE_ARN = "DataSourceRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_viewer_principals": "DashboardViewerPrincipals",
         "application_arn": "ApplicationARN",
@@ -34,8 +28,6 @@ class OpenSearchResourceConfig(PropertyType):
 
 @dataclass
 class ResourceConfig(PropertyType):
-    OPEN_SEARCH_RESOURCE_CONFIG = "OpenSearchResourceConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_search_resource_config": "OpenSearchResourceConfig",
     }

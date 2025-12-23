@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:08
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkFirewall
@@ -486,20 +486,6 @@ class Firewall(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::Firewall"
     name_field: ClassVar[str] = "firewall_name"
-    FIREWALL_POLICY_ARN = "FirewallPolicyArn"
-    DESCRIPTION = "Description"
-    SUBNET_CHANGE_PROTECTION = "SubnetChangeProtection"
-    TRANSIT_GATEWAY_ID = "TransitGatewayId"
-    AVAILABILITY_ZONE_CHANGE_PROTECTION = "AvailabilityZoneChangeProtection"
-    FIREWALL_NAME = "FirewallName"
-    VPC_ID = "VpcId"
-    DELETE_PROTECTION = "DeleteProtection"
-    FIREWALL_POLICY_CHANGE_PROTECTION = "FirewallPolicyChangeProtection"
-    AVAILABILITY_ZONE_MAPPINGS = "AvailabilityZoneMappings"
-    ENABLED_ANALYSIS_TYPES = "EnabledAnalysisTypes"
-    TAGS = "Tags"
-    SUBNET_MAPPINGS = "SubnetMappings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firewall_policy_arn": "FirewallPolicyArn",
         "description": "Description",
@@ -558,11 +544,6 @@ class FirewallPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::FirewallPolicy"
     name_field: ClassVar[str] = "firewall_policy_name"
-    DESCRIPTION = "Description"
-    FIREWALL_POLICY_NAME = "FirewallPolicyName"
-    TAGS = "Tags"
-    FIREWALL_POLICY = "FirewallPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "firewall_policy_name": "FirewallPolicyName",
@@ -593,11 +574,6 @@ class LoggingConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::LoggingConfiguration"
     name_field: ClassVar[str] = "firewall_name"
-    ENABLE_MONITORING_DASHBOARD = "EnableMonitoringDashboard"
-    FIREWALL_NAME = "FirewallName"
-    FIREWALL_ARN = "FirewallArn"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_monitoring_dashboard": "EnableMonitoringDashboard",
         "firewall_name": "FirewallName",
@@ -617,14 +593,6 @@ class RuleGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::RuleGroup"
     name_field: ClassVar[str] = "rule_group_name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CAPACITY = "Capacity"
-    RULE_GROUP_NAME = "RuleGroupName"
-    SUMMARY_CONFIGURATION = "SummaryConfiguration"
-    RULE_GROUP = "RuleGroup"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -661,11 +629,6 @@ class TLSInspectionConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::TLSInspectionConfiguration"
     name_field: ClassVar[str] = "tls_inspection_configuration_name"
-    DESCRIPTION = "Description"
-    TLS_INSPECTION_CONFIGURATION_NAME = "TLSInspectionConfigurationName"
-    TAGS = "Tags"
-    TLS_INSPECTION_CONFIGURATION = "TLSInspectionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tls_inspection_configuration_name": "TLSInspectionConfigurationName",
@@ -695,12 +658,6 @@ class VpcEndpointAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::VpcEndpointAssociation"
-    SUBNET_MAPPING = "SubnetMapping"
-    DESCRIPTION = "Description"
-    VPC_ID = "VpcId"
-    FIREWALL_ARN = "FirewallArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_mapping": "SubnetMapping",
         "description": "Description",

@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FieldConfig(PropertyType):
-    VALIDATIONS = "Validations"
-    INPUT_TYPE = "InputType"
-    POSITION = "Position"
-    LABEL = "Label"
-    EXCLUDED = "Excluded"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validations": "Validations",
         "input_type": "InputType",
@@ -34,23 +28,6 @@ class FieldConfig(PropertyType):
 
 @dataclass
 class FieldInputConfig(PropertyType):
-    READ_ONLY = "ReadOnly"
-    PLACEHOLDER = "Placeholder"
-    FILE_UPLOADER_CONFIG = "FileUploaderConfig"
-    IS_ARRAY = "IsArray"
-    VALUE_MAPPINGS = "ValueMappings"
-    DEFAULT_COUNTRY_CODE = "DefaultCountryCode"
-    MAX_VALUE = "MaxValue"
-    STEP = "Step"
-    NAME = "Name"
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTIVE_TEXT = "DescriptiveText"
-    TYPE = "Type"
-    REQUIRED = "Required"
-    MIN_VALUE = "MinValue"
-    VALUE = "Value"
-    DEFAULT_CHECKED = "DefaultChecked"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "placeholder": "Placeholder",
@@ -90,10 +67,6 @@ class FieldInputConfig(PropertyType):
 
 @dataclass
 class FieldPosition(PropertyType):
-    BELOW = "Below"
-    RIGHT_OF = "RightOf"
-    FIXED = "Fixed"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "below": "Below",
         "right_of": "RightOf",
@@ -107,11 +80,6 @@ class FieldPosition(PropertyType):
 
 @dataclass
 class FieldValidationConfiguration(PropertyType):
-    TYPE = "Type"
-    VALIDATION_MESSAGE = "ValidationMessage"
-    STR_VALUES = "StrValues"
-    NUM_VALUES = "NumValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "validation_message": "ValidationMessage",
@@ -127,13 +95,6 @@ class FieldValidationConfiguration(PropertyType):
 
 @dataclass
 class FileUploaderFieldConfig(PropertyType):
-    IS_RESUMABLE = "IsResumable"
-    SHOW_THUMBNAILS = "ShowThumbnails"
-    ACCEPTED_FILE_TYPES = "AcceptedFileTypes"
-    MAX_FILE_COUNT = "MaxFileCount"
-    MAX_SIZE = "MaxSize"
-    ACCESS_LEVEL = "AccessLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_resumable": "IsResumable",
         "show_thumbnails": "ShowThumbnails",
@@ -153,10 +114,6 @@ class FileUploaderFieldConfig(PropertyType):
 
 @dataclass
 class FormButton(PropertyType):
-    POSITION = "Position"
-    CHILDREN = "Children"
-    EXCLUDED = "Excluded"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "children": "Children",
@@ -170,11 +127,6 @@ class FormButton(PropertyType):
 
 @dataclass
 class FormCTA(PropertyType):
-    POSITION = "Position"
-    CANCEL = "Cancel"
-    SUBMIT = "Submit"
-    CLEAR = "Clear"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "cancel": "Cancel",
@@ -190,9 +142,6 @@ class FormCTA(PropertyType):
 
 @dataclass
 class FormDataTypeConfig(PropertyType):
-    DATA_SOURCE_TYPE = "DataSourceType"
-    DATA_TYPE_NAME = "DataTypeName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_type": "DataSourceType",
         "data_type_name": "DataTypeName",
@@ -204,9 +153,6 @@ class FormDataTypeConfig(PropertyType):
 
 @dataclass
 class FormInputBindingPropertiesValue(PropertyType):
-    TYPE = "Type"
-    BINDING_PROPERTIES = "BindingProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "binding_properties": "BindingProperties",
@@ -218,8 +164,6 @@ class FormInputBindingPropertiesValue(PropertyType):
 
 @dataclass
 class FormInputBindingPropertiesValueProperties(PropertyType):
-    MODEL = "Model"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model": "Model",
     }
@@ -229,10 +173,6 @@ class FormInputBindingPropertiesValueProperties(PropertyType):
 
 @dataclass
 class FormInputValueProperty(PropertyType):
-    CONCAT = "Concat"
-    BINDING_PROPERTIES = "BindingProperties"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concat": "Concat",
         "binding_properties": "BindingProperties",
@@ -246,9 +186,6 @@ class FormInputValueProperty(PropertyType):
 
 @dataclass
 class FormInputValuePropertyBindingProperties(PropertyType):
-    FIELD = "Field"
-    PROPERTY = "Property"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "property": "Property",
@@ -260,10 +197,6 @@ class FormInputValuePropertyBindingProperties(PropertyType):
 
 @dataclass
 class FormStyle(PropertyType):
-    VERTICAL_GAP = "VerticalGap"
-    OUTER_PADDING = "OuterPadding"
-    HORIZONTAL_GAP = "HorizontalGap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vertical_gap": "VerticalGap",
         "outer_padding": "OuterPadding",
@@ -277,9 +210,6 @@ class FormStyle(PropertyType):
 
 @dataclass
 class FormStyleConfig(PropertyType):
-    VALUE = "Value"
-    TOKEN_REFERENCE = "TokenReference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "token_reference": "TokenReference",
@@ -291,13 +221,6 @@ class FormStyleConfig(PropertyType):
 
 @dataclass
 class SectionalElement(PropertyType):
-    TYPE = "Type"
-    POSITION = "Position"
-    TEXT = "Text"
-    LEVEL = "Level"
-    ORIENTATION = "Orientation"
-    EXCLUDED = "Excluded"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "position": "Position",
@@ -317,9 +240,6 @@ class SectionalElement(PropertyType):
 
 @dataclass
 class ValueMapping(PropertyType):
-    DISPLAY_VALUE = "DisplayValue"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_value": "DisplayValue",
         "value": "Value",
@@ -331,9 +251,6 @@ class ValueMapping(PropertyType):
 
 @dataclass
 class ValueMappings(PropertyType):
-    BINDING_PROPERTIES = "BindingProperties"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "binding_properties": "BindingProperties",
         "values": "Values",

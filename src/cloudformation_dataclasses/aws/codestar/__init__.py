@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:49
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeStar
@@ -35,15 +35,6 @@ class GitHubRepository(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CodeStar::GitHubRepository"
     name_field: ClassVar[str] = "repository_name"
-    ENABLE_ISSUES = "EnableIssues"
-    CONNECTION_ARN = "ConnectionArn"
-    REPOSITORY_NAME = "RepositoryName"
-    REPOSITORY_ACCESS_TOKEN = "RepositoryAccessToken"
-    REPOSITORY_OWNER = "RepositoryOwner"
-    IS_PRIVATE = "IsPrivate"
-    CODE = "Code"
-    REPOSITORY_DESCRIPTION = "RepositoryDescription"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_issues": "EnableIssues",
         "connection_arn": "ConnectionArn",

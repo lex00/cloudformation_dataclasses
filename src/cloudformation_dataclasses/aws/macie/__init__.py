@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Macie
@@ -787,11 +787,6 @@ class AllowList(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Macie::AllowList"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CRITERIA = "Criteria"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "criteria": "Criteria",
@@ -827,14 +822,6 @@ class CustomDataIdentifier(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Macie::CustomDataIdentifier"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KEYWORDS = "Keywords"
-    REGEX = "Regex"
-    IGNORE_WORDS = "IgnoreWords"
-    TAGS = "Tags"
-    NAME = "Name"
-    MAXIMUM_MATCH_DISTANCE = "MaximumMatchDistance"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "keywords": "Keywords",
@@ -871,13 +858,6 @@ class FindingsFilter(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Macie::FindingsFilter"
     name_field: ClassVar[str] = "name"
-    ACTION = "Action"
-    DESCRIPTION = "Description"
-    POSITION = "Position"
-    FINDING_CRITERIA = "FindingCriteria"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "description": "Description",
@@ -911,9 +891,6 @@ class Session(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie"""
 
     resource_type: ClassVar[str] = "AWS::Macie::Session"
-    STATUS = "Status"
-    FINDING_PUBLISHING_FREQUENCY = "FindingPublishingFrequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "finding_publishing_frequency": "FindingPublishingFrequency",

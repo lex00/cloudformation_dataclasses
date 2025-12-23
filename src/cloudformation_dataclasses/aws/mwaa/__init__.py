@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MWAA
@@ -198,33 +198,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MWAA::Environment"
     name_field: ClassVar[str] = "name"
-    AIRFLOW_CONFIGURATION_OPTIONS = "AirflowConfigurationOptions"
-    PLUGINS_S3_PATH = "PluginsS3Path"
-    WORKER_REPLACEMENT_STRATEGY = "WorkerReplacementStrategy"
-    STARTUP_SCRIPT_S3_PATH = "StartupScriptS3Path"
-    NAME = "Name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    STARTUP_SCRIPT_S3_OBJECT_VERSION = "StartupScriptS3ObjectVersion"
-    DAG_S3_PATH = "DagS3Path"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    WEBSERVER_ACCESS_MODE = "WebserverAccessMode"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    KMS_KEY = "KmsKey"
-    TAGS = "Tags"
-    MAX_WORKERS = "MaxWorkers"
-    ENVIRONMENT_CLASS = "EnvironmentClass"
-    SCHEDULERS = "Schedulers"
-    REQUIREMENTS_S3_PATH = "RequirementsS3Path"
-    MIN_WORKERS = "MinWorkers"
-    AIRFLOW_VERSION = "AirflowVersion"
-    REQUIREMENTS_S3_OBJECT_VERSION = "RequirementsS3ObjectVersion"
-    SOURCE_BUCKET_ARN = "SourceBucketArn"
-    WEEKLY_MAINTENANCE_WINDOW_START = "WeeklyMaintenanceWindowStart"
-    PLUGINS_S3_OBJECT_VERSION = "PluginsS3ObjectVersion"
-    ENDPOINT_MANAGEMENT = "EndpointManagement"
-    MAX_WEBSERVERS = "MaxWebservers"
-    MIN_WEBSERVERS = "MinWebservers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "airflow_configuration_options": "AirflowConfigurationOptions",
         "plugins_s3_path": "PluginsS3Path",

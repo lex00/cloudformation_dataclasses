@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnalysisParameter(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "type_": "Type",
@@ -28,8 +24,6 @@ class AnalysisParameter(PropertyType):
 
 @dataclass
 class AnalysisSchema(PropertyType):
-    REFERENCED_TABLES = "ReferencedTables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "referenced_tables": "ReferencedTables",
     }
@@ -39,9 +33,6 @@ class AnalysisSchema(PropertyType):
 
 @dataclass
 class AnalysisSource(PropertyType):
-    ARTIFACTS = "Artifacts"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifacts": "Artifacts",
         "text": "Text",
@@ -53,8 +44,6 @@ class AnalysisSource(PropertyType):
 
 @dataclass
 class AnalysisSourceMetadata(PropertyType):
-    ARTIFACTS = "Artifacts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifacts": "Artifacts",
     }
@@ -64,8 +53,6 @@ class AnalysisSourceMetadata(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifact(PropertyType):
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location": "Location",
     }
@@ -75,9 +62,6 @@ class AnalysisTemplateArtifact(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifactMetadata(PropertyType):
-    ENTRY_POINT_HASH = "EntryPointHash"
-    ADDITIONAL_ARTIFACT_HASHES = "AdditionalArtifactHashes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_point_hash": "EntryPointHash",
         "additional_artifact_hashes": "AdditionalArtifactHashes",
@@ -89,10 +73,6 @@ class AnalysisTemplateArtifactMetadata(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifacts(PropertyType):
-    ADDITIONAL_ARTIFACTS = "AdditionalArtifacts"
-    ENTRY_POINT = "EntryPoint"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_artifacts": "AdditionalArtifacts",
         "entry_point": "EntryPoint",
@@ -106,8 +86,6 @@ class AnalysisTemplateArtifacts(PropertyType):
 
 @dataclass
 class ColumnClassificationDetails(PropertyType):
-    COLUMN_MAPPING = "ColumnMapping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_mapping": "ColumnMapping",
     }
@@ -117,8 +95,6 @@ class ColumnClassificationDetails(PropertyType):
 
 @dataclass
 class ErrorMessageConfiguration(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -128,8 +104,6 @@ class ErrorMessageConfiguration(PropertyType):
 
 @dataclass
 class Hash(PropertyType):
-    SHA256 = "Sha256"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sha256": "Sha256",
     }
@@ -139,10 +113,6 @@ class Hash(PropertyType):
 
 @dataclass
 class MLSyntheticDataParameters(PropertyType):
-    COLUMN_CLASSIFICATION = "ColumnClassification"
-    EPSILON = "Epsilon"
-    MAX_MEMBERSHIP_INFERENCE_ATTACK_SCORE = "MaxMembershipInferenceAttackScore"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_classification": "ColumnClassification",
         "epsilon": "Epsilon",
@@ -156,9 +126,6 @@ class MLSyntheticDataParameters(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -170,10 +137,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SyntheticDataColumnProperties(PropertyType):
-    COLUMN_NAME = "ColumnName"
-    COLUMN_TYPE = "ColumnType"
-    IS_PREDICTIVE_VALUE = "IsPredictiveValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_type": "ColumnType",
@@ -187,8 +150,6 @@ class SyntheticDataColumnProperties(PropertyType):
 
 @dataclass
 class SyntheticDataParameters(PropertyType):
-    ML_SYNTHETIC_DATA_PARAMETERS = "MlSyntheticDataParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_synthetic_data_parameters": "MlSyntheticDataParameters",
     }

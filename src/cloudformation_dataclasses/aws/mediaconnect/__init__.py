@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConnect
@@ -711,14 +711,6 @@ class Bridge(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Bridge"
     name_field: ClassVar[str] = "name"
-    SOURCE_FAILOVER_CONFIG = "SourceFailoverConfig"
-    INGRESS_GATEWAY_BRIDGE = "IngressGatewayBridge"
-    EGRESS_GATEWAY_BRIDGE = "EgressGatewayBridge"
-    OUTPUTS = "Outputs"
-    PLACEMENT_ARN = "PlacementArn"
-    SOURCES = "Sources"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_failover_config": "SourceFailoverConfig",
         "ingress_gateway_bridge": "IngressGatewayBridge",
@@ -755,10 +747,6 @@ class BridgeOutput(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::BridgeOutput"
     name_field: ClassVar[str] = "name"
-    BRIDGE_ARN = "BridgeArn"
-    NETWORK_OUTPUT = "NetworkOutput"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bridge_arn": "BridgeArn",
         "network_output": "NetworkOutput",
@@ -776,11 +764,6 @@ class BridgeSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::BridgeSource"
     name_field: ClassVar[str] = "name"
-    NETWORK_SOURCE = "NetworkSource"
-    BRIDGE_ARN = "BridgeArn"
-    FLOW_SOURCE = "FlowSource"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_source": "NetworkSource",
         "bridge_arn": "BridgeArn",
@@ -800,17 +783,6 @@ class Flow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Flow"
     name_field: ClassVar[str] = "name"
-    SOURCE_MONITORING_CONFIG = "SourceMonitoringConfig"
-    SOURCE_FAILOVER_CONFIG = "SourceFailoverConfig"
-    VPC_INTERFACES = "VpcInterfaces"
-    MEDIA_STREAMS = "MediaStreams"
-    NDI_CONFIG = "NdiConfig"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    MAINTENANCE = "Maintenance"
-    SOURCE = "Source"
-    FLOW_SIZE = "FlowSize"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_monitoring_config": "SourceMonitoringConfig",
         "source_failover_config": "SourceFailoverConfig",
@@ -878,14 +850,6 @@ class FlowEntitlement(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowEntitlement"
     name_field: ClassVar[str] = "name"
-    DATA_TRANSFER_SUBSCRIBER_FEE_PERCENT = "DataTransferSubscriberFeePercent"
-    DESCRIPTION = "Description"
-    ENCRYPTION = "Encryption"
-    SUBSCRIBERS = "Subscribers"
-    FLOW_ARN = "FlowArn"
-    ENTITLEMENT_STATUS = "EntitlementStatus"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_transfer_subscriber_fee_percent": "DataTransferSubscriberFeePercent",
         "description": "Description",
@@ -917,27 +881,6 @@ class FlowOutput(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowOutput"
     name_field: ClassVar[str] = "name"
-    DESTINATION = "Destination"
-    SMOOTHING_LATENCY = "SmoothingLatency"
-    STREAM_ID = "StreamId"
-    DESCRIPTION = "Description"
-    NDI_SPEED_HQ_QUALITY = "NdiSpeedHqQuality"
-    PORT = "Port"
-    REMOTE_ID = "RemoteId"
-    MEDIA_STREAM_OUTPUT_CONFIGURATIONS = "MediaStreamOutputConfigurations"
-    ENCRYPTION = "Encryption"
-    ROUTER_INTEGRATION_STATE = "RouterIntegrationState"
-    OUTPUT_STATUS = "OutputStatus"
-    NAME = "Name"
-    VPC_INTERFACE_ATTACHMENT = "VpcInterfaceAttachment"
-    MIN_LATENCY = "MinLatency"
-    ROUTER_INTEGRATION_TRANSIT_ENCRYPTION = "RouterIntegrationTransitEncryption"
-    PROTOCOL = "Protocol"
-    FLOW_ARN = "FlowArn"
-    NDI_PROGRAM_NAME = "NdiProgramName"
-    MAX_LATENCY = "MaxLatency"
-    CIDR_ALLOW_LIST = "CidrAllowList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "smoothing_latency": "SmoothingLatency",
@@ -995,25 +938,6 @@ class FlowSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowSource"
     name_field: ClassVar[str] = "name"
-    STREAM_ID = "StreamId"
-    DESCRIPTION = "Description"
-    SENDER_IP_ADDRESS = "SenderIpAddress"
-    INGEST_PORT = "IngestPort"
-    SENDER_CONTROL_PORT = "SenderControlPort"
-    DECRYPTION = "Decryption"
-    GATEWAY_BRIDGE_SOURCE = "GatewayBridgeSource"
-    SOURCE_LISTENER_ADDRESS = "SourceListenerAddress"
-    SOURCE_LISTENER_PORT = "SourceListenerPort"
-    NAME = "Name"
-    WHITELIST_CIDR = "WhitelistCidr"
-    ENTITLEMENT_ARN = "EntitlementArn"
-    MIN_LATENCY = "MinLatency"
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-    MAX_BITRATE = "MaxBitrate"
-    PROTOCOL = "Protocol"
-    FLOW_ARN = "FlowArn"
-    MAX_LATENCY = "MaxLatency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_id": "StreamId",
         "description": "Description",
@@ -1077,12 +1001,6 @@ class FlowVpcInterface(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowVpcInterface"
     name_field: ClassVar[str] = "name"
-    SUBNET_ID = "SubnetId"
-    FLOW_ARN = "FlowArn"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id": "SubnetId",
         "flow_arn": "FlowArn",
@@ -1110,10 +1028,6 @@ class Gateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Gateway"
     name_field: ClassVar[str] = "name"
-    NETWORKS = "Networks"
-    EGRESS_CIDR_BLOCKS = "EgressCidrBlocks"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "networks": "Networks",
         "egress_cidr_blocks": "EgressCidrBlocks",
@@ -1142,17 +1056,6 @@ class RouterInput(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterInput"
     name_field: ClassVar[str] = "name"
-    ROUTING_SCOPE = "RoutingScope"
-    TRANSIT_ENCRYPTION = "TransitEncryption"
-    CONFIGURATION = "Configuration"
-    TIER = "Tier"
-    REGION_NAME = "RegionName"
-    MAXIMUM_BITRATE = "MaximumBitrate"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    MAINTENANCE_CONFIGURATION = "MaintenanceConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "routing_scope": "RoutingScope",
         "transit_encryption": "TransitEncryption",
@@ -1230,11 +1133,6 @@ class RouterNetworkInterface(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterNetworkInterface"
     name_field: ClassVar[str] = "name"
-    CONFIGURATION = "Configuration"
-    REGION_NAME = "RegionName"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "region_name": "RegionName",
@@ -1295,16 +1193,6 @@ class RouterOutput(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterOutput"
     name_field: ClassVar[str] = "name"
-    ROUTING_SCOPE = "RoutingScope"
-    CONFIGURATION = "Configuration"
-    TIER = "Tier"
-    REGION_NAME = "RegionName"
-    MAXIMUM_BITRATE = "MaximumBitrate"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    MAINTENANCE_CONFIGURATION = "MaintenanceConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "routing_scope": "RoutingScope",
         "configuration": "Configuration",

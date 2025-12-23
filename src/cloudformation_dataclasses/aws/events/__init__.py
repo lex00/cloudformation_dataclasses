@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Events
@@ -271,13 +271,6 @@ class ApiDestination(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::ApiDestination"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONNECTION_ARN = "ConnectionArn"
-    INVOCATION_ENDPOINT = "InvocationEndpoint"
-    HTTP_METHOD = "HttpMethod"
-    NAME = "Name"
-    INVOCATION_RATE_LIMIT_PER_SECOND = "InvocationRateLimitPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "connection_arn": "ConnectionArn",
@@ -312,13 +305,6 @@ class Archive(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::Archive"
     name_field: ClassVar[str] = "archive_name"
-    EVENT_PATTERN = "EventPattern"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    SOURCE_ARN = "SourceArn"
-    ARCHIVE_NAME = "ArchiveName"
-    RETENTION_DAYS = "RetentionDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_pattern": "EventPattern",
         "kms_key_identifier": "KmsKeyIdentifier",
@@ -348,13 +334,6 @@ class Connection(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::Connection"
     name_field: ClassVar[str] = "name"
-    AUTH_PARAMETERS = "AuthParameters"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    INVOCATION_CONNECTIVITY_PARAMETERS = "InvocationConnectivityParameters"
-    AUTHORIZATION_TYPE = "AuthorizationType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_parameters": "AuthParameters",
         "kms_key_identifier": "KmsKeyIdentifier",
@@ -404,13 +383,6 @@ class Endpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::Endpoint"
     name_field: ClassVar[str] = "name"
-    EVENT_BUSES = "EventBuses"
-    DESCRIPTION = "Description"
-    REPLICATION_CONFIG = "ReplicationConfig"
-    ROUTING_CONFIG = "RoutingConfig"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_buses": "EventBuses",
         "description": "Description",
@@ -460,15 +432,6 @@ class EventBus(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::EventBus"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
-    DESCRIPTION = "Description"
-    EVENT_SOURCE_NAME = "EventSourceName"
-    DEAD_LETTER_CONFIG = "DeadLetterConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-    LOG_CONFIG = "LogConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "kms_key_identifier": "KmsKeyIdentifier",
@@ -507,10 +470,6 @@ class EventBusPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::EventBusPolicy"
     name_field: ClassVar[str] = "event_bus_name"
-    EVENT_BUS_NAME = "EventBusName"
-    STATEMENT_ID = "StatementId"
-    STATEMENT = "Statement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_name": "EventBusName",
         "statement_id": "StatementId",
@@ -528,16 +487,6 @@ class Rule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Events::Rule"
     name_field: ClassVar[str] = "name"
-    EVENT_BUS_NAME = "EventBusName"
-    EVENT_PATTERN = "EventPattern"
-    SCHEDULE_EXPRESSION = "ScheduleExpression"
-    DESCRIPTION = "Description"
-    STATE = "State"
-    TARGETS = "Targets"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_name": "EventBusName",
         "event_pattern": "EventPattern",

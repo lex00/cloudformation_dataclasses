@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoDeployment(PropertyType):
-    DEPENDS_ON = "DependsOn"
-    ENABLED = "Enabled"
-    RETAIN_STACKS_ON_ACCOUNT_REMOVAL = "RetainStacksOnAccountRemoval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "enabled": "Enabled",
@@ -28,11 +24,6 @@ class AutoDeployment(PropertyType):
 
 @dataclass
 class DeploymentTargets(PropertyType):
-    ACCOUNT_FILTER_TYPE = "AccountFilterType"
-    ACCOUNTS = "Accounts"
-    ACCOUNTS_URL = "AccountsUrl"
-    ORGANIZATIONAL_UNIT_IDS = "OrganizationalUnitIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_filter_type": "AccountFilterType",
         "accounts": "Accounts",
@@ -48,8 +39,6 @@ class DeploymentTargets(PropertyType):
 
 @dataclass
 class ManagedExecution(PropertyType):
-    ACTIVE = "Active"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active": "Active",
     }
@@ -59,14 +48,6 @@ class ManagedExecution(PropertyType):
 
 @dataclass
 class OperationPreferences(PropertyType):
-    MAX_CONCURRENT_PERCENTAGE = "MaxConcurrentPercentage"
-    REGION_CONCURRENCY_TYPE = "RegionConcurrencyType"
-    MAX_CONCURRENT_COUNT = "MaxConcurrentCount"
-    FAILURE_TOLERANCE_PERCENTAGE = "FailureTolerancePercentage"
-    CONCURRENCY_MODE = "ConcurrencyMode"
-    FAILURE_TOLERANCE_COUNT = "FailureToleranceCount"
-    REGION_ORDER = "RegionOrder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_percentage": "MaxConcurrentPercentage",
         "region_concurrency_type": "RegionConcurrencyType",
@@ -88,9 +69,6 @@ class OperationPreferences(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    PARAMETER_VALUE = "ParameterValue"
-    PARAMETER_KEY = "ParameterKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_key": "ParameterKey",
@@ -102,10 +80,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class StackInstances(PropertyType):
-    PARAMETER_OVERRIDES = "ParameterOverrides"
-    DEPLOYMENT_TARGETS = "DeploymentTargets"
-    REGIONS = "Regions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_overrides": "ParameterOverrides",
         "deployment_targets": "DeploymentTargets",

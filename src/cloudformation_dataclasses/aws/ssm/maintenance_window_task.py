@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchOutputConfig(PropertyType):
-    CLOUD_WATCH_OUTPUT_ENABLED = "CloudWatchOutputEnabled"
-    CLOUD_WATCH_LOG_GROUP_NAME = "CloudWatchLogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_output_enabled": "CloudWatchOutputEnabled",
         "cloud_watch_log_group_name": "CloudWatchLogGroupName",
@@ -25,10 +22,6 @@ class CloudWatchOutputConfig(PropertyType):
 
 @dataclass
 class LoggingInfo(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    REGION = "Region"
-    S3_PREFIX = "S3Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "region": "Region",
@@ -42,9 +35,6 @@ class LoggingInfo(PropertyType):
 
 @dataclass
 class MaintenanceWindowAutomationParameters(PropertyType):
-    PARAMETERS = "Parameters"
-    DOCUMENT_VERSION = "DocumentVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "document_version": "DocumentVersion",
@@ -56,10 +46,6 @@ class MaintenanceWindowAutomationParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowLambdaParameters(PropertyType):
-    CLIENT_CONTEXT = "ClientContext"
-    QUALIFIER = "Qualifier"
-    PAYLOAD = "Payload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_context": "ClientContext",
         "qualifier": "Qualifier",
@@ -73,18 +59,6 @@ class MaintenanceWindowLambdaParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowRunCommandParameters(PropertyType):
-    TIMEOUT_SECONDS = "TimeoutSeconds"
-    COMMENT = "Comment"
-    OUTPUT_S3_KEY_PREFIX = "OutputS3KeyPrefix"
-    PARAMETERS = "Parameters"
-    CLOUD_WATCH_OUTPUT_CONFIG = "CloudWatchOutputConfig"
-    DOCUMENT_HASH_TYPE = "DocumentHashType"
-    SERVICE_ROLE_ARN = "ServiceRoleArn"
-    NOTIFICATION_CONFIG = "NotificationConfig"
-    DOCUMENT_VERSION = "DocumentVersion"
-    OUTPUT_S3_BUCKET_NAME = "OutputS3BucketName"
-    DOCUMENT_HASH = "DocumentHash"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_seconds": "TimeoutSeconds",
         "comment": "Comment",
@@ -114,9 +88,6 @@ class MaintenanceWindowRunCommandParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowStepFunctionsParameters(PropertyType):
-    INPUT = "Input"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "name": "Name",
@@ -128,10 +99,6 @@ class MaintenanceWindowStepFunctionsParameters(PropertyType):
 
 @dataclass
 class NotificationConfig(PropertyType):
-    NOTIFICATION_ARN = "NotificationArn"
-    NOTIFICATION_TYPE = "NotificationType"
-    NOTIFICATION_EVENTS = "NotificationEvents"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_arn": "NotificationArn",
         "notification_type": "NotificationType",
@@ -145,9 +112,6 @@ class NotificationConfig(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    VALUES = "Values"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -159,11 +123,6 @@ class Target(PropertyType):
 
 @dataclass
 class TaskInvocationParameters(PropertyType):
-    MAINTENANCE_WINDOW_RUN_COMMAND_PARAMETERS = "MaintenanceWindowRunCommandParameters"
-    MAINTENANCE_WINDOW_AUTOMATION_PARAMETERS = "MaintenanceWindowAutomationParameters"
-    MAINTENANCE_WINDOW_STEP_FUNCTIONS_PARAMETERS = "MaintenanceWindowStepFunctionsParameters"
-    MAINTENANCE_WINDOW_LAMBDA_PARAMETERS = "MaintenanceWindowLambdaParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_window_run_command_parameters": "MaintenanceWindowRunCommandParameters",
         "maintenance_window_automation_parameters": "MaintenanceWindowAutomationParameters",

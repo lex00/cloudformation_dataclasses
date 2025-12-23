@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:18
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecretsManager
@@ -94,10 +94,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secre"""
 
     resource_type: ClassVar[str] = "AWS::SecretsManager::ResourcePolicy"
-    BLOCK_PUBLIC_POLICY = "BlockPublicPolicy"
-    SECRET_ID = "SecretId"
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block_public_policy": "BlockPublicPolicy",
         "secret_id": "SecretId",
@@ -120,14 +116,6 @@ class RotationSchedule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secre"""
 
     resource_type: ClassVar[str] = "AWS::SecretsManager::RotationSchedule"
-    HOSTED_ROTATION_LAMBDA = "HostedRotationLambda"
-    SECRET_ID = "SecretId"
-    EXTERNAL_SECRET_ROTATION_METADATA = "ExternalSecretRotationMetadata"
-    EXTERNAL_SECRET_ROTATION_ROLE_ARN = "ExternalSecretRotationRoleArn"
-    ROTATE_IMMEDIATELY_ON_UPDATE = "RotateImmediatelyOnUpdate"
-    ROTATION_LAMBDA_ARN = "RotationLambdaARN"
-    ROTATION_RULES = "RotationRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hosted_rotation_lambda": "HostedRotationLambda",
         "secret_id": "SecretId",
@@ -159,15 +147,6 @@ class Secret(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecretsManager::Secret"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    SECRET_STRING = "SecretString"
-    GENERATE_SECRET_STRING = "GenerateSecretString"
-    REPLICA_REGIONS = "ReplicaRegions"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -200,10 +179,6 @@ class SecretTargetAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secre"""
 
     resource_type: ClassVar[str] = "AWS::SecretsManager::SecretTargetAttachment"
-    SECRET_ID = "SecretId"
-    TARGET_TYPE = "TargetType"
-    TARGET_ID = "TargetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_id": "SecretId",
         "target_type": "TargetType",

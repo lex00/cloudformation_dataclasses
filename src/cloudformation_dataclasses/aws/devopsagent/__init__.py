@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsAgent
@@ -35,9 +35,6 @@ class AgentSpace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DevOpsAgent::AgentSpace"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "name": "Name",
@@ -73,11 +70,6 @@ class Association(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devop"""
 
     resource_type: ClassVar[str] = "AWS::DevOpsAgent::Association"
-    CONFIGURATION = "Configuration"
-    LINKED_ASSOCIATION_IDS = "LinkedAssociationIds"
-    AGENT_SPACE_ID = "AgentSpaceId"
-    SERVICE_ID = "ServiceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "linked_association_ids": "LinkedAssociationIds",

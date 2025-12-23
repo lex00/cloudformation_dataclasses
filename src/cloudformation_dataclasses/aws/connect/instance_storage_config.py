@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-    KEY_ID = "KeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "key_id": "KeyId",
@@ -25,8 +22,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class KinesisFirehoseConfig(PropertyType):
-    FIREHOSE_ARN = "FirehoseArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_arn": "FirehoseArn",
     }
@@ -36,8 +31,6 @@ class KinesisFirehoseConfig(PropertyType):
 
 @dataclass
 class KinesisStreamConfig(PropertyType):
-    STREAM_ARN = "StreamArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
     }
@@ -47,10 +40,6 @@ class KinesisStreamConfig(PropertyType):
 
 @dataclass
 class KinesisVideoStreamConfig(PropertyType):
-    PREFIX = "Prefix"
-    RETENTION_PERIOD_HOURS = "RetentionPeriodHours"
-    ENCRYPTION_CONFIG = "EncryptionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "retention_period_hours": "RetentionPeriodHours",
@@ -64,10 +53,6 @@ class KinesisVideoStreamConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    BUCKET_NAME = "BucketName"
-    BUCKET_PREFIX = "BucketPrefix"
-    ENCRYPTION_CONFIG = "EncryptionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",

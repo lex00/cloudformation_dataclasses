@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BackupSelectionResourceType(PropertyType):
-    LIST_OF_TAGS = "ListOfTags"
-    NOT_RESOURCES = "NotResources"
-    SELECTION_NAME = "SelectionName"
-    IAM_ROLE_ARN = "IamRoleArn"
-    RESOURCES = "Resources"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "list_of_tags": "ListOfTags",
         "not_resources": "NotResources",
@@ -37,9 +30,6 @@ class BackupSelectionResourceType(PropertyType):
 
 @dataclass
 class ConditionParameter(PropertyType):
-    CONDITION_VALUE = "ConditionValue"
-    CONDITION_KEY = "ConditionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_value": "ConditionValue",
         "condition_key": "ConditionKey",
@@ -51,10 +41,6 @@ class ConditionParameter(PropertyType):
 
 @dataclass
 class ConditionResourceType(PropertyType):
-    CONDITION_VALUE = "ConditionValue"
-    CONDITION_KEY = "ConditionKey"
-    CONDITION_TYPE = "ConditionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_value": "ConditionValue",
         "condition_key": "ConditionKey",
@@ -68,11 +54,6 @@ class ConditionResourceType(PropertyType):
 
 @dataclass
 class Conditions(PropertyType):
-    STRING_EQUALS = "StringEquals"
-    STRING_NOT_LIKE = "StringNotLike"
-    STRING_LIKE = "StringLike"
-    STRING_NOT_EQUALS = "StringNotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_equals": "StringEquals",
         "string_not_like": "StringNotLike",

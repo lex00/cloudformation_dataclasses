@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CFNDestinationProperties(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "destination_arn": "DestinationArn",
@@ -25,9 +22,6 @@ class CFNDestinationProperties(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

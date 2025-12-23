@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApprovalThresholdPolicy(PropertyType):
-    THRESHOLD_COMPARATOR = "ThresholdComparator"
-    THRESHOLD_PERCENTAGE = "ThresholdPercentage"
-    PROPOSAL_DURATION_IN_HOURS = "ProposalDurationInHours"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threshold_comparator": "ThresholdComparator",
         "threshold_percentage": "ThresholdPercentage",
@@ -28,10 +24,6 @@ class ApprovalThresholdPolicy(PropertyType):
 
 @dataclass
 class MemberConfiguration(PropertyType):
-    DESCRIPTION = "Description"
-    MEMBER_FRAMEWORK_CONFIGURATION = "MemberFrameworkConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "member_framework_configuration": "MemberFrameworkConfiguration",
@@ -45,9 +37,6 @@ class MemberConfiguration(PropertyType):
 
 @dataclass
 class MemberFabricConfiguration(PropertyType):
-    ADMIN_USERNAME = "AdminUsername"
-    ADMIN_PASSWORD = "AdminPassword"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_username": "AdminUsername",
         "admin_password": "AdminPassword",
@@ -59,8 +48,6 @@ class MemberFabricConfiguration(PropertyType):
 
 @dataclass
 class MemberFrameworkConfiguration(PropertyType):
-    MEMBER_FABRIC_CONFIGURATION = "MemberFabricConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_fabric_configuration": "MemberFabricConfiguration",
     }
@@ -70,13 +57,6 @@ class MemberFrameworkConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    DESCRIPTION = "Description"
-    FRAMEWORK_VERSION = "FrameworkVersion"
-    VOTING_POLICY = "VotingPolicy"
-    FRAMEWORK = "Framework"
-    NAME = "Name"
-    NETWORK_FRAMEWORK_CONFIGURATION = "NetworkFrameworkConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "framework_version": "FrameworkVersion",
@@ -96,8 +76,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class NetworkFabricConfiguration(PropertyType):
-    EDITION = "Edition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edition": "Edition",
     }
@@ -107,8 +85,6 @@ class NetworkFabricConfiguration(PropertyType):
 
 @dataclass
 class NetworkFrameworkConfiguration(PropertyType):
-    NETWORK_FABRIC_CONFIGURATION = "NetworkFabricConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_fabric_configuration": "NetworkFabricConfiguration",
     }
@@ -118,8 +94,6 @@ class NetworkFrameworkConfiguration(PropertyType):
 
 @dataclass
 class VotingPolicy(PropertyType):
-    APPROVAL_THRESHOLD_POLICY = "ApprovalThresholdPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approval_threshold_policy": "ApprovalThresholdPolicy",
     }

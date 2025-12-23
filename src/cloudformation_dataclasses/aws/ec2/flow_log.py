@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationOptions(PropertyType):
-    PER_HOUR_PARTITION = "PerHourPartition"
-    HIVE_COMPATIBLE_PARTITIONS = "HiveCompatiblePartitions"
-    FILE_FORMAT = "FileFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_hour_partition": "PerHourPartition",
         "hive_compatible_partitions": "HiveCompatiblePartitions",

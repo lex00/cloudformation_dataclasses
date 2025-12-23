@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BrowserNetworkConfiguration(PropertyType):
-    VPC_CONFIG = "VpcConfig"
-    NETWORK_MODE = "NetworkMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "network_mode": "NetworkMode",
@@ -25,8 +22,6 @@ class BrowserNetworkConfiguration(PropertyType):
 
 @dataclass
 class BrowserSigning(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -36,9 +31,6 @@ class BrowserSigning(PropertyType):
 
 @dataclass
 class RecordingConfig(PropertyType):
-    ENABLED = "Enabled"
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "s3_location": "S3Location",
@@ -50,9 +42,6 @@ class RecordingConfig(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "prefix": "Prefix",
@@ -64,9 +53,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MultitrackInputConfiguration(PropertyType):
-    MAXIMUM_RESOLUTION = "MaximumResolution"
-    POLICY = "Policy"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_resolution": "MaximumResolution",
         "policy": "Policy",

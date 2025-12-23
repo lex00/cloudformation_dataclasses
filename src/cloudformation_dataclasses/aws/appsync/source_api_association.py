@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SourceApiAssociationConfig(PropertyType):
-    MERGE_TYPE = "MergeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "merge_type": "MergeType",
     }

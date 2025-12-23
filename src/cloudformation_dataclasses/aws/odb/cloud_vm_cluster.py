@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataCollectionOptions(PropertyType):
-    IS_INCIDENT_LOGS_ENABLED = "IsIncidentLogsEnabled"
-    IS_DIAGNOSTICS_EVENTS_ENABLED = "IsDiagnosticsEventsEnabled"
-    IS_HEALTH_MONITORING_ENABLED = "IsHealthMonitoringEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_incident_logs_enabled": "IsIncidentLogsEnabled",
         "is_diagnostics_events_enabled": "IsDiagnosticsEventsEnabled",
@@ -28,23 +24,6 @@ class DataCollectionOptions(PropertyType):
 
 @dataclass
 class DbNode(PropertyType):
-    STATUS = "Status"
-    HOST_IP_ID = "HostIpId"
-    MEMORY_SIZE_IN_G_BS = "MemorySizeInGBs"
-    CPU_CORE_COUNT = "CpuCoreCount"
-    BACKUP_IP_ID = "BackupIpId"
-    HOSTNAME = "Hostname"
-    OCID = "Ocid"
-    DB_NODE_ID = "DbNodeId"
-    VNIC_ID = "VnicId"
-    DB_NODE_STORAGE_SIZE_IN_G_BS = "DbNodeStorageSizeInGBs"
-    VNIC2_ID = "Vnic2Id"
-    DB_NODE_ARN = "DbNodeArn"
-    DB_SERVER_ID = "DbServerId"
-    BACKUP_VNIC2_ID = "BackupVnic2Id"
-    TAGS = "Tags"
-    DB_SYSTEM_ID = "DbSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "host_ip_id": "HostIpId",

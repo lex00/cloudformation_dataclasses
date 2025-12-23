@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityLake
@@ -120,11 +120,6 @@ class AwsLogSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::AwsLogSource"
     name_field: ClassVar[str] = "source_name"
-    SOURCE_NAME = "SourceName"
-    SOURCE_VERSION = "SourceVersion"
-    ACCOUNTS = "Accounts"
-    DATA_LAKE_ARN = "DataLakeArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
         "source_version": "SourceVersion",
@@ -143,12 +138,6 @@ class DataLake(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::DataLake"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"
-    REPLICATION_CONFIGURATION = "ReplicationConfiguration"
-    META_STORE_MANAGER_ROLE_ARN = "MetaStoreManagerRoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "lifecycle_configuration": "LifecycleConfiguration",
@@ -181,14 +170,6 @@ class Subscriber(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::Subscriber"
     name_field: ClassVar[str] = "subscriber_name"
-    SUBSCRIBER_IDENTITY = "SubscriberIdentity"
-    SUBSCRIBER_NAME = "SubscriberName"
-    SUBSCRIBER_DESCRIPTION = "SubscriberDescription"
-    ACCESS_TYPES = "AccessTypes"
-    SOURCES = "Sources"
-    DATA_LAKE_ARN = "DataLakeArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscriber_identity": "SubscriberIdentity",
         "subscriber_name": "SubscriberName",
@@ -239,9 +220,6 @@ class SubscriberNotification(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::SubscriberNotification"
-    SUBSCRIBER_ARN = "SubscriberArn"
-    NOTIFICATION_CONFIGURATION = "NotificationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscriber_arn": "SubscriberArn",
         "notification_configuration": "NotificationConfiguration",

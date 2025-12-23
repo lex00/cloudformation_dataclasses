@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lightsail
@@ -1409,18 +1409,6 @@ class Alarm(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Alarm"
     name_field: ClassVar[str] = "alarm_name"
-    METRIC_NAME = "MetricName"
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TREAT_MISSING_DATA = "TreatMissingData"
-    ALARM_NAME = "AlarmName"
-    CONTACT_PROTOCOLS = "ContactProtocols"
-    MONITORED_RESOURCE_NAME = "MonitoredResourceName"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    NOTIFICATION_ENABLED = "NotificationEnabled"
-    DATAPOINTS_TO_ALARM = "DatapointsToAlarm"
-    NOTIFICATION_TRIGGERS = "NotificationTriggers"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "comparison_operator": "ComparisonOperator",
@@ -1465,14 +1453,6 @@ class Bucket(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Bucket"
     name_field: ClassVar[str] = "bucket_name"
-    OBJECT_VERSIONING = "ObjectVersioning"
-    READ_ONLY_ACCESS_ACCOUNTS = "ReadOnlyAccessAccounts"
-    BUNDLE_ID = "BundleId"
-    BUCKET_NAME = "BucketName"
-    ACCESS_RULES = "AccessRules"
-    RESOURCES_RECEIVING_ACCESS = "ResourcesReceivingAccess"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_versioning": "ObjectVersioning",
         "read_only_access_accounts": "ReadOnlyAccessAccounts",
@@ -1514,11 +1494,6 @@ class Certificate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Certificate"
     name_field: ClassVar[str] = "certificate_name"
-    DOMAIN_NAME = "DomainName"
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    CERTIFICATE_NAME = "CertificateName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "subject_alternative_names": "SubjectAlternativeNames",
@@ -1549,15 +1524,6 @@ class Container(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Container"
     name_field: ClassVar[str] = "service_name"
-    PUBLIC_DOMAIN_NAMES = "PublicDomainNames"
-    SERVICE_NAME = "ServiceName"
-    PRIVATE_REGISTRY_ACCESS = "PrivateRegistryAccess"
-    CONTAINER_SERVICE_DEPLOYMENT = "ContainerServiceDeployment"
-    IS_DISABLED = "IsDisabled"
-    SCALE = "Scale"
-    POWER = "Power"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_domain_names": "PublicDomainNames",
         "service_name": "ServiceName",
@@ -1605,22 +1571,6 @@ class Database(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Database"
-    RELATIONAL_DATABASE_NAME = "RelationalDatabaseName"
-    CA_CERTIFICATE_IDENTIFIER = "CaCertificateIdentifier"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    RELATIONAL_DATABASE_BLUEPRINT_ID = "RelationalDatabaseBlueprintId"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    MASTER_DATABASE_NAME = "MasterDatabaseName"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    RELATIONAL_DATABASE_PARAMETERS = "RelationalDatabaseParameters"
-    ROTATE_MASTER_USER_PASSWORD = "RotateMasterUserPassword"
-    MASTER_USERNAME = "MasterUsername"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    RELATIONAL_DATABASE_BUNDLE_ID = "RelationalDatabaseBundleId"
-    BACKUP_RETENTION = "BackupRetention"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relational_database_name": "RelationalDatabaseName",
         "ca_certificate_identifier": "CaCertificateIdentifier",
@@ -1668,13 +1618,6 @@ class Disk(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Disk"
     name_field: ClassVar[str] = "disk_name"
-    SIZE_IN_GB = "SizeInGb"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    ADD_ONS = "AddOns"
-    DISK_NAME = "DiskName"
-    TAGS = "Tags"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gb": "SizeInGb",
         "availability_zone": "AvailabilityZone",
@@ -1754,10 +1697,6 @@ class DiskSnapshot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::DiskSnapshot"
     name_field: ClassVar[str] = "disk_snapshot_name"
-    DISK_SNAPSHOT_NAME = "DiskSnapshotName"
-    DISK_NAME = "DiskName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disk_snapshot_name": "DiskSnapshotName",
         "disk_name": "DiskName",
@@ -1836,17 +1775,6 @@ class Distribution(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Distribution"
     name_field: ClassVar[str] = "distribution_name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    ORIGIN = "Origin"
-    DISTRIBUTION_NAME = "DistributionName"
-    BUNDLE_ID = "BundleId"
-    DEFAULT_CACHE_BEHAVIOR = "DefaultCacheBehavior"
-    IS_ENABLED = "IsEnabled"
-    CACHE_BEHAVIOR_SETTINGS = "CacheBehaviorSettings"
-    CERTIFICATE_NAME = "CertificateName"
-    TAGS = "Tags"
-    CACHE_BEHAVIORS = "CacheBehaviors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "origin": "Origin",
@@ -1894,10 +1822,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Domain"
     name_field: ClassVar[str] = "domain_name"
-    DOMAIN_NAME = "DomainName"
-    DOMAIN_ENTRIES = "DomainEntries"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "domain_entries": "DomainEntries",
@@ -1951,19 +1875,6 @@ class Instance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Instance"
     name_field: ClassVar[str] = "instance_name"
-    INSTANCE_NAME = "InstanceName"
-    KEY_PAIR_NAME = "KeyPairName"
-    BUNDLE_ID = "BundleId"
-    BLUEPRINT_ID = "BlueprintId"
-    NETWORKING = "Networking"
-    USER_DATA = "UserData"
-    STATE = "State"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    ADD_ONS = "AddOns"
-    HARDWARE = "Hardware"
-    TAGS = "Tags"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_name": "InstanceName",
         "key_pair_name": "KeyPairName",
@@ -2080,10 +1991,6 @@ class InstanceSnapshot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::InstanceSnapshot"
     name_field: ClassVar[str] = "instance_snapshot_name"
-    INSTANCE_NAME = "InstanceName"
-    INSTANCE_SNAPSHOT_NAME = "InstanceSnapshotName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_name": "InstanceName",
         "instance_snapshot_name": "InstanceSnapshotName",
@@ -2157,16 +2064,6 @@ class LoadBalancer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::LoadBalancer"
     name_field: ClassVar[str] = "load_balancer_name"
-    IP_ADDRESS_TYPE = "IpAddressType"
-    SESSION_STICKINESS_LB_COOKIE_DURATION_SECONDS = "SessionStickinessLBCookieDurationSeconds"
-    LOAD_BALANCER_NAME = "LoadBalancerName"
-    ATTACHED_INSTANCES = "AttachedInstances"
-    INSTANCE_PORT = "InstancePort"
-    HEALTH_CHECK_PATH = "HealthCheckPath"
-    SESSION_STICKINESS_ENABLED = "SessionStickinessEnabled"
-    TLS_POLICY_NAME = "TlsPolicyName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "session_stickiness_lb_cookie_duration_seconds": "SessionStickinessLBCookieDurationSeconds",
@@ -2202,13 +2099,6 @@ class LoadBalancerTlsCertificate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::LoadBalancerTlsCertificate"
     name_field: ClassVar[str] = "certificate_name"
-    LOAD_BALANCER_NAME = "LoadBalancerName"
-    CERTIFICATE_DOMAIN_NAME = "CertificateDomainName"
-    IS_ATTACHED = "IsAttached"
-    CERTIFICATE_ALTERNATIVE_NAMES = "CertificateAlternativeNames"
-    HTTPS_REDIRECTION_ENABLED = "HttpsRedirectionEnabled"
-    CERTIFICATE_NAME = "CertificateName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "load_balancer_name": "LoadBalancerName",
         "certificate_domain_name": "CertificateDomainName",
@@ -2243,9 +2133,6 @@ class StaticIp(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lightsail::StaticIp"
     name_field: ClassVar[str] = "static_ip_name"
-    STATIC_IP_NAME = "StaticIpName"
-    ATTACHED_TO = "AttachedTo"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_ip_name": "StaticIpName",
         "attached_to": "AttachedTo",

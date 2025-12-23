@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssetHierarchy(PropertyType):
-    LOGICAL_ID = "LogicalId"
-    EXTERNAL_ID = "ExternalId"
-    ID = "Id"
-    CHILD_ASSET_ID = "ChildAssetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "external_id": "ExternalId",
@@ -31,13 +26,6 @@ class AssetHierarchy(PropertyType):
 
 @dataclass
 class AssetProperty(PropertyType):
-    LOGICAL_ID = "LogicalId"
-    ALIAS = "Alias"
-    EXTERNAL_ID = "ExternalId"
-    ID = "Id"
-    UNIT = "Unit"
-    NOTIFICATION_STATE = "NotificationState"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "alias": "Alias",

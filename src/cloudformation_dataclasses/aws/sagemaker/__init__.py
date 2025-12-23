@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:18
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SageMaker
@@ -6617,14 +6617,6 @@ class App(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::App"
     name_field: ClassVar[str] = "app_name"
-    RECOVERY_MODE = "RecoveryMode"
-    DOMAIN_ID = "DomainId"
-    RESOURCE_SPEC = "ResourceSpec"
-    APP_TYPE = "AppType"
-    TAGS = "Tags"
-    USER_PROFILE_NAME = "UserProfileName"
-    APP_NAME = "AppName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recovery_mode": "RecoveryMode",
         "domain_id": "DomainId",
@@ -6661,12 +6653,6 @@ class AppImageConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::AppImageConfig"
     name_field: ClassVar[str] = "app_image_config_name"
-    KERNEL_GATEWAY_IMAGE_CONFIG = "KernelGatewayImageConfig"
-    CODE_EDITOR_APP_IMAGE_CONFIG = "CodeEditorAppImageConfig"
-    APP_IMAGE_CONFIG_NAME = "AppImageConfigName"
-    JUPYTER_LAB_APP_IMAGE_CONFIG = "JupyterLabAppImageConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kernel_gateway_image_config": "KernelGatewayImageConfig",
         "code_editor_app_image_config": "CodeEditorAppImageConfig",
@@ -6694,18 +6680,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    VPC_CONFIG = "VpcConfig"
-    NODE_RECOVERY = "NodeRecovery"
-    NODE_PROVISIONING_MODE = "NodeProvisioningMode"
-    INSTANCE_GROUPS = "InstanceGroups"
-    RESTRICTED_INSTANCE_GROUPS = "RestrictedInstanceGroups"
-    CLUSTER_NAME = "ClusterName"
-    ORCHESTRATOR = "Orchestrator"
-    AUTO_SCALING = "AutoScaling"
-    CLUSTER_ROLE = "ClusterRole"
-    TAGS = "Tags"
-    TIERED_STORAGE_CONFIG = "TieredStorageConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "node_recovery": "NodeRecovery",
@@ -6760,10 +6734,6 @@ class CodeRepository(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::CodeRepository"
     name_field: ClassVar[str] = "code_repository_name"
-    CODE_REPOSITORY_NAME = "CodeRepositoryName"
-    GIT_CONFIG = "GitConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_repository_name": "CodeRepositoryName",
         "git_config": "GitConfig",
@@ -6787,18 +6757,6 @@ class DataQualityJobDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::DataQualityJobDefinition"
     name_field: ClassVar[str] = "endpoint_name"
-    DATA_QUALITY_JOB_INPUT = "DataQualityJobInput"
-    DATA_QUALITY_APP_SPECIFICATION = "DataQualityAppSpecification"
-    ENDPOINT_NAME = "EndpointName"
-    STOPPING_CONDITION = "StoppingCondition"
-    JOB_DEFINITION_NAME = "JobDefinitionName"
-    JOB_RESOURCES = "JobResources"
-    NETWORK_CONFIG = "NetworkConfig"
-    DATA_QUALITY_JOB_OUTPUT_CONFIG = "DataQualityJobOutputConfig"
-    DATA_QUALITY_BASELINE_CONFIG = "DataQualityBaselineConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_quality_job_input": "DataQualityJobInput",
         "data_quality_app_specification": "DataQualityAppSpecification",
@@ -6843,10 +6801,6 @@ class Device(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Device"
     name_field: ClassVar[str] = "device_fleet_name"
-    DEVICE_FLEET_NAME = "DeviceFleetName"
-    DEVICE = "Device"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_fleet_name": "DeviceFleetName",
         "device": "Device",
@@ -6864,12 +6818,6 @@ class DeviceFleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::DeviceFleet"
     name_field: ClassVar[str] = "device_fleet_name"
-    DEVICE_FLEET_NAME = "DeviceFleetName"
-    DESCRIPTION = "Description"
-    OUTPUT_CONFIG = "OutputConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_fleet_name": "DeviceFleetName",
         "description": "Description",
@@ -6891,19 +6839,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Domain"
     name_field: ClassVar[str] = "domain_name"
-    APP_NETWORK_ACCESS_TYPE = "AppNetworkAccessType"
-    DEFAULT_SPACE_SETTINGS = "DefaultSpaceSettings"
-    KMS_KEY_ID = "KmsKeyId"
-    VPC_ID = "VpcId"
-    DOMAIN_NAME = "DomainName"
-    APP_SECURITY_GROUP_MANAGEMENT = "AppSecurityGroupManagement"
-    DEFAULT_USER_SETTINGS = "DefaultUserSettings"
-    SUBNET_IDS = "SubnetIds"
-    AUTH_MODE = "AuthMode"
-    TAGS = "Tags"
-    DOMAIN_SETTINGS = "DomainSettings"
-    TAG_PROPAGATION = "TagPropagation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_network_access_type": "AppNetworkAccessType",
         "default_space_settings": "DefaultSpaceSettings",
@@ -6975,14 +6910,6 @@ class Endpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Endpoint"
     name_field: ClassVar[str] = "endpoint_name"
-    RETAIN_ALL_VARIANT_PROPERTIES = "RetainAllVariantProperties"
-    ENDPOINT_NAME = "EndpointName"
-    EXCLUDE_RETAINED_VARIANT_PROPERTIES = "ExcludeRetainedVariantProperties"
-    ENDPOINT_CONFIG_NAME = "EndpointConfigName"
-    DEPLOYMENT_CONFIG = "DeploymentConfig"
-    RETAIN_DEPLOYMENT_CONFIG = "RetainDeploymentConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retain_all_variant_properties": "RetainAllVariantProperties",
         "endpoint_name": "EndpointName",
@@ -7014,18 +6941,6 @@ class EndpointConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::EndpointConfig"
     name_field: ClassVar[str] = "endpoint_config_name"
-    SHADOW_PRODUCTION_VARIANTS = "ShadowProductionVariants"
-    DATA_CAPTURE_CONFIG = "DataCaptureConfig"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    ENABLE_NETWORK_ISOLATION = "EnableNetworkIsolation"
-    PRODUCTION_VARIANTS = "ProductionVariants"
-    KMS_KEY_ID = "KmsKeyId"
-    ASYNC_INFERENCE_CONFIG = "AsyncInferenceConfig"
-    VPC_CONFIG = "VpcConfig"
-    ENDPOINT_CONFIG_NAME = "EndpointConfigName"
-    EXPLAINER_CONFIG = "ExplainerConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shadow_production_variants": "ShadowProductionVariants",
         "data_capture_config": "DataCaptureConfig",
@@ -7065,17 +6980,6 @@ class FeatureGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::FeatureGroup"
     name_field: ClassVar[str] = "feature_group_name"
-    THROUGHPUT_CONFIG = "ThroughputConfig"
-    DESCRIPTION = "Description"
-    OFFLINE_STORE_CONFIG = "OfflineStoreConfig"
-    FEATURE_DEFINITIONS = "FeatureDefinitions"
-    RECORD_IDENTIFIER_FEATURE_NAME = "RecordIdentifierFeatureName"
-    EVENT_TIME_FEATURE_NAME = "EventTimeFeatureName"
-    FEATURE_GROUP_NAME = "FeatureGroupName"
-    ONLINE_STORE_CONFIG = "OnlineStoreConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "throughput_config": "ThroughputConfig",
         "description": "Description",
@@ -7118,12 +7022,6 @@ class Image(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Image"
     name_field: ClassVar[str] = "image_name"
-    IMAGE_NAME = "ImageName"
-    IMAGE_DISPLAY_NAME = "ImageDisplayName"
-    IMAGE_ROLE_ARN = "ImageRoleArn"
-    IMAGE_DESCRIPTION = "ImageDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "image_display_name": "ImageDisplayName",
@@ -7151,18 +7049,6 @@ class ImageVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ImageVersion"
     name_field: ClassVar[str] = "image_name"
-    IMAGE_NAME = "ImageName"
-    HOROVOD = "Horovod"
-    PROCESSOR = "Processor"
-    JOB_TYPE = "JobType"
-    ALIAS = "Alias"
-    PROGRAMMING_LANG = "ProgrammingLang"
-    VENDOR_GUIDANCE = "VendorGuidance"
-    ML_FRAMEWORK = "MLFramework"
-    ALIASES = "Aliases"
-    RELEASE_NOTES = "ReleaseNotes"
-    BASE_IMAGE = "BaseImage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "horovod": "Horovod",
@@ -7217,15 +7103,6 @@ class InferenceComponent(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::InferenceComponent"
     name_field: ClassVar[str] = "inference_component_name"
-    ENDPOINT_NAME = "EndpointName"
-    VARIANT_NAME = "VariantName"
-    INFERENCE_COMPONENT_NAME = "InferenceComponentName"
-    SPECIFICATION = "Specification"
-    RUNTIME_CONFIG = "RuntimeConfig"
-    DEPLOYMENT_CONFIG = "DeploymentConfig"
-    ENDPOINT_ARN = "EndpointArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_name": "EndpointName",
         "variant_name": "VariantName",
@@ -7309,20 +7186,6 @@ class InferenceExperiment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::InferenceExperiment"
     name_field: ClassVar[str] = "name"
-    DATA_STORAGE_CONFIG = "DataStorageConfig"
-    DESCRIPTION = "Description"
-    STATUS_REASON = "StatusReason"
-    MODEL_VARIANTS = "ModelVariants"
-    SHADOW_MODE_CONFIG = "ShadowModeConfig"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    TYPE = "Type"
-    ENDPOINT_NAME = "EndpointName"
-    DESIRED_STATE = "DesiredState"
-    SCHEDULE = "Schedule"
-    KMS_KEY = "KmsKey"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_storage_config": "DataStorageConfig",
         "description": "Description",
@@ -7401,15 +7264,6 @@ class MlflowTrackingServer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::MlflowTrackingServer"
     name_field: ClassVar[str] = "tracking_server_name"
-    TRACKING_SERVER_NAME = "TrackingServerName"
-    MLFLOW_VERSION = "MlflowVersion"
-    WEEKLY_MAINTENANCE_WINDOW_START = "WeeklyMaintenanceWindowStart"
-    TRACKING_SERVER_SIZE = "TrackingServerSize"
-    ARTIFACT_STORE_URI = "ArtifactStoreUri"
-    AUTOMATIC_MODEL_REGISTRATION = "AutomaticModelRegistration"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracking_server_name": "TrackingServerName",
         "mlflow_version": "MlflowVersion",
@@ -7443,15 +7297,6 @@ class Model(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Model"
     name_field: ClassVar[str] = "model_name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    ENABLE_NETWORK_ISOLATION = "EnableNetworkIsolation"
-    PRIMARY_CONTAINER = "PrimaryContainer"
-    MODEL_NAME = "ModelName"
-    VPC_CONFIG = "VpcConfig"
-    CONTAINERS = "Containers"
-    INFERENCE_EXECUTION_CONFIG = "InferenceExecutionConfig"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "enable_network_isolation": "EnableNetworkIsolation",
@@ -7485,18 +7330,6 @@ class ModelBiasJobDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelBiasJobDefinition"
     name_field: ClassVar[str] = "endpoint_name"
-    MODEL_BIAS_JOB_INPUT = "ModelBiasJobInput"
-    MODEL_BIAS_JOB_OUTPUT_CONFIG = "ModelBiasJobOutputConfig"
-    ENDPOINT_NAME = "EndpointName"
-    STOPPING_CONDITION = "StoppingCondition"
-    JOB_DEFINITION_NAME = "JobDefinitionName"
-    JOB_RESOURCES = "JobResources"
-    NETWORK_CONFIG = "NetworkConfig"
-    MODEL_BIAS_BASELINE_CONFIG = "ModelBiasBaselineConfig"
-    MODEL_BIAS_APP_SPECIFICATION = "ModelBiasAppSpecification"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_bias_job_input": "ModelBiasJobInput",
         "model_bias_job_output_config": "ModelBiasJobOutputConfig",
@@ -7541,14 +7374,6 @@ class ModelCard(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelCard"
     name_field: ClassVar[str] = "model_card_name"
-    LAST_MODIFIED_BY = "LastModifiedBy"
-    MODEL_CARD_NAME = "ModelCardName"
-    MODEL_CARD_STATUS = "ModelCardStatus"
-    CREATED_BY = "CreatedBy"
-    SECURITY_CONFIG = "SecurityConfig"
-    CONTENT = "Content"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "last_modified_by": "LastModifiedBy",
         "model_card_name": "ModelCardName",
@@ -7630,18 +7455,6 @@ class ModelExplainabilityJobDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelExplainabilityJobDefinition"
     name_field: ClassVar[str] = "endpoint_name"
-    MODEL_EXPLAINABILITY_JOB_OUTPUT_CONFIG = "ModelExplainabilityJobOutputConfig"
-    ENDPOINT_NAME = "EndpointName"
-    STOPPING_CONDITION = "StoppingCondition"
-    MODEL_EXPLAINABILITY_BASELINE_CONFIG = "ModelExplainabilityBaselineConfig"
-    JOB_DEFINITION_NAME = "JobDefinitionName"
-    JOB_RESOURCES = "JobResources"
-    NETWORK_CONFIG = "NetworkConfig"
-    ROLE_ARN = "RoleArn"
-    MODEL_EXPLAINABILITY_JOB_INPUT = "ModelExplainabilityJobInput"
-    TAGS = "Tags"
-    MODEL_EXPLAINABILITY_APP_SPECIFICATION = "ModelExplainabilityAppSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_explainability_job_output_config": "ModelExplainabilityJobOutputConfig",
         "endpoint_name": "EndpointName",
@@ -7686,34 +7499,6 @@ class ModelPackage(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelPackage"
     name_field: ClassVar[str] = "model_package_name"
-    DRIFT_CHECK_BASELINES = "DriftCheckBaselines"
-    MODEL_METRICS = "ModelMetrics"
-    TASK = "Task"
-    CUSTOMER_METADATA_PROPERTIES = "CustomerMetadataProperties"
-    SOURCE_URI = "SourceUri"
-    MODEL_APPROVAL_STATUS = "ModelApprovalStatus"
-    MODEL_PACKAGE_VERSION = "ModelPackageVersion"
-    METADATA_PROPERTIES = "MetadataProperties"
-    SOURCE_ALGORITHM_SPECIFICATION = "SourceAlgorithmSpecification"
-    MODEL_PACKAGE_STATUS_DETAILS = "ModelPackageStatusDetails"
-    MODEL_PACKAGE_DESCRIPTION = "ModelPackageDescription"
-    ADDITIONAL_INFERENCE_SPECIFICATIONS_TO_ADD = "AdditionalInferenceSpecificationsToAdd"
-    SECURITY_CONFIG = "SecurityConfig"
-    INFERENCE_SPECIFICATION = "InferenceSpecification"
-    SAMPLE_PAYLOAD_URL = "SamplePayloadUrl"
-    TAGS = "Tags"
-    CERTIFY_FOR_MARKETPLACE = "CertifyForMarketplace"
-    MODEL_PACKAGE_GROUP_NAME = "ModelPackageGroupName"
-    APPROVAL_DESCRIPTION = "ApprovalDescription"
-    MODEL_CARD = "ModelCard"
-    VALIDATION_SPECIFICATION = "ValidationSpecification"
-    SKIP_MODEL_VALIDATION = "SkipModelValidation"
-    MODEL_PACKAGE_NAME = "ModelPackageName"
-    LAST_MODIFIED_TIME = "LastModifiedTime"
-    CLIENT_TOKEN = "ClientToken"
-    DOMAIN = "Domain"
-    ADDITIONAL_INFERENCE_SPECIFICATIONS = "AdditionalInferenceSpecifications"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "drift_check_baselines": "DriftCheckBaselines",
         "model_metrics": "ModelMetrics",
@@ -7795,11 +7580,6 @@ class ModelPackageGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelPackageGroup"
     name_field: ClassVar[str] = "model_package_group_name"
-    MODEL_PACKAGE_GROUP_NAME = "ModelPackageGroupName"
-    MODEL_PACKAGE_GROUP_DESCRIPTION = "ModelPackageGroupDescription"
-    MODEL_PACKAGE_GROUP_POLICY = "ModelPackageGroupPolicy"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_package_group_name": "ModelPackageGroupName",
         "model_package_group_description": "ModelPackageGroupDescription",
@@ -7835,18 +7615,6 @@ class ModelQualityJobDefinition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelQualityJobDefinition"
     name_field: ClassVar[str] = "endpoint_name"
-    MODEL_QUALITY_APP_SPECIFICATION = "ModelQualityAppSpecification"
-    ENDPOINT_NAME = "EndpointName"
-    STOPPING_CONDITION = "StoppingCondition"
-    MODEL_QUALITY_BASELINE_CONFIG = "ModelQualityBaselineConfig"
-    JOB_DEFINITION_NAME = "JobDefinitionName"
-    MODEL_QUALITY_JOB_INPUT = "ModelQualityJobInput"
-    JOB_RESOURCES = "JobResources"
-    NETWORK_CONFIG = "NetworkConfig"
-    MODEL_QUALITY_JOB_OUTPUT_CONFIG = "ModelQualityJobOutputConfig"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_quality_app_specification": "ModelQualityAppSpecification",
         "endpoint_name": "EndpointName",
@@ -7891,14 +7659,6 @@ class MonitoringSchedule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::MonitoringSchedule"
     name_field: ClassVar[str] = "monitoring_schedule_name"
-    MONITORING_SCHEDULE_STATUS = "MonitoringScheduleStatus"
-    MONITORING_SCHEDULE_CONFIG = "MonitoringScheduleConfig"
-    MONITORING_SCHEDULE_NAME = "MonitoringScheduleName"
-    ENDPOINT_NAME = "EndpointName"
-    FAILURE_REASON = "FailureReason"
-    LAST_MONITORING_EXECUTION_SUMMARY = "LastMonitoringExecutionSummary"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitoring_schedule_status": "MonitoringScheduleStatus",
         "monitoring_schedule_config": "MonitoringScheduleConfig",
@@ -7940,23 +7700,6 @@ class NotebookInstance(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::NotebookInstance"
     name_field: ClassVar[str] = "notebook_instance_name"
-    KMS_KEY_ID = "KmsKeyId"
-    VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
-    ADDITIONAL_CODE_REPOSITORIES = "AdditionalCodeRepositories"
-    DEFAULT_CODE_REPOSITORY = "DefaultCodeRepository"
-    DIRECT_INTERNET_ACCESS = "DirectInternetAccess"
-    PLATFORM_IDENTIFIER = "PlatformIdentifier"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    SUBNET_ID = "SubnetId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleArn"
-    INSTANCE_METADATA_SERVICE_CONFIGURATION = "InstanceMetadataServiceConfiguration"
-    ROOT_ACCESS = "RootAccess"
-    NOTEBOOK_INSTANCE_NAME = "NotebookInstanceName"
-    INSTANCE_TYPE = "InstanceType"
-    LIFECYCLE_CONFIG_NAME = "LifecycleConfigName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -8006,10 +7749,6 @@ class NotebookInstanceLifecycleConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
     name_field: ClassVar[str] = "notebook_instance_lifecycle_config_name"
-    ON_START = "OnStart"
-    NOTEBOOK_INSTANCE_LIFECYCLE_CONFIG_NAME = "NotebookInstanceLifecycleConfigName"
-    ON_CREATE = "OnCreate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_start": "OnStart",
         "notebook_instance_lifecycle_config_name": "NotebookInstanceLifecycleConfigName",
@@ -8033,19 +7772,6 @@ class PartnerApp(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::PartnerApp"
     name_field: ClassVar[str] = "name"
-    APP_VERSION = "AppVersion"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TYPE = "Type"
-    KMS_KEY_ID = "KmsKeyId"
-    ENABLE_IAM_SESSION_BASED_IDENTITY = "EnableIamSessionBasedIdentity"
-    TIER = "Tier"
-    ENABLE_AUTO_MINOR_VERSION_UPGRADE = "EnableAutoMinorVersionUpgrade"
-    APPLICATION_CONFIG = "ApplicationConfig"
-    AUTH_TYPE = "AuthType"
-    MAINTENANCE_CONFIG = "MaintenanceConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_version": "AppVersion",
         "execution_role_arn": "ExecutionRoleArn",
@@ -8097,14 +7823,6 @@ class Pipeline(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Pipeline"
     name_field: ClassVar[str] = "pipeline_name"
-    PIPELINE_NAME = "PipelineName"
-    PARALLELISM_CONFIGURATION = "ParallelismConfiguration"
-    PIPELINE_DESCRIPTION = "PipelineDescription"
-    PIPELINE_DISPLAY_NAME = "PipelineDisplayName"
-    PIPELINE_DEFINITION = "PipelineDefinition"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_name": "PipelineName",
         "parallelism_configuration": "ParallelismConfiguration",
@@ -8130,18 +7848,6 @@ class ProcessingJob(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ProcessingJob"
     name_field: ClassVar[str] = "processing_job_name"
-    PROCESSING_RESOURCES = "ProcessingResources"
-    STOPPING_CONDITION = "StoppingCondition"
-    EXPERIMENT_CONFIG = "ExperimentConfig"
-    PROCESSING_INPUTS = "ProcessingInputs"
-    NETWORK_CONFIG = "NetworkConfig"
-    PROCESSING_OUTPUT_CONFIG = "ProcessingOutputConfig"
-    ENVIRONMENT = "Environment"
-    APP_SPECIFICATION = "AppSpecification"
-    PROCESSING_JOB_NAME = "ProcessingJobName"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "processing_resources": "ProcessingResources",
         "stopping_condition": "StoppingCondition",
@@ -8231,13 +7937,6 @@ class Project(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Project"
     name_field: ClassVar[str] = "project_name"
-    PROJECT_NAME = "ProjectName"
-    TEMPLATE_PROVIDER_DETAILS = "TemplateProviderDetails"
-    SERVICE_CATALOG_PROVISIONED_PRODUCT_DETAILS = "ServiceCatalogProvisionedProductDetails"
-    SERVICE_CATALOG_PROVISIONING_DETAILS = "ServiceCatalogProvisioningDetails"
-    PROJECT_DESCRIPTION = "ProjectDescription"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_name": "ProjectName",
         "template_provider_details": "TemplateProviderDetails",
@@ -8282,14 +7981,6 @@ class Space(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Space"
     name_field: ClassVar[str] = "space_name"
-    DOMAIN_ID = "DomainId"
-    SPACE_NAME = "SpaceName"
-    SPACE_SETTINGS = "SpaceSettings"
-    SPACE_DISPLAY_NAME = "SpaceDisplayName"
-    TAGS = "Tags"
-    SPACE_SHARING_SETTINGS = "SpaceSharingSettings"
-    OWNERSHIP_SETTINGS = "OwnershipSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_id": "DomainId",
         "space_name": "SpaceName",
@@ -8326,11 +8017,6 @@ class StudioLifecycleConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::StudioLifecycleConfig"
     name_field: ClassVar[str] = "studio_lifecycle_config_name"
-    STUDIO_LIFECYCLE_CONFIG_APP_TYPE = "StudioLifecycleConfigAppType"
-    STUDIO_LIFECYCLE_CONFIG_NAME = "StudioLifecycleConfigName"
-    STUDIO_LIFECYCLE_CONFIG_CONTENT = "StudioLifecycleConfigContent"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "studio_lifecycle_config_app_type": "StudioLifecycleConfigAppType",
         "studio_lifecycle_config_name": "StudioLifecycleConfigName",
@@ -8356,13 +8042,6 @@ class UserProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::UserProfile"
     name_field: ClassVar[str] = "user_profile_name"
-    DOMAIN_ID = "DomainId"
-    SINGLE_SIGN_ON_USER_VALUE = "SingleSignOnUserValue"
-    USER_SETTINGS = "UserSettings"
-    SINGLE_SIGN_ON_USER_IDENTIFIER = "SingleSignOnUserIdentifier"
-    USER_PROFILE_NAME = "UserProfileName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_id": "DomainId",
         "single_sign_on_user_value": "SingleSignOnUserValue",
@@ -8392,13 +8071,6 @@ class Workteam(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Workteam"
     name_field: ClassVar[str] = "workteam_name"
-    DESCRIPTION = "Description"
-    NOTIFICATION_CONFIGURATION = "NotificationConfiguration"
-    WORKTEAM_NAME = "WorkteamName"
-    MEMBER_DEFINITIONS = "MemberDefinitions"
-    WORKFORCE_NAME = "WorkforceName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "notification_configuration": "NotificationConfiguration",

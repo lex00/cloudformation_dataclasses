@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Field(PropertyType):
-    REF_VALUE = "RefValue"
-    STRING_VALUE = "StringValue"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ref_value": "RefValue",
         "string_value": "StringValue",
@@ -28,9 +24,6 @@ class Field(PropertyType):
 
 @dataclass
 class ParameterAttribute(PropertyType):
-    STRING_VALUE = "StringValue"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_value": "StringValue",
         "key": "Key",
@@ -42,9 +35,6 @@ class ParameterAttribute(PropertyType):
 
 @dataclass
 class ParameterObject(PropertyType):
-    ATTRIBUTES = "Attributes"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "id": "Id",
@@ -56,9 +46,6 @@ class ParameterObject(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    ID = "Id"
-    STRING_VALUE = "StringValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "string_value": "StringValue",
@@ -70,10 +57,6 @@ class ParameterValue(PropertyType):
 
 @dataclass
 class PipelineObject(PropertyType):
-    FIELDS = "Fields"
-    ID = "Id"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
         "id": "Id",
@@ -87,9 +70,6 @@ class PipelineObject(PropertyType):
 
 @dataclass
 class PipelineTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

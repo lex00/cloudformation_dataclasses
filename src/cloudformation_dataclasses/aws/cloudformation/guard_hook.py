@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HookTarget(PropertyType):
-    INVOCATION_POINT = "InvocationPoint"
-    ACTION = "Action"
-    TARGET_NAME = "TargetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_point": "InvocationPoint",
         "action": "Action",
@@ -28,8 +24,6 @@ class HookTarget(PropertyType):
 
 @dataclass
 class Options(PropertyType):
-    INPUT_PARAMS = "InputParams"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_params": "InputParams",
     }
@@ -39,9 +33,6 @@ class Options(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    VERSION_ID = "VersionId"
-    URI = "Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "uri": "Uri",
@@ -53,10 +44,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class StackFilters(PropertyType):
-    FILTERING_CRITERIA = "FilteringCriteria"
-    STACK_NAMES = "StackNames"
-    STACK_ROLES = "StackRoles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filtering_criteria": "FilteringCriteria",
         "stack_names": "StackNames",
@@ -70,9 +57,6 @@ class StackFilters(PropertyType):
 
 @dataclass
 class StackNames(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -84,9 +68,6 @@ class StackNames(PropertyType):
 
 @dataclass
 class StackRoles(PropertyType):
-    EXCLUDE = "Exclude"
-    INCLUDE = "Include"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -98,11 +79,6 @@ class StackRoles(PropertyType):
 
 @dataclass
 class TargetFilters(PropertyType):
-    ACTIONS = "Actions"
-    TARGET_NAMES = "TargetNames"
-    TARGETS = "Targets"
-    INVOCATION_POINTS = "InvocationPoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "target_names": "TargetNames",

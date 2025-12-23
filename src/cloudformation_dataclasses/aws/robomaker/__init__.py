@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RoboMaker
@@ -36,9 +36,6 @@ class Fleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::Fleet"
     name_field: ClassVar[str] = "name"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "name": "Name",
@@ -60,12 +57,6 @@ class Robot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::Robot"
     name_field: ClassVar[str] = "name"
-    FLEET = "Fleet"
-    ARCHITECTURE = "Architecture"
-    GREENGRASS_GROUP_ID = "GreengrassGroupId"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet": "Fleet",
         "architecture": "Architecture",
@@ -87,12 +78,6 @@ class RobotApplication(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::RobotApplication"
     name_field: ClassVar[str] = "name"
-    CURRENT_REVISION_ID = "CurrentRevisionId"
-    ROBOT_SOFTWARE_SUITE = "RobotSoftwareSuite"
-    SOURCES = "Sources"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "current_revision_id": "CurrentRevisionId",
         "robot_software_suite": "RobotSoftwareSuite",
@@ -124,9 +109,6 @@ class RobotApplicationVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::RobotApplicationVersion"
-    CURRENT_REVISION_ID = "CurrentRevisionId"
-    APPLICATION = "Application"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "current_revision_id": "CurrentRevisionId",
         "application": "Application",
@@ -142,14 +124,6 @@ class SimulationApplication(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::SimulationApplication"
     name_field: ClassVar[str] = "name"
-    RENDERING_ENGINE = "RenderingEngine"
-    SIMULATION_SOFTWARE_SUITE = "SimulationSoftwareSuite"
-    CURRENT_REVISION_ID = "CurrentRevisionId"
-    ROBOT_SOFTWARE_SUITE = "RobotSoftwareSuite"
-    SOURCES = "Sources"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rendering_engine": "RenderingEngine",
         "simulation_software_suite": "SimulationSoftwareSuite",
@@ -185,9 +159,6 @@ class SimulationApplicationVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::SimulationApplicationVersion"
-    CURRENT_REVISION_ID = "CurrentRevisionId"
-    APPLICATION = "Application"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "current_revision_id": "CurrentRevisionId",
         "application": "Application",

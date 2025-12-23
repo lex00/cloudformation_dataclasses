@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:04
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lex
@@ -308,20 +308,6 @@ class Bot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lex::Bot"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ERROR_LOG_SETTINGS = "ErrorLogSettings"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    BOT_TAGS = "BotTags"
-    TEST_BOT_ALIAS_TAGS = "TestBotAliasTags"
-    AUTO_BUILD_BOT_LOCALES = "AutoBuildBotLocales"
-    BOT_LOCALES = "BotLocales"
-    IDLE_SESSION_TTL_IN_SECONDS = "IdleSessionTTLInSeconds"
-    BOT_FILE_S3_LOCATION = "BotFileS3Location"
-    REPLICATION = "Replication"
-    TEST_BOT_ALIAS_SETTINGS = "TestBotAliasSettings"
-    DATA_PRIVACY = "DataPrivacy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "error_log_settings": "ErrorLogSettings",
@@ -370,15 +356,6 @@ class BotAlias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Lex::BotAlias"
     name_field: ClassVar[str] = "bot_alias_name"
-    BOT_VERSION = "BotVersion"
-    DESCRIPTION = "Description"
-    BOT_ID = "BotId"
-    BOT_ALIAS_LOCALE_SETTINGS = "BotAliasLocaleSettings"
-    CONVERSATION_LOG_SETTINGS = "ConversationLogSettings"
-    SENTIMENT_ANALYSIS_SETTINGS = "SentimentAnalysisSettings"
-    BOT_ALIAS_NAME = "BotAliasName"
-    BOT_ALIAS_TAGS = "BotAliasTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bot_version": "BotVersion",
         "description": "Description",
@@ -421,10 +398,6 @@ class BotVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-b"""
 
     resource_type: ClassVar[str] = "AWS::Lex::BotVersion"
-    DESCRIPTION = "Description"
-    BOT_ID = "BotId"
-    BOT_VERSION_LOCALE_SPECIFICATION = "BotVersionLocaleSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "bot_id": "BotId",
@@ -447,9 +420,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-r"""
 
     resource_type: ClassVar[str] = "AWS::Lex::ResourcePolicy"
-    POLICY = "Policy"
-    RESOURCE_ARN = "ResourceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_arn": "ResourceArn",

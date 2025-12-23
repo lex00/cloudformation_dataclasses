@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HoursOfOperationConfig(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-    DAY = "Day"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -28,13 +24,6 @@ class HoursOfOperationConfig(PropertyType):
 
 @dataclass
 class HoursOfOperationOverride(PropertyType):
-    HOURS_OF_OPERATION_OVERRIDE_ID = "HoursOfOperationOverrideId"
-    OVERRIDE_CONFIG = "OverrideConfig"
-    EFFECTIVE_FROM = "EffectiveFrom"
-    OVERRIDE_NAME = "OverrideName"
-    OVERRIDE_DESCRIPTION = "OverrideDescription"
-    EFFECTIVE_TILL = "EffectiveTill"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours_of_operation_override_id": "HoursOfOperationOverrideId",
         "override_config": "OverrideConfig",
@@ -54,10 +43,6 @@ class HoursOfOperationOverride(PropertyType):
 
 @dataclass
 class HoursOfOperationOverrideConfig(PropertyType):
-    END_TIME = "EndTime"
-    START_TIME = "StartTime"
-    DAY = "Day"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -71,9 +56,6 @@ class HoursOfOperationOverrideConfig(PropertyType):
 
 @dataclass
 class HoursOfOperationTimeSlice(PropertyType):
-    HOURS = "Hours"
-    MINUTES = "Minutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",
@@ -85,9 +67,6 @@ class HoursOfOperationTimeSlice(PropertyType):
 
 @dataclass
 class OverrideTimeSlice(PropertyType):
-    HOURS = "Hours"
-    MINUTES = "Minutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationSchema(PropertyType):
-    RECORD_FORMAT_TYPE = "RecordFormatType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_format_type": "RecordFormatType",
     }
@@ -22,8 +20,6 @@ class DestinationSchema(PropertyType):
 
 @dataclass
 class KinesisFirehoseOutput(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -33,8 +29,6 @@ class KinesisFirehoseOutput(PropertyType):
 
 @dataclass
 class KinesisStreamsOutput(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -44,8 +38,6 @@ class KinesisStreamsOutput(PropertyType):
 
 @dataclass
 class LambdaOutput(PropertyType):
-    RESOURCE_ARN = "ResourceARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -55,12 +47,6 @@ class LambdaOutput(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    DESTINATION_SCHEMA = "DestinationSchema"
-    LAMBDA_OUTPUT = "LambdaOutput"
-    KINESIS_FIREHOSE_OUTPUT = "KinesisFirehoseOutput"
-    KINESIS_STREAMS_OUTPUT = "KinesisStreamsOutput"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_schema": "DestinationSchema",
         "lambda_output": "LambdaOutput",

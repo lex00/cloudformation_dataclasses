@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AvailabilityZoneMapping(PropertyType):
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
     }
@@ -22,9 +20,6 @@ class AvailabilityZoneMapping(PropertyType):
 
 @dataclass
 class SubnetMapping(PropertyType):
-    IP_ADDRESS_TYPE = "IPAddressType"
-    SUBNET_ID = "SubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IPAddressType",
         "subnet_id": "SubnetId",

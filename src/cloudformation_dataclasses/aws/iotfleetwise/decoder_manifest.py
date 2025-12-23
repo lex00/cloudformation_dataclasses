@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CanInterface(PropertyType):
-    PROTOCOL_NAME = "ProtocolName"
-    PROTOCOL_VERSION = "ProtocolVersion"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_name": "ProtocolName",
         "protocol_version": "ProtocolVersion",
@@ -28,16 +24,6 @@ class CanInterface(PropertyType):
 
 @dataclass
 class CanSignal(PropertyType):
-    IS_BIG_ENDIAN = "IsBigEndian"
-    LENGTH = "Length"
-    FACTOR = "Factor"
-    IS_SIGNED = "IsSigned"
-    SIGNAL_VALUE_TYPE = "SignalValueType"
-    START_BIT = "StartBit"
-    MESSAGE_ID = "MessageId"
-    OFFSET = "Offset"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_big_endian": "IsBigEndian",
         "length": "Length",
@@ -63,8 +49,6 @@ class CanSignal(PropertyType):
 
 @dataclass
 class CustomDecodingInterface(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -74,8 +58,6 @@ class CustomDecodingInterface(PropertyType):
 
 @dataclass
 class CustomDecodingSignal(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -85,12 +67,6 @@ class CustomDecodingSignal(PropertyType):
 
 @dataclass
 class NetworkInterfacesItems(PropertyType):
-    TYPE = "Type"
-    CAN_INTERFACE = "CanInterface"
-    CUSTOM_DECODING_INTERFACE = "CustomDecodingInterface"
-    INTERFACE_ID = "InterfaceId"
-    OBD_INTERFACE = "ObdInterface"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "can_interface": "CanInterface",
@@ -108,14 +84,6 @@ class NetworkInterfacesItems(PropertyType):
 
 @dataclass
 class ObdInterface(PropertyType):
-    HAS_TRANSMISSION_ECU = "HasTransmissionEcu"
-    PID_REQUEST_INTERVAL_SECONDS = "PidRequestIntervalSeconds"
-    USE_EXTENDED_IDS = "UseExtendedIds"
-    REQUEST_MESSAGE_ID = "RequestMessageId"
-    OBD_STANDARD = "ObdStandard"
-    NAME = "Name"
-    DTC_REQUEST_INTERVAL_SECONDS = "DtcRequestIntervalSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "has_transmission_ecu": "HasTransmissionEcu",
         "pid_request_interval_seconds": "PidRequestIntervalSeconds",
@@ -137,18 +105,6 @@ class ObdInterface(PropertyType):
 
 @dataclass
 class ObdSignal(PropertyType):
-    BIT_RIGHT_SHIFT = "BitRightShift"
-    BIT_MASK_LENGTH = "BitMaskLength"
-    START_BYTE = "StartByte"
-    BYTE_LENGTH = "ByteLength"
-    PID_RESPONSE_LENGTH = "PidResponseLength"
-    SCALING = "Scaling"
-    PID = "Pid"
-    IS_SIGNED = "IsSigned"
-    SIGNAL_VALUE_TYPE = "SignalValueType"
-    SERVICE_MODE = "ServiceMode"
-    OFFSET = "Offset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bit_right_shift": "BitRightShift",
         "bit_mask_length": "BitMaskLength",
@@ -178,13 +134,6 @@ class ObdSignal(PropertyType):
 
 @dataclass
 class SignalDecodersItems(PropertyType):
-    TYPE = "Type"
-    OBD_SIGNAL = "ObdSignal"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-    CUSTOM_DECODING_SIGNAL = "CustomDecodingSignal"
-    CAN_SIGNAL = "CanSignal"
-    INTERFACE_ID = "InterfaceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "obd_signal": "ObdSignal",

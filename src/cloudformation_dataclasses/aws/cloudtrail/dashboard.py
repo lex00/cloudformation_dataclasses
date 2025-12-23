@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Frequency(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -25,10 +22,6 @@ class Frequency(PropertyType):
 
 @dataclass
 class RefreshSchedule(PropertyType):
-    STATUS = "Status"
-    TIME_OF_DAY = "TimeOfDay"
-    FREQUENCY = "Frequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "time_of_day": "TimeOfDay",
@@ -42,10 +35,6 @@ class RefreshSchedule(PropertyType):
 
 @dataclass
 class Widget(PropertyType):
-    QUERY_STATEMENT = "QueryStatement"
-    QUERY_PARAMETERS = "QueryParameters"
-    VIEW_PROPERTIES = "ViewProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_statement": "QueryStatement",
         "query_parameters": "QueryParameters",

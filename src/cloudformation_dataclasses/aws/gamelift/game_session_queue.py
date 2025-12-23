@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FilterConfiguration(PropertyType):
-    ALLOWED_LOCATIONS = "AllowedLocations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_locations": "AllowedLocations",
     }
@@ -22,8 +20,6 @@ class FilterConfiguration(PropertyType):
 
 @dataclass
 class GameSessionQueueDestination(PropertyType):
-    DESTINATION_ARN = "DestinationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_arn": "DestinationArn",
     }
@@ -33,9 +29,6 @@ class GameSessionQueueDestination(PropertyType):
 
 @dataclass
 class PlayerLatencyPolicy(PropertyType):
-    POLICY_DURATION_SECONDS = "PolicyDurationSeconds"
-    MAXIMUM_INDIVIDUAL_PLAYER_LATENCY_MILLISECONDS = "MaximumIndividualPlayerLatencyMilliseconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_duration_seconds": "PolicyDurationSeconds",
         "maximum_individual_player_latency_milliseconds": "MaximumIndividualPlayerLatencyMilliseconds",
@@ -47,9 +40,6 @@ class PlayerLatencyPolicy(PropertyType):
 
 @dataclass
 class PriorityConfiguration(PropertyType):
-    PRIORITY_ORDER = "PriorityOrder"
-    LOCATION_ORDER = "LocationOrder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority_order": "PriorityOrder",
         "location_order": "LocationOrder",

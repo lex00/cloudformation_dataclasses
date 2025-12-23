@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    TYPES = "Types"
-    VPC_ENDPOINT_IDS = "VpcEndpointIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "types": "Types",
@@ -28,11 +24,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    E_TAG = "ETag"
-    VERSION = "Version"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "e_tag": "ETag",

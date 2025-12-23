@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdConditioningConfiguration(PropertyType):
-    STREAMING_MEDIA_FILE_CONDITIONING = "StreamingMediaFileConditioning"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streaming_media_file_conditioning": "StreamingMediaFileConditioning",
     }
@@ -22,8 +20,6 @@ class AdConditioningConfiguration(PropertyType):
 
 @dataclass
 class AdMarkerPassthrough(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -33,9 +29,6 @@ class AdMarkerPassthrough(PropertyType):
 
 @dataclass
 class AdsInteractionLog(PropertyType):
-    EXCLUDE_EVENT_TYPES = "ExcludeEventTypes"
-    PUBLISH_OPT_IN_EVENT_TYPES = "PublishOptInEventTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_event_types": "ExcludeEventTypes",
         "publish_opt_in_event_types": "PublishOptInEventTypes",
@@ -47,10 +40,6 @@ class AdsInteractionLog(PropertyType):
 
 @dataclass
 class AvailSuppression(PropertyType):
-    MODE = "Mode"
-    VALUE = "Value"
-    FILL_POLICY = "FillPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "value": "Value",
@@ -64,9 +53,6 @@ class AvailSuppression(PropertyType):
 
 @dataclass
 class Bumper(PropertyType):
-    START_URL = "StartUrl"
-    END_URL = "EndUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_url": "StartUrl",
         "end_url": "EndUrl",
@@ -78,9 +64,6 @@ class Bumper(PropertyType):
 
 @dataclass
 class CdnConfiguration(PropertyType):
-    AD_SEGMENT_URL_PREFIX = "AdSegmentUrlPrefix"
-    CONTENT_SEGMENT_URL_PREFIX = "ContentSegmentUrlPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_segment_url_prefix": "AdSegmentUrlPrefix",
         "content_segment_url_prefix": "ContentSegmentUrlPrefix",
@@ -92,10 +75,6 @@ class CdnConfiguration(PropertyType):
 
 @dataclass
 class DashConfiguration(PropertyType):
-    MPD_LOCATION = "MpdLocation"
-    MANIFEST_ENDPOINT_PREFIX = "ManifestEndpointPrefix"
-    ORIGIN_MANIFEST_TYPE = "OriginManifestType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mpd_location": "MpdLocation",
         "manifest_endpoint_prefix": "ManifestEndpointPrefix",
@@ -109,8 +88,6 @@ class DashConfiguration(PropertyType):
 
 @dataclass
 class HlsConfiguration(PropertyType):
-    MANIFEST_ENDPOINT_PREFIX = "ManifestEndpointPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_endpoint_prefix": "ManifestEndpointPrefix",
     }
@@ -120,9 +97,6 @@ class HlsConfiguration(PropertyType):
 
 @dataclass
 class LivePreRollConfiguration(PropertyType):
-    AD_DECISION_SERVER_URL = "AdDecisionServerUrl"
-    MAX_DURATION_SECONDS = "MaxDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_decision_server_url": "AdDecisionServerUrl",
         "max_duration_seconds": "MaxDurationSeconds",
@@ -134,11 +108,6 @@ class LivePreRollConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    ENABLED_LOGGING_STRATEGIES = "EnabledLoggingStrategies"
-    PERCENT_ENABLED = "PercentEnabled"
-    ADS_INTERACTION_LOG = "AdsInteractionLog"
-    MANIFEST_SERVICE_INTERACTION_LOG = "ManifestServiceInteractionLog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_logging_strategies": "EnabledLoggingStrategies",
         "percent_enabled": "PercentEnabled",
@@ -154,8 +123,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class ManifestProcessingRules(PropertyType):
-    AD_MARKER_PASSTHROUGH = "AdMarkerPassthrough"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_passthrough": "AdMarkerPassthrough",
     }
@@ -165,8 +132,6 @@ class ManifestProcessingRules(PropertyType):
 
 @dataclass
 class ManifestServiceInteractionLog(PropertyType):
-    EXCLUDE_EVENT_TYPES = "ExcludeEventTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_event_types": "ExcludeEventTypes",
     }

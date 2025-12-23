@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AudioMonitoringSetting(PropertyType):
-    SILENT_AUDIO = "SilentAudio"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "silent_audio": "SilentAudio",
     }
@@ -22,9 +20,6 @@ class AudioMonitoringSetting(PropertyType):
 
 @dataclass
 class BlackFrames(PropertyType):
-    STATE = "State"
-    THRESHOLD_SECONDS = "ThresholdSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -36,16 +31,6 @@ class BlackFrames(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KEY_TYPE = "KeyType"
-    RESOURCE_ID = "ResourceId"
-    DEVICE_ID = "DeviceId"
-    REGION = "Region"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    ALGORITHM = "Algorithm"
-    ROLE_ARN = "RoleArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -71,11 +56,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    STATE = "State"
-    SOURCE_PRIORITY = "SourcePriority"
-    FAILOVER_MODE = "FailoverMode"
-    RECOVERY_WINDOW = "RecoveryWindow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "source_priority": "SourcePriority",
@@ -91,9 +71,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    ENCRYPTION_KEY_TYPE = "EncryptionKeyType"
-    ENCRYPTION_KEY_CONFIGURATION = "EncryptionKeyConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -105,9 +82,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    SECRETS_MANAGER = "SecretsManager"
-    AUTOMATIC = "Automatic"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -119,14 +93,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class Fmtp(PropertyType):
-    PAR = "Par"
-    SCAN_MODE = "ScanMode"
-    TCS = "Tcs"
-    EXACT_FRAMERATE = "ExactFramerate"
-    CHANNEL_ORDER = "ChannelOrder"
-    COLORIMETRY = "Colorimetry"
-    RANGE = "Range"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "par": "Par",
         "scan_mode": "ScanMode",
@@ -148,9 +114,6 @@ class Fmtp(PropertyType):
 
 @dataclass
 class FrozenFrames(PropertyType):
-    STATE = "State"
-    THRESHOLD_SECONDS = "ThresholdSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -162,9 +125,6 @@ class FrozenFrames(PropertyType):
 
 @dataclass
 class GatewayBridgeSource(PropertyType):
-    BRIDGE_ARN = "BridgeArn"
-    VPC_INTERFACE_ATTACHMENT = "VpcInterfaceAttachment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bridge_arn": "BridgeArn",
         "vpc_interface_attachment": "VpcInterfaceAttachment",
@@ -176,9 +136,6 @@ class GatewayBridgeSource(PropertyType):
 
 @dataclass
 class InputConfiguration(PropertyType):
-    INPUT_PORT = "InputPort"
-    INTERFACE = "Interface"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_port": "InputPort",
         "interface": "Interface",
@@ -190,8 +147,6 @@ class InputConfiguration(PropertyType):
 
 @dataclass
 class Interface(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -201,9 +156,6 @@ class Interface(PropertyType):
 
 @dataclass
 class Maintenance(PropertyType):
-    MAINTENANCE_DAY = "MaintenanceDay"
-    MAINTENANCE_START_HOUR = "MaintenanceStartHour"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_start_hour": "MaintenanceStartHour",
@@ -215,15 +167,6 @@ class Maintenance(PropertyType):
 
 @dataclass
 class MediaStream(PropertyType):
-    MEDIA_STREAM_TYPE = "MediaStreamType"
-    MEDIA_STREAM_ID = "MediaStreamId"
-    DESCRIPTION = "Description"
-    MEDIA_STREAM_NAME = "MediaStreamName"
-    ATTRIBUTES = "Attributes"
-    CLOCK_RATE = "ClockRate"
-    VIDEO_FORMAT = "VideoFormat"
-    FMT = "Fmt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_stream_type": "MediaStreamType",
         "media_stream_id": "MediaStreamId",
@@ -247,9 +190,6 @@ class MediaStream(PropertyType):
 
 @dataclass
 class MediaStreamAttributes(PropertyType):
-    FMTP = "Fmtp"
-    LANG = "Lang"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fmtp": "Fmtp",
         "lang": "Lang",
@@ -261,10 +201,6 @@ class MediaStreamAttributes(PropertyType):
 
 @dataclass
 class MediaStreamSourceConfiguration(PropertyType):
-    MEDIA_STREAM_NAME = "MediaStreamName"
-    INPUT_CONFIGURATIONS = "InputConfigurations"
-    ENCODING_NAME = "EncodingName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_stream_name": "MediaStreamName",
         "input_configurations": "InputConfigurations",
@@ -278,10 +214,6 @@ class MediaStreamSourceConfiguration(PropertyType):
 
 @dataclass
 class NdiConfig(PropertyType):
-    NDI_STATE = "NdiState"
-    MACHINE_NAME = "MachineName"
-    NDI_DISCOVERY_SERVERS = "NdiDiscoveryServers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ndi_state": "NdiState",
         "machine_name": "MachineName",
@@ -295,10 +227,6 @@ class NdiConfig(PropertyType):
 
 @dataclass
 class NdiDiscoveryServerConfig(PropertyType):
-    DISCOVERY_SERVER_ADDRESS = "DiscoveryServerAddress"
-    DISCOVERY_SERVER_PORT = "DiscoveryServerPort"
-    VPC_INTERFACE_ADAPTER = "VpcInterfaceAdapter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "discovery_server_address": "DiscoveryServerAddress",
         "discovery_server_port": "DiscoveryServerPort",
@@ -312,9 +240,6 @@ class NdiDiscoveryServerConfig(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -326,9 +251,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class SilentAudio(PropertyType):
-    STATE = "State"
-    THRESHOLD_SECONDS = "ThresholdSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -340,31 +262,6 @@ class SilentAudio(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    INGEST_IP = "IngestIp"
-    MAX_SYNC_BUFFER = "MaxSyncBuffer"
-    STREAM_ID = "StreamId"
-    DESCRIPTION = "Description"
-    SENDER_IP_ADDRESS = "SenderIpAddress"
-    ROUTER_INTEGRATION_TRANSIT_DECRYPTION = "RouterIntegrationTransitDecryption"
-    MEDIA_STREAM_SOURCE_CONFIGURATIONS = "MediaStreamSourceConfigurations"
-    INGEST_PORT = "IngestPort"
-    SENDER_CONTROL_PORT = "SenderControlPort"
-    DECRYPTION = "Decryption"
-    ROUTER_INTEGRATION_STATE = "RouterIntegrationState"
-    GATEWAY_BRIDGE_SOURCE = "GatewayBridgeSource"
-    SOURCE_LISTENER_ADDRESS = "SourceListenerAddress"
-    SOURCE_LISTENER_PORT = "SourceListenerPort"
-    NAME = "Name"
-    WHITELIST_CIDR = "WhitelistCidr"
-    ENTITLEMENT_ARN = "EntitlementArn"
-    SOURCE_ARN = "SourceArn"
-    MIN_LATENCY = "MinLatency"
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-    MAX_BITRATE = "MaxBitrate"
-    PROTOCOL = "Protocol"
-    MAX_LATENCY = "MaxLatency"
-    SOURCE_INGEST_PORT = "SourceIngestPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ingest_ip": "IngestIp",
         "max_sync_buffer": "MaxSyncBuffer",
@@ -420,11 +317,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceMonitoringConfig(PropertyType):
-    CONTENT_QUALITY_ANALYSIS_STATE = "ContentQualityAnalysisState"
-    AUDIO_MONITORING_SETTINGS = "AudioMonitoringSettings"
-    VIDEO_MONITORING_SETTINGS = "VideoMonitoringSettings"
-    THUMBNAIL_STATE = "ThumbnailState"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_quality_analysis_state": "ContentQualityAnalysisState",
         "audio_monitoring_settings": "AudioMonitoringSettings",
@@ -440,8 +332,6 @@ class SourceMonitoringConfig(PropertyType):
 
 @dataclass
 class SourcePriority(PropertyType):
-    PRIMARY_SOURCE = "PrimarySource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_source": "PrimarySource",
     }
@@ -451,9 +341,6 @@ class SourcePriority(PropertyType):
 
 @dataclass
 class VideoMonitoringSetting(PropertyType):
-    BLACK_FRAMES = "BlackFrames"
-    FROZEN_FRAMES = "FrozenFrames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "black_frames": "BlackFrames",
         "frozen_frames": "FrozenFrames",
@@ -465,13 +352,6 @@ class VideoMonitoringSetting(PropertyType):
 
 @dataclass
 class VpcInterface(PropertyType):
-    NETWORK_INTERFACE_TYPE = "NetworkInterfaceType"
-    NETWORK_INTERFACE_IDS = "NetworkInterfaceIds"
-    SUBNET_ID = "SubnetId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_interface_type": "NetworkInterfaceType",
         "network_interface_ids": "NetworkInterfaceIds",
@@ -491,8 +371,6 @@ class VpcInterface(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }

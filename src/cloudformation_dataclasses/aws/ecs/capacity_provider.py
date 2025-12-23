@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -25,9 +22,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -39,11 +33,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class AutoScalingGroupProvider(PropertyType):
-    MANAGED_SCALING = "ManagedScaling"
-    AUTO_SCALING_GROUP_ARN = "AutoScalingGroupArn"
-    MANAGED_TERMINATION_PROTECTION = "ManagedTerminationProtection"
-    MANAGED_DRAINING = "ManagedDraining"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_scaling": "ManagedScaling",
         "auto_scaling_group_arn": "AutoScalingGroupArn",
@@ -59,9 +48,6 @@ class AutoScalingGroupProvider(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -73,8 +59,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class InfrastructureOptimization(PropertyType):
-    SCALE_IN_AFTER = "ScaleInAfter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_in_after": "ScaleInAfter",
     }
@@ -84,12 +68,6 @@ class InfrastructureOptimization(PropertyType):
 
 @dataclass
 class InstanceLaunchTemplate(PropertyType):
-    EC2_INSTANCE_PROFILE_ARN = "Ec2InstanceProfileArn"
-    STORAGE_CONFIGURATION = "StorageConfiguration"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    INSTANCE_REQUIREMENTS = "InstanceRequirements"
-    MONITORING = "Monitoring"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_instance_profile_arn": "Ec2InstanceProfileArn",
         "storage_configuration": "StorageConfiguration",
@@ -107,31 +85,6 @@ class InstanceLaunchTemplate(PropertyType):
 
 @dataclass
 class InstanceRequirementsRequest(PropertyType):
-    LOCAL_STORAGE_TYPES = "LocalStorageTypes"
-    INSTANCE_GENERATIONS = "InstanceGenerations"
-    NETWORK_INTERFACE_COUNT = "NetworkInterfaceCount"
-    MEMORY_GI_B_PER_V_CPU = "MemoryGiBPerVCpu"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    V_CPU_COUNT = "VCpuCount"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    ACCELERATOR_MANUFACTURERS = "AcceleratorManufacturers"
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    LOCAL_STORAGE = "LocalStorage"
-    CPU_MANUFACTURERS = "CpuManufacturers"
-    NETWORK_BANDWIDTH_GBPS = "NetworkBandwidthGbps"
-    ACCELERATOR_COUNT = "AcceleratorCount"
-    BARE_METAL = "BareMetal"
-    REQUIRE_HIBERNATE_SUPPORT = "RequireHibernateSupport"
-    MAX_SPOT_PRICE_AS_PERCENTAGE_OF_OPTIMAL_ON_DEMAND_PRICE = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
-    SPOT_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "SpotMaxPricePercentageOverLowestPrice"
-    BASELINE_EBS_BANDWIDTH_MBPS = "BaselineEbsBandwidthMbps"
-    ON_DEMAND_MAX_PRICE_PERCENTAGE_OVER_LOWEST_PRICE = "OnDemandMaxPricePercentageOverLowestPrice"
-    ACCELERATOR_NAMES = "AcceleratorNames"
-    ACCELERATOR_TOTAL_MEMORY_MI_B = "AcceleratorTotalMemoryMiB"
-    BURSTABLE_PERFORMANCE = "BurstablePerformance"
-    MEMORY_MI_B = "MemoryMiB"
-    TOTAL_LOCAL_STORAGE_GB = "TotalLocalStorageGB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_storage_types": "LocalStorageTypes",
         "instance_generations": "InstanceGenerations",
@@ -187,9 +140,6 @@ class InstanceRequirementsRequest(PropertyType):
 
 @dataclass
 class ManagedInstancesNetworkConfiguration(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -201,11 +151,6 @@ class ManagedInstancesNetworkConfiguration(PropertyType):
 
 @dataclass
 class ManagedInstancesProvider(PropertyType):
-    INFRASTRUCTURE_ROLE_ARN = "InfrastructureRoleArn"
-    PROPAGATE_TAGS = "PropagateTags"
-    INFRASTRUCTURE_OPTIMIZATION = "InfrastructureOptimization"
-    INSTANCE_LAUNCH_TEMPLATE = "InstanceLaunchTemplate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "infrastructure_role_arn": "InfrastructureRoleArn",
         "propagate_tags": "PropagateTags",
@@ -221,8 +166,6 @@ class ManagedInstancesProvider(PropertyType):
 
 @dataclass
 class ManagedInstancesStorageConfiguration(PropertyType):
-    STORAGE_SIZE_GI_B = "StorageSizeGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_size_gi_b": "StorageSizeGiB",
     }
@@ -232,12 +175,6 @@ class ManagedInstancesStorageConfiguration(PropertyType):
 
 @dataclass
 class ManagedScaling(PropertyType):
-    STATUS = "Status"
-    MINIMUM_SCALING_STEP_SIZE = "MinimumScalingStepSize"
-    INSTANCE_WARMUP_PERIOD = "InstanceWarmupPeriod"
-    TARGET_CAPACITY = "TargetCapacity"
-    MAXIMUM_SCALING_STEP_SIZE = "MaximumScalingStepSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "minimum_scaling_step_size": "MinimumScalingStepSize",
@@ -255,9 +192,6 @@ class ManagedScaling(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -269,9 +203,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -283,9 +214,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -297,9 +225,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -311,9 +236,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -325,9 +247,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class VCpuCountRangeRequest(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",

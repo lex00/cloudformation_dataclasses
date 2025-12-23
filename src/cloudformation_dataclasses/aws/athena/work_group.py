@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AclConfiguration(PropertyType):
-    S3_ACL_OPTION = "S3AclOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_acl_option": "S3AclOption",
     }
@@ -22,9 +20,6 @@ class AclConfiguration(PropertyType):
 
 @dataclass
 class Classification(PropertyType):
-    PROPERTIES = "Properties"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "properties": "Properties",
         "name": "Name",
@@ -36,11 +31,6 @@ class Classification(PropertyType):
 
 @dataclass
 class CloudWatchLoggingConfiguration(PropertyType):
-    LOG_GROUP = "LogGroup"
-    ENABLED = "Enabled"
-    LOG_STREAM_NAME_PREFIX = "LogStreamNamePrefix"
-    LOG_TYPES = "LogTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -56,8 +46,6 @@ class CloudWatchLoggingConfiguration(PropertyType):
 
 @dataclass
 class CustomerContentEncryptionConfiguration(PropertyType):
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -67,9 +55,6 @@ class CustomerContentEncryptionConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    ENCRYPTION_OPTION = "EncryptionOption"
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_option": "EncryptionOption",
         "kms_key": "KmsKey",
@@ -81,13 +66,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EngineConfiguration(PropertyType):
-    SPARK_PROPERTIES = "SparkProperties"
-    CLASSIFICATIONS = "Classifications"
-    MAX_CONCURRENT_DPUS = "MaxConcurrentDpus"
-    COORDINATOR_DPU_SIZE = "CoordinatorDpuSize"
-    DEFAULT_EXECUTOR_DPU_SIZE = "DefaultExecutorDpuSize"
-    ADDITIONAL_CONFIGS = "AdditionalConfigs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spark_properties": "SparkProperties",
         "classifications": "Classifications",
@@ -107,9 +85,6 @@ class EngineConfiguration(PropertyType):
 
 @dataclass
 class EngineVersion(PropertyType):
-    SELECTED_ENGINE_VERSION = "SelectedEngineVersion"
-    EFFECTIVE_ENGINE_VERSION = "EffectiveEngineVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_engine_version": "SelectedEngineVersion",
         "effective_engine_version": "EffectiveEngineVersion",
@@ -121,9 +96,6 @@ class EngineVersion(PropertyType):
 
 @dataclass
 class ManagedLoggingConfiguration(PropertyType):
-    ENABLED = "Enabled"
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "kms_key": "KmsKey",
@@ -135,9 +107,6 @@ class ManagedLoggingConfiguration(PropertyType):
 
 @dataclass
 class ManagedQueryResultsConfiguration(PropertyType):
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "enabled": "Enabled",
@@ -149,8 +118,6 @@ class ManagedQueryResultsConfiguration(PropertyType):
 
 @dataclass
 class ManagedStorageEncryptionConfiguration(PropertyType):
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -160,10 +127,6 @@ class ManagedStorageEncryptionConfiguration(PropertyType):
 
 @dataclass
 class MonitoringConfiguration(PropertyType):
-    S3_LOGGING_CONFIGURATION = "S3LoggingConfiguration"
-    MANAGED_LOGGING_CONFIGURATION = "ManagedLoggingConfiguration"
-    CLOUD_WATCH_LOGGING_CONFIGURATION = "CloudWatchLoggingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_logging_configuration": "S3LoggingConfiguration",
         "managed_logging_configuration": "ManagedLoggingConfiguration",
@@ -177,11 +140,6 @@ class MonitoringConfiguration(PropertyType):
 
 @dataclass
 class ResultConfiguration(PropertyType):
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    OUTPUT_LOCATION = "OutputLocation"
-    ACL_CONFIGURATION = "AclConfiguration"
-    EXPECTED_BUCKET_OWNER = "ExpectedBucketOwner"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "output_location": "OutputLocation",
@@ -197,10 +155,6 @@ class ResultConfiguration(PropertyType):
 
 @dataclass
 class S3LoggingConfiguration(PropertyType):
-    LOG_LOCATION = "LogLocation"
-    ENABLED = "Enabled"
-    KMS_KEY = "KmsKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_location": "LogLocation",
         "enabled": "Enabled",
@@ -214,19 +168,6 @@ class S3LoggingConfiguration(PropertyType):
 
 @dataclass
 class WorkGroupConfiguration(PropertyType):
-    ENFORCE_WORK_GROUP_CONFIGURATION = "EnforceWorkGroupConfiguration"
-    ENGINE_VERSION = "EngineVersion"
-    PUBLISH_CLOUD_WATCH_METRICS_ENABLED = "PublishCloudWatchMetricsEnabled"
-    RESULT_CONFIGURATION = "ResultConfiguration"
-    ADDITIONAL_CONFIGURATION = "AdditionalConfiguration"
-    ENGINE_CONFIGURATION = "EngineConfiguration"
-    CUSTOMER_CONTENT_ENCRYPTION_CONFIGURATION = "CustomerContentEncryptionConfiguration"
-    BYTES_SCANNED_CUTOFF_PER_QUERY = "BytesScannedCutoffPerQuery"
-    MONITORING_CONFIGURATION = "MonitoringConfiguration"
-    REQUESTER_PAYS_ENABLED = "RequesterPaysEnabled"
-    MANAGED_QUERY_RESULTS_CONFIGURATION = "ManagedQueryResultsConfiguration"
-    EXECUTION_ROLE = "ExecutionRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforce_work_group_configuration": "EnforceWorkGroupConfiguration",
         "engine_version": "EngineVersion",

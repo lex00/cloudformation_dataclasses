@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MetricStreamFilter(PropertyType):
-    METRIC_NAMES = "MetricNames"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_names": "MetricNames",
         "namespace": "Namespace",
@@ -25,9 +22,6 @@ class MetricStreamFilter(PropertyType):
 
 @dataclass
 class MetricStreamStatisticsConfiguration(PropertyType):
-    INCLUDE_METRICS = "IncludeMetrics"
-    ADDITIONAL_STATISTICS = "AdditionalStatistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_metrics": "IncludeMetrics",
         "additional_statistics": "AdditionalStatistics",
@@ -39,9 +33,6 @@ class MetricStreamStatisticsConfiguration(PropertyType):
 
 @dataclass
 class MetricStreamStatisticsMetric(PropertyType):
-    METRIC_NAME = "MetricName"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "namespace": "Namespace",

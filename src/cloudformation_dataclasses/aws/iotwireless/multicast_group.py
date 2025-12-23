@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWAN(PropertyType):
-    NUMBER_OF_DEVICES_REQUESTED = "NumberOfDevicesRequested"
-    NUMBER_OF_DEVICES_IN_GROUP = "NumberOfDevicesInGroup"
-    RF_REGION = "RfRegion"
-    DL_CLASS = "DlClass"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_devices_requested": "NumberOfDevicesRequested",
         "number_of_devices_in_group": "NumberOfDevicesInGroup",

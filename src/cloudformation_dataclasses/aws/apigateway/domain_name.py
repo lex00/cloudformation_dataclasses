@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    TYPES = "Types"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "types": "Types",
@@ -25,9 +22,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class MutualTlsAuthentication(PropertyType):
-    TRUSTSTORE_VERSION = "TruststoreVersion"
-    TRUSTSTORE_URI = "TruststoreUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truststore_version": "TruststoreVersion",
         "truststore_uri": "TruststoreUri",

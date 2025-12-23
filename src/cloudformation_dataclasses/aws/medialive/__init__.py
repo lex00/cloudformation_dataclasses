@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:07
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaLive
@@ -3863,22 +3863,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Channel"
     name_field: ClassVar[str] = "name"
-    INPUT_ATTACHMENTS = "InputAttachments"
-    INPUT_SPECIFICATION = "InputSpecification"
-    DESTINATIONS = "Destinations"
-    DRY_RUN = "DryRun"
-    VPC = "Vpc"
-    CHANNEL_ENGINE_VERSION = "ChannelEngineVersion"
-    MAINTENANCE = "Maintenance"
-    LOG_LEVEL = "LogLevel"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    CHANNEL_CLASS = "ChannelClass"
-    ENCODER_SETTINGS = "EncoderSettings"
-    ANYWHERE_SETTINGS = "AnywhereSettings"
-    CDI_INPUT_SPECIFICATION = "CdiInputSpecification"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_attachments": "InputAttachments",
         "input_specification": "InputSpecification",
@@ -3931,11 +3915,6 @@ class ChannelPlacementGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::ChannelPlacementGroup"
     name_field: ClassVar[str] = "name"
-    CLUSTER_ID = "ClusterId"
-    NODES = "Nodes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_id": "ClusterId",
         "nodes": "Nodes",
@@ -3976,20 +3955,6 @@ class CloudWatchAlarmTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::CloudWatchAlarmTemplate"
     name_field: ClassVar[str] = "name"
-    TARGET_RESOURCE_TYPE = "TargetResourceType"
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TREAT_MISSING_DATA = "TreatMissingData"
-    DESCRIPTION = "Description"
-    PERIOD = "Period"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    GROUP_IDENTIFIER = "GroupIdentifier"
-    NAME = "Name"
-    METRIC_NAME = "MetricName"
-    STATISTIC = "Statistic"
-    DATAPOINTS_TO_ALARM = "DatapointsToAlarm"
-    TAGS = "Tags"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource_type": "TargetResourceType",
         "comparison_operator": "ComparisonOperator",
@@ -4058,10 +4023,6 @@ class CloudWatchAlarmTemplateGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::CloudWatchAlarmTemplateGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -4105,12 +4066,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Cluster"
     name_field: ClassVar[str] = "name"
-    NETWORK_SETTINGS = "NetworkSettings"
-    INSTANCE_ROLE_ARN = "InstanceRoleArn"
-    CLUSTER_TYPE = "ClusterType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_settings": "NetworkSettings",
         "instance_role_arn": "InstanceRoleArn",
@@ -4153,13 +4108,6 @@ class EventBridgeRuleTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::EventBridgeRuleTemplate"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    EVENT_TARGETS = "EventTargets"
-    EVENT_TYPE = "EventType"
-    TAGS = "Tags"
-    GROUP_IDENTIFIER = "GroupIdentifier"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "event_targets": "EventTargets",
@@ -4214,10 +4162,6 @@ class EventBridgeRuleTemplateGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::EventBridgeRuleTemplateGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -4261,23 +4205,6 @@ class Input(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Input"
     name_field: ClassVar[str] = "name"
-    SRT_SETTINGS = "SrtSettings"
-    INPUT_NETWORK_LOCATION = "InputNetworkLocation"
-    DESTINATIONS = "Destinations"
-    VPC = "Vpc"
-    MEDIA_CONNECT_FLOWS = "MediaConnectFlows"
-    SOURCES = "Sources"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    ROUTER_SETTINGS = "RouterSettings"
-    TYPE = "Type"
-    SMPTE2110_RECEIVER_GROUP_SETTINGS = "Smpte2110ReceiverGroupSettings"
-    SDI_SOURCES = "SdiSources"
-    INPUT_SECURITY_GROUPS = "InputSecurityGroups"
-    MULTICAST_SETTINGS = "MulticastSettings"
-    INPUT_DEVICES = "InputDevices"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_settings": "SrtSettings",
         "input_network_location": "InputNetworkLocation",
@@ -4336,9 +4263,6 @@ class InputSecurityGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::InputSecurityGroup"
-    WHITELIST_RULES = "WhitelistRules"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "whitelist_rules": "WhitelistRules",
         "tags": "Tags",
@@ -4360,12 +4284,6 @@ class Multiplex(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Multiplex"
     name_field: ClassVar[str] = "name"
-    MULTIPLEX_SETTINGS = "MultiplexSettings"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    DESTINATIONS = "Destinations"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_settings": "MultiplexSettings",
         "availability_zones": "AvailabilityZones",
@@ -4413,13 +4331,6 @@ class Multiplexprogram(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Multiplexprogram"
     name_field: ClassVar[str] = "program_name"
-    MULTIPLEX_ID = "MultiplexId"
-    PREFERRED_CHANNEL_PIPELINE = "PreferredChannelPipeline"
-    PACKET_IDENTIFIERS_MAP = "PacketIdentifiersMap"
-    PIPELINE_DETAILS = "PipelineDetails"
-    MULTIPLEX_PROGRAM_SETTINGS = "MultiplexProgramSettings"
-    PROGRAM_NAME = "ProgramName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_id": "MultiplexId",
         "preferred_channel_pipeline": "PreferredChannelPipeline",
@@ -4449,11 +4360,6 @@ class Network(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Network"
     name_field: ClassVar[str] = "name"
-    IP_POOLS = "IpPools"
-    ROUTES = "Routes"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_pools": "IpPools",
         "routes": "Routes",
@@ -4494,11 +4400,6 @@ class SdiSource(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::SdiSource"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    MODE = "Mode"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "mode": "Mode",
@@ -4539,14 +4440,6 @@ class SignalMap(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MediaLive::SignalMap"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    EVENT_BRIDGE_RULE_TEMPLATE_GROUP_IDENTIFIERS = "EventBridgeRuleTemplateGroupIdentifiers"
-    DISCOVERY_ENTRY_POINT_ARN = "DiscoveryEntryPointArn"
-    CLOUD_WATCH_ALARM_TEMPLATE_GROUP_IDENTIFIERS = "CloudWatchAlarmTemplateGroupIdentifiers"
-    FORCE_REDISCOVERY = "ForceRediscovery"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "event_bridge_rule_template_group_identifiers": "EventBridgeRuleTemplateGroupIdentifiers",

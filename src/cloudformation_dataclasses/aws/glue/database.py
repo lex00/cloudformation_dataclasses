@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    DATA_LAKE_PRINCIPAL_IDENTIFIER = "DataLakePrincipalIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -22,10 +20,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DatabaseIdentifier(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    REGION = "Region"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "region": "Region",
@@ -39,14 +33,6 @@ class DatabaseIdentifier(PropertyType):
 
 @dataclass
 class DatabaseInput(PropertyType):
-    LOCATION_URI = "LocationUri"
-    CREATE_TABLE_DEFAULT_PERMISSIONS = "CreateTableDefaultPermissions"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    TARGET_DATABASE = "TargetDatabase"
-    FEDERATED_DATABASE = "FederatedDatabase"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_uri": "LocationUri",
         "create_table_default_permissions": "CreateTableDefaultPermissions",
@@ -68,9 +54,6 @@ class DatabaseInput(PropertyType):
 
 @dataclass
 class FederatedDatabase(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    IDENTIFIER = "Identifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "identifier": "Identifier",
@@ -82,9 +65,6 @@ class FederatedDatabase(PropertyType):
 
 @dataclass
 class PrincipalPrivileges(PropertyType):
-    PERMISSIONS = "Permissions"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
         "principal": "Principal",

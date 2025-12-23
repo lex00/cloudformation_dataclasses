@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:03
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisFirehose
@@ -437,25 +437,6 @@ class DeliveryStream(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::KinesisFirehose::DeliveryStream"
     name_field: ClassVar[str] = "delivery_stream_name"
-    DELIVERY_STREAM_ENCRYPTION_CONFIGURATION_INPUT = "DeliveryStreamEncryptionConfigurationInput"
-    HTTP_ENDPOINT_DESTINATION_CONFIGURATION = "HttpEndpointDestinationConfiguration"
-    KINESIS_STREAM_SOURCE_CONFIGURATION = "KinesisStreamSourceConfiguration"
-    DELIVERY_STREAM_TYPE = "DeliveryStreamType"
-    ICEBERG_DESTINATION_CONFIGURATION = "IcebergDestinationConfiguration"
-    REDSHIFT_DESTINATION_CONFIGURATION = "RedshiftDestinationConfiguration"
-    AMAZONOPENSEARCHSERVICE_DESTINATION_CONFIGURATION = "AmazonopensearchserviceDestinationConfiguration"
-    MSK_SOURCE_CONFIGURATION = "MSKSourceConfiguration"
-    DIRECT_PUT_SOURCE_CONFIGURATION = "DirectPutSourceConfiguration"
-    SPLUNK_DESTINATION_CONFIGURATION = "SplunkDestinationConfiguration"
-    EXTENDED_S3_DESTINATION_CONFIGURATION = "ExtendedS3DestinationConfiguration"
-    AMAZON_OPEN_SEARCH_SERVERLESS_DESTINATION_CONFIGURATION = "AmazonOpenSearchServerlessDestinationConfiguration"
-    ELASTICSEARCH_DESTINATION_CONFIGURATION = "ElasticsearchDestinationConfiguration"
-    SNOWFLAKE_DESTINATION_CONFIGURATION = "SnowflakeDestinationConfiguration"
-    DATABASE_SOURCE_CONFIGURATION = "DatabaseSourceConfiguration"
-    S3_DESTINATION_CONFIGURATION = "S3DestinationConfiguration"
-    DELIVERY_STREAM_NAME = "DeliveryStreamName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_encryption_configuration_input": "DeliveryStreamEncryptionConfigurationInput",
         "http_endpoint_destination_configuration": "HttpEndpointDestinationConfiguration",

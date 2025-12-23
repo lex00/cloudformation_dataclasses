@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ChefConfiguration(PropertyType):
-    BERKSHELF_VERSION = "BerkshelfVersion"
-    MANAGE_BERKSHELF = "ManageBerkshelf"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "berkshelf_version": "BerkshelfVersion",
         "manage_berkshelf": "ManageBerkshelf",
@@ -25,9 +22,6 @@ class ChefConfiguration(PropertyType):
 
 @dataclass
 class ElasticIp(PropertyType):
-    IP = "Ip"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip": "Ip",
         "name": "Name",
@@ -39,10 +33,6 @@ class ElasticIp(PropertyType):
 
 @dataclass
 class RdsDbInstance(PropertyType):
-    DB_PASSWORD = "DbPassword"
-    DB_USER = "DbUser"
-    RDS_DB_INSTANCE_ARN = "RdsDbInstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_password": "DbPassword",
         "db_user": "DbUser",
@@ -56,13 +46,6 @@ class RdsDbInstance(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    PASSWORD = "Password"
-    REVISION = "Revision"
-    SSH_KEY = "SshKey"
-    TYPE = "Type"
-    URL = "Url"
-    USERNAME = "Username"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password": "Password",
         "revision": "Revision",
@@ -82,9 +65,6 @@ class Source(PropertyType):
 
 @dataclass
 class StackConfigurationManager(PropertyType):
-    NAME = "Name"
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "version": "Version",

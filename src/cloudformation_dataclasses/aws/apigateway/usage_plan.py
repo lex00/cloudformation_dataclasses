@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApiStage(PropertyType):
-    STAGE = "Stage"
-    API_ID = "ApiId"
-    THROTTLE = "Throttle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage": "Stage",
         "api_id": "ApiId",
@@ -28,10 +24,6 @@ class ApiStage(PropertyType):
 
 @dataclass
 class QuotaSettings(PropertyType):
-    PERIOD = "Period"
-    LIMIT = "Limit"
-    OFFSET = "Offset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period": "Period",
         "limit": "Limit",
@@ -45,9 +37,6 @@ class QuotaSettings(PropertyType):
 
 @dataclass
 class ThrottleSettings(PropertyType):
-    BURST_LIMIT = "BurstLimit"
-    RATE_LIMIT = "RateLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "burst_limit": "BurstLimit",
         "rate_limit": "RateLimit",

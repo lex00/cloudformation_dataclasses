@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConnectorProvisioningConfig(PropertyType):
-    LAMBDA = "Lambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_": "Lambda",
     }
@@ -22,8 +20,6 @@ class ConnectorProvisioningConfig(PropertyType):
 
 @dataclass
 class LambdaConnectorProvisioningConfig(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }

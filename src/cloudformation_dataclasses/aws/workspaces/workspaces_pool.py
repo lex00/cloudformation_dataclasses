@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationSettings(PropertyType):
-    STATUS = "Status"
-    SETTINGS_GROUP = "SettingsGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "settings_group": "SettingsGroup",
@@ -25,8 +22,6 @@ class ApplicationSettings(PropertyType):
 
 @dataclass
 class Capacity(PropertyType):
-    DESIRED_USER_SESSIONS = "DesiredUserSessions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_user_sessions": "DesiredUserSessions",
     }
@@ -36,10 +31,6 @@ class Capacity(PropertyType):
 
 @dataclass
 class TimeoutSettings(PropertyType):
-    MAX_USER_DURATION_IN_SECONDS = "MaxUserDurationInSeconds"
-    IDLE_DISCONNECT_TIMEOUT_IN_SECONDS = "IdleDisconnectTimeoutInSeconds"
-    DISCONNECT_TIMEOUT_IN_SECONDS = "DisconnectTimeoutInSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_user_duration_in_seconds": "MaxUserDurationInSeconds",
         "idle_disconnect_timeout_in_seconds": "IdleDisconnectTimeoutInSeconds",

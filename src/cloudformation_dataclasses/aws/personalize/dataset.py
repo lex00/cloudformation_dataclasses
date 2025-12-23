@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataSource(PropertyType):
-    DATA_LOCATION = "DataLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_location": "DataLocation",
     }
@@ -22,12 +20,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class DatasetImportJob(PropertyType):
-    DATASET_ARN = "DatasetArn"
-    JOB_NAME = "JobName"
-    DATASET_IMPORT_JOB_ARN = "DatasetImportJobArn"
-    ROLE_ARN = "RoleArn"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_arn": "DatasetArn",
         "job_name": "JobName",

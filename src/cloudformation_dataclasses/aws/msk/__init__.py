@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:06
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MSK
@@ -252,9 +252,6 @@ class BatchScramSecret(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-b"""
 
     resource_type: ClassVar[str] = "AWS::MSK::BatchScramSecret"
-    CLUSTER_ARN = "ClusterArn"
-    SECRET_ARN_LIST = "SecretArnList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "secret_arn_list": "SecretArnList",
@@ -270,20 +267,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MSK::Cluster"
     name_field: ClassVar[str] = "cluster_name"
-    KAFKA_VERSION = "KafkaVersion"
-    NUMBER_OF_BROKER_NODES = "NumberOfBrokerNodes"
-    REBALANCING = "Rebalancing"
-    ENCRYPTION_INFO = "EncryptionInfo"
-    OPEN_MONITORING = "OpenMonitoring"
-    STORAGE_MODE = "StorageMode"
-    CONFIGURATION_INFO = "ConfigurationInfo"
-    BROKER_NODE_GROUP_INFO = "BrokerNodeGroupInfo"
-    ENHANCED_MONITORING = "EnhancedMonitoring"
-    CLUSTER_NAME = "ClusterName"
-    CLIENT_AUTHENTICATION = "ClientAuthentication"
-    LOGGING_INFO = "LoggingInfo"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kafka_version": "KafkaVersion",
         "number_of_broker_nodes": "NumberOfBrokerNodes",
@@ -331,9 +314,6 @@ class ClusterPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-c"""
 
     resource_type: ClassVar[str] = "AWS::MSK::ClusterPolicy"
-    POLICY = "Policy"
-    CLUSTER_ARN = "ClusterArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "cluster_arn": "ClusterArn",
@@ -355,12 +335,6 @@ class Configuration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MSK::Configuration"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    LATEST_REVISION = "LatestRevision"
-    SERVER_PROPERTIES = "ServerProperties"
-    KAFKA_VERSIONS_LIST = "KafkaVersionsList"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "latest_revision": "LatestRevision",
@@ -403,13 +377,6 @@ class Replicator(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MSK::Replicator"
     name_field: ClassVar[str] = "replicator_name"
-    DESCRIPTION = "Description"
-    SERVICE_EXECUTION_ROLE_ARN = "ServiceExecutionRoleArn"
-    REPLICATOR_NAME = "ReplicatorName"
-    REPLICATION_INFO_LIST = "ReplicationInfoList"
-    KAFKA_CLUSTERS = "KafkaClusters"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "service_execution_role_arn": "ServiceExecutionRoleArn",
@@ -444,11 +411,6 @@ class ServerlessCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::MSK::ServerlessCluster"
     name_field: ClassVar[str] = "cluster_name"
-    VPC_CONFIGS = "VpcConfigs"
-    CLUSTER_NAME = "ClusterName"
-    CLIENT_AUTHENTICATION = "ClientAuthentication"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_configs": "VpcConfigs",
         "cluster_name": "ClusterName",
@@ -473,13 +435,6 @@ class VpcConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-v"""
 
     resource_type: ClassVar[str] = "AWS::MSK::VpcConnection"
-    SECURITY_GROUPS = "SecurityGroups"
-    TARGET_CLUSTER_ARN = "TargetClusterArn"
-    CLIENT_SUBNETS = "ClientSubnets"
-    VPC_ID = "VpcId"
-    AUTHENTICATION = "Authentication"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "target_cluster_arn": "TargetClusterArn",

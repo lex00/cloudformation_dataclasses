@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -22,9 +20,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class LogConfig(PropertyType):
-    INCLUDE_DETAIL = "IncludeDetail"
-    LEVEL = "Level"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_detail": "IncludeDetail",
         "level": "Level",

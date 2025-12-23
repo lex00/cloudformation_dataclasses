@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:48
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudTrail
@@ -321,11 +321,6 @@ class Channel(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Channel"
     name_field: ClassVar[str] = "name"
-    DESTINATIONS = "Destinations"
-    SOURCE = "Source"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
         "source": "Source",
@@ -351,12 +346,6 @@ class Dashboard(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Dashboard"
     name_field: ClassVar[str] = "name"
-    WIDGETS = "Widgets"
-    TERMINATION_PROTECTION_ENABLED = "TerminationProtectionEnabled"
-    REFRESH_SCHEDULE = "RefreshSchedule"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "widgets": "Widgets",
         "termination_protection_enabled": "TerminationProtectionEnabled",
@@ -404,23 +393,6 @@ class EventDataStore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::EventDataStore"
     name_field: ClassVar[str] = "name"
-    MAX_EVENT_SIZE = "MaxEventSize"
-    KMS_KEY_ID = "KmsKeyId"
-    ADVANCED_EVENT_SELECTORS = "AdvancedEventSelectors"
-    TERMINATION_PROTECTION_ENABLED = "TerminationProtectionEnabled"
-    MULTI_REGION_ENABLED = "MultiRegionEnabled"
-    RETENTION_PERIOD = "RetentionPeriod"
-    FEDERATION_ENABLED = "FederationEnabled"
-    INGESTION_ENABLED = "IngestionEnabled"
-    NAME = "Name"
-    INSIGHT_SELECTORS = "InsightSelectors"
-    ORGANIZATION_ENABLED = "OrganizationEnabled"
-    FEDERATION_ROLE_ARN = "FederationRoleArn"
-    INSIGHTS_DESTINATION = "InsightsDestination"
-    BILLING_MODE = "BillingMode"
-    CONTEXT_KEY_SELECTORS = "ContextKeySelectors"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_event_size": "MaxEventSize",
         "kms_key_id": "KmsKeyId",
@@ -484,9 +456,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::ResourcePolicy"
-    RESOURCE_ARN = "ResourceArn"
-    RESOURCE_POLICY = "ResourcePolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "resource_policy": "ResourcePolicy",
@@ -502,24 +471,6 @@ class Trail(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Trail"
     name_field: ClassVar[str] = "trail_name"
-    INCLUDE_GLOBAL_SERVICE_EVENTS = "IncludeGlobalServiceEvents"
-    EVENT_SELECTORS = "EventSelectors"
-    KMS_KEY_ID = "KMSKeyId"
-    AGGREGATION_CONFIGURATIONS = "AggregationConfigurations"
-    CLOUD_WATCH_LOGS_ROLE_ARN = "CloudWatchLogsRoleArn"
-    S3_KEY_PREFIX = "S3KeyPrefix"
-    ADVANCED_EVENT_SELECTORS = "AdvancedEventSelectors"
-    TRAIL_NAME = "TrailName"
-    IS_ORGANIZATION_TRAIL = "IsOrganizationTrail"
-    INSIGHT_SELECTORS = "InsightSelectors"
-    CLOUD_WATCH_LOGS_LOG_GROUP_ARN = "CloudWatchLogsLogGroupArn"
-    SNS_TOPIC_NAME = "SnsTopicName"
-    IS_MULTI_REGION_TRAIL = "IsMultiRegionTrail"
-    S3_BUCKET_NAME = "S3BucketName"
-    ENABLE_LOG_FILE_VALIDATION = "EnableLogFileValidation"
-    TAGS = "Tags"
-    IS_LOGGING = "IsLogging"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_global_service_events": "IncludeGlobalServiceEvents",
         "event_selectors": "EventSelectors",

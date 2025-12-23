@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BillingPeriodRange(PropertyType):
-    EXCLUSIVE_END_BILLING_PERIOD = "ExclusiveEndBillingPeriod"
-    INCLUSIVE_START_BILLING_PERIOD = "InclusiveStartBillingPeriod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusive_end_billing_period": "ExclusiveEndBillingPeriod",
         "inclusive_start_billing_period": "InclusiveStartBillingPeriod",
@@ -25,11 +22,6 @@ class BillingPeriodRange(PropertyType):
 
 @dataclass
 class CustomLineItemChargeDetails(PropertyType):
-    LINE_ITEM_FILTERS = "LineItemFilters"
-    TYPE = "Type"
-    PERCENTAGE = "Percentage"
-    FLAT = "Flat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_item_filters": "LineItemFilters",
         "type_": "Type",
@@ -45,8 +37,6 @@ class CustomLineItemChargeDetails(PropertyType):
 
 @dataclass
 class CustomLineItemFlatChargeDetails(PropertyType):
-    CHARGE_VALUE = "ChargeValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "charge_value": "ChargeValue",
     }
@@ -56,9 +46,6 @@ class CustomLineItemFlatChargeDetails(PropertyType):
 
 @dataclass
 class CustomLineItemPercentageChargeDetails(PropertyType):
-    CHILD_ASSOCIATED_RESOURCES = "ChildAssociatedResources"
-    PERCENTAGE_VALUE = "PercentageValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "child_associated_resources": "ChildAssociatedResources",
         "percentage_value": "PercentageValue",
@@ -70,11 +57,6 @@ class CustomLineItemPercentageChargeDetails(PropertyType):
 
 @dataclass
 class LineItemFilter(PropertyType):
-    MATCH_OPTION = "MatchOption"
-    ATTRIBUTE = "Attribute"
-    ATTRIBUTE_VALUES = "AttributeValues"
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_option": "MatchOption",
         "attribute": "Attribute",
@@ -90,8 +72,6 @@ class LineItemFilter(PropertyType):
 
 @dataclass
 class PresentationDetails(PropertyType):
-    SERVICE = "Service"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service": "Service",
     }

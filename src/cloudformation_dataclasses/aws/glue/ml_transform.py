@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FindMatchesParameters(PropertyType):
-    PRECISION_RECALL_TRADEOFF = "PrecisionRecallTradeoff"
-    ENFORCE_PROVIDED_LABELS = "EnforceProvidedLabels"
-    PRIMARY_KEY_COLUMN_NAME = "PrimaryKeyColumnName"
-    ACCURACY_COST_TRADEOFF = "AccuracyCostTradeoff"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "precision_recall_tradeoff": "PrecisionRecallTradeoff",
         "enforce_provided_labels": "EnforceProvidedLabels",
@@ -31,11 +26,6 @@ class FindMatchesParameters(PropertyType):
 
 @dataclass
 class GlueTables(PropertyType):
-    CONNECTION_NAME = "ConnectionName"
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "table_name": "TableName",
@@ -51,8 +41,6 @@ class GlueTables(PropertyType):
 
 @dataclass
 class InputRecordTables(PropertyType):
-    GLUE_TABLES = "GlueTables"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_tables": "GlueTables",
     }
@@ -62,9 +50,6 @@ class InputRecordTables(PropertyType):
 
 @dataclass
 class MLUserDataEncryption(PropertyType):
-    ML_USER_DATA_ENCRYPTION_MODE = "MLUserDataEncryptionMode"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_user_data_encryption_mode": "MLUserDataEncryptionMode",
         "kms_key_id": "KmsKeyId",
@@ -76,9 +61,6 @@ class MLUserDataEncryption(PropertyType):
 
 @dataclass
 class TransformEncryption(PropertyType):
-    ML_USER_DATA_ENCRYPTION = "MLUserDataEncryption"
-    TASK_RUN_SECURITY_CONFIGURATION_NAME = "TaskRunSecurityConfigurationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_user_data_encryption": "MLUserDataEncryption",
         "task_run_security_configuration_name": "TaskRunSecurityConfigurationName",
@@ -90,9 +72,6 @@ class TransformEncryption(PropertyType):
 
 @dataclass
 class TransformParameters(PropertyType):
-    TRANSFORM_TYPE = "TransformType"
-    FIND_MATCHES_PARAMETERS = "FindMatchesParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_type": "TransformType",
         "find_matches_parameters": "FindMatchesParameters",

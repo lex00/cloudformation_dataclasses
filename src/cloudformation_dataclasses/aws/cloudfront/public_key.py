@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PublicKeyConfig(PropertyType):
-    COMMENT = "Comment"
-    CALLER_REFERENCE = "CallerReference"
-    ENCODED_KEY = "EncodedKey"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "caller_reference": "CallerReference",

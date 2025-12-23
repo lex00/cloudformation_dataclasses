@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service StepFunctions
@@ -364,10 +364,6 @@ class Activity(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::StepFunctions::Activity"
     name_field: ClassVar[str] = "name"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "tags": "Tags",
@@ -396,18 +392,6 @@ class StateMachine(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::StepFunctions::StateMachine"
     name_field: ClassVar[str] = "state_machine_name"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    DEFINITION_STRING = "DefinitionString"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    DEFINITION_SUBSTITUTIONS = "DefinitionSubstitutions"
-    DEFINITION = "Definition"
-    DEFINITION_S3_LOCATION = "DefinitionS3Location"
-    STATE_MACHINE_NAME = "StateMachineName"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    STATE_MACHINE_TYPE = "StateMachineType"
-    TRACING_CONFIGURATION = "TracingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "definition_string": "DefinitionString",
@@ -457,11 +441,6 @@ class StateMachineAlias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::StepFunctions::StateMachineAlias"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ROUTING_CONFIGURATION = "RoutingConfiguration"
-    DEPLOYMENT_PREFERENCE = "DeploymentPreference"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "routing_configuration": "RoutingConfiguration",
@@ -486,10 +465,6 @@ class StateMachineVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepf"""
 
     resource_type: ClassVar[str] = "AWS::StepFunctions::StateMachineVersion"
-    DESCRIPTION = "Description"
-    STATE_MACHINE_REVISION_ID = "StateMachineRevisionId"
-    STATE_MACHINE_ARN = "StateMachineArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "state_machine_revision_id": "StateMachineRevisionId",

@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    ATTACHMENT_ARN = "AttachmentArn"
-    ENDPOINT_ID = "EndpointId"
-    WEIGHT = "Weight"
-    CLIENT_IP_PRESERVATION_ENABLED = "ClientIPPreservationEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachment_arn": "AttachmentArn",
         "endpoint_id": "EndpointId",
@@ -31,9 +26,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class PortOverride(PropertyType):
-    LISTENER_PORT = "ListenerPort"
-    ENDPOINT_PORT = "EndpointPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_port": "ListenerPort",
         "endpoint_port": "EndpointPort",

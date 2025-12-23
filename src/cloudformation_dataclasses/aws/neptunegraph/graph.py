@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VectorSearchConfiguration(PropertyType):
-    VECTOR_SEARCH_DIMENSION = "VectorSearchDimension"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_search_dimension": "VectorSearchDimension",
     }

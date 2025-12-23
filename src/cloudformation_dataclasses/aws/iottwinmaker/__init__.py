@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTTwinMaker
@@ -321,17 +321,6 @@ class ComponentType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottw"""
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::ComponentType"
-    EXTENDS_FROM = "ExtendsFrom"
-    DESCRIPTION = "Description"
-    IS_SINGLETON = "IsSingleton"
-    PROPERTY_DEFINITIONS = "PropertyDefinitions"
-    PROPERTY_GROUPS = "PropertyGroups"
-    WORKSPACE_ID = "WorkspaceId"
-    COMPONENT_TYPE_ID = "ComponentTypeId"
-    FUNCTIONS = "Functions"
-    COMPOSITE_COMPONENT_TYPES = "CompositeComponentTypes"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extends_from": "ExtendsFrom",
         "description": "Description",
@@ -414,15 +403,6 @@ class Entity(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::Entity"
     name_field: ClassVar[str] = "entity_name"
-    ENTITY_ID = "EntityId"
-    COMPONENTS = "Components"
-    PARENT_ENTITY_ID = "ParentEntityId"
-    COMPOSITE_COMPONENTS = "CompositeComponents"
-    DESCRIPTION = "Description"
-    ENTITY_NAME = "EntityName"
-    WORKSPACE_ID = "WorkspaceId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "components": "Components",
@@ -485,14 +465,6 @@ class Scene(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottw"""
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::Scene"
-    SCENE_ID = "SceneId"
-    DESCRIPTION = "Description"
-    SCENE_METADATA = "SceneMetadata"
-    CONTENT_LOCATION = "ContentLocation"
-    CAPABILITIES = "Capabilities"
-    WORKSPACE_ID = "WorkspaceId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scene_id": "SceneId",
         "description": "Description",
@@ -538,11 +510,6 @@ class SyncJob(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottw"""
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::SyncJob"
-    SYNC_SOURCE = "SyncSource"
-    SYNC_ROLE = "SyncRole"
-    WORKSPACE_ID = "WorkspaceId"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_source": "SyncSource",
         "sync_role": "SyncRole",
@@ -582,12 +549,6 @@ class Workspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottw"""
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::Workspace"
-    ROLE = "Role"
-    DESCRIPTION = "Description"
-    WORKSPACE_ID = "WorkspaceId"
-    S3_LOCATION = "S3Location"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "description": "Description",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IamIdentityCenter(PropertyType):
-    APPROVAL_PORTAL_URL = "ApprovalPortalUrl"
-    INSTANCE_ARN = "InstanceArn"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approval_portal_url": "ApprovalPortalUrl",
         "instance_arn": "InstanceArn",
@@ -28,8 +24,6 @@ class IamIdentityCenter(PropertyType):
 
 @dataclass
 class IdentitySourceParameters(PropertyType):
-    IAM_IDENTITY_CENTER = "IamIdentityCenter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_identity_center": "IamIdentityCenter",
     }

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Profiles
@@ -66,9 +66,6 @@ class Profile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::Profile"
     name_field: ClassVar[str] = "name"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "name": "Name",
@@ -100,12 +97,6 @@ class ProfileAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileAssociation"
     name_field: ClassVar[str] = "name"
-    PROFILE_ID = "ProfileId"
-    RESOURCE_ID = "ResourceId"
-    ARN = "Arn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_id": "ProfileId",
         "resource_id": "ResourceId",
@@ -133,11 +124,6 @@ class ProfileResourceAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileResourceAssociation"
     name_field: ClassVar[str] = "name"
-    PROFILE_ID = "ProfileId"
-    RESOURCE_ARN = "ResourceArn"
-    RESOURCE_PROPERTIES = "ResourceProperties"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_id": "ProfileId",
         "resource_arn": "ResourceArn",

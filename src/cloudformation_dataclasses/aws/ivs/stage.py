@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoParticipantRecordingConfiguration(PropertyType):
-    STORAGE_CONFIGURATION_ARN = "StorageConfigurationArn"
-    RECORDING_RECONNECT_WINDOW_SECONDS = "RecordingReconnectWindowSeconds"
-    MEDIA_TYPES = "MediaTypes"
-    HLS_CONFIGURATION = "HlsConfiguration"
-    THUMBNAIL_CONFIGURATION = "ThumbnailConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_configuration_arn": "StorageConfigurationArn",
         "recording_reconnect_window_seconds": "RecordingReconnectWindowSeconds",
@@ -34,8 +28,6 @@ class AutoParticipantRecordingConfiguration(PropertyType):
 
 @dataclass
 class HlsConfiguration(PropertyType):
-    PARTICIPANT_RECORDING_HLS_CONFIGURATION = "ParticipantRecordingHlsConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "participant_recording_hls_configuration": "ParticipantRecordingHlsConfiguration",
     }
@@ -45,8 +37,6 @@ class HlsConfiguration(PropertyType):
 
 @dataclass
 class ParticipantRecordingHlsConfiguration(PropertyType):
-    TARGET_SEGMENT_DURATION_SECONDS = "TargetSegmentDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_segment_duration_seconds": "TargetSegmentDurationSeconds",
     }
@@ -56,10 +46,6 @@ class ParticipantRecordingHlsConfiguration(PropertyType):
 
 @dataclass
 class ParticipantThumbnailConfiguration(PropertyType):
-    TARGET_INTERVAL_SECONDS = "TargetIntervalSeconds"
-    STORAGE = "Storage"
-    RECORDING_MODE = "RecordingMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_interval_seconds": "TargetIntervalSeconds",
         "storage": "Storage",
@@ -73,8 +59,6 @@ class ParticipantThumbnailConfiguration(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    PARTICIPANT_THUMBNAIL_CONFIGURATION = "ParticipantThumbnailConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "participant_thumbnail_configuration": "ParticipantThumbnailConfiguration",
     }

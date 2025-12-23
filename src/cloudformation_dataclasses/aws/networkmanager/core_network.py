@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CoreNetworkEdge(PropertyType):
-    INSIDE_CIDR_BLOCKS = "InsideCidrBlocks"
-    ASN = "Asn"
-    EDGE_LOCATION = "EdgeLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inside_cidr_blocks": "InsideCidrBlocks",
         "asn": "Asn",
@@ -28,10 +24,6 @@ class CoreNetworkEdge(PropertyType):
 
 @dataclass
 class CoreNetworkNetworkFunctionGroup(PropertyType):
-    EDGE_LOCATIONS = "EdgeLocations"
-    SEGMENTS = "Segments"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edge_locations": "EdgeLocations",
         "segments": "Segments",
@@ -45,10 +37,6 @@ class CoreNetworkNetworkFunctionGroup(PropertyType):
 
 @dataclass
 class CoreNetworkSegment(PropertyType):
-    EDGE_LOCATIONS = "EdgeLocations"
-    SHARED_SEGMENTS = "SharedSegments"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edge_locations": "EdgeLocations",
         "shared_segments": "SharedSegments",
@@ -62,9 +50,6 @@ class CoreNetworkSegment(PropertyType):
 
 @dataclass
 class Segments(PropertyType):
-    SEND_TO = "SendTo"
-    SEND_VIA = "SendVia"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "send_to": "SendTo",
         "send_via": "SendVia",

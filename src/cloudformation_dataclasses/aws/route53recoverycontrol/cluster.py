@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ClusterEndpoint(PropertyType):
-    ENDPOINT = "Endpoint"
-    REGION = "Region"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "region": "Region",

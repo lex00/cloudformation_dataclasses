@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataMigrationSettings(PropertyType):
-    SELECTION_RULES = "SelectionRules"
-    CLOUDWATCH_LOGS_ENABLED = "CloudwatchLogsEnabled"
-    NUMBER_OF_JOBS = "NumberOfJobs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_rules": "SelectionRules",
         "cloudwatch_logs_enabled": "CloudwatchLogsEnabled",
@@ -28,11 +24,6 @@ class DataMigrationSettings(PropertyType):
 
 @dataclass
 class SourceDataSettings(PropertyType):
-    CDC_START_TIME = "CDCStartTime"
-    CDC_STOP_TIME = "CDCStopTime"
-    SLOT_NAME = "SlotName"
-    CDC_START_POSITION = "CDCStartPosition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cdc_start_time": "CDCStartTime",
         "cdc_stop_time": "CDCStopTime",

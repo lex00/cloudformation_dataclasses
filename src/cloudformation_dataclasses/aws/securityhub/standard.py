@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class StandardsControl(PropertyType):
-    STANDARDS_CONTROL_ARN = "StandardsControlArn"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standards_control_arn": "StandardsControlArn",
         "reason": "Reason",

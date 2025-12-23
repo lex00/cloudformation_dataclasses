@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudFormationCollectionFilter(PropertyType):
-    STACK_NAMES = "StackNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_names": "StackNames",
     }
@@ -22,9 +20,6 @@ class CloudFormationCollectionFilter(PropertyType):
 
 @dataclass
 class ResourceCollectionFilter(PropertyType):
-    CLOUD_FORMATION = "CloudFormation"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_formation": "CloudFormation",
         "tags": "Tags",
@@ -36,9 +31,6 @@ class ResourceCollectionFilter(PropertyType):
 
 @dataclass
 class TagCollection(PropertyType):
-    APP_BOUNDARY_KEY = "AppBoundaryKey"
-    TAG_VALUES = "TagValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_boundary_key": "AppBoundaryKey",
         "tag_values": "TagValues",

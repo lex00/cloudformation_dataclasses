@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeDetails(PropertyType):
-    EXPRESSION = "Expression"
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "attributes": "Attributes",
@@ -25,8 +22,6 @@ class AttributeDetails(PropertyType):
 
 @dataclass
 class AttributeItem(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -36,10 +31,6 @@ class AttributeItem(PropertyType):
 
 @dataclass
 class Conditions(PropertyType):
-    RANGE = "Range"
-    OBJECT_COUNT = "ObjectCount"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
         "object_count": "ObjectCount",
@@ -53,12 +44,6 @@ class Conditions(PropertyType):
 
 @dataclass
 class Range(PropertyType):
-    VALUE_RANGE = "ValueRange"
-    TIMESTAMP_SOURCE = "TimestampSource"
-    VALUE = "Value"
-    TIMESTAMP_FORMAT = "TimestampFormat"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_range": "ValueRange",
         "timestamp_source": "TimestampSource",
@@ -76,9 +61,6 @@ class Range(PropertyType):
 
 @dataclass
 class Readiness(PropertyType):
-    MESSAGE = "Message"
-    PROGRESS_PERCENTAGE = "ProgressPercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "progress_percentage": "ProgressPercentage",
@@ -90,9 +72,6 @@ class Readiness(PropertyType):
 
 @dataclass
 class Threshold(PropertyType):
-    OPERATOR = "Operator"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -104,9 +83,6 @@ class Threshold(PropertyType):
 
 @dataclass
 class ValueRange(PropertyType):
-    START = "Start"
-    END = "End"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",

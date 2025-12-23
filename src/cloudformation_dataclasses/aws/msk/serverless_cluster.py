@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ClientAuthentication(PropertyType):
-    SASL = "Sasl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
     }
@@ -22,8 +20,6 @@ class ClientAuthentication(PropertyType):
 
 @dataclass
 class Iam(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -33,8 +29,6 @@ class Iam(PropertyType):
 
 @dataclass
 class Sasl(PropertyType):
-    IAM = "Iam"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
     }
@@ -44,9 +38,6 @@ class Sasl(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnet_ids": "SubnetIds",

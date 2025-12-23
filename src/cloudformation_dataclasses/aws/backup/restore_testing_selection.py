@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class KeyValue(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,9 +22,6 @@ class KeyValue(PropertyType):
 
 @dataclass
 class ProtectedResourceConditions(PropertyType):
-    STRING_EQUALS = "StringEquals"
-    STRING_NOT_EQUALS = "StringNotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_equals": "StringEquals",
         "string_not_equals": "StringNotEquals",

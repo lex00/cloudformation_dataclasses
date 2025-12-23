@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SidewalkAccountInfo(PropertyType):
-    APP_SERVER_PRIVATE_KEY = "AppServerPrivateKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_server_private_key": "AppServerPrivateKey",
     }
@@ -22,10 +20,6 @@ class SidewalkAccountInfo(PropertyType):
 
 @dataclass
 class SidewalkAccountInfoWithFingerprint(PropertyType):
-    FINGERPRINT = "Fingerprint"
-    AMAZON_ID = "AmazonId"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fingerprint": "Fingerprint",
         "amazon_id": "AmazonId",
@@ -39,8 +33,6 @@ class SidewalkAccountInfoWithFingerprint(PropertyType):
 
 @dataclass
 class SidewalkUpdateAccount(PropertyType):
-    APP_SERVER_PRIVATE_KEY = "AppServerPrivateKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_server_private_key": "AppServerPrivateKey",
     }

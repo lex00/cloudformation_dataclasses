@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DirectoryService
@@ -496,14 +496,6 @@ class MicrosoftAD(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DirectoryService::MicrosoftAD"
     name_field: ClassVar[str] = "name"
-    CREATE_ALIAS = "CreateAlias"
-    EDITION = "Edition"
-    ENABLE_SSO = "EnableSso"
-    NAME = "Name"
-    PASSWORD = "Password"
-    SHORT_NAME = "ShortName"
-    VPC_SETTINGS = "VpcSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "create_alias": "CreateAlias",
         "edition": "Edition",
@@ -540,15 +532,6 @@ class SimpleAD(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DirectoryService::SimpleAD"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    VPC_SETTINGS = "VpcSettings"
-    SIZE = "Size"
-    CREATE_ALIAS = "CreateAlias"
-    ENABLE_SSO = "EnableSso"
-    SHORT_NAME = "ShortName"
-    NAME = "Name"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "vpc_settings": "VpcSettings",

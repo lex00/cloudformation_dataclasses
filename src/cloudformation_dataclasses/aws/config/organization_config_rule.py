@@ -11,18 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OrganizationCustomPolicyRuleMetadata(PropertyType):
-    TAG_KEY_SCOPE = "TagKeyScope"
-    TAG_VALUE_SCOPE = "TagValueScope"
-    RUNTIME = "Runtime"
-    POLICY_TEXT = "PolicyText"
-    DESCRIPTION = "Description"
-    RESOURCE_ID_SCOPE = "ResourceIdScope"
-    ORGANIZATION_CONFIG_RULE_TRIGGER_TYPES = "OrganizationConfigRuleTriggerTypes"
-    DEBUG_LOG_DELIVERY_ACCOUNTS = "DebugLogDeliveryAccounts"
-    RESOURCE_TYPES_SCOPE = "ResourceTypesScope"
-    MAXIMUM_EXECUTION_FREQUENCY = "MaximumExecutionFrequency"
-    INPUT_PARAMETERS = "InputParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",
@@ -52,16 +40,6 @@ class OrganizationCustomPolicyRuleMetadata(PropertyType):
 
 @dataclass
 class OrganizationCustomRuleMetadata(PropertyType):
-    TAG_KEY_SCOPE = "TagKeyScope"
-    TAG_VALUE_SCOPE = "TagValueScope"
-    DESCRIPTION = "Description"
-    RESOURCE_ID_SCOPE = "ResourceIdScope"
-    LAMBDA_FUNCTION_ARN = "LambdaFunctionArn"
-    ORGANIZATION_CONFIG_RULE_TRIGGER_TYPES = "OrganizationConfigRuleTriggerTypes"
-    RESOURCE_TYPES_SCOPE = "ResourceTypesScope"
-    MAXIMUM_EXECUTION_FREQUENCY = "MaximumExecutionFrequency"
-    INPUT_PARAMETERS = "InputParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",
@@ -87,15 +65,6 @@ class OrganizationCustomRuleMetadata(PropertyType):
 
 @dataclass
 class OrganizationManagedRuleMetadata(PropertyType):
-    TAG_KEY_SCOPE = "TagKeyScope"
-    TAG_VALUE_SCOPE = "TagValueScope"
-    DESCRIPTION = "Description"
-    RESOURCE_ID_SCOPE = "ResourceIdScope"
-    RULE_IDENTIFIER = "RuleIdentifier"
-    RESOURCE_TYPES_SCOPE = "ResourceTypesScope"
-    MAXIMUM_EXECUTION_FREQUENCY = "MaximumExecutionFrequency"
-    INPUT_PARAMETERS = "InputParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",

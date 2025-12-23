@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BurnRateConfiguration(PropertyType):
-    LOOK_BACK_WINDOW_MINUTES = "LookBackWindowMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "look_back_window_minutes": "LookBackWindowMinutes",
     }
@@ -22,10 +20,6 @@ class BurnRateConfiguration(PropertyType):
 
 @dataclass
 class CalendarInterval(PropertyType):
-    DURATION_UNIT = "DurationUnit"
-    START_TIME = "StartTime"
-    DURATION = "Duration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "start_time": "StartTime",
@@ -39,9 +33,6 @@ class CalendarInterval(PropertyType):
 
 @dataclass
 class DependencyConfig(PropertyType):
-    DEPENDENCY_KEY_ATTRIBUTES = "DependencyKeyAttributes"
-    DEPENDENCY_OPERATION_NAME = "DependencyOperationName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dependency_key_attributes": "DependencyKeyAttributes",
         "dependency_operation_name": "DependencyOperationName",
@@ -53,9 +44,6 @@ class DependencyConfig(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -67,11 +55,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class ExclusionWindow(PropertyType):
-    WINDOW = "Window"
-    RECURRENCE_RULE = "RecurrenceRule"
-    START_TIME = "StartTime"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "window": "Window",
         "recurrence_rule": "RecurrenceRule",
@@ -87,10 +70,6 @@ class ExclusionWindow(PropertyType):
 
 @dataclass
 class Goal(PropertyType):
-    WARNING_THRESHOLD = "WarningThreshold"
-    ATTAINMENT_GOAL = "AttainmentGoal"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warning_threshold": "WarningThreshold",
         "attainment_goal": "AttainmentGoal",
@@ -104,9 +83,6 @@ class Goal(PropertyType):
 
 @dataclass
 class Interval(PropertyType):
-    ROLLING_INTERVAL = "RollingInterval"
-    CALENDAR_INTERVAL = "CalendarInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_interval": "RollingInterval",
         "calendar_interval": "CalendarInterval",
@@ -118,10 +94,6 @@ class Interval(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    METRIC_NAME = "MetricName"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -135,12 +107,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    ACCOUNT_ID = "AccountId"
-    RETURN_DATA = "ReturnData"
-    EXPRESSION = "Expression"
-    METRIC_STAT = "MetricStat"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "return_data": "ReturnData",
@@ -158,11 +124,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    STAT = "Stat"
-    PERIOD = "Period"
-    METRIC = "Metric"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -178,9 +139,6 @@ class MetricStat(PropertyType):
 
 @dataclass
 class MonitoredRequestCountMetric(PropertyType):
-    GOOD_COUNT_METRIC = "GoodCountMetric"
-    BAD_COUNT_METRIC = "BadCountMetric"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "good_count_metric": "GoodCountMetric",
         "bad_count_metric": "BadCountMetric",
@@ -192,8 +150,6 @@ class MonitoredRequestCountMetric(PropertyType):
 
 @dataclass
 class RecurrenceRule(PropertyType):
-    EXPRESSION = "Expression"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
     }
@@ -203,10 +159,6 @@ class RecurrenceRule(PropertyType):
 
 @dataclass
 class RequestBasedSli(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    REQUEST_BASED_SLI_METRIC = "RequestBasedSliMetric"
-    METRIC_THRESHOLD = "MetricThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "request_based_sli_metric": "RequestBasedSliMetric",
@@ -220,13 +172,6 @@ class RequestBasedSli(PropertyType):
 
 @dataclass
 class RequestBasedSliMetric(PropertyType):
-    MONITORED_REQUEST_COUNT_METRIC = "MonitoredRequestCountMetric"
-    OPERATION_NAME = "OperationName"
-    TOTAL_REQUEST_COUNT_METRIC = "TotalRequestCountMetric"
-    KEY_ATTRIBUTES = "KeyAttributes"
-    METRIC_TYPE = "MetricType"
-    DEPENDENCY_CONFIG = "DependencyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitored_request_count_metric": "MonitoredRequestCountMetric",
         "operation_name": "OperationName",
@@ -246,9 +191,6 @@ class RequestBasedSliMetric(PropertyType):
 
 @dataclass
 class RollingInterval(PropertyType):
-    DURATION_UNIT = "DurationUnit"
-    DURATION = "Duration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "duration": "Duration",
@@ -260,10 +202,6 @@ class RollingInterval(PropertyType):
 
 @dataclass
 class Sli(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    SLI_METRIC = "SliMetric"
-    METRIC_THRESHOLD = "MetricThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "sli_metric": "SliMetric",
@@ -277,14 +215,6 @@ class Sli(PropertyType):
 
 @dataclass
 class SliMetric(PropertyType):
-    STATISTIC = "Statistic"
-    OPERATION_NAME = "OperationName"
-    KEY_ATTRIBUTES = "KeyAttributes"
-    METRIC_TYPE = "MetricType"
-    PERIOD_SECONDS = "PeriodSeconds"
-    METRIC_DATA_QUERIES = "MetricDataQueries"
-    DEPENDENCY_CONFIG = "DependencyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistic": "Statistic",
         "operation_name": "OperationName",
@@ -306,9 +236,6 @@ class SliMetric(PropertyType):
 
 @dataclass
 class Window(PropertyType):
-    DURATION_UNIT = "DurationUnit"
-    DURATION = "Duration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "duration": "Duration",

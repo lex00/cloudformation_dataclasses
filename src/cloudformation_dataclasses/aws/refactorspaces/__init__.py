@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RefactorSpaces
@@ -37,13 +37,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RefactorSpaces::Application"
     name_field: ClassVar[str] = "name"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    VPC_ID = "VpcId"
-    API_GATEWAY_PROXY = "ApiGatewayProxy"
-    PROXY_TYPE = "ProxyType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_identifier": "EnvironmentIdentifier",
         "vpc_id": "VpcId",
@@ -108,11 +101,6 @@ class Environment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RefactorSpaces::Environment"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    NETWORK_FABRIC_TYPE = "NetworkFabricType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "network_fabric_type": "NetworkFabricType",
@@ -147,14 +135,6 @@ class Route(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refac"""
 
     resource_type: ClassVar[str] = "AWS::RefactorSpaces::Route"
-    URI_PATH_ROUTE = "UriPathRoute"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    ROUTE_TYPE = "RouteType"
-    DEFAULT_ROUTE = "DefaultRoute"
-    SERVICE_IDENTIFIER = "ServiceIdentifier"
-    APPLICATION_IDENTIFIER = "ApplicationIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri_path_route": "UriPathRoute",
         "environment_identifier": "EnvironmentIdentifier",
@@ -196,16 +176,6 @@ class Service(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RefactorSpaces::Service"
     name_field: ClassVar[str] = "name"
-    LAMBDA_ENDPOINT = "LambdaEndpoint"
-    URL_ENDPOINT = "UrlEndpoint"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
-    VPC_ID = "VpcId"
-    ENDPOINT_TYPE = "EndpointType"
-    APPLICATION_IDENTIFIER = "ApplicationIdentifier"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_endpoint": "LambdaEndpoint",
         "url_endpoint": "UrlEndpoint",

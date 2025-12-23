@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResourceTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,10 +22,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    STATUS = "Status"
-    TYPE = "Type"
-    ADDRESS = "Address"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "type_": "Type",

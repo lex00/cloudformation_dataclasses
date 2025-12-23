@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResourceTag(PropertyType):
-    RESOURCE_TAG_VALUE = "ResourceTagValue"
-    RESOURCE_TAG_KEY = "ResourceTagKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_tag_value": "ResourceTagValue",
         "resource_tag_key": "ResourceTagKey",
@@ -25,9 +22,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    RETENTION_PERIOD_UNIT = "RetentionPeriodUnit"
-    RETENTION_PERIOD_VALUE = "RetentionPeriodValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_period_unit": "RetentionPeriodUnit",
         "retention_period_value": "RetentionPeriodValue",
@@ -39,9 +33,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class UnlockDelay(PropertyType):
-    UNLOCK_DELAY_VALUE = "UnlockDelayValue"
-    UNLOCK_DELAY_UNIT = "UnlockDelayUnit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unlock_delay_value": "UnlockDelayValue",
         "unlock_delay_unit": "UnlockDelayUnit",

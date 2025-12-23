@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:53
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDB
@@ -88,37 +88,6 @@ class DBCluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBCluster"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    STORAGE_ENCRYPTED = "StorageEncrypted"
-    RESTORE_TO_TIME = "RestoreToTime"
-    SNAPSHOT_IDENTIFIER = "SnapshotIdentifier"
-    PORT = "Port"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    PREFERRED_BACKUP_WINDOW = "PreferredBackupWindow"
-    ROTATE_MASTER_USER_PASSWORD = "RotateMasterUserPassword"
-    VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
-    NETWORK_TYPE = "NetworkType"
-    COPY_TAGS_TO_SNAPSHOT = "CopyTagsToSnapshot"
-    GLOBAL_CLUSTER_IDENTIFIER = "GlobalClusterIdentifier"
-    RESTORE_TYPE = "RestoreType"
-    TAGS = "Tags"
-    ENGINE_VERSION = "EngineVersion"
-    STORAGE_TYPE = "StorageType"
-    KMS_KEY_ID = "KmsKeyId"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    SERVERLESS_V2_SCALING_CONFIGURATION = "ServerlessV2ScalingConfiguration"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    MASTER_USER_SECRET_KMS_KEY_ID = "MasterUserSecretKmsKeyId"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DELETION_PROTECTION = "DeletionProtection"
-    USE_LATEST_RESTORABLE_TIME = "UseLatestRestorableTime"
-    MANAGE_MASTER_USER_PASSWORD = "ManageMasterUserPassword"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-    SOURCE_DB_CLUSTER_IDENTIFIER = "SourceDBClusterIdentifier"
-    MASTER_USERNAME = "MasterUsername"
-    DB_CLUSTER_PARAMETER_GROUP_NAME = "DBClusterParameterGroupName"
-    BACKUP_RETENTION_PERIOD = "BackupRetentionPeriod"
-    ENABLE_CLOUDWATCH_LOGS_EXPORTS = "EnableCloudwatchLogsExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_encrypted": "StorageEncrypted",
         "restore_to_time": "RestoreToTime",
@@ -211,12 +180,6 @@ class DBClusterParameterGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBClusterParameterGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    FAMILY = "Family"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -237,17 +200,6 @@ class DBInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBInstance"
-    CA_CERTIFICATE_IDENTIFIER = "CACertificateIdentifier"
-    CERTIFICATE_ROTATION_RESTART = "CertificateRotationRestart"
-    DB_INSTANCE_CLASS = "DBInstanceClass"
-    DB_CLUSTER_IDENTIFIER = "DBClusterIdentifier"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    PREFERRED_MAINTENANCE_WINDOW = "PreferredMaintenanceWindow"
-    ENABLE_PERFORMANCE_INSIGHTS = "EnablePerformanceInsights"
-    AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
-    DB_INSTANCE_IDENTIFIER = "DBInstanceIdentifier"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ca_certificate_identifier": "CACertificateIdentifier",
         "certificate_rotation_restart": "CertificateRotationRestart",
@@ -290,11 +242,6 @@ class DBSubnetGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBSubnetGroup"
     name_field: ClassVar[str] = "db_subnet_group_name"
-    DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
-    DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
-    SUBNET_IDS = "SubnetIds"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_subnet_group_name": "DBSubnetGroupName",
         "db_subnet_group_description": "DBSubnetGroupDescription",
@@ -314,13 +261,6 @@ class EventSubscription(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::DocDB::EventSubscription"
     name_field: ClassVar[str] = "subscription_name"
-    SOURCE_TYPE = "SourceType"
-    ENABLED = "Enabled"
-    EVENT_CATEGORIES = "EventCategories"
-    SUBSCRIPTION_NAME = "SubscriptionName"
-    SNS_TOPIC_ARN = "SnsTopicArn"
-    SOURCE_IDS = "SourceIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "enabled": "Enabled",

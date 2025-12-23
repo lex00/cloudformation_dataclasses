@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:20
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Synthetics
@@ -175,25 +175,6 @@ class Canary(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Synthetics::Canary"
     name_field: ClassVar[str] = "name"
-    BROWSER_CONFIGS = "BrowserConfigs"
-    VISUAL_REFERENCES = "VisualReferences"
-    ARTIFACT_CONFIG = "ArtifactConfig"
-    SUCCESS_RETENTION_PERIOD = "SuccessRetentionPeriod"
-    RUNTIME_VERSION = "RuntimeVersion"
-    VPC_CONFIG = "VPCConfig"
-    RUN_CONFIG = "RunConfig"
-    DRY_RUN_AND_UPDATE = "DryRunAndUpdate"
-    FAILURE_RETENTION_PERIOD = "FailureRetentionPeriod"
-    CODE = "Code"
-    RESOURCES_TO_REPLICATE_TAGS = "ResourcesToReplicateTags"
-    NAME = "Name"
-    PROVISIONED_RESOURCE_CLEANUP = "ProvisionedResourceCleanup"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    SCHEDULE = "Schedule"
-    ARTIFACT_S3_LOCATION = "ArtifactS3Location"
-    TAGS = "Tags"
-    START_CANARY_AFTER_CREATION = "StartCanaryAfterCreation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "browser_configs": "BrowserConfigs",
         "visual_references": "VisualReferences",
@@ -257,10 +238,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Synthetics::Group"
     name_field: ClassVar[str] = "name"
-    RESOURCE_ARNS = "ResourceArns"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arns": "ResourceArns",
         "tags": "Tags",

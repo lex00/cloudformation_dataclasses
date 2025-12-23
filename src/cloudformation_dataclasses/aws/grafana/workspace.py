@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AssertionAttributes(PropertyType):
-    ROLE = "Role"
-    EMAIL = "Email"
-    ORG = "Org"
-    GROUPS = "Groups"
-    LOGIN = "Login"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "email": "Email",
@@ -37,9 +30,6 @@ class AssertionAttributes(PropertyType):
 
 @dataclass
 class IdpMetadata(PropertyType):
-    XML = "Xml"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "xml": "Xml",
         "url": "Url",
@@ -51,9 +41,6 @@ class IdpMetadata(PropertyType):
 
 @dataclass
 class NetworkAccessControl(PropertyType):
-    PREFIX_LIST_IDS = "PrefixListIds"
-    VPCE_IDS = "VpceIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_list_ids": "PrefixListIds",
         "vpce_ids": "VpceIds",
@@ -65,9 +52,6 @@ class NetworkAccessControl(PropertyType):
 
 @dataclass
 class RoleValues(PropertyType):
-    EDITOR = "Editor"
-    ADMIN = "Admin"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "editor": "Editor",
         "admin": "Admin",
@@ -79,12 +63,6 @@ class RoleValues(PropertyType):
 
 @dataclass
 class SamlConfiguration(PropertyType):
-    LOGIN_VALIDITY_DURATION = "LoginValidityDuration"
-    ROLE_VALUES = "RoleValues"
-    IDP_METADATA = "IdpMetadata"
-    ASSERTION_ATTRIBUTES = "AssertionAttributes"
-    ALLOWED_ORGANIZATIONS = "AllowedOrganizations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "login_validity_duration": "LoginValidityDuration",
         "role_values": "RoleValues",
@@ -102,9 +80,6 @@ class SamlConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",

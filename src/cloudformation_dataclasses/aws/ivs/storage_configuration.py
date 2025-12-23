@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class S3StorageConfiguration(PropertyType):
-    BUCKET_NAME = "BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }

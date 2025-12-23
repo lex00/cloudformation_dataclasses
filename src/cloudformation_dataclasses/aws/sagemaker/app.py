@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ResourceSpec(PropertyType):
-    LIFECYCLE_CONFIG_ARN = "LifecycleConfigArn"
-    SAGE_MAKER_IMAGE_ARN = "SageMakerImageArn"
-    INSTANCE_TYPE = "InstanceType"
-    SAGE_MAKER_IMAGE_VERSION_ARN = "SageMakerImageVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_config_arn": "LifecycleConfigArn",
         "sage_maker_image_arn": "SageMakerImageArn",

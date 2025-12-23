@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessEndpoint(PropertyType):
-    ENDPOINT_TYPE = "EndpointType"
-    VPCE_ID = "VpceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_type": "EndpointType",
         "vpce_id": "VpceId",
@@ -25,9 +22,6 @@ class AccessEndpoint(PropertyType):
 
 @dataclass
 class DomainJoinInfo(PropertyType):
-    ORGANIZATIONAL_UNIT_DISTINGUISHED_NAME = "OrganizationalUnitDistinguishedName"
-    DIRECTORY_NAME = "DirectoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_distinguished_name": "OrganizationalUnitDistinguishedName",
         "directory_name": "DirectoryName",
@@ -39,9 +33,6 @@ class DomainJoinInfo(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",

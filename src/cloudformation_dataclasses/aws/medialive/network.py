@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IpPool(PropertyType):
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -22,9 +20,6 @@ class IpPool(PropertyType):
 
 @dataclass
 class Route(PropertyType):
-    CIDR = "Cidr"
-    GATEWAY = "Gateway"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "gateway": "Gateway",
@@ -36,9 +31,6 @@ class Route(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

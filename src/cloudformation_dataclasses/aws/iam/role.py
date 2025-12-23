@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Policy(PropertyType):
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",

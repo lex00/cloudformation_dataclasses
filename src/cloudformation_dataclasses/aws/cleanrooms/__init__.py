@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRooms
@@ -864,18 +864,6 @@ class AnalysisTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::AnalysisTemplate"
     name_field: ClassVar[str] = "name"
-    MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
-    DESCRIPTION = "Description"
-    FORMAT = "Format"
-    SOURCE_METADATA = "SourceMetadata"
-    ERROR_MESSAGE_CONFIGURATION = "ErrorMessageConfiguration"
-    ANALYSIS_PARAMETERS = "AnalysisParameters"
-    SCHEMA = "Schema"
-    SYNTHETIC_DATA_PARAMETERS = "SyntheticDataParameters"
-    SOURCE = "Source"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "membership_identifier": "MembershipIdentifier",
         "description": "Description",
@@ -935,21 +923,6 @@ class Collaboration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::Collaboration"
     name_field: ClassVar[str] = "name"
-    ANALYTICS_ENGINE = "AnalyticsEngine"
-    CREATOR_DISPLAY_NAME = "CreatorDisplayName"
-    CREATOR_MEMBER_ABILITIES = "CreatorMemberAbilities"
-    DESCRIPTION = "Description"
-    CREATOR_ML_MEMBER_ABILITIES = "CreatorMLMemberAbilities"
-    NAME = "Name"
-    JOB_LOG_STATUS = "JobLogStatus"
-    QUERY_LOG_STATUS = "QueryLogStatus"
-    AUTO_APPROVED_CHANGE_TYPES = "AutoApprovedChangeTypes"
-    CREATOR_PAYMENT_CONFIGURATION = "CreatorPaymentConfiguration"
-    DATA_ENCRYPTION_METADATA = "DataEncryptionMetadata"
-    TAGS = "Tags"
-    MEMBERS = "Members"
-    ALLOWED_RESULT_REGIONS = "AllowedResultRegions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "analytics_engine": "AnalyticsEngine",
         "creator_display_name": "CreatorDisplayName",
@@ -1000,15 +973,6 @@ class ConfiguredTable(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::ConfiguredTable"
     name_field: ClassVar[str] = "name"
-    SELECTED_ANALYSIS_METHODS = "SelectedAnalysisMethods"
-    ANALYSIS_METHOD = "AnalysisMethod"
-    TABLE_REFERENCE = "TableReference"
-    DESCRIPTION = "Description"
-    ANALYSIS_RULES = "AnalysisRules"
-    ALLOWED_COLUMNS = "AllowedColumns"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_analysis_methods": "SelectedAnalysisMethods",
         "analysis_method": "AnalysisMethod",
@@ -1047,14 +1011,6 @@ class ConfiguredTableAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::ConfiguredTableAssociation"
     name_field: ClassVar[str] = "name"
-    MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
-    DESCRIPTION = "Description"
-    CONFIGURED_TABLE_ASSOCIATION_ANALYSIS_RULES = "ConfiguredTableAssociationAnalysisRules"
-    CONFIGURED_TABLE_IDENTIFIER = "ConfiguredTableIdentifier"
-    TAGS = "Tags"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "membership_identifier": "MembershipIdentifier",
         "description": "Description",
@@ -1091,13 +1047,6 @@ class IdMappingTable(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::IdMappingTable"
     name_field: ClassVar[str] = "name"
-    MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
-    DESCRIPTION = "Description"
-    KMS_KEY_ARN = "KmsKeyArn"
-    INPUT_REFERENCE_CONFIG = "InputReferenceConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "membership_identifier": "MembershipIdentifier",
         "description": "Description",
@@ -1157,13 +1106,6 @@ class IdNamespaceAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::IdNamespaceAssociation"
     name_field: ClassVar[str] = "name"
-    ID_MAPPING_CONFIG = "IdMappingConfig"
-    MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
-    DESCRIPTION = "Description"
-    INPUT_REFERENCE_CONFIG = "InputReferenceConfig"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_mapping_config": "IdMappingConfig",
         "membership_identifier": "MembershipIdentifier",
@@ -1227,14 +1169,6 @@ class Membership(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::Membership"
-    COLLABORATION_IDENTIFIER = "CollaborationIdentifier"
-    JOB_LOG_STATUS = "JobLogStatus"
-    DEFAULT_RESULT_CONFIGURATION = "DefaultResultConfiguration"
-    QUERY_LOG_STATUS = "QueryLogStatus"
-    DEFAULT_JOB_RESULT_CONFIGURATION = "DefaultJobResultConfiguration"
-    TAGS = "Tags"
-    PAYMENT_CONFIGURATION = "PaymentConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collaboration_identifier": "CollaborationIdentifier",
         "job_log_status": "JobLogStatus",
@@ -1280,12 +1214,6 @@ class PrivacyBudgetTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::PrivacyBudgetTemplate"
-    PRIVACY_BUDGET_TYPE = "PrivacyBudgetType"
-    MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
-    PARAMETERS = "Parameters"
-    TAGS = "Tags"
-    AUTO_REFRESH = "AutoRefresh"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "privacy_budget_type": "PrivacyBudgetType",
         "membership_identifier": "MembershipIdentifier",

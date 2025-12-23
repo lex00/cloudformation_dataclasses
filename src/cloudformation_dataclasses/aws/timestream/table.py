@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MagneticStoreRejectedDataLocation(PropertyType):
-    S3_CONFIGURATION = "S3Configuration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -22,9 +20,6 @@ class MagneticStoreRejectedDataLocation(PropertyType):
 
 @dataclass
 class MagneticStoreWriteProperties(PropertyType):
-    ENABLE_MAGNETIC_STORE_WRITES = "EnableMagneticStoreWrites"
-    MAGNETIC_STORE_REJECTED_DATA_LOCATION = "MagneticStoreRejectedDataLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_magnetic_store_writes": "EnableMagneticStoreWrites",
         "magnetic_store_rejected_data_location": "MagneticStoreRejectedDataLocation",
@@ -36,10 +31,6 @@ class MagneticStoreWriteProperties(PropertyType):
 
 @dataclass
 class PartitionKey(PropertyType):
-    TYPE = "Type"
-    ENFORCEMENT_IN_RECORD = "EnforcementInRecord"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "enforcement_in_record": "EnforcementInRecord",
@@ -53,9 +44,6 @@ class PartitionKey(PropertyType):
 
 @dataclass
 class RetentionProperties(PropertyType):
-    MAGNETIC_STORE_RETENTION_PERIOD_IN_DAYS = "MagneticStoreRetentionPeriodInDays"
-    MEMORY_STORE_RETENTION_PERIOD_IN_HOURS = "MemoryStoreRetentionPeriodInHours"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "magnetic_store_retention_period_in_days": "MagneticStoreRetentionPeriodInDays",
         "memory_store_retention_period_in_hours": "MemoryStoreRetentionPeriodInHours",
@@ -67,11 +55,6 @@ class RetentionProperties(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    BUCKET_NAME = "BucketName"
-    KMS_KEY_ID = "KmsKeyId"
-    OBJECT_KEY_PREFIX = "ObjectKeyPrefix"
-    ENCRYPTION_OPTION = "EncryptionOption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "kms_key_id": "KmsKeyId",
@@ -87,8 +70,6 @@ class S3Configuration(PropertyType):
 
 @dataclass
 class Schema(PropertyType):
-    COMPOSITE_PARTITION_KEY = "CompositePartitionKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "composite_partition_key": "CompositePartitionKey",
     }

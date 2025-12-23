@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CollectionScheme(PropertyType):
-    TIME_BASED_COLLECTION_SCHEME = "TimeBasedCollectionScheme"
-    CONDITION_BASED_COLLECTION_SCHEME = "ConditionBasedCollectionScheme"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_based_collection_scheme": "TimeBasedCollectionScheme",
         "condition_based_collection_scheme": "ConditionBasedCollectionScheme",
@@ -25,11 +22,6 @@ class CollectionScheme(PropertyType):
 
 @dataclass
 class ConditionBasedCollectionScheme(PropertyType):
-    MINIMUM_TRIGGER_INTERVAL_MS = "MinimumTriggerIntervalMs"
-    EXPRESSION = "Expression"
-    TRIGGER_MODE = "TriggerMode"
-    CONDITION_LANGUAGE_VERSION = "ConditionLanguageVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_trigger_interval_ms": "MinimumTriggerIntervalMs",
         "expression": "Expression",
@@ -45,9 +37,6 @@ class ConditionBasedCollectionScheme(PropertyType):
 
 @dataclass
 class ConditionBasedSignalFetchConfig(PropertyType):
-    CONDITION_EXPRESSION = "ConditionExpression"
-    TRIGGER_MODE = "TriggerMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_expression": "ConditionExpression",
         "trigger_mode": "TriggerMode",
@@ -59,10 +48,6 @@ class ConditionBasedSignalFetchConfig(PropertyType):
 
 @dataclass
 class DataDestinationConfig(PropertyType):
-    S3_CONFIG = "S3Config"
-    MQTT_TOPIC_CONFIG = "MqttTopicConfig"
-    TIMESTREAM_CONFIG = "TimestreamConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_config": "S3Config",
         "mqtt_topic_config": "MqttTopicConfig",
@@ -76,10 +61,6 @@ class DataDestinationConfig(PropertyType):
 
 @dataclass
 class DataPartition(PropertyType):
-    UPLOAD_OPTIONS = "UploadOptions"
-    STORAGE_OPTIONS = "StorageOptions"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upload_options": "UploadOptions",
         "storage_options": "StorageOptions",
@@ -93,10 +74,6 @@ class DataPartition(PropertyType):
 
 @dataclass
 class DataPartitionStorageOptions(PropertyType):
-    MAXIMUM_SIZE = "MaximumSize"
-    STORAGE_LOCATION = "StorageLocation"
-    MINIMUM_TIME_TO_LIVE = "MinimumTimeToLive"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_size": "MaximumSize",
         "storage_location": "StorageLocation",
@@ -110,9 +87,6 @@ class DataPartitionStorageOptions(PropertyType):
 
 @dataclass
 class DataPartitionUploadOptions(PropertyType):
-    EXPRESSION = "Expression"
-    CONDITION_LANGUAGE_VERSION = "ConditionLanguageVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "condition_language_version": "ConditionLanguageVersion",
@@ -124,9 +98,6 @@ class DataPartitionUploadOptions(PropertyType):
 
 @dataclass
 class MqttTopicConfig(PropertyType):
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    MQTT_TOPIC_ARN = "MqttTopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "mqtt_topic_arn": "MqttTopicArn",
@@ -138,11 +109,6 @@ class MqttTopicConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    BUCKET_ARN = "BucketArn"
-    DATA_FORMAT = "DataFormat"
-    STORAGE_COMPRESSION_FORMAT = "StorageCompressionFormat"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "data_format": "DataFormat",
@@ -158,9 +124,6 @@ class S3Config(PropertyType):
 
 @dataclass
 class SignalFetchConfig(PropertyType):
-    CONDITION_BASED = "ConditionBased"
-    TIME_BASED = "TimeBased"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_based": "ConditionBased",
         "time_based": "TimeBased",
@@ -172,11 +135,6 @@ class SignalFetchConfig(PropertyType):
 
 @dataclass
 class SignalFetchInformation(PropertyType):
-    ACTIONS = "Actions"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-    SIGNAL_FETCH_CONFIG = "SignalFetchConfig"
-    CONDITION_LANGUAGE_VERSION = "ConditionLanguageVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "fully_qualified_name": "FullyQualifiedName",
@@ -192,11 +150,6 @@ class SignalFetchInformation(PropertyType):
 
 @dataclass
 class SignalInformation(PropertyType):
-    MAX_SAMPLE_COUNT = "MaxSampleCount"
-    DATA_PARTITION_ID = "DataPartitionId"
-    MINIMUM_SAMPLING_INTERVAL_MS = "MinimumSamplingIntervalMs"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_sample_count": "MaxSampleCount",
         "data_partition_id": "DataPartitionId",
@@ -212,9 +165,6 @@ class SignalInformation(PropertyType):
 
 @dataclass
 class StorageMaximumSize(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -226,9 +176,6 @@ class StorageMaximumSize(PropertyType):
 
 @dataclass
 class StorageMinimumTimeToLive(PropertyType):
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -240,8 +187,6 @@ class StorageMinimumTimeToLive(PropertyType):
 
 @dataclass
 class TimeBasedCollectionScheme(PropertyType):
-    PERIOD_MS = "PeriodMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_ms": "PeriodMs",
     }
@@ -251,8 +196,6 @@ class TimeBasedCollectionScheme(PropertyType):
 
 @dataclass
 class TimeBasedSignalFetchConfig(PropertyType):
-    EXECUTION_FREQUENCY_MS = "ExecutionFrequencyMs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_frequency_ms": "ExecutionFrequencyMs",
     }
@@ -262,9 +205,6 @@ class TimeBasedSignalFetchConfig(PropertyType):
 
 @dataclass
 class TimestreamConfig(PropertyType):
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TIMESTREAM_TABLE_ARN = "TimestreamTableArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "timestream_table_arn": "TimestreamTableArn",

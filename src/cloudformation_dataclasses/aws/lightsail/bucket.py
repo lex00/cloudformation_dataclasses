@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessRules(PropertyType):
-    ALLOW_PUBLIC_OVERRIDES = "AllowPublicOverrides"
-    GET_OBJECT = "GetObject"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_public_overrides": "AllowPublicOverrides",
         "get_object": "GetObject",

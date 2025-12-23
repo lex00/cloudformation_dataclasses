@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class WebContentFilteringPolicy(PropertyType):
-    BLOCKED_URLS = "BlockedUrls"
-    ALLOWED_URLS = "AllowedUrls"
-    BLOCKED_CATEGORIES = "BlockedCategories"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocked_urls": "BlockedUrls",
         "allowed_urls": "AllowedUrls",

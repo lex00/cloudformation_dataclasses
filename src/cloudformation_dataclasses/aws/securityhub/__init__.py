@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:19
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityHub
@@ -1098,10 +1098,6 @@ class AggregatorV2(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::AggregatorV2"
-    REGION_LINKING_MODE = "RegionLinkingMode"
-    LINKED_REGIONS = "LinkedRegions"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_linking_mode": "RegionLinkingMode",
         "linked_regions": "LinkedRegions",
@@ -1130,15 +1126,6 @@ class AutomationRule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::AutomationRule"
     name_field: ClassVar[str] = "rule_name"
-    DESCRIPTION = "Description"
-    ACTIONS = "Actions"
-    IS_TERMINAL = "IsTerminal"
-    RULE_STATUS = "RuleStatus"
-    CRITERIA = "Criteria"
-    RULE_ORDER = "RuleOrder"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "actions": "Actions",
@@ -1187,14 +1174,6 @@ class AutomationRuleV2(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::AutomationRuleV2"
     name_field: ClassVar[str] = "rule_name"
-    DESCRIPTION = "Description"
-    ACTIONS = "Actions"
-    RULE_STATUS = "RuleStatus"
-    CRITERIA = "Criteria"
-    RULE_ORDER = "RuleOrder"
-    RULE_NAME = "RuleName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "actions": "Actions",
@@ -1241,11 +1220,6 @@ class ConfigurationPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::ConfigurationPolicy"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONFIGURATION_POLICY = "ConfigurationPolicy"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "configuration_policy": "ConfigurationPolicy",
@@ -1291,12 +1265,6 @@ class ConnectorV2(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::ConnectorV2"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    KMS_KEY_ARN = "KmsKeyArn"
-    TAGS = "Tags"
-    NAME = "Name"
-    PROVIDER = "Provider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_key_arn": "KmsKeyArn",
@@ -1378,8 +1346,6 @@ class DelegatedAdmin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::DelegatedAdmin"
-    ADMIN_ACCOUNT_ID = "AdminAccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_account_id": "AdminAccountId",
     }
@@ -1403,9 +1369,6 @@ class FindingAggregator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::FindingAggregator"
-    REGION_LINKING_MODE = "RegionLinkingMode"
-    REGIONS = "Regions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_linking_mode": "RegionLinkingMode",
         "regions": "Regions",
@@ -1431,11 +1394,6 @@ class Hub(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::Hub"
-    CONTROL_FINDING_GENERATOR = "ControlFindingGenerator"
-    ENABLE_DEFAULT_STANDARDS = "EnableDefaultStandards"
-    AUTO_ENABLE_CONTROLS = "AutoEnableControls"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_finding_generator": "ControlFindingGenerator",
         "enable_default_standards": "EnableDefaultStandards",
@@ -1465,8 +1423,6 @@ class HubV2(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::HubV2"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
     }
@@ -1491,10 +1447,6 @@ class Insight(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::Insight"
     name_field: ClassVar[str] = "name"
-    FILTERS = "Filters"
-    GROUP_BY_ATTRIBUTE = "GroupByAttribute"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "group_by_attribute": "GroupByAttribute",
@@ -1517,10 +1469,6 @@ class OrganizationConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::OrganizationConfiguration"
-    AUTO_ENABLE = "AutoEnable"
-    CONFIGURATION_TYPE = "ConfigurationType"
-    AUTO_ENABLE_STANDARDS = "AutoEnableStandards"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enable": "AutoEnable",
         "configuration_type": "ConfigurationType",
@@ -1558,10 +1506,6 @@ class PolicyAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::PolicyAssociation"
-    CONFIGURATION_POLICY_ID = "ConfigurationPolicyId"
-    TARGET_TYPE = "TargetType"
-    TARGET_ID = "TargetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_policy_id": "ConfigurationPolicyId",
         "target_type": "TargetType",
@@ -1604,8 +1548,6 @@ class ProductSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::ProductSubscription"
-    PRODUCT_ARN = "ProductArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_arn": "ProductArn",
     }
@@ -1624,11 +1566,6 @@ class SecurityControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::SecurityControl"
-    SECURITY_CONTROL_ID = "SecurityControlId"
-    LAST_UPDATE_REASON = "LastUpdateReason"
-    PARAMETERS = "Parameters"
-    SECURITY_CONTROL_ARN = "SecurityControlArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_control_id": "SecurityControlId",
         "last_update_reason": "LastUpdateReason",
@@ -1647,9 +1584,6 @@ class Standard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::Standard"
-    STANDARDS_ARN = "StandardsArn"
-    DISABLED_STANDARDS_CONTROLS = "DisabledStandardsControls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standards_arn": "StandardsArn",
         "disabled_standards_controls": "DisabledStandardsControls",

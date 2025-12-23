@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FieldMap(PropertyType):
-    NAME = "Name"
-    OBJECT_TYPE_FIELD = "ObjectTypeField"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "object_type_field": "ObjectTypeField",
@@ -25,9 +22,6 @@ class FieldMap(PropertyType):
 
 @dataclass
 class KeyMap(PropertyType):
-    OBJECT_TYPE_KEY_LIST = "ObjectTypeKeyList"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_type_key_list": "ObjectTypeKeyList",
         "name": "Name",
@@ -39,10 +33,6 @@ class KeyMap(PropertyType):
 
 @dataclass
 class ObjectTypeField(PropertyType):
-    TARGET = "Target"
-    CONTENT_TYPE = "ContentType"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "content_type": "ContentType",
@@ -56,9 +46,6 @@ class ObjectTypeField(PropertyType):
 
 @dataclass
 class ObjectTypeKey(PropertyType):
-    FIELD_NAMES = "FieldNames"
-    STANDARD_IDENTIFIERS = "StandardIdentifiers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_names": "FieldNames",
         "standard_identifiers": "StandardIdentifiers",

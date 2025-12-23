@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Actuator(PropertyType):
-    DESCRIPTION = "Description"
-    ALLOWED_VALUES = "AllowedValues"
-    MIN = "Min"
-    MAX = "Max"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-    ASSIGNED_VALUE = "AssignedValue"
-    DATA_TYPE = "DataType"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_values": "AllowedValues",
@@ -43,16 +34,6 @@ class Actuator(PropertyType):
 
 @dataclass
 class Attribute(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    DESCRIPTION = "Description"
-    ALLOWED_VALUES = "AllowedValues"
-    MIN = "Min"
-    MAX = "Max"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-    ASSIGNED_VALUE = "AssignedValue"
-    DATA_TYPE = "DataType"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -78,9 +59,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class Branch(PropertyType):
-    DESCRIPTION = "Description"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "fully_qualified_name": "FullyQualifiedName",
@@ -92,11 +70,6 @@ class Branch(PropertyType):
 
 @dataclass
 class Node(PropertyType):
-    ATTRIBUTE = "Attribute"
-    BRANCH = "Branch"
-    SENSOR = "Sensor"
-    ACTUATOR = "Actuator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "branch": "Branch",
@@ -112,12 +85,6 @@ class Node(PropertyType):
 
 @dataclass
 class NodeCounts(PropertyType):
-    TOTAL_ACTUATORS = "TotalActuators"
-    TOTAL_NODES = "TotalNodes"
-    TOTAL_ATTRIBUTES = "TotalAttributes"
-    TOTAL_BRANCHES = "TotalBranches"
-    TOTAL_SENSORS = "TotalSensors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_actuators": "TotalActuators",
         "total_nodes": "TotalNodes",
@@ -135,14 +102,6 @@ class NodeCounts(PropertyType):
 
 @dataclass
 class Sensor(PropertyType):
-    DESCRIPTION = "Description"
-    ALLOWED_VALUES = "AllowedValues"
-    MIN = "Min"
-    MAX = "Max"
-    FULLY_QUALIFIED_NAME = "FullyQualifiedName"
-    DATA_TYPE = "DataType"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_values": "AllowedValues",

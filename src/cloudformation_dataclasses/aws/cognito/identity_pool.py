@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CognitoIdentityProvider(PropertyType):
-    SERVER_SIDE_TOKEN_CHECK = "ServerSideTokenCheck"
-    PROVIDER_NAME = "ProviderName"
-    CLIENT_ID = "ClientId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_token_check": "ServerSideTokenCheck",
         "provider_name": "ProviderName",
@@ -28,10 +24,6 @@ class CognitoIdentityProvider(PropertyType):
 
 @dataclass
 class CognitoStreams(PropertyType):
-    STREAMING_STATUS = "StreamingStatus"
-    STREAM_NAME = "StreamName"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streaming_status": "StreamingStatus",
         "stream_name": "StreamName",
@@ -45,9 +37,6 @@ class CognitoStreams(PropertyType):
 
 @dataclass
 class PushSync(PropertyType):
-    APPLICATION_ARNS = "ApplicationArns"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arns": "ApplicationArns",
         "role_arn": "RoleArn",

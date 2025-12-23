@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdditionalInferenceSpecificationDefinition(PropertyType):
-    DESCRIPTION = "Description"
-    SUPPORTED_CONTENT_TYPES = "SupportedContentTypes"
-    SUPPORTED_REALTIME_INFERENCE_INSTANCE_TYPES = "SupportedRealtimeInferenceInstanceTypes"
-    CONTAINERS = "Containers"
-    SUPPORTED_TRANSFORM_INSTANCE_TYPES = "SupportedTransformInstanceTypes"
-    NAME = "Name"
-    SUPPORTED_RESPONSE_MIME_TYPES = "SupportedResponseMIMETypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "supported_content_types": "SupportedContentTypes",
@@ -40,10 +32,6 @@ class AdditionalInferenceSpecificationDefinition(PropertyType):
 
 @dataclass
 class Bias(PropertyType):
-    REPORT = "Report"
-    PRE_TRAINING_REPORT = "PreTrainingReport"
-    POST_TRAINING_REPORT = "PostTrainingReport"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report": "Report",
         "pre_training_report": "PreTrainingReport",
@@ -57,8 +45,6 @@ class Bias(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    S3_DATA_SOURCE = "S3DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -68,11 +54,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class DriftCheckBaselines(PropertyType):
-    MODEL_DATA_QUALITY = "ModelDataQuality"
-    BIAS = "Bias"
-    MODEL_QUALITY = "ModelQuality"
-    EXPLAINABILITY = "Explainability"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_quality": "ModelDataQuality",
         "bias": "Bias",
@@ -88,10 +69,6 @@ class DriftCheckBaselines(PropertyType):
 
 @dataclass
 class DriftCheckBias(PropertyType):
-    PRE_TRAINING_CONSTRAINTS = "PreTrainingConstraints"
-    CONFIG_FILE = "ConfigFile"
-    POST_TRAINING_CONSTRAINTS = "PostTrainingConstraints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pre_training_constraints": "PreTrainingConstraints",
         "config_file": "ConfigFile",
@@ -105,9 +82,6 @@ class DriftCheckBias(PropertyType):
 
 @dataclass
 class DriftCheckExplainability(PropertyType):
-    CONSTRAINTS = "Constraints"
-    CONFIG_FILE = "ConfigFile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "config_file": "ConfigFile",
@@ -119,9 +93,6 @@ class DriftCheckExplainability(PropertyType):
 
 @dataclass
 class DriftCheckModelDataQuality(PropertyType):
-    CONSTRAINTS = "Constraints"
-    STATISTICS = "Statistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -133,9 +104,6 @@ class DriftCheckModelDataQuality(PropertyType):
 
 @dataclass
 class DriftCheckModelQuality(PropertyType):
-    CONSTRAINTS = "Constraints"
-    STATISTICS = "Statistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -147,8 +115,6 @@ class DriftCheckModelQuality(PropertyType):
 
 @dataclass
 class Explainability(PropertyType):
-    REPORT = "Report"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report": "Report",
     }
@@ -158,10 +124,6 @@ class Explainability(PropertyType):
 
 @dataclass
 class FileSource(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    S3_URI = "S3Uri"
-    CONTENT_DIGEST = "ContentDigest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "s3_uri": "S3Uri",
@@ -175,12 +137,6 @@ class FileSource(PropertyType):
 
 @dataclass
 class InferenceSpecification(PropertyType):
-    SUPPORTED_CONTENT_TYPES = "SupportedContentTypes"
-    SUPPORTED_REALTIME_INFERENCE_INSTANCE_TYPES = "SupportedRealtimeInferenceInstanceTypes"
-    CONTAINERS = "Containers"
-    SUPPORTED_TRANSFORM_INSTANCE_TYPES = "SupportedTransformInstanceTypes"
-    SUPPORTED_RESPONSE_MIME_TYPES = "SupportedResponseMIMETypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supported_content_types": "SupportedContentTypes",
         "supported_realtime_inference_instance_types": "SupportedRealtimeInferenceInstanceTypes",
@@ -198,11 +154,6 @@ class InferenceSpecification(PropertyType):
 
 @dataclass
 class MetadataProperties(PropertyType):
-    GENERATED_BY = "GeneratedBy"
-    REPOSITORY = "Repository"
-    COMMIT_ID = "CommitId"
-    PROJECT_ID = "ProjectId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generated_by": "GeneratedBy",
         "repository": "Repository",
@@ -218,10 +169,6 @@ class MetadataProperties(PropertyType):
 
 @dataclass
 class MetricsSource(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    S3_URI = "S3Uri"
-    CONTENT_DIGEST = "ContentDigest"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "s3_uri": "S3Uri",
@@ -235,8 +182,6 @@ class MetricsSource(PropertyType):
 
 @dataclass
 class ModelAccessConfig(PropertyType):
-    ACCEPT_EULA = "AcceptEula"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_eula": "AcceptEula",
     }
@@ -246,9 +191,6 @@ class ModelAccessConfig(PropertyType):
 
 @dataclass
 class ModelCard(PropertyType):
-    MODEL_CARD_STATUS = "ModelCardStatus"
-    MODEL_CARD_CONTENT = "ModelCardContent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_card_status": "ModelCardStatus",
         "model_card_content": "ModelCardContent",
@@ -260,9 +202,6 @@ class ModelCard(PropertyType):
 
 @dataclass
 class ModelDataQuality(PropertyType):
-    CONSTRAINTS = "Constraints"
-    STATISTICS = "Statistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -274,8 +213,6 @@ class ModelDataQuality(PropertyType):
 
 @dataclass
 class ModelDataSource(PropertyType):
-    S3_DATA_SOURCE = "S3DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -285,8 +222,6 @@ class ModelDataSource(PropertyType):
 
 @dataclass
 class ModelInput(PropertyType):
-    DATA_INPUT_CONFIG = "DataInputConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_input_config": "DataInputConfig",
     }
@@ -296,11 +231,6 @@ class ModelInput(PropertyType):
 
 @dataclass
 class ModelMetrics(PropertyType):
-    MODEL_DATA_QUALITY = "ModelDataQuality"
-    BIAS = "Bias"
-    MODEL_QUALITY = "ModelQuality"
-    EXPLAINABILITY = "Explainability"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_quality": "ModelDataQuality",
         "bias": "Bias",
@@ -316,17 +246,6 @@ class ModelMetrics(PropertyType):
 
 @dataclass
 class ModelPackageContainerDefinition(PropertyType):
-    MODEL_INPUT = "ModelInput"
-    NEAREST_MODEL_NAME = "NearestModelName"
-    CONTAINER_HOSTNAME = "ContainerHostname"
-    IMAGE_DIGEST = "ImageDigest"
-    FRAMEWORK_VERSION = "FrameworkVersion"
-    ENVIRONMENT = "Environment"
-    MODEL_DATA_URL = "ModelDataUrl"
-    IMAGE = "Image"
-    MODEL_DATA_SOURCE = "ModelDataSource"
-    FRAMEWORK = "Framework"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_input": "ModelInput",
         "nearest_model_name": "NearestModelName",
@@ -354,8 +273,6 @@ class ModelPackageContainerDefinition(PropertyType):
 
 @dataclass
 class ModelPackageStatusDetails(PropertyType):
-    VALIDATION_STATUSES = "ValidationStatuses"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_statuses": "ValidationStatuses",
     }
@@ -365,10 +282,6 @@ class ModelPackageStatusDetails(PropertyType):
 
 @dataclass
 class ModelPackageStatusItem(PropertyType):
-    STATUS = "Status"
-    FAILURE_REASON = "FailureReason"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "failure_reason": "FailureReason",
@@ -382,9 +295,6 @@ class ModelPackageStatusItem(PropertyType):
 
 @dataclass
 class ModelQuality(PropertyType):
-    CONSTRAINTS = "Constraints"
-    STATISTICS = "Statistics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -396,9 +306,6 @@ class ModelQuality(PropertyType):
 
 @dataclass
 class S3DataSource(PropertyType):
-    S3_URI = "S3Uri"
-    S3_DATA_TYPE = "S3DataType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "s3_data_type": "S3DataType",
@@ -410,11 +317,6 @@ class S3DataSource(PropertyType):
 
 @dataclass
 class S3ModelDataSource(PropertyType):
-    MODEL_ACCESS_CONFIG = "ModelAccessConfig"
-    S3_DATA_TYPE = "S3DataType"
-    COMPRESSION_TYPE = "CompressionType"
-    S3_URI = "S3Uri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_access_config": "ModelAccessConfig",
         "s3_data_type": "S3DataType",
@@ -430,8 +332,6 @@ class S3ModelDataSource(PropertyType):
 
 @dataclass
 class SecurityConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -441,9 +341,6 @@ class SecurityConfig(PropertyType):
 
 @dataclass
 class SourceAlgorithm(PropertyType):
-    MODEL_DATA_URL = "ModelDataUrl"
-    ALGORITHM_NAME = "AlgorithmName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_url": "ModelDataUrl",
         "algorithm_name": "AlgorithmName",
@@ -455,8 +352,6 @@ class SourceAlgorithm(PropertyType):
 
 @dataclass
 class SourceAlgorithmSpecification(PropertyType):
-    SOURCE_ALGORITHMS = "SourceAlgorithms"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_algorithms": "SourceAlgorithms",
     }
@@ -466,11 +361,6 @@ class SourceAlgorithmSpecification(PropertyType):
 
 @dataclass
 class TransformInput(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    SPLIT_TYPE = "SplitType"
-    COMPRESSION_TYPE = "CompressionType"
-    DATA_SOURCE = "DataSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "split_type": "SplitType",
@@ -486,14 +376,6 @@ class TransformInput(PropertyType):
 
 @dataclass
 class TransformJobDefinition(PropertyType):
-    TRANSFORM_RESOURCES = "TransformResources"
-    MAX_CONCURRENT_TRANSFORMS = "MaxConcurrentTransforms"
-    MAX_PAYLOAD_IN_MB = "MaxPayloadInMB"
-    TRANSFORM_OUTPUT = "TransformOutput"
-    ENVIRONMENT = "Environment"
-    TRANSFORM_INPUT = "TransformInput"
-    BATCH_STRATEGY = "BatchStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_resources": "TransformResources",
         "max_concurrent_transforms": "MaxConcurrentTransforms",
@@ -515,11 +397,6 @@ class TransformJobDefinition(PropertyType):
 
 @dataclass
 class TransformOutput(PropertyType):
-    ASSEMBLE_WITH = "AssembleWith"
-    ACCEPT = "Accept"
-    KMS_KEY_ID = "KmsKeyId"
-    S3_OUTPUT_PATH = "S3OutputPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assemble_with": "AssembleWith",
         "accept": "Accept",
@@ -535,10 +412,6 @@ class TransformOutput(PropertyType):
 
 @dataclass
 class TransformResources(PropertyType):
-    INSTANCE_COUNT = "InstanceCount"
-    VOLUME_KMS_KEY_ID = "VolumeKmsKeyId"
-    INSTANCE_TYPE = "InstanceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_kms_key_id": "VolumeKmsKeyId",
@@ -552,9 +425,6 @@ class TransformResources(PropertyType):
 
 @dataclass
 class ValidationProfile(PropertyType):
-    PROFILE_NAME = "ProfileName"
-    TRANSFORM_JOB_DEFINITION = "TransformJobDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_name": "ProfileName",
         "transform_job_definition": "TransformJobDefinition",
@@ -566,9 +436,6 @@ class ValidationProfile(PropertyType):
 
 @dataclass
 class ValidationSpecification(PropertyType):
-    VALIDATION_ROLE = "ValidationRole"
-    VALIDATION_PROFILES = "ValidationProfiles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_role": "ValidationRole",
         "validation_profiles": "ValidationProfiles",

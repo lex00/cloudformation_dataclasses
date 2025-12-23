@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataSecurityConfig(PropertyType):
-    VPC_CONFIG = "VpcConfig"
-    VOLUME_KMS_KEY_ID = "VolumeKmsKeyId"
-    MODEL_KMS_KEY_ID = "ModelKmsKeyId"
-    DATA_LAKE_KMS_KEY_ID = "DataLakeKmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "volume_kms_key_id": "VolumeKmsKeyId",
@@ -31,9 +26,6 @@ class DataSecurityConfig(PropertyType):
 
 @dataclass
 class DocumentClassificationConfig(PropertyType):
-    MODE = "Mode"
-    LABELS = "Labels"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "labels": "Labels",
@@ -45,8 +37,6 @@ class DocumentClassificationConfig(PropertyType):
 
 @dataclass
 class EntityRecognitionConfig(PropertyType):
-    ENTITY_TYPES = "EntityTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
     }
@@ -56,8 +46,6 @@ class EntityRecognitionConfig(PropertyType):
 
 @dataclass
 class EntityTypesListItem(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -67,10 +55,6 @@ class EntityTypesListItem(PropertyType):
 
 @dataclass
 class TaskConfig(PropertyType):
-    LANGUAGE_CODE = "LanguageCode"
-    DOCUMENT_CLASSIFICATION_CONFIG = "DocumentClassificationConfig"
-    ENTITY_RECOGNITION_CONFIG = "EntityRecognitionConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "document_classification_config": "DocumentClassificationConfig",
@@ -84,9 +68,6 @@ class TaskConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

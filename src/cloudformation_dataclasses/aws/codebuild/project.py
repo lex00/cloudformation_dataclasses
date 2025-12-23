@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Artifacts(PropertyType):
-    PATH = "Path"
-    TYPE = "Type"
-    ARTIFACT_IDENTIFIER = "ArtifactIdentifier"
-    OVERRIDE_ARTIFACT_NAME = "OverrideArtifactName"
-    PACKAGING = "Packaging"
-    ENCRYPTION_DISABLED = "EncryptionDisabled"
-    LOCATION = "Location"
-    NAME = "Name"
-    NAMESPACE_TYPE = "NamespaceType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",
@@ -46,9 +36,6 @@ class Artifacts(PropertyType):
 
 @dataclass
 class BatchRestrictions(PropertyType):
-    COMPUTE_TYPES_ALLOWED = "ComputeTypesAllowed"
-    MAXIMUM_BUILDS_ALLOWED = "MaximumBuildsAllowed"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_types_allowed": "ComputeTypesAllowed",
         "maximum_builds_allowed": "MaximumBuildsAllowed",
@@ -60,9 +47,6 @@ class BatchRestrictions(PropertyType):
 
 @dataclass
 class BuildStatusConfig(PropertyType):
-    CONTEXT = "Context"
-    TARGET_URL = "TargetUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context": "Context",
         "target_url": "TargetUrl",
@@ -74,10 +58,6 @@ class BuildStatusConfig(PropertyType):
 
 @dataclass
 class CloudWatchLogsConfig(PropertyType):
-    STATUS = "Status"
-    GROUP_NAME = "GroupName"
-    STREAM_NAME = "StreamName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "group_name": "GroupName",
@@ -91,9 +71,6 @@ class CloudWatchLogsConfig(PropertyType):
 
 @dataclass
 class DockerServer(PropertyType):
-    COMPUTE_TYPE = "ComputeType"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_type": "ComputeType",
         "security_group_ids": "SecurityGroupIds",
@@ -105,17 +82,6 @@ class DockerServer(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    TYPE = "Type"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    FLEET = "Fleet"
-    PRIVILEGED_MODE = "PrivilegedMode"
-    IMAGE_PULL_CREDENTIALS_TYPE = "ImagePullCredentialsType"
-    IMAGE = "Image"
-    REGISTRY_CREDENTIAL = "RegistryCredential"
-    COMPUTE_TYPE = "ComputeType"
-    DOCKER_SERVER = "DockerServer"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "environment_variables": "EnvironmentVariables",
@@ -143,10 +109,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -165,8 +127,6 @@ class FilterGroup(PropertyType):
 
 @dataclass
 class GitSubmodulesConfig(PropertyType):
-    FETCH_SUBMODULES = "FetchSubmodules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fetch_submodules": "FetchSubmodules",
     }
@@ -176,9 +136,6 @@ class GitSubmodulesConfig(PropertyType):
 
 @dataclass
 class LogsConfig(PropertyType):
-    CLOUD_WATCH_LOGS = "CloudWatchLogs"
-    S3_LOGS = "S3Logs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs": "CloudWatchLogs",
         "s3_logs": "S3Logs",
@@ -190,12 +147,6 @@ class LogsConfig(PropertyType):
 
 @dataclass
 class ProjectBuildBatchConfig(PropertyType):
-    COMBINE_ARTIFACTS = "CombineArtifacts"
-    SERVICE_ROLE = "ServiceRole"
-    BATCH_REPORT_MODE = "BatchReportMode"
-    TIMEOUT_IN_MINS = "TimeoutInMins"
-    RESTRICTIONS = "Restrictions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "combine_artifacts": "CombineArtifacts",
         "service_role": "ServiceRole",
@@ -213,11 +164,6 @@ class ProjectBuildBatchConfig(PropertyType):
 
 @dataclass
 class ProjectCache(PropertyType):
-    MODES = "Modes"
-    TYPE = "Type"
-    CACHE_NAMESPACE = "CacheNamespace"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "modes": "Modes",
         "type_": "Type",
@@ -233,12 +179,6 @@ class ProjectCache(PropertyType):
 
 @dataclass
 class ProjectFileSystemLocation(PropertyType):
-    MOUNT_POINT = "MountPoint"
-    TYPE = "Type"
-    IDENTIFIER = "Identifier"
-    MOUNT_OPTIONS = "MountOptions"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "type_": "Type",
@@ -256,8 +196,6 @@ class ProjectFileSystemLocation(PropertyType):
 
 @dataclass
 class ProjectFleet(PropertyType):
-    FLEET_ARN = "FleetArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_arn": "FleetArn",
     }
@@ -267,9 +205,6 @@ class ProjectFleet(PropertyType):
 
 @dataclass
 class ProjectSourceVersion(PropertyType):
-    SOURCE_IDENTIFIER = "SourceIdentifier"
-    SOURCE_VERSION = "SourceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_identifier": "SourceIdentifier",
         "source_version": "SourceVersion",
@@ -281,12 +216,6 @@ class ProjectSourceVersion(PropertyType):
 
 @dataclass
 class ProjectTriggers(PropertyType):
-    FILTER_GROUPS = "FilterGroups"
-    BUILD_TYPE = "BuildType"
-    WEBHOOK = "Webhook"
-    SCOPE_CONFIGURATION = "ScopeConfiguration"
-    PULL_REQUEST_BUILD_POLICY = "PullRequestBuildPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_groups": "FilterGroups",
         "build_type": "BuildType",
@@ -304,9 +233,6 @@ class ProjectTriggers(PropertyType):
 
 @dataclass
 class PullRequestBuildPolicy(PropertyType):
-    REQUIRES_COMMENT_APPROVAL = "RequiresCommentApproval"
-    APPROVER_ROLES = "ApproverRoles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requires_comment_approval": "RequiresCommentApproval",
         "approver_roles": "ApproverRoles",
@@ -318,9 +244,6 @@ class PullRequestBuildPolicy(PropertyType):
 
 @dataclass
 class RegistryCredential(PropertyType):
-    CREDENTIAL = "Credential"
-    CREDENTIAL_PROVIDER = "CredentialProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credential": "Credential",
         "credential_provider": "CredentialProvider",
@@ -332,10 +255,6 @@ class RegistryCredential(PropertyType):
 
 @dataclass
 class S3LogsConfig(PropertyType):
-    STATUS = "Status"
-    ENCRYPTION_DISABLED = "EncryptionDisabled"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "encryption_disabled": "EncryptionDisabled",
@@ -349,10 +268,6 @@ class S3LogsConfig(PropertyType):
 
 @dataclass
 class ScopeConfiguration(PropertyType):
-    SCOPE = "Scope"
-    DOMAIN = "Domain"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "domain": "Domain",
@@ -366,17 +281,6 @@ class ScopeConfiguration(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    TYPE = "Type"
-    REPORT_BUILD_STATUS = "ReportBuildStatus"
-    AUTH = "Auth"
-    SOURCE_IDENTIFIER = "SourceIdentifier"
-    BUILD_SPEC = "BuildSpec"
-    GIT_CLONE_DEPTH = "GitCloneDepth"
-    BUILD_STATUS_CONFIG = "BuildStatusConfig"
-    GIT_SUBMODULES_CONFIG = "GitSubmodulesConfig"
-    INSECURE_SSL = "InsecureSsl"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "report_build_status": "ReportBuildStatus",
@@ -404,9 +308,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceAuth(PropertyType):
-    TYPE = "Type"
-    RESOURCE = "Resource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "resource": "Resource",
@@ -418,10 +319,6 @@ class SourceAuth(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    SUBNETS = "Subnets"
-    VPC_ID = "VpcId"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "vpc_id": "VpcId",
@@ -435,10 +332,6 @@ class VpcConfig(PropertyType):
 
 @dataclass
 class WebhookFilter(PropertyType):
-    PATTERN = "Pattern"
-    TYPE = "Type"
-    EXCLUDE_MATCHED_PATTERN = "ExcludeMatchedPattern"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "type_": "Type",

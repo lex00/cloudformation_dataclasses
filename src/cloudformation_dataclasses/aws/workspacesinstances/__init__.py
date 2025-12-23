@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:22
+  Generated: 2025-12-22 19:26:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkspacesInstances
@@ -35,16 +35,6 @@ class Volume(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkspacesInstances::Volume"
-    SIZE_IN_GB = "SizeInGB"
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    TAG_SPECIFICATIONS = "TagSpecifications"
-    ENCRYPTED = "Encrypted"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gb": "SizeInGB",
         "snapshot_id": "SnapshotId",
@@ -79,11 +69,6 @@ class VolumeAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkspacesInstances::VolumeAssociation"
-    VOLUME_ID = "VolumeId"
-    WORKSPACE_INSTANCE_ID = "WorkspaceInstanceId"
-    DEVICE = "Device"
-    DISASSOCIATE_MODE = "DisassociateMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "workspace_instance_id": "WorkspaceInstanceId",
@@ -102,9 +87,6 @@ class WorkspaceInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkspacesInstances::WorkspaceInstance"
-    MANAGED_INSTANCE = "ManagedInstance"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_instance": "ManagedInstance",
         "tags": "Tags",

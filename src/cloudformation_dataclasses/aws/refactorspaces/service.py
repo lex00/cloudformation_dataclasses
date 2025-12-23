@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LambdaEndpointInput(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -22,9 +20,6 @@ class LambdaEndpointInput(PropertyType):
 
 @dataclass
 class UrlEndpointInput(PropertyType):
-    HEALTH_URL = "HealthUrl"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_url": "HealthUrl",
         "url": "Url",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AcceleratorCapabilities(PropertyType):
-    SELECTIONS = "Selections"
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selections": "Selections",
         "count": "Count",
@@ -25,9 +22,6 @@ class AcceleratorCapabilities(PropertyType):
 
 @dataclass
 class AcceleratorCountRange(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -39,9 +33,6 @@ class AcceleratorCountRange(PropertyType):
 
 @dataclass
 class AcceleratorSelection(PropertyType):
-    RUNTIME = "Runtime"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "name": "Name",
@@ -53,9 +44,6 @@ class AcceleratorSelection(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRange(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -67,11 +55,6 @@ class AcceleratorTotalMemoryMiBRange(PropertyType):
 
 @dataclass
 class CustomerManagedFleetConfiguration(PropertyType):
-    STORAGE_PROFILE_ID = "StorageProfileId"
-    MODE = "Mode"
-    WORKER_CAPABILITIES = "WorkerCapabilities"
-    TAG_PROPAGATION_MODE = "TagPropagationMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_profile_id": "StorageProfileId",
         "mode": "Mode",
@@ -87,16 +70,6 @@ class CustomerManagedFleetConfiguration(PropertyType):
 
 @dataclass
 class CustomerManagedWorkerCapabilities(PropertyType):
-    CUSTOM_ATTRIBUTES = "CustomAttributes"
-    ACCELERATOR_COUNT = "AcceleratorCount"
-    CUSTOM_AMOUNTS = "CustomAmounts"
-    ACCELERATOR_TYPES = "AcceleratorTypes"
-    ACCELERATOR_TOTAL_MEMORY_MI_B = "AcceleratorTotalMemoryMiB"
-    V_CPU_COUNT = "VCpuCount"
-    MEMORY_MI_B = "MemoryMiB"
-    OS_FAMILY = "OsFamily"
-    CPU_ARCHITECTURE_TYPE = "CpuArchitectureType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_attributes": "CustomAttributes",
         "accelerator_count": "AcceleratorCount",
@@ -122,10 +95,6 @@ class CustomerManagedWorkerCapabilities(PropertyType):
 
 @dataclass
 class Ec2EbsVolume(PropertyType):
-    SIZE_GI_B = "SizeGiB"
-    THROUGHPUT_MI_B = "ThroughputMiB"
-    IOPS = "Iops"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_gi_b": "SizeGiB",
         "throughput_mi_b": "ThroughputMiB",
@@ -139,10 +108,6 @@ class Ec2EbsVolume(PropertyType):
 
 @dataclass
 class FleetAmountCapability(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -156,9 +121,6 @@ class FleetAmountCapability(PropertyType):
 
 @dataclass
 class FleetAttributeCapability(PropertyType):
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -170,9 +132,6 @@ class FleetAttributeCapability(PropertyType):
 
 @dataclass
 class FleetCapabilities(PropertyType):
-    AMOUNTS = "Amounts"
-    ATTRIBUTES = "Attributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amounts": "Amounts",
         "attributes": "Attributes",
@@ -184,9 +143,6 @@ class FleetCapabilities(PropertyType):
 
 @dataclass
 class FleetConfiguration(PropertyType):
-    SERVICE_MANAGED_EC2 = "ServiceManagedEc2"
-    CUSTOMER_MANAGED = "CustomerManaged"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_managed_ec2": "ServiceManagedEc2",
         "customer_managed": "CustomerManaged",
@@ -198,9 +154,6 @@ class FleetConfiguration(PropertyType):
 
 @dataclass
 class HostConfiguration(PropertyType):
-    SCRIPT_TIMEOUT_SECONDS = "ScriptTimeoutSeconds"
-    SCRIPT_BODY = "ScriptBody"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "script_timeout_seconds": "ScriptTimeoutSeconds",
         "script_body": "ScriptBody",
@@ -212,9 +165,6 @@ class HostConfiguration(PropertyType):
 
 @dataclass
 class MemoryMiBRange(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -226,11 +176,6 @@ class MemoryMiBRange(PropertyType):
 
 @dataclass
 class ServiceManagedEc2FleetConfiguration(PropertyType):
-    STORAGE_PROFILE_ID = "StorageProfileId"
-    INSTANCE_MARKET_OPTIONS = "InstanceMarketOptions"
-    INSTANCE_CAPABILITIES = "InstanceCapabilities"
-    VPC_CONFIGURATION = "VpcConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_profile_id": "StorageProfileId",
         "instance_market_options": "InstanceMarketOptions",
@@ -246,17 +191,6 @@ class ServiceManagedEc2FleetConfiguration(PropertyType):
 
 @dataclass
 class ServiceManagedEc2InstanceCapabilities(PropertyType):
-    ALLOWED_INSTANCE_TYPES = "AllowedInstanceTypes"
-    CUSTOM_ATTRIBUTES = "CustomAttributes"
-    ACCELERATOR_CAPABILITIES = "AcceleratorCapabilities"
-    CUSTOM_AMOUNTS = "CustomAmounts"
-    V_CPU_COUNT = "VCpuCount"
-    EXCLUDED_INSTANCE_TYPES = "ExcludedInstanceTypes"
-    MEMORY_MI_B = "MemoryMiB"
-    OS_FAMILY = "OsFamily"
-    CPU_ARCHITECTURE_TYPE = "CpuArchitectureType"
-    ROOT_EBS_VOLUME = "RootEbsVolume"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_instance_types": "AllowedInstanceTypes",
         "custom_attributes": "CustomAttributes",
@@ -284,8 +218,6 @@ class ServiceManagedEc2InstanceCapabilities(PropertyType):
 
 @dataclass
 class ServiceManagedEc2InstanceMarketOptions(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -295,9 +227,6 @@ class ServiceManagedEc2InstanceMarketOptions(PropertyType):
 
 @dataclass
 class VCpuCountRange(PropertyType):
-    MIN = "Min"
-    MAX = "Max"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -309,8 +238,6 @@ class VCpuCountRange(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    RESOURCE_CONFIGURATION_ARNS = "ResourceConfigurationArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_configuration_arns": "ResourceConfigurationArns",
     }

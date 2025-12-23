@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alias(PropertyType):
-    STATUS = "Status"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "value": "Value",
@@ -25,9 +22,6 @@ class Alias(PropertyType):
 
 @dataclass
 class AwsLambda(PropertyType):
-    FUNCTION_ARN = "FunctionArn"
-    FUNCTION_PAYLOAD = "FunctionPayload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "function_payload": "FunctionPayload",
@@ -39,8 +33,6 @@ class AwsLambda(PropertyType):
 
 @dataclass
 class ContentTransformation(PropertyType):
-    AWS_LAMBDA = "AwsLambda"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_lambda": "AwsLambda",
     }
@@ -50,11 +42,6 @@ class ContentTransformation(PropertyType):
 
 @dataclass
 class ObjectLambdaConfiguration(PropertyType):
-    SUPPORTING_ACCESS_POINT = "SupportingAccessPoint"
-    TRANSFORMATION_CONFIGURATIONS = "TransformationConfigurations"
-    ALLOWED_FEATURES = "AllowedFeatures"
-    CLOUD_WATCH_METRICS_ENABLED = "CloudWatchMetricsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supporting_access_point": "SupportingAccessPoint",
         "transformation_configurations": "TransformationConfigurations",
@@ -70,11 +57,6 @@ class ObjectLambdaConfiguration(PropertyType):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    RESTRICT_PUBLIC_BUCKETS = "RestrictPublicBuckets"
-    BLOCK_PUBLIC_POLICY = "BlockPublicPolicy"
-    BLOCK_PUBLIC_ACLS = "BlockPublicAcls"
-    IGNORE_PUBLIC_ACLS = "IgnorePublicAcls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -90,9 +72,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class TransformationConfiguration(PropertyType):
-    ACTIONS = "Actions"
-    CONTENT_TRANSFORMATION = "ContentTransformation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "content_transformation": "ContentTransformation",

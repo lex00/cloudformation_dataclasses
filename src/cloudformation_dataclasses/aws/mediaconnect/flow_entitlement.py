@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Encryption(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KEY_TYPE = "KeyType"
-    RESOURCE_ID = "ResourceId"
-    DEVICE_ID = "DeviceId"
-    REGION = "Region"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    ALGORITHM = "Algorithm"
-    ROLE_ARN = "RoleArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",

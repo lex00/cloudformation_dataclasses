@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:13
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RedshiftServerless
@@ -187,23 +187,6 @@ class Namespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Namespace"
     name_field: ClassVar[str] = "namespace_name"
-    MANAGE_ADMIN_PASSWORD = "ManageAdminPassword"
-    IAM_ROLES = "IamRoles"
-    SNAPSHOT_COPY_CONFIGURATIONS = "SnapshotCopyConfigurations"
-    KMS_KEY_ID = "KmsKeyId"
-    FINAL_SNAPSHOT_NAME = "FinalSnapshotName"
-    FINAL_SNAPSHOT_RETENTION_PERIOD = "FinalSnapshotRetentionPeriod"
-    ADMIN_USER_PASSWORD = "AdminUserPassword"
-    ADMIN_PASSWORD_SECRET_KMS_KEY_ID = "AdminPasswordSecretKmsKeyId"
-    DEFAULT_IAM_ROLE_ARN = "DefaultIamRoleArn"
-    ADMIN_USERNAME = "AdminUsername"
-    NAMESPACE_NAME = "NamespaceName"
-    NAMESPACE_RESOURCE_POLICY = "NamespaceResourcePolicy"
-    REDSHIFT_IDC_APPLICATION_ARN = "RedshiftIdcApplicationArn"
-    DB_NAME = "DbName"
-    TAGS = "Tags"
-    LOG_EXPORTS = "LogExports"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manage_admin_password": "ManageAdminPassword",
         "iam_roles": "IamRoles",
@@ -318,11 +301,6 @@ class Snapshot(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Snapshot"
     name_field: ClassVar[str] = "snapshot_name"
-    NAMESPACE_NAME = "NamespaceName"
-    RETENTION_PERIOD = "RetentionPeriod"
-    SNAPSHOT_NAME = "SnapshotName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace_name": "NamespaceName",
         "retention_period": "RetentionPeriod",
@@ -403,25 +381,6 @@ class Workgroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Workgroup"
     name_field: ClassVar[str] = "workgroup_name"
-    SNAPSHOT_ARN = "SnapshotArn"
-    SNAPSHOT_OWNER_ACCOUNT = "SnapshotOwnerAccount"
-    PORT = "Port"
-    RECOVERY_POINT_ID = "RecoveryPointId"
-    WORKGROUP_NAME = "WorkgroupName"
-    BASE_CAPACITY = "BaseCapacity"
-    ENHANCED_VPC_ROUTING = "EnhancedVpcRouting"
-    WORKGROUP = "Workgroup"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-    SNAPSHOT_NAME = "SnapshotName"
-    NAMESPACE_NAME = "NamespaceName"
-    CONFIG_PARAMETERS = "ConfigParameters"
-    TRACK_NAME = "TrackName"
-    PUBLICLY_ACCESSIBLE = "PubliclyAccessible"
-    PRICE_PERFORMANCE_TARGET = "PricePerformanceTarget"
-    TAGS = "Tags"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_arn": "SnapshotArn",
         "snapshot_owner_account": "SnapshotOwnerAccount",

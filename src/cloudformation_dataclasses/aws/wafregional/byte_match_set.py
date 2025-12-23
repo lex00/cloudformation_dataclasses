@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ByteMatchTuple(PropertyType):
-    TARGET_STRING = "TargetString"
-    TARGET_STRING_BASE64 = "TargetStringBase64"
-    POSITIONAL_CONSTRAINT = "PositionalConstraint"
-    TEXT_TRANSFORMATION = "TextTransformation"
-    FIELD_TO_MATCH = "FieldToMatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_string": "TargetString",
         "target_string_base64": "TargetStringBase64",
@@ -34,9 +28,6 @@ class ByteMatchTuple(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    TYPE = "Type"
-    DATA = "Data"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",

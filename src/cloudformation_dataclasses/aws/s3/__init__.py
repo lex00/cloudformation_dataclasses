@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:15
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3
@@ -917,14 +917,6 @@ class AccessGrant(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-ac"""
 
     resource_type: ClassVar[str] = "AWS::S3::AccessGrant"
-    GRANTEE = "Grantee"
-    ACCESS_GRANTS_LOCATION_CONFIGURATION = "AccessGrantsLocationConfiguration"
-    APPLICATION_ARN = "ApplicationArn"
-    PERMISSION = "Permission"
-    S3_PREFIX_TYPE = "S3PrefixType"
-    TAGS = "Tags"
-    ACCESS_GRANTS_LOCATION_ID = "AccessGrantsLocationId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grantee": "Grantee",
         "access_grants_location_configuration": "AccessGrantsLocationConfiguration",
@@ -965,9 +957,6 @@ class AccessGrantsInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-ac"""
 
     resource_type: ClassVar[str] = "AWS::S3::AccessGrantsInstance"
-    IDENTITY_CENTER_ARN = "IdentityCenterArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_arn": "IdentityCenterArn",
         "tags": "Tags",
@@ -993,10 +982,6 @@ class AccessGrantsLocation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-ac"""
 
     resource_type: ClassVar[str] = "AWS::S3::AccessGrantsLocation"
-    LOCATION_SCOPE = "LocationScope"
-    IAM_ROLE_ARN = "IamRoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_scope": "LocationScope",
         "iam_role_arn": "IamRoleArn",
@@ -1025,14 +1010,6 @@ class AccessPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3::AccessPoint"
     name_field: ClassVar[str] = "name"
-    POLICY = "Policy"
-    PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
-    BUCKET = "Bucket"
-    BUCKET_ACCOUNT_ID = "BucketAccountId"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "public_access_block_configuration": "PublicAccessBlockConfiguration",
@@ -1079,30 +1056,6 @@ class Bucket(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3::Bucket"
     name_field: ClassVar[str] = "bucket_name"
-    INVENTORY_CONFIGURATIONS = "InventoryConfigurations"
-    BUCKET_ENCRYPTION = "BucketEncryption"
-    WEBSITE_CONFIGURATION = "WebsiteConfiguration"
-    NOTIFICATION_CONFIGURATION = "NotificationConfiguration"
-    LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"
-    VERSIONING_CONFIGURATION = "VersioningConfiguration"
-    METRICS_CONFIGURATIONS = "MetricsConfigurations"
-    ACCESS_CONTROL = "AccessControl"
-    METADATA_TABLE_CONFIGURATION = "MetadataTableConfiguration"
-    INTELLIGENT_TIERING_CONFIGURATIONS = "IntelligentTieringConfigurations"
-    ANALYTICS_CONFIGURATIONS = "AnalyticsConfigurations"
-    ABAC_STATUS = "AbacStatus"
-    ACCELERATE_CONFIGURATION = "AccelerateConfiguration"
-    PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
-    BUCKET_NAME = "BucketName"
-    CORS_CONFIGURATION = "CorsConfiguration"
-    OWNERSHIP_CONTROLS = "OwnershipControls"
-    OBJECT_LOCK_CONFIGURATION = "ObjectLockConfiguration"
-    OBJECT_LOCK_ENABLED = "ObjectLockEnabled"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    METADATA_CONFIGURATION = "MetadataConfiguration"
-    REPLICATION_CONFIGURATION = "ReplicationConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inventory_configurations": "InventoryConfigurations",
         "bucket_encryption": "BucketEncryption",
@@ -1235,9 +1188,6 @@ class BucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bu"""
 
     resource_type: ClassVar[str] = "AWS::S3::BucketPolicy"
-    BUCKET = "Bucket"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "policy_document": "PolicyDocument",
@@ -1253,10 +1203,6 @@ class MultiRegionAccessPoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3::MultiRegionAccessPoint"
     name_field: ClassVar[str] = "name"
-    PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
-    REGIONS = "Regions"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_access_block_configuration": "PublicAccessBlockConfiguration",
         "regions": "Regions",
@@ -1285,9 +1231,6 @@ class MultiRegionAccessPointPolicy(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3::MultiRegionAccessPointPolicy"
     name_field: ClassVar[str] = "mrap_name"
-    POLICY = "Policy"
-    MRAP_NAME = "MrapName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "mrap_name": "MrapName",
@@ -1313,9 +1256,6 @@ class StorageLens(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-st"""
 
     resource_type: ClassVar[str] = "AWS::S3::StorageLens"
-    STORAGE_LENS_CONFIGURATION = "StorageLensConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_configuration": "StorageLensConfiguration",
         "tags": "Tags",
@@ -1337,10 +1277,6 @@ class StorageLensGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::S3::StorageLensGroup"
     name_field: ClassVar[str] = "name"
-    FILTER = "Filter"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "tags": "Tags",

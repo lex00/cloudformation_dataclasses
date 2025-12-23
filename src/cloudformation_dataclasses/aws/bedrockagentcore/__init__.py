@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:46
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BedrockAgentCore
@@ -40,14 +40,6 @@ class BrowserCustom(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::BrowserCustom"
     name_field: ClassVar[str] = "name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    DESCRIPTION = "Description"
-    RECORDING_CONFIG = "RecordingConfig"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    BROWSER_SIGNING = "BrowserSigning"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "description": "Description",
@@ -104,12 +96,6 @@ class CodeInterpreterCustom(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::CodeInterpreterCustom"
     name_field: ClassVar[str] = "name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    DESCRIPTION = "Description"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "description": "Description",
@@ -162,17 +148,6 @@ class Gateway(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Gateway"
     name_field: ClassVar[str] = "name"
-    PROTOCOL_CONFIGURATION = "ProtocolConfiguration"
-    DESCRIPTION = "Description"
-    EXCEPTION_LEVEL = "ExceptionLevel"
-    KMS_KEY_ARN = "KmsKeyArn"
-    AUTHORIZER_TYPE = "AuthorizerType"
-    PROTOCOL_TYPE = "ProtocolType"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    NAME = "Name"
-    AUTHORIZER_CONFIGURATION = "AuthorizerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_configuration": "ProtocolConfiguration",
         "description": "Description",
@@ -250,12 +225,6 @@ class GatewayTarget(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::GatewayTarget"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TARGET_CONFIGURATION = "TargetConfiguration"
-    GATEWAY_IDENTIFIER = "GatewayIdentifier"
-    CREDENTIAL_PROVIDER_CONFIGURATIONS = "CredentialProviderConfigurations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "target_configuration": "TargetConfiguration",
@@ -313,14 +282,6 @@ class Memory(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Memory"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
-    MEMORY_EXECUTION_ROLE_ARN = "MemoryExecutionRoleArn"
-    MEMORY_STRATEGIES = "MemoryStrategies"
-    EVENT_EXPIRY_DURATION = "EventExpiryDuration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "encryption_key_arn": "EncryptionKeyArn",
@@ -377,18 +338,6 @@ class Runtime(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Runtime"
     name_field: ClassVar[str] = "agent_runtime_name"
-    PROTOCOL_CONFIGURATION = "ProtocolConfiguration"
-    DESCRIPTION = "Description"
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    REQUEST_HEADER_CONFIGURATION = "RequestHeaderConfiguration"
-    LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    AGENT_RUNTIME_NAME = "AgentRuntimeName"
-    AGENT_RUNTIME_ARTIFACT = "AgentRuntimeArtifact"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-    AUTHORIZER_CONFIGURATION = "AuthorizerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_configuration": "ProtocolConfiguration",
         "description": "Description",
@@ -463,12 +412,6 @@ class RuntimeEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::RuntimeEndpoint"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    AGENT_RUNTIME_ID = "AgentRuntimeId"
-    AGENT_RUNTIME_VERSION = "AgentRuntimeVersion"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "agent_runtime_id": "AgentRuntimeId",
@@ -536,10 +479,6 @@ class WorkloadIdentity(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::WorkloadIdentity"
     name_field: ClassVar[str] = "name"
-    ALLOWED_RESOURCE_OAUTH2_RETURN_URLS = "AllowedResourceOauth2ReturnUrls"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_resource_oauth2_return_urls": "AllowedResourceOauth2ReturnUrls",
         "tags": "Tags",

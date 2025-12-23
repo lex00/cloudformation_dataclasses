@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Inspector
@@ -406,9 +406,6 @@ class AssessmentTarget(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTarget"
     name_field: ClassVar[str] = "assessment_target_name"
-    ASSESSMENT_TARGET_NAME = "AssessmentTargetName"
-    RESOURCE_GROUP_ARN = "ResourceGroupArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assessment_target_name": "AssessmentTargetName",
         "resource_group_arn": "ResourceGroupArn",
@@ -430,12 +427,6 @@ class AssessmentTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTemplate"
     name_field: ClassVar[str] = "assessment_template_name"
-    ASSESSMENT_TARGET_ARN = "AssessmentTargetArn"
-    DURATION_IN_SECONDS = "DurationInSeconds"
-    ASSESSMENT_TEMPLATE_NAME = "AssessmentTemplateName"
-    RULES_PACKAGE_ARNS = "RulesPackageArns"
-    USER_ATTRIBUTES_FOR_FINDINGS = "UserAttributesForFindings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assessment_target_arn": "AssessmentTargetArn",
         "duration_in_seconds": "DurationInSeconds",
@@ -462,8 +453,6 @@ class ResourceGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::ResourceGroup"
-    RESOURCE_GROUP_TAGS = "ResourceGroupTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_group_tags": "ResourceGroupTags",
     }

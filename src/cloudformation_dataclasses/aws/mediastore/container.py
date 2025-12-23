@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CorsRule(PropertyType):
-    ALLOWED_METHODS = "AllowedMethods"
-    ALLOWED_ORIGINS = "AllowedOrigins"
-    EXPOSE_HEADERS = "ExposeHeaders"
-    MAX_AGE_SECONDS = "MaxAgeSeconds"
-    ALLOWED_HEADERS = "AllowedHeaders"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_methods": "AllowedMethods",
         "allowed_origins": "AllowedOrigins",
@@ -34,9 +28,6 @@ class CorsRule(PropertyType):
 
 @dataclass
 class MetricPolicy(PropertyType):
-    CONTAINER_LEVEL_METRICS = "ContainerLevelMetrics"
-    METRIC_POLICY_RULES = "MetricPolicyRules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_level_metrics": "ContainerLevelMetrics",
         "metric_policy_rules": "MetricPolicyRules",
@@ -48,9 +39,6 @@ class MetricPolicy(PropertyType):
 
 @dataclass
 class MetricPolicyRule(PropertyType):
-    OBJECT_GROUP = "ObjectGroup"
-    OBJECT_GROUP_NAME = "ObjectGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_group": "ObjectGroup",
         "object_group_name": "ObjectGroupName",

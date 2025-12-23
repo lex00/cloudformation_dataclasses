@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CmafEncryption(PropertyType):
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -22,11 +20,6 @@ class CmafEncryption(PropertyType):
 
 @dataclass
 class CmafPackage(PropertyType):
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-    HLS_MANIFESTS = "HlsManifests"
-    INCLUDE_ENCODER_CONFIGURATION_IN_SEGMENTS = "IncludeEncoderConfigurationInSegments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_duration_seconds": "SegmentDurationSeconds",
         "encryption": "Encryption",
@@ -42,8 +35,6 @@ class CmafPackage(PropertyType):
 
 @dataclass
 class DashEncryption(PropertyType):
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -53,13 +44,6 @@ class DashEncryption(PropertyType):
 
 @dataclass
 class DashManifest(PropertyType):
-    SCTE_MARKERS_SOURCE = "ScteMarkersSource"
-    MANIFEST_NAME = "ManifestName"
-    MANIFEST_LAYOUT = "ManifestLayout"
-    STREAM_SELECTION = "StreamSelection"
-    MIN_BUFFER_TIME_SECONDS = "MinBufferTimeSeconds"
-    PROFILE = "Profile"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte_markers_source": "ScteMarkersSource",
         "manifest_name": "ManifestName",
@@ -79,14 +63,6 @@ class DashManifest(PropertyType):
 
 @dataclass
 class DashPackage(PropertyType):
-    PERIOD_TRIGGERS = "PeriodTriggers"
-    INCLUDE_IFRAME_ONLY_STREAM = "IncludeIframeOnlyStream"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-    SEGMENT_TEMPLATE_FORMAT = "SegmentTemplateFormat"
-    INCLUDE_ENCODER_CONFIGURATION_IN_SEGMENTS = "IncludeEncoderConfigurationInSegments"
-    DASH_MANIFESTS = "DashManifests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_triggers": "PeriodTriggers",
         "include_iframe_only_stream": "IncludeIframeOnlyStream",
@@ -108,9 +84,6 @@ class DashPackage(PropertyType):
 
 @dataclass
 class EncryptionContractConfiguration(PropertyType):
-    PRESET_SPEKE20_AUDIO = "PresetSpeke20Audio"
-    PRESET_SPEKE20_VIDEO = "PresetSpeke20Video"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preset_speke20_audio": "PresetSpeke20Audio",
         "preset_speke20_video": "PresetSpeke20Video",
@@ -122,10 +95,6 @@ class EncryptionContractConfiguration(PropertyType):
 
 @dataclass
 class HlsEncryption(PropertyType):
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-    ENCRYPTION_METHOD = "EncryptionMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constant_initialization_vector": "ConstantInitializationVector",
         "speke_key_provider": "SpekeKeyProvider",
@@ -139,13 +108,6 @@ class HlsEncryption(PropertyType):
 
 @dataclass
 class HlsManifest(PropertyType):
-    AD_MARKERS = "AdMarkers"
-    MANIFEST_NAME = "ManifestName"
-    PROGRAM_DATE_TIME_INTERVAL_SECONDS = "ProgramDateTimeIntervalSeconds"
-    STREAM_SELECTION = "StreamSelection"
-    REPEAT_EXT_X_KEY = "RepeatExtXKey"
-    INCLUDE_IFRAME_ONLY_STREAM = "IncludeIframeOnlyStream"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_markers": "AdMarkers",
         "manifest_name": "ManifestName",
@@ -165,12 +127,6 @@ class HlsManifest(PropertyType):
 
 @dataclass
 class HlsPackage(PropertyType):
-    USE_AUDIO_RENDITION_GROUP = "UseAudioRenditionGroup"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-    HLS_MANIFESTS = "HlsManifests"
-    INCLUDE_DVB_SUBTITLES = "IncludeDvbSubtitles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_audio_rendition_group": "UseAudioRenditionGroup",
         "segment_duration_seconds": "SegmentDurationSeconds",
@@ -188,8 +144,6 @@ class HlsPackage(PropertyType):
 
 @dataclass
 class MssEncryption(PropertyType):
-    SPEKE_KEY_PROVIDER = "SpekeKeyProvider"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -199,9 +153,6 @@ class MssEncryption(PropertyType):
 
 @dataclass
 class MssManifest(PropertyType):
-    MANIFEST_NAME = "ManifestName"
-    STREAM_SELECTION = "StreamSelection"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_name": "ManifestName",
         "stream_selection": "StreamSelection",
@@ -213,10 +164,6 @@ class MssManifest(PropertyType):
 
 @dataclass
 class MssPackage(PropertyType):
-    MSS_MANIFESTS = "MssManifests"
-    SEGMENT_DURATION_SECONDS = "SegmentDurationSeconds"
-    ENCRYPTION = "Encryption"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mss_manifests": "MssManifests",
         "segment_duration_seconds": "SegmentDurationSeconds",
@@ -230,11 +177,6 @@ class MssPackage(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    SYSTEM_IDS = "SystemIds"
-    ENCRYPTION_CONTRACT_CONFIGURATION = "EncryptionContractConfiguration"
-    ROLE_ARN = "RoleArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_ids": "SystemIds",
         "encryption_contract_configuration": "EncryptionContractConfiguration",
@@ -250,10 +192,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StreamSelection(PropertyType):
-    MIN_VIDEO_BITS_PER_SECOND = "MinVideoBitsPerSecond"
-    STREAM_ORDER = "StreamOrder"
-    MAX_VIDEO_BITS_PER_SECOND = "MaxVideoBitsPerSecond"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_video_bits_per_second": "MinVideoBitsPerSecond",
         "stream_order": "StreamOrder",

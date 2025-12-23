@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:14
+  Generated: 2025-12-22 19:26:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceGroups
@@ -166,13 +166,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ResourceGroups::Group"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    RESOURCE_QUERY = "ResourceQuery"
-    RESOURCES = "Resources"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "configuration": "Configuration",
@@ -201,11 +194,6 @@ class TagSyncTask(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceGroups::TagSyncTask"
-    GROUP = "Group"
-    TAG_KEY = "TagKey"
-    TAG_VALUE = "TagValue"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "tag_key": "TagKey",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class SubscriptionTargetForm(PropertyType):
-    CONTENT = "Content"
-    FORM_NAME = "FormName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "form_name": "FormName",

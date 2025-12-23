@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationObject(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    ALLOWED_VALUES = "AllowedValues"
-    MIN_VALUE = "MinValue"
-    MAX_VALUE = "MaxValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "allowed_values": "AllowedValues",
@@ -31,9 +26,6 @@ class ConfigurationObject(PropertyType):
 
 @dataclass
 class ProfileConfiguration(PropertyType):
-    JOB_CONFIGURATION = "JobConfiguration"
-    SESSION_CONFIGURATION = "SessionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_configuration": "JobConfiguration",
         "session_configuration": "SessionConfiguration",

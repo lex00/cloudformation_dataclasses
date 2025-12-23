@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnywhereConfiguration(PropertyType):
-    COST = "Cost"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cost": "Cost",
     }
@@ -22,8 +20,6 @@ class AnywhereConfiguration(PropertyType):
 
 @dataclass
 class CertificateConfiguration(PropertyType):
-    CERTIFICATE_TYPE = "CertificateType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
     }
@@ -33,11 +29,6 @@ class CertificateConfiguration(PropertyType):
 
 @dataclass
 class IpPermission(PropertyType):
-    IP_RANGE = "IpRange"
-    FROM_PORT = "FromPort"
-    TO_PORT = "ToPort"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "from_port": "FromPort",
@@ -53,10 +44,6 @@ class IpPermission(PropertyType):
 
 @dataclass
 class LocationCapacity(PropertyType):
-    MIN_SIZE = "MinSize"
-    DESIRED_EC2_INSTANCES = "DesiredEC2Instances"
-    MAX_SIZE = "MaxSize"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_ec2_instances": "DesiredEC2Instances",
@@ -70,9 +57,6 @@ class LocationCapacity(PropertyType):
 
 @dataclass
 class LocationConfiguration(PropertyType):
-    LOCATION_CAPACITY = "LocationCapacity"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_capacity": "LocationCapacity",
         "location": "Location",
@@ -84,9 +68,6 @@ class LocationConfiguration(PropertyType):
 
 @dataclass
 class ResourceCreationLimitPolicy(PropertyType):
-    POLICY_PERIOD_IN_MINUTES = "PolicyPeriodInMinutes"
-    NEW_GAME_SESSIONS_PER_CREATOR = "NewGameSessionsPerCreator"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_period_in_minutes": "PolicyPeriodInMinutes",
         "new_game_sessions_per_creator": "NewGameSessionsPerCreator",
@@ -98,10 +79,6 @@ class ResourceCreationLimitPolicy(PropertyType):
 
 @dataclass
 class RuntimeConfiguration(PropertyType):
-    SERVER_PROCESSES = "ServerProcesses"
-    MAX_CONCURRENT_GAME_SESSION_ACTIVATIONS = "MaxConcurrentGameSessionActivations"
-    GAME_SESSION_ACTIVATION_TIMEOUT_SECONDS = "GameSessionActivationTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_processes": "ServerProcesses",
         "max_concurrent_game_session_activations": "MaxConcurrentGameSessionActivations",
@@ -115,19 +92,6 @@ class RuntimeConfiguration(PropertyType):
 
 @dataclass
 class ScalingPolicy(PropertyType):
-    STATUS = "Status"
-    METRIC_NAME = "MetricName"
-    POLICY_TYPE = "PolicyType"
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    TARGET_CONFIGURATION = "TargetConfiguration"
-    UPDATE_STATUS = "UpdateStatus"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-    EVALUATION_PERIODS = "EvaluationPeriods"
-    LOCATION = "Location"
-    NAME = "Name"
-    SCALING_ADJUSTMENT_TYPE = "ScalingAdjustmentType"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "metric_name": "MetricName",
@@ -159,10 +123,6 @@ class ScalingPolicy(PropertyType):
 
 @dataclass
 class ServerProcess(PropertyType):
-    CONCURRENT_EXECUTIONS = "ConcurrentExecutions"
-    PARAMETERS = "Parameters"
-    LAUNCH_PATH = "LaunchPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concurrent_executions": "ConcurrentExecutions",
         "parameters": "Parameters",
@@ -176,8 +136,6 @@ class ServerProcess(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    TARGET_VALUE = "TargetValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }

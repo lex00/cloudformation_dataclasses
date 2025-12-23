@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:52
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DSQL
@@ -103,12 +103,6 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-"""
 
     resource_type: ClassVar[str] = "AWS::DSQL::Cluster"
-    POLICY_DOCUMENT = "PolicyDocument"
-    KMS_ENCRYPTION_KEY = "KmsEncryptionKey"
-    DELETION_PROTECTION_ENABLED = "DeletionProtectionEnabled"
-    TAGS = "Tags"
-    MULTI_REGION_PROPERTIES = "MultiRegionProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
         "kms_encryption_key": "KmsEncryptionKey",

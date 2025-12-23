@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PolicyDefinition(PropertyType):
-    VARIABLES = "Variables"
-    TYPES = "Types"
-    VERSION = "Version"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "types": "Types",
@@ -31,10 +26,6 @@ class PolicyDefinition(PropertyType):
 
 @dataclass
 class PolicyDefinitionRule(PropertyType):
-    ALTERNATE_EXPRESSION = "AlternateExpression"
-    EXPRESSION = "Expression"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alternate_expression": "AlternateExpression",
         "expression": "Expression",
@@ -48,10 +39,6 @@ class PolicyDefinitionRule(PropertyType):
 
 @dataclass
 class PolicyDefinitionType(PropertyType):
-    DESCRIPTION = "Description"
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "values": "Values",
@@ -65,9 +52,6 @@ class PolicyDefinitionType(PropertyType):
 
 @dataclass
 class PolicyDefinitionTypeValue(PropertyType):
-    DESCRIPTION = "Description"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "value": "Value",
@@ -79,10 +63,6 @@ class PolicyDefinitionTypeValue(PropertyType):
 
 @dataclass
 class PolicyDefinitionVariable(PropertyType):
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",

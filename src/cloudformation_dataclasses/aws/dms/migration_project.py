@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataProviderDescriptor(PropertyType):
-    DATA_PROVIDER_NAME = "DataProviderName"
-    DATA_PROVIDER_ARN = "DataProviderArn"
-    SECRETS_MANAGER_SECRET_ID = "SecretsManagerSecretId"
-    SECRETS_MANAGER_ACCESS_ROLE_ARN = "SecretsManagerAccessRoleArn"
-    DATA_PROVIDER_IDENTIFIER = "DataProviderIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_provider_name": "DataProviderName",
         "data_provider_arn": "DataProviderArn",
@@ -34,9 +28,6 @@ class DataProviderDescriptor(PropertyType):
 
 @dataclass
 class SchemaConversionApplicationAttributes(PropertyType):
-    S3_BUCKET_PATH = "S3BucketPath"
-    S3_BUCKET_ROLE_ARN = "S3BucketRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_path": "S3BucketPath",
         "s3_bucket_role_arn": "S3BucketRoleArn",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeletionSettings(PropertyType):
-    EXECUTION_ROLE = "ExecutionRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role": "ExecutionRole",
     }
@@ -22,9 +20,6 @@ class DeletionSettings(PropertyType):
 
 @dataclass
 class EcrConfiguration(PropertyType):
-    CONTAINER_TAGS = "ContainerTags"
-    REPOSITORY_NAME = "RepositoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_tags": "ContainerTags",
         "repository_name": "RepositoryName",
@@ -36,8 +31,6 @@ class EcrConfiguration(PropertyType):
 
 @dataclass
 class ImageLoggingConfiguration(PropertyType):
-    LOG_GROUP_NAME = "LogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }
@@ -47,9 +40,6 @@ class ImageLoggingConfiguration(PropertyType):
 
 @dataclass
 class ImagePipelineExecutionSettings(PropertyType):
-    DEPLOYMENT_ID = "DeploymentId"
-    ON_UPDATE = "OnUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_id": "DeploymentId",
         "on_update": "OnUpdate",
@@ -61,9 +51,6 @@ class ImagePipelineExecutionSettings(PropertyType):
 
 @dataclass
 class ImageScanningConfiguration(PropertyType):
-    ECR_CONFIGURATION = "EcrConfiguration"
-    IMAGE_SCANNING_ENABLED = "ImageScanningEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ecr_configuration": "EcrConfiguration",
         "image_scanning_enabled": "ImageScanningEnabled",
@@ -75,9 +62,6 @@ class ImageScanningConfiguration(PropertyType):
 
 @dataclass
 class ImageTestsConfiguration(PropertyType):
-    TIMEOUT_MINUTES = "TimeoutMinutes"
-    IMAGE_TESTS_ENABLED = "ImageTestsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_minutes": "TimeoutMinutes",
         "image_tests_enabled": "ImageTestsEnabled",
@@ -89,11 +73,6 @@ class ImageTestsConfiguration(PropertyType):
 
 @dataclass
 class LatestVersion(PropertyType):
-    MAJOR = "Major"
-    MINOR = "Minor"
-    ARN = "Arn"
-    PATCH = "Patch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -109,11 +88,6 @@ class LatestVersion(PropertyType):
 
 @dataclass
 class WorkflowConfiguration(PropertyType):
-    PARALLEL_GROUP = "ParallelGroup"
-    PARAMETERS = "Parameters"
-    WORKFLOW_ARN = "WorkflowArn"
-    ON_FAILURE = "OnFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parallel_group": "ParallelGroup",
         "parameters": "Parameters",
@@ -129,9 +103,6 @@ class WorkflowConfiguration(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

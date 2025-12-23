@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmazonManagedKafkaEventSourceConfig(PropertyType):
-    CONSUMER_GROUP_ID = "ConsumerGroupId"
-    SCHEMA_REGISTRY_CONFIG = "SchemaRegistryConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_group_id": "ConsumerGroupId",
         "schema_registry_config": "SchemaRegistryConfig",
@@ -25,8 +22,6 @@ class AmazonManagedKafkaEventSourceConfig(PropertyType):
 
 @dataclass
 class DestinationConfig(PropertyType):
-    ON_FAILURE = "OnFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_failure": "OnFailure",
     }
@@ -36,10 +31,6 @@ class DestinationConfig(PropertyType):
 
 @dataclass
 class DocumentDBEventSourceConfig(PropertyType):
-    FULL_DOCUMENT = "FullDocument"
-    COLLECTION_NAME = "CollectionName"
-    DATABASE_NAME = "DatabaseName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "full_document": "FullDocument",
         "collection_name": "CollectionName",
@@ -53,8 +44,6 @@ class DocumentDBEventSourceConfig(PropertyType):
 
 @dataclass
 class Endpoints(PropertyType):
-    KAFKA_BOOTSTRAP_SERVERS = "KafkaBootstrapServers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kafka_bootstrap_servers": "KafkaBootstrapServers",
     }
@@ -64,8 +53,6 @@ class Endpoints(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    PATTERN = "Pattern"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -75,8 +62,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    FILTERS = "Filters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -86,8 +71,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    SYSTEM_LOG_LEVEL = "SystemLogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_log_level": "SystemLogLevel",
     }
@@ -97,8 +80,6 @@ class LoggingConfig(PropertyType):
 
 @dataclass
 class MetricsConfig(PropertyType):
-    METRICS = "Metrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
     }
@@ -108,8 +89,6 @@ class MetricsConfig(PropertyType):
 
 @dataclass
 class OnFailure(PropertyType):
-    DESTINATION = "Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -119,10 +98,6 @@ class OnFailure(PropertyType):
 
 @dataclass
 class ProvisionedPollerConfig(PropertyType):
-    POLLER_GROUP_NAME = "PollerGroupName"
-    MINIMUM_POLLERS = "MinimumPollers"
-    MAXIMUM_POLLERS = "MaximumPollers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "poller_group_name": "PollerGroupName",
         "minimum_pollers": "MinimumPollers",
@@ -136,8 +111,6 @@ class ProvisionedPollerConfig(PropertyType):
 
 @dataclass
 class ScalingConfig(PropertyType):
-    MAXIMUM_CONCURRENCY = "MaximumConcurrency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_concurrency": "MaximumConcurrency",
     }
@@ -147,9 +120,6 @@ class ScalingConfig(PropertyType):
 
 @dataclass
 class SchemaRegistryAccessConfig(PropertyType):
-    TYPE = "Type"
-    URI = "URI"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "uri": "URI",
@@ -161,11 +131,6 @@ class SchemaRegistryAccessConfig(PropertyType):
 
 @dataclass
 class SchemaRegistryConfig(PropertyType):
-    SCHEMA_VALIDATION_CONFIGS = "SchemaValidationConfigs"
-    SCHEMA_REGISTRY_URI = "SchemaRegistryURI"
-    EVENT_RECORD_FORMAT = "EventRecordFormat"
-    ACCESS_CONFIGS = "AccessConfigs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_validation_configs": "SchemaValidationConfigs",
         "schema_registry_uri": "SchemaRegistryURI",
@@ -181,8 +146,6 @@ class SchemaRegistryConfig(PropertyType):
 
 @dataclass
 class SchemaValidationConfig(PropertyType):
-    ATTRIBUTE = "Attribute"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -192,8 +155,6 @@ class SchemaValidationConfig(PropertyType):
 
 @dataclass
 class SelfManagedEventSource(PropertyType):
-    ENDPOINTS = "Endpoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoints": "Endpoints",
     }
@@ -203,9 +164,6 @@ class SelfManagedEventSource(PropertyType):
 
 @dataclass
 class SelfManagedKafkaEventSourceConfig(PropertyType):
-    CONSUMER_GROUP_ID = "ConsumerGroupId"
-    SCHEMA_REGISTRY_CONFIG = "SchemaRegistryConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_group_id": "ConsumerGroupId",
         "schema_registry_config": "SchemaRegistryConfig",
@@ -217,9 +175,6 @@ class SelfManagedKafkaEventSourceConfig(PropertyType):
 
 @dataclass
 class SourceAccessConfiguration(PropertyType):
-    TYPE = "Type"
-    URI = "URI"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "uri": "URI",

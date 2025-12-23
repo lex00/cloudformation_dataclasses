@@ -11,28 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CacheBehavior(PropertyType):
-    COMPRESS = "Compress"
-    FUNCTION_ASSOCIATIONS = "FunctionAssociations"
-    LAMBDA_FUNCTION_ASSOCIATIONS = "LambdaFunctionAssociations"
-    TARGET_ORIGIN_ID = "TargetOriginId"
-    VIEWER_PROTOCOL_POLICY = "ViewerProtocolPolicy"
-    RESPONSE_HEADERS_POLICY_ID = "ResponseHeadersPolicyId"
-    GRPC_CONFIG = "GrpcConfig"
-    REALTIME_LOG_CONFIG_ARN = "RealtimeLogConfigArn"
-    TRUSTED_SIGNERS = "TrustedSigners"
-    DEFAULT_TTL = "DefaultTTL"
-    FIELD_LEVEL_ENCRYPTION_ID = "FieldLevelEncryptionId"
-    TRUSTED_KEY_GROUPS = "TrustedKeyGroups"
-    ALLOWED_METHODS = "AllowedMethods"
-    PATH_PATTERN = "PathPattern"
-    CACHED_METHODS = "CachedMethods"
-    SMOOTH_STREAMING = "SmoothStreaming"
-    FORWARDED_VALUES = "ForwardedValues"
-    ORIGIN_REQUEST_POLICY_ID = "OriginRequestPolicyId"
-    MIN_TTL = "MinTTL"
-    CACHE_POLICY_ID = "CachePolicyId"
-    MAX_TTL = "MaxTTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compress": "Compress",
         "function_associations": "FunctionAssociations",
@@ -82,8 +60,6 @@ class CacheBehavior(PropertyType):
 
 @dataclass
 class ConnectionFunctionAssociation(PropertyType):
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -93,9 +69,6 @@ class ConnectionFunctionAssociation(PropertyType):
 
 @dataclass
 class Cookies(PropertyType):
-    WHITELISTED_NAMES = "WhitelistedNames"
-    FORWARD = "Forward"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "whitelisted_names": "WhitelistedNames",
         "forward": "Forward",
@@ -107,11 +80,6 @@ class Cookies(PropertyType):
 
 @dataclass
 class CustomErrorResponse(PropertyType):
-    RESPONSE_CODE = "ResponseCode"
-    ERROR_CACHING_MIN_TTL = "ErrorCachingMinTTL"
-    ERROR_CODE = "ErrorCode"
-    RESPONSE_PAGE_PATH = "ResponsePagePath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_code": "ResponseCode",
         "error_caching_min_ttl": "ErrorCachingMinTTL",
@@ -127,14 +95,6 @@ class CustomErrorResponse(PropertyType):
 
 @dataclass
 class CustomOriginConfig(PropertyType):
-    IP_ADDRESS_TYPE = "IpAddressType"
-    ORIGIN_READ_TIMEOUT = "OriginReadTimeout"
-    HTTPS_PORT = "HTTPSPort"
-    ORIGIN_KEEPALIVE_TIMEOUT = "OriginKeepaliveTimeout"
-    ORIGIN_SSL_PROTOCOLS = "OriginSSLProtocols"
-    HTTP_PORT = "HTTPPort"
-    ORIGIN_PROTOCOL_POLICY = "OriginProtocolPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "origin_read_timeout": "OriginReadTimeout",
@@ -156,27 +116,6 @@ class CustomOriginConfig(PropertyType):
 
 @dataclass
 class DefaultCacheBehavior(PropertyType):
-    COMPRESS = "Compress"
-    FUNCTION_ASSOCIATIONS = "FunctionAssociations"
-    LAMBDA_FUNCTION_ASSOCIATIONS = "LambdaFunctionAssociations"
-    TARGET_ORIGIN_ID = "TargetOriginId"
-    VIEWER_PROTOCOL_POLICY = "ViewerProtocolPolicy"
-    RESPONSE_HEADERS_POLICY_ID = "ResponseHeadersPolicyId"
-    GRPC_CONFIG = "GrpcConfig"
-    REALTIME_LOG_CONFIG_ARN = "RealtimeLogConfigArn"
-    TRUSTED_SIGNERS = "TrustedSigners"
-    DEFAULT_TTL = "DefaultTTL"
-    FIELD_LEVEL_ENCRYPTION_ID = "FieldLevelEncryptionId"
-    TRUSTED_KEY_GROUPS = "TrustedKeyGroups"
-    ALLOWED_METHODS = "AllowedMethods"
-    CACHED_METHODS = "CachedMethods"
-    SMOOTH_STREAMING = "SmoothStreaming"
-    FORWARDED_VALUES = "ForwardedValues"
-    ORIGIN_REQUEST_POLICY_ID = "OriginRequestPolicyId"
-    MIN_TTL = "MinTTL"
-    CACHE_POLICY_ID = "CachePolicyId"
-    MAX_TTL = "MaxTTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compress": "Compress",
         "function_associations": "FunctionAssociations",
@@ -224,8 +163,6 @@ class DefaultCacheBehavior(PropertyType):
 
 @dataclass
 class Definition(PropertyType):
-    STRING_SCHEMA = "StringSchema"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_schema": "StringSchema",
     }
@@ -235,33 +172,6 @@ class Definition(PropertyType):
 
 @dataclass
 class DistributionConfig(PropertyType):
-    PRICE_CLASS = "PriceClass"
-    STAGING = "Staging"
-    CUSTOM_ERROR_RESPONSES = "CustomErrorResponses"
-    CONTINUOUS_DEPLOYMENT_POLICY_ID = "ContinuousDeploymentPolicyId"
-    ORIGIN_GROUPS = "OriginGroups"
-    CONNECTION_FUNCTION_ASSOCIATION = "ConnectionFunctionAssociation"
-    IPV6_ENABLED = "IPV6Enabled"
-    TENANT_CONFIG = "TenantConfig"
-    CNAM_ES = "CNAMEs"
-    VIEWER_MTLS_CONFIG = "ViewerMtlsConfig"
-    HTTP_VERSION = "HttpVersion"
-    RESTRICTIONS = "Restrictions"
-    CACHE_BEHAVIORS = "CacheBehaviors"
-    LOGGING = "Logging"
-    COMMENT = "Comment"
-    DEFAULT_ROOT_OBJECT = "DefaultRootObject"
-    ORIGINS = "Origins"
-    VIEWER_CERTIFICATE = "ViewerCertificate"
-    ANYCAST_IP_LIST_ID = "AnycastIpListId"
-    CUSTOM_ORIGIN = "CustomOrigin"
-    S3_ORIGIN = "S3Origin"
-    DEFAULT_CACHE_BEHAVIOR = "DefaultCacheBehavior"
-    ENABLED = "Enabled"
-    ALIASES = "Aliases"
-    CONNECTION_MODE = "ConnectionMode"
-    WEB_ACL_ID = "WebACLId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "price_class": "PriceClass",
         "staging": "Staging",
@@ -321,11 +231,6 @@ class DistributionConfig(PropertyType):
 
 @dataclass
 class ForwardedValues(PropertyType):
-    COOKIES = "Cookies"
-    HEADERS = "Headers"
-    QUERY_STRING = "QueryString"
-    QUERY_STRING_CACHE_KEYS = "QueryStringCacheKeys"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "headers": "Headers",
@@ -341,9 +246,6 @@ class ForwardedValues(PropertyType):
 
 @dataclass
 class FunctionAssociation(PropertyType):
-    FUNCTION_ARN = "FunctionARN"
-    EVENT_TYPE = "EventType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionARN",
         "event_type": "EventType",
@@ -355,9 +257,6 @@ class FunctionAssociation(PropertyType):
 
 @dataclass
 class GeoRestriction(PropertyType):
-    LOCATIONS = "Locations"
-    RESTRICTION_TYPE = "RestrictionType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locations": "Locations",
         "restriction_type": "RestrictionType",
@@ -369,8 +268,6 @@ class GeoRestriction(PropertyType):
 
 @dataclass
 class GrpcConfig(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -380,10 +277,6 @@ class GrpcConfig(PropertyType):
 
 @dataclass
 class LambdaFunctionAssociation(PropertyType):
-    INCLUDE_BODY = "IncludeBody"
-    EVENT_TYPE = "EventType"
-    LAMBDA_FUNCTION_ARN = "LambdaFunctionARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_body": "IncludeBody",
         "event_type": "EventType",
@@ -397,12 +290,6 @@ class LambdaFunctionAssociation(PropertyType):
 
 @dataclass
 class LegacyCustomOrigin(PropertyType):
-    HTTPS_PORT = "HTTPSPort"
-    ORIGIN_SSL_PROTOCOLS = "OriginSSLProtocols"
-    DNS_NAME = "DNSName"
-    HTTP_PORT = "HTTPPort"
-    ORIGIN_PROTOCOL_POLICY = "OriginProtocolPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_port": "HTTPSPort",
         "origin_ssl_protocols": "OriginSSLProtocols",
@@ -420,9 +307,6 @@ class LegacyCustomOrigin(PropertyType):
 
 @dataclass
 class LegacyS3Origin(PropertyType):
-    ORIGIN_ACCESS_IDENTITY = "OriginAccessIdentity"
-    DNS_NAME = "DNSName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_access_identity": "OriginAccessIdentity",
         "dns_name": "DNSName",
@@ -434,10 +318,6 @@ class LegacyS3Origin(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    INCLUDE_COOKIES = "IncludeCookies"
-    BUCKET = "Bucket"
-    PREFIX = "Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_cookies": "IncludeCookies",
         "bucket": "Bucket",
@@ -451,19 +331,6 @@ class Logging(PropertyType):
 
 @dataclass
 class Origin(PropertyType):
-    CONNECTION_TIMEOUT = "ConnectionTimeout"
-    ORIGIN_ACCESS_CONTROL_ID = "OriginAccessControlId"
-    CONNECTION_ATTEMPTS = "ConnectionAttempts"
-    ORIGIN_CUSTOM_HEADERS = "OriginCustomHeaders"
-    DOMAIN_NAME = "DomainName"
-    ORIGIN_SHIELD = "OriginShield"
-    S3_ORIGIN_CONFIG = "S3OriginConfig"
-    VPC_ORIGIN_CONFIG = "VpcOriginConfig"
-    ORIGIN_PATH = "OriginPath"
-    RESPONSE_COMPLETION_TIMEOUT = "ResponseCompletionTimeout"
-    ID = "Id"
-    CUSTOM_ORIGIN_CONFIG = "CustomOriginConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_timeout": "ConnectionTimeout",
         "origin_access_control_id": "OriginAccessControlId",
@@ -495,9 +362,6 @@ class Origin(PropertyType):
 
 @dataclass
 class OriginCustomHeader(PropertyType):
-    HEADER_VALUE = "HeaderValue"
-    HEADER_NAME = "HeaderName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_value": "HeaderValue",
         "header_name": "HeaderName",
@@ -509,11 +373,6 @@ class OriginCustomHeader(PropertyType):
 
 @dataclass
 class OriginGroup(PropertyType):
-    SELECTION_CRITERIA = "SelectionCriteria"
-    ID = "Id"
-    FAILOVER_CRITERIA = "FailoverCriteria"
-    MEMBERS = "Members"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_criteria": "SelectionCriteria",
         "id": "Id",
@@ -529,8 +388,6 @@ class OriginGroup(PropertyType):
 
 @dataclass
 class OriginGroupFailoverCriteria(PropertyType):
-    STATUS_CODES = "StatusCodes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_codes": "StatusCodes",
     }
@@ -540,8 +397,6 @@ class OriginGroupFailoverCriteria(PropertyType):
 
 @dataclass
 class OriginGroupMember(PropertyType):
-    ORIGIN_ID = "OriginId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_id": "OriginId",
     }
@@ -551,9 +406,6 @@ class OriginGroupMember(PropertyType):
 
 @dataclass
 class OriginGroupMembers(PropertyType):
-    QUANTITY = "Quantity"
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -565,9 +417,6 @@ class OriginGroupMembers(PropertyType):
 
 @dataclass
 class OriginGroups(PropertyType):
-    QUANTITY = "Quantity"
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -579,9 +428,6 @@ class OriginGroups(PropertyType):
 
 @dataclass
 class OriginShield(PropertyType):
-    ORIGIN_SHIELD_REGION = "OriginShieldRegion"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_shield_region": "OriginShieldRegion",
         "enabled": "Enabled",
@@ -593,9 +439,6 @@ class OriginShield(PropertyType):
 
 @dataclass
 class ParameterDefinition(PropertyType):
-    DEFINITION = "Definition"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
         "name": "Name",
@@ -607,8 +450,6 @@ class ParameterDefinition(PropertyType):
 
 @dataclass
 class Restrictions(PropertyType):
-    GEO_RESTRICTION = "GeoRestriction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geo_restriction": "GeoRestriction",
     }
@@ -618,9 +459,6 @@ class Restrictions(PropertyType):
 
 @dataclass
 class S3OriginConfig(PropertyType):
-    ORIGIN_READ_TIMEOUT = "OriginReadTimeout"
-    ORIGIN_ACCESS_IDENTITY = "OriginAccessIdentity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_read_timeout": "OriginReadTimeout",
         "origin_access_identity": "OriginAccessIdentity",
@@ -632,9 +470,6 @@ class S3OriginConfig(PropertyType):
 
 @dataclass
 class StatusCodes(PropertyType):
-    QUANTITY = "Quantity"
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -646,10 +481,6 @@ class StatusCodes(PropertyType):
 
 @dataclass
 class StringSchema(PropertyType):
-    COMMENT = "Comment"
-    DEFAULT_VALUE = "DefaultValue"
-    REQUIRED = "Required"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "default_value": "DefaultValue",
@@ -663,8 +494,6 @@ class StringSchema(PropertyType):
 
 @dataclass
 class TenantConfig(PropertyType):
-    PARAMETER_DEFINITIONS = "ParameterDefinitions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_definitions": "ParameterDefinitions",
     }
@@ -674,10 +503,6 @@ class TenantConfig(PropertyType):
 
 @dataclass
 class TrustStoreConfig(PropertyType):
-    TRUST_STORE_ID = "TrustStoreId"
-    IGNORE_CERTIFICATE_EXPIRY = "IgnoreCertificateExpiry"
-    ADVERTISE_TRUST_STORE_CA_NAMES = "AdvertiseTrustStoreCaNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trust_store_id": "TrustStoreId",
         "ignore_certificate_expiry": "IgnoreCertificateExpiry",
@@ -691,12 +516,6 @@ class TrustStoreConfig(PropertyType):
 
 @dataclass
 class ViewerCertificate(PropertyType):
-    IAM_CERTIFICATE_ID = "IamCertificateId"
-    SSL_SUPPORT_METHOD = "SslSupportMethod"
-    MINIMUM_PROTOCOL_VERSION = "MinimumProtocolVersion"
-    CLOUD_FRONT_DEFAULT_CERTIFICATE = "CloudFrontDefaultCertificate"
-    ACM_CERTIFICATE_ARN = "AcmCertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_certificate_id": "IamCertificateId",
         "ssl_support_method": "SslSupportMethod",
@@ -714,9 +533,6 @@ class ViewerCertificate(PropertyType):
 
 @dataclass
 class ViewerMtlsConfig(PropertyType):
-    MODE = "Mode"
-    TRUST_STORE_CONFIG = "TrustStoreConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "trust_store_config": "TrustStoreConfig",
@@ -728,11 +544,6 @@ class ViewerMtlsConfig(PropertyType):
 
 @dataclass
 class VpcOriginConfig(PropertyType):
-    ORIGIN_READ_TIMEOUT = "OriginReadTimeout"
-    VPC_ORIGIN_ID = "VpcOriginId"
-    ORIGIN_KEEPALIVE_TIMEOUT = "OriginKeepaliveTimeout"
-    OWNER_ACCOUNT_ID = "OwnerAccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_read_timeout": "OriginReadTimeout",
         "vpc_origin_id": "VpcOriginId",

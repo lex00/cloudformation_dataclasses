@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    DAYS_AFTER_INITIATION = "DaysAfterInitiation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -22,10 +20,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    AND_OPERATOR = "AndOperator"
-    PREFIX = "Prefix"
-    TAG = "Tag"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_operator": "AndOperator",
         "prefix": "Prefix",
@@ -39,9 +33,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterAndOperator(PropertyType):
-    PREFIX = "Prefix"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "tags": "Tags",
@@ -53,9 +44,6 @@ class FilterAndOperator(PropertyType):
 
 @dataclass
 class FilterTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -67,8 +55,6 @@ class FilterTag(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -78,13 +64,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    STATUS = "Status"
-    EXPIRATION_DATE = "ExpirationDate"
-    FILTER = "Filter"
-    EXPIRATION_IN_DAYS = "ExpirationInDays"
-    ID = "Id"
-    ABORT_INCOMPLETE_MULTIPART_UPLOAD = "AbortIncompleteMultipartUpload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expiration_date": "ExpirationDate",

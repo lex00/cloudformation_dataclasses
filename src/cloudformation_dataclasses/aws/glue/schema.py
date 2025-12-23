@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Registry(PropertyType):
-    ARN = "Arn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -25,9 +22,6 @@ class Registry(PropertyType):
 
 @dataclass
 class SchemaVersion(PropertyType):
-    IS_LATEST = "IsLatest"
-    VERSION_NUMBER = "VersionNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_latest": "IsLatest",
         "version_number": "VersionNumber",

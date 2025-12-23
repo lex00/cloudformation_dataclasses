@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmiDistributionConfiguration(PropertyType):
-    AMI_TAGS = "AmiTags"
-    DESCRIPTION = "Description"
-    KMS_KEY_ID = "KmsKeyId"
-    LAUNCH_PERMISSION_CONFIGURATION = "LaunchPermissionConfiguration"
-    TARGET_ACCOUNT_IDS = "TargetAccountIds"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ami_tags": "AmiTags",
         "description": "Description",
@@ -37,10 +30,6 @@ class AmiDistributionConfiguration(PropertyType):
 
 @dataclass
 class ContainerDistributionConfiguration(PropertyType):
-    TARGET_REPOSITORY = "TargetRepository"
-    CONTAINER_TAGS = "ContainerTags"
-    DESCRIPTION = "Description"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_repository": "TargetRepository",
         "container_tags": "ContainerTags",
@@ -54,14 +43,6 @@ class ContainerDistributionConfiguration(PropertyType):
 
 @dataclass
 class Distribution(PropertyType):
-    AMI_DISTRIBUTION_CONFIGURATION = "AmiDistributionConfiguration"
-    CONTAINER_DISTRIBUTION_CONFIGURATION = "ContainerDistributionConfiguration"
-    FAST_LAUNCH_CONFIGURATIONS = "FastLaunchConfigurations"
-    LAUNCH_TEMPLATE_CONFIGURATIONS = "LaunchTemplateConfigurations"
-    LICENSE_CONFIGURATION_ARNS = "LicenseConfigurationArns"
-    REGION = "Region"
-    SSM_PARAMETER_CONFIGURATIONS = "SsmParameterConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ami_distribution_configuration": "AmiDistributionConfiguration",
         "container_distribution_configuration": "ContainerDistributionConfiguration",
@@ -83,12 +64,6 @@ class Distribution(PropertyType):
 
 @dataclass
 class FastLaunchConfiguration(PropertyType):
-    ACCOUNT_ID = "AccountId"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    ENABLED = "Enabled"
-    MAX_PARALLEL_LAUNCHES = "MaxParallelLaunches"
-    SNAPSHOT_CONFIGURATION = "SnapshotConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "launch_template": "LaunchTemplate",
@@ -106,10 +81,6 @@ class FastLaunchConfiguration(PropertyType):
 
 @dataclass
 class FastLaunchLaunchTemplateSpecification(PropertyType):
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    LAUNCH_TEMPLATE_VERSION = "LaunchTemplateVersion"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "launch_template_version": "LaunchTemplateVersion",
@@ -123,8 +94,6 @@ class FastLaunchLaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class FastLaunchSnapshotConfiguration(PropertyType):
-    TARGET_RESOURCE_COUNT = "TargetResourceCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource_count": "TargetResourceCount",
     }
@@ -134,11 +103,6 @@ class FastLaunchSnapshotConfiguration(PropertyType):
 
 @dataclass
 class LaunchPermissionConfiguration(PropertyType):
-    ORGANIZATION_ARNS = "OrganizationArns"
-    ORGANIZATIONAL_UNIT_ARNS = "OrganizationalUnitArns"
-    USER_IDS = "UserIds"
-    USER_GROUPS = "UserGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization_arns": "OrganizationArns",
         "organizational_unit_arns": "OrganizationalUnitArns",
@@ -154,10 +118,6 @@ class LaunchPermissionConfiguration(PropertyType):
 
 @dataclass
 class LaunchTemplateConfiguration(PropertyType):
-    SET_DEFAULT_VERSION = "SetDefaultVersion"
-    ACCOUNT_ID = "AccountId"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "set_default_version": "SetDefaultVersion",
         "account_id": "AccountId",
@@ -171,10 +131,6 @@ class LaunchTemplateConfiguration(PropertyType):
 
 @dataclass
 class SsmParameterConfiguration(PropertyType):
-    DATA_TYPE = "DataType"
-    PARAMETER_NAME = "ParameterName"
-    AMI_ACCOUNT_ID = "AmiAccountId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_type": "DataType",
         "parameter_name": "ParameterName",
@@ -188,9 +144,6 @@ class SsmParameterConfiguration(PropertyType):
 
 @dataclass
 class TargetContainerRepository(PropertyType):
-    SERVICE = "Service"
-    REPOSITORY_NAME = "RepositoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service": "Service",
         "repository_name": "RepositoryName",

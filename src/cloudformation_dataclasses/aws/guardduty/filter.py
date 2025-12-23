@@ -11,19 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Condition(PropertyType):
-    EQUALS = "Equals"
-    LESS_THAN = "LessThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN = "GreaterThan"
-    LT = "Lt"
-    GTE = "Gte"
-    NEQ = "Neq"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    EQ = "Eq"
-    LTE = "Lte"
-    GT = "Gt"
-    NOT_EQUALS = "NotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "equals": "Equals",
         "less_than": "LessThan",
@@ -55,8 +42,6 @@ class Condition(PropertyType):
 
 @dataclass
 class FindingCriteria(PropertyType):
-    CRITERION = "Criterion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criterion": "Criterion",
     }
@@ -66,9 +51,6 @@ class FindingCriteria(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

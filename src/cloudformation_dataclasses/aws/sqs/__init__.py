@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:17
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SQS
@@ -119,23 +119,6 @@ class Queue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::SQS::Queue"
     name_field: ClassVar[str] = "queue_name"
-    RECEIVE_MESSAGE_WAIT_TIME_SECONDS = "ReceiveMessageWaitTimeSeconds"
-    FIFO_THROUGHPUT_LIMIT = "FifoThroughputLimit"
-    KMS_MASTER_KEY_ID = "KmsMasterKeyId"
-    FIFO_QUEUE = "FifoQueue"
-    MAXIMUM_MESSAGE_SIZE = "MaximumMessageSize"
-    VISIBILITY_TIMEOUT = "VisibilityTimeout"
-    KMS_DATA_KEY_REUSE_PERIOD_SECONDS = "KmsDataKeyReusePeriodSeconds"
-    REDRIVE_ALLOW_POLICY = "RedriveAllowPolicy"
-    SQS_MANAGED_SSE_ENABLED = "SqsManagedSseEnabled"
-    DELAY_SECONDS = "DelaySeconds"
-    REDRIVE_POLICY = "RedrivePolicy"
-    MESSAGE_RETENTION_PERIOD = "MessageRetentionPeriod"
-    DEDUPLICATION_SCOPE = "DeduplicationScope"
-    CONTENT_BASED_DEDUPLICATION = "ContentBasedDeduplication"
-    QUEUE_NAME = "QueueName"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "receive_message_wait_time_seconds": "ReceiveMessageWaitTimeSeconds",
         "fifo_throughput_limit": "FifoThroughputLimit",
@@ -194,9 +177,6 @@ class QueueInlinePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-q"""
 
     resource_type: ClassVar[str] = "AWS::SQS::QueueInlinePolicy"
-    POLICY_DOCUMENT = "PolicyDocument"
-    QUEUE = "Queue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
         "queue": "Queue",
@@ -211,9 +191,6 @@ class QueuePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-q"""
 
     resource_type: ClassVar[str] = "AWS::SQS::QueuePolicy"
-    POLICY_DOCUMENT = "PolicyDocument"
-    QUEUES = "Queues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
         "queues": "Queues",

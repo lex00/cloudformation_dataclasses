@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FieldToMatch(PropertyType):
-    DATA = "Data"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -25,11 +22,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SizeConstraint(PropertyType):
-    COMPARISON_OPERATOR = "ComparisonOperator"
-    FIELD_TO_MATCH = "FieldToMatch"
-    SIZE = "Size"
-    TEXT_TRANSFORMATION = "TextTransformation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "field_to_match": "FieldToMatch",

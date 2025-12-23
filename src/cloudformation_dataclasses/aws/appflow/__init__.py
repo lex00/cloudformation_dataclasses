@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:42
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppFlow
@@ -1079,11 +1079,6 @@ class Connector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appfl"""
 
     resource_type: ClassVar[str] = "AWS::AppFlow::Connector"
-    CONNECTOR_LABEL = "ConnectorLabel"
-    CONNECTOR_PROVISIONING_TYPE = "ConnectorProvisioningType"
-    DESCRIPTION = "Description"
-    CONNECTOR_PROVISIONING_CONFIG = "ConnectorProvisioningConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_label": "ConnectorLabel",
         "connector_provisioning_type": "ConnectorProvisioningType",
@@ -1109,13 +1104,6 @@ class ConnectorProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppFlow::ConnectorProfile"
     name_field: ClassVar[str] = "connector_profile_name"
-    CONNECTOR_LABEL = "ConnectorLabel"
-    CONNECTOR_PROFILE_NAME = "ConnectorProfileName"
-    KMS_ARN = "KMSArn"
-    CONNECTOR_TYPE = "ConnectorType"
-    CONNECTION_MODE = "ConnectionMode"
-    CONNECTOR_PROFILE_CONFIG = "ConnectorProfileConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_label": "ConnectorLabel",
         "connector_profile_name": "ConnectorProfileName",
@@ -1150,17 +1138,6 @@ class Flow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppFlow::Flow"
     name_field: ClassVar[str] = "flow_name"
-    DESCRIPTION = "Description"
-    KMS_ARN = "KMSArn"
-    TASKS = "Tasks"
-    FLOW_NAME = "FlowName"
-    TRIGGER_CONFIG = "TriggerConfig"
-    DESTINATION_FLOW_CONFIG_LIST = "DestinationFlowConfigList"
-    SOURCE_FLOW_CONFIG = "SourceFlowConfig"
-    FLOW_STATUS = "FlowStatus"
-    TAGS = "Tags"
-    METADATA_CATALOG_CONFIG = "MetadataCatalogConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "kms_arn": "KMSArn",

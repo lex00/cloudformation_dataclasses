@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EKS
@@ -800,14 +800,6 @@ class AccessEntry(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::AccessEntry"
     name_field: ClassVar[str] = "cluster_name"
-    TYPE = "Type"
-    PRINCIPAL_ARN = "PrincipalArn"
-    KUBERNETES_GROUPS = "KubernetesGroups"
-    USERNAME = "Username"
-    CLUSTER_NAME = "ClusterName"
-    ACCESS_POLICIES = "AccessPolicies"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "principal_arn": "PrincipalArn",
@@ -839,17 +831,6 @@ class Addon(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::Addon"
     name_field: ClassVar[str] = "addon_name"
-    NAMESPACE_CONFIG = "NamespaceConfig"
-    PRESERVE_ON_DELETE = "PreserveOnDelete"
-    ADDON_VERSION = "AddonVersion"
-    SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn"
-    CLUSTER_NAME = "ClusterName"
-    ADDON_NAME = "AddonName"
-    POD_IDENTITY_ASSOCIATIONS = "PodIdentityAssociations"
-    RESOLVE_CONFLICTS = "ResolveConflicts"
-    TAGS = "Tags"
-    CONFIGURATION_VALUES = "ConfigurationValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace_config": "NamespaceConfig",
         "preserve_on_delete": "PreserveOnDelete",
@@ -887,14 +868,6 @@ class Capability(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::Capability"
     name_field: ClassVar[str] = "capability_name"
-    TYPE = "Type"
-    CONFIGURATION = "Configuration"
-    CLUSTER_NAME = "ClusterName"
-    DELETE_PROPAGATION_POLICY = "DeletePropagationPolicy"
-    CAPABILITY_NAME = "CapabilityName"
-    ROLE_ARN = "RoleArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -956,26 +929,6 @@ class Cluster(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::Cluster"
     name_field: ClassVar[str] = "name"
-    LOGGING = "Logging"
-    COMPUTE_CONFIG = "ComputeConfig"
-    FORCE = "Force"
-    STORAGE_CONFIG = "StorageConfig"
-    BOOTSTRAP_SELF_MANAGED_ADDONS = "BootstrapSelfManagedAddons"
-    DELETION_PROTECTION = "DeletionProtection"
-    ZONAL_SHIFT_CONFIG = "ZonalShiftConfig"
-    ACCESS_CONFIG = "AccessConfig"
-    ENCRYPTION_CONFIG = "EncryptionConfig"
-    KUBERNETES_NETWORK_CONFIG = "KubernetesNetworkConfig"
-    ROLE_ARN = "RoleArn"
-    NAME = "Name"
-    UPGRADE_POLICY = "UpgradePolicy"
-    REMOTE_NETWORK_CONFIG = "RemoteNetworkConfig"
-    VERSION = "Version"
-    CONTROL_PLANE_SCALING_CONFIG = "ControlPlaneScalingConfig"
-    OUTPOST_CONFIG = "OutpostConfig"
-    TAGS = "Tags"
-    RESOURCES_VPC_CONFIG = "ResourcesVpcConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "compute_config": "ComputeConfig",
@@ -1066,13 +1019,6 @@ class FargateProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::FargateProfile"
     name_field: ClassVar[str] = "fargate_profile_name"
-    SUBNETS = "Subnets"
-    FARGATE_PROFILE_NAME = "FargateProfileName"
-    CLUSTER_NAME = "ClusterName"
-    POD_EXECUTION_ROLE_ARN = "PodExecutionRoleArn"
-    SELECTORS = "Selectors"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "fargate_profile_name": "FargateProfileName",
@@ -1102,12 +1048,6 @@ class IdentityProviderConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::IdentityProviderConfig"
     name_field: ClassVar[str] = "identity_provider_config_name"
-    TYPE = "Type"
-    CLUSTER_NAME = "ClusterName"
-    IDENTITY_PROVIDER_CONFIG_NAME = "IdentityProviderConfigName"
-    OIDC = "Oidc"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "cluster_name": "ClusterName",
@@ -1135,26 +1075,6 @@ class Nodegroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::Nodegroup"
     name_field: ClassVar[str] = "nodegroup_name"
-    UPDATE_CONFIG = "UpdateConfig"
-    SCALING_CONFIG = "ScalingConfig"
-    LABELS = "Labels"
-    TAINTS = "Taints"
-    CAPACITY_TYPE = "CapacityType"
-    RELEASE_VERSION = "ReleaseVersion"
-    NODE_REPAIR_CONFIG = "NodeRepairConfig"
-    NODEGROUP_NAME = "NodegroupName"
-    NODE_ROLE = "NodeRole"
-    SUBNETS = "Subnets"
-    AMI_TYPE = "AmiType"
-    FORCE_UPDATE_ENABLED = "ForceUpdateEnabled"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    REMOTE_ACCESS = "RemoteAccess"
-    DISK_SIZE = "DiskSize"
-    CLUSTER_NAME = "ClusterName"
-    INSTANCE_TYPES = "InstanceTypes"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_config": "UpdateConfig",
         "scaling_config": "ScalingConfig",
@@ -1225,14 +1145,6 @@ class PodIdentityAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::EKS::PodIdentityAssociation"
     name_field: ClassVar[str] = "cluster_name"
-    SERVICE_ACCOUNT = "ServiceAccount"
-    TARGET_ROLE_ARN = "TargetRoleArn"
-    CLUSTER_NAME = "ClusterName"
-    DISABLE_SESSION_TAGS = "DisableSessionTags"
-    ROLE_ARN = "RoleArn"
-    NAMESPACE = "Namespace"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_account": "ServiceAccount",
         "target_role_arn": "TargetRoleArn",

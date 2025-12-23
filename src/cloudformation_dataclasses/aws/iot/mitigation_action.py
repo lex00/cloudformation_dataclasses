@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionParams(PropertyType):
-    UPDATE_DEVICE_CERTIFICATE_PARAMS = "UpdateDeviceCertificateParams"
-    ADD_THINGS_TO_THING_GROUP_PARAMS = "AddThingsToThingGroupParams"
-    PUBLISH_FINDING_TO_SNS_PARAMS = "PublishFindingToSnsParams"
-    ENABLE_IO_T_LOGGING_PARAMS = "EnableIoTLoggingParams"
-    REPLACE_DEFAULT_POLICY_VERSION_PARAMS = "ReplaceDefaultPolicyVersionParams"
-    UPDATE_CA_CERTIFICATE_PARAMS = "UpdateCACertificateParams"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_device_certificate_params": "UpdateDeviceCertificateParams",
         "add_things_to_thing_group_params": "AddThingsToThingGroupParams",
@@ -37,9 +30,6 @@ class ActionParams(PropertyType):
 
 @dataclass
 class AddThingsToThingGroupParams(PropertyType):
-    OVERRIDE_DYNAMIC_GROUPS = "OverrideDynamicGroups"
-    THING_GROUP_NAMES = "ThingGroupNames"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override_dynamic_groups": "OverrideDynamicGroups",
         "thing_group_names": "ThingGroupNames",
@@ -51,9 +41,6 @@ class AddThingsToThingGroupParams(PropertyType):
 
 @dataclass
 class EnableIoTLoggingParams(PropertyType):
-    ROLE_ARN_FOR_LOGGING = "RoleArnForLogging"
-    LOG_LEVEL = "LogLevel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn_for_logging": "RoleArnForLogging",
         "log_level": "LogLevel",
@@ -65,8 +52,6 @@ class EnableIoTLoggingParams(PropertyType):
 
 @dataclass
 class PublishFindingToSnsParams(PropertyType):
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -76,8 +61,6 @@ class PublishFindingToSnsParams(PropertyType):
 
 @dataclass
 class ReplaceDefaultPolicyVersionParams(PropertyType):
-    TEMPLATE_NAME = "TemplateName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_name": "TemplateName",
     }
@@ -87,8 +70,6 @@ class ReplaceDefaultPolicyVersionParams(PropertyType):
 
 @dataclass
 class UpdateCACertificateParams(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -98,8 +79,6 @@ class UpdateCACertificateParams(PropertyType):
 
 @dataclass
 class UpdateDeviceCertificateParams(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }

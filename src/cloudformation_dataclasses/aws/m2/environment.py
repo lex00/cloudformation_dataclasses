@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EfsStorageConfiguration(PropertyType):
-    MOUNT_POINT = "MountPoint"
-    FILE_SYSTEM_ID = "FileSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "file_system_id": "FileSystemId",
@@ -25,9 +22,6 @@ class EfsStorageConfiguration(PropertyType):
 
 @dataclass
 class FsxStorageConfiguration(PropertyType):
-    MOUNT_POINT = "MountPoint"
-    FILE_SYSTEM_ID = "FileSystemId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "file_system_id": "FileSystemId",
@@ -39,8 +33,6 @@ class FsxStorageConfiguration(PropertyType):
 
 @dataclass
 class HighAvailabilityConfig(PropertyType):
-    DESIRED_CAPACITY = "DesiredCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_capacity": "DesiredCapacity",
     }
@@ -50,9 +42,6 @@ class HighAvailabilityConfig(PropertyType):
 
 @dataclass
 class StorageConfiguration(PropertyType):
-    EFS = "Efs"
-    FSX = "Fsx"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs": "Efs",
         "fsx": "Fsx",

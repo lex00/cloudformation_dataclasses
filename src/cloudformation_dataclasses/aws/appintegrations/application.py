@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationConfig(PropertyType):
-    CONTACT_HANDLING = "ContactHandling"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_handling": "ContactHandling",
     }
@@ -22,8 +20,6 @@ class ApplicationConfig(PropertyType):
 
 @dataclass
 class ApplicationSourceConfig(PropertyType):
-    EXTERNAL_URL_CONFIG = "ExternalUrlConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_url_config": "ExternalUrlConfig",
     }
@@ -33,8 +29,6 @@ class ApplicationSourceConfig(PropertyType):
 
 @dataclass
 class ContactHandling(PropertyType):
-    SCOPE = "Scope"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
     }
@@ -44,9 +38,6 @@ class ContactHandling(PropertyType):
 
 @dataclass
 class ExternalUrlConfig(PropertyType):
-    APPROVED_ORIGINS = "ApprovedOrigins"
-    ACCESS_URL = "AccessUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approved_origins": "ApprovedOrigins",
         "access_url": "AccessUrl",
@@ -58,9 +49,6 @@ class ExternalUrlConfig(PropertyType):
 
 @dataclass
 class IframeConfig(PropertyType):
-    ALLOW = "Allow"
-    SANDBOX = "Sandbox"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow": "Allow",
         "sandbox": "Sandbox",

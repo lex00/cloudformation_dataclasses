@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessControlAllowHeaders(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -22,8 +20,6 @@ class AccessControlAllowHeaders(PropertyType):
 
 @dataclass
 class AccessControlAllowMethods(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -33,8 +29,6 @@ class AccessControlAllowMethods(PropertyType):
 
 @dataclass
 class AccessControlAllowOrigins(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -44,8 +38,6 @@ class AccessControlAllowOrigins(PropertyType):
 
 @dataclass
 class AccessControlExposeHeaders(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -55,9 +47,6 @@ class AccessControlExposeHeaders(PropertyType):
 
 @dataclass
 class ContentSecurityPolicy(PropertyType):
-    CONTENT_SECURITY_POLICY = "ContentSecurityPolicy"
-    OVERRIDE = "Override"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_security_policy": "ContentSecurityPolicy",
         "override": "Override",
@@ -69,8 +58,6 @@ class ContentSecurityPolicy(PropertyType):
 
 @dataclass
 class ContentTypeOptions(PropertyType):
-    OVERRIDE = "Override"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override": "Override",
     }
@@ -80,14 +67,6 @@ class ContentTypeOptions(PropertyType):
 
 @dataclass
 class CorsConfig(PropertyType):
-    ACCESS_CONTROL_ALLOW_CREDENTIALS = "AccessControlAllowCredentials"
-    ACCESS_CONTROL_ALLOW_HEADERS = "AccessControlAllowHeaders"
-    ORIGIN_OVERRIDE = "OriginOverride"
-    ACCESS_CONTROL_ALLOW_METHODS = "AccessControlAllowMethods"
-    ACCESS_CONTROL_EXPOSE_HEADERS = "AccessControlExposeHeaders"
-    ACCESS_CONTROL_ALLOW_ORIGINS = "AccessControlAllowOrigins"
-    ACCESS_CONTROL_MAX_AGE_SEC = "AccessControlMaxAgeSec"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_control_allow_credentials": "AccessControlAllowCredentials",
         "access_control_allow_headers": "AccessControlAllowHeaders",
@@ -109,10 +88,6 @@ class CorsConfig(PropertyType):
 
 @dataclass
 class CustomHeader(PropertyType):
-    HEADER = "Header"
-    VALUE = "Value"
-    OVERRIDE = "Override"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -126,8 +101,6 @@ class CustomHeader(PropertyType):
 
 @dataclass
 class CustomHeadersConfig(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -137,9 +110,6 @@ class CustomHeadersConfig(PropertyType):
 
 @dataclass
 class FrameOptions(PropertyType):
-    FRAME_OPTION = "FrameOption"
-    OVERRIDE = "Override"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_option": "FrameOption",
         "override": "Override",
@@ -151,9 +121,6 @@ class FrameOptions(PropertyType):
 
 @dataclass
 class ReferrerPolicy(PropertyType):
-    OVERRIDE = "Override"
-    REFERRER_POLICY = "ReferrerPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override": "Override",
         "referrer_policy": "ReferrerPolicy",
@@ -165,8 +132,6 @@ class ReferrerPolicy(PropertyType):
 
 @dataclass
 class RemoveHeader(PropertyType):
-    HEADER = "Header"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -176,8 +141,6 @@ class RemoveHeader(PropertyType):
 
 @dataclass
 class RemoveHeadersConfig(PropertyType):
-    ITEMS = "Items"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -187,14 +150,6 @@ class RemoveHeadersConfig(PropertyType):
 
 @dataclass
 class ResponseHeadersPolicyConfig(PropertyType):
-    COMMENT = "Comment"
-    SECURITY_HEADERS_CONFIG = "SecurityHeadersConfig"
-    REMOVE_HEADERS_CONFIG = "RemoveHeadersConfig"
-    CORS_CONFIG = "CorsConfig"
-    SERVER_TIMING_HEADERS_CONFIG = "ServerTimingHeadersConfig"
-    CUSTOM_HEADERS_CONFIG = "CustomHeadersConfig"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "security_headers_config": "SecurityHeadersConfig",
@@ -216,13 +171,6 @@ class ResponseHeadersPolicyConfig(PropertyType):
 
 @dataclass
 class SecurityHeadersConfig(PropertyType):
-    CONTENT_SECURITY_POLICY = "ContentSecurityPolicy"
-    FRAME_OPTIONS = "FrameOptions"
-    CONTENT_TYPE_OPTIONS = "ContentTypeOptions"
-    STRICT_TRANSPORT_SECURITY = "StrictTransportSecurity"
-    XSS_PROTECTION = "XSSProtection"
-    REFERRER_POLICY = "ReferrerPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_security_policy": "ContentSecurityPolicy",
         "frame_options": "FrameOptions",
@@ -242,9 +190,6 @@ class SecurityHeadersConfig(PropertyType):
 
 @dataclass
 class ServerTimingHeadersConfig(PropertyType):
-    ENABLED = "Enabled"
-    SAMPLING_RATE = "SamplingRate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "sampling_rate": "SamplingRate",
@@ -256,11 +201,6 @@ class ServerTimingHeadersConfig(PropertyType):
 
 @dataclass
 class StrictTransportSecurity(PropertyType):
-    PRELOAD = "Preload"
-    ACCESS_CONTROL_MAX_AGE_SEC = "AccessControlMaxAgeSec"
-    INCLUDE_SUBDOMAINS = "IncludeSubdomains"
-    OVERRIDE = "Override"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preload": "Preload",
         "access_control_max_age_sec": "AccessControlMaxAgeSec",
@@ -276,11 +216,6 @@ class StrictTransportSecurity(PropertyType):
 
 @dataclass
 class XSSProtection(PropertyType):
-    REPORT_URI = "ReportUri"
-    OVERRIDE = "Override"
-    PROTECTION = "Protection"
-    MODE_BLOCK = "ModeBlock"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_uri": "ReportUri",
         "override": "Override",

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PromptRouterTargetModel(PropertyType):
-    MODEL_ARN = "ModelArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
     }
@@ -22,8 +20,6 @@ class PromptRouterTargetModel(PropertyType):
 
 @dataclass
 class RoutingCriteria(PropertyType):
-    RESPONSE_QUALITY_DIFFERENCE = "ResponseQualityDifference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_quality_difference": "ResponseQualityDifference",
     }

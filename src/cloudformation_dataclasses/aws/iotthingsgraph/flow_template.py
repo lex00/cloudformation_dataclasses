@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DefinitionDocument(PropertyType):
-    LANGUAGE = "Language"
-    TEXT = "Text"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "text": "Text",

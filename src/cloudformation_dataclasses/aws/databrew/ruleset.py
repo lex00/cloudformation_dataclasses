@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ColumnSelector(PropertyType):
-    REGEX = "Regex"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "name": "Name",
@@ -25,13 +22,6 @@ class ColumnSelector(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    COLUMN_SELECTORS = "ColumnSelectors"
-    DISABLED = "Disabled"
-    SUBSTITUTION_MAP = "SubstitutionMap"
-    NAME = "Name"
-    CHECK_EXPRESSION = "CheckExpression"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_selectors": "ColumnSelectors",
         "disabled": "Disabled",
@@ -51,9 +41,6 @@ class Rule(PropertyType):
 
 @dataclass
 class SubstitutionValue(PropertyType):
-    VALUE = "Value"
-    VALUE_REFERENCE = "ValueReference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "value_reference": "ValueReference",
@@ -65,10 +52,6 @@ class SubstitutionValue(PropertyType):
 
 @dataclass
 class Threshold(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",

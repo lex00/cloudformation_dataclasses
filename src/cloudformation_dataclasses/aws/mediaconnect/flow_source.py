@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Encryption(PropertyType):
-    SECRET_ARN = "SecretArn"
-    KEY_TYPE = "KeyType"
-    RESOURCE_ID = "ResourceId"
-    DEVICE_ID = "DeviceId"
-    REGION = "Region"
-    CONSTANT_INITIALIZATION_VECTOR = "ConstantInitializationVector"
-    ALGORITHM = "Algorithm"
-    ROLE_ARN = "RoleArn"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -46,9 +36,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class GatewayBridgeSource(PropertyType):
-    BRIDGE_ARN = "BridgeArn"
-    VPC_INTERFACE_ATTACHMENT = "VpcInterfaceAttachment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bridge_arn": "BridgeArn",
         "vpc_interface_attachment": "VpcInterfaceAttachment",
@@ -60,8 +47,6 @@ class GatewayBridgeSource(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    VPC_INTERFACE_NAME = "VpcInterfaceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }

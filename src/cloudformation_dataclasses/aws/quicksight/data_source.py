@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AmazonElasticsearchParameters(PropertyType):
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain": "Domain",
     }
@@ -22,8 +20,6 @@ class AmazonElasticsearchParameters(PropertyType):
 
 @dataclass
 class AmazonOpenSearchParameters(PropertyType):
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain": "Domain",
     }
@@ -33,10 +29,6 @@ class AmazonOpenSearchParameters(PropertyType):
 
 @dataclass
 class AthenaParameters(PropertyType):
-    WORK_GROUP = "WorkGroup"
-    IDENTITY_CENTER_CONFIGURATION = "IdentityCenterConfiguration"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "identity_center_configuration": "IdentityCenterConfiguration",
@@ -50,10 +42,6 @@ class AthenaParameters(PropertyType):
 
 @dataclass
 class AuroraParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -67,10 +55,6 @@ class AuroraParameters(PropertyType):
 
 @dataclass
 class AuroraPostgreSqlParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -84,10 +68,6 @@ class AuroraPostgreSqlParameters(PropertyType):
 
 @dataclass
 class CredentialPair(PropertyType):
-    ALTERNATE_DATA_SOURCE_PARAMETERS = "AlternateDataSourceParameters"
-    USERNAME = "Username"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alternate_data_source_parameters": "AlternateDataSourceParameters",
         "username": "Username",
@@ -101,10 +81,6 @@ class CredentialPair(PropertyType):
 
 @dataclass
 class DataSourceCredentials(PropertyType):
-    SECRET_ARN = "SecretArn"
-    COPY_SOURCE_ARN = "CopySourceArn"
-    CREDENTIAL_PAIR = "CredentialPair"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "copy_source_arn": "CopySourceArn",
@@ -118,9 +94,6 @@ class DataSourceCredentials(PropertyType):
 
 @dataclass
 class DataSourceErrorInfo(PropertyType):
-    TYPE = "Type"
-    MESSAGE = "Message"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -132,27 +105,6 @@ class DataSourceErrorInfo(PropertyType):
 
 @dataclass
 class DataSourceParameters(PropertyType):
-    AURORA_POSTGRE_SQL_PARAMETERS = "AuroraPostgreSqlParameters"
-    TERADATA_PARAMETERS = "TeradataParameters"
-    RDS_PARAMETERS = "RdsParameters"
-    ATHENA_PARAMETERS = "AthenaParameters"
-    SPARK_PARAMETERS = "SparkParameters"
-    MARIA_DB_PARAMETERS = "MariaDbParameters"
-    ORACLE_PARAMETERS = "OracleParameters"
-    PRESTO_PARAMETERS = "PrestoParameters"
-    STARBURST_PARAMETERS = "StarburstParameters"
-    REDSHIFT_PARAMETERS = "RedshiftParameters"
-    MY_SQL_PARAMETERS = "MySqlParameters"
-    SQL_SERVER_PARAMETERS = "SqlServerParameters"
-    SNOWFLAKE_PARAMETERS = "SnowflakeParameters"
-    AMAZON_ELASTICSEARCH_PARAMETERS = "AmazonElasticsearchParameters"
-    AMAZON_OPEN_SEARCH_PARAMETERS = "AmazonOpenSearchParameters"
-    POSTGRE_SQL_PARAMETERS = "PostgreSqlParameters"
-    AURORA_PARAMETERS = "AuroraParameters"
-    S3_PARAMETERS = "S3Parameters"
-    TRINO_PARAMETERS = "TrinoParameters"
-    DATABRICKS_PARAMETERS = "DatabricksParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aurora_postgre_sql_parameters": "AuroraPostgreSqlParameters",
         "teradata_parameters": "TeradataParameters",
@@ -200,10 +152,6 @@ class DataSourceParameters(PropertyType):
 
 @dataclass
 class DatabricksParameters(PropertyType):
-    PORT = "Port"
-    HOST = "Host"
-    SQL_ENDPOINT_PATH = "SqlEndpointPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -217,8 +165,6 @@ class DatabricksParameters(PropertyType):
 
 @dataclass
 class IdentityCenterConfiguration(PropertyType):
-    ENABLE_IDENTITY_PROPAGATION = "EnableIdentityPropagation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_identity_propagation": "EnableIdentityPropagation",
     }
@@ -228,9 +174,6 @@ class IdentityCenterConfiguration(PropertyType):
 
 @dataclass
 class ManifestFileLocation(PropertyType):
-    BUCKET = "Bucket"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -242,10 +185,6 @@ class ManifestFileLocation(PropertyType):
 
 @dataclass
 class MariaDbParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -259,10 +198,6 @@ class MariaDbParameters(PropertyType):
 
 @dataclass
 class MySqlParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -276,11 +211,6 @@ class MySqlParameters(PropertyType):
 
 @dataclass
 class OAuthParameters(PropertyType):
-    TOKEN_PROVIDER_URL = "TokenProviderUrl"
-    O_AUTH_SCOPE = "OAuthScope"
-    IDENTITY_PROVIDER_VPC_CONNECTION_PROPERTIES = "IdentityProviderVpcConnectionProperties"
-    IDENTITY_PROVIDER_RESOURCE_URI = "IdentityProviderResourceUri"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_provider_url": "TokenProviderUrl",
         "o_auth_scope": "OAuthScope",
@@ -296,11 +226,6 @@ class OAuthParameters(PropertyType):
 
 @dataclass
 class OracleParameters(PropertyType):
-    USE_SERVICE_NAME = "UseServiceName"
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_service_name": "UseServiceName",
         "port": "Port",
@@ -316,10 +241,6 @@ class OracleParameters(PropertyType):
 
 @dataclass
 class PostgreSqlParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -333,10 +254,6 @@ class PostgreSqlParameters(PropertyType):
 
 @dataclass
 class PrestoParameters(PropertyType):
-    PORT = "Port"
-    HOST = "Host"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -350,9 +267,6 @@ class PrestoParameters(PropertyType):
 
 @dataclass
 class RdsParameters(PropertyType):
-    INSTANCE_ID = "InstanceId"
-    DATABASE = "Database"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
         "database": "Database",
@@ -364,11 +278,6 @@ class RdsParameters(PropertyType):
 
 @dataclass
 class RedshiftIAMParameters(PropertyType):
-    AUTO_CREATE_DATABASE_USER = "AutoCreateDatabaseUser"
-    DATABASE_USER = "DatabaseUser"
-    ROLE_ARN = "RoleArn"
-    DATABASE_GROUPS = "DatabaseGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_create_database_user": "AutoCreateDatabaseUser",
         "database_user": "DatabaseUser",
@@ -384,13 +293,6 @@ class RedshiftIAMParameters(PropertyType):
 
 @dataclass
 class RedshiftParameters(PropertyType):
-    IAM_PARAMETERS = "IAMParameters"
-    CLUSTER_ID = "ClusterId"
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-    IDENTITY_CENTER_CONFIGURATION = "IdentityCenterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_parameters": "IAMParameters",
         "cluster_id": "ClusterId",
@@ -410,10 +312,6 @@ class RedshiftParameters(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    ACTIONS = "Actions"
-    RESOURCE = "Resource"
-    PRINCIPAL = "Principal"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "resource": "Resource",
@@ -427,9 +325,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class S3Parameters(PropertyType):
-    MANIFEST_FILE_LOCATION = "ManifestFileLocation"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_file_location": "ManifestFileLocation",
         "role_arn": "RoleArn",
@@ -441,13 +336,6 @@ class S3Parameters(PropertyType):
 
 @dataclass
 class SnowflakeParameters(PropertyType):
-    WAREHOUSE = "Warehouse"
-    DATABASE_ACCESS_CONTROL_ROLE = "DatabaseAccessControlRole"
-    DATABASE = "Database"
-    O_AUTH_PARAMETERS = "OAuthParameters"
-    HOST = "Host"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warehouse": "Warehouse",
         "database_access_control_role": "DatabaseAccessControlRole",
@@ -467,9 +355,6 @@ class SnowflakeParameters(PropertyType):
 
 @dataclass
 class SparkParameters(PropertyType):
-    PORT = "Port"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -481,10 +366,6 @@ class SparkParameters(PropertyType):
 
 @dataclass
 class SqlServerParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -498,8 +379,6 @@ class SqlServerParameters(PropertyType):
 
 @dataclass
 class SslProperties(PropertyType):
-    DISABLE_SSL = "DisableSsl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disable_ssl": "DisableSsl",
     }
@@ -509,14 +388,6 @@ class SslProperties(PropertyType):
 
 @dataclass
 class StarburstParameters(PropertyType):
-    PORT = "Port"
-    DATABASE_ACCESS_CONTROL_ROLE = "DatabaseAccessControlRole"
-    PRODUCT_TYPE = "ProductType"
-    O_AUTH_PARAMETERS = "OAuthParameters"
-    HOST = "Host"
-    CATALOG = "Catalog"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database_access_control_role": "DatabaseAccessControlRole",
@@ -538,10 +409,6 @@ class StarburstParameters(PropertyType):
 
 @dataclass
 class TeradataParameters(PropertyType):
-    PORT = "Port"
-    DATABASE = "Database"
-    HOST = "Host"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -555,10 +422,6 @@ class TeradataParameters(PropertyType):
 
 @dataclass
 class TrinoParameters(PropertyType):
-    PORT = "Port"
-    HOST = "Host"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -572,8 +435,6 @@ class TrinoParameters(PropertyType):
 
 @dataclass
 class VpcConnectionProperties(PropertyType):
-    VPC_CONNECTION_ARN = "VpcConnectionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_connection_arn": "VpcConnectionArn",
     }

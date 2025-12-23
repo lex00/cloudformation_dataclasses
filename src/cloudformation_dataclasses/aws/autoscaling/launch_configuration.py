@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BlockDevice(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    ENCRYPTED = "Encrypted"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -40,11 +32,6 @@ class BlockDevice(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -60,10 +47,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    HTTP_PUT_RESPONSE_HOP_LIMIT = "HttpPutResponseHopLimit"
-    HTTP_TOKENS = "HttpTokens"
-    HTTP_ENDPOINT = "HttpEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",

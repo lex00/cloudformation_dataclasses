@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Column(PropertyType):
-    COMMENT = "Comment"
-    TYPE = "Type"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "type_": "Type",
@@ -28,9 +24,6 @@ class Column(PropertyType):
 
 @dataclass
 class IcebergInput(PropertyType):
-    METADATA_OPERATION = "MetadataOperation"
-    VERSION = "Version"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metadata_operation": "MetadataOperation",
         "version": "Version",
@@ -47,8 +40,6 @@ class MetadataOperation(PropertyType):
 
 @dataclass
 class OpenTableFormatInput(PropertyType):
-    ICEBERG_INPUT = "IcebergInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_input": "IcebergInput",
     }
@@ -58,9 +49,6 @@ class OpenTableFormatInput(PropertyType):
 
 @dataclass
 class Order(PropertyType):
-    COLUMN = "Column"
-    SORT_ORDER = "SortOrder"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_order": "SortOrder",
@@ -72,10 +60,6 @@ class Order(PropertyType):
 
 @dataclass
 class SchemaId(PropertyType):
-    REGISTRY_NAME = "RegistryName"
-    SCHEMA_NAME = "SchemaName"
-    SCHEMA_ARN = "SchemaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_name": "RegistryName",
         "schema_name": "SchemaName",
@@ -89,10 +73,6 @@ class SchemaId(PropertyType):
 
 @dataclass
 class SchemaReference(PropertyType):
-    SCHEMA_VERSION_ID = "SchemaVersionId"
-    SCHEMA_ID = "SchemaId"
-    SCHEMA_VERSION_NUMBER = "SchemaVersionNumber"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_version_id": "SchemaVersionId",
         "schema_id": "SchemaId",
@@ -106,10 +86,6 @@ class SchemaReference(PropertyType):
 
 @dataclass
 class SerdeInfo(PropertyType):
-    PARAMETERS = "Parameters"
-    SERIALIZATION_LIBRARY = "SerializationLibrary"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "serialization_library": "SerializationLibrary",
@@ -123,10 +99,6 @@ class SerdeInfo(PropertyType):
 
 @dataclass
 class SkewedInfo(PropertyType):
-    SKEWED_COLUMN_NAMES = "SkewedColumnNames"
-    SKEWED_COLUMN_VALUES = "SkewedColumnValues"
-    SKEWED_COLUMN_VALUE_LOCATION_MAPS = "SkewedColumnValueLocationMaps"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skewed_column_names": "SkewedColumnNames",
         "skewed_column_values": "SkewedColumnValues",
@@ -140,20 +112,6 @@ class SkewedInfo(PropertyType):
 
 @dataclass
 class StorageDescriptor(PropertyType):
-    STORED_AS_SUB_DIRECTORIES = "StoredAsSubDirectories"
-    PARAMETERS = "Parameters"
-    BUCKET_COLUMNS = "BucketColumns"
-    NUMBER_OF_BUCKETS = "NumberOfBuckets"
-    OUTPUT_FORMAT = "OutputFormat"
-    COLUMNS = "Columns"
-    SERDE_INFO = "SerdeInfo"
-    SORT_COLUMNS = "SortColumns"
-    COMPRESSED = "Compressed"
-    SCHEMA_REFERENCE = "SchemaReference"
-    SKEWED_INFO = "SkewedInfo"
-    INPUT_FORMAT = "InputFormat"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stored_as_sub_directories": "StoredAsSubDirectories",
         "parameters": "Parameters",
@@ -187,11 +145,6 @@ class StorageDescriptor(PropertyType):
 
 @dataclass
 class TableIdentifier(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    REGION = "Region"
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "region": "Region",
@@ -207,18 +160,6 @@ class TableIdentifier(PropertyType):
 
 @dataclass
 class TableInput(PropertyType):
-    OWNER = "Owner"
-    VIEW_ORIGINAL_TEXT = "ViewOriginalText"
-    DESCRIPTION = "Description"
-    TABLE_TYPE = "TableType"
-    PARAMETERS = "Parameters"
-    VIEW_EXPANDED_TEXT = "ViewExpandedText"
-    STORAGE_DESCRIPTOR = "StorageDescriptor"
-    TARGET_TABLE = "TargetTable"
-    PARTITION_KEYS = "PartitionKeys"
-    RETENTION = "Retention"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "view_original_text": "ViewOriginalText",

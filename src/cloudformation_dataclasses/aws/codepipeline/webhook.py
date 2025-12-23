@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class WebhookAuthConfiguration(PropertyType):
-    ALLOWED_IP_RANGE = "AllowedIPRange"
-    SECRET_TOKEN = "SecretToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_ip_range": "AllowedIPRange",
         "secret_token": "SecretToken",
@@ -25,9 +22,6 @@ class WebhookAuthConfiguration(PropertyType):
 
 @dataclass
 class WebhookFilterRule(PropertyType):
-    JSON_PATH = "JsonPath"
-    MATCH_EQUALS = "MatchEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
         "match_equals": "MatchEquals",

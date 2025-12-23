@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CachePolicyConfig(PropertyType):
-    COMMENT = "Comment"
-    MIN_TTL = "MinTTL"
-    MAX_TTL = "MaxTTL"
-    PARAMETERS_IN_CACHE_KEY_AND_FORWARDED_TO_ORIGIN = "ParametersInCacheKeyAndForwardedToOrigin"
-    DEFAULT_TTL = "DefaultTTL"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "min_ttl": "MinTTL",
@@ -37,9 +30,6 @@ class CachePolicyConfig(PropertyType):
 
 @dataclass
 class CookiesConfig(PropertyType):
-    COOKIES = "Cookies"
-    COOKIE_BEHAVIOR = "CookieBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "cookie_behavior": "CookieBehavior",
@@ -51,9 +41,6 @@ class CookiesConfig(PropertyType):
 
 @dataclass
 class HeadersConfig(PropertyType):
-    HEADERS = "Headers"
-    HEADER_BEHAVIOR = "HeaderBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "header_behavior": "HeaderBehavior",
@@ -65,12 +52,6 @@ class HeadersConfig(PropertyType):
 
 @dataclass
 class ParametersInCacheKeyAndForwardedToOrigin(PropertyType):
-    ENABLE_ACCEPT_ENCODING_BROTLI = "EnableAcceptEncodingBrotli"
-    HEADERS_CONFIG = "HeadersConfig"
-    COOKIES_CONFIG = "CookiesConfig"
-    ENABLE_ACCEPT_ENCODING_GZIP = "EnableAcceptEncodingGzip"
-    QUERY_STRINGS_CONFIG = "QueryStringsConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_accept_encoding_brotli": "EnableAcceptEncodingBrotli",
         "headers_config": "HeadersConfig",
@@ -88,9 +69,6 @@ class ParametersInCacheKeyAndForwardedToOrigin(PropertyType):
 
 @dataclass
 class QueryStringsConfig(PropertyType):
-    QUERY_STRINGS = "QueryStrings"
-    QUERY_STRING_BEHAVIOR = "QueryStringBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_strings": "QueryStrings",
         "query_string_behavior": "QueryStringBehavior",

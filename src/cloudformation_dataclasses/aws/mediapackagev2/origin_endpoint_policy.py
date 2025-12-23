@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CdnAuthConfiguration(PropertyType):
-    SECRETS_ROLE_ARN = "SecretsRoleArn"
-    CDN_IDENTIFIER_SECRET_ARNS = "CdnIdentifierSecretArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_role_arn": "SecretsRoleArn",
         "cdn_identifier_secret_arns": "CdnIdentifierSecretArns",

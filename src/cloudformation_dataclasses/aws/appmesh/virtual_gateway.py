@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class JsonFormatRef(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,9 +22,6 @@ class JsonFormatRef(PropertyType):
 
 @dataclass
 class LoggingFormat(PropertyType):
-    TEXT = "Text"
-    JSON = "Json"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "json": "Json",
@@ -39,8 +33,6 @@ class LoggingFormat(PropertyType):
 
 @dataclass
 class SubjectAlternativeNameMatchers(PropertyType):
-    EXACT = "Exact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -50,8 +42,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
 
 @dataclass
 class SubjectAlternativeNames(PropertyType):
-    MATCH = "Match"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match": "Match",
     }
@@ -61,8 +51,6 @@ class SubjectAlternativeNames(PropertyType):
 
 @dataclass
 class VirtualGatewayAccessLog(PropertyType):
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -72,8 +60,6 @@ class VirtualGatewayAccessLog(PropertyType):
 
 @dataclass
 class VirtualGatewayBackendDefaults(PropertyType):
-    CLIENT_POLICY = "ClientPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
     }
@@ -83,8 +69,6 @@ class VirtualGatewayBackendDefaults(PropertyType):
 
 @dataclass
 class VirtualGatewayClientPolicy(PropertyType):
-    TLS = "TLS"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tls": "TLS",
     }
@@ -94,11 +78,6 @@ class VirtualGatewayClientPolicy(PropertyType):
 
 @dataclass
 class VirtualGatewayClientPolicyTls(PropertyType):
-    VALIDATION = "Validation"
-    ENFORCE = "Enforce"
-    PORTS = "Ports"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "enforce": "Enforce",
@@ -114,9 +93,6 @@ class VirtualGatewayClientPolicyTls(PropertyType):
 
 @dataclass
 class VirtualGatewayClientTlsCertificate(PropertyType):
-    SDS = "SDS"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -128,10 +104,6 @@ class VirtualGatewayClientTlsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayConnectionPool(PropertyType):
-    HTTP2 = "HTTP2"
-    HTTP = "HTTP"
-    GRPC = "GRPC"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http2": "HTTP2",
         "http": "HTTP",
@@ -145,9 +117,6 @@ class VirtualGatewayConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayFileAccessLog(PropertyType):
-    PATH = "Path"
-    FORMAT = "Format"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "format": "Format",
@@ -159,8 +128,6 @@ class VirtualGatewayFileAccessLog(PropertyType):
 
 @dataclass
 class VirtualGatewayGrpcConnectionPool(PropertyType):
-    MAX_REQUESTS = "MaxRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -170,14 +137,6 @@ class VirtualGatewayGrpcConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayHealthCheckPolicy(PropertyType):
-    PATH = "Path"
-    UNHEALTHY_THRESHOLD = "UnhealthyThreshold"
-    PORT = "Port"
-    HEALTHY_THRESHOLD = "HealthyThreshold"
-    TIMEOUT_MILLIS = "TimeoutMillis"
-    PROTOCOL = "Protocol"
-    INTERVAL_MILLIS = "IntervalMillis"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -199,8 +158,6 @@ class VirtualGatewayHealthCheckPolicy(PropertyType):
 
 @dataclass
 class VirtualGatewayHttp2ConnectionPool(PropertyType):
-    MAX_REQUESTS = "MaxRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -210,9 +167,6 @@ class VirtualGatewayHttp2ConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayHttpConnectionPool(PropertyType):
-    MAX_CONNECTIONS = "MaxConnections"
-    MAX_PENDING_REQUESTS = "MaxPendingRequests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
         "max_pending_requests": "MaxPendingRequests",
@@ -224,11 +178,6 @@ class VirtualGatewayHttpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayListener(PropertyType):
-    CONNECTION_POOL = "ConnectionPool"
-    HEALTH_CHECK = "HealthCheck"
-    TLS = "TLS"
-    PORT_MAPPING = "PortMapping"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_pool": "ConnectionPool",
         "health_check": "HealthCheck",
@@ -244,10 +193,6 @@ class VirtualGatewayListener(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTls(PropertyType):
-    VALIDATION = "Validation"
-    MODE = "Mode"
-    CERTIFICATE = "Certificate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "mode": "Mode",
@@ -261,8 +206,6 @@ class VirtualGatewayListenerTls(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsAcmCertificate(PropertyType):
-    CERTIFICATE_ARN = "CertificateArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -272,10 +215,6 @@ class VirtualGatewayListenerTlsAcmCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsCertificate(PropertyType):
-    SDS = "SDS"
-    ACM = "ACM"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -289,9 +228,6 @@ class VirtualGatewayListenerTlsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsFileCertificate(PropertyType):
-    PRIVATE_KEY = "PrivateKey"
-    CERTIFICATE_CHAIN = "CertificateChain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "certificate_chain": "CertificateChain",
@@ -303,8 +239,6 @@ class VirtualGatewayListenerTlsFileCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsSdsCertificate(PropertyType):
-    SECRET_NAME = "SecretName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -314,9 +248,6 @@ class VirtualGatewayListenerTlsSdsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsValidationContext(PropertyType):
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    TRUST = "Trust"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -328,9 +259,6 @@ class VirtualGatewayListenerTlsValidationContext(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsValidationContextTrust(PropertyType):
-    SDS = "SDS"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -342,8 +270,6 @@ class VirtualGatewayListenerTlsValidationContextTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayLogging(PropertyType):
-    ACCESS_LOG = "AccessLog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_log": "AccessLog",
     }
@@ -353,9 +279,6 @@ class VirtualGatewayLogging(PropertyType):
 
 @dataclass
 class VirtualGatewayPortMapping(PropertyType):
-    PORT = "Port"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -367,10 +290,6 @@ class VirtualGatewayPortMapping(PropertyType):
 
 @dataclass
 class VirtualGatewaySpec(PropertyType):
-    LOGGING = "Logging"
-    LISTENERS = "Listeners"
-    BACKEND_DEFAULTS = "BackendDefaults"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "listeners": "Listeners",
@@ -384,9 +303,6 @@ class VirtualGatewaySpec(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContext(PropertyType):
-    SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
-    TRUST = "Trust"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -398,8 +314,6 @@ class VirtualGatewayTlsValidationContext(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextAcmTrust(PropertyType):
-    CERTIFICATE_AUTHORITY_ARNS = "CertificateAuthorityArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
@@ -409,8 +323,6 @@ class VirtualGatewayTlsValidationContextAcmTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextFileTrust(PropertyType):
-    CERTIFICATE_CHAIN = "CertificateChain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_chain": "CertificateChain",
     }
@@ -420,8 +332,6 @@ class VirtualGatewayTlsValidationContextFileTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextSdsTrust(PropertyType):
-    SECRET_NAME = "SecretName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -431,10 +341,6 @@ class VirtualGatewayTlsValidationContextSdsTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextTrust(PropertyType):
-    SDS = "SDS"
-    ACM = "ACM"
-    FILE = "File"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuditLogConfiguration(PropertyType):
-    FILE_ACCESS_AUDIT_LOG_LEVEL = "FileAccessAuditLogLevel"
-    FILE_SHARE_ACCESS_AUDIT_LOG_LEVEL = "FileShareAccessAuditLogLevel"
-    AUDIT_LOG_DESTINATION = "AuditLogDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_access_audit_log_level": "FileAccessAuditLogLevel",
         "file_share_access_audit_log_level": "FileShareAccessAuditLogLevel",
@@ -28,9 +24,6 @@ class AuditLogConfiguration(PropertyType):
 
 @dataclass
 class ClientConfigurations(PropertyType):
-    OPTIONS = "Options"
-    CLIENTS = "Clients"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "clients": "Clients",
@@ -42,9 +35,6 @@ class ClientConfigurations(PropertyType):
 
 @dataclass
 class DataReadCacheConfiguration(PropertyType):
-    SIZING_MODE = "SizingMode"
-    SIZE_GI_B = "SizeGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_mode": "SizingMode",
         "size_gi_b": "SizeGiB",
@@ -56,9 +46,6 @@ class DataReadCacheConfiguration(PropertyType):
 
 @dataclass
 class DiskIopsConfiguration(PropertyType):
-    MODE = "Mode"
-    IOPS = "Iops"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "iops": "Iops",
@@ -70,23 +57,6 @@ class DiskIopsConfiguration(PropertyType):
 
 @dataclass
 class LustreConfiguration(PropertyType):
-    DRIVE_CACHE_TYPE = "DriveCacheType"
-    AUTO_IMPORT_POLICY = "AutoImportPolicy"
-    EFA_ENABLED = "EfaEnabled"
-    IMPORTED_FILE_CHUNK_SIZE = "ImportedFileChunkSize"
-    DEPLOYMENT_TYPE = "DeploymentType"
-    THROUGHPUT_CAPACITY = "ThroughputCapacity"
-    DATA_COMPRESSION_TYPE = "DataCompressionType"
-    DATA_READ_CACHE_CONFIGURATION = "DataReadCacheConfiguration"
-    IMPORT_PATH = "ImportPath"
-    WEEKLY_MAINTENANCE_START_TIME = "WeeklyMaintenanceStartTime"
-    METADATA_CONFIGURATION = "MetadataConfiguration"
-    DAILY_AUTOMATIC_BACKUP_START_TIME = "DailyAutomaticBackupStartTime"
-    COPY_TAGS_TO_BACKUPS = "CopyTagsToBackups"
-    EXPORT_PATH = "ExportPath"
-    PER_UNIT_STORAGE_THROUGHPUT = "PerUnitStorageThroughput"
-    AUTOMATIC_BACKUP_RETENTION_DAYS = "AutomaticBackupRetentionDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "drive_cache_type": "DriveCacheType",
         "auto_import_policy": "AutoImportPolicy",
@@ -126,9 +96,6 @@ class LustreConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfiguration(PropertyType):
-    MODE = "Mode"
-    IOPS = "Iops"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "iops": "Iops",
@@ -140,8 +107,6 @@ class MetadataConfiguration(PropertyType):
 
 @dataclass
 class NfsExports(PropertyType):
-    CLIENT_CONFIGURATIONS = "ClientConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_configurations": "ClientConfigurations",
     }
@@ -151,20 +116,6 @@ class NfsExports(PropertyType):
 
 @dataclass
 class OntapConfiguration(PropertyType):
-    HA_PAIRS = "HAPairs"
-    FSX_ADMIN_PASSWORD = "FsxAdminPassword"
-    THROUGHPUT_CAPACITY_PER_HA_PAIR = "ThroughputCapacityPerHAPair"
-    DEPLOYMENT_TYPE = "DeploymentType"
-    THROUGHPUT_CAPACITY = "ThroughputCapacity"
-    ENDPOINT_IP_ADDRESS_RANGE = "EndpointIpAddressRange"
-    ROUTE_TABLE_IDS = "RouteTableIds"
-    WEEKLY_MAINTENANCE_START_TIME = "WeeklyMaintenanceStartTime"
-    DISK_IOPS_CONFIGURATION = "DiskIopsConfiguration"
-    DAILY_AUTOMATIC_BACKUP_START_TIME = "DailyAutomaticBackupStartTime"
-    AUTOMATIC_BACKUP_RETENTION_DAYS = "AutomaticBackupRetentionDays"
-    ENDPOINT_IPV6_ADDRESS_RANGE = "EndpointIpv6AddressRange"
-    PREFERRED_SUBNET_ID = "PreferredSubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ha_pairs": "HAPairs",
         "fsx_admin_password": "FsxAdminPassword",
@@ -198,22 +149,6 @@ class OntapConfiguration(PropertyType):
 
 @dataclass
 class OpenZFSConfiguration(PropertyType):
-    OPTIONS = "Options"
-    COPY_TAGS_TO_VOLUMES = "CopyTagsToVolumes"
-    DEPLOYMENT_TYPE = "DeploymentType"
-    THROUGHPUT_CAPACITY = "ThroughputCapacity"
-    ROOT_VOLUME_CONFIGURATION = "RootVolumeConfiguration"
-    ENDPOINT_IP_ADDRESS_RANGE = "EndpointIpAddressRange"
-    READ_CACHE_CONFIGURATION = "ReadCacheConfiguration"
-    ROUTE_TABLE_IDS = "RouteTableIds"
-    WEEKLY_MAINTENANCE_START_TIME = "WeeklyMaintenanceStartTime"
-    DISK_IOPS_CONFIGURATION = "DiskIopsConfiguration"
-    DAILY_AUTOMATIC_BACKUP_START_TIME = "DailyAutomaticBackupStartTime"
-    COPY_TAGS_TO_BACKUPS = "CopyTagsToBackups"
-    AUTOMATIC_BACKUP_RETENTION_DAYS = "AutomaticBackupRetentionDays"
-    ENDPOINT_IPV6_ADDRESS_RANGE = "EndpointIpv6AddressRange"
-    PREFERRED_SUBNET_ID = "PreferredSubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "copy_tags_to_volumes": "CopyTagsToVolumes",
@@ -251,9 +186,6 @@ class OpenZFSConfiguration(PropertyType):
 
 @dataclass
 class ReadCacheConfiguration(PropertyType):
-    SIZING_MODE = "SizingMode"
-    SIZE_GI_B = "SizeGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_mode": "SizingMode",
         "size_gi_b": "SizeGiB",
@@ -265,13 +197,6 @@ class ReadCacheConfiguration(PropertyType):
 
 @dataclass
 class RootVolumeConfiguration(PropertyType):
-    READ_ONLY = "ReadOnly"
-    DATA_COMPRESSION_TYPE = "DataCompressionType"
-    NFS_EXPORTS = "NfsExports"
-    COPY_TAGS_TO_SNAPSHOTS = "CopyTagsToSnapshots"
-    RECORD_SIZE_KI_B = "RecordSizeKiB"
-    USER_AND_GROUP_QUOTAS = "UserAndGroupQuotas"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "data_compression_type": "DataCompressionType",
@@ -291,14 +216,6 @@ class RootVolumeConfiguration(PropertyType):
 
 @dataclass
 class SelfManagedActiveDirectoryConfiguration(PropertyType):
-    FILE_SYSTEM_ADMINISTRATORS_GROUP = "FileSystemAdministratorsGroup"
-    USER_NAME = "UserName"
-    DOMAIN_NAME = "DomainName"
-    ORGANIZATIONAL_UNIT_DISTINGUISHED_NAME = "OrganizationalUnitDistinguishedName"
-    DOMAIN_JOIN_SERVICE_ACCOUNT_SECRET = "DomainJoinServiceAccountSecret"
-    DNS_IPS = "DnsIps"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_administrators_group": "FileSystemAdministratorsGroup",
         "user_name": "UserName",
@@ -320,10 +237,6 @@ class SelfManagedActiveDirectoryConfiguration(PropertyType):
 
 @dataclass
 class UserAndGroupQuotas(PropertyType):
-    TYPE = "Type"
-    ID = "Id"
-    STORAGE_CAPACITY_QUOTA_GI_B = "StorageCapacityQuotaGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -337,19 +250,6 @@ class UserAndGroupQuotas(PropertyType):
 
 @dataclass
 class WindowsConfiguration(PropertyType):
-    SELF_MANAGED_ACTIVE_DIRECTORY_CONFIGURATION = "SelfManagedActiveDirectoryConfiguration"
-    AUDIT_LOG_CONFIGURATION = "AuditLogConfiguration"
-    WEEKLY_MAINTENANCE_START_TIME = "WeeklyMaintenanceStartTime"
-    ACTIVE_DIRECTORY_ID = "ActiveDirectoryId"
-    DISK_IOPS_CONFIGURATION = "DiskIopsConfiguration"
-    DEPLOYMENT_TYPE = "DeploymentType"
-    ALIASES = "Aliases"
-    THROUGHPUT_CAPACITY = "ThroughputCapacity"
-    COPY_TAGS_TO_BACKUPS = "CopyTagsToBackups"
-    DAILY_AUTOMATIC_BACKUP_START_TIME = "DailyAutomaticBackupStartTime"
-    AUTOMATIC_BACKUP_RETENTION_DAYS = "AutomaticBackupRetentionDays"
-    PREFERRED_SUBNET_ID = "PreferredSubnetId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_managed_active_directory_configuration": "SelfManagedActiveDirectoryConfiguration",
         "audit_log_configuration": "AuditLogConfiguration",

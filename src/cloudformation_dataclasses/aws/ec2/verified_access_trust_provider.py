@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeviceOptions(PropertyType):
-    TENANT_ID = "TenantId"
-    PUBLIC_SIGNING_KEY_URL = "PublicSigningKeyUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenant_id": "TenantId",
         "public_signing_key_url": "PublicSigningKeyUrl",
@@ -25,15 +22,6 @@ class DeviceOptions(PropertyType):
 
 @dataclass
 class NativeApplicationOidcOptions(PropertyType):
-    TOKEN_ENDPOINT = "TokenEndpoint"
-    SCOPE = "Scope"
-    ISSUER = "Issuer"
-    CLIENT_SECRET = "ClientSecret"
-    USER_INFO_ENDPOINT = "UserInfoEndpoint"
-    CLIENT_ID = "ClientId"
-    AUTHORIZATION_ENDPOINT = "AuthorizationEndpoint"
-    PUBLIC_SIGNING_KEY_ENDPOINT = "PublicSigningKeyEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_endpoint": "TokenEndpoint",
         "scope": "Scope",
@@ -57,14 +45,6 @@ class NativeApplicationOidcOptions(PropertyType):
 
 @dataclass
 class OidcOptions(PropertyType):
-    TOKEN_ENDPOINT = "TokenEndpoint"
-    SCOPE = "Scope"
-    ISSUER = "Issuer"
-    CLIENT_SECRET = "ClientSecret"
-    USER_INFO_ENDPOINT = "UserInfoEndpoint"
-    CLIENT_ID = "ClientId"
-    AUTHORIZATION_ENDPOINT = "AuthorizationEndpoint"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_endpoint": "TokenEndpoint",
         "scope": "Scope",
@@ -86,9 +66,6 @@ class OidcOptions(PropertyType):
 
 @dataclass
 class SseSpecification(PropertyType):
-    CUSTOMER_MANAGED_KEY_ENABLED = "CustomerManagedKeyEnabled"
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationConfig(PropertyType):
-    ON_SUCCESS = "OnSuccess"
-    ON_FAILURE = "OnFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_success": "OnSuccess",
         "on_failure": "OnFailure",
@@ -25,8 +22,6 @@ class DestinationConfig(PropertyType):
 
 @dataclass
 class OnFailure(PropertyType):
-    DESTINATION = "Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -36,8 +31,6 @@ class OnFailure(PropertyType):
 
 @dataclass
 class OnSuccess(PropertyType):
-    DESTINATION = "Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }

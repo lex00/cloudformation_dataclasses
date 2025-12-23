@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class GatewayNetwork(PropertyType):
-    CIDR_BLOCK = "CidrBlock"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_block": "CidrBlock",
         "name": "Name",

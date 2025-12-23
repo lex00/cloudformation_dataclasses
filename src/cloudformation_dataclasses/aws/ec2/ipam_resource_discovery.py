@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IpamOperatingRegion(PropertyType):
-    REGION_NAME = "RegionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
     }
@@ -22,8 +20,6 @@ class IpamOperatingRegion(PropertyType):
 
 @dataclass
 class IpamResourceDiscoveryOrganizationalUnitExclusion(PropertyType):
-    ORGANIZATIONS_ENTITY_PATH = "OrganizationsEntityPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizations_entity_path": "OrganizationsEntityPath",
     }

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchDestination(PropertyType):
-    DIMENSION_CONFIGURATIONS = "DimensionConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
     }
@@ -22,10 +20,6 @@ class CloudWatchDestination(PropertyType):
 
 @dataclass
 class DimensionConfiguration(PropertyType):
-    DIMENSION_VALUE_SOURCE = "DimensionValueSource"
-    DEFAULT_DIMENSION_VALUE = "DefaultDimensionValue"
-    DIMENSION_NAME = "DimensionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_source": "DimensionValueSource",
         "default_dimension_value": "DefaultDimensionValue",
@@ -39,13 +33,6 @@ class DimensionConfiguration(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    SNS_DESTINATION = "SnsDestination"
-    CLOUD_WATCH_DESTINATION = "CloudWatchDestination"
-    ENABLED = "Enabled"
-    MATCHING_EVENT_TYPES = "MatchingEventTypes"
-    PINPOINT_DESTINATION = "PinpointDestination"
-    KINESIS_FIREHOSE_DESTINATION = "KinesisFirehoseDestination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_destination": "SnsDestination",
         "cloud_watch_destination": "CloudWatchDestination",
@@ -65,9 +52,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    DELIVERY_STREAM_ARN = "DeliveryStreamArn"
-    IAM_ROLE_ARN = "IamRoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
         "iam_role_arn": "IamRoleArn",
@@ -79,8 +63,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class PinpointDestination(PropertyType):
-    APPLICATION_ARN = "ApplicationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
     }
@@ -90,8 +72,6 @@ class PinpointDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }

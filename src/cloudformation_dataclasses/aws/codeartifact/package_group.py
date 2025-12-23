@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OriginConfiguration(PropertyType):
-    RESTRICTIONS = "Restrictions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrictions": "Restrictions",
     }
@@ -22,9 +20,6 @@ class OriginConfiguration(PropertyType):
 
 @dataclass
 class RestrictionType(PropertyType):
-    REPOSITORIES = "Repositories"
-    RESTRICTION_MODE = "RestrictionMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repositories": "Repositories",
         "restriction_mode": "RestrictionMode",
@@ -36,10 +31,6 @@ class RestrictionType(PropertyType):
 
 @dataclass
 class Restrictions(PropertyType):
-    EXTERNAL_UPSTREAM = "ExternalUpstream"
-    PUBLISH = "Publish"
-    INTERNAL_UPSTREAM = "InternalUpstream"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_upstream": "ExternalUpstream",
         "publish": "Publish",

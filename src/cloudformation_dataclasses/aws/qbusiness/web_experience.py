@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BrowserExtensionConfiguration(PropertyType):
-    ENABLED_BROWSER_EXTENSIONS = "EnabledBrowserExtensions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_browser_extensions": "EnabledBrowserExtensions",
     }
@@ -22,11 +20,6 @@ class BrowserExtensionConfiguration(PropertyType):
 
 @dataclass
 class CustomizationConfiguration(PropertyType):
-    FAVICON_URL = "FaviconUrl"
-    FONT_URL = "FontUrl"
-    CUSTOM_CSS_URL = "CustomCSSUrl"
-    LOGO_URL = "LogoUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "favicon_url": "FaviconUrl",
         "font_url": "FontUrl",
@@ -42,9 +35,6 @@ class CustomizationConfiguration(PropertyType):
 
 @dataclass
 class IdentityProviderConfiguration(PropertyType):
-    OPEN_ID_CONNECT_CONFIGURATION = "OpenIDConnectConfiguration"
-    SAML_CONFIGURATION = "SamlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_id_connect_configuration": "OpenIDConnectConfiguration",
         "saml_configuration": "SamlConfiguration",
@@ -56,9 +46,6 @@ class IdentityProviderConfiguration(PropertyType):
 
 @dataclass
 class OpenIDConnectProviderConfiguration(PropertyType):
-    SECRETS_ARN = "SecretsArn"
-    SECRETS_ROLE = "SecretsRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_arn": "SecretsArn",
         "secrets_role": "SecretsRole",
@@ -70,8 +57,6 @@ class OpenIDConnectProviderConfiguration(PropertyType):
 
 @dataclass
 class SamlProviderConfiguration(PropertyType):
-    AUTHENTICATION_URL = "AuthenticationUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_url": "AuthenticationUrl",
     }

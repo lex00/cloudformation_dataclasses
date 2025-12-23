@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:48
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFormation
@@ -1171,9 +1171,6 @@ class CustomResource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-c"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::CustomResource"
-    SERVICE_TIMEOUT = "ServiceTimeout"
-    SERVICE_TOKEN = "ServiceToken"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_timeout": "ServiceTimeout",
         "service_token": "ServiceToken",
@@ -1188,17 +1185,6 @@ class GuardHook(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::GuardHook"
-    OPTIONS = "Options"
-    RULE_LOCATION = "RuleLocation"
-    HOOK_STATUS = "HookStatus"
-    ALIAS = "Alias"
-    STACK_FILTERS = "StackFilters"
-    TARGET_OPERATIONS = "TargetOperations"
-    TARGET_FILTERS = "TargetFilters"
-    LOG_BUCKET = "LogBucket"
-    EXECUTION_ROLE = "ExecutionRole"
-    FAILURE_MODE = "FailureMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "rule_location": "RuleLocation",
@@ -1236,10 +1222,6 @@ class HookDefaultVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookDefaultVersion"
     name_field: ClassVar[str] = "type_name"
-    VERSION_ID = "VersionId"
-    TYPE_NAME = "TypeName"
-    TYPE_VERSION_ARN = "TypeVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "type_name": "TypeName",
@@ -1263,11 +1245,6 @@ class HookTypeConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookTypeConfig"
     name_field: ClassVar[str] = "type_name"
-    TYPE_NAME = "TypeName"
-    CONFIGURATION = "Configuration"
-    TYPE_ARN = "TypeArn"
-    CONFIGURATION_ALIAS = "ConfigurationAlias"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "configuration": "Configuration",
@@ -1293,11 +1270,6 @@ class HookVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookVersion"
     name_field: ClassVar[str] = "type_name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TYPE_NAME = "TypeName"
-    LOGGING_CONFIG = "LoggingConfig"
-    SCHEMA_HANDLER_PACKAGE = "SchemaHandlerPackage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "type_name": "TypeName",
@@ -1342,15 +1314,6 @@ class LambdaHook(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::LambdaHook"
-    HOOK_STATUS = "HookStatus"
-    ALIAS = "Alias"
-    STACK_FILTERS = "StackFilters"
-    TARGET_OPERATIONS = "TargetOperations"
-    TARGET_FILTERS = "TargetFilters"
-    LAMBDA_FUNCTION = "LambdaFunction"
-    EXECUTION_ROLE = "ExecutionRole"
-    FAILURE_MODE = "FailureMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hook_status": "HookStatus",
         "alias": "Alias",
@@ -1384,12 +1347,6 @@ class Macro(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::Macro"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    FUNCTION_NAME = "FunctionName"
-    LOG_GROUP_NAME = "LogGroupName"
-    LOG_ROLE_ARN = "LogRoleARN"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "function_name": "FunctionName",
@@ -1411,10 +1368,6 @@ class ModuleDefaultVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ModuleDefaultVersion"
     name_field: ClassVar[str] = "module_name"
-    VERSION_ID = "VersionId"
-    MODULE_NAME = "ModuleName"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "module_name": "ModuleName",
@@ -1432,9 +1385,6 @@ class ModuleVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ModuleVersion"
     name_field: ClassVar[str] = "module_name"
-    MODULE_PACKAGE = "ModulePackage"
-    MODULE_NAME = "ModuleName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "module_package": "ModulePackage",
         "module_name": "ModuleName",
@@ -1491,12 +1441,6 @@ class PublicTypeVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::PublicTypeVersion"
     name_field: ClassVar[str] = "type_name"
-    TYPE_NAME = "TypeName"
-    LOG_DELIVERY_BUCKET = "LogDeliveryBucket"
-    TYPE = "Type"
-    PUBLIC_VERSION_NUMBER = "PublicVersionNumber"
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "log_delivery_bucket": "LogDeliveryBucket",
@@ -1533,9 +1477,6 @@ class Publisher(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::Publisher"
-    ACCEPT_TERMS_AND_CONDITIONS = "AcceptTermsAndConditions"
-    CONNECTION_ARN = "ConnectionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_terms_and_conditions": "AcceptTermsAndConditions",
         "connection_arn": "ConnectionArn",
@@ -1572,10 +1513,6 @@ class ResourceDefaultVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ResourceDefaultVersion"
     name_field: ClassVar[str] = "type_name"
-    VERSION_ID = "VersionId"
-    TYPE_NAME = "TypeName"
-    TYPE_VERSION_ARN = "TypeVersionArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "type_name": "TypeName",
@@ -1599,11 +1536,6 @@ class ResourceVersion(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ResourceVersion"
     name_field: ClassVar[str] = "type_name"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TYPE_NAME = "TypeName"
-    LOGGING_CONFIG = "LoggingConfig"
-    SCHEMA_HANDLER_PACKAGE = "SchemaHandlerPackage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "type_name": "TypeName",
@@ -1653,12 +1585,6 @@ class Stack(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sta"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::Stack"
-    NOTIFICATION_AR_NS = "NotificationARNs"
-    PARAMETERS = "Parameters"
-    TAGS = "Tags"
-    TEMPLATE_URL = "TemplateURL"
-    TIMEOUT_IN_MINUTES = "TimeoutInMinutes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_ar_ns": "NotificationARNs",
         "parameters": "Parameters",
@@ -1680,22 +1606,6 @@ class StackSet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::StackSet"
     name_field: ClassVar[str] = "stack_set_name"
-    DESCRIPTION = "Description"
-    PARAMETERS = "Parameters"
-    STACK_INSTANCES_GROUP = "StackInstancesGroup"
-    TEMPLATE_BODY = "TemplateBody"
-    STACK_SET_NAME = "StackSetName"
-    CALL_AS = "CallAs"
-    OPERATION_PREFERENCES = "OperationPreferences"
-    TEMPLATE_URL = "TemplateURL"
-    AUTO_DEPLOYMENT = "AutoDeployment"
-    CAPABILITIES = "Capabilities"
-    PERMISSION_MODEL = "PermissionModel"
-    ADMINISTRATION_ROLE_ARN = "AdministrationRoleARN"
-    EXECUTION_ROLE_NAME = "ExecutionRoleName"
-    MANAGED_EXECUTION = "ManagedExecution"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -1743,17 +1653,6 @@ class TypeActivation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::TypeActivation"
     name_field: ClassVar[str] = "type_name"
-    MAJOR_VERSION = "MajorVersion"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TYPE_NAME = "TypeName"
-    TYPE = "Type"
-    PUBLIC_TYPE_ARN = "PublicTypeArn"
-    AUTO_UPDATE = "AutoUpdate"
-    LOGGING_CONFIG = "LoggingConfig"
-    PUBLISHER_ID = "PublisherId"
-    VERSION_BUMP = "VersionBump"
-    TYPE_NAME_ALIAS = "TypeNameAlias"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major_version": "MajorVersion",
         "execution_role_arn": "ExecutionRoleArn",
@@ -1790,10 +1689,6 @@ class WaitCondition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wai"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::WaitCondition"
-    COUNT = "Count"
-    HANDLE = "Handle"
-    TIMEOUT = "Timeout"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "count": "Count",
         "handle": "Handle",

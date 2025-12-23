@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EgressFilter(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -22,8 +20,6 @@ class EgressFilter(PropertyType):
 
 @dataclass
 class MeshServiceDiscovery(PropertyType):
-    IP_PREFERENCE = "IpPreference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_preference": "IpPreference",
     }
@@ -33,9 +29,6 @@ class MeshServiceDiscovery(PropertyType):
 
 @dataclass
 class MeshSpec(PropertyType):
-    EGRESS_FILTER = "EgressFilter"
-    SERVICE_DISCOVERY = "ServiceDiscovery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "egress_filter": "EgressFilter",
         "service_discovery": "ServiceDiscovery",

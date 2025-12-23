@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EdgeOutputConfig(PropertyType):
-    KMS_KEY_ID = "KmsKeyId"
-    S3_OUTPUT_LOCATION = "S3OutputLocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_output_location": "S3OutputLocation",

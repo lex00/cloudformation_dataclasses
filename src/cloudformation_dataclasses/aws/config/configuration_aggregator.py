@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccountAggregationSource(PropertyType):
-    ALL_AWS_REGIONS = "AllAwsRegions"
-    AWS_REGIONS = "AwsRegions"
-    ACCOUNT_IDS = "AccountIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_aws_regions": "AllAwsRegions",
         "aws_regions": "AwsRegions",
@@ -28,10 +24,6 @@ class AccountAggregationSource(PropertyType):
 
 @dataclass
 class OrganizationAggregationSource(PropertyType):
-    ALL_AWS_REGIONS = "AllAwsRegions"
-    AWS_REGIONS = "AwsRegions"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_aws_regions": "AllAwsRegions",
         "aws_regions": "AwsRegions",

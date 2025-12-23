@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:50
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cognito
@@ -663,19 +663,6 @@ class IdentityPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::IdentityPool"
     name_field: ClassVar[str] = "identity_pool_name"
-    PUSH_SYNC = "PushSync"
-    COGNITO_IDENTITY_PROVIDERS = "CognitoIdentityProviders"
-    COGNITO_EVENTS = "CognitoEvents"
-    DEVELOPER_PROVIDER_NAME = "DeveloperProviderName"
-    COGNITO_STREAMS = "CognitoStreams"
-    IDENTITY_POOL_NAME = "IdentityPoolName"
-    SUPPORTED_LOGIN_PROVIDERS = "SupportedLoginProviders"
-    ALLOW_UNAUTHENTICATED_IDENTITIES = "AllowUnauthenticatedIdentities"
-    IDENTITY_POOL_TAGS = "IdentityPoolTags"
-    SAML_PROVIDER_AR_NS = "SamlProviderARNs"
-    OPEN_ID_CONNECT_PROVIDER_AR_NS = "OpenIdConnectProviderARNs"
-    ALLOW_CLASSIC_FLOW = "AllowClassicFlow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "push_sync": "PushSync",
         "cognito_identity_providers": "CognitoIdentityProviders",
@@ -722,11 +709,6 @@ class IdentityPoolPrincipalTag(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::IdentityPoolPrincipalTag"
     name_field: ClassVar[str] = "identity_provider_name"
-    PRINCIPAL_TAGS = "PrincipalTags"
-    USE_DEFAULTS = "UseDefaults"
-    IDENTITY_PROVIDER_NAME = "IdentityProviderName"
-    IDENTITY_POOL_ID = "IdentityPoolId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_tags": "PrincipalTags",
         "use_defaults": "UseDefaults",
@@ -745,10 +727,6 @@ class IdentityPoolRoleAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::IdentityPoolRoleAttachment"
-    ROLE_MAPPINGS = "RoleMappings"
-    IDENTITY_POOL_ID = "IdentityPoolId"
-    ROLES = "Roles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_mappings": "RoleMappings",
         "identity_pool_id": "IdentityPoolId",
@@ -771,9 +749,6 @@ class LogDeliveryConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::LogDeliveryConfiguration"
-    USER_POOL_ID = "UserPoolId"
-    LOG_CONFIGURATIONS = "LogConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "log_configurations": "LogConfigurations",
@@ -794,13 +769,6 @@ class ManagedLoginBranding(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::ManagedLoginBranding"
-    USER_POOL_ID = "UserPoolId"
-    USE_COGNITO_PROVIDED_VALUES = "UseCognitoProvidedValues"
-    ASSETS = "Assets"
-    CLIENT_ID = "ClientId"
-    SETTINGS = "Settings"
-    RETURN_MERGED_RESOURCES = "ReturnMergedResources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "use_cognito_provided_values": "UseCognitoProvidedValues",
@@ -830,13 +798,6 @@ class Terms(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::Terms"
     name_field: ClassVar[str] = "terms_name"
-    ENFORCEMENT = "Enforcement"
-    USER_POOL_ID = "UserPoolId"
-    CLIENT_ID = "ClientId"
-    TERMS_NAME = "TermsName"
-    LINKS = "Links"
-    TERMS_SOURCE = "TermsSource"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforcement": "Enforcement",
         "user_pool_id": "UserPoolId",
@@ -866,36 +827,6 @@ class UserPool(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPool"
     name_field: ClassVar[str] = "user_pool_name"
-    USER_POOL_TAGS = "UserPoolTags"
-    POLICIES = "Policies"
-    SCHEMA = "Schema"
-    ADMIN_CREATE_USER_CONFIG = "AdminCreateUserConfig"
-    USER_POOL_TIER = "UserPoolTier"
-    USERNAME_CONFIGURATION = "UsernameConfiguration"
-    USER_POOL_NAME = "UserPoolName"
-    SMS_VERIFICATION_MESSAGE = "SmsVerificationMessage"
-    USER_ATTRIBUTE_UPDATE_SETTINGS = "UserAttributeUpdateSettings"
-    EMAIL_CONFIGURATION = "EmailConfiguration"
-    SMS_CONFIGURATION = "SmsConfiguration"
-    EMAIL_VERIFICATION_SUBJECT = "EmailVerificationSubject"
-    WEB_AUTHN_RELYING_PARTY_ID = "WebAuthnRelyingPartyID"
-    EMAIL_AUTHENTICATION_SUBJECT = "EmailAuthenticationSubject"
-    ACCOUNT_RECOVERY_SETTING = "AccountRecoverySetting"
-    VERIFICATION_MESSAGE_TEMPLATE = "VerificationMessageTemplate"
-    MFA_CONFIGURATION = "MfaConfiguration"
-    DELETION_PROTECTION = "DeletionProtection"
-    SMS_AUTHENTICATION_MESSAGE = "SmsAuthenticationMessage"
-    WEB_AUTHN_USER_VERIFICATION = "WebAuthnUserVerification"
-    USER_POOL_ADD_ONS = "UserPoolAddOns"
-    EMAIL_AUTHENTICATION_MESSAGE = "EmailAuthenticationMessage"
-    ALIAS_ATTRIBUTES = "AliasAttributes"
-    ENABLED_MFAS = "EnabledMfas"
-    LAMBDA_CONFIG = "LambdaConfig"
-    USERNAME_ATTRIBUTES = "UsernameAttributes"
-    AUTO_VERIFIED_ATTRIBUTES = "AutoVerifiedAttributes"
-    DEVICE_CONFIGURATION = "DeviceConfiguration"
-    EMAIL_VERIFICATION_MESSAGE = "EmailVerificationMessage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_tags": "UserPoolTags",
         "policies": "Policies",
@@ -986,30 +917,6 @@ class UserPoolClient(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolClient"
     name_field: ClassVar[str] = "client_name"
-    ANALYTICS_CONFIGURATION = "AnalyticsConfiguration"
-    GENERATE_SECRET = "GenerateSecret"
-    CALLBACK_UR_LS = "CallbackURLs"
-    ENABLE_PROPAGATE_ADDITIONAL_USER_CONTEXT_DATA = "EnablePropagateAdditionalUserContextData"
-    ID_TOKEN_VALIDITY = "IdTokenValidity"
-    AUTH_SESSION_VALIDITY = "AuthSessionValidity"
-    REFRESH_TOKEN_ROTATION = "RefreshTokenRotation"
-    ALLOWED_O_AUTH_SCOPES = "AllowedOAuthScopes"
-    TOKEN_VALIDITY_UNITS = "TokenValidityUnits"
-    READ_ATTRIBUTES = "ReadAttributes"
-    ALLOWED_O_AUTH_FLOWS_USER_POOL_CLIENT = "AllowedOAuthFlowsUserPoolClient"
-    DEFAULT_REDIRECT_URI = "DefaultRedirectURI"
-    SUPPORTED_IDENTITY_PROVIDERS = "SupportedIdentityProviders"
-    CLIENT_NAME = "ClientName"
-    USER_POOL_ID = "UserPoolId"
-    ALLOWED_O_AUTH_FLOWS = "AllowedOAuthFlows"
-    EXPLICIT_AUTH_FLOWS = "ExplicitAuthFlows"
-    LOGOUT_UR_LS = "LogoutURLs"
-    ACCESS_TOKEN_VALIDITY = "AccessTokenValidity"
-    REFRESH_TOKEN_VALIDITY = "RefreshTokenValidity"
-    WRITE_ATTRIBUTES = "WriteAttributes"
-    PREVENT_USER_EXISTENCE_ERRORS = "PreventUserExistenceErrors"
-    ENABLE_TOKEN_REVOCATION = "EnableTokenRevocation"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "analytics_configuration": "AnalyticsConfiguration",
         "generate_secret": "GenerateSecret",
@@ -1082,11 +989,6 @@ class UserPoolDomain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolDomain"
-    USER_POOL_ID = "UserPoolId"
-    CUSTOM_DOMAIN_CONFIG = "CustomDomainConfig"
-    DOMAIN = "Domain"
-    MANAGED_LOGIN_VERSION = "ManagedLoginVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "custom_domain_config": "CustomDomainConfig",
@@ -1112,12 +1014,6 @@ class UserPoolGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolGroup"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    DESCRIPTION = "Description"
-    USER_POOL_ID = "UserPoolId"
-    PRECEDENCE = "Precedence"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "description": "Description",
@@ -1139,13 +1035,6 @@ class UserPoolIdentityProvider(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolIdentityProvider"
     name_field: ClassVar[str] = "provider_name"
-    PROVIDER_NAME = "ProviderName"
-    USER_POOL_ID = "UserPoolId"
-    ATTRIBUTE_MAPPING = "AttributeMapping"
-    PROVIDER_DETAILS = "ProviderDetails"
-    PROVIDER_TYPE = "ProviderType"
-    IDP_IDENTIFIERS = "IdpIdentifiers"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_name": "ProviderName",
         "user_pool_id": "UserPoolId",
@@ -1169,11 +1058,6 @@ class UserPoolResourceServer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolResourceServer"
     name_field: ClassVar[str] = "name"
-    USER_POOL_ID = "UserPoolId"
-    IDENTIFIER = "Identifier"
-    SCOPES = "Scopes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "identifier": "Identifier",
@@ -1192,12 +1076,6 @@ class UserPoolRiskConfigurationAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolRiskConfigurationAttachment"
-    COMPROMISED_CREDENTIALS_RISK_CONFIGURATION = "CompromisedCredentialsRiskConfiguration"
-    USER_POOL_ID = "UserPoolId"
-    CLIENT_ID = "ClientId"
-    ACCOUNT_TAKEOVER_RISK_CONFIGURATION = "AccountTakeoverRiskConfiguration"
-    RISK_EXCEPTION_CONFIGURATION = "RiskExceptionConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compromised_credentials_risk_configuration": "CompromisedCredentialsRiskConfiguration",
         "user_pool_id": "UserPoolId",
@@ -1218,10 +1096,6 @@ class UserPoolUICustomizationAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolUICustomizationAttachment"
-    CSS = "CSS"
-    USER_POOL_ID = "UserPoolId"
-    CLIENT_ID = "ClientId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "css": "CSS",
         "user_pool_id": "UserPoolId",
@@ -1238,15 +1112,6 @@ class UserPoolUser(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolUser"
-    VALIDATION_DATA = "ValidationData"
-    USER_POOL_ID = "UserPoolId"
-    USERNAME = "Username"
-    MESSAGE_ACTION = "MessageAction"
-    CLIENT_METADATA = "ClientMetadata"
-    DESIRED_DELIVERY_MEDIUMS = "DesiredDeliveryMediums"
-    FORCE_ALIAS_CREATION = "ForceAliasCreation"
-    USER_ATTRIBUTES = "UserAttributes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_data": "ValidationData",
         "user_pool_id": "UserPoolId",
@@ -1274,10 +1139,6 @@ class UserPoolUserToGroupAttachment(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolUserToGroupAttachment"
     name_field: ClassVar[str] = "group_name"
-    GROUP_NAME = "GroupName"
-    USER_POOL_ID = "UserPoolId"
-    USERNAME = "Username"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "user_pool_id": "UserPoolId",

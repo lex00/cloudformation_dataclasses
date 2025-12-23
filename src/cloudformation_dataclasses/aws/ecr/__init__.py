@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:54
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECR
@@ -373,11 +373,6 @@ class PublicRepository(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECR::PublicRepository"
     name_field: ClassVar[str] = "repository_name"
-    REPOSITORY_POLICY_TEXT = "RepositoryPolicyText"
-    REPOSITORY_NAME = "RepositoryName"
-    REPOSITORY_CATALOG_DATA = "RepositoryCatalogData"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_policy_text": "RepositoryPolicyText",
         "repository_name": "RepositoryName",
@@ -402,13 +397,6 @@ class PullThroughCacheRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-p"""
 
     resource_type: ClassVar[str] = "AWS::ECR::PullThroughCacheRule"
-    UPSTREAM_REGISTRY_URL = "UpstreamRegistryUrl"
-    CUSTOM_ROLE_ARN = "CustomRoleArn"
-    UPSTREAM_REPOSITORY_PREFIX = "UpstreamRepositoryPrefix"
-    UPSTREAM_REGISTRY = "UpstreamRegistry"
-    CREDENTIAL_ARN = "CredentialArn"
-    ECR_REPOSITORY_PREFIX = "EcrRepositoryPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upstream_registry_url": "UpstreamRegistryUrl",
         "custom_role_arn": "CustomRoleArn",
@@ -431,8 +419,6 @@ class PullTimeUpdateExclusion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-p"""
 
     resource_type: ClassVar[str] = "AWS::ECR::PullTimeUpdateExclusion"
-    PRINCIPAL_ARN = "PrincipalArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_arn": "PrincipalArn",
     }
@@ -445,8 +431,6 @@ class RegistryPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-r"""
 
     resource_type: ClassVar[str] = "AWS::ECR::RegistryPolicy"
-    POLICY_TEXT = "PolicyText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_text": "PolicyText",
     }
@@ -465,9 +449,6 @@ class RegistryScanningConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-r"""
 
     resource_type: ClassVar[str] = "AWS::ECR::RegistryScanningConfiguration"
-    SCAN_TYPE = "ScanType"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_type": "ScanType",
         "rules": "Rules",
@@ -488,8 +469,6 @@ class ReplicationConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-r"""
 
     resource_type: ClassVar[str] = "AWS::ECR::ReplicationConfiguration"
-    REPLICATION_CONFIGURATION = "ReplicationConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_configuration": "ReplicationConfiguration",
     }
@@ -509,16 +488,6 @@ class Repository(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ECR::Repository"
     name_field: ClassVar[str] = "repository_name"
-    EMPTY_ON_DELETE = "EmptyOnDelete"
-    IMAGE_SCANNING_CONFIGURATION = "ImageScanningConfiguration"
-    IMAGE_TAG_MUTABILITY_EXCLUSION_FILTERS = "ImageTagMutabilityExclusionFilters"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    REPOSITORY_POLICY_TEXT = "RepositoryPolicyText"
-    LIFECYCLE_POLICY = "LifecyclePolicy"
-    REPOSITORY_NAME = "RepositoryName"
-    TAGS = "Tags"
-    IMAGE_TAG_MUTABILITY = "ImageTagMutability"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "empty_on_delete": "EmptyOnDelete",
         "image_scanning_configuration": "ImageScanningConfiguration",
@@ -558,17 +527,6 @@ class RepositoryCreationTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-r"""
 
     resource_type: ClassVar[str] = "AWS::ECR::RepositoryCreationTemplate"
-    IMAGE_TAG_MUTABILITY_EXCLUSION_FILTERS = "ImageTagMutabilityExclusionFilters"
-    CUSTOM_ROLE_ARN = "CustomRoleArn"
-    DESCRIPTION = "Description"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    RESOURCE_TAGS = "ResourceTags"
-    REPOSITORY_POLICY = "RepositoryPolicy"
-    LIFECYCLE_POLICY = "LifecyclePolicy"
-    APPLIED_FOR = "AppliedFor"
-    PREFIX = "Prefix"
-    IMAGE_TAG_MUTABILITY = "ImageTagMutability"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_tag_mutability_exclusion_filters": "ImageTagMutabilityExclusionFilters",
         "custom_role_arn": "CustomRoleArn",
@@ -610,8 +568,6 @@ class SigningConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-s"""
 
     resource_type: ClassVar[str] = "AWS::ECR::SigningConfiguration"
-    RULES = "Rules"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }

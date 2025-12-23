@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IamUserProfileDetails(PropertyType):
-    ARN = "Arn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -22,10 +20,6 @@ class IamUserProfileDetails(PropertyType):
 
 @dataclass
 class SsoUserProfileDetails(PropertyType):
-    USERNAME = "Username"
-    FIRST_NAME = "FirstName"
-    LAST_NAME = "LastName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "first_name": "FirstName",
@@ -39,9 +33,6 @@ class SsoUserProfileDetails(PropertyType):
 
 @dataclass
 class UserProfileDetails(PropertyType):
-    IAM = "Iam"
-    SSO = "Sso"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "sso": "Sso",

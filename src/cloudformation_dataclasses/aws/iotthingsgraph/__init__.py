@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:02
+  Generated: 2025-12-22 19:26:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTThingsGraph
@@ -222,9 +222,6 @@ class FlowTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotth"""
 
     resource_type: ClassVar[str] = "AWS::IoTThingsGraph::FlowTemplate"
-    COMPATIBLE_NAMESPACE_VERSION = "CompatibleNamespaceVersion"
-    DEFINITION = "Definition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compatible_namespace_version": "CompatibleNamespaceVersion",
         "definition": "Definition",

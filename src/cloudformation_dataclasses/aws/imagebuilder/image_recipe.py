@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdditionalInstanceConfiguration(PropertyType):
-    USER_DATA_OVERRIDE = "UserDataOverride"
-    SYSTEMS_MANAGER_AGENT = "SystemsManagerAgent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_data_override": "UserDataOverride",
         "systems_manager_agent": "SystemsManagerAgent",
@@ -25,9 +22,6 @@ class AdditionalInstanceConfiguration(PropertyType):
 
 @dataclass
 class ComponentConfiguration(PropertyType):
-    PARAMETERS = "Parameters"
-    COMPONENT_ARN = "ComponentArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "component_arn": "ComponentArn",
@@ -39,9 +33,6 @@ class ComponentConfiguration(PropertyType):
 
 @dataclass
 class ComponentParameter(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -53,15 +44,6 @@ class ComponentParameter(PropertyType):
 
 @dataclass
 class EbsInstanceBlockDeviceSpecification(PropertyType):
-    SNAPSHOT_ID = "SnapshotId"
-    VOLUME_TYPE = "VolumeType"
-    KMS_KEY_ID = "KmsKeyId"
-    ENCRYPTED = "Encrypted"
-    THROUGHPUT = "Throughput"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-    DELETE_ON_TERMINATION = "DeleteOnTermination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -85,11 +67,6 @@ class EbsInstanceBlockDeviceSpecification(PropertyType):
 
 @dataclass
 class InstanceBlockDeviceMapping(PropertyType):
-    EBS = "Ebs"
-    NO_DEVICE = "NoDevice"
-    VIRTUAL_NAME = "VirtualName"
-    DEVICE_NAME = "DeviceName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -105,11 +82,6 @@ class InstanceBlockDeviceMapping(PropertyType):
 
 @dataclass
 class LatestVersion(PropertyType):
-    MAJOR = "Major"
-    MINOR = "Minor"
-    ARN = "Arn"
-    PATCH = "Patch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -125,8 +97,6 @@ class LatestVersion(PropertyType):
 
 @dataclass
 class SystemsManagerAgent(PropertyType):
-    UNINSTALL_AFTER_BUILD = "UninstallAfterBuild"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uninstall_after_build": "UninstallAfterBuild",
     }

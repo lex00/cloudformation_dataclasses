@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class S3Location(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    S3_KEY = "S3Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -25,11 +22,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class ScriptDetails(PropertyType):
-    TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
-    SCRIPT_S3_LOCATION = "ScriptS3Location"
-    EXECUTABLE_PATH = "ExecutablePath"
-    EXECUTABLE_PARAMETERS = "ExecutableParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
         "script_s3_location": "ScriptS3Location",

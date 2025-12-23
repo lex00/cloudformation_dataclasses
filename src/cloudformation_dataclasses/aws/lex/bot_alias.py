@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AudioLogDestination(PropertyType):
-    S3_BUCKET = "S3Bucket"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
     }
@@ -22,9 +20,6 @@ class AudioLogDestination(PropertyType):
 
 @dataclass
 class AudioLogSetting(PropertyType):
-    DESTINATION = "Destination"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -36,9 +31,6 @@ class AudioLogSetting(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettings(PropertyType):
-    CODE_HOOK_SPECIFICATION = "CodeHookSpecification"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook_specification": "CodeHookSpecification",
         "enabled": "Enabled",
@@ -50,9 +42,6 @@ class BotAliasLocaleSettings(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettingsItem(PropertyType):
-    LOCALE_ID = "LocaleId"
-    BOT_ALIAS_LOCALE_SETTING = "BotAliasLocaleSetting"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
@@ -64,9 +53,6 @@ class BotAliasLocaleSettingsItem(PropertyType):
 
 @dataclass
 class CloudWatchLogGroupLogDestination(PropertyType):
-    CLOUD_WATCH_LOG_GROUP_ARN = "CloudWatchLogGroupArn"
-    LOG_PREFIX = "LogPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_group_arn": "CloudWatchLogGroupArn",
         "log_prefix": "LogPrefix",
@@ -78,8 +64,6 @@ class CloudWatchLogGroupLogDestination(PropertyType):
 
 @dataclass
 class CodeHookSpecification(PropertyType):
-    LAMBDA_CODE_HOOK = "LambdaCodeHook"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_code_hook": "LambdaCodeHook",
     }
@@ -89,9 +73,6 @@ class CodeHookSpecification(PropertyType):
 
 @dataclass
 class ConversationLogSettings(PropertyType):
-    TEXT_LOG_SETTINGS = "TextLogSettings"
-    AUDIO_LOG_SETTINGS = "AudioLogSettings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_log_settings": "TextLogSettings",
         "audio_log_settings": "AudioLogSettings",
@@ -103,9 +84,6 @@ class ConversationLogSettings(PropertyType):
 
 @dataclass
 class LambdaCodeHook(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-    CODE_HOOK_INTERFACE_VERSION = "CodeHookInterfaceVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "code_hook_interface_version": "CodeHookInterfaceVersion",
@@ -117,10 +95,6 @@ class LambdaCodeHook(PropertyType):
 
 @dataclass
 class S3BucketLogDestination(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-    LOG_PREFIX = "LogPrefix"
-    S3_BUCKET_ARN = "S3BucketArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "log_prefix": "LogPrefix",
@@ -134,8 +108,6 @@ class S3BucketLogDestination(PropertyType):
 
 @dataclass
 class SentimentAnalysisSettings(PropertyType):
-    DETECT_SENTIMENT = "DetectSentiment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detect_sentiment": "DetectSentiment",
     }
@@ -145,8 +117,6 @@ class SentimentAnalysisSettings(PropertyType):
 
 @dataclass
 class TextLogDestination(PropertyType):
-    CLOUD_WATCH = "CloudWatch"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch": "CloudWatch",
     }
@@ -156,9 +126,6 @@ class TextLogDestination(PropertyType):
 
 @dataclass
 class TextLogSetting(PropertyType):
-    DESTINATION = "Destination"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",

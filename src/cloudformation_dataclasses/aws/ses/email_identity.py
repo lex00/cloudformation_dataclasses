@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationSetAttributes(PropertyType):
-    CONFIGURATION_SET_NAME = "ConfigurationSetName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_set_name": "ConfigurationSetName",
     }
@@ -22,8 +20,6 @@ class ConfigurationSetAttributes(PropertyType):
 
 @dataclass
 class DkimAttributes(PropertyType):
-    SIGNING_ENABLED = "SigningEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_enabled": "SigningEnabled",
     }
@@ -33,10 +29,6 @@ class DkimAttributes(PropertyType):
 
 @dataclass
 class DkimSigningAttributes(PropertyType):
-    DOMAIN_SIGNING_PRIVATE_KEY = "DomainSigningPrivateKey"
-    DOMAIN_SIGNING_SELECTOR = "DomainSigningSelector"
-    NEXT_SIGNING_KEY_LENGTH = "NextSigningKeyLength"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_signing_private_key": "DomainSigningPrivateKey",
         "domain_signing_selector": "DomainSigningSelector",
@@ -50,8 +42,6 @@ class DkimSigningAttributes(PropertyType):
 
 @dataclass
 class FeedbackAttributes(PropertyType):
-    EMAIL_FORWARDING_ENABLED = "EmailForwardingEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_forwarding_enabled": "EmailForwardingEnabled",
     }
@@ -61,9 +51,6 @@ class FeedbackAttributes(PropertyType):
 
 @dataclass
 class MailFromAttributes(PropertyType):
-    MAIL_FROM_DOMAIN = "MailFromDomain"
-    BEHAVIOR_ON_MX_FAILURE = "BehaviorOnMxFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mail_from_domain": "MailFromDomain",
         "behavior_on_mx_failure": "BehaviorOnMxFailure",

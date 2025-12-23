@@ -11,16 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    ORDER = "Order"
-    TARGET_GROUP_ARN = "TargetGroupArn"
-    FIXED_RESPONSE_CONFIG = "FixedResponseConfig"
-    AUTHENTICATE_COGNITO_CONFIG = "AuthenticateCognitoConfig"
-    TYPE = "Type"
-    REDIRECT_CONFIG = "RedirectConfig"
-    JWT_VALIDATION_CONFIG = "JwtValidationConfig"
-    FORWARD_CONFIG = "ForwardConfig"
-    AUTHENTICATE_OIDC_CONFIG = "AuthenticateOidcConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "target_group_arn": "TargetGroupArn",
@@ -46,15 +36,6 @@ class Action(PropertyType):
 
 @dataclass
 class AuthenticateCognitoConfig(PropertyType):
-    ON_UNAUTHENTICATED_REQUEST = "OnUnauthenticatedRequest"
-    USER_POOL_CLIENT_ID = "UserPoolClientId"
-    USER_POOL_DOMAIN = "UserPoolDomain"
-    SESSION_TIMEOUT = "SessionTimeout"
-    SCOPE = "Scope"
-    SESSION_COOKIE_NAME = "SessionCookieName"
-    USER_POOL_ARN = "UserPoolArn"
-    AUTHENTICATION_REQUEST_EXTRA_PARAMS = "AuthenticationRequestExtraParams"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "user_pool_client_id": "UserPoolClientId",
@@ -78,19 +59,6 @@ class AuthenticateCognitoConfig(PropertyType):
 
 @dataclass
 class AuthenticateOidcConfig(PropertyType):
-    ON_UNAUTHENTICATED_REQUEST = "OnUnauthenticatedRequest"
-    TOKEN_ENDPOINT = "TokenEndpoint"
-    USE_EXISTING_CLIENT_SECRET = "UseExistingClientSecret"
-    SESSION_TIMEOUT = "SessionTimeout"
-    SCOPE = "Scope"
-    ISSUER = "Issuer"
-    CLIENT_SECRET = "ClientSecret"
-    USER_INFO_ENDPOINT = "UserInfoEndpoint"
-    CLIENT_ID = "ClientId"
-    AUTHORIZATION_ENDPOINT = "AuthorizationEndpoint"
-    SESSION_COOKIE_NAME = "SessionCookieName"
-    AUTHENTICATION_REQUEST_EXTRA_PARAMS = "AuthenticationRequestExtraParams"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "token_endpoint": "TokenEndpoint",
@@ -122,10 +90,6 @@ class AuthenticateOidcConfig(PropertyType):
 
 @dataclass
 class FixedResponseConfig(PropertyType):
-    CONTENT_TYPE = "ContentType"
-    STATUS_CODE = "StatusCode"
-    MESSAGE_BODY = "MessageBody"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "status_code": "StatusCode",
@@ -139,9 +103,6 @@ class FixedResponseConfig(PropertyType):
 
 @dataclass
 class ForwardConfig(PropertyType):
-    TARGET_GROUP_STICKINESS_CONFIG = "TargetGroupStickinessConfig"
-    TARGET_GROUPS = "TargetGroups"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_stickiness_config": "TargetGroupStickinessConfig",
         "target_groups": "TargetGroups",
@@ -153,9 +114,6 @@ class ForwardConfig(PropertyType):
 
 @dataclass
 class HostHeaderConfig(PropertyType):
-    VALUES = "Values"
-    REGEX_VALUES = "RegexValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -167,10 +125,6 @@ class HostHeaderConfig(PropertyType):
 
 @dataclass
 class HttpHeaderConfig(PropertyType):
-    VALUES = "Values"
-    REGEX_VALUES = "RegexValues"
-    HTTP_HEADER_NAME = "HttpHeaderName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -184,8 +138,6 @@ class HttpHeaderConfig(PropertyType):
 
 @dataclass
 class HttpRequestMethodConfig(PropertyType):
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -195,10 +147,6 @@ class HttpRequestMethodConfig(PropertyType):
 
 @dataclass
 class JwtValidationActionAdditionalClaim(PropertyType):
-    FORMAT = "Format"
-    VALUES = "Values"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "values": "Values",
@@ -212,10 +160,6 @@ class JwtValidationActionAdditionalClaim(PropertyType):
 
 @dataclass
 class JwtValidationConfig(PropertyType):
-    JWKS_ENDPOINT = "JwksEndpoint"
-    ISSUER = "Issuer"
-    ADDITIONAL_CLAIMS = "AdditionalClaims"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwks_endpoint": "JwksEndpoint",
         "issuer": "Issuer",
@@ -229,9 +173,6 @@ class JwtValidationConfig(PropertyType):
 
 @dataclass
 class PathPatternConfig(PropertyType):
-    VALUES = "Values"
-    REGEX_VALUES = "RegexValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -243,8 +184,6 @@ class PathPatternConfig(PropertyType):
 
 @dataclass
 class QueryStringConfig(PropertyType):
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -254,9 +193,6 @@ class QueryStringConfig(PropertyType):
 
 @dataclass
 class QueryStringKeyValue(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -268,13 +204,6 @@ class QueryStringKeyValue(PropertyType):
 
 @dataclass
 class RedirectConfig(PropertyType):
-    PATH = "Path"
-    QUERY = "Query"
-    PORT = "Port"
-    HOST = "Host"
-    PROTOCOL = "Protocol"
-    STATUS_CODE = "StatusCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "query": "Query",
@@ -294,9 +223,6 @@ class RedirectConfig(PropertyType):
 
 @dataclass
 class RewriteConfig(PropertyType):
-    REPLACE = "Replace"
-    REGEX = "Regex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replace": "Replace",
         "regex": "Regex",
@@ -308,8 +234,6 @@ class RewriteConfig(PropertyType):
 
 @dataclass
 class RewriteConfigObject(PropertyType):
-    REWRITES = "Rewrites"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rewrites": "Rewrites",
     }
@@ -319,16 +243,6 @@ class RewriteConfigObject(PropertyType):
 
 @dataclass
 class RuleCondition(PropertyType):
-    FIELD = "Field"
-    HTTP_HEADER_CONFIG = "HttpHeaderConfig"
-    VALUES = "Values"
-    QUERY_STRING_CONFIG = "QueryStringConfig"
-    REGEX_VALUES = "RegexValues"
-    HOST_HEADER_CONFIG = "HostHeaderConfig"
-    HTTP_REQUEST_METHOD_CONFIG = "HttpRequestMethodConfig"
-    PATH_PATTERN_CONFIG = "PathPatternConfig"
-    SOURCE_IP_CONFIG = "SourceIpConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "http_header_config": "HttpHeaderConfig",
@@ -354,8 +268,6 @@ class RuleCondition(PropertyType):
 
 @dataclass
 class SourceIpConfig(PropertyType):
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -365,9 +277,6 @@ class SourceIpConfig(PropertyType):
 
 @dataclass
 class TargetGroupStickinessConfig(PropertyType):
-    ENABLED = "Enabled"
-    DURATION_SECONDS = "DurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "duration_seconds": "DurationSeconds",
@@ -379,9 +288,6 @@ class TargetGroupStickinessConfig(PropertyType):
 
 @dataclass
 class TargetGroupTuple(PropertyType):
-    TARGET_GROUP_ARN = "TargetGroupArn"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "weight": "Weight",
@@ -393,10 +299,6 @@ class TargetGroupTuple(PropertyType):
 
 @dataclass
 class Transform(PropertyType):
-    TYPE = "Type"
-    URL_REWRITE_CONFIG = "UrlRewriteConfig"
-    HOST_HEADER_REWRITE_CONFIG = "HostHeaderRewriteConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "url_rewrite_config": "UrlRewriteConfig",

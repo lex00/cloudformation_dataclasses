@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessConfiguration(PropertyType):
-    SECRETS_MANAGER_ACCESS_TOKEN_CONFIGURATION = "SecretsManagerAccessTokenConfiguration"
-    ACCESS_TYPE = "AccessType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_access_token_configuration": "SecretsManagerAccessTokenConfiguration",
         "access_type": "AccessType",
@@ -25,8 +22,6 @@ class AccessConfiguration(PropertyType):
 
 @dataclass
 class DefaultSegmentDeliveryConfiguration(PropertyType):
-    BASE_URL = "BaseUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
     }
@@ -36,8 +31,6 @@ class DefaultSegmentDeliveryConfiguration(PropertyType):
 
 @dataclass
 class HttpConfiguration(PropertyType):
-    BASE_URL = "BaseUrl"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
     }
@@ -47,10 +40,6 @@ class HttpConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerAccessTokenConfiguration(PropertyType):
-    SECRET_ARN = "SecretArn"
-    HEADER_NAME = "HeaderName"
-    SECRET_STRING_KEY = "SecretStringKey"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "header_name": "HeaderName",
@@ -64,9 +53,6 @@ class SecretsManagerAccessTokenConfiguration(PropertyType):
 
 @dataclass
 class SegmentDeliveryConfiguration(PropertyType):
-    BASE_URL = "BaseUrl"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
         "name": "Name",

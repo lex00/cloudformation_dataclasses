@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AdvancedSecurityOptionsInput(PropertyType):
-    ANONYMOUS_AUTH_ENABLED = "AnonymousAuthEnabled"
-    ENABLED = "Enabled"
-    INTERNAL_USER_DATABASE_ENABLED = "InternalUserDatabaseEnabled"
-    MASTER_USER_OPTIONS = "MasterUserOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anonymous_auth_enabled": "AnonymousAuthEnabled",
         "enabled": "Enabled",
@@ -31,11 +26,6 @@ class AdvancedSecurityOptionsInput(PropertyType):
 
 @dataclass
 class CognitoOptions(PropertyType):
-    ENABLED = "Enabled"
-    IDENTITY_POOL_ID = "IdentityPoolId"
-    ROLE_ARN = "RoleArn"
-    USER_POOL_ID = "UserPoolId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "identity_pool_id": "IdentityPoolId",
@@ -51,8 +41,6 @@ class CognitoOptions(PropertyType):
 
 @dataclass
 class ColdStorageOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -62,12 +50,6 @@ class ColdStorageOptions(PropertyType):
 
 @dataclass
 class DomainEndpointOptions(PropertyType):
-    CUSTOM_ENDPOINT = "CustomEndpoint"
-    CUSTOM_ENDPOINT_CERTIFICATE_ARN = "CustomEndpointCertificateArn"
-    CUSTOM_ENDPOINT_ENABLED = "CustomEndpointEnabled"
-    ENFORCE_HTTPS = "EnforceHTTPS"
-    TLS_SECURITY_POLICY = "TLSSecurityPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_endpoint": "CustomEndpoint",
         "custom_endpoint_certificate_arn": "CustomEndpointCertificateArn",
@@ -85,11 +67,6 @@ class DomainEndpointOptions(PropertyType):
 
 @dataclass
 class EBSOptions(PropertyType):
-    EBS_ENABLED = "EBSEnabled"
-    IOPS = "Iops"
-    VOLUME_SIZE = "VolumeSize"
-    VOLUME_TYPE = "VolumeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_enabled": "EBSEnabled",
         "iops": "Iops",
@@ -105,18 +82,6 @@ class EBSOptions(PropertyType):
 
 @dataclass
 class ElasticsearchClusterConfig(PropertyType):
-    COLD_STORAGE_OPTIONS = "ColdStorageOptions"
-    DEDICATED_MASTER_COUNT = "DedicatedMasterCount"
-    DEDICATED_MASTER_ENABLED = "DedicatedMasterEnabled"
-    DEDICATED_MASTER_TYPE = "DedicatedMasterType"
-    INSTANCE_COUNT = "InstanceCount"
-    INSTANCE_TYPE = "InstanceType"
-    WARM_COUNT = "WarmCount"
-    WARM_ENABLED = "WarmEnabled"
-    WARM_TYPE = "WarmType"
-    ZONE_AWARENESS_CONFIG = "ZoneAwarenessConfig"
-    ZONE_AWARENESS_ENABLED = "ZoneAwarenessEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cold_storage_options": "ColdStorageOptions",
         "dedicated_master_count": "DedicatedMasterCount",
@@ -146,9 +111,6 @@ class ElasticsearchClusterConfig(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    ENABLED = "Enabled"
-    KMS_KEY_ID = "KmsKeyId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "kms_key_id": "KmsKeyId",
@@ -160,9 +122,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class LogPublishingOption(PropertyType):
-    CLOUD_WATCH_LOGS_LOG_GROUP_ARN = "CloudWatchLogsLogGroupArn"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
         "enabled": "Enabled",
@@ -174,10 +133,6 @@ class LogPublishingOption(PropertyType):
 
 @dataclass
 class MasterUserOptions(PropertyType):
-    MASTER_USER_ARN = "MasterUserARN"
-    MASTER_USER_NAME = "MasterUserName"
-    MASTER_USER_PASSWORD = "MasterUserPassword"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_user_arn": "MasterUserARN",
         "master_user_name": "MasterUserName",
@@ -191,8 +146,6 @@ class MasterUserOptions(PropertyType):
 
 @dataclass
 class NodeToNodeEncryptionOptions(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -202,8 +155,6 @@ class NodeToNodeEncryptionOptions(PropertyType):
 
 @dataclass
 class SnapshotOptions(PropertyType):
-    AUTOMATED_SNAPSHOT_START_HOUR = "AutomatedSnapshotStartHour"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automated_snapshot_start_hour": "AutomatedSnapshotStartHour",
     }
@@ -213,9 +164,6 @@ class SnapshotOptions(PropertyType):
 
 @dataclass
 class VPCOptions(PropertyType):
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    SUBNET_IDS = "SubnetIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -227,8 +175,6 @@ class VPCOptions(PropertyType):
 
 @dataclass
 class ZoneAwarenessConfig(PropertyType):
-    AVAILABILITY_ZONE_COUNT = "AvailabilityZoneCount"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_count": "AvailabilityZoneCount",
     }

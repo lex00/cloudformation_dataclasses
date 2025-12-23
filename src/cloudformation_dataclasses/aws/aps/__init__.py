@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:41
+  Generated: 2025-12-22 19:26:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service APS
@@ -36,14 +36,6 @@ class AnomalyDetector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-a"""
 
     resource_type: ClassVar[str] = "AWS::APS::AnomalyDetector"
-    CONFIGURATION = "Configuration"
-    ALIAS = "Alias"
-    MISSING_DATA_ACTION = "MissingDataAction"
-    LABELS = "Labels"
-    EVALUATION_INTERVAL_IN_SECONDS = "EvaluationIntervalInSeconds"
-    TAGS = "Tags"
-    WORKSPACE = "Workspace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "alias": "Alias",
@@ -74,9 +66,6 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-r"""
 
     resource_type: ClassVar[str] = "AWS::APS::ResourcePolicy"
-    WORKSPACE_ARN = "WorkspaceArn"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workspace_arn": "WorkspaceArn",
         "policy_document": "PolicyDocument",
@@ -92,11 +81,6 @@ class RuleGroupsNamespace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::APS::RuleGroupsNamespace"
     name_field: ClassVar[str] = "name"
-    DATA = "Data"
-    TAGS = "Tags"
-    WORKSPACE = "Workspace"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "tags": "Tags",
@@ -121,14 +105,6 @@ class Scraper(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-s"""
 
     resource_type: ClassVar[str] = "AWS::APS::Scraper"
-    SCRAPE_CONFIGURATION = "ScrapeConfiguration"
-    DESTINATION = "Destination"
-    SCRAPER_LOGGING_CONFIGURATION = "ScraperLoggingConfiguration"
-    ALIAS = "Alias"
-    ROLE_CONFIGURATION = "RoleConfiguration"
-    SOURCE = "Source"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scrape_configuration": "ScrapeConfiguration",
         "destination": "Destination",
@@ -169,14 +145,6 @@ class Workspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-w"""
 
     resource_type: ClassVar[str] = "AWS::APS::Workspace"
-    KMS_KEY_ARN = "KmsKeyArn"
-    QUERY_LOGGING_CONFIGURATION = "QueryLoggingConfiguration"
-    ALIAS = "Alias"
-    LOGGING_CONFIGURATION = "LoggingConfiguration"
-    WORKSPACE_CONFIGURATION = "WorkspaceConfiguration"
-    ALERT_MANAGER_DEFINITION = "AlertManagerDefinition"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "query_logging_configuration": "QueryLoggingConfiguration",

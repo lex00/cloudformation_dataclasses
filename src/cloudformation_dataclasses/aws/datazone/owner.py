@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class OwnerGroupProperties(PropertyType):
-    GROUP_IDENTIFIER = "GroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_identifier": "GroupIdentifier",
     }
@@ -22,9 +20,6 @@ class OwnerGroupProperties(PropertyType):
 
 @dataclass
 class OwnerProperties(PropertyType):
-    GROUP = "Group"
-    USER = "User"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "user": "User",
@@ -36,8 +31,6 @@ class OwnerProperties(PropertyType):
 
 @dataclass
 class OwnerUserProperties(PropertyType):
-    USER_IDENTIFIER = "UserIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_identifier": "UserIdentifier",
     }

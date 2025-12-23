@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:59
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service HealthLake
@@ -136,13 +136,6 @@ class FHIRDatastore(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::HealthLake::FHIRDatastore"
     name_field: ClassVar[str] = "datastore_name"
-    DATASTORE_TYPE_VERSION = "DatastoreTypeVersion"
-    DATASTORE_NAME = "DatastoreName"
-    IDENTITY_PROVIDER_CONFIGURATION = "IdentityProviderConfiguration"
-    TAGS = "Tags"
-    PRELOAD_DATA_CONFIG = "PreloadDataConfig"
-    SSE_CONFIGURATION = "SseConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datastore_type_version": "DatastoreTypeVersion",
         "datastore_name": "DatastoreName",

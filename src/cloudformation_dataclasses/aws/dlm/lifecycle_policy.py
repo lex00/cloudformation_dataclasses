@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    CROSS_REGION_COPY = "CrossRegionCopy"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cross_region_copy": "CrossRegionCopy",
         "name": "Name",
@@ -25,8 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class ArchiveRetainRule(PropertyType):
-    RETENTION_ARCHIVE_TIER = "RetentionArchiveTier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_archive_tier": "RetentionArchiveTier",
     }
@@ -36,8 +31,6 @@ class ArchiveRetainRule(PropertyType):
 
 @dataclass
 class ArchiveRule(PropertyType):
-    RETAIN_RULE = "RetainRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retain_rule": "RetainRule",
     }
@@ -47,13 +40,6 @@ class ArchiveRule(PropertyType):
 
 @dataclass
 class CreateRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    SCRIPTS = "Scripts"
-    TIMES = "Times"
-    CRON_EXPRESSION = "CronExpression"
-    INTERVAL = "Interval"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "scripts": "Scripts",
@@ -73,10 +59,6 @@ class CreateRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyAction(PropertyType):
-    TARGET = "Target"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    RETAIN_RULE = "RetainRule"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "encryption_configuration": "EncryptionConfiguration",
@@ -90,9 +72,6 @@ class CrossRegionCopyAction(PropertyType):
 
 @dataclass
 class CrossRegionCopyDeprecateRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "interval": "Interval",
@@ -104,9 +83,6 @@ class CrossRegionCopyDeprecateRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyRetainRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "interval": "Interval",
@@ -118,14 +94,6 @@ class CrossRegionCopyRetainRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyRule(PropertyType):
-    TARGET_REGION = "TargetRegion"
-    TARGET = "Target"
-    DEPRECATE_RULE = "DeprecateRule"
-    ENCRYPTED = "Encrypted"
-    CMK_ARN = "CmkArn"
-    RETAIN_RULE = "RetainRule"
-    COPY_TAGS = "CopyTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_region": "TargetRegion",
         "target": "Target",
@@ -147,8 +115,6 @@ class CrossRegionCopyRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyTarget(PropertyType):
-    TARGET_REGION = "TargetRegion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_region": "TargetRegion",
     }
@@ -163,10 +129,6 @@ class CrossRegionCopyTargets(PropertyType):
 
 @dataclass
 class DeprecateRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    COUNT = "Count"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -180,9 +142,6 @@ class DeprecateRule(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    ENCRYPTED = "Encrypted"
-    CMK_ARN = "CmkArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted": "Encrypted",
         "cmk_arn": "CmkArn",
@@ -194,10 +153,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EventParameters(PropertyType):
-    EVENT_TYPE = "EventType"
-    SNAPSHOT_OWNER = "SnapshotOwner"
-    DESCRIPTION_REGEX = "DescriptionRegex"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_type": "EventType",
         "snapshot_owner": "SnapshotOwner",
@@ -211,9 +166,6 @@ class EventParameters(PropertyType):
 
 @dataclass
 class EventSource(PropertyType):
-    TYPE = "Type"
-    PARAMETERS = "Parameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -235,10 +187,6 @@ class ExcludeVolumeTypesList(PropertyType):
 
 @dataclass
 class Exclusions(PropertyType):
-    EXCLUDE_BOOT_VOLUMES = "ExcludeBootVolumes"
-    EXCLUDE_TAGS = "ExcludeTags"
-    EXCLUDE_VOLUME_TYPES = "ExcludeVolumeTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_boot_volumes": "ExcludeBootVolumes",
         "exclude_tags": "ExcludeTags",
@@ -252,11 +200,6 @@ class Exclusions(PropertyType):
 
 @dataclass
 class FastRestoreRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    COUNT = "Count"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "availability_zones": "AvailabilityZones",
@@ -272,10 +215,6 @@ class FastRestoreRule(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    EXCLUDE_BOOT_VOLUME = "ExcludeBootVolume"
-    EXCLUDE_DATA_VOLUME_TAGS = "ExcludeDataVolumeTags"
-    NO_REBOOT = "NoReboot"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_boot_volume": "ExcludeBootVolume",
         "exclude_data_volume_tags": "ExcludeDataVolumeTags",
@@ -289,23 +228,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PolicyDetails(PropertyType):
-    POLICY_LANGUAGE = "PolicyLanguage"
-    RESOURCE_TYPES = "ResourceTypes"
-    SCHEDULES = "Schedules"
-    POLICY_TYPE = "PolicyType"
-    CREATE_INTERVAL = "CreateInterval"
-    PARAMETERS = "Parameters"
-    EXTEND_DELETION = "ExtendDeletion"
-    EXCLUSIONS = "Exclusions"
-    ACTIONS = "Actions"
-    RESOURCE_TYPE = "ResourceType"
-    RETAIN_INTERVAL = "RetainInterval"
-    EVENT_SOURCE = "EventSource"
-    CROSS_REGION_COPY_TARGETS = "CrossRegionCopyTargets"
-    TARGET_TAGS = "TargetTags"
-    RESOURCE_LOCATIONS = "ResourceLocations"
-    COPY_TAGS = "CopyTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_language": "PolicyLanguage",
         "resource_types": "ResourceTypes",
@@ -345,10 +267,6 @@ class PolicyDetails(PropertyType):
 
 @dataclass
 class RetainRule(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    COUNT = "Count"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -362,10 +280,6 @@ class RetainRule(PropertyType):
 
 @dataclass
 class RetentionArchiveTier(PropertyType):
-    INTERVAL_UNIT = "IntervalUnit"
-    COUNT = "Count"
-    INTERVAL = "Interval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -379,18 +293,6 @@ class RetentionArchiveTier(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    SHARE_RULES = "ShareRules"
-    DEPRECATE_RULE = "DeprecateRule"
-    TAGS_TO_ADD = "TagsToAdd"
-    CREATE_RULE = "CreateRule"
-    VARIABLE_TAGS = "VariableTags"
-    FAST_RESTORE_RULE = "FastRestoreRule"
-    ARCHIVE_RULE = "ArchiveRule"
-    RETAIN_RULE = "RetainRule"
-    CROSS_REGION_COPY_RULES = "CrossRegionCopyRules"
-    NAME = "Name"
-    COPY_TAGS = "CopyTags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "share_rules": "ShareRules",
         "deprecate_rule": "DeprecateRule",
@@ -420,13 +322,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class Script(PropertyType):
-    EXECUTION_HANDLER_SERVICE = "ExecutionHandlerService"
-    EXECUTION_TIMEOUT = "ExecutionTimeout"
-    STAGES = "Stages"
-    EXECUTION_HANDLER = "ExecutionHandler"
-    MAXIMUM_RETRY_COUNT = "MaximumRetryCount"
-    EXECUTE_OPERATION_ON_SCRIPT_FAILURE = "ExecuteOperationOnScriptFailure"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_handler_service": "ExecutionHandlerService",
         "execution_timeout": "ExecutionTimeout",
@@ -446,10 +341,6 @@ class Script(PropertyType):
 
 @dataclass
 class ShareRule(PropertyType):
-    TARGET_ACCOUNTS = "TargetAccounts"
-    UNSHARE_INTERVAL_UNIT = "UnshareIntervalUnit"
-    UNSHARE_INTERVAL = "UnshareInterval"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_accounts": "TargetAccounts",
         "unshare_interval_unit": "UnshareIntervalUnit",

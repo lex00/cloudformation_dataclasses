@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BgpOptions(PropertyType):
-    PEER_ASN = "PeerAsn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_asn": "PeerAsn",
     }
@@ -22,11 +20,6 @@ class BgpOptions(PropertyType):
 
 @dataclass
 class ConnectPeerBgpConfiguration(PropertyType):
-    PEER_ADDRESS = "PeerAddress"
-    CORE_NETWORK_ADDRESS = "CoreNetworkAddress"
-    PEER_ASN = "PeerAsn"
-    CORE_NETWORK_ASN = "CoreNetworkAsn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_address": "PeerAddress",
         "core_network_address": "CoreNetworkAddress",
@@ -42,12 +35,6 @@ class ConnectPeerBgpConfiguration(PropertyType):
 
 @dataclass
 class ConnectPeerConfiguration(PropertyType):
-    BGP_CONFIGURATIONS = "BgpConfigurations"
-    PEER_ADDRESS = "PeerAddress"
-    CORE_NETWORK_ADDRESS = "CoreNetworkAddress"
-    INSIDE_CIDR_BLOCKS = "InsideCidrBlocks"
-    PROTOCOL = "Protocol"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bgp_configurations": "BgpConfigurations",
         "peer_address": "PeerAddress",

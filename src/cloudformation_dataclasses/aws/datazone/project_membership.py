@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Member(PropertyType):
-    USER_IDENTIFIER = "UserIdentifier"
-    GROUP_IDENTIFIER = "GroupIdentifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_identifier": "UserIdentifier",
         "group_identifier": "GroupIdentifier",

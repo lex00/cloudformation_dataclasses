@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Ec2Config(PropertyType):
-    SUBNET_ARN = "SubnetArn"
-    SECURITY_GROUP_ARNS = "SecurityGroupArns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_arn": "SubnetArn",
         "security_group_arns": "SecurityGroupArns",

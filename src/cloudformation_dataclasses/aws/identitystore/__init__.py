@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:00
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IdentityStore
@@ -109,10 +109,6 @@ class Group(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::IdentityStore::Group"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    DISPLAY_NAME = "DisplayName"
-    IDENTITY_STORE_ID = "IdentityStoreId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "display_name": "DisplayName",
@@ -135,10 +131,6 @@ class GroupMembership(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ident"""
 
     resource_type: ClassVar[str] = "AWS::IdentityStore::GroupMembership"
-    MEMBER_ID = "MemberId"
-    IDENTITY_STORE_ID = "IdentityStoreId"
-    GROUP_ID = "GroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_id": "MemberId",
         "identity_store_id": "IdentityStoreId",

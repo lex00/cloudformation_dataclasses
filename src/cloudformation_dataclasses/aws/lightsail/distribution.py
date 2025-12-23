@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CacheBehavior(PropertyType):
-    BEHAVIOR = "Behavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "behavior": "Behavior",
     }
@@ -22,9 +20,6 @@ class CacheBehavior(PropertyType):
 
 @dataclass
 class CacheBehaviorPerPath(PropertyType):
-    PATH = "Path"
-    BEHAVIOR = "Behavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "behavior": "Behavior",
@@ -36,15 +31,6 @@ class CacheBehaviorPerPath(PropertyType):
 
 @dataclass
 class CacheSettings(PropertyType):
-    FORWARDED_COOKIES = "ForwardedCookies"
-    MINIMUM_TTL = "MinimumTTL"
-    CACHED_HTTP_METHODS = "CachedHTTPMethods"
-    ALLOWED_HTTP_METHODS = "AllowedHTTPMethods"
-    MAXIMUM_TTL = "MaximumTTL"
-    FORWARDED_HEADERS = "ForwardedHeaders"
-    DEFAULT_TTL = "DefaultTTL"
-    FORWARDED_QUERY_STRINGS = "ForwardedQueryStrings"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_cookies": "ForwardedCookies",
         "minimum_ttl": "MinimumTTL",
@@ -68,9 +54,6 @@ class CacheSettings(PropertyType):
 
 @dataclass
 class CookieObject(PropertyType):
-    COOKIES_ALLOW_LIST = "CookiesAllowList"
-    OPTION = "Option"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies_allow_list": "CookiesAllowList",
         "option": "Option",
@@ -82,9 +65,6 @@ class CookieObject(PropertyType):
 
 @dataclass
 class HeaderObject(PropertyType):
-    HEADERS_ALLOW_LIST = "HeadersAllowList"
-    OPTION = "Option"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers_allow_list": "HeadersAllowList",
         "option": "Option",
@@ -96,10 +76,6 @@ class HeaderObject(PropertyType):
 
 @dataclass
 class InputOrigin(PropertyType):
-    REGION_NAME = "RegionName"
-    PROTOCOL_POLICY = "ProtocolPolicy"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "protocol_policy": "ProtocolPolicy",
@@ -113,9 +89,6 @@ class InputOrigin(PropertyType):
 
 @dataclass
 class QueryStringObject(PropertyType):
-    OPTION = "Option"
-    QUERY_STRINGS_ALLOW_LIST = "QueryStringsAllowList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "option": "Option",
         "query_strings_allow_list": "QueryStringsAllowList",

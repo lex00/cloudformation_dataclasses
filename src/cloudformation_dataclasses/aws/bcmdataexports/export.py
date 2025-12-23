@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataQuery(PropertyType):
-    TABLE_CONFIGURATIONS = "TableConfigurations"
-    QUERY_STATEMENT = "QueryStatement"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_configurations": "TableConfigurations",
         "query_statement": "QueryStatement",
@@ -25,8 +22,6 @@ class DataQuery(PropertyType):
 
 @dataclass
 class DestinationConfigurations(PropertyType):
-    S3_DESTINATION = "S3Destination"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
     }
@@ -36,13 +31,6 @@ class DestinationConfigurations(PropertyType):
 
 @dataclass
 class Export(PropertyType):
-    DESCRIPTION = "Description"
-    REFRESH_CADENCE = "RefreshCadence"
-    EXPORT_ARN = "ExportArn"
-    DATA_QUERY = "DataQuery"
-    DESTINATION_CONFIGURATIONS = "DestinationConfigurations"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "refresh_cadence": "RefreshCadence",
@@ -62,8 +50,6 @@ class Export(PropertyType):
 
 @dataclass
 class RefreshCadence(PropertyType):
-    FREQUENCY = "Frequency"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency": "Frequency",
     }
@@ -73,9 +59,6 @@ class RefreshCadence(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -87,11 +70,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    S3_BUCKET = "S3Bucket"
-    S3_OUTPUT_CONFIGURATIONS = "S3OutputConfigurations"
-    S3_REGION = "S3Region"
-    S3_PREFIX = "S3Prefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_output_configurations": "S3OutputConfigurations",
@@ -107,11 +85,6 @@ class S3Destination(PropertyType):
 
 @dataclass
 class S3OutputConfigurations(PropertyType):
-    COMPRESSION = "Compression"
-    OVERWRITE = "Overwrite"
-    FORMAT = "Format"
-    OUTPUT_TYPE = "OutputType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "overwrite": "Overwrite",

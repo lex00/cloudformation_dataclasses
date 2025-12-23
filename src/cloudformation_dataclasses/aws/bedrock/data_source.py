@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BedrockDataAutomationConfiguration(PropertyType):
-    PARSING_MODALITY = "ParsingModality"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_modality": "ParsingModality",
     }
@@ -22,10 +20,6 @@ class BedrockDataAutomationConfiguration(PropertyType):
 
 @dataclass
 class BedrockFoundationModelConfiguration(PropertyType):
-    MODEL_ARN = "ModelArn"
-    PARSING_MODALITY = "ParsingModality"
-    PARSING_PROMPT = "ParsingPrompt"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "parsing_modality": "ParsingModality",
@@ -39,9 +33,6 @@ class BedrockFoundationModelConfiguration(PropertyType):
 
 @dataclass
 class BedrockFoundationModelContextEnrichmentConfiguration(PropertyType):
-    ENRICHMENT_STRATEGY_CONFIGURATION = "EnrichmentStrategyConfiguration"
-    MODEL_ARN = "ModelArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enrichment_strategy_configuration": "EnrichmentStrategyConfiguration",
         "model_arn": "ModelArn",
@@ -53,11 +44,6 @@ class BedrockFoundationModelContextEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class ChunkingConfiguration(PropertyType):
-    CHUNKING_STRATEGY = "ChunkingStrategy"
-    FIXED_SIZE_CHUNKING_CONFIGURATION = "FixedSizeChunkingConfiguration"
-    SEMANTIC_CHUNKING_CONFIGURATION = "SemanticChunkingConfiguration"
-    HIERARCHICAL_CHUNKING_CONFIGURATION = "HierarchicalChunkingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chunking_strategy": "ChunkingStrategy",
         "fixed_size_chunking_configuration": "FixedSizeChunkingConfiguration",
@@ -73,8 +59,6 @@ class ChunkingConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceCrawlerConfiguration(PropertyType):
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -84,9 +68,6 @@ class ConfluenceCrawlerConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceDataSourceConfiguration(PropertyType):
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    CRAWLER_CONFIGURATION = "CrawlerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -98,11 +79,6 @@ class ConfluenceDataSourceConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceSourceConfiguration(PropertyType):
-    HOST_URL = "HostUrl"
-    HOST_TYPE = "HostType"
-    AUTH_TYPE = "AuthType"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_url": "HostUrl",
         "host_type": "HostType",
@@ -118,9 +94,6 @@ class ConfluenceSourceConfiguration(PropertyType):
 
 @dataclass
 class ContextEnrichmentConfiguration(PropertyType):
-    TYPE = "Type"
-    BEDROCK_FOUNDATION_MODEL_CONFIGURATION = "BedrockFoundationModelConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "bedrock_foundation_model_configuration": "BedrockFoundationModelConfiguration",
@@ -132,9 +105,6 @@ class ContextEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class CrawlFilterConfiguration(PropertyType):
-    TYPE = "Type"
-    PATTERN_OBJECT_FILTER = "PatternObjectFilter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "pattern_object_filter": "PatternObjectFilter",
@@ -146,9 +116,6 @@ class CrawlFilterConfiguration(PropertyType):
 
 @dataclass
 class CustomTransformationConfiguration(PropertyType):
-    INTERMEDIATE_STORAGE = "IntermediateStorage"
-    TRANSFORMATIONS = "Transformations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_storage": "IntermediateStorage",
         "transformations": "Transformations",
@@ -160,13 +127,6 @@ class CustomTransformationConfiguration(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    TYPE = "Type"
-    S3_CONFIGURATION = "S3Configuration"
-    SALESFORCE_CONFIGURATION = "SalesforceConfiguration"
-    CONFLUENCE_CONFIGURATION = "ConfluenceConfiguration"
-    SHARE_POINT_CONFIGURATION = "SharePointConfiguration"
-    WEB_CONFIGURATION = "WebConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "s3_configuration": "S3Configuration",
@@ -186,8 +146,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class EnrichmentStrategyConfiguration(PropertyType):
-    METHOD = "Method"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "method": "Method",
     }
@@ -197,9 +155,6 @@ class EnrichmentStrategyConfiguration(PropertyType):
 
 @dataclass
 class FixedSizeChunkingConfiguration(PropertyType):
-    OVERLAP_PERCENTAGE = "OverlapPercentage"
-    MAX_TOKENS = "MaxTokens"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_percentage": "OverlapPercentage",
         "max_tokens": "MaxTokens",
@@ -211,9 +166,6 @@ class FixedSizeChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingConfiguration(PropertyType):
-    OVERLAP_TOKENS = "OverlapTokens"
-    LEVEL_CONFIGURATIONS = "LevelConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_tokens": "OverlapTokens",
         "level_configurations": "LevelConfigurations",
@@ -225,8 +177,6 @@ class HierarchicalChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingLevelConfiguration(PropertyType):
-    MAX_TOKENS = "MaxTokens"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_tokens": "MaxTokens",
     }
@@ -236,8 +186,6 @@ class HierarchicalChunkingLevelConfiguration(PropertyType):
 
 @dataclass
 class IntermediateStorage(PropertyType):
-    S3_LOCATION = "S3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -247,10 +195,6 @@ class IntermediateStorage(PropertyType):
 
 @dataclass
 class ParsingConfiguration(PropertyType):
-    BEDROCK_DATA_AUTOMATION_CONFIGURATION = "BedrockDataAutomationConfiguration"
-    BEDROCK_FOUNDATION_MODEL_CONFIGURATION = "BedrockFoundationModelConfiguration"
-    PARSING_STRATEGY = "ParsingStrategy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_data_automation_configuration": "BedrockDataAutomationConfiguration",
         "bedrock_foundation_model_configuration": "BedrockFoundationModelConfiguration",
@@ -264,8 +208,6 @@ class ParsingConfiguration(PropertyType):
 
 @dataclass
 class ParsingPrompt(PropertyType):
-    PARSING_PROMPT_TEXT = "ParsingPromptText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_prompt_text": "ParsingPromptText",
     }
@@ -275,10 +217,6 @@ class ParsingPrompt(PropertyType):
 
 @dataclass
 class PatternObjectFilter(PropertyType):
-    OBJECT_TYPE = "ObjectType"
-    INCLUSION_FILTERS = "InclusionFilters"
-    EXCLUSION_FILTERS = "ExclusionFilters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_type": "ObjectType",
         "inclusion_filters": "InclusionFilters",
@@ -292,8 +230,6 @@ class PatternObjectFilter(PropertyType):
 
 @dataclass
 class PatternObjectFilterConfiguration(PropertyType):
-    FILTERS = "Filters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -303,10 +239,6 @@ class PatternObjectFilterConfiguration(PropertyType):
 
 @dataclass
 class S3DataSourceConfiguration(PropertyType):
-    BUCKET_ARN = "BucketArn"
-    BUCKET_OWNER_ACCOUNT_ID = "BucketOwnerAccountId"
-    INCLUSION_PREFIXES = "InclusionPrefixes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "bucket_owner_account_id": "BucketOwnerAccountId",
@@ -320,8 +252,6 @@ class S3DataSourceConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    URI = "URI"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri": "URI",
     }
@@ -331,8 +261,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SalesforceCrawlerConfiguration(PropertyType):
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -342,9 +270,6 @@ class SalesforceCrawlerConfiguration(PropertyType):
 
 @dataclass
 class SalesforceDataSourceConfiguration(PropertyType):
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    CRAWLER_CONFIGURATION = "CrawlerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -356,10 +281,6 @@ class SalesforceDataSourceConfiguration(PropertyType):
 
 @dataclass
 class SalesforceSourceConfiguration(PropertyType):
-    HOST_URL = "HostUrl"
-    AUTH_TYPE = "AuthType"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_url": "HostUrl",
         "auth_type": "AuthType",
@@ -373,8 +294,6 @@ class SalesforceSourceConfiguration(PropertyType):
 
 @dataclass
 class SeedUrl(PropertyType):
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url": "Url",
     }
@@ -384,10 +303,6 @@ class SeedUrl(PropertyType):
 
 @dataclass
 class SemanticChunkingConfiguration(PropertyType):
-    BUFFER_SIZE = "BufferSize"
-    MAX_TOKENS = "MaxTokens"
-    BREAKPOINT_PERCENTILE_THRESHOLD = "BreakpointPercentileThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "buffer_size": "BufferSize",
         "max_tokens": "MaxTokens",
@@ -401,8 +316,6 @@ class SemanticChunkingConfiguration(PropertyType):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
     }
@@ -412,8 +325,6 @@ class ServerSideEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SharePointCrawlerConfiguration(PropertyType):
-    FILTER_CONFIGURATION = "FilterConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -423,9 +334,6 @@ class SharePointCrawlerConfiguration(PropertyType):
 
 @dataclass
 class SharePointDataSourceConfiguration(PropertyType):
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    CRAWLER_CONFIGURATION = "CrawlerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -437,13 +345,6 @@ class SharePointDataSourceConfiguration(PropertyType):
 
 @dataclass
 class SharePointSourceConfiguration(PropertyType):
-    SITE_URLS = "SiteUrls"
-    HOST_TYPE = "HostType"
-    TENANT_ID = "TenantId"
-    AUTH_TYPE = "AuthType"
-    CREDENTIALS_SECRET_ARN = "CredentialsSecretArn"
-    DOMAIN = "Domain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "site_urls": "SiteUrls",
         "host_type": "HostType",
@@ -463,9 +364,6 @@ class SharePointSourceConfiguration(PropertyType):
 
 @dataclass
 class Transformation(PropertyType):
-    STEP_TO_APPLY = "StepToApply"
-    TRANSFORMATION_FUNCTION = "TransformationFunction"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_to_apply": "StepToApply",
         "transformation_function": "TransformationFunction",
@@ -477,8 +375,6 @@ class Transformation(PropertyType):
 
 @dataclass
 class TransformationFunction(PropertyType):
-    TRANSFORMATION_LAMBDA_CONFIGURATION = "TransformationLambdaConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transformation_lambda_configuration": "TransformationLambdaConfiguration",
     }
@@ -488,8 +384,6 @@ class TransformationFunction(PropertyType):
 
 @dataclass
 class TransformationLambdaConfiguration(PropertyType):
-    LAMBDA_ARN = "LambdaArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -499,8 +393,6 @@ class TransformationLambdaConfiguration(PropertyType):
 
 @dataclass
 class UrlConfiguration(PropertyType):
-    SEED_URLS = "SeedUrls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seed_urls": "SeedUrls",
     }
@@ -510,11 +402,6 @@ class UrlConfiguration(PropertyType):
 
 @dataclass
 class VectorIngestionConfiguration(PropertyType):
-    PARSING_CONFIGURATION = "ParsingConfiguration"
-    CONTEXT_ENRICHMENT_CONFIGURATION = "ContextEnrichmentConfiguration"
-    CUSTOM_TRANSFORMATION_CONFIGURATION = "CustomTransformationConfiguration"
-    CHUNKING_CONFIGURATION = "ChunkingConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_configuration": "ParsingConfiguration",
         "context_enrichment_configuration": "ContextEnrichmentConfiguration",
@@ -530,13 +417,6 @@ class VectorIngestionConfiguration(PropertyType):
 
 @dataclass
 class WebCrawlerConfiguration(PropertyType):
-    INCLUSION_FILTERS = "InclusionFilters"
-    USER_AGENT_HEADER = "UserAgentHeader"
-    CRAWLER_LIMITS = "CrawlerLimits"
-    EXCLUSION_FILTERS = "ExclusionFilters"
-    SCOPE = "Scope"
-    USER_AGENT = "UserAgent"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusion_filters": "InclusionFilters",
         "user_agent_header": "UserAgentHeader",
@@ -556,9 +436,6 @@ class WebCrawlerConfiguration(PropertyType):
 
 @dataclass
 class WebCrawlerLimits(PropertyType):
-    RATE_LIMIT = "RateLimit"
-    MAX_PAGES = "MaxPages"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_limit": "RateLimit",
         "max_pages": "MaxPages",
@@ -570,9 +447,6 @@ class WebCrawlerLimits(PropertyType):
 
 @dataclass
 class WebDataSourceConfiguration(PropertyType):
-    SOURCE_CONFIGURATION = "SourceConfiguration"
-    CRAWLER_CONFIGURATION = "CrawlerConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -584,8 +458,6 @@ class WebDataSourceConfiguration(PropertyType):
 
 @dataclass
 class WebSourceConfiguration(PropertyType):
-    URL_CONFIGURATION = "UrlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_configuration": "UrlConfiguration",
     }

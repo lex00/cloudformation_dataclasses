@@ -11,15 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class RelationalDatabaseParameter(PropertyType):
-    APPLY_METHOD = "ApplyMethod"
-    IS_MODIFIABLE = "IsModifiable"
-    APPLY_TYPE = "ApplyType"
-    ALLOWED_VALUES = "AllowedValues"
-    DESCRIPTION = "Description"
-    PARAMETER_VALUE = "ParameterValue"
-    DATA_TYPE = "DataType"
-    PARAMETER_NAME = "ParameterName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_method": "ApplyMethod",
         "is_modifiable": "IsModifiable",

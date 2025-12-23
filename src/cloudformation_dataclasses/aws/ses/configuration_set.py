@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DashboardOptions(PropertyType):
-    ENGAGEMENT_METRICS = "EngagementMetrics"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engagement_metrics": "EngagementMetrics",
     }
@@ -22,10 +20,6 @@ class DashboardOptions(PropertyType):
 
 @dataclass
 class DeliveryOptions(PropertyType):
-    MAX_DELIVERY_SECONDS = "MaxDeliverySeconds"
-    SENDING_POOL_NAME = "SendingPoolName"
-    TLS_POLICY = "TlsPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_delivery_seconds": "MaxDeliverySeconds",
         "sending_pool_name": "SendingPoolName",
@@ -39,8 +33,6 @@ class DeliveryOptions(PropertyType):
 
 @dataclass
 class GuardianOptions(PropertyType):
-    OPTIMIZED_SHARED_DELIVERY = "OptimizedSharedDelivery"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_shared_delivery": "OptimizedSharedDelivery",
     }
@@ -50,8 +42,6 @@ class GuardianOptions(PropertyType):
 
 @dataclass
 class ReputationOptions(PropertyType):
-    REPUTATION_METRICS_ENABLED = "ReputationMetricsEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reputation_metrics_enabled": "ReputationMetricsEnabled",
     }
@@ -61,8 +51,6 @@ class ReputationOptions(PropertyType):
 
 @dataclass
 class SendingOptions(PropertyType):
-    SENDING_ENABLED = "SendingEnabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_enabled": "SendingEnabled",
     }
@@ -72,8 +60,6 @@ class SendingOptions(PropertyType):
 
 @dataclass
 class SuppressionOptions(PropertyType):
-    SUPPRESSED_REASONS = "SuppressedReasons"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suppressed_reasons": "SuppressedReasons",
     }
@@ -83,9 +69,6 @@ class SuppressionOptions(PropertyType):
 
 @dataclass
 class TrackingOptions(PropertyType):
-    HTTPS_POLICY = "HttpsPolicy"
-    CUSTOM_REDIRECT_DOMAIN = "CustomRedirectDomain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_policy": "HttpsPolicy",
         "custom_redirect_domain": "CustomRedirectDomain",
@@ -97,9 +80,6 @@ class TrackingOptions(PropertyType):
 
 @dataclass
 class VdmOptions(PropertyType):
-    DASHBOARD_OPTIONS = "DashboardOptions"
-    GUARDIAN_OPTIONS = "GuardianOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_options": "DashboardOptions",
         "guardian_options": "GuardianOptions",

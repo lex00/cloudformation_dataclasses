@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Dimension(PropertyType):
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -25,13 +22,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class MetricTransformation(PropertyType):
-    DEFAULT_VALUE = "DefaultValue"
-    METRIC_NAME = "MetricName"
-    METRIC_VALUE = "MetricValue"
-    METRIC_NAMESPACE = "MetricNamespace"
-    DIMENSIONS = "Dimensions"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "metric_name": "MetricName",

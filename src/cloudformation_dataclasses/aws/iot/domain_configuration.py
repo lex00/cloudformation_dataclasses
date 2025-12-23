@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuthorizerConfig(PropertyType):
-    DEFAULT_AUTHORIZER_NAME = "DefaultAuthorizerName"
-    ALLOW_AUTHORIZER_OVERRIDE = "AllowAuthorizerOverride"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_authorizer_name": "DefaultAuthorizerName",
         "allow_authorizer_override": "AllowAuthorizerOverride",
@@ -25,8 +22,6 @@ class AuthorizerConfig(PropertyType):
 
 @dataclass
 class ClientCertificateConfig(PropertyType):
-    CLIENT_CERTIFICATE_CALLBACK_ARN = "ClientCertificateCallbackArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_certificate_callback_arn": "ClientCertificateCallbackArn",
     }
@@ -36,10 +31,6 @@ class ClientCertificateConfig(PropertyType):
 
 @dataclass
 class ServerCertificateConfig(PropertyType):
-    ENABLE_OCSP_CHECK = "EnableOCSPCheck"
-    OCSP_LAMBDA_ARN = "OcspLambdaArn"
-    OCSP_AUTHORIZED_RESPONDER_ARN = "OcspAuthorizedResponderArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_ocsp_check": "EnableOCSPCheck",
         "ocsp_lambda_arn": "OcspLambdaArn",
@@ -53,10 +44,6 @@ class ServerCertificateConfig(PropertyType):
 
 @dataclass
 class ServerCertificateSummary(PropertyType):
-    SERVER_CERTIFICATE_STATUS_DETAIL = "ServerCertificateStatusDetail"
-    SERVER_CERTIFICATE_ARN = "ServerCertificateArn"
-    SERVER_CERTIFICATE_STATUS = "ServerCertificateStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_certificate_status_detail": "ServerCertificateStatusDetail",
         "server_certificate_arn": "ServerCertificateArn",
@@ -70,8 +57,6 @@ class ServerCertificateSummary(PropertyType):
 
 @dataclass
 class TlsConfig(PropertyType):
-    SECURITY_POLICY = "SecurityPolicy"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_policy": "SecurityPolicy",
     }

@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Schema(PropertyType):
-    REGISTRY_NAME = "RegistryName"
-    SCHEMA_ARN = "SchemaArn"
-    SCHEMA_NAME = "SchemaName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_name": "RegistryName",
         "schema_arn": "SchemaArn",

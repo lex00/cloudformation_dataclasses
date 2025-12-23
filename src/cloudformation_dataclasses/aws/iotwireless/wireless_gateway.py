@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWANGateway(PropertyType):
-    RF_REGION = "RfRegion"
-    GATEWAY_EUI = "GatewayEui"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rf_region": "RfRegion",
         "gateway_eui": "GatewayEui",

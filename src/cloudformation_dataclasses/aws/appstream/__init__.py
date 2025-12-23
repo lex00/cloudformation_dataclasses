@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:43
+  Generated: 2025-12-22 19:26:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppStream
@@ -635,15 +635,6 @@ class AppBlock(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::AppBlock"
     name_field: ClassVar[str] = "name"
-    SETUP_SCRIPT_DETAILS = "SetupScriptDetails"
-    DESCRIPTION = "Description"
-    POST_SETUP_SCRIPT_DETAILS = "PostSetupScriptDetails"
-    DISPLAY_NAME = "DisplayName"
-    SOURCE_S3_LOCATION = "SourceS3Location"
-    TAGS = "Tags"
-    PACKAGING_TYPE = "PackagingType"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "setup_script_details": "SetupScriptDetails",
         "description": "Description",
@@ -682,18 +673,6 @@ class AppBlockBuilder(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::AppBlockBuilder"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    PLATFORM = "Platform"
-    VPC_CONFIG = "VpcConfig"
-    APP_BLOCK_ARNS = "AppBlockArns"
-    ENABLE_DEFAULT_INTERNET_ACCESS = "EnableDefaultInternetAccess"
-    DISPLAY_NAME = "DisplayName"
-    IAM_ROLE_ARN = "IamRoleArn"
-    INSTANCE_TYPE = "InstanceType"
-    TAGS = "Tags"
-    NAME = "Name"
-    ACCESS_ENDPOINTS = "AccessEndpoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "platform": "Platform",
@@ -738,19 +717,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::Application"
     name_field: ClassVar[str] = "name"
-    WORKING_DIRECTORY = "WorkingDirectory"
-    PLATFORMS = "Platforms"
-    APP_BLOCK_ARN = "AppBlockArn"
-    DESCRIPTION = "Description"
-    INSTANCE_FAMILIES = "InstanceFamilies"
-    ATTRIBUTES_TO_DELETE = "AttributesToDelete"
-    DISPLAY_NAME = "DisplayName"
-    LAUNCH_PATH = "LaunchPath"
-    LAUNCH_PARAMETERS = "LaunchParameters"
-    TAGS = "Tags"
-    NAME = "Name"
-    ICON_S3_LOCATION = "IconS3Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "working_directory": "WorkingDirectory",
         "platforms": "Platforms",
@@ -797,10 +763,6 @@ class ApplicationEntitlementAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::ApplicationEntitlementAssociation"
     name_field: ClassVar[str] = "stack_name"
-    ENTITLEMENT_NAME = "EntitlementName"
-    APPLICATION_IDENTIFIER = "ApplicationIdentifier"
-    STACK_NAME = "StackName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entitlement_name": "EntitlementName",
         "application_identifier": "ApplicationIdentifier",
@@ -818,9 +780,6 @@ class ApplicationFleetAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::ApplicationFleetAssociation"
     name_field: ClassVar[str] = "fleet_name"
-    FLEET_NAME = "FleetName"
-    APPLICATION_ARN = "ApplicationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_name": "FleetName",
         "application_arn": "ApplicationArn",
@@ -836,11 +795,6 @@ class DirectoryConfig(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::DirectoryConfig"
     name_field: ClassVar[str] = "directory_name"
-    ORGANIZATIONAL_UNIT_DISTINGUISHED_NAMES = "OrganizationalUnitDistinguishedNames"
-    SERVICE_ACCOUNT_CREDENTIALS = "ServiceAccountCredentials"
-    CERTIFICATE_BASED_AUTH_PROPERTIES = "CertificateBasedAuthProperties"
-    DIRECTORY_NAME = "DirectoryName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_distinguished_names": "OrganizationalUnitDistinguishedNames",
         "service_account_credentials": "ServiceAccountCredentials",
@@ -860,12 +814,6 @@ class Entitlement(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::Entitlement"
     name_field: ClassVar[str] = "name"
-    APP_VISIBILITY = "AppVisibility"
-    DESCRIPTION = "Description"
-    ATTRIBUTES = "Attributes"
-    STACK_NAME = "StackName"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_visibility": "AppVisibility",
         "description": "Description",
@@ -898,29 +846,6 @@ class Fleet(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::Fleet"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    COMPUTE_CAPACITY = "ComputeCapacity"
-    PLATFORM = "Platform"
-    VPC_CONFIG = "VpcConfig"
-    FLEET_TYPE = "FleetType"
-    ENABLE_DEFAULT_INTERNET_ACCESS = "EnableDefaultInternetAccess"
-    DOMAIN_JOIN_INFO = "DomainJoinInfo"
-    SESSION_SCRIPT_S3_LOCATION = "SessionScriptS3Location"
-    NAME = "Name"
-    IMAGE_NAME = "ImageName"
-    MAX_USER_DURATION_IN_SECONDS = "MaxUserDurationInSeconds"
-    IDLE_DISCONNECT_TIMEOUT_IN_SECONDS = "IdleDisconnectTimeoutInSeconds"
-    USB_DEVICE_FILTER_STRINGS = "UsbDeviceFilterStrings"
-    DISCONNECT_TIMEOUT_IN_SECONDS = "DisconnectTimeoutInSeconds"
-    DISPLAY_NAME = "DisplayName"
-    STREAM_VIEW = "StreamView"
-    IAM_ROLE_ARN = "IamRoleArn"
-    MAX_SESSIONS_PER_INSTANCE = "MaxSessionsPerInstance"
-    INSTANCE_TYPE = "InstanceType"
-    MAX_CONCURRENT_SESSIONS = "MaxConcurrentSessions"
-    TAGS = "Tags"
-    IMAGE_ARN = "ImageArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "compute_capacity": "ComputeCapacity",
@@ -976,20 +901,6 @@ class ImageBuilder(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::ImageBuilder"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    VPC_CONFIG = "VpcConfig"
-    ENABLE_DEFAULT_INTERNET_ACCESS = "EnableDefaultInternetAccess"
-    DOMAIN_JOIN_INFO = "DomainJoinInfo"
-    APPSTREAM_AGENT_VERSION = "AppstreamAgentVersion"
-    NAME = "Name"
-    IMAGE_NAME = "ImageName"
-    DISPLAY_NAME = "DisplayName"
-    IAM_ROLE_ARN = "IamRoleArn"
-    INSTANCE_TYPE = "InstanceType"
-    TAGS = "Tags"
-    IMAGE_ARN = "ImageArn"
-    ACCESS_ENDPOINTS = "AccessEndpoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "vpc_config": "VpcConfig",
@@ -1033,21 +944,6 @@ class Stack(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::Stack"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    STORAGE_CONNECTORS = "StorageConnectors"
-    DELETE_STORAGE_CONNECTORS = "DeleteStorageConnectors"
-    EMBED_HOST_DOMAINS = "EmbedHostDomains"
-    USER_SETTINGS = "UserSettings"
-    ATTRIBUTES_TO_DELETE = "AttributesToDelete"
-    REDIRECT_URL = "RedirectURL"
-    STREAMING_EXPERIENCE_SETTINGS = "StreamingExperienceSettings"
-    NAME = "Name"
-    FEEDBACK_URL = "FeedbackURL"
-    APPLICATION_SETTINGS = "ApplicationSettings"
-    DISPLAY_NAME = "DisplayName"
-    TAGS = "Tags"
-    ACCESS_ENDPOINTS = "AccessEndpoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "storage_connectors": "StorageConnectors",
@@ -1087,9 +983,6 @@ class StackFleetAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::StackFleetAssociation"
     name_field: ClassVar[str] = "fleet_name"
-    FLEET_NAME = "FleetName"
-    STACK_NAME = "StackName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_name": "FleetName",
         "stack_name": "StackName",
@@ -1105,11 +998,6 @@ class StackUserAssociation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::StackUserAssociation"
     name_field: ClassVar[str] = "user_name"
-    SEND_EMAIL_NOTIFICATION = "SendEmailNotification"
-    USER_NAME = "UserName"
-    STACK_NAME = "StackName"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "send_email_notification": "SendEmailNotification",
         "user_name": "UserName",
@@ -1129,12 +1017,6 @@ class User(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::AppStream::User"
     name_field: ClassVar[str] = "user_name"
-    USER_NAME = "UserName"
-    FIRST_NAME = "FirstName"
-    MESSAGE_ACTION = "MessageAction"
-    LAST_NAME = "LastName"
-    AUTHENTICATION_TYPE = "AuthenticationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_name": "UserName",
         "first_name": "FirstName",

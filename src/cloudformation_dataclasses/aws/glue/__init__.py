@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:58
+  Generated: 2025-12-22 19:26:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Glue
@@ -2051,11 +2051,6 @@ class Classifier(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Classifier"
-    XML_CLASSIFIER = "XMLClassifier"
-    JSON_CLASSIFIER = "JsonClassifier"
-    CSV_CLASSIFIER = "CsvClassifier"
-    GROK_CLASSIFIER = "GrokClassifier"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "xml_classifier": "XMLClassifier",
         "json_classifier": "JsonClassifier",
@@ -2074,9 +2069,6 @@ class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Connection"
-    CONNECTION_INPUT = "ConnectionInput"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_input": "ConnectionInput",
         "catalog_id": "CatalogId",
@@ -2092,21 +2084,6 @@ class Crawler(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Crawler"
     name_field: ClassVar[str] = "name"
-    CLASSIFIERS = "Classifiers"
-    DESCRIPTION = "Description"
-    SCHEMA_CHANGE_POLICY = "SchemaChangePolicy"
-    CONFIGURATION = "Configuration"
-    RECRAWL_POLICY = "RecrawlPolicy"
-    DATABASE_NAME = "DatabaseName"
-    TARGETS = "Targets"
-    CRAWLER_SECURITY_CONFIGURATION = "CrawlerSecurityConfiguration"
-    NAME = "Name"
-    ROLE = "Role"
-    LAKE_FORMATION_CONFIGURATION = "LakeFormationConfiguration"
-    SCHEDULE = "Schedule"
-    TABLE_PREFIX = "TablePrefix"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classifiers": "Classifiers",
         "description": "Description",
@@ -2146,11 +2123,6 @@ class CustomEntityType(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::CustomEntityType"
     name_field: ClassVar[str] = "name"
-    CONTEXT_WORDS = "ContextWords"
-    REGEX_STRING = "RegexString"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context_words": "ContextWords",
         "regex_string": "RegexString",
@@ -2169,9 +2141,6 @@ class DataCatalogEncryptionSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::DataCatalogEncryptionSettings"
-    DATA_CATALOG_ENCRYPTION_SETTINGS = "DataCatalogEncryptionSettings"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_catalog_encryption_settings": "DataCatalogEncryptionSettings",
         "catalog_id": "CatalogId",
@@ -2187,13 +2156,6 @@ class DataQualityRuleset(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::DataQualityRuleset"
     name_field: ClassVar[str] = "name"
-    RULESET = "Ruleset"
-    DESCRIPTION = "Description"
-    TARGET_TABLE = "TargetTable"
-    CLIENT_TOKEN = "ClientToken"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ruleset": "Ruleset",
         "description": "Description",
@@ -2217,10 +2179,6 @@ class Database(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Database"
     name_field: ClassVar[str] = "database_name"
-    DATABASE_NAME = "DatabaseName"
-    DATABASE_INPUT = "DatabaseInput"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "database_input": "DatabaseInput",
@@ -2238,22 +2196,6 @@ class DevEndpoint(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::DevEndpoint"
     name_field: ClassVar[str] = "endpoint_name"
-    EXTRA_JARS_S3_PATH = "ExtraJarsS3Path"
-    PUBLIC_KEY = "PublicKey"
-    NUMBER_OF_NODES = "NumberOfNodes"
-    ARGUMENTS = "Arguments"
-    SUBNET_ID = "SubnetId"
-    PUBLIC_KEYS = "PublicKeys"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ROLE_ARN = "RoleArn"
-    WORKER_TYPE = "WorkerType"
-    ENDPOINT_NAME = "EndpointName"
-    GLUE_VERSION = "GlueVersion"
-    EXTRA_PYTHON_LIBS_S3_PATH = "ExtraPythonLibsS3Path"
-    SECURITY_CONFIGURATION = "SecurityConfiguration"
-    NUMBER_OF_WORKERS = "NumberOfWorkers"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extra_jars_s3_path": "ExtraJarsS3Path",
         "public_key": "PublicKey",
@@ -2294,10 +2236,6 @@ class IdentityCenterConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::IdentityCenterConfiguration"
-    USER_BACKGROUND_SESSIONS_ENABLED = "UserBackgroundSessionsEnabled"
-    SCOPES = "Scopes"
-    INSTANCE_ARN = "InstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_background_sessions_enabled": "UserBackgroundSessionsEnabled",
         "scopes": "Scopes",
@@ -2326,16 +2264,6 @@ class Integration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Integration"
     name_field: ClassVar[str] = "integration_name"
-    DATA_FILTER = "DataFilter"
-    INTEGRATION_NAME = "IntegrationName"
-    DESCRIPTION = "Description"
-    SOURCE_ARN = "SourceArn"
-    INTEGRATION_CONFIG = "IntegrationConfig"
-    KMS_KEY_ID = "KmsKeyId"
-    TARGET_ARN = "TargetArn"
-    ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_filter": "DataFilter",
         "integration_name": "IntegrationName",
@@ -2380,11 +2308,6 @@ class IntegrationResourceProperty(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::IntegrationResourceProperty"
-    RESOURCE_ARN = "ResourceArn"
-    TARGET_PROCESSING_PROPERTIES = "TargetProcessingProperties"
-    SOURCE_PROCESSING_PROPERTIES = "SourceProcessingProperties"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "target_processing_properties": "TargetProcessingProperties",
@@ -2410,30 +2333,6 @@ class Job(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Job"
     name_field: ClassVar[str] = "name"
-    CONNECTIONS = "Connections"
-    MAX_RETRIES = "MaxRetries"
-    JOB_MODE = "JobMode"
-    DESCRIPTION = "Description"
-    TIMEOUT = "Timeout"
-    ALLOCATED_CAPACITY = "AllocatedCapacity"
-    JOB_RUN_QUEUING_ENABLED = "JobRunQueuingEnabled"
-    NAME = "Name"
-    ROLE = "Role"
-    DEFAULT_ARGUMENTS = "DefaultArguments"
-    NOTIFICATION_PROPERTY = "NotificationProperty"
-    WORKER_TYPE = "WorkerType"
-    EXECUTION_CLASS = "ExecutionClass"
-    LOG_URI = "LogUri"
-    COMMAND = "Command"
-    GLUE_VERSION = "GlueVersion"
-    EXECUTION_PROPERTY = "ExecutionProperty"
-    SECURITY_CONFIGURATION = "SecurityConfiguration"
-    MAINTENANCE_WINDOW = "MaintenanceWindow"
-    NUMBER_OF_WORKERS = "NumberOfWorkers"
-    TAGS = "Tags"
-    MAX_CAPACITY = "MaxCapacity"
-    NON_OVERRIDABLE_ARGUMENTS = "NonOverridableArguments"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
         "max_retries": "MaxRetries",
@@ -2491,20 +2390,6 @@ class MLTransform(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::MLTransform"
     name_field: ClassVar[str] = "name"
-    MAX_RETRIES = "MaxRetries"
-    DESCRIPTION = "Description"
-    TRANSFORM_ENCRYPTION = "TransformEncryption"
-    TIMEOUT = "Timeout"
-    NAME = "Name"
-    ROLE = "Role"
-    WORKER_TYPE = "WorkerType"
-    GLUE_VERSION = "GlueVersion"
-    TRANSFORM_PARAMETERS = "TransformParameters"
-    INPUT_RECORD_TABLES = "InputRecordTables"
-    NUMBER_OF_WORKERS = "NumberOfWorkers"
-    TAGS = "Tags"
-    MAX_CAPACITY = "MaxCapacity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "description": "Description",
@@ -2542,11 +2427,6 @@ class Partition(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Partition"
     name_field: ClassVar[str] = "table_name"
-    TABLE_NAME = "TableName"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    PARTITION_INPUT = "PartitionInput"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -2566,10 +2446,6 @@ class Registry(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Registry"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tags": "Tags",
@@ -2593,15 +2469,6 @@ class Schema(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Schema"
     name_field: ClassVar[str] = "name"
-    SCHEMA_DEFINITION = "SchemaDefinition"
-    DESCRIPTION = "Description"
-    DATA_FORMAT = "DataFormat"
-    REGISTRY = "Registry"
-    COMPATIBILITY = "Compatibility"
-    TAGS = "Tags"
-    NAME = "Name"
-    CHECKPOINT_VERSION = "CheckpointVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_definition": "SchemaDefinition",
         "description": "Description",
@@ -2639,9 +2506,6 @@ class SchemaVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::SchemaVersion"
-    SCHEMA_DEFINITION = "SchemaDefinition"
-    SCHEMA = "Schema"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_definition": "SchemaDefinition",
         "schema": "Schema",
@@ -2662,10 +2526,6 @@ class SchemaVersionMetadata(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::SchemaVersionMetadata"
-    SCHEMA_VERSION_ID = "SchemaVersionId"
-    VALUE = "Value"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_version_id": "SchemaVersionId",
         "value": "Value",
@@ -2683,9 +2543,6 @@ class SecurityConfiguration(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::SecurityConfiguration"
     name_field: ClassVar[str] = "name"
-    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "name": "Name",
@@ -2701,11 +2558,6 @@ class Table(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Table"
     name_field: ClassVar[str] = "database_name"
-    TABLE_INPUT = "TableInput"
-    OPEN_TABLE_FORMAT_INPUT = "OpenTableFormatInput"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_input": "TableInput",
         "open_table_format_input": "OpenTableFormatInput",
@@ -2725,12 +2577,6 @@ class TableOptimizer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::TableOptimizer"
     name_field: ClassVar[str] = "table_name"
-    TABLE_NAME = "TableName"
-    TYPE = "Type"
-    DATABASE_NAME = "DatabaseName"
-    TABLE_OPTIMIZER_CONFIGURATION = "TableOptimizerConfiguration"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "type_": "Type",
@@ -2752,17 +2598,6 @@ class Trigger(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Trigger"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    START_ON_CREATION = "StartOnCreation"
-    DESCRIPTION = "Description"
-    ACTIONS = "Actions"
-    EVENT_BATCHING_CONDITION = "EventBatchingCondition"
-    WORKFLOW_NAME = "WorkflowName"
-    SCHEDULE = "Schedule"
-    TAGS = "Tags"
-    NAME = "Name"
-    PREDICATE = "Predicate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "start_on_creation": "StartOnCreation",
@@ -2794,11 +2629,6 @@ class UsageProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::UsageProfile"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONFIGURATION = "Configuration"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "configuration": "Configuration",
@@ -2824,12 +2654,6 @@ class Workflow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Glue::Workflow"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    DEFAULT_RUN_PROPERTIES = "DefaultRunProperties"
-    TAGS = "Tags"
-    NAME = "Name"
-    MAX_CONCURRENT_RUNS = "MaxConcurrentRuns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "default_run_properties": "DefaultRunProperties",

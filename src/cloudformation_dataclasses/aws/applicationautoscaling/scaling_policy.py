@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CustomizedMetricSpecification(PropertyType):
-    METRIC_NAME = "MetricName"
-    METRICS = "Metrics"
-    STATISTIC = "Statistic"
-    DIMENSIONS = "Dimensions"
-    UNIT = "Unit"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metrics": "Metrics",
@@ -37,9 +30,6 @@ class CustomizedMetricSpecification(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -51,9 +41,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class PredefinedMetricSpecification(PropertyType):
-    PREDEFINED_METRIC_TYPE = "PredefinedMetricType"
-    RESOURCE_LABEL = "ResourceLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -65,8 +52,6 @@ class PredefinedMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedCapacityMetric(PropertyType):
-    METRIC_DATA_QUERIES = "MetricDataQueries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -76,8 +61,6 @@ class PredictiveScalingCustomizedCapacityMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedLoadMetric(PropertyType):
-    METRIC_DATA_QUERIES = "MetricDataQueries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -87,8 +70,6 @@ class PredictiveScalingCustomizedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedScalingMetric(PropertyType):
-    METRIC_DATA_QUERIES = "MetricDataQueries"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -98,10 +79,6 @@ class PredictiveScalingCustomizedScalingMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingMetric(PropertyType):
-    METRIC_NAME = "MetricName"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -115,12 +92,6 @@ class PredictiveScalingMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricDataQuery(PropertyType):
-    RETURN_DATA = "ReturnData"
-    EXPRESSION = "Expression"
-    LABEL = "Label"
-    METRIC_STAT = "MetricStat"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -138,9 +109,6 @@ class PredictiveScalingMetricDataQuery(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricDimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -152,14 +120,6 @@ class PredictiveScalingMetricDimension(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricSpecification(PropertyType):
-    CUSTOMIZED_LOAD_METRIC_SPECIFICATION = "CustomizedLoadMetricSpecification"
-    PREDEFINED_LOAD_METRIC_SPECIFICATION = "PredefinedLoadMetricSpecification"
-    TARGET_VALUE = "TargetValue"
-    PREDEFINED_SCALING_METRIC_SPECIFICATION = "PredefinedScalingMetricSpecification"
-    CUSTOMIZED_CAPACITY_METRIC_SPECIFICATION = "CustomizedCapacityMetricSpecification"
-    CUSTOMIZED_SCALING_METRIC_SPECIFICATION = "CustomizedScalingMetricSpecification"
-    PREDEFINED_METRIC_PAIR_SPECIFICATION = "PredefinedMetricPairSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customized_load_metric_specification": "CustomizedLoadMetricSpecification",
         "predefined_load_metric_specification": "PredefinedLoadMetricSpecification",
@@ -181,10 +141,6 @@ class PredictiveScalingMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricStat(PropertyType):
-    STAT = "Stat"
-    METRIC = "Metric"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "metric": "Metric",
@@ -198,12 +154,6 @@ class PredictiveScalingMetricStat(PropertyType):
 
 @dataclass
 class PredictiveScalingPolicyConfiguration(PropertyType):
-    MAX_CAPACITY_BREACH_BEHAVIOR = "MaxCapacityBreachBehavior"
-    MAX_CAPACITY_BUFFER = "MaxCapacityBuffer"
-    MODE = "Mode"
-    METRIC_SPECIFICATIONS = "MetricSpecifications"
-    SCHEDULING_BUFFER_TIME = "SchedulingBufferTime"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_capacity_breach_behavior": "MaxCapacityBreachBehavior",
         "max_capacity_buffer": "MaxCapacityBuffer",
@@ -221,9 +171,6 @@ class PredictiveScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedLoadMetric(PropertyType):
-    PREDEFINED_METRIC_TYPE = "PredefinedMetricType"
-    RESOURCE_LABEL = "ResourceLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -235,9 +182,6 @@ class PredictiveScalingPredefinedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedMetricPair(PropertyType):
-    PREDEFINED_METRIC_TYPE = "PredefinedMetricType"
-    RESOURCE_LABEL = "ResourceLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -249,9 +193,6 @@ class PredictiveScalingPredefinedMetricPair(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedScalingMetric(PropertyType):
-    PREDEFINED_METRIC_TYPE = "PredefinedMetricType"
-    RESOURCE_LABEL = "ResourceLabel"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -263,10 +204,6 @@ class PredictiveScalingPredefinedScalingMetric(PropertyType):
 
 @dataclass
 class StepAdjustment(PropertyType):
-    METRIC_INTERVAL_UPPER_BOUND = "MetricIntervalUpperBound"
-    METRIC_INTERVAL_LOWER_BOUND = "MetricIntervalLowerBound"
-    SCALING_ADJUSTMENT = "ScalingAdjustment"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_interval_upper_bound": "MetricIntervalUpperBound",
         "metric_interval_lower_bound": "MetricIntervalLowerBound",
@@ -280,12 +217,6 @@ class StepAdjustment(PropertyType):
 
 @dataclass
 class StepScalingPolicyConfiguration(PropertyType):
-    METRIC_AGGREGATION_TYPE = "MetricAggregationType"
-    COOLDOWN = "Cooldown"
-    STEP_ADJUSTMENTS = "StepAdjustments"
-    MIN_ADJUSTMENT_MAGNITUDE = "MinAdjustmentMagnitude"
-    ADJUSTMENT_TYPE = "AdjustmentType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_aggregation_type": "MetricAggregationType",
         "cooldown": "Cooldown",
@@ -303,10 +234,6 @@ class StepScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class TargetTrackingMetric(PropertyType):
-    METRIC_NAME = "MetricName"
-    DIMENSIONS = "Dimensions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -320,12 +247,6 @@ class TargetTrackingMetric(PropertyType):
 
 @dataclass
 class TargetTrackingMetricDataQuery(PropertyType):
-    RETURN_DATA = "ReturnData"
-    EXPRESSION = "Expression"
-    LABEL = "Label"
-    METRIC_STAT = "MetricStat"
-    ID = "Id"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -343,9 +264,6 @@ class TargetTrackingMetricDataQuery(PropertyType):
 
 @dataclass
 class TargetTrackingMetricDimension(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -357,10 +275,6 @@ class TargetTrackingMetricDimension(PropertyType):
 
 @dataclass
 class TargetTrackingMetricStat(PropertyType):
-    STAT = "Stat"
-    METRIC = "Metric"
-    UNIT = "Unit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "metric": "Metric",
@@ -374,13 +288,6 @@ class TargetTrackingMetricStat(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicyConfiguration(PropertyType):
-    SCALE_OUT_COOLDOWN = "ScaleOutCooldown"
-    TARGET_VALUE = "TargetValue"
-    CUSTOMIZED_METRIC_SPECIFICATION = "CustomizedMetricSpecification"
-    DISABLE_SCALE_IN = "DisableScaleIn"
-    SCALE_IN_COOLDOWN = "ScaleInCooldown"
-    PREDEFINED_METRIC_SPECIFICATION = "PredefinedMetricSpecification"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",

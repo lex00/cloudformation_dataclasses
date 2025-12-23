@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HlsIngest(PropertyType):
-    INGEST_ENDPOINTS = "ingestEndpoints"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ingest_endpoints": "ingestEndpoints",
     }
@@ -22,11 +20,6 @@ class HlsIngest(PropertyType):
 
 @dataclass
 class IngestEndpoint(PropertyType):
-    USERNAME = "Username"
-    ID = "Id"
-    URL = "Url"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "id": "Id",
@@ -42,8 +35,6 @@ class IngestEndpoint(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    LOG_GROUP_NAME = "LogGroupName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }

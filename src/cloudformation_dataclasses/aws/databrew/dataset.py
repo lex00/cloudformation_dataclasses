@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CsvOptions(PropertyType):
-    DELIMITER = "Delimiter"
-    HEADER_ROW = "HeaderRow"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "header_row": "HeaderRow",
@@ -25,11 +22,6 @@ class CsvOptions(PropertyType):
 
 @dataclass
 class DataCatalogInputDefinition(PropertyType):
-    TABLE_NAME = "TableName"
-    TEMP_DIRECTORY = "TempDirectory"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "temp_directory": "TempDirectory",
@@ -45,11 +37,6 @@ class DataCatalogInputDefinition(PropertyType):
 
 @dataclass
 class DatabaseInputDefinition(PropertyType):
-    TEMP_DIRECTORY = "TempDirectory"
-    QUERY_STRING = "QueryString"
-    GLUE_CONNECTION_NAME = "GlueConnectionName"
-    DATABASE_TABLE_NAME = "DatabaseTableName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temp_directory": "TempDirectory",
         "query_string": "QueryString",
@@ -65,12 +52,6 @@ class DatabaseInputDefinition(PropertyType):
 
 @dataclass
 class DatasetParameter(PropertyType):
-    TYPE = "Type"
-    DATETIME_OPTIONS = "DatetimeOptions"
-    FILTER = "Filter"
-    CREATE_COLUMN = "CreateColumn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "datetime_options": "DatetimeOptions",
@@ -88,10 +69,6 @@ class DatasetParameter(PropertyType):
 
 @dataclass
 class DatetimeOptions(PropertyType):
-    LOCALE_CODE = "LocaleCode"
-    FORMAT = "Format"
-    TIMEZONE_OFFSET = "TimezoneOffset"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_code": "LocaleCode",
         "format": "Format",
@@ -105,10 +82,6 @@ class DatetimeOptions(PropertyType):
 
 @dataclass
 class ExcelOptions(PropertyType):
-    HEADER_ROW = "HeaderRow"
-    SHEET_NAMES = "SheetNames"
-    SHEET_INDEXES = "SheetIndexes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_row": "HeaderRow",
         "sheet_names": "SheetNames",
@@ -122,10 +95,6 @@ class ExcelOptions(PropertyType):
 
 @dataclass
 class FilesLimit(PropertyType):
-    ORDER = "Order"
-    ORDERED_BY = "OrderedBy"
-    MAX_FILES = "MaxFiles"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "ordered_by": "OrderedBy",
@@ -139,9 +108,6 @@ class FilesLimit(PropertyType):
 
 @dataclass
 class FilterExpression(PropertyType):
-    EXPRESSION = "Expression"
-    VALUES_MAP = "ValuesMap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "values_map": "ValuesMap",
@@ -153,9 +119,6 @@ class FilterExpression(PropertyType):
 
 @dataclass
 class FilterValue(PropertyType):
-    VALUE = "Value"
-    VALUE_REFERENCE = "ValueReference"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "value_reference": "ValueReference",
@@ -167,10 +130,6 @@ class FilterValue(PropertyType):
 
 @dataclass
 class FormatOptions(PropertyType):
-    EXCEL = "Excel"
-    CSV = "Csv"
-    JSON = "Json"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excel": "Excel",
         "csv": "Csv",
@@ -184,11 +143,6 @@ class FormatOptions(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    DATABASE_INPUT_DEFINITION = "DatabaseInputDefinition"
-    S3_INPUT_DEFINITION = "S3InputDefinition"
-    METADATA = "Metadata"
-    DATA_CATALOG_INPUT_DEFINITION = "DataCatalogInputDefinition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_input_definition": "DatabaseInputDefinition",
         "s3_input_definition": "S3InputDefinition",
@@ -204,8 +158,6 @@ class Input(PropertyType):
 
 @dataclass
 class JsonOptions(PropertyType):
-    MULTI_LINE = "MultiLine"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_line": "MultiLine",
     }
@@ -215,8 +167,6 @@ class JsonOptions(PropertyType):
 
 @dataclass
 class Metadata(PropertyType):
-    SOURCE_ARN = "SourceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_arn": "SourceArn",
     }
@@ -226,10 +176,6 @@ class Metadata(PropertyType):
 
 @dataclass
 class PathOptions(PropertyType):
-    PARAMETERS = "Parameters"
-    LAST_MODIFIED_DATE_CONDITION = "LastModifiedDateCondition"
-    FILES_LIMIT = "FilesLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "last_modified_date_condition": "LastModifiedDateCondition",
@@ -243,9 +189,6 @@ class PathOptions(PropertyType):
 
 @dataclass
 class PathParameter(PropertyType):
-    PATH_PARAMETER_NAME = "PathParameterName"
-    DATASET_PARAMETER = "DatasetParameter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_name": "PathParameterName",
         "dataset_parameter": "DatasetParameter",
@@ -257,10 +200,6 @@ class PathParameter(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    BUCKET = "Bucket"
-    BUCKET_OWNER = "BucketOwner"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",

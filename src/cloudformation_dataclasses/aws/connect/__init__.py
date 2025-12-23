@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:50
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Connect
@@ -2584,15 +2584,6 @@ class AgentStatus(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::AgentStatus"
     name_field: ClassVar[str] = "name"
-    RESET_ORDER_NUMBER = "ResetOrderNumber"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    DISPLAY_ORDER = "DisplayOrder"
-    STATE = "State"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reset_order_number": "ResetOrderNumber",
         "type_": "Type",
@@ -2635,9 +2626,6 @@ class ApprovedOrigin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::ApprovedOrigin"
-    ORIGIN = "Origin"
-    INSTANCE_ID = "InstanceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "instance_id": "InstanceId",
@@ -2653,14 +2641,6 @@ class ContactFlow(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::ContactFlow"
     name_field: ClassVar[str] = "name"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    CONTENT = "Content"
-    STATE = "State"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -2692,13 +2672,6 @@ class ContactFlowModule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::ContactFlowModule"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    CONTENT = "Content"
-    STATE = "State"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "content": "Content",
@@ -2732,9 +2705,6 @@ class ContactFlowVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::ContactFlowVersion"
-    DESCRIPTION = "Description"
-    CONTACT_FLOW_ID = "ContactFlowId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "contact_flow_id": "ContactFlowId",
@@ -2766,14 +2736,6 @@ class DataTable(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::DataTable"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    VALUE_LOCK_LEVEL = "ValueLockLevel"
-    TIME_ZONE = "TimeZone"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "value_lock_level": "ValueLockLevel",
@@ -2830,14 +2792,6 @@ class DataTableAttribute(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::DataTableAttribute"
     name_field: ClassVar[str] = "name"
-    VALIDATION = "Validation"
-    DESCRIPTION = "Description"
-    VALUE_TYPE = "ValueType"
-    INSTANCE_ARN = "InstanceArn"
-    PRIMARY = "Primary"
-    DATA_TABLE_ARN = "DataTableArn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "description": "Description",
@@ -2893,10 +2847,6 @@ class DataTableRecord(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::DataTableRecord"
-    DATA_TABLE_RECORD = "DataTableRecord"
-    INSTANCE_ARN = "InstanceArn"
-    DATA_TABLE_ARN = "DataTableArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table_record": "DataTableRecord",
         "instance_arn": "InstanceArn",
@@ -2920,13 +2870,6 @@ class EmailAddress(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::EmailAddress"
     name_field: ClassVar[str] = "display_name"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    DISPLAY_NAME = "DisplayName"
-    EMAIL_ADDRESS = "EmailAddress"
-    TAGS = "Tags"
-    ALIAS_CONFIGURATIONS = "AliasConfigurations"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "instance_arn": "InstanceArn",
@@ -2955,17 +2898,6 @@ class EvaluationForm(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::EvaluationForm"
-    SCORING_STRATEGY = "ScoringStrategy"
-    STATUS = "Status"
-    AUTO_EVALUATION_CONFIGURATION = "AutoEvaluationConfiguration"
-    DESCRIPTION = "Description"
-    TARGET_CONFIGURATION = "TargetConfiguration"
-    INSTANCE_ARN = "InstanceArn"
-    TITLE = "Title"
-    ITEMS = "Items"
-    LANGUAGE_CONFIGURATION = "LanguageConfiguration"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scoring_strategy": "ScoringStrategy",
         "status": "Status",
@@ -3003,14 +2935,6 @@ class HoursOfOperation(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::HoursOfOperation"
     name_field: ClassVar[str] = "name"
-    TIME_ZONE = "TimeZone"
-    DESCRIPTION = "Description"
-    CONFIG = "Config"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    HOURS_OF_OPERATION_OVERRIDES = "HoursOfOperationOverrides"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_zone": "TimeZone",
         "description": "Description",
@@ -3041,12 +2965,6 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::Instance"
-    DIRECTORY_ID = "DirectoryId"
-    IDENTITY_MANAGEMENT_TYPE = "IdentityManagementType"
-    INSTANCE_ALIAS = "InstanceAlias"
-    ATTRIBUTES = "Attributes"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_id": "DirectoryId",
         "identity_management_type": "IdentityManagementType",
@@ -3093,14 +3011,6 @@ class InstanceStorageConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::InstanceStorageConfig"
-    KINESIS_STREAM_CONFIG = "KinesisStreamConfig"
-    S3_CONFIG = "S3Config"
-    STORAGE_TYPE = "StorageType"
-    INSTANCE_ARN = "InstanceArn"
-    RESOURCE_TYPE = "ResourceType"
-    KINESIS_VIDEO_STREAM_CONFIG = "KinesisVideoStreamConfig"
-    KINESIS_FIREHOSE_CONFIG = "KinesisFirehoseConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_config": "KinesisStreamConfig",
         "s3_config": "S3Config",
@@ -3131,10 +3041,6 @@ class IntegrationAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::IntegrationAssociation"
-    INTEGRATION_ARN = "IntegrationArn"
-    INSTANCE_ID = "InstanceId"
-    INTEGRATION_TYPE = "IntegrationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration_arn": "IntegrationArn",
         "instance_id": "InstanceId",
@@ -3157,14 +3063,6 @@ class PhoneNumber(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::PhoneNumber"
-    TYPE = "Type"
-    DESCRIPTION = "Description"
-    TARGET_ARN = "TargetArn"
-    PREFIX = "Prefix"
-    COUNTRY_CODE = "CountryCode"
-    SOURCE_PHONE_NUMBER_ARN = "SourcePhoneNumberArn"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -3201,12 +3099,6 @@ class PredefinedAttribute(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::PredefinedAttribute"
     name_field: ClassVar[str] = "name"
-    ATTRIBUTE_CONFIGURATION = "AttributeConfiguration"
-    INSTANCE_ARN = "InstanceArn"
-    VALUES = "Values"
-    PURPOSES = "Purposes"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_configuration": "AttributeConfiguration",
         "instance_arn": "InstanceArn",
@@ -3239,12 +3131,6 @@ class Prompt(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::Prompt"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    S3_URI = "S3Uri"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "s3_uri": "S3Uri",
@@ -3272,17 +3158,6 @@ class Queue(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::Queue"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    HOURS_OF_OPERATION_ARN = "HoursOfOperationArn"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    OUTBOUND_EMAIL_CONFIG = "OutboundEmailConfig"
-    QUICK_CONNECT_ARNS = "QuickConnectArns"
-    OUTBOUND_CALLER_CONFIG = "OutboundCallerConfig"
-    MAX_CONTACTS = "MaxContacts"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "hours_of_operation_arn": "HoursOfOperationArn",
@@ -3325,12 +3200,6 @@ class QuickConnect(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::QuickConnect"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    QUICK_CONNECT_CONFIG = "QuickConnectConfig"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "quick_connect_config": "QuickConnectConfig",
@@ -3363,16 +3232,6 @@ class RoutingProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::RoutingProfile"
     name_field: ClassVar[str] = "name"
-    MANUAL_ASSIGNMENT_QUEUE_CONFIGS = "ManualAssignmentQueueConfigs"
-    DESCRIPTION = "Description"
-    MEDIA_CONCURRENCIES = "MediaConcurrencies"
-    INSTANCE_ARN = "InstanceArn"
-    AGENT_AVAILABILITY_TIMER = "AgentAvailabilityTimer"
-    QUEUE_CONFIGS = "QueueConfigs"
-    DEFAULT_OUTBOUND_QUEUE_ARN = "DefaultOutboundQueueArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manual_assignment_queue_configs": "ManualAssignmentQueueConfigs",
         "description": "Description",
@@ -3408,14 +3267,6 @@ class Rule(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::Rule"
     name_field: ClassVar[str] = "name"
-    FUNCTION = "Function"
-    TRIGGER_EVENT_SOURCE = "TriggerEventSource"
-    ACTIONS = "Actions"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-    PUBLISH_STATUS = "PublishStatus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "trigger_event_source": "TriggerEventSource",
@@ -3446,9 +3297,6 @@ class SecurityKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::SecurityKey"
-    INSTANCE_ID = "InstanceId"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
         "key": "Key",
@@ -3470,18 +3318,6 @@ class SecurityProfile(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::SecurityProfile"
     name_field: ClassVar[str] = "security_profile_name"
-    DESCRIPTION = "Description"
-    ALLOWED_ACCESS_CONTROL_TAGS = "AllowedAccessControlTags"
-    APPLICATIONS = "Applications"
-    ALLOWED_ACCESS_CONTROL_HIERARCHY_GROUP_ID = "AllowedAccessControlHierarchyGroupId"
-    INSTANCE_ARN = "InstanceArn"
-    GRANULAR_ACCESS_CONTROL_CONFIGURATION = "GranularAccessControlConfiguration"
-    PERMISSIONS = "Permissions"
-    SECURITY_PROFILE_NAME = "SecurityProfileName"
-    TAG_RESTRICTED_RESOURCES = "TagRestrictedResources"
-    TAGS = "Tags"
-    HIERARCHY_RESTRICTED_RESOURCES = "HierarchyRestrictedResources"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_access_control_tags": "AllowedAccessControlTags",
@@ -3531,18 +3367,6 @@ class TaskTemplate(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::TaskTemplate"
     name_field: ClassVar[str] = "name"
-    STATUS = "Status"
-    DESCRIPTION = "Description"
-    CONSTRAINTS = "Constraints"
-    DEFAULTS = "Defaults"
-    FIELDS = "Fields"
-    INSTANCE_ARN = "InstanceArn"
-    CONTACT_FLOW_ARN = "ContactFlowArn"
-    CLIENT_TOKEN = "ClientToken"
-    SELF_ASSIGN_CONTACT_FLOW_ARN = "SelfAssignContactFlowArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -3582,11 +3406,6 @@ class TrafficDistributionGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::TrafficDistributionGroup"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "instance_arn": "InstanceArn",
@@ -3621,18 +3440,6 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::User"
-    ROUTING_PROFILE_ARN = "RoutingProfileArn"
-    USERNAME = "Username"
-    PHONE_CONFIG = "PhoneConfig"
-    INSTANCE_ARN = "InstanceArn"
-    DIRECTORY_USER_ID = "DirectoryUserId"
-    IDENTITY_INFO = "IdentityInfo"
-    HIERARCHY_GROUP_ARN = "HierarchyGroupArn"
-    SECURITY_PROFILE_ARNS = "SecurityProfileArns"
-    TAGS = "Tags"
-    USER_PROFICIENCIES = "UserProficiencies"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "routing_profile_arn": "RoutingProfileArn",
         "username": "Username",
@@ -3672,11 +3479,6 @@ class UserHierarchyGroup(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::UserHierarchyGroup"
     name_field: ClassVar[str] = "name"
-    INSTANCE_ARN = "InstanceArn"
-    PARENT_GROUP_ARN = "ParentGroupArn"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_arn": "InstanceArn",
         "parent_group_arn": "ParentGroupArn",
@@ -3701,9 +3503,6 @@ class UserHierarchyStructure(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::UserHierarchyStructure"
-    USER_HIERARCHY_STRUCTURE = "UserHierarchyStructure"
-    INSTANCE_ARN = "InstanceArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_hierarchy_structure": "UserHierarchyStructure",
         "instance_arn": "InstanceArn",
@@ -3725,13 +3524,6 @@ class View(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::View"
     name_field: ClassVar[str] = "name"
-    DESCRIPTION = "Description"
-    ACTIONS = "Actions"
-    INSTANCE_ARN = "InstanceArn"
-    TAGS = "Tags"
-    NAME = "Name"
-    TEMPLATE = "Template"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "actions": "Actions",
@@ -3770,10 +3562,6 @@ class ViewVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::ViewVersion"
-    VIEW_ARN = "ViewArn"
-    VERSION_DESCRIPTION = "VersionDescription"
-    VIEW_CONTENT_SHA256 = "ViewContentSha256"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "view_arn": "ViewArn",
         "version_description": "VersionDescription",
@@ -3802,17 +3590,6 @@ class Workspace(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Connect::Workspace"
     name_field: ClassVar[str] = "name"
-    PAGES = "Pages"
-    DESCRIPTION = "Description"
-    INSTANCE_ARN = "InstanceArn"
-    MEDIA = "Media"
-    TITLE = "Title"
-    THEME = "Theme"
-    VISIBILITY = "Visibility"
-    ASSOCIATIONS = "Associations"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pages": "Pages",
         "description": "Description",

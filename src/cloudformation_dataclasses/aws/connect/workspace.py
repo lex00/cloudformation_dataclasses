@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FontFamily(PropertyType):
-    DEFAULT = "Default"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default": "Default",
     }
@@ -22,9 +20,6 @@ class FontFamily(PropertyType):
 
 @dataclass
 class MediaItem(PropertyType):
-    TYPE = "Type"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source": "Source",
@@ -36,10 +31,6 @@ class MediaItem(PropertyType):
 
 @dataclass
 class PaletteCanvas(PropertyType):
-    CONTAINER_BACKGROUND = "ContainerBackground"
-    ACTIVE_BACKGROUND = "ActiveBackground"
-    PAGE_BACKGROUND = "PageBackground"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_background": "ContainerBackground",
         "active_background": "ActiveBackground",
@@ -53,11 +44,6 @@ class PaletteCanvas(PropertyType):
 
 @dataclass
 class PaletteHeader(PropertyType):
-    BACKGROUND = "Background"
-    TEXT = "Text"
-    TEXT_HOVER = "TextHover"
-    INVERT_ACTIONS_COLORS = "InvertActionsColors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background": "Background",
         "text": "Text",
@@ -73,14 +59,6 @@ class PaletteHeader(PropertyType):
 
 @dataclass
 class PaletteNavigation(PropertyType):
-    TEXT_BACKGROUND_HOVER = "TextBackgroundHover"
-    BACKGROUND = "Background"
-    TEXT_BACKGROUND_ACTIVE = "TextBackgroundActive"
-    TEXT = "Text"
-    TEXT_HOVER = "TextHover"
-    TEXT_ACTIVE = "TextActive"
-    INVERT_ACTIONS_COLORS = "InvertActionsColors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_background_hover": "TextBackgroundHover",
         "background": "Background",
@@ -102,10 +80,6 @@ class PaletteNavigation(PropertyType):
 
 @dataclass
 class PalettePrimary(PropertyType):
-    ACTIVE = "Active"
-    DEFAULT = "Default"
-    CONTRAST_TEXT = "ContrastText"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active": "Active",
         "default": "Default",
@@ -119,11 +93,6 @@ class PalettePrimary(PropertyType):
 
 @dataclass
 class WorkspacePage(PropertyType):
-    RESOURCE_ARN = "ResourceArn"
-    PAGE = "Page"
-    SLUG = "Slug"
-    INPUT_DATA = "InputData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "page": "Page",
@@ -139,9 +108,6 @@ class WorkspacePage(PropertyType):
 
 @dataclass
 class WorkspaceTheme(PropertyType):
-    LIGHT = "Light"
-    DARK = "Dark"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "light": "Light",
         "dark": "Dark",
@@ -153,9 +119,6 @@ class WorkspaceTheme(PropertyType):
 
 @dataclass
 class WorkspaceThemeConfig(PropertyType):
-    PALETTE = "Palette"
-    TYPOGRAPHY = "Typography"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "palette": "Palette",
         "typography": "Typography",
@@ -167,11 +130,6 @@ class WorkspaceThemeConfig(PropertyType):
 
 @dataclass
 class WorkspaceThemePalette(PropertyType):
-    NAVIGATION = "Navigation"
-    HEADER = "Header"
-    CANVAS = "Canvas"
-    PRIMARY = "Primary"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation": "Navigation",
         "header": "Header",
@@ -187,8 +145,6 @@ class WorkspaceThemePalette(PropertyType):
 
 @dataclass
 class WorkspaceThemeTypography(PropertyType):
-    FONT_FAMILY = "FontFamily"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
     }

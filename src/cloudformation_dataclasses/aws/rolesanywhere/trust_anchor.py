@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NotificationSetting(PropertyType):
-    CHANNEL = "Channel"
-    ENABLED = "Enabled"
-    EVENT = "Event"
-    THRESHOLD = "Threshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel": "Channel",
         "enabled": "Enabled",
@@ -31,9 +26,6 @@ class NotificationSetting(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    SOURCE_TYPE = "SourceType"
-    SOURCE_DATA = "SourceData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "source_data": "SourceData",
@@ -45,9 +37,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceData(PropertyType):
-    ACM_PCA_ARN = "AcmPcaArn"
-    X509_CERTIFICATE_DATA = "X509CertificateData"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acm_pca_arn": "AcmPcaArn",
         "x509_certificate_data": "X509CertificateData",

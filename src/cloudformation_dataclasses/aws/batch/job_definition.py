@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConsumableResourceProperties(PropertyType):
-    CONSUMABLE_RESOURCE_LIST = "ConsumableResourceList"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumable_resource_list": "ConsumableResourceList",
     }
@@ -22,9 +20,6 @@ class ConsumableResourceProperties(PropertyType):
 
 @dataclass
 class ConsumableResourceRequirement(PropertyType):
-    CONSUMABLE_RESOURCE = "ConsumableResource"
-    QUANTITY = "Quantity"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumable_resource": "ConsumableResource",
         "quantity": "Quantity",
@@ -36,30 +31,6 @@ class ConsumableResourceRequirement(PropertyType):
 
 @dataclass
 class ContainerProperties(PropertyType):
-    REPOSITORY_CREDENTIALS = "RepositoryCredentials"
-    USER = "User"
-    SECRETS = "Secrets"
-    MEMORY = "Memory"
-    PRIVILEGED = "Privileged"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    LINUX_PARAMETERS = "LinuxParameters"
-    FARGATE_PLATFORM_CONFIGURATION = "FargatePlatformConfiguration"
-    JOB_ROLE_ARN = "JobRoleArn"
-    READONLY_ROOT_FILESYSTEM = "ReadonlyRootFilesystem"
-    VCPUS = "Vcpus"
-    IMAGE = "Image"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-    LOG_CONFIGURATION = "LogConfiguration"
-    MOUNT_POINTS = "MountPoints"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    RUNTIME_PLATFORM = "RuntimePlatform"
-    VOLUMES = "Volumes"
-    COMMAND = "Command"
-    ENVIRONMENT = "Environment"
-    ULIMITS = "Ulimits"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -113,10 +84,6 @@ class ContainerProperties(PropertyType):
 
 @dataclass
 class Device(PropertyType):
-    HOST_PATH = "HostPath"
-    PERMISSIONS = "Permissions"
-    CONTAINER_PATH = "ContainerPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_path": "HostPath",
         "permissions": "Permissions",
@@ -130,9 +97,6 @@ class Device(PropertyType):
 
 @dataclass
 class EFSAuthorizationConfig(PropertyType):
-    IAM = "Iam"
-    ACCESS_POINT_ID = "AccessPointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "access_point_id": "AccessPointId",
@@ -144,12 +108,6 @@ class EFSAuthorizationConfig(PropertyType):
 
 @dataclass
 class EFSVolumeConfiguration(PropertyType):
-    TRANSIT_ENCRYPTION = "TransitEncryption"
-    AUTHORIZATION_CONFIG = "AuthorizationConfig"
-    FILE_SYSTEM_ID = "FileSystemId"
-    ROOT_DIRECTORY = "RootDirectory"
-    TRANSIT_ENCRYPTION_PORT = "TransitEncryptionPort"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_encryption": "TransitEncryption",
         "authorization_config": "AuthorizationConfig",
@@ -167,8 +125,6 @@ class EFSVolumeConfiguration(PropertyType):
 
 @dataclass
 class EcsProperties(PropertyType):
-    TASK_PROPERTIES = "TaskProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_properties": "TaskProperties",
     }
@@ -178,18 +134,6 @@ class EcsProperties(PropertyType):
 
 @dataclass
 class EcsTaskProperties(PropertyType):
-    PLATFORM_VERSION = "PlatformVersion"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    RUNTIME_PLATFORM = "RuntimePlatform"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    IPC_MODE = "IpcMode"
-    VOLUMES = "Volumes"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    CONTAINERS = "Containers"
-    NETWORK_CONFIGURATION = "NetworkConfiguration"
-    PID_MODE = "PidMode"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "execution_role_arn": "ExecutionRoleArn",
@@ -219,16 +163,6 @@ class EcsTaskProperties(PropertyType):
 
 @dataclass
 class EksContainer(PropertyType):
-    ARGS = "Args"
-    VOLUME_MOUNTS = "VolumeMounts"
-    IMAGE_PULL_POLICY = "ImagePullPolicy"
-    COMMAND = "Command"
-    SECURITY_CONTEXT = "SecurityContext"
-    RESOURCES = "Resources"
-    IMAGE = "Image"
-    ENV = "Env"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "args": "Args",
         "volume_mounts": "VolumeMounts",
@@ -254,9 +188,6 @@ class EksContainer(PropertyType):
 
 @dataclass
 class EksContainerEnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -268,9 +199,6 @@ class EksContainerEnvironmentVariable(PropertyType):
 
 @dataclass
 class EksContainerResourceRequirements(PropertyType):
-    LIMITS = "Limits"
-    REQUESTS = "Requests"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "limits": "Limits",
         "requests": "Requests",
@@ -282,13 +210,6 @@ class EksContainerResourceRequirements(PropertyType):
 
 @dataclass
 class EksContainerSecurityContext(PropertyType):
-    RUN_AS_USER = "RunAsUser"
-    ALLOW_PRIVILEGE_ESCALATION = "AllowPrivilegeEscalation"
-    RUN_AS_NON_ROOT = "RunAsNonRoot"
-    PRIVILEGED = "Privileged"
-    READ_ONLY_ROOT_FILESYSTEM = "ReadOnlyRootFilesystem"
-    RUN_AS_GROUP = "RunAsGroup"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_as_user": "RunAsUser",
         "allow_privilege_escalation": "AllowPrivilegeEscalation",
@@ -308,11 +229,6 @@ class EksContainerSecurityContext(PropertyType):
 
 @dataclass
 class EksContainerVolumeMount(PropertyType):
-    MOUNT_PATH = "MountPath"
-    READ_ONLY = "ReadOnly"
-    SUB_PATH = "SubPath"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "read_only": "ReadOnly",
@@ -328,9 +244,6 @@ class EksContainerVolumeMount(PropertyType):
 
 @dataclass
 class EksEmptyDir(PropertyType):
-    MEDIUM = "Medium"
-    SIZE_LIMIT = "SizeLimit"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "medium": "Medium",
         "size_limit": "SizeLimit",
@@ -342,8 +255,6 @@ class EksEmptyDir(PropertyType):
 
 @dataclass
 class EksHostPath(PropertyType):
-    PATH = "Path"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
     }
@@ -353,10 +264,6 @@ class EksHostPath(PropertyType):
 
 @dataclass
 class EksMetadata(PropertyType):
-    ANNOTATIONS = "Annotations"
-    LABELS = "Labels"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "annotations": "Annotations",
         "labels": "Labels",
@@ -370,9 +277,6 @@ class EksMetadata(PropertyType):
 
 @dataclass
 class EksPersistentVolumeClaim(PropertyType):
-    READ_ONLY = "ReadOnly"
-    CLAIM_NAME = "ClaimName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "claim_name": "ClaimName",
@@ -384,16 +288,6 @@ class EksPersistentVolumeClaim(PropertyType):
 
 @dataclass
 class EksPodProperties(PropertyType):
-    INIT_CONTAINERS = "InitContainers"
-    VOLUMES = "Volumes"
-    DNS_POLICY = "DnsPolicy"
-    CONTAINERS = "Containers"
-    METADATA = "Metadata"
-    SERVICE_ACCOUNT_NAME = "ServiceAccountName"
-    IMAGE_PULL_SECRETS = "ImagePullSecrets"
-    HOST_NETWORK = "HostNetwork"
-    SHARE_PROCESS_NAMESPACE = "ShareProcessNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "init_containers": "InitContainers",
         "volumes": "Volumes",
@@ -419,8 +313,6 @@ class EksPodProperties(PropertyType):
 
 @dataclass
 class EksProperties(PropertyType):
-    POD_PROPERTIES = "PodProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pod_properties": "PodProperties",
     }
@@ -430,9 +322,6 @@ class EksProperties(PropertyType):
 
 @dataclass
 class EksSecret(PropertyType):
-    SECRET_NAME = "SecretName"
-    OPTIONAL = "Optional"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
         "optional": "Optional",
@@ -444,12 +333,6 @@ class EksSecret(PropertyType):
 
 @dataclass
 class EksVolume(PropertyType):
-    SECRET = "Secret"
-    EMPTY_DIR = "EmptyDir"
-    HOST_PATH = "HostPath"
-    PERSISTENT_VOLUME_CLAIM = "PersistentVolumeClaim"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret": "Secret",
         "empty_dir": "EmptyDir",
@@ -467,9 +350,6 @@ class EksVolume(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -481,8 +361,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EphemeralStorage(PropertyType):
-    SIZE_IN_GI_B = "SizeInGiB"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
     }
@@ -492,11 +370,6 @@ class EphemeralStorage(PropertyType):
 
 @dataclass
 class EvaluateOnExit(PropertyType):
-    ACTION = "Action"
-    ON_EXIT_CODE = "OnExitCode"
-    ON_REASON = "OnReason"
-    ON_STATUS_REASON = "OnStatusReason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "on_exit_code": "OnExitCode",
@@ -512,8 +385,6 @@ class EvaluateOnExit(PropertyType):
 
 @dataclass
 class FargatePlatformConfiguration(PropertyType):
-    PLATFORM_VERSION = "PlatformVersion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
     }
@@ -523,9 +394,6 @@ class FargatePlatformConfiguration(PropertyType):
 
 @dataclass
 class FirelensConfiguration(PropertyType):
-    OPTIONS = "Options"
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "type_": "Type",
@@ -537,8 +405,6 @@ class FirelensConfiguration(PropertyType):
 
 @dataclass
 class Host(PropertyType):
-    SOURCE_PATH = "SourcePath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
     }
@@ -548,8 +414,6 @@ class Host(PropertyType):
 
 @dataclass
 class ImagePullSecret(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -559,8 +423,6 @@ class ImagePullSecret(PropertyType):
 
 @dataclass
 class JobTimeout(PropertyType):
-    ATTEMPT_DURATION_SECONDS = "AttemptDurationSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempt_duration_seconds": "AttemptDurationSeconds",
     }
@@ -570,13 +432,6 @@ class JobTimeout(PropertyType):
 
 @dataclass
 class LinuxParameters(PropertyType):
-    SWAPPINESS = "Swappiness"
-    TMPFS = "Tmpfs"
-    SHARED_MEMORY_SIZE = "SharedMemorySize"
-    DEVICES = "Devices"
-    INIT_PROCESS_ENABLED = "InitProcessEnabled"
-    MAX_SWAP = "MaxSwap"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "swappiness": "Swappiness",
         "tmpfs": "Tmpfs",
@@ -596,10 +451,6 @@ class LinuxParameters(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    SECRET_OPTIONS = "SecretOptions"
-    OPTIONS = "Options"
-    LOG_DRIVER = "LogDriver"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_options": "SecretOptions",
         "options": "Options",
@@ -613,10 +464,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class MountPoint(PropertyType):
-    READ_ONLY = "ReadOnly"
-    SOURCE_VOLUME = "SourceVolume"
-    CONTAINER_PATH = "ContainerPath"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "source_volume": "SourceVolume",
@@ -630,29 +477,6 @@ class MountPoint(PropertyType):
 
 @dataclass
 class MultiNodeContainerProperties(PropertyType):
-    REPOSITORY_CREDENTIALS = "RepositoryCredentials"
-    USER = "User"
-    SECRETS = "Secrets"
-    MEMORY = "Memory"
-    PRIVILEGED = "Privileged"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    LINUX_PARAMETERS = "LinuxParameters"
-    JOB_ROLE_ARN = "JobRoleArn"
-    READONLY_ROOT_FILESYSTEM = "ReadonlyRootFilesystem"
-    VCPUS = "Vcpus"
-    IMAGE = "Image"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-    LOG_CONFIGURATION = "LogConfiguration"
-    MOUNT_POINTS = "MountPoints"
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    RUNTIME_PLATFORM = "RuntimePlatform"
-    VOLUMES = "Volumes"
-    COMMAND = "Command"
-    ENVIRONMENT = "Environment"
-    ULIMITS = "Ulimits"
-    INSTANCE_TYPE = "InstanceType"
-    EPHEMERAL_STORAGE = "EphemeralStorage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -704,8 +528,6 @@ class MultiNodeContainerProperties(PropertyType):
 
 @dataclass
 class MultiNodeEcsProperties(PropertyType):
-    TASK_PROPERTIES = "TaskProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_properties": "TaskProperties",
     }
@@ -715,14 +537,6 @@ class MultiNodeEcsProperties(PropertyType):
 
 @dataclass
 class MultiNodeEcsTaskProperties(PropertyType):
-    EXECUTION_ROLE_ARN = "ExecutionRoleArn"
-    TASK_ROLE_ARN = "TaskRoleArn"
-    IPC_MODE = "IpcMode"
-    VOLUMES = "Volumes"
-    ENABLE_EXECUTE_COMMAND = "EnableExecuteCommand"
-    CONTAINERS = "Containers"
-    PID_MODE = "PidMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "task_role_arn": "TaskRoleArn",
@@ -744,8 +558,6 @@ class MultiNodeEcsTaskProperties(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    ASSIGN_PUBLIC_IP = "AssignPublicIp"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assign_public_ip": "AssignPublicIp",
     }
@@ -755,10 +567,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class NodeProperties(PropertyType):
-    MAIN_NODE = "MainNode"
-    NODE_RANGE_PROPERTIES = "NodeRangeProperties"
-    NUM_NODES = "NumNodes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "main_node": "MainNode",
         "node_range_properties": "NodeRangeProperties",
@@ -772,13 +580,6 @@ class NodeProperties(PropertyType):
 
 @dataclass
 class NodeRangeProperty(PropertyType):
-    CONTAINER = "Container"
-    TARGET_NODES = "TargetNodes"
-    ECS_PROPERTIES = "EcsProperties"
-    INSTANCE_TYPES = "InstanceTypes"
-    EKS_PROPERTIES = "EksProperties"
-    CONSUMABLE_RESOURCE_PROPERTIES = "ConsumableResourceProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container": "Container",
         "target_nodes": "TargetNodes",
@@ -798,8 +599,6 @@ class NodeRangeProperty(PropertyType):
 
 @dataclass
 class RepositoryCredentials(PropertyType):
-    CREDENTIALS_PARAMETER = "CredentialsParameter"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_parameter": "CredentialsParameter",
     }
@@ -809,9 +608,6 @@ class RepositoryCredentials(PropertyType):
 
 @dataclass
 class ResourceRequirement(PropertyType):
-    TYPE = "Type"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -823,8 +619,6 @@ class ResourceRequirement(PropertyType):
 
 @dataclass
 class ResourceRetentionPolicy(PropertyType):
-    SKIP_DEREGISTER_ON_UPDATE = "SkipDeregisterOnUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skip_deregister_on_update": "SkipDeregisterOnUpdate",
     }
@@ -834,9 +628,6 @@ class ResourceRetentionPolicy(PropertyType):
 
 @dataclass
 class RetryStrategy(PropertyType):
-    EVALUATE_ON_EXIT = "EvaluateOnExit"
-    ATTEMPTS = "Attempts"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "evaluate_on_exit": "EvaluateOnExit",
         "attempts": "Attempts",
@@ -848,9 +639,6 @@ class RetryStrategy(PropertyType):
 
 @dataclass
 class RuntimePlatform(PropertyType):
-    OPERATING_SYSTEM_FAMILY = "OperatingSystemFamily"
-    CPU_ARCHITECTURE = "CpuArchitecture"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system_family": "OperatingSystemFamily",
         "cpu_architecture": "CpuArchitecture",
@@ -862,9 +650,6 @@ class RuntimePlatform(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    VALUE_FROM = "ValueFrom"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_from": "ValueFrom",
         "name": "Name",
@@ -876,9 +661,6 @@ class Secret(PropertyType):
 
 @dataclass
 class TaskContainerDependency(PropertyType):
-    CONDITION = "Condition"
-    CONTAINER_NAME = "ContainerName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "container_name": "ContainerName",
@@ -890,24 +672,6 @@ class TaskContainerDependency(PropertyType):
 
 @dataclass
 class TaskContainerProperties(PropertyType):
-    REPOSITORY_CREDENTIALS = "RepositoryCredentials"
-    USER = "User"
-    SECRETS = "Secrets"
-    PRIVILEGED = "Privileged"
-    LINUX_PARAMETERS = "LinuxParameters"
-    READONLY_ROOT_FILESYSTEM = "ReadonlyRootFilesystem"
-    IMAGE = "Image"
-    LOG_CONFIGURATION = "LogConfiguration"
-    ESSENTIAL = "Essential"
-    RESOURCE_REQUIREMENTS = "ResourceRequirements"
-    NAME = "Name"
-    MOUNT_POINTS = "MountPoints"
-    FIRELENS_CONFIGURATION = "FirelensConfiguration"
-    DEPENDS_ON = "DependsOn"
-    COMMAND = "Command"
-    ENVIRONMENT = "Environment"
-    ULIMITS = "Ulimits"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -949,10 +713,6 @@ class TaskContainerProperties(PropertyType):
 
 @dataclass
 class Tmpfs(PropertyType):
-    SIZE = "Size"
-    CONTAINER_PATH = "ContainerPath"
-    MOUNT_OPTIONS = "MountOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
         "container_path": "ContainerPath",
@@ -966,10 +726,6 @@ class Tmpfs(PropertyType):
 
 @dataclass
 class Ulimit(PropertyType):
-    SOFT_LIMIT = "SoftLimit"
-    HARD_LIMIT = "HardLimit"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soft_limit": "SoftLimit",
         "hard_limit": "HardLimit",
@@ -983,10 +739,6 @@ class Ulimit(PropertyType):
 
 @dataclass
 class Volume(PropertyType):
-    HOST = "Host"
-    EFS_VOLUME_CONFIGURATION = "EfsVolumeConfiguration"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host": "Host",
         "efs_volume_configuration": "EfsVolumeConfiguration",

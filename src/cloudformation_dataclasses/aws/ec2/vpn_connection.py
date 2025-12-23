@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudwatchLogOptionsSpecification(PropertyType):
-    BGP_LOG_ENABLED = "BgpLogEnabled"
-    LOG_ENABLED = "LogEnabled"
-    LOG_OUTPUT_FORMAT = "LogOutputFormat"
-    BGP_LOG_GROUP_ARN = "BgpLogGroupArn"
-    LOG_GROUP_ARN = "LogGroupArn"
-    BGP_LOG_OUTPUT_FORMAT = "BgpLogOutputFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bgp_log_enabled": "BgpLogEnabled",
         "log_enabled": "LogEnabled",
@@ -37,8 +30,6 @@ class CloudwatchLogOptionsSpecification(PropertyType):
 
 @dataclass
 class IKEVersionsRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -48,8 +39,6 @@ class IKEVersionsRequestListValue(PropertyType):
 
 @dataclass
 class Phase1DHGroupNumbersRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -59,8 +48,6 @@ class Phase1DHGroupNumbersRequestListValue(PropertyType):
 
 @dataclass
 class Phase1EncryptionAlgorithmsRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -70,8 +57,6 @@ class Phase1EncryptionAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase1IntegrityAlgorithmsRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -81,8 +66,6 @@ class Phase1IntegrityAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase2DHGroupNumbersRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -92,8 +75,6 @@ class Phase2DHGroupNumbersRequestListValue(PropertyType):
 
 @dataclass
 class Phase2EncryptionAlgorithmsRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -103,8 +84,6 @@ class Phase2EncryptionAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase2IntegrityAlgorithmsRequestListValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -114,8 +93,6 @@ class Phase2IntegrityAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class VpnTunnelLogOptionsSpecification(PropertyType):
-    CLOUDWATCH_LOG_OPTIONS = "CloudwatchLogOptions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloudwatch_log_options": "CloudwatchLogOptions",
     }
@@ -125,27 +102,6 @@ class VpnTunnelLogOptionsSpecification(PropertyType):
 
 @dataclass
 class VpnTunnelOptionsSpecification(PropertyType):
-    PHASE2_ENCRYPTION_ALGORITHMS = "Phase2EncryptionAlgorithms"
-    PHASE2_DH_GROUP_NUMBERS = "Phase2DHGroupNumbers"
-    TUNNEL_INSIDE_IPV6_CIDR = "TunnelInsideIpv6Cidr"
-    STARTUP_ACTION = "StartupAction"
-    TUNNEL_INSIDE_CIDR = "TunnelInsideCidr"
-    IKE_VERSIONS = "IKEVersions"
-    LOG_OPTIONS = "LogOptions"
-    PHASE1_DH_GROUP_NUMBERS = "Phase1DHGroupNumbers"
-    REPLAY_WINDOW_SIZE = "ReplayWindowSize"
-    ENABLE_TUNNEL_LIFECYCLE_CONTROL = "EnableTunnelLifecycleControl"
-    REKEY_MARGIN_TIME_SECONDS = "RekeyMarginTimeSeconds"
-    DPD_TIMEOUT_ACTION = "DPDTimeoutAction"
-    PHASE2_LIFETIME_SECONDS = "Phase2LifetimeSeconds"
-    PHASE2_INTEGRITY_ALGORITHMS = "Phase2IntegrityAlgorithms"
-    PHASE1_INTEGRITY_ALGORITHMS = "Phase1IntegrityAlgorithms"
-    PRE_SHARED_KEY = "PreSharedKey"
-    PHASE1_LIFETIME_SECONDS = "Phase1LifetimeSeconds"
-    REKEY_FUZZ_PERCENTAGE = "RekeyFuzzPercentage"
-    PHASE1_ENCRYPTION_ALGORITHMS = "Phase1EncryptionAlgorithms"
-    DPD_TIMEOUT_SECONDS = "DPDTimeoutSeconds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "phase2_encryption_algorithms": "Phase2EncryptionAlgorithms",
         "phase2_dh_group_numbers": "Phase2DHGroupNumbers",

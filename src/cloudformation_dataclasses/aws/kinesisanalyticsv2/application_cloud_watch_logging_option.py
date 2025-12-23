@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLoggingOption(PropertyType):
-    LOG_STREAM_ARN = "LogStreamARN"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_arn": "LogStreamARN",
     }

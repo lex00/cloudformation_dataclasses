@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NetworkInterface(PropertyType):
-    PRIVATE_IP_ADDRESS = "PrivateIpAddress"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-    SUBNET_ID = "SubnetId"
-    NETWORK_INTERFACE_ID = "NetworkInterfaceId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "availability_zone": "AvailabilityZone",
@@ -31,10 +26,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    VPC_ID = "VpcId"
-    NETWORK_INTERFACES = "NetworkInterfaces"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "network_interfaces": "NetworkInterfaces",
@@ -48,9 +39,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class VpcSecurityGroup(PropertyType):
-    STATUS = "Status"
-    VPC_SECURITY_GROUP_ID = "VpcSecurityGroupId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "vpc_security_group_id": "VpcSecurityGroupId",

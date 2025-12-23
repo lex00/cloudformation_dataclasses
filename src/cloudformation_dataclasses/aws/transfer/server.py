@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndpointDetails(PropertyType):
-    ADDRESS_ALLOCATION_IDS = "AddressAllocationIds"
-    VPC_ID = "VpcId"
-    VPC_ENDPOINT_ID = "VpcEndpointId"
-    SUBNET_IDS = "SubnetIds"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_allocation_ids": "AddressAllocationIds",
         "vpc_id": "VpcId",
@@ -34,12 +28,6 @@ class EndpointDetails(PropertyType):
 
 @dataclass
 class IdentityProviderDetails(PropertyType):
-    FUNCTION = "Function"
-    DIRECTORY_ID = "DirectoryId"
-    INVOCATION_ROLE = "InvocationRole"
-    URL = "Url"
-    SFTP_AUTHENTICATION_METHODS = "SftpAuthenticationMethods"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "directory_id": "DirectoryId",
@@ -57,11 +45,6 @@ class IdentityProviderDetails(PropertyType):
 
 @dataclass
 class ProtocolDetails(PropertyType):
-    AS2_TRANSPORTS = "As2Transports"
-    PASSIVE_IP = "PassiveIp"
-    SET_STAT_OPTION = "SetStatOption"
-    TLS_SESSION_RESUMPTION_MODE = "TlsSessionResumptionMode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "as2_transports": "As2Transports",
         "passive_ip": "PassiveIp",
@@ -77,8 +60,6 @@ class ProtocolDetails(PropertyType):
 
 @dataclass
 class S3StorageOptions(PropertyType):
-    DIRECTORY_LISTING_OPTIMIZATION = "DirectoryListingOptimization"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_listing_optimization": "DirectoryListingOptimization",
     }
@@ -88,9 +69,6 @@ class S3StorageOptions(PropertyType):
 
 @dataclass
 class WorkflowDetail(PropertyType):
-    WORKFLOW_ID = "WorkflowId"
-    EXECUTION_ROLE = "ExecutionRole"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workflow_id": "WorkflowId",
         "execution_role": "ExecutionRole",
@@ -102,9 +80,6 @@ class WorkflowDetail(PropertyType):
 
 @dataclass
 class WorkflowDetails(PropertyType):
-    ON_UPLOAD = "OnUpload"
-    ON_PARTIAL_UPLOAD = "OnPartialUpload"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_upload": "OnUpload",
         "on_partial_upload": "OnPartialUpload",

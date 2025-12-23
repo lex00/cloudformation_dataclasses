@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Predicate(PropertyType):
-    TYPE = "Type"
-    DATA_ID = "DataId"
-    NEGATED = "Negated"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data_id": "DataId",

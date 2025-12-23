@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ExclusionByResourceTypes(PropertyType):
-    RESOURCE_TYPES = "ResourceTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
     }
@@ -22,12 +20,6 @@ class ExclusionByResourceTypes(PropertyType):
 
 @dataclass
 class RecordingGroup(PropertyType):
-    ALL_SUPPORTED = "AllSupported"
-    EXCLUSION_BY_RESOURCE_TYPES = "ExclusionByResourceTypes"
-    INCLUDE_GLOBAL_RESOURCE_TYPES = "IncludeGlobalResourceTypes"
-    RECORDING_STRATEGY = "RecordingStrategy"
-    RESOURCE_TYPES = "ResourceTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_supported": "AllSupported",
         "exclusion_by_resource_types": "ExclusionByResourceTypes",
@@ -45,9 +37,6 @@ class RecordingGroup(PropertyType):
 
 @dataclass
 class RecordingMode(PropertyType):
-    RECORDING_FREQUENCY = "RecordingFrequency"
-    RECORDING_MODE_OVERRIDES = "RecordingModeOverrides"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recording_frequency": "RecordingFrequency",
         "recording_mode_overrides": "RecordingModeOverrides",
@@ -59,10 +48,6 @@ class RecordingMode(PropertyType):
 
 @dataclass
 class RecordingModeOverride(PropertyType):
-    DESCRIPTION = "Description"
-    RECORDING_FREQUENCY = "RecordingFrequency"
-    RESOURCE_TYPES = "ResourceTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "recording_frequency": "RecordingFrequency",
@@ -76,8 +61,6 @@ class RecordingModeOverride(PropertyType):
 
 @dataclass
 class RecordingStrategy(PropertyType):
-    USE_ONLY = "UseOnly"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_only": "UseOnly",
     }

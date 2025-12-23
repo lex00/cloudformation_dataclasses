@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:56
+  Generated: 2025-12-22 19:26:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancing
@@ -35,23 +35,6 @@ class LoadBalancer(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancing::LoadBalancer"
     name_field: ClassVar[str] = "load_balancer_name"
-    ACCESS_LOGGING_POLICY = "AccessLoggingPolicy"
-    APP_COOKIE_STICKINESS_POLICY = "AppCookieStickinessPolicy"
-    AVAILABILITY_ZONES = "AvailabilityZones"
-    CONNECTION_DRAINING_POLICY = "ConnectionDrainingPolicy"
-    CONNECTION_SETTINGS = "ConnectionSettings"
-    CROSS_ZONE = "CrossZone"
-    HEALTH_CHECK = "HealthCheck"
-    INSTANCES = "Instances"
-    LB_COOKIE_STICKINESS_POLICY = "LBCookieStickinessPolicy"
-    LISTENERS = "Listeners"
-    LOAD_BALANCER_NAME = "LoadBalancerName"
-    POLICIES = "Policies"
-    SCHEME = "Scheme"
-    SECURITY_GROUPS = "SecurityGroups"
-    SUBNETS = "Subnets"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_logging_policy": "AccessLoggingPolicy",
         "app_cookie_stickiness_policy": "AppCookieStickinessPolicy",

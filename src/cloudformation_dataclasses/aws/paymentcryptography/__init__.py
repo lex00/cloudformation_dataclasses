@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:11
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PaymentCryptography
@@ -35,9 +35,6 @@ class Alias(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::PaymentCryptography::Alias"
     name_field: ClassVar[str] = "alias_name"
-    ALIAS_NAME = "AliasName"
-    KEY_ARN = "KeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias_name": "AliasName",
         "key_arn": "KeyArn",
@@ -52,14 +49,6 @@ class Key(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-payme"""
 
     resource_type: ClassVar[str] = "AWS::PaymentCryptography::Key"
-    DERIVE_KEY_USAGE = "DeriveKeyUsage"
-    EXPORTABLE = "Exportable"
-    REPLICATION_REGIONS = "ReplicationRegions"
-    KEY_ATTRIBUTES = "KeyAttributes"
-    ENABLED = "Enabled"
-    KEY_CHECK_VALUE_ALGORITHM = "KeyCheckValueAlgorithm"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "derive_key_usage": "DeriveKeyUsage",
         "exportable": "Exportable",

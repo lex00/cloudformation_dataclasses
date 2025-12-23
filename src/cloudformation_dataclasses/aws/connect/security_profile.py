@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Application(PropertyType):
-    APPLICATION_PERMISSIONS = "ApplicationPermissions"
-    NAMESPACE = "Namespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_permissions": "ApplicationPermissions",
         "namespace": "Namespace",
@@ -25,8 +22,6 @@ class Application(PropertyType):
 
 @dataclass
 class DataTableAccessControlConfiguration(PropertyType):
-    PRIMARY_ATTRIBUTE_ACCESS_CONTROL_CONFIGURATION = "PrimaryAttributeAccessControlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_attribute_access_control_configuration": "PrimaryAttributeAccessControlConfiguration",
     }
@@ -36,8 +31,6 @@ class DataTableAccessControlConfiguration(PropertyType):
 
 @dataclass
 class GranularAccessControlConfiguration(PropertyType):
-    DATA_TABLE_ACCESS_CONTROL_CONFIGURATION = "DataTableAccessControlConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table_access_control_configuration": "DataTableAccessControlConfiguration",
     }
@@ -47,8 +40,6 @@ class GranularAccessControlConfiguration(PropertyType):
 
 @dataclass
 class PrimaryAttributeAccessControlConfigurationItem(PropertyType):
-    PRIMARY_ATTRIBUTE_VALUES = "PrimaryAttributeValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_attribute_values": "PrimaryAttributeValues",
     }
@@ -58,10 +49,6 @@ class PrimaryAttributeAccessControlConfigurationItem(PropertyType):
 
 @dataclass
 class PrimaryAttributeValue(PropertyType):
-    VALUES = "Values"
-    ATTRIBUTE_NAME = "AttributeName"
-    ACCESS_TYPE = "AccessType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "attribute_name": "AttributeName",

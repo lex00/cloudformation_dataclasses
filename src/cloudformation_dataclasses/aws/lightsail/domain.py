@@ -11,12 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DomainEntry(PropertyType):
-    TARGET = "Target"
-    TYPE = "Type"
-    ID = "Id"
-    IS_ALIAS = "IsAlias"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "type_": "Type",
@@ -34,9 +28,6 @@ class DomainEntry(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    REGION_NAME = "RegionName"
-    AVAILABILITY_ZONE = "AvailabilityZone"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",

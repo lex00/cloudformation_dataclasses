@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EncryptionDetails(PropertyType):
-    ENCRYPTION_TYPE = "EncryptionType"
-    ENCRYPTION_STATUS = "EncryptionStatus"
-    KMS_KEY_ARN = "KmsKeyArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "encryption_status": "EncryptionStatus",
@@ -28,9 +24,6 @@ class EncryptionDetails(PropertyType):
 
 @dataclass
 class MultiRegionProperties(PropertyType):
-    CLUSTERS = "Clusters"
-    WITNESS_REGION = "WitnessRegion"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "clusters": "Clusters",
         "witness_region": "WitnessRegion",

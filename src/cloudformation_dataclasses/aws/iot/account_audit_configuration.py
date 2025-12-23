@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AuditCheckConfiguration(PropertyType):
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -22,24 +20,6 @@ class AuditCheckConfiguration(PropertyType):
 
 @dataclass
 class AuditCheckConfigurations(PropertyType):
-    IOT_ROLE_ALIAS_OVERLY_PERMISSIVE_CHECK = "IotRoleAliasOverlyPermissiveCheck"
-    DEVICE_CERTIFICATE_SHARED_CHECK = "DeviceCertificateSharedCheck"
-    CONFLICTING_CLIENT_IDS_CHECK = "ConflictingClientIdsCheck"
-    INTERMEDIATE_CA_REVOKED_FOR_ACTIVE_DEVICE_CERTIFICATES_CHECK = "IntermediateCaRevokedForActiveDeviceCertificatesCheck"
-    IOT_ROLE_ALIAS_ALLOWS_ACCESS_TO_UNUSED_SERVICES_CHECK = "IotRoleAliasAllowsAccessToUnusedServicesCheck"
-    REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK = "RevokedCaCertificateStillActiveCheck"
-    LOGGING_DISABLED_CHECK = "LoggingDisabledCheck"
-    UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK = "UnauthenticatedCognitoRoleOverlyPermissiveCheck"
-    AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK = "AuthenticatedCognitoRoleOverlyPermissiveCheck"
-    CA_CERTIFICATE_EXPIRING_CHECK = "CaCertificateExpiringCheck"
-    DEVICE_CERTIFICATE_EXPIRING_CHECK = "DeviceCertificateExpiringCheck"
-    IO_T_POLICY_POTENTIAL_MIS_CONFIGURATION_CHECK = "IoTPolicyPotentialMisConfigurationCheck"
-    DEVICE_CERTIFICATE_AGE_CHECK = "DeviceCertificateAgeCheck"
-    IOT_POLICY_OVERLY_PERMISSIVE_CHECK = "IotPolicyOverlyPermissiveCheck"
-    REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK = "RevokedDeviceCertificateStillActiveCheck"
-    DEVICE_CERTIFICATE_KEY_QUALITY_CHECK = "DeviceCertificateKeyQualityCheck"
-    CA_CERTIFICATE_KEY_QUALITY_CHECK = "CaCertificateKeyQualityCheck"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_role_alias_overly_permissive_check": "IotRoleAliasOverlyPermissiveCheck",
         "device_certificate_shared_check": "DeviceCertificateSharedCheck",
@@ -81,10 +61,6 @@ class AuditCheckConfigurations(PropertyType):
 
 @dataclass
 class AuditNotificationTarget(PropertyType):
-    TARGET_ARN = "TargetArn"
-    ENABLED = "Enabled"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "enabled": "Enabled",
@@ -98,8 +74,6 @@ class AuditNotificationTarget(PropertyType):
 
 @dataclass
 class AuditNotificationTargetConfigurations(PropertyType):
-    SNS = "Sns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns": "Sns",
     }
@@ -109,8 +83,6 @@ class AuditNotificationTargetConfigurations(PropertyType):
 
 @dataclass
 class CertAgeCheckCustomConfiguration(PropertyType):
-    CERT_AGE_THRESHOLD_IN_DAYS = "CertAgeThresholdInDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_age_threshold_in_days": "CertAgeThresholdInDays",
     }
@@ -120,8 +92,6 @@ class CertAgeCheckCustomConfiguration(PropertyType):
 
 @dataclass
 class CertExpirationCheckCustomConfiguration(PropertyType):
-    CERT_EXPIRATION_THRESHOLD_IN_DAYS = "CertExpirationThresholdInDays"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_expiration_threshold_in_days": "CertExpirationThresholdInDays",
     }
@@ -131,9 +101,6 @@ class CertExpirationCheckCustomConfiguration(PropertyType):
 
 @dataclass
 class DeviceCertAgeAuditCheckConfiguration(PropertyType):
-    CONFIGURATION = "Configuration"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "enabled": "Enabled",
@@ -145,9 +112,6 @@ class DeviceCertAgeAuditCheckConfiguration(PropertyType):
 
 @dataclass
 class DeviceCertExpirationAuditCheckConfiguration(PropertyType):
-    CONFIGURATION = "Configuration"
-    ENABLED = "Enabled"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "enabled": "Enabled",

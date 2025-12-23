@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EmailContact(PropertyType):
-    STATUS = "Status"
-    ADDRESS = "Address"
-    CREATION_TIME = "CreationTime"
-    UPDATE_TIME = "UpdateTime"
-    ARN = "Arn"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "address": "Address",

@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class HealthEventsConfig(PropertyType):
-    AVAILABILITY_LOCAL_HEALTH_EVENTS_CONFIG = "AvailabilityLocalHealthEventsConfig"
-    PERFORMANCE_SCORE_THRESHOLD = "PerformanceScoreThreshold"
-    PERFORMANCE_LOCAL_HEALTH_EVENTS_CONFIG = "PerformanceLocalHealthEventsConfig"
-    AVAILABILITY_SCORE_THRESHOLD = "AvailabilityScoreThreshold"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_local_health_events_config": "AvailabilityLocalHealthEventsConfig",
         "performance_score_threshold": "PerformanceScoreThreshold",
@@ -31,8 +26,6 @@ class HealthEventsConfig(PropertyType):
 
 @dataclass
 class InternetMeasurementsLogDelivery(PropertyType):
-    S3_CONFIG = "S3Config"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_config": "S3Config",
     }
@@ -42,10 +35,6 @@ class InternetMeasurementsLogDelivery(PropertyType):
 
 @dataclass
 class LocalHealthEventsConfig(PropertyType):
-    STATUS = "Status"
-    HEALTH_SCORE_THRESHOLD = "HealthScoreThreshold"
-    MIN_TRAFFIC_IMPACT = "MinTrafficImpact"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "health_score_threshold": "HealthScoreThreshold",
@@ -59,10 +48,6 @@ class LocalHealthEventsConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    BUCKET_NAME = "BucketName"
-    LOG_DELIVERY_STATUS = "LogDeliveryStatus"
-    BUCKET_PREFIX = "BucketPrefix"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "log_delivery_status": "LogDeliveryStatus",

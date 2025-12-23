@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    S3 = "S3"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -22,9 +20,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class RenditionConfiguration(PropertyType):
-    RENDITION_SELECTION = "RenditionSelection"
-    RENDITIONS = "Renditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rendition_selection": "RenditionSelection",
         "renditions": "Renditions",
@@ -36,8 +31,6 @@ class RenditionConfiguration(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    BUCKET_NAME = "BucketName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -47,11 +40,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    TARGET_INTERVAL_SECONDS = "TargetIntervalSeconds"
-    STORAGE = "Storage"
-    RECORDING_MODE = "RecordingMode"
-    RESOLUTION = "Resolution"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_interval_seconds": "TargetIntervalSeconds",
         "storage": "Storage",

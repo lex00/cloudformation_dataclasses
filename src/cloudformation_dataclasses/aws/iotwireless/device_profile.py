@@ -11,26 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoRaWANDeviceProfile(PropertyType):
-    PING_SLOT_PERIOD = "PingSlotPeriod"
-    CLASS_C_TIMEOUT = "ClassCTimeout"
-    RX_FREQ2 = "RxFreq2"
-    RF_REGION = "RfRegion"
-    CLASS_B_TIMEOUT = "ClassBTimeout"
-    RX_DELAY1 = "RxDelay1"
-    SUPPORTS_CLASS_C = "SupportsClassC"
-    SUPPORTS_CLASS_B = "SupportsClassB"
-    RX_DR_OFFSET1 = "RxDrOffset1"
-    MAX_EIRP = "MaxEirp"
-    FACTORY_PRESET_FREQS_LIST = "FactoryPresetFreqsList"
-    SUPPORTS_JOIN = "SupportsJoin"
-    PING_SLOT_DR = "PingSlotDr"
-    MAC_VERSION = "MacVersion"
-    PING_SLOT_FREQ = "PingSlotFreq"
-    REG_PARAMS_REVISION = "RegParamsRevision"
-    RX_DATA_RATE2 = "RxDataRate2"
-    SUPPORTS32_BIT_F_CNT = "Supports32BitFCnt"
-    MAX_DUTY_CYCLE = "MaxDutyCycle"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ping_slot_period": "PingSlotPeriod",
         "class_c_timeout": "ClassCTimeout",

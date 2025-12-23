@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Filter(PropertyType):
-    IP_FILTER = "IpFilter"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_filter": "IpFilter",
         "name": "Name",
@@ -25,9 +22,6 @@ class Filter(PropertyType):
 
 @dataclass
 class IpFilter(PropertyType):
-    POLICY = "Policy"
-    CIDR = "Cidr"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "cidr": "Cidr",

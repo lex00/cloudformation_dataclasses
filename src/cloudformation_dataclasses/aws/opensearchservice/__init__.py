@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:09
+  Generated: 2025-12-22 19:26:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchService
@@ -982,13 +982,6 @@ class Application(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Application"
     name_field: ClassVar[str] = "name"
-    DATA_SOURCES = "DataSources"
-    APP_CONFIGS = "AppConfigs"
-    ENDPOINT = "Endpoint"
-    TAGS = "Tags"
-    IAM_IDENTITY_CENTER_OPTIONS = "IamIdentityCenterOptions"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_sources": "DataSources",
         "app_configs": "AppConfigs",
@@ -1023,28 +1016,6 @@ class Domain(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Domain"
     name_field: ClassVar[str] = "domain_name"
-    SKIP_SHARD_MIGRATION_WAIT = "SkipShardMigrationWait"
-    ENGINE_VERSION = "EngineVersion"
-    SOFTWARE_UPDATE_OPTIONS = "SoftwareUpdateOptions"
-    DOMAIN_NAME = "DomainName"
-    LOG_PUBLISHING_OPTIONS = "LogPublishingOptions"
-    AIML_OPTIONS = "AIMLOptions"
-    SNAPSHOT_OPTIONS = "SnapshotOptions"
-    VPC_OPTIONS = "VPCOptions"
-    NODE_TO_NODE_ENCRYPTION_OPTIONS = "NodeToNodeEncryptionOptions"
-    ACCESS_POLICIES = "AccessPolicies"
-    DOMAIN_ENDPOINT_OPTIONS = "DomainEndpointOptions"
-    COGNITO_OPTIONS = "CognitoOptions"
-    ADVANCED_OPTIONS = "AdvancedOptions"
-    ADVANCED_SECURITY_OPTIONS = "AdvancedSecurityOptions"
-    IP_ADDRESS_TYPE = "IPAddressType"
-    IDENTITY_CENTER_OPTIONS = "IdentityCenterOptions"
-    EBS_OPTIONS = "EBSOptions"
-    ENCRYPTION_AT_REST_OPTIONS = "EncryptionAtRestOptions"
-    OFF_PEAK_WINDOW_OPTIONS = "OffPeakWindowOptions"
-    TAGS = "Tags"
-    CLUSTER_CONFIG = "ClusterConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skip_shard_migration_wait": "SkipShardMigrationWait",
         "engine_version": "EngineVersion",

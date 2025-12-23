@@ -11,13 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ContinuousDeploymentPolicyConfig(PropertyType):
-    TYPE = "Type"
-    SINGLE_HEADER_POLICY_CONFIG = "SingleHeaderPolicyConfig"
-    ENABLED = "Enabled"
-    STAGING_DISTRIBUTION_DNS_NAMES = "StagingDistributionDnsNames"
-    TRAFFIC_CONFIG = "TrafficConfig"
-    SINGLE_WEIGHT_POLICY_CONFIG = "SingleWeightPolicyConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "single_header_policy_config": "SingleHeaderPolicyConfig",
@@ -37,9 +30,6 @@ class ContinuousDeploymentPolicyConfig(PropertyType):
 
 @dataclass
 class SessionStickinessConfig(PropertyType):
-    IDLE_TTL = "IdleTTL"
-    MAXIMUM_TTL = "MaximumTTL"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_ttl": "IdleTTL",
         "maximum_ttl": "MaximumTTL",
@@ -51,9 +41,6 @@ class SessionStickinessConfig(PropertyType):
 
 @dataclass
 class SingleHeaderConfig(PropertyType):
-    HEADER = "Header"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -65,9 +52,6 @@ class SingleHeaderConfig(PropertyType):
 
 @dataclass
 class SingleHeaderPolicyConfig(PropertyType):
-    HEADER = "Header"
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -79,9 +63,6 @@ class SingleHeaderPolicyConfig(PropertyType):
 
 @dataclass
 class SingleWeightConfig(PropertyType):
-    SESSION_STICKINESS_CONFIG = "SessionStickinessConfig"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_stickiness_config": "SessionStickinessConfig",
         "weight": "Weight",
@@ -93,9 +74,6 @@ class SingleWeightConfig(PropertyType):
 
 @dataclass
 class SingleWeightPolicyConfig(PropertyType):
-    SESSION_STICKINESS_CONFIG = "SessionStickinessConfig"
-    WEIGHT = "Weight"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_stickiness_config": "SessionStickinessConfig",
         "weight": "Weight",
@@ -107,10 +85,6 @@ class SingleWeightPolicyConfig(PropertyType):
 
 @dataclass
 class TrafficConfig(PropertyType):
-    SINGLE_WEIGHT_CONFIG = "SingleWeightConfig"
-    TYPE = "Type"
-    SINGLE_HEADER_CONFIG = "SingleHeaderConfig"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_weight_config": "SingleWeightConfig",
         "type_": "Type",

@@ -11,11 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ConfigurationOptionSetting(PropertyType):
-    RESOURCE_NAME = "ResourceName"
-    VALUE = "Value"
-    NAMESPACE = "Namespace"
-    OPTION_NAME = "OptionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_name": "ResourceName",
         "value": "Value",
@@ -31,9 +26,6 @@ class ConfigurationOptionSetting(PropertyType):
 
 @dataclass
 class SourceConfiguration(PropertyType):
-    APPLICATION_NAME = "ApplicationName"
-    TEMPLATE_NAME = "TemplateName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "template_name": "TemplateName",

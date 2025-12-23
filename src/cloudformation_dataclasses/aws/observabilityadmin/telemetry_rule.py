@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ActionCondition(PropertyType):
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -22,9 +20,6 @@ class ActionCondition(PropertyType):
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    FIELD_SELECTORS = "FieldSelectors"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -36,14 +31,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    FIELD = "Field"
-    EQUALS = "Equals"
-    NOT_STARTS_WITH = "NotStartsWith"
-    NOT_ENDS_WITH = "NotEndsWith"
-    STARTS_WITH = "StartsWith"
-    ENDS_WITH = "EndsWith"
-    NOT_EQUALS = "NotEquals"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -65,8 +52,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class CloudtrailParameters(PropertyType):
-    ADVANCED_EVENT_SELECTORS = "AdvancedEventSelectors"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_event_selectors": "AdvancedEventSelectors",
     }
@@ -76,9 +61,6 @@ class CloudtrailParameters(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    LABEL_NAME_CONDITION = "LabelNameCondition"
-    ACTION_CONDITION = "ActionCondition"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name_condition": "LabelNameCondition",
         "action_condition": "ActionCondition",
@@ -90,9 +72,6 @@ class Condition(PropertyType):
 
 @dataclass
 class ELBLoadBalancerLoggingParameters(PropertyType):
-    FIELD_DELIMITER = "FieldDelimiter"
-    OUTPUT_FORMAT = "OutputFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_delimiter": "FieldDelimiter",
         "output_format": "OutputFormat",
@@ -104,11 +83,6 @@ class ELBLoadBalancerLoggingParameters(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    URI_PATH = "UriPath"
-    QUERY_STRING = "QueryString"
-    METHOD = "Method"
-    SINGLE_HEADER = "SingleHeader"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri_path": "UriPath",
         "query_string": "QueryString",
@@ -124,10 +98,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    REQUIREMENT = "Requirement"
-    BEHAVIOR = "Behavior"
-    CONDITIONS = "Conditions"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "behavior": "Behavior",
@@ -141,8 +111,6 @@ class Filter(PropertyType):
 
 @dataclass
 class LabelNameCondition(PropertyType):
-    LABEL_NAME = "LabelName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name": "LabelName",
     }
@@ -152,8 +120,6 @@ class LabelNameCondition(PropertyType):
 
 @dataclass
 class LogDeliveryParameters(PropertyType):
-    LOG_TYPES = "LogTypes"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_types": "LogTypes",
     }
@@ -163,9 +129,6 @@ class LogDeliveryParameters(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    FILTERS = "Filters"
-    DEFAULT_BEHAVIOR = "DefaultBehavior"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "default_behavior": "DefaultBehavior",
@@ -177,8 +140,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -188,15 +149,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class TelemetryDestinationConfiguration(PropertyType):
-    RETENTION_IN_DAYS = "RetentionInDays"
-    DESTINATION_PATTERN = "DestinationPattern"
-    ELB_LOAD_BALANCER_LOGGING_PARAMETERS = "ELBLoadBalancerLoggingParameters"
-    VPC_FLOW_LOG_PARAMETERS = "VPCFlowLogParameters"
-    CLOUDTRAIL_PARAMETERS = "CloudtrailParameters"
-    WAF_LOGGING_PARAMETERS = "WAFLoggingParameters"
-    LOG_DELIVERY_PARAMETERS = "LogDeliveryParameters"
-    DESTINATION_TYPE = "DestinationType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_in_days": "RetentionInDays",
         "destination_pattern": "DestinationPattern",
@@ -220,12 +172,6 @@ class TelemetryDestinationConfiguration(PropertyType):
 
 @dataclass
 class TelemetryRule(PropertyType):
-    TELEMETRY_SOURCE_TYPES = "TelemetrySourceTypes"
-    DESTINATION_CONFIGURATION = "DestinationConfiguration"
-    SELECTION_CRITERIA = "SelectionCriteria"
-    RESOURCE_TYPE = "ResourceType"
-    TELEMETRY_TYPE = "TelemetryType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "telemetry_source_types": "TelemetrySourceTypes",
         "destination_configuration": "DestinationConfiguration",
@@ -243,10 +189,6 @@ class TelemetryRule(PropertyType):
 
 @dataclass
 class VPCFlowLogParameters(PropertyType):
-    LOG_FORMAT = "LogFormat"
-    MAX_AGGREGATION_INTERVAL = "MaxAggregationInterval"
-    TRAFFIC_TYPE = "TrafficType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "max_aggregation_interval": "MaxAggregationInterval",
@@ -260,10 +202,6 @@ class VPCFlowLogParameters(PropertyType):
 
 @dataclass
 class WAFLoggingParameters(PropertyType):
-    REDACTED_FIELDS = "RedactedFields"
-    LOGGING_FILTER = "LoggingFilter"
-    LOG_TYPE = "LogType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redacted_fields": "RedactedFields",
         "logging_filter": "LoggingFilter",

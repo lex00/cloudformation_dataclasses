@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IcebergConfiguration(PropertyType):
-    ORPHAN_FILE_RETENTION_PERIOD_IN_DAYS = "OrphanFileRetentionPeriodInDays"
-    LOCATION = "Location"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orphan_file_retention_period_in_days": "OrphanFileRetentionPeriodInDays",
         "location": "Location",
@@ -25,10 +22,6 @@ class IcebergConfiguration(PropertyType):
 
 @dataclass
 class IcebergRetentionConfiguration(PropertyType):
-    CLEAN_EXPIRED_FILES = "CleanExpiredFiles"
-    SNAPSHOT_RETENTION_PERIOD_IN_DAYS = "SnapshotRetentionPeriodInDays"
-    NUMBER_OF_SNAPSHOTS_TO_RETAIN = "NumberOfSnapshotsToRetain"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "clean_expired_files": "CleanExpiredFiles",
         "snapshot_retention_period_in_days": "SnapshotRetentionPeriodInDays",
@@ -42,8 +35,6 @@ class IcebergRetentionConfiguration(PropertyType):
 
 @dataclass
 class OrphanFileDeletionConfiguration(PropertyType):
-    ICEBERG_CONFIGURATION = "IcebergConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_configuration": "IcebergConfiguration",
     }
@@ -53,8 +44,6 @@ class OrphanFileDeletionConfiguration(PropertyType):
 
 @dataclass
 class RetentionConfiguration(PropertyType):
-    ICEBERG_CONFIGURATION = "IcebergConfiguration"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_configuration": "IcebergConfiguration",
     }
@@ -64,12 +53,6 @@ class RetentionConfiguration(PropertyType):
 
 @dataclass
 class TableOptimizerConfiguration(PropertyType):
-    RETENTION_CONFIGURATION = "RetentionConfiguration"
-    ORPHAN_FILE_DELETION_CONFIGURATION = "OrphanFileDeletionConfiguration"
-    ENABLED = "Enabled"
-    VPC_CONFIGURATION = "VpcConfiguration"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_configuration": "RetentionConfiguration",
         "orphan_file_deletion_configuration": "OrphanFileDeletionConfiguration",
@@ -87,8 +70,6 @@ class TableOptimizerConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    GLUE_CONNECTION_NAME = "GlueConnectionName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_connection_name": "GlueConnectionName",
     }

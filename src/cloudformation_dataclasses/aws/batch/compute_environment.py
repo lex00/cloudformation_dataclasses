@@ -11,25 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ComputeResources(PropertyType):
-    SPOT_IAM_FLEET_ROLE = "SpotIamFleetRole"
-    MAXV_CPUS = "MaxvCpus"
-    EC2_CONFIGURATION = "Ec2Configuration"
-    BID_PERCENTAGE = "BidPercentage"
-    SECURITY_GROUP_IDS = "SecurityGroupIds"
-    ALLOCATION_STRATEGY = "AllocationStrategy"
-    SUBNETS = "Subnets"
-    TYPE = "Type"
-    MINV_CPUS = "MinvCpus"
-    UPDATE_TO_LATEST_IMAGE_VERSION = "UpdateToLatestImageVersion"
-    LAUNCH_TEMPLATE = "LaunchTemplate"
-    IMAGE_ID = "ImageId"
-    INSTANCE_ROLE = "InstanceRole"
-    INSTANCE_TYPES = "InstanceTypes"
-    EC2_KEY_PAIR = "Ec2KeyPair"
-    PLACEMENT_GROUP = "PlacementGroup"
-    TAGS = "Tags"
-    DESIREDV_CPUS = "DesiredvCpus"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_iam_fleet_role": "SpotIamFleetRole",
         "maxv_cpus": "MaxvCpus",
@@ -73,10 +54,6 @@ class ComputeResources(PropertyType):
 
 @dataclass
 class Ec2ConfigurationObject(PropertyType):
-    IMAGE_ID_OVERRIDE = "ImageIdOverride"
-    IMAGE_KUBERNETES_VERSION = "ImageKubernetesVersion"
-    IMAGE_TYPE = "ImageType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_id_override": "ImageIdOverride",
         "image_kubernetes_version": "ImageKubernetesVersion",
@@ -90,9 +67,6 @@ class Ec2ConfigurationObject(PropertyType):
 
 @dataclass
 class EksConfiguration(PropertyType):
-    EKS_CLUSTER_ARN = "EksClusterArn"
-    KUBERNETES_NAMESPACE = "KubernetesNamespace"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_cluster_arn": "EksClusterArn",
         "kubernetes_namespace": "KubernetesNamespace",
@@ -104,12 +78,6 @@ class EksConfiguration(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    USERDATA_TYPE = "UserdataType"
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    OVERRIDES = "Overrides"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "userdata_type": "UserdataType",
         "launch_template_name": "LaunchTemplateName",
@@ -127,12 +95,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecificationOverride(PropertyType):
-    TARGET_INSTANCE_TYPES = "TargetInstanceTypes"
-    USERDATA_TYPE = "UserdataType"
-    LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
-    VERSION = "Version"
-    LAUNCH_TEMPLATE_ID = "LaunchTemplateId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_instance_types": "TargetInstanceTypes",
         "userdata_type": "UserdataType",
@@ -150,9 +112,6 @@ class LaunchTemplateSpecificationOverride(PropertyType):
 
 @dataclass
 class UpdatePolicy(PropertyType):
-    JOB_EXECUTION_TIMEOUT_MINUTES = "JobExecutionTimeoutMinutes"
-    TERMINATE_JOBS_ON_UPDATE = "TerminateJobsOnUpdate"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_execution_timeout_minutes": "JobExecutionTimeoutMinutes",
         "terminate_jobs_on_update": "TerminateJobsOnUpdate",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EgressEndpoint(PropertyType):
-    PACKAGING_CONFIGURATION_ID = "PackagingConfigurationId"
-    URL = "Url"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "packaging_configuration_id": "PackagingConfigurationId",
         "url": "Url",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Action(PropertyType):
-    BLOCK = "Block"
-    COUNT = "Count"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block": "Block",
         "count": "Count",
@@ -25,9 +22,6 @@ class Action(PropertyType):
 
 @dataclass
 class ApplicationLayerAutomaticResponseConfiguration(PropertyType):
-    STATUS = "Status"
-    ACTION = "Action"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "action": "Action",

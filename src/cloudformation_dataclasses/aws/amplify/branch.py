@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Backend(PropertyType):
-    STACK_ARN = "StackArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_arn": "StackArn",
     }
@@ -22,10 +20,6 @@ class Backend(PropertyType):
 
 @dataclass
 class BasicAuthConfig(PropertyType):
-    USERNAME = "Username"
-    ENABLE_BASIC_AUTH = "EnableBasicAuth"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "enable_basic_auth": "EnableBasicAuth",
@@ -39,9 +33,6 @@ class BasicAuthConfig(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

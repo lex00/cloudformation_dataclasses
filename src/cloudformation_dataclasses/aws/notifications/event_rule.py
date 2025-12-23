@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EventRuleStatusSummary(PropertyType):
-    STATUS = "Status"
-    REASON = "Reason"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "reason": "Reason",

@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class EndPoint(PropertyType):
-    KINESIS_STREAM_CONFIG = "KinesisStreamConfig"
-    STREAM_TYPE = "StreamType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_config": "KinesisStreamConfig",
         "stream_type": "StreamType",
@@ -25,9 +22,6 @@ class EndPoint(PropertyType):
 
 @dataclass
 class KinesisStreamConfig(PropertyType):
-    STREAM_ARN = "StreamArn"
-    ROLE_ARN = "RoleArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
         "role_arn": "RoleArn",

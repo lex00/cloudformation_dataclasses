@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApiKeyAuthParameters(PropertyType):
-    API_KEY_VALUE = "ApiKeyValue"
-    API_KEY_NAME = "ApiKeyName"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_key_value": "ApiKeyValue",
         "api_key_name": "ApiKeyName",
@@ -25,12 +22,6 @@ class ApiKeyAuthParameters(PropertyType):
 
 @dataclass
 class AuthParameters(PropertyType):
-    INVOCATION_HTTP_PARAMETERS = "InvocationHttpParameters"
-    CONNECTIVITY_PARAMETERS = "ConnectivityParameters"
-    BASIC_AUTH_PARAMETERS = "BasicAuthParameters"
-    API_KEY_AUTH_PARAMETERS = "ApiKeyAuthParameters"
-    O_AUTH_PARAMETERS = "OAuthParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_http_parameters": "InvocationHttpParameters",
         "connectivity_parameters": "ConnectivityParameters",
@@ -48,9 +39,6 @@ class AuthParameters(PropertyType):
 
 @dataclass
 class BasicAuthParameters(PropertyType):
-    USERNAME = "Username"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -62,9 +50,6 @@ class BasicAuthParameters(PropertyType):
 
 @dataclass
 class ClientParameters(PropertyType):
-    CLIENT_SECRET = "ClientSecret"
-    CLIENT_ID = "ClientID"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "client_id": "ClientID",
@@ -76,10 +61,6 @@ class ClientParameters(PropertyType):
 
 @dataclass
 class ConnectionHttpParameters(PropertyType):
-    HEADER_PARAMETERS = "HeaderParameters"
-    QUERY_STRING_PARAMETERS = "QueryStringParameters"
-    BODY_PARAMETERS = "BodyParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_parameters": "HeaderParameters",
         "query_string_parameters": "QueryStringParameters",
@@ -93,8 +74,6 @@ class ConnectionHttpParameters(PropertyType):
 
 @dataclass
 class ConnectivityParameters(PropertyType):
-    RESOURCE_PARAMETERS = "ResourceParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_parameters": "ResourceParameters",
     }
@@ -104,8 +83,6 @@ class ConnectivityParameters(PropertyType):
 
 @dataclass
 class InvocationConnectivityParameters(PropertyType):
-    RESOURCE_PARAMETERS = "ResourceParameters"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_parameters": "ResourceParameters",
     }
@@ -115,11 +92,6 @@ class InvocationConnectivityParameters(PropertyType):
 
 @dataclass
 class OAuthParameters(PropertyType):
-    CLIENT_PARAMETERS = "ClientParameters"
-    O_AUTH_HTTP_PARAMETERS = "OAuthHttpParameters"
-    AUTHORIZATION_ENDPOINT = "AuthorizationEndpoint"
-    HTTP_METHOD = "HttpMethod"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_parameters": "ClientParameters",
         "o_auth_http_parameters": "OAuthHttpParameters",
@@ -135,10 +107,6 @@ class OAuthParameters(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    VALUE = "Value"
-    IS_VALUE_SECRET = "IsValueSecret"
-    KEY = "Key"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "is_value_secret": "IsValueSecret",
@@ -152,9 +120,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class ResourceParameters(PropertyType):
-    RESOURCE_ASSOCIATION_ARN = "ResourceAssociationArn"
-    RESOURCE_CONFIGURATION_ARN = "ResourceConfigurationArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_association_arn": "ResourceAssociationArn",
         "resource_configuration_arn": "ResourceConfigurationArn",

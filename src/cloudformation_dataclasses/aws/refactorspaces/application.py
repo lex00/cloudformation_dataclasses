@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApiGatewayProxyInput(PropertyType):
-    STAGE_NAME = "StageName"
-    ENDPOINT_TYPE = "EndpointType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "endpoint_type": "EndpointType",

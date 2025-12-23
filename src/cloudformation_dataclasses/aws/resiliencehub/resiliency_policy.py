@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class FailurePolicy(PropertyType):
-    RPO_IN_SECS = "RpoInSecs"
-    RTO_IN_SECS = "RtoInSecs"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rpo_in_secs": "RpoInSecs",
         "rto_in_secs": "RtoInSecs",
@@ -25,11 +22,6 @@ class FailurePolicy(PropertyType):
 
 @dataclass
 class PolicyMap(PropertyType):
-    AZ = "AZ"
-    REGION = "Region"
-    HARDWARE = "Hardware"
-    SOFTWARE = "Software"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "az": "AZ",
         "region": "Region",

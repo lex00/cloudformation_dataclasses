@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class LoginProfile(PropertyType):
-    PASSWORD_RESET_REQUIRED = "PasswordResetRequired"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password_reset_required": "PasswordResetRequired",
         "password": "Password",
@@ -25,9 +22,6 @@ class LoginProfile(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    POLICY_NAME = "PolicyName"
-    POLICY_DOCUMENT = "PolicyDocument"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",

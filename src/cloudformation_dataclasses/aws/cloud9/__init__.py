@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:50:47
+  Generated: 2025-12-22 19:26:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cloud9
@@ -150,17 +150,6 @@ class EnvironmentEC2(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::Cloud9::EnvironmentEC2"
     name_field: ClassVar[str] = "name"
-    REPOSITORIES = "Repositories"
-    OWNER_ARN = "OwnerArn"
-    DESCRIPTION = "Description"
-    CONNECTION_TYPE = "ConnectionType"
-    AUTOMATIC_STOP_TIME_MINUTES = "AutomaticStopTimeMinutes"
-    IMAGE_ID = "ImageId"
-    SUBNET_ID = "SubnetId"
-    INSTANCE_TYPE = "InstanceType"
-    TAGS = "Tags"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repositories": "Repositories",
         "owner_arn": "OwnerArn",

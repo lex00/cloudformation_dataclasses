@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ExecutionControls(PropertyType):
-    SSM_CONTROLS = "SsmControls"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_controls": "SsmControls",
     }
@@ -22,9 +20,6 @@ class ExecutionControls(PropertyType):
 
 @dataclass
 class RemediationParameterValue(PropertyType):
-    RESOURCE_VALUE = "ResourceValue"
-    STATIC_VALUE = "StaticValue"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_value": "ResourceValue",
         "static_value": "StaticValue",
@@ -36,8 +31,6 @@ class RemediationParameterValue(PropertyType):
 
 @dataclass
 class ResourceValue(PropertyType):
-    VALUE = "Value"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -47,9 +40,6 @@ class ResourceValue(PropertyType):
 
 @dataclass
 class SsmControls(PropertyType):
-    ERROR_PERCENTAGE = "ErrorPercentage"
-    CONCURRENT_EXECUTION_RATE_PERCENTAGE = "ConcurrentExecutionRatePercentage"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_percentage": "ErrorPercentage",
         "concurrent_execution_rate_percentage": "ConcurrentExecutionRatePercentage",
@@ -61,8 +51,6 @@ class SsmControls(PropertyType):
 
 @dataclass
 class StaticValue(PropertyType):
-    VALUES = "Values"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }

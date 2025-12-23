@@ -11,14 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    END_TIME_MINUTE = "EndTimeMinute"
-    TYPE = "Type"
-    DAYS_OF_THE_WEEK = "DaysOfTheWeek"
-    APPLY_TIME_OF = "ApplyTimeOf"
-    START_TIME_MINUTE = "StartTimeMinute"
-    START_TIME_HOUR = "StartTimeHour"
-    END_TIME_HOUR = "EndTimeHour"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time_minute": "EndTimeMinute",
         "type_": "Type",

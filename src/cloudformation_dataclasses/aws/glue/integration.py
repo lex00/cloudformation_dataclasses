@@ -11,10 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class IntegrationConfig(PropertyType):
-    CONTINUOUS_SYNC = "ContinuousSync"
-    REFRESH_INTERVAL = "RefreshInterval"
-    SOURCE_PROPERTIES = "SourceProperties"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continuous_sync": "ContinuousSync",
         "refresh_interval": "RefreshInterval",

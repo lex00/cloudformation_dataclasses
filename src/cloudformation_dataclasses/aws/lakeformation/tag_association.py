@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DatabaseResource(PropertyType):
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -25,10 +22,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class LFTagPair(PropertyType):
-    TAG_KEY = "TagKey"
-    CATALOG_ID = "CatalogId"
-    TAG_VALUES = "TagValues"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "catalog_id": "CatalogId",
@@ -42,11 +35,6 @@ class LFTagPair(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    TABLE = "Table"
-    TABLE_WITH_COLUMNS = "TableWithColumns"
-    DATABASE = "Database"
-    CATALOG = "Catalog"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table": "Table",
         "table_with_columns": "TableWithColumns",
@@ -62,11 +50,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    TABLE_WILDCARD = "TableWildcard"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -82,11 +65,6 @@ class TableResource(PropertyType):
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    COLUMN_NAMES = "ColumnNames"
-    DATABASE_NAME = "DatabaseName"
-    CATALOG_ID = "CatalogId"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",

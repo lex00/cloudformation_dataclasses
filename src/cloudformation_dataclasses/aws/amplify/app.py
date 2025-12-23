@@ -11,18 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoBranchCreationConfig(PropertyType):
-    ENVIRONMENT_VARIABLES = "EnvironmentVariables"
-    AUTO_BRANCH_CREATION_PATTERNS = "AutoBranchCreationPatterns"
-    ENABLE_AUTO_BRANCH_CREATION = "EnableAutoBranchCreation"
-    PULL_REQUEST_ENVIRONMENT_NAME = "PullRequestEnvironmentName"
-    ENABLE_PULL_REQUEST_PREVIEW = "EnablePullRequestPreview"
-    ENABLE_AUTO_BUILD = "EnableAutoBuild"
-    ENABLE_PERFORMANCE_MODE = "EnablePerformanceMode"
-    BUILD_SPEC = "BuildSpec"
-    STAGE = "Stage"
-    BASIC_AUTH_CONFIG = "BasicAuthConfig"
-    FRAMEWORK = "Framework"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_variables": "EnvironmentVariables",
         "auto_branch_creation_patterns": "AutoBranchCreationPatterns",
@@ -52,10 +40,6 @@ class AutoBranchCreationConfig(PropertyType):
 
 @dataclass
 class BasicAuthConfig(PropertyType):
-    USERNAME = "Username"
-    ENABLE_BASIC_AUTH = "EnableBasicAuth"
-    PASSWORD = "Password"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "enable_basic_auth": "EnableBasicAuth",
@@ -69,8 +53,6 @@ class BasicAuthConfig(PropertyType):
 
 @dataclass
 class CacheConfig(PropertyType):
-    TYPE = "Type"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -80,11 +62,6 @@ class CacheConfig(PropertyType):
 
 @dataclass
 class CustomRule(PropertyType):
-    CONDITION = "Condition"
-    STATUS = "Status"
-    TARGET = "Target"
-    SOURCE = "Source"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "status": "Status",
@@ -100,9 +77,6 @@ class CustomRule(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    VALUE = "Value"
-    NAME = "Name"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -114,8 +88,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class JobConfig(PropertyType):
-    BUILD_COMPUTE_TYPE = "BuildComputeType"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "build_compute_type": "BuildComputeType",
     }

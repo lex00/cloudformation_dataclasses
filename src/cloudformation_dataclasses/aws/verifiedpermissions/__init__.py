@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:51:21
+  Generated: 2025-12-22 19:26:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VerifiedPermissions
@@ -128,10 +128,6 @@ class IdentitySource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verif"""
 
     resource_type: ClassVar[str] = "AWS::VerifiedPermissions::IdentitySource"
-    PRINCIPAL_ENTITY_TYPE = "PrincipalEntityType"
-    CONFIGURATION = "Configuration"
-    POLICY_STORE_ID = "PolicyStoreId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_entity_type": "PrincipalEntityType",
         "configuration": "Configuration",
@@ -154,9 +150,6 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verif"""
 
     resource_type: ClassVar[str] = "AWS::VerifiedPermissions::Policy"
-    DEFINITION = "Definition"
-    POLICY_STORE_ID = "PolicyStoreId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
         "policy_store_id": "PolicyStoreId",
@@ -182,12 +175,6 @@ class PolicyStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verif"""
 
     resource_type: ClassVar[str] = "AWS::VerifiedPermissions::PolicyStore"
-    DESCRIPTION = "Description"
-    VALIDATION_SETTINGS = "ValidationSettings"
-    SCHEMA = "Schema"
-    DELETION_PROTECTION = "DeletionProtection"
-    TAGS = "Tags"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "validation_settings": "ValidationSettings",
@@ -219,10 +206,6 @@ class PolicyTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verif"""
 
     resource_type: ClassVar[str] = "AWS::VerifiedPermissions::PolicyTemplate"
-    DESCRIPTION = "Description"
-    STATEMENT = "Statement"
-    POLICY_STORE_ID = "PolicyStoreId"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "statement": "Statement",

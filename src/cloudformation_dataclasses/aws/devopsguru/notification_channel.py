@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class NotificationChannelConfig(PropertyType):
-    FILTERS = "Filters"
-    SNS = "Sns"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "sns": "Sns",
@@ -25,9 +22,6 @@ class NotificationChannelConfig(PropertyType):
 
 @dataclass
 class NotificationFilterConfig(PropertyType):
-    MESSAGE_TYPES = "MessageTypes"
-    SEVERITIES = "Severities"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_types": "MessageTypes",
         "severities": "Severities",
@@ -39,8 +33,6 @@ class NotificationFilterConfig(PropertyType):
 
 @dataclass
 class SnsChannelConfig(PropertyType):
-    TOPIC_ARN = "TopicArn"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }

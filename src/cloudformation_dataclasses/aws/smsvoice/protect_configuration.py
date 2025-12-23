@@ -11,9 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CountryRule(PropertyType):
-    PROTECT_STATUS = "ProtectStatus"
-    COUNTRY_CODE = "CountryCode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protect_status": "ProtectStatus",
         "country_code": "CountryCode",
@@ -25,10 +22,6 @@ class CountryRule(PropertyType):
 
 @dataclass
 class CountryRuleSet(PropertyType):
-    VOICE = "VOICE"
-    MMS = "MMS"
-    SMS = "SMS"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "voice": "VOICE",
         "mms": "MMS",

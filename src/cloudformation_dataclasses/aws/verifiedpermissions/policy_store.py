@@ -11,8 +11,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeletionProtection(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -22,9 +20,6 @@ class DeletionProtection(PropertyType):
 
 @dataclass
 class SchemaDefinition(PropertyType):
-    CEDAR_JSON = "CedarJson"
-    CEDAR_FORMAT = "CedarFormat"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cedar_json": "CedarJson",
         "cedar_format": "CedarFormat",
@@ -36,8 +31,6 @@ class SchemaDefinition(PropertyType):
 
 @dataclass
 class ValidationSettings(PropertyType):
-    MODE = "Mode"
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
