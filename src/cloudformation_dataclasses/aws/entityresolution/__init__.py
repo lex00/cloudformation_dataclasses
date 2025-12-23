@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:06
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EntityResolution
@@ -245,6 +245,7 @@ class IdMappingWorkflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entit"""
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::IdMappingWorkflow"
+    name_field: ClassVar[str] = "workflow_name"
     DESCRIPTION = "Description"
     INPUT_SOURCE_CONFIG = "InputSourceConfig"
     ID_MAPPING_TECHNIQUES = "IdMappingTechniques"
@@ -296,6 +297,7 @@ class IdNamespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entit"""
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::IdNamespace"
+    name_field: ClassVar[str] = "id_namespace_name"
     ID_NAMESPACE_NAME = "IdNamespaceName"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -344,6 +346,7 @@ class MatchingWorkflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entit"""
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::MatchingWorkflow"
+    name_field: ClassVar[str] = "workflow_name"
     RESOLUTION_TECHNIQUES = "ResolutionTechniques"
     DESCRIPTION = "Description"
     INPUT_SOURCE_CONFIG = "InputSourceConfig"
@@ -424,6 +427,7 @@ class SchemaMapping(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entit"""
 
     resource_type: ClassVar[str] = "AWS::EntityResolution::SchemaMapping"
+    name_field: ClassVar[str] = "schema_name"
     DESCRIPTION = "Description"
     MAPPED_INPUT_FIELDS = "MappedInputFields"
     SCHEMA_NAME = "SchemaName"

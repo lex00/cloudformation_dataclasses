@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:17
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Neptune
@@ -78,6 +78,7 @@ class DBCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBCluster"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     STORAGE_ENCRYPTED = "StorageEncrypted"
     RESTORE_TO_TIME = "RestoreToTime"
     ASSOCIATED_ROLES = "AssociatedRoles"
@@ -185,6 +186,7 @@ class DBClusterParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBClusterParameterGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     FAMILY = "Family"
@@ -211,6 +213,7 @@ class DBInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBInstance"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     DB_PARAMETER_GROUP_NAME = "DBParameterGroupName"
     DB_INSTANCE_CLASS = "DBInstanceClass"
     ALLOW_MAJOR_VERSION_UPGRADE = "AllowMajorVersionUpgrade"
@@ -266,6 +269,7 @@ class DBParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBParameterGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     FAMILY = "Family"
@@ -292,6 +296,7 @@ class DBSubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::DBSubnetGroup"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
     DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
     SUBNET_IDS = "SubnetIds"
@@ -315,6 +320,7 @@ class EventSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::Neptune::EventSubscription"
+    name_field: ClassVar[str] = "subscription_name"
     SOURCE_TYPE = "SourceType"
     ENABLED = "Enabled"
     EVENT_CATEGORIES = "EventCategories"

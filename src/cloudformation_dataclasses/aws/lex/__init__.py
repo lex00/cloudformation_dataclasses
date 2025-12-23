@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:14
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lex
@@ -307,6 +307,7 @@ class Bot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-b"""
 
     resource_type: ClassVar[str] = "AWS::Lex::Bot"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ERROR_LOG_SETTINGS = "ErrorLogSettings"
     ROLE_ARN = "RoleArn"
@@ -368,6 +369,7 @@ class BotAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-b"""
 
     resource_type: ClassVar[str] = "AWS::Lex::BotAlias"
+    name_field: ClassVar[str] = "bot_alias_name"
     BOT_VERSION = "BotVersion"
     DESCRIPTION = "Description"
     BOT_ID = "BotId"

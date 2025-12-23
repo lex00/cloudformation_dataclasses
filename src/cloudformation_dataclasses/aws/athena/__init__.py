@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:54
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Athena
@@ -315,6 +315,7 @@ class CapacityReservation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athen"""
 
     resource_type: ClassVar[str] = "AWS::Athena::CapacityReservation"
+    name_field: ClassVar[str] = "name"
     TARGET_DPUS = "TargetDpus"
     CAPACITY_ASSIGNMENT_CONFIGURATION = "CapacityAssignmentConfiguration"
     TAGS = "Tags"
@@ -364,6 +365,7 @@ class DataCatalog(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athen"""
 
     resource_type: ClassVar[str] = "AWS::Athena::DataCatalog"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -399,6 +401,7 @@ class NamedQuery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athen"""
 
     resource_type: ClassVar[str] = "AWS::Athena::NamedQuery"
+    name_field: ClassVar[str] = "name"
     WORK_GROUP = "WorkGroup"
     DESCRIPTION = "Description"
     QUERY_STRING = "QueryString"
@@ -431,6 +434,7 @@ class PreparedStatement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athen"""
 
     resource_type: ClassVar[str] = "AWS::Athena::PreparedStatement"
+    name_field: ClassVar[str] = "statement_name"
     STATEMENT_NAME = "StatementName"
     WORK_GROUP = "WorkGroup"
     DESCRIPTION = "Description"
@@ -454,6 +458,7 @@ class WorkGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athen"""
 
     resource_type: ClassVar[str] = "AWS::Athena::WorkGroup"
+    name_field: ClassVar[str] = "name"
     RECURSIVE_DELETE_OPTION = "RecursiveDeleteOption"
     WORK_GROUP_CONFIGURATION = "WorkGroupConfiguration"
     DESCRIPTION = "Description"

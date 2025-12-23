@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:06
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Events
@@ -270,6 +270,7 @@ class ApiDestination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::ApiDestination"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONNECTION_ARN = "ConnectionArn"
     INVOCATION_ENDPOINT = "InvocationEndpoint"
@@ -310,6 +311,7 @@ class Archive(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::Archive"
+    name_field: ClassVar[str] = "archive_name"
     EVENT_PATTERN = "EventPattern"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
     DESCRIPTION = "Description"
@@ -345,6 +347,7 @@ class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::Connection"
+    name_field: ClassVar[str] = "name"
     AUTH_PARAMETERS = "AuthParameters"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
     DESCRIPTION = "Description"
@@ -400,6 +403,7 @@ class Endpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::Endpoint"
+    name_field: ClassVar[str] = "name"
     EVENT_BUSES = "EventBuses"
     DESCRIPTION = "Description"
     REPLICATION_CONFIG = "ReplicationConfig"
@@ -455,6 +459,7 @@ class EventBus(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::EventBus"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
     DESCRIPTION = "Description"
@@ -501,6 +506,7 @@ class EventBusPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::EventBusPolicy"
+    name_field: ClassVar[str] = "event_bus_name"
     EVENT_BUS_NAME = "EventBusName"
     STATEMENT_ID = "StatementId"
     STATEMENT = "Statement"
@@ -521,6 +527,7 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::Events::Rule"
+    name_field: ClassVar[str] = "name"
     EVENT_BUS_NAME = "EventBusName"
     EVENT_PATTERN = "EventPattern"
     SCHEDULE_EXPRESSION = "ScheduleExpression"

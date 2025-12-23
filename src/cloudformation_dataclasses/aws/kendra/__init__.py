@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:12
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Kendra
@@ -869,6 +869,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendr"""
 
     resource_type: ClassVar[str] = "AWS::Kendra::DataSource"
+    name_field: ClassVar[str] = "name"
     CUSTOM_DOCUMENT_ENRICHMENT_CONFIGURATION = "CustomDocumentEnrichmentConfiguration"
     INDEX_ID = "IndexId"
     LANGUAGE_CODE = "LanguageCode"
@@ -921,6 +922,7 @@ class Faq(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendr"""
 
     resource_type: ClassVar[str] = "AWS::Kendra::Faq"
+    name_field: ClassVar[str] = "name"
     INDEX_ID = "IndexId"
     LANGUAGE_CODE = "LanguageCode"
     DESCRIPTION = "Description"
@@ -967,6 +969,7 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendr"""
 
     resource_type: ClassVar[str] = "AWS::Kendra::Index"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     USER_CONTEXT_POLICY = "UserContextPolicy"
     CAPACITY_UNITS = "CapacityUnits"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:57
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFormation
@@ -1235,6 +1235,7 @@ class HookDefaultVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookDefaultVersion"
+    name_field: ClassVar[str] = "type_name"
     VERSION_ID = "VersionId"
     TYPE_NAME = "TypeName"
     TYPE_VERSION_ARN = "TypeVersionArn"
@@ -1261,6 +1262,7 @@ class HookTypeConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookTypeConfig"
+    name_field: ClassVar[str] = "type_name"
     TYPE_NAME = "TypeName"
     CONFIGURATION = "Configuration"
     TYPE_ARN = "TypeArn"
@@ -1290,6 +1292,7 @@ class HookVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::HookVersion"
+    name_field: ClassVar[str] = "type_name"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     TYPE_NAME = "TypeName"
     LOGGING_CONFIG = "LoggingConfig"
@@ -1380,6 +1383,7 @@ class Macro(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::Macro"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     FUNCTION_NAME = "FunctionName"
     LOG_GROUP_NAME = "LogGroupName"
@@ -1406,6 +1410,7 @@ class ModuleDefaultVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ModuleDefaultVersion"
+    name_field: ClassVar[str] = "module_name"
     VERSION_ID = "VersionId"
     MODULE_NAME = "ModuleName"
     ARN = "Arn"
@@ -1426,6 +1431,7 @@ class ModuleVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ModuleVersion"
+    name_field: ClassVar[str] = "module_name"
     MODULE_PACKAGE = "ModulePackage"
     MODULE_NAME = "ModuleName"
 
@@ -1484,6 +1490,7 @@ class PublicTypeVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::PublicTypeVersion"
+    name_field: ClassVar[str] = "type_name"
     TYPE_NAME = "TypeName"
     LOG_DELIVERY_BUCKET = "LogDeliveryBucket"
     TYPE = "Type"
@@ -1564,6 +1571,7 @@ class ResourceDefaultVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ResourceDefaultVersion"
+    name_field: ClassVar[str] = "type_name"
     VERSION_ID = "VersionId"
     TYPE_NAME = "TypeName"
     TYPE_VERSION_ARN = "TypeVersionArn"
@@ -1590,6 +1598,7 @@ class ResourceVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::ResourceVersion"
+    name_field: ClassVar[str] = "type_name"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     TYPE_NAME = "TypeName"
     LOGGING_CONFIG = "LoggingConfig"
@@ -1670,6 +1679,7 @@ class StackSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::StackSet"
+    name_field: ClassVar[str] = "stack_set_name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     STACK_INSTANCES_GROUP = "StackInstancesGroup"
@@ -1732,6 +1742,7 @@ class TypeActivation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::TypeActivation"
+    name_field: ClassVar[str] = "type_name"
     MAJOR_VERSION = "MajorVersion"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     TYPE_NAME = "TypeName"

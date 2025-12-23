@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:31
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAF
@@ -784,6 +784,7 @@ class ByteMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-b"""
 
     resource_type: ClassVar[str] = "AWS::WAF::ByteMatchSet"
+    name_field: ClassVar[str] = "name"
     BYTE_MATCH_TUPLES = "ByteMatchTuples"
     NAME = "Name"
 
@@ -801,6 +802,7 @@ class IPSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-i"""
 
     resource_type: ClassVar[str] = "AWS::WAF::IPSet"
+    name_field: ClassVar[str] = "name"
     IP_SET_DESCRIPTORS = "IPSetDescriptors"
     NAME = "Name"
 
@@ -818,6 +820,7 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-r"""
 
     resource_type: ClassVar[str] = "AWS::WAF::Rule"
+    name_field: ClassVar[str] = "name"
     METRIC_NAME = "MetricName"
     NAME = "Name"
     PREDICATES = "Predicates"
@@ -838,6 +841,7 @@ class SizeConstraintSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-s"""
 
     resource_type: ClassVar[str] = "AWS::WAF::SizeConstraintSet"
+    name_field: ClassVar[str] = "name"
     NAME = "Name"
     SIZE_CONSTRAINTS = "SizeConstraints"
 
@@ -855,6 +859,7 @@ class SqlInjectionMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-s"""
 
     resource_type: ClassVar[str] = "AWS::WAF::SqlInjectionMatchSet"
+    name_field: ClassVar[str] = "name"
     NAME = "Name"
     SQL_INJECTION_MATCH_TUPLES = "SqlInjectionMatchTuples"
 
@@ -872,6 +877,7 @@ class WebACL(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-w"""
 
     resource_type: ClassVar[str] = "AWS::WAF::WebACL"
+    name_field: ClassVar[str] = "name"
     DEFAULT_ACTION = "DefaultAction"
     METRIC_NAME = "MetricName"
     NAME = "Name"
@@ -895,6 +901,7 @@ class XssMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-x"""
 
     resource_type: ClassVar[str] = "AWS::WAF::XssMatchSet"
+    name_field: ClassVar[str] = "name"
     NAME = "Name"
     XSS_MATCH_TUPLES = "XssMatchTuples"
 

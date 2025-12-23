@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:53
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppRunner
@@ -286,6 +286,7 @@ class AutoScalingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appru"""
 
     resource_type: ClassVar[str] = "AWS::AppRunner::AutoScalingConfiguration"
+    name_field: ClassVar[str] = "auto_scaling_configuration_name"
     MIN_SIZE = "MinSize"
     MAX_CONCURRENCY = "MaxConcurrency"
     AUTO_SCALING_CONFIGURATION_NAME = "AutoScalingConfigurationName"
@@ -328,6 +329,7 @@ class ObservabilityConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appru"""
 
     resource_type: ClassVar[str] = "AWS::AppRunner::ObservabilityConfiguration"
+    name_field: ClassVar[str] = "observability_configuration_name"
     TRACE_CONFIGURATION = "TraceConfiguration"
     OBSERVABILITY_CONFIGURATION_NAME = "ObservabilityConfigurationName"
     TAGS = "Tags"
@@ -364,6 +366,7 @@ class Service(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appru"""
 
     resource_type: ClassVar[str] = "AWS::AppRunner::Service"
+    name_field: ClassVar[str] = "service_name"
     HEALTH_CHECK_CONFIGURATION = "HealthCheckConfiguration"
     INSTANCE_CONFIGURATION = "InstanceConfiguration"
     ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
@@ -423,6 +426,7 @@ class VpcConnector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appru"""
 
     resource_type: ClassVar[str] = "AWS::AppRunner::VpcConnector"
+    name_field: ClassVar[str] = "vpc_connector_name"
     SECURITY_GROUPS = "SecurityGroups"
     SUBNETS = "Subnets"
     VPC_CONNECTOR_NAME = "VpcConnectorName"
@@ -457,6 +461,7 @@ class VpcIngressConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appru"""
 
     resource_type: ClassVar[str] = "AWS::AppRunner::VpcIngressConnection"
+    name_field: ClassVar[str] = "vpc_ingress_connection_name"
     VPC_INGRESS_CONNECTION_NAME = "VpcIngressConnectionName"
     SERVICE_ARN = "ServiceArn"
     TAGS = "Tags"

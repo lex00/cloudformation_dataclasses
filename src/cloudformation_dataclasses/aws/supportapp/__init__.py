@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:30
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SupportApp
@@ -77,6 +77,7 @@ class SlackChannelConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-suppo"""
 
     resource_type: ClassVar[str] = "AWS::SupportApp::SlackChannelConfiguration"
+    name_field: ClassVar[str] = "channel_name"
     CHANNEL_NAME = "ChannelName"
     NOTIFY_ON_ADD_CORRESPONDENCE_TO_CASE = "NotifyOnAddCorrespondenceToCase"
     CHANNEL_ROLE_ARN = "ChannelRoleArn"

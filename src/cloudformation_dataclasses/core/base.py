@@ -298,6 +298,7 @@ class CloudFormationResource(ABC):
     """
 
     resource_type: ClassVar[str]
+    name_field: ClassVar[Optional[str]] = None  # Field for physical resource name (e.g., "bucket_name")
     _property_mappings: ClassVar[dict[str, str]] = {}
 
     logical_id: Optional[str] = None
@@ -456,14 +457,8 @@ class CloudFormationResource(ABC):
         props: dict[str, Any] = {}
         mappings = self.__class__._property_mappings
 
-        # Determine the auto-name field if context is set
-        # Convention: resource type suffix -> {suffix}_name (e.g., Bucket -> bucket_name)
-        auto_name_field: Optional[str] = None
-        if self.context:
-            # Extract resource suffix from type (e.g., "AWS::S3::Bucket" -> "Bucket")
-            resource_suffix = self.resource_type.rsplit("::", 1)[-1]
-            # Convert to snake_case name field (e.g., "Bucket" -> "bucket_name")
-            auto_name_field = f"{resource_suffix.lower()}_name"
+        # Get the name field for auto-naming (if defined for this resource type)
+        auto_name_field = self.__class__.name_field if self.context else None
 
         for field_name, cf_name in mappings.items():
             # Special case: tags field uses all_tags to merge context tags

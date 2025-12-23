@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityLake
@@ -119,6 +119,7 @@ class AwsLogSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::AwsLogSource"
+    name_field: ClassVar[str] = "source_name"
     SOURCE_NAME = "SourceName"
     SOURCE_VERSION = "SourceVersion"
     ACCOUNTS = "Accounts"
@@ -179,6 +180,7 @@ class Subscriber(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityLake::Subscriber"
+    name_field: ClassVar[str] = "subscriber_name"
     SUBSCRIBER_IDENTITY = "SubscriberIdentity"
     SUBSCRIBER_NAME = "SubscriberName"
     SUBSCRIBER_DESCRIPTION = "SubscriberDescription"

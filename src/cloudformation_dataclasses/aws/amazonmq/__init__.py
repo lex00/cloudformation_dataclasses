@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:51
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmazonMQ
@@ -161,6 +161,7 @@ class Broker(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazo"""
 
     resource_type: ClassVar[str] = "AWS::AmazonMQ::Broker"
+    name_field: ClassVar[str] = "broker_name"
     DATA_REPLICATION_PRIMARY_BROKER_ARN = "DataReplicationPrimaryBrokerArn"
     SECURITY_GROUPS = "SecurityGroups"
     ENGINE_VERSION = "EngineVersion"
@@ -293,6 +294,7 @@ class Configuration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazo"""
 
     resource_type: ClassVar[str] = "AWS::AmazonMQ::Configuration"
+    name_field: ClassVar[str] = "name"
     ENGINE_VERSION = "EngineVersion"
     DESCRIPTION = "Description"
     AUTHENTICATION_STRATEGY = "AuthenticationStrategy"

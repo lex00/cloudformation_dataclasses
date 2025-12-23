@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:57
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Chatbot
@@ -50,6 +50,7 @@ class CustomAction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatb"""
 
     resource_type: ClassVar[str] = "AWS::Chatbot::CustomAction"
+    name_field: ClassVar[str] = "alias_name"
     ACTION_NAME = "ActionName"
     ALIAS_NAME = "AliasName"
     DEFINITION = "Definition"
@@ -82,6 +83,7 @@ class MicrosoftTeamsChannelConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatb"""
 
     resource_type: ClassVar[str] = "AWS::Chatbot::MicrosoftTeamsChannelConfiguration"
+    name_field: ClassVar[str] = "teams_channel_name"
     USER_ROLE_REQUIRED = "UserRoleRequired"
     LOGGING_LEVEL = "LoggingLevel"
     TEAMS_CHANNEL_NAME = "TeamsChannelName"
@@ -135,6 +137,7 @@ class SlackChannelConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatb"""
 
     resource_type: ClassVar[str] = "AWS::Chatbot::SlackChannelConfiguration"
+    name_field: ClassVar[str] = "configuration_name"
     USER_ROLE_REQUIRED = "UserRoleRequired"
     LOGGING_LEVEL = "LoggingLevel"
     CUSTOMIZATION_RESOURCE_ARNS = "CustomizationResourceArns"

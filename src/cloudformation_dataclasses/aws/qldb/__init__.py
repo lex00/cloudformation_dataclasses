@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QLDB
@@ -34,6 +34,7 @@ class Ledger(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-"""
 
     resource_type: ClassVar[str] = "AWS::QLDB::Ledger"
+    name_field: ClassVar[str] = "name"
     PERMISSIONS_MODE = "PermissionsMode"
     DELETION_PROTECTION = "DeletionProtection"
     KMS_KEY = "KmsKey"
@@ -60,6 +61,7 @@ class Stream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-"""
 
     resource_type: ClassVar[str] = "AWS::QLDB::Stream"
+    name_field: ClassVar[str] = "stream_name"
     INCLUSIVE_START_TIME = "InclusiveStartTime"
     STREAM_NAME = "StreamName"
     KINESIS_CONFIGURATION = "KinesisConfiguration"

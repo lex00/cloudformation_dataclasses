@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:10
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Invoicing
@@ -181,6 +181,7 @@ class InvoiceUnit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-invoi"""
 
     resource_type: ClassVar[str] = "AWS::Invoicing::InvoiceUnit"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAX_INHERITANCE_DISABLED = "TaxInheritanceDisabled"
     RESOURCE_TAGS = "ResourceTags"

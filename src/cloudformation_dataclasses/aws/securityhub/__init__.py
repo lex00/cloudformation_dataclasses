@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityHub
@@ -1129,6 +1129,7 @@ class AutomationRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::AutomationRule"
+    name_field: ClassVar[str] = "rule_name"
     DESCRIPTION = "Description"
     ACTIONS = "Actions"
     IS_TERMINAL = "IsTerminal"
@@ -1185,6 +1186,7 @@ class AutomationRuleV2(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::AutomationRuleV2"
+    name_field: ClassVar[str] = "rule_name"
     DESCRIPTION = "Description"
     ACTIONS = "Actions"
     RULE_STATUS = "RuleStatus"
@@ -1238,6 +1240,7 @@ class ConfigurationPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::ConfigurationPolicy"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONFIGURATION_POLICY = "ConfigurationPolicy"
     TAGS = "Tags"
@@ -1287,6 +1290,7 @@ class ConnectorV2(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::ConnectorV2"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     KMS_KEY_ARN = "KmsKeyArn"
     TAGS = "Tags"
@@ -1486,6 +1490,7 @@ class Insight(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secur"""
 
     resource_type: ClassVar[str] = "AWS::SecurityHub::Insight"
+    name_field: ClassVar[str] = "name"
     FILTERS = "Filters"
     GROUP_BY_ATTRIBUTE = "GroupByAttribute"
     NAME = "Name"

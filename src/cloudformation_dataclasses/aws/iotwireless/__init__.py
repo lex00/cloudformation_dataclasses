@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:12
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTWireless
@@ -629,6 +629,7 @@ class Destination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::Destination"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     EXPRESSION = "Expression"
     EXPRESSION_TYPE = "ExpressionType"
@@ -664,6 +665,7 @@ class DeviceProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::DeviceProfile"
+    name_field: ClassVar[str] = "name"
     LO_RA_WAN = "LoRaWAN"
     TAGS = "Tags"
     NAME = "Name"
@@ -695,6 +697,7 @@ class FuotaTask(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::FuotaTask"
+    name_field: ClassVar[str] = "name"
     FIRMWARE_UPDATE_IMAGE = "FirmwareUpdateImage"
     DESCRIPTION = "Description"
     LO_RA_WAN = "LoRaWAN"
@@ -757,6 +760,7 @@ class MulticastGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::MulticastGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     LO_RA_WAN = "LoRaWAN"
     DISASSOCIATE_WIRELESS_DEVICE = "DisassociateWirelessDevice"
@@ -812,6 +816,7 @@ class NetworkAnalyzerConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::NetworkAnalyzerConfiguration"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TRACE_CONTENT = "TraceContent"
     WIRELESS_GATEWAYS = "WirelessGateways"
@@ -890,6 +895,7 @@ class ServiceProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::ServiceProfile"
+    name_field: ClassVar[str] = "name"
     LO_RA_WAN = "LoRaWAN"
     TAGS = "Tags"
     NAME = "Name"
@@ -1001,6 +1007,7 @@ class TaskDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::TaskDefinition"
+    name_field: ClassVar[str] = "name"
     AUTO_CREATE_TASKS = "AutoCreateTasks"
     LO_RA_WAN_UPDATE_GATEWAY_TASK_ENTRY = "LoRaWANUpdateGatewayTaskEntry"
     UPDATE = "Update"
@@ -1041,6 +1048,7 @@ class WirelessDevice(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessDevice"
+    name_field: ClassVar[str] = "name"
     LAST_UPLINK_RECEIVED_AT = "LastUplinkReceivedAt"
     POSITIONING = "Positioning"
     TYPE = "Type"
@@ -1095,6 +1103,7 @@ class WirelessDeviceImportTask(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessDeviceImportTask"
+    name_field: ClassVar[str] = "destination_name"
     DESTINATION_NAME = "DestinationName"
     SIDEWALK = "Sidewalk"
     TAGS = "Tags"
@@ -1166,6 +1175,7 @@ class WirelessGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwi"""
 
     resource_type: ClassVar[str] = "AWS::IoTWireless::WirelessGateway"
+    name_field: ClassVar[str] = "name"
     LAST_UPLINK_RECEIVED_AT = "LastUplinkReceivedAt"
     DESCRIPTION = "Description"
     LO_RA_WAN = "LoRaWAN"

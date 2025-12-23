@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Tables
@@ -197,6 +197,7 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tab"""
 
     resource_type: ClassVar[str] = "AWS::S3Tables::Table"
+    name_field: ClassVar[str] = "table_name"
     WITHOUT_METADATA = "WithoutMetadata"
     STORAGE_CLASS_CONFIGURATION = "StorageClassConfiguration"
     TABLE_NAME = "TableName"
@@ -254,6 +255,7 @@ class TableBucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tab"""
 
     resource_type: ClassVar[str] = "AWS::S3Tables::TableBucket"
+    name_field: ClassVar[str] = "table_bucket_name"
     TABLE_BUCKET_NAME = "TableBucketName"
     STORAGE_CLASS_CONFIGURATION = "StorageClassConfiguration"
     METRICS_CONFIGURATION = "MetricsConfiguration"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:08
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Greengrass
@@ -219,6 +219,7 @@ class ConnectorDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ConnectorDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -277,6 +278,7 @@ class CoreDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::CoreDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -335,6 +337,7 @@ class DeviceDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::DeviceDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -393,6 +396,7 @@ class FunctionDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::FunctionDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -454,6 +458,7 @@ class Group(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::Group"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     ROLE_ARN = "RoleArn"
     TAGS = "Tags"
@@ -543,6 +548,7 @@ class LoggerDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::LoggerDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -601,6 +607,7 @@ class ResourceDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::ResourceDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"
@@ -659,6 +666,7 @@ class SubscriptionDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-green"""
 
     resource_type: ClassVar[str] = "AWS::Greengrass::SubscriptionDefinition"
+    name_field: ClassVar[str] = "name"
     INITIAL_VERSION = "InitialVersion"
     TAGS = "Tags"
     NAME = "Name"

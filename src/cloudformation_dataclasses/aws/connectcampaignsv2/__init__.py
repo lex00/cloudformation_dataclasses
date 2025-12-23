@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:01
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaignsV2
@@ -252,6 +252,7 @@ class Campaign(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::ConnectCampaignsV2::Campaign"
+    name_field: ClassVar[str] = "name"
     COMMUNICATION_LIMITS_OVERRIDE = "CommunicationLimitsOverride"
     TYPE = "Type"
     CHANNEL_SUBTYPE_CONFIG = "ChannelSubtypeConfig"

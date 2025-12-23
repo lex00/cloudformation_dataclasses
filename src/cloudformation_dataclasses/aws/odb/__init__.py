@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:18
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ODB
@@ -339,6 +339,7 @@ class CloudAutonomousVmCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-c"""
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudAutonomousVmCluster"
+    name_field: ClassVar[str] = "display_name"
     CLOUD_EXADATA_INFRASTRUCTURE_ID = "CloudExadataInfrastructureId"
     LICENSE_MODEL = "LicenseModel"
     DESCRIPTION = "Description"
@@ -539,6 +540,7 @@ class CloudExadataInfrastructure(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-c"""
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudExadataInfrastructure"
+    name_field: ClassVar[str] = "display_name"
     STORAGE_SERVER_TYPE = "StorageServerType"
     DATABASE_SERVER_TYPE = "DatabaseServerType"
     SHAPE = "Shape"
@@ -689,6 +691,7 @@ class CloudVmCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-c"""
 
     resource_type: ClassVar[str] = "AWS::ODB::CloudVmCluster"
+    name_field: ClassVar[str] = "display_name"
     CLOUD_EXADATA_INFRASTRUCTURE_ID = "CloudExadataInfrastructureId"
     DATA_COLLECTION_OPTIONS = "DataCollectionOptions"
     LICENSE_MODEL = "LicenseModel"
@@ -839,6 +842,7 @@ class OdbNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-o"""
 
     resource_type: ClassVar[str] = "AWS::ODB::OdbNetwork"
+    name_field: ClassVar[str] = "display_name"
     DEFAULT_DNS_PREFIX = "DefaultDnsPrefix"
     CUSTOM_DOMAIN_NAME = "CustomDomainName"
     ZERO_ETL_ACCESS = "ZeroEtlAccess"
@@ -1002,6 +1006,7 @@ class OdbPeeringConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-o"""
 
     resource_type: ClassVar[str] = "AWS::ODB::OdbPeeringConnection"
+    name_field: ClassVar[str] = "display_name"
     ODB_NETWORK_ID = "OdbNetworkId"
     DISPLAY_NAME = "DisplayName"
     PEER_NETWORK_ID = "PeerNetworkId"

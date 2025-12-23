@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SES
@@ -264,6 +264,7 @@ class ConfigurationSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-c"""
 
     resource_type: ClassVar[str] = "AWS::SES::ConfigurationSet"
+    name_field: ClassVar[str] = "name"
     SENDING_OPTIONS = "SendingOptions"
     SUPPRESSION_OPTIONS = "SuppressionOptions"
     TRACKING_OPTIONS = "TrackingOptions"
@@ -299,6 +300,7 @@ class ConfigurationSetEventDestination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-c"""
 
     resource_type: ClassVar[str] = "AWS::SES::ConfigurationSetEventDestination"
+    name_field: ClassVar[str] = "configuration_set_name"
     CONFIGURATION_SET_NAME = "ConfigurationSetName"
     EVENT_DESTINATION = "EventDestination"
 
@@ -322,6 +324,7 @@ class ContactList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-c"""
 
     resource_type: ClassVar[str] = "AWS::SES::ContactList"
+    name_field: ClassVar[str] = "contact_list_name"
     DESCRIPTION = "Description"
     TOPICS = "Topics"
     CONTACT_LIST_NAME = "ContactListName"
@@ -345,6 +348,7 @@ class DedicatedIpPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-d"""
 
     resource_type: ClassVar[str] = "AWS::SES::DedicatedIpPool"
+    name_field: ClassVar[str] = "pool_name"
     POOL_NAME = "PoolName"
     SCALING_MODE = "ScalingMode"
     TAGS = "Tags"
@@ -461,6 +465,7 @@ class MailManagerAddonSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerAddonSubscription"
+    name_field: ClassVar[str] = "addon_name"
     ADDON_NAME = "AddonName"
     TAGS = "Tags"
 
@@ -489,6 +494,7 @@ class MailManagerAddressList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerAddressList"
+    name_field: ClassVar[str] = "address_list_name"
     ADDRESS_LIST_NAME = "AddressListName"
     TAGS = "Tags"
 
@@ -517,6 +523,7 @@ class MailManagerArchive(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerArchive"
+    name_field: ClassVar[str] = "archive_name"
     KMS_KEY_ARN = "KmsKeyArn"
     ARCHIVE_NAME = "ArchiveName"
     RETENTION = "Retention"
@@ -556,6 +563,7 @@ class MailManagerIngressPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerIngressPoint"
+    name_field: ClassVar[str] = "ingress_point_name"
     RULE_SET_ID = "RuleSetId"
     TYPE = "Type"
     TRAFFIC_POLICY_ID = "TrafficPolicyId"
@@ -612,6 +620,7 @@ class MailManagerRelay(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerRelay"
+    name_field: ClassVar[str] = "relay_name"
     AUTHENTICATION = "Authentication"
     SERVER_NAME = "ServerName"
     RELAY_NAME = "RelayName"
@@ -649,6 +658,7 @@ class MailManagerRuleSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerRuleSet"
+    name_field: ClassVar[str] = "rule_set_name"
     RULE_SET_NAME = "RuleSetName"
     RULES = "Rules"
     TAGS = "Tags"
@@ -680,6 +690,7 @@ class MailManagerTrafficPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MailManagerTrafficPolicy"
+    name_field: ClassVar[str] = "traffic_policy_name"
     DEFAULT_ACTION = "DefaultAction"
     POLICY_STATEMENTS = "PolicyStatements"
     TRAFFIC_POLICY_NAME = "TrafficPolicyName"
@@ -717,6 +728,7 @@ class MultiRegionEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-m"""
 
     resource_type: ClassVar[str] = "AWS::SES::MultiRegionEndpoint"
+    name_field: ClassVar[str] = "endpoint_name"
     DETAILS = "Details"
     ENDPOINT_NAME = "EndpointName"
     TAGS = "Tags"
@@ -751,6 +763,7 @@ class ReceiptRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-r"""
 
     resource_type: ClassVar[str] = "AWS::SES::ReceiptRule"
+    name_field: ClassVar[str] = "rule_set_name"
     AFTER = "After"
     RULE = "Rule"
     RULE_SET_NAME = "RuleSetName"
@@ -771,6 +784,7 @@ class ReceiptRuleSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-r"""
 
     resource_type: ClassVar[str] = "AWS::SES::ReceiptRuleSet"
+    name_field: ClassVar[str] = "rule_set_name"
     RULE_SET_NAME = "RuleSetName"
 
     _property_mappings: ClassVar[dict[str, str]] = {

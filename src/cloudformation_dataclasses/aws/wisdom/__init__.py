@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:31
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Wisdom
@@ -266,6 +266,7 @@ class AIAgent(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIAgent"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     CONFIGURATION = "Configuration"
@@ -357,6 +358,7 @@ class AIGuardrail(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIGuardrail"
+    name_field: ClassVar[str] = "name"
     TOPIC_POLICY_CONFIG = "TopicPolicyConfig"
     DESCRIPTION = "Description"
     WORD_POLICY_CONFIG = "WordPolicyConfig"
@@ -458,6 +460,7 @@ class AIPrompt(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::AIPrompt"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     API_FORMAT = "ApiFormat"
@@ -558,6 +561,7 @@ class Assistant(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::Assistant"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     SERVER_SIDE_ENCRYPTION_CONFIGURATION = "ServerSideEncryptionConfiguration"
@@ -634,6 +638,7 @@ class KnowledgeBase(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::KnowledgeBase"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     KNOWLEDGE_BASE_TYPE = "KnowledgeBaseType"
     SOURCE_CONFIGURATION = "SourceConfiguration"
@@ -680,6 +685,7 @@ class MessageTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::MessageTemplate"
+    name_field: ClassVar[str] = "name"
     MESSAGE_TEMPLATE_ATTACHMENTS = "MessageTemplateAttachments"
     DESCRIPTION = "Description"
     LANGUAGE = "Language"
@@ -765,6 +771,7 @@ class QuickResponse(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdo"""
 
     resource_type: ClassVar[str] = "AWS::Wisdom::QuickResponse"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONTENT_TYPE = "ContentType"
     LANGUAGE = "Language"

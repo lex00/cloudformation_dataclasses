@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMContacts
@@ -148,6 +148,7 @@ class Contact(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmco"""
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::Contact"
+    name_field: ClassVar[str] = "display_name"
     TYPE = "Type"
     ALIAS = "Alias"
     DISPLAY_NAME = "DisplayName"
@@ -180,6 +181,7 @@ class ContactChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmco"""
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::ContactChannel"
+    name_field: ClassVar[str] = "channel_name"
     CHANNEL_NAME = "ChannelName"
     CHANNEL_ADDRESS = "ChannelAddress"
     CONTACT_ID = "ContactId"
@@ -238,6 +240,7 @@ class Rotation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmco"""
 
     resource_type: ClassVar[str] = "AWS::SSMContacts::Rotation"
+    name_field: ClassVar[str] = "name"
     RECURRENCE = "Recurrence"
     TIME_ZONE_ID = "TimeZoneId"
     START_TIME = "StartTime"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:04
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EC2
@@ -7892,6 +7892,7 @@ class CapacityManagerDataExport(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::CapacityManagerDataExport"
+    name_field: ClassVar[str] = "s3_bucket_name"
     S3_BUCKET_PREFIX = "S3BucketPrefix"
     SCHEDULE = "Schedule"
     OUTPUT_FORMAT = "OutputFormat"
@@ -8279,6 +8280,7 @@ class CustomerGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-c"""
 
     resource_type: ClassVar[str] = "AWS::EC2::CustomerGateway"
+    name_field: ClassVar[str] = "device_name"
     TYPE = "Type"
     IP_ADDRESS = "IpAddress"
     BGP_ASN_EXTENDED = "BgpAsnExtended"
@@ -8317,6 +8319,7 @@ class DHCPOptions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-d"""
 
     resource_type: ClassVar[str] = "AWS::EC2::DHCPOptions"
+    name_field: ClassVar[str] = "domain_name"
     NETBIOS_NAME_SERVERS = "NetbiosNameServers"
     NTP_SERVERS = "NtpServers"
     DOMAIN_NAME = "DomainName"
@@ -8539,6 +8542,7 @@ class FlowLog(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-f"""
 
     resource_type: ClassVar[str] = "AWS::EC2::FlowLog"
+    name_field: ClassVar[str] = "log_group_name"
     LOG_FORMAT = "LogFormat"
     RESOURCE_ID = "ResourceId"
     MAX_AGGREGATION_INTERVAL = "MaxAggregationInterval"
@@ -9061,6 +9065,7 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-i"""
 
     resource_type: ClassVar[str] = "AWS::EC2::Instance"
+    name_field: ClassVar[str] = "key_name"
     TENANCY = "Tenancy"
     SECURITY_GROUPS = "SecurityGroups"
     PRIVATE_IP_ADDRESS = "PrivateIpAddress"
@@ -9321,6 +9326,7 @@ class KeyPair(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-k"""
 
     resource_type: ClassVar[str] = "AWS::EC2::KeyPair"
+    name_field: ClassVar[str] = "key_name"
     KEY_NAME = "KeyName"
     KEY_TYPE = "KeyType"
     KEY_FORMAT = "KeyFormat"
@@ -9358,6 +9364,7 @@ class LaunchTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-l"""
 
     resource_type: ClassVar[str] = "AWS::EC2::LaunchTemplate"
+    name_field: ClassVar[str] = "launch_template_name"
     LAUNCH_TEMPLATE_NAME = "LaunchTemplateName"
     LAUNCH_TEMPLATE_DATA = "LaunchTemplateData"
     VERSION_DESCRIPTION = "VersionDescription"
@@ -10274,6 +10281,7 @@ class PrefixList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-p"""
 
     resource_type: ClassVar[str] = "AWS::EC2::PrefixList"
+    name_field: ClassVar[str] = "prefix_list_name"
     MAX_ENTRIES = "MaxEntries"
     PREFIX_LIST_NAME = "PrefixListName"
     ENTRIES = "Entries"
@@ -10582,6 +10590,7 @@ class SecurityGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroup"
+    name_field: ClassVar[str] = "group_name"
     GROUP_DESCRIPTION = "GroupDescription"
     GROUP_NAME = "GroupName"
     VPC_ID = "VpcId"
@@ -10671,6 +10680,7 @@ class SecurityGroupIngress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-s"""
 
     resource_type: ClassVar[str] = "AWS::EC2::SecurityGroupIngress"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     CIDR_IP = "CidrIp"
     CIDR_IPV6 = "CidrIpv6"
@@ -12172,6 +12182,7 @@ class VPCEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VPCEndpoint"
+    name_field: ClassVar[str] = "service_name"
     PRIVATE_DNS_ENABLED = "PrivateDnsEnabled"
     IP_ADDRESS_TYPE = "IpAddressType"
     SERVICE_REGION = "ServiceRegion"
@@ -12765,6 +12776,7 @@ class VerifiedAccessTrustProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-v"""
 
     resource_type: ClassVar[str] = "AWS::EC2::VerifiedAccessTrustProvider"
+    name_field: ClassVar[str] = "policy_reference_name"
     POLICY_REFERENCE_NAME = "PolicyReferenceName"
     DEVICE_OPTIONS = "DeviceOptions"
     NATIVE_APPLICATION_OIDC_OPTIONS = "NativeApplicationOidcOptions"

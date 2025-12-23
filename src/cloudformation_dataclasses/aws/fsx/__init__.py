@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:07
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FSx
@@ -1016,6 +1016,7 @@ class S3AccessPointAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s"""
 
     resource_type: ClassVar[str] = "AWS::FSx::S3AccessPointAttachment"
+    name_field: ClassVar[str] = "name"
     OPEN_ZFS_CONFIGURATION = "OpenZFSConfiguration"
     TYPE = "Type"
     S3_ACCESS_POINT = "S3AccessPoint"
@@ -1053,6 +1054,7 @@ class Snapshot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s"""
 
     resource_type: ClassVar[str] = "AWS::FSx::Snapshot"
+    name_field: ClassVar[str] = "name"
     VOLUME_ID = "VolumeId"
     TAGS = "Tags"
     NAME = "Name"
@@ -1079,6 +1081,7 @@ class StorageVirtualMachine(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s"""
 
     resource_type: ClassVar[str] = "AWS::FSx::StorageVirtualMachine"
+    name_field: ClassVar[str] = "name"
     SVM_ADMIN_PASSWORD = "SvmAdminPassword"
     ACTIVE_DIRECTORY_CONFIGURATION = "ActiveDirectoryConfiguration"
     ROOT_VOLUME_SECURITY_STYLE = "RootVolumeSecurityStyle"
@@ -1124,6 +1127,7 @@ class Volume(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-v"""
 
     resource_type: ClassVar[str] = "AWS::FSx::Volume"
+    name_field: ClassVar[str] = "name"
     OPEN_ZFS_CONFIGURATION = "OpenZFSConfiguration"
     VOLUME_TYPE = "VolumeType"
     BACKUP_ID = "BackupId"

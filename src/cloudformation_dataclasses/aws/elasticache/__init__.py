@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:05
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElastiCache
@@ -357,6 +357,7 @@ class CacheCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::CacheCluster"
+    name_field: ClassVar[str] = "cluster_name"
     AZ_MODE = "AZMode"
     AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
     CACHE_NODE_TYPE = "CacheNodeType"
@@ -464,6 +465,7 @@ class GlobalReplicationGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::GlobalReplicationGroup"
+    name_field: ClassVar[str] = "cache_parameter_group_name"
     GLOBAL_REPLICATION_GROUP_ID_SUFFIX = "GlobalReplicationGroupIdSuffix"
     CACHE_NODE_TYPE = "CacheNodeType"
     ENGINE_VERSION = "EngineVersion"
@@ -545,6 +547,7 @@ class ReplicationGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::ReplicationGroup"
+    name_field: ClassVar[str] = "snapshot_name"
     AT_REST_ENCRYPTION_ENABLED = "AtRestEncryptionEnabled"
     AUTH_TOKEN = "AuthToken"
     AUTO_MINOR_VERSION_UPGRADE = "AutoMinorVersionUpgrade"
@@ -741,6 +744,7 @@ class SecurityGroupIngress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::SecurityGroupIngress"
+    name_field: ClassVar[str] = "ec2_security_group_name"
     CACHE_SECURITY_GROUP_NAME = "CacheSecurityGroupName"
     EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
     EC2_SECURITY_GROUP_OWNER_ID = "EC2SecurityGroupOwnerId"
@@ -761,6 +765,7 @@ class ServerlessCache(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::ServerlessCache"
+    name_field: ClassVar[str] = "serverless_cache_name"
     DESCRIPTION = "Description"
     KMS_KEY_ID = "KmsKeyId"
     FINAL_SNAPSHOT_NAME = "FinalSnapshotName"
@@ -861,6 +866,7 @@ class SubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::SubnetGroup"
+    name_field: ClassVar[str] = "cache_subnet_group_name"
     DESCRIPTION = "Description"
     CACHE_SUBNET_GROUP_NAME = "CacheSubnetGroupName"
     SUBNET_IDS = "SubnetIds"
@@ -884,6 +890,7 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElastiCache::User"
+    name_field: ClassVar[str] = "user_name"
     AUTHENTICATION_MODE = "AuthenticationMode"
     USER_NAME = "UserName"
     NO_PASSWORD_REQUIRED = "NoPasswordRequired"

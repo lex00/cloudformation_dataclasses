@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:14
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Location
@@ -205,6 +205,7 @@ class APIKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::APIKey"
+    name_field: ClassVar[str] = "key_name"
     KEY_NAME = "KeyName"
     DESCRIPTION = "Description"
     NO_EXPIRY = "NoExpiry"
@@ -261,6 +262,7 @@ class GeofenceCollection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::GeofenceCollection"
+    name_field: ClassVar[str] = "collection_name"
     DESCRIPTION = "Description"
     KMS_KEY_ID = "KmsKeyId"
     COLLECTION_NAME = "CollectionName"
@@ -305,6 +307,7 @@ class Map(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::Map"
+    name_field: ClassVar[str] = "map_name"
     MAP_NAME = "MapName"
     DESCRIPTION = "Description"
     CONFIGURATION = "Configuration"
@@ -352,6 +355,7 @@ class PlaceIndex(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::PlaceIndex"
+    name_field: ClassVar[str] = "index_name"
     INDEX_NAME = "IndexName"
     DESCRIPTION = "Description"
     PRICING_PLAN = "PricingPlan"
@@ -402,6 +406,7 @@ class RouteCalculator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::RouteCalculator"
+    name_field: ClassVar[str] = "calculator_name"
     CALCULATOR_NAME = "CalculatorName"
     DESCRIPTION = "Description"
     PRICING_PLAN = "PricingPlan"
@@ -449,6 +454,7 @@ class Tracker(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::Tracker"
+    name_field: ClassVar[str] = "tracker_name"
     TRACKER_NAME = "TrackerName"
     DESCRIPTION = "Description"
     EVENT_BRIDGE_ENABLED = "EventBridgeEnabled"
@@ -502,6 +508,7 @@ class TrackerConsumer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-locat"""
 
     resource_type: ClassVar[str] = "AWS::Location::TrackerConsumer"
+    name_field: ClassVar[str] = "tracker_name"
     TRACKER_NAME = "TrackerName"
     CONSUMER_ARN = "ConsumerArn"
 

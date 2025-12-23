@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:29:58
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeBuild
@@ -740,6 +740,7 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeb"""
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::Fleet"
+    name_field: ClassVar[str] = "name"
     FLEET_SERVICE_ROLE = "FleetServiceRole"
     ENVIRONMENT_TYPE = "EnvironmentType"
     OVERFLOW_BEHAVIOR = "OverflowBehavior"
@@ -793,6 +794,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeb"""
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::Project"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     RESOURCE_ACCESS_ROLE = "ResourceAccessRole"
     VPC_CONFIG = "VpcConfig"
@@ -885,6 +887,7 @@ class ReportGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeb"""
 
     resource_type: ClassVar[str] = "AWS::CodeBuild::ReportGroup"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     EXPORT_CONFIG = "ExportConfig"
     DELETE_REPORTS = "DeleteReports"

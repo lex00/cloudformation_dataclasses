@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:29:59
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeDeploy
@@ -518,6 +518,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-coded"""
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::Application"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     COMPUTE_PLATFORM = "ComputePlatform"
     TAGS = "Tags"
@@ -538,6 +539,7 @@ class DeploymentConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-coded"""
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::DeploymentConfig"
+    name_field: ClassVar[str] = "deployment_config_name"
     COMPUTE_PLATFORM = "ComputePlatform"
     ZONAL_CONFIG = "ZonalConfig"
     DEPLOYMENT_CONFIG_NAME = "DeploymentConfigName"
@@ -564,6 +566,7 @@ class DeploymentGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-coded"""
 
     resource_type: ClassVar[str] = "AWS::CodeDeploy::DeploymentGroup"
+    name_field: ClassVar[str] = "deployment_group_name"
     ALARM_CONFIGURATION = "AlarmConfiguration"
     APPLICATION_NAME = "ApplicationName"
     AUTO_ROLLBACK_CONFIGURATION = "AutoRollbackConfiguration"

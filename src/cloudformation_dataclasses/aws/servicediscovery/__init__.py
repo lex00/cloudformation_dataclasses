@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceDiscovery
@@ -229,6 +229,7 @@ class HttpNamespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::HttpNamespace"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -280,6 +281,7 @@ class PrivateDnsNamespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::PrivateDnsNamespace"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     VPC = "Vpc"
     PROPERTIES = "Properties"
@@ -322,6 +324,7 @@ class PublicDnsNamespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::PublicDnsNamespace"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PROPERTIES = "Properties"
     TAGS = "Tags"
@@ -361,6 +364,7 @@ class Service(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceDiscovery::Service"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     HEALTH_CHECK_CUSTOM_CONFIG = "HealthCheckCustomConfig"

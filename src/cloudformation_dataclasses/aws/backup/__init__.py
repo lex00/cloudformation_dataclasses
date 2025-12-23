@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:55
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Backup
@@ -577,6 +577,7 @@ class BackupVault(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::BackupVault"
+    name_field: ClassVar[str] = "backup_vault_name"
     BACKUP_VAULT_TAGS = "BackupVaultTags"
     BACKUP_VAULT_NAME = "BackupVaultName"
     ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
@@ -617,6 +618,7 @@ class Framework(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::Framework"
+    name_field: ClassVar[str] = "framework_name"
     FRAMEWORK_CONTROLS = "FrameworkControls"
     FRAMEWORK_NAME = "FrameworkName"
     FRAMEWORK_TAGS = "FrameworkTags"
@@ -661,6 +663,7 @@ class LogicallyAirGappedBackupVault(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::LogicallyAirGappedBackupVault"
+    name_field: ClassVar[str] = "backup_vault_name"
     BACKUP_VAULT_TAGS = "BackupVaultTags"
     BACKUP_VAULT_NAME = "BackupVaultName"
     ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
@@ -712,6 +715,7 @@ class ReportPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::ReportPlan"
+    name_field: ClassVar[str] = "report_plan_name"
     REPORT_SETTING = "ReportSetting"
     REPORT_PLAN_DESCRIPTION = "ReportPlanDescription"
     REPORT_PLAN_NAME = "ReportPlanName"
@@ -744,6 +748,7 @@ class RestoreTestingPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::RestoreTestingPlan"
+    name_field: ClassVar[str] = "restore_testing_plan_name"
     SCHEDULE_EXPRESSION = "ScheduleExpression"
     START_WINDOW_HOURS = "StartWindowHours"
     RECOVERY_POINT_SELECTION = "RecoveryPointSelection"
@@ -779,6 +784,7 @@ class RestoreTestingSelection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::Backup::RestoreTestingSelection"
+    name_field: ClassVar[str] = "restore_testing_selection_name"
     PROTECTED_RESOURCE_CONDITIONS = "ProtectedResourceConditions"
     PROTECTED_RESOURCE_TYPE = "ProtectedResourceType"
     RESTORE_METADATA_OVERRIDES = "RestoreMetadataOverrides"

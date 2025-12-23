@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:01
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DAX
@@ -114,6 +114,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-c"""
 
     resource_type: ClassVar[str] = "AWS::DAX::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     SSE_SPECIFICATION = "SSESpecification"
     DESCRIPTION = "Description"
     REPLICATION_FACTOR = "ReplicationFactor"
@@ -186,6 +187,7 @@ class ParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-p"""
 
     resource_type: ClassVar[str] = "AWS::DAX::ParameterGroup"
+    name_field: ClassVar[str] = "parameter_group_name"
     PARAMETER_NAME_VALUES = "ParameterNameValues"
     DESCRIPTION = "Description"
     PARAMETER_GROUP_NAME = "ParameterGroupName"
@@ -206,6 +208,7 @@ class SubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-s"""
 
     resource_type: ClassVar[str] = "AWS::DAX::SubnetGroup"
+    name_field: ClassVar[str] = "subnet_group_name"
     DESCRIPTION = "Description"
     SUBNET_GROUP_NAME = "SubnetGroupName"
     SUBNET_IDS = "SubnetIds"

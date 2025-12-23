@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:00
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Config
@@ -1402,6 +1402,7 @@ class ConfigRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigRule"
+    name_field: ClassVar[str] = "config_rule_name"
     EVALUATION_MODES = "EvaluationModes"
     DESCRIPTION = "Description"
     SCOPE = "Scope"
@@ -1453,6 +1454,7 @@ class ConfigurationAggregator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigurationAggregator"
+    name_field: ClassVar[str] = "configuration_aggregator_name"
     ACCOUNT_AGGREGATION_SOURCES = "AccountAggregationSources"
     CONFIGURATION_AGGREGATOR_NAME = "ConfigurationAggregatorName"
     ORGANIZATION_AGGREGATION_SOURCE = "OrganizationAggregationSource"
@@ -1482,6 +1484,7 @@ class ConfigurationRecorder(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::ConfigurationRecorder"
+    name_field: ClassVar[str] = "name"
     NAME = "Name"
     RECORDING_GROUP = "RecordingGroup"
     RECORDING_MODE = "RecordingMode"
@@ -1505,6 +1508,7 @@ class ConformancePack(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::ConformancePack"
+    name_field: ClassVar[str] = "conformance_pack_name"
     CONFORMANCE_PACK_INPUT_PARAMETERS = "ConformancePackInputParameters"
     TEMPLATE_SSM_DOCUMENT_DETAILS = "TemplateSSMDocumentDetails"
     DELIVERY_S3_BUCKET = "DeliveryS3Bucket"
@@ -1537,6 +1541,7 @@ class DeliveryChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::DeliveryChannel"
+    name_field: ClassVar[str] = "name"
     CONFIG_SNAPSHOT_DELIVERY_PROPERTIES = "ConfigSnapshotDeliveryProperties"
     NAME = "Name"
     S3_BUCKET_NAME = "S3BucketName"
@@ -1566,6 +1571,7 @@ class OrganizationConfigRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::OrganizationConfigRule"
+    name_field: ClassVar[str] = "organization_config_rule_name"
     ORGANIZATION_MANAGED_RULE_METADATA = "OrganizationManagedRuleMetadata"
     ORGANIZATION_CONFIG_RULE_NAME = "OrganizationConfigRuleName"
     ORGANIZATION_CUSTOM_RULE_METADATA = "OrganizationCustomRuleMetadata"
@@ -1592,6 +1598,7 @@ class OrganizationConformancePack(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::OrganizationConformancePack"
+    name_field: ClassVar[str] = "organization_conformance_pack_name"
     CONFORMANCE_PACK_INPUT_PARAMETERS = "ConformancePackInputParameters"
     DELIVERY_S3_BUCKET = "DeliveryS3Bucket"
     EXCLUDED_ACCOUNTS = "ExcludedAccounts"
@@ -1624,6 +1631,7 @@ class RemediationConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::RemediationConfiguration"
+    name_field: ClassVar[str] = "config_rule_name"
     TARGET_VERSION = "TargetVersion"
     EXECUTION_CONTROLS = "ExecutionControls"
     PARAMETERS = "Parameters"
@@ -1665,6 +1673,7 @@ class StoredQuery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-confi"""
 
     resource_type: ClassVar[str] = "AWS::Config::StoredQuery"
+    name_field: ClassVar[str] = "query_name"
     QUERY_DESCRIPTION = "QueryDescription"
     QUERY_EXPRESSION = "QueryExpression"
     TAGS = "Tags"

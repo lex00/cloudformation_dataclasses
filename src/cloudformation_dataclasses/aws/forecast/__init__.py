@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:07
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Forecast
@@ -258,6 +258,7 @@ class Dataset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forec"""
 
     resource_type: ClassVar[str] = "AWS::Forecast::Dataset"
+    name_field: ClassVar[str] = "dataset_name"
     DATA_FREQUENCY = "DataFrequency"
     DATASET_NAME = "DatasetName"
     SCHEMA = "Schema"
@@ -296,6 +297,7 @@ class DatasetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forec"""
 
     resource_type: ClassVar[str] = "AWS::Forecast::DatasetGroup"
+    name_field: ClassVar[str] = "dataset_group_name"
     DATASET_ARNS = "DatasetArns"
     DATASET_GROUP_NAME = "DatasetGroupName"
     DOMAIN = "Domain"

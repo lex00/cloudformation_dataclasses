@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RedshiftServerless
@@ -186,6 +186,7 @@ class Namespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Namespace"
+    name_field: ClassVar[str] = "namespace_name"
     MANAGE_ADMIN_PASSWORD = "ManageAdminPassword"
     IAM_ROLES = "IamRoles"
     SNAPSHOT_COPY_CONFIGURATIONS = "SnapshotCopyConfigurations"
@@ -316,6 +317,7 @@ class Snapshot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Snapshot"
+    name_field: ClassVar[str] = "snapshot_name"
     NAMESPACE_NAME = "NamespaceName"
     RETENTION_PERIOD = "RetentionPeriod"
     SNAPSHOT_NAME = "SnapshotName"
@@ -400,6 +402,7 @@ class Workgroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::RedshiftServerless::Workgroup"
+    name_field: ClassVar[str] = "workgroup_name"
     SNAPSHOT_ARN = "SnapshotArn"
     SNAPSHOT_OWNER_ACCOUNT = "SnapshotOwnerAccount"
     PORT = "Port"

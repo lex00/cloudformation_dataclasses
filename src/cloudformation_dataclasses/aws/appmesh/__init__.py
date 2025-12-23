@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:53
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppMesh
@@ -273,6 +273,7 @@ class GatewayRoute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::GatewayRoute"
+    name_field: ClassVar[str] = "gateway_route_name"
     MESH_NAME = "MeshName"
     VIRTUAL_GATEWAY_NAME = "VirtualGatewayName"
     MESH_OWNER = "MeshOwner"
@@ -338,6 +339,7 @@ class Mesh(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::Mesh"
+    name_field: ClassVar[str] = "mesh_name"
     MESH_NAME = "MeshName"
     SPEC = "Spec"
     TAGS = "Tags"
@@ -384,6 +386,7 @@ class Route(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::Route"
+    name_field: ClassVar[str] = "route_name"
     MESH_NAME = "MeshName"
     VIRTUAL_ROUTER_NAME = "VirtualRouterName"
     MESH_OWNER = "MeshOwner"
@@ -449,6 +452,7 @@ class VirtualGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualGateway"
+    name_field: ClassVar[str] = "virtual_gateway_name"
     VIRTUAL_GATEWAY_NAME = "VirtualGatewayName"
     MESH_NAME = "MeshName"
     MESH_OWNER = "MeshOwner"
@@ -506,6 +510,7 @@ class VirtualNode(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualNode"
+    name_field: ClassVar[str] = "virtual_node_name"
     MESH_NAME = "MeshName"
     MESH_OWNER = "MeshOwner"
     SPEC = "Spec"
@@ -563,6 +568,7 @@ class VirtualRouter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualRouter"
+    name_field: ClassVar[str] = "virtual_router_name"
     MESH_NAME = "MeshName"
     VIRTUAL_ROUTER_NAME = "VirtualRouterName"
     MESH_OWNER = "MeshOwner"
@@ -620,6 +626,7 @@ class VirtualService(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appme"""
 
     resource_type: ClassVar[str] = "AWS::AppMesh::VirtualService"
+    name_field: ClassVar[str] = "virtual_service_name"
     MESH_NAME = "MeshName"
     MESH_OWNER = "MeshOwner"
     VIRTUAL_SERVICE_NAME = "VirtualServiceName"

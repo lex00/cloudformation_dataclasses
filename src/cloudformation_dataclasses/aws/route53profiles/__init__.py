@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Profiles
@@ -65,6 +65,7 @@ class Profile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::Profile"
+    name_field: ClassVar[str] = "name"
     TAGS = "Tags"
     NAME = "Name"
 
@@ -98,6 +99,7 @@ class ProfileAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileAssociation"
+    name_field: ClassVar[str] = "name"
     PROFILE_ID = "ProfileId"
     RESOURCE_ID = "ResourceId"
     ARN = "Arn"
@@ -130,6 +132,7 @@ class ProfileResourceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileResourceAssociation"
+    name_field: ClassVar[str] = "name"
     PROFILE_ID = "ProfileId"
     RESOURCE_ARN = "ResourceArn"
     RESOURCE_PROPERTIES = "ResourceProperties"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Panorama
@@ -403,6 +403,7 @@ class ApplicationInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::ApplicationInstance"
+    name_field: ClassVar[str] = "name"
     DEFAULT_RUNTIME_CONTEXT_DEVICE = "DefaultRuntimeContextDevice"
     DESCRIPTION = "Description"
     APPLICATION_INSTANCE_ID_TO_REPLACE = "ApplicationInstanceIdToReplace"
@@ -479,6 +480,7 @@ class Package(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::Package"
+    name_field: ClassVar[str] = "package_name"
     PACKAGE_NAME = "PackageName"
     STORAGE_LOCATION = "StorageLocation"
     TAGS = "Tags"

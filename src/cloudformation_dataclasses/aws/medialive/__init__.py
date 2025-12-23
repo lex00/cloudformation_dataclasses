@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:16
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaLive
@@ -3862,6 +3862,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Channel"
+    name_field: ClassVar[str] = "name"
     INPUT_ATTACHMENTS = "InputAttachments"
     INPUT_SPECIFICATION = "InputSpecification"
     DESTINATIONS = "Destinations"
@@ -3929,6 +3930,7 @@ class ChannelPlacementGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::ChannelPlacementGroup"
+    name_field: ClassVar[str] = "name"
     CLUSTER_ID = "ClusterId"
     NODES = "Nodes"
     TAGS = "Tags"
@@ -3973,6 +3975,7 @@ class CloudWatchAlarmTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::CloudWatchAlarmTemplate"
+    name_field: ClassVar[str] = "name"
     TARGET_RESOURCE_TYPE = "TargetResourceType"
     COMPARISON_OPERATOR = "ComparisonOperator"
     TREAT_MISSING_DATA = "TreatMissingData"
@@ -4054,6 +4057,7 @@ class CloudWatchAlarmTemplateGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::CloudWatchAlarmTemplateGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -4100,6 +4104,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Cluster"
+    name_field: ClassVar[str] = "name"
     NETWORK_SETTINGS = "NetworkSettings"
     INSTANCE_ROLE_ARN = "InstanceRoleArn"
     CLUSTER_TYPE = "ClusterType"
@@ -4147,6 +4152,7 @@ class EventBridgeRuleTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::EventBridgeRuleTemplate"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     EVENT_TARGETS = "EventTargets"
     EVENT_TYPE = "EventType"
@@ -4207,6 +4213,7 @@ class EventBridgeRuleTemplateGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::EventBridgeRuleTemplateGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -4253,6 +4260,7 @@ class Input(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Input"
+    name_field: ClassVar[str] = "name"
     SRT_SETTINGS = "SrtSettings"
     INPUT_NETWORK_LOCATION = "InputNetworkLocation"
     DESTINATIONS = "Destinations"
@@ -4351,6 +4359,7 @@ class Multiplex(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Multiplex"
+    name_field: ClassVar[str] = "name"
     MULTIPLEX_SETTINGS = "MultiplexSettings"
     AVAILABILITY_ZONES = "AvailabilityZones"
     DESTINATIONS = "Destinations"
@@ -4403,6 +4412,7 @@ class Multiplexprogram(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Multiplexprogram"
+    name_field: ClassVar[str] = "program_name"
     MULTIPLEX_ID = "MultiplexId"
     PREFERRED_CHANNEL_PIPELINE = "PreferredChannelPipeline"
     PACKET_IDENTIFIERS_MAP = "PacketIdentifiersMap"
@@ -4438,6 +4448,7 @@ class Network(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::Network"
+    name_field: ClassVar[str] = "name"
     IP_POOLS = "IpPools"
     ROUTES = "Routes"
     TAGS = "Tags"
@@ -4482,6 +4493,7 @@ class SdiSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::SdiSource"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     MODE = "Mode"
     TAGS = "Tags"
@@ -4526,6 +4538,7 @@ class SignalMap(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaLive::SignalMap"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     EVENT_BRIDGE_RULE_TEMPLATE_GROUP_IDENTIFIERS = "EventBridgeRuleTemplateGroupIdentifiers"
     DISCOVERY_ENTRY_POINT_ARN = "DiscoveryEntryPointArn"

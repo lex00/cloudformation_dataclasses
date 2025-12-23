@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:13
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisAnalytics
@@ -80,6 +80,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalytics::Application"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     INPUTS = "Inputs"
     APPLICATION_DESCRIPTION = "ApplicationDescription"
@@ -103,6 +104,7 @@ class ApplicationOutput(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalytics::ApplicationOutput"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     OUTPUT = "Output"
 
@@ -120,6 +122,7 @@ class ApplicationReferenceDataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     REFERENCE_DATA_SOURCE = "ReferenceDataSource"
 

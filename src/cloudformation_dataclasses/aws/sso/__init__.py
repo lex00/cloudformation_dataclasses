@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSO
@@ -243,6 +243,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-a"""
 
     resource_type: ClassVar[str] = "AWS::SSO::Application"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     APPLICATION_PROVIDER_ARN = "ApplicationProviderArn"
     PORTAL_OPTIONS = "PortalOptions"
@@ -330,6 +331,7 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-i"""
 
     resource_type: ClassVar[str] = "AWS::SSO::Instance"
+    name_field: ClassVar[str] = "name"
     TAGS = "Tags"
     NAME = "Name"
 
@@ -385,6 +387,7 @@ class PermissionSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-p"""
 
     resource_type: ClassVar[str] = "AWS::SSO::PermissionSet"
+    name_field: ClassVar[str] = "name"
     RELAY_STATE_TYPE = "RelayStateType"
     CUSTOMER_MANAGED_POLICY_REFERENCES = "CustomerManagedPolicyReferences"
     SESSION_DURATION = "SessionDuration"

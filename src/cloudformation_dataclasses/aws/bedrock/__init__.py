@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:55
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Bedrock
@@ -873,6 +873,7 @@ class Agent(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Agent"
+    name_field: ClassVar[str] = "agent_name"
     AGENT_COLLABORATORS = "AgentCollaborators"
     DESCRIPTION = "Description"
     SKIP_RESOURCE_IN_USE_CHECK_ON_DELETE = "SkipResourceInUseCheckOnDelete"
@@ -990,6 +991,7 @@ class AgentAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::AgentAlias"
+    name_field: ClassVar[str] = "agent_alias_name"
     AGENT_ALIAS_NAME = "AgentAliasName"
     DESCRIPTION = "Description"
     ROUTING_CONFIGURATION = "RoutingConfiguration"
@@ -1047,6 +1049,7 @@ class ApplicationInferenceProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::ApplicationInferenceProfile"
+    name_field: ClassVar[str] = "inference_profile_name"
     DESCRIPTION = "Description"
     INFERENCE_PROFILE_NAME = "InferenceProfileName"
     MODEL_SOURCE = "ModelSource"
@@ -1111,6 +1114,7 @@ class AutomatedReasoningPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::AutomatedReasoningPolicy"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     KMS_KEY_ID = "KmsKeyId"
     POLICY_DEFINITION = "PolicyDefinition"
@@ -1232,6 +1236,7 @@ class Blueprint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Blueprint"
+    name_field: ClassVar[str] = "blueprint_name"
     TYPE = "Type"
     BLUEPRINT_NAME = "BlueprintName"
     KMS_KEY_ID = "KmsKeyId"
@@ -1282,6 +1287,7 @@ class DataAutomationProject(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::DataAutomationProject"
+    name_field: ClassVar[str] = "project_name"
     KMS_KEY_ID = "KmsKeyId"
     PROJECT_NAME = "ProjectName"
     STANDARD_OUTPUT_CONFIGURATION = "StandardOutputConfiguration"
@@ -1346,6 +1352,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::DataSource"
+    name_field: ClassVar[str] = "name"
     DATA_DELETION_POLICY = "DataDeletionPolicy"
     DESCRIPTION = "Description"
     KNOWLEDGE_BASE_ID = "KnowledgeBaseId"
@@ -1409,6 +1416,7 @@ class Flow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Flow"
+    name_field: ClassVar[str] = "name"
     TEST_ALIAS_TAGS = "TestAliasTags"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     DESCRIPTION = "Description"
@@ -1486,6 +1494,7 @@ class FlowAlias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::FlowAlias"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONCURRENCY_CONFIGURATION = "ConcurrencyConfiguration"
     ROUTING_CONFIGURATION = "RoutingConfiguration"
@@ -1609,6 +1618,7 @@ class Guardrail(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Guardrail"
+    name_field: ClassVar[str] = "name"
     TOPIC_POLICY_CONFIG = "TopicPolicyConfig"
     DESCRIPTION = "Description"
     CROSS_REGION_CONFIG = "CrossRegionConfig"
@@ -1733,6 +1743,7 @@ class IntelligentPromptRouter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::IntelligentPromptRouter"
+    name_field: ClassVar[str] = "prompt_router_name"
     DESCRIPTION = "Description"
     PROMPT_ROUTER_NAME = "PromptRouterName"
     FALLBACK_MODEL = "FallbackModel"
@@ -1788,6 +1799,7 @@ class KnowledgeBase(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::KnowledgeBase"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     KNOWLEDGE_BASE_CONFIGURATION = "KnowledgeBaseConfiguration"
     STORAGE_CONFIGURATION = "StorageConfiguration"
@@ -1848,6 +1860,7 @@ class Prompt(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::Bedrock::Prompt"
+    name_field: ClassVar[str] = "name"
     VARIANTS = "Variants"
     DESCRIPTION = "Description"
     CUSTOMER_ENCRYPTION_KEY_ARN = "CustomerEncryptionKeyArn"

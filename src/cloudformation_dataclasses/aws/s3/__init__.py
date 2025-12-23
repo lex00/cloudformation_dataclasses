@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3
@@ -1024,6 +1024,7 @@ class AccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-ac"""
 
     resource_type: ClassVar[str] = "AWS::S3::AccessPoint"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
     BUCKET = "Bucket"
@@ -1077,6 +1078,7 @@ class Bucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bu"""
 
     resource_type: ClassVar[str] = "AWS::S3::Bucket"
+    name_field: ClassVar[str] = "bucket_name"
     INVENTORY_CONFIGURATIONS = "InventoryConfigurations"
     BUCKET_ENCRYPTION = "BucketEncryption"
     WEBSITE_CONFIGURATION = "WebsiteConfiguration"
@@ -1250,6 +1252,7 @@ class MultiRegionAccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-mu"""
 
     resource_type: ClassVar[str] = "AWS::S3::MultiRegionAccessPoint"
+    name_field: ClassVar[str] = "name"
     PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
     REGIONS = "Regions"
     NAME = "Name"
@@ -1281,6 +1284,7 @@ class MultiRegionAccessPointPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-mu"""
 
     resource_type: ClassVar[str] = "AWS::S3::MultiRegionAccessPointPolicy"
+    name_field: ClassVar[str] = "mrap_name"
     POLICY = "Policy"
     MRAP_NAME = "MrapName"
 
@@ -1332,6 +1336,7 @@ class StorageLensGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-st"""
 
     resource_type: ClassVar[str] = "AWS::S3::StorageLensGroup"
+    name_field: ClassVar[str] = "name"
     FILTER = "Filter"
     TAGS = "Tags"
     NAME = "Name"

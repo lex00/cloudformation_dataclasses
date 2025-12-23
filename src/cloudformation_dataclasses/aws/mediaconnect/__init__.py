@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:16
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConnect
@@ -710,6 +710,7 @@ class Bridge(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Bridge"
+    name_field: ClassVar[str] = "name"
     SOURCE_FAILOVER_CONFIG = "SourceFailoverConfig"
     INGRESS_GATEWAY_BRIDGE = "IngressGatewayBridge"
     EGRESS_GATEWAY_BRIDGE = "EgressGatewayBridge"
@@ -753,6 +754,7 @@ class BridgeOutput(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::BridgeOutput"
+    name_field: ClassVar[str] = "name"
     BRIDGE_ARN = "BridgeArn"
     NETWORK_OUTPUT = "NetworkOutput"
     NAME = "Name"
@@ -773,6 +775,7 @@ class BridgeSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::BridgeSource"
+    name_field: ClassVar[str] = "name"
     NETWORK_SOURCE = "NetworkSource"
     BRIDGE_ARN = "BridgeArn"
     FLOW_SOURCE = "FlowSource"
@@ -796,6 +799,7 @@ class Flow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Flow"
+    name_field: ClassVar[str] = "name"
     SOURCE_MONITORING_CONFIG = "SourceMonitoringConfig"
     SOURCE_FAILOVER_CONFIG = "SourceFailoverConfig"
     VPC_INTERFACES = "VpcInterfaces"
@@ -873,6 +877,7 @@ class FlowEntitlement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowEntitlement"
+    name_field: ClassVar[str] = "name"
     DATA_TRANSFER_SUBSCRIBER_FEE_PERCENT = "DataTransferSubscriberFeePercent"
     DESCRIPTION = "Description"
     ENCRYPTION = "Encryption"
@@ -911,6 +916,7 @@ class FlowOutput(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowOutput"
+    name_field: ClassVar[str] = "name"
     DESTINATION = "Destination"
     SMOOTHING_LATENCY = "SmoothingLatency"
     STREAM_ID = "StreamId"
@@ -988,6 +994,7 @@ class FlowSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowSource"
+    name_field: ClassVar[str] = "name"
     STREAM_ID = "StreamId"
     DESCRIPTION = "Description"
     SENDER_IP_ADDRESS = "SenderIpAddress"
@@ -1069,6 +1076,7 @@ class FlowVpcInterface(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::FlowVpcInterface"
+    name_field: ClassVar[str] = "name"
     SUBNET_ID = "SubnetId"
     FLOW_ARN = "FlowArn"
     SECURITY_GROUP_IDS = "SecurityGroupIds"
@@ -1101,6 +1109,7 @@ class Gateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::Gateway"
+    name_field: ClassVar[str] = "name"
     NETWORKS = "Networks"
     EGRESS_CIDR_BLOCKS = "EgressCidrBlocks"
     NAME = "Name"
@@ -1132,6 +1141,7 @@ class RouterInput(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterInput"
+    name_field: ClassVar[str] = "name"
     ROUTING_SCOPE = "RoutingScope"
     TRANSIT_ENCRYPTION = "TransitEncryption"
     CONFIGURATION = "Configuration"
@@ -1219,6 +1229,7 @@ class RouterNetworkInterface(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterNetworkInterface"
+    name_field: ClassVar[str] = "name"
     CONFIGURATION = "Configuration"
     REGION_NAME = "RegionName"
     TAGS = "Tags"
@@ -1283,6 +1294,7 @@ class RouterOutput(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterOutput"
+    name_field: ClassVar[str] = "name"
     ROUTING_SCOPE = "RoutingScope"
     CONFIGURATION = "Configuration"
     TIER = "Tier"

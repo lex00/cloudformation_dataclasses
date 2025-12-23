@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:06
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancingV2
@@ -474,6 +474,7 @@ class LoadBalancer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     SECURITY_GROUPS = "SecurityGroups"
     LOAD_BALANCER_ATTRIBUTES = "LoadBalancerAttributes"
@@ -558,6 +559,7 @@ class TargetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TargetGroup"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     HEALTH_CHECK_INTERVAL_SECONDS = "HealthCheckIntervalSeconds"
     TARGET_CONTROL_PORT = "TargetControlPort"
@@ -650,6 +652,7 @@ class TrustStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TrustStore"
+    name_field: ClassVar[str] = "name"
     CA_CERTIFICATES_BUNDLE_S3_BUCKET = "CaCertificatesBundleS3Bucket"
     CA_CERTIFICATES_BUNDLE_S3_OBJECT_VERSION = "CaCertificatesBundleS3ObjectVersion"
     TAGS = "Tags"

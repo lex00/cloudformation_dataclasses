@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:04
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECR
@@ -372,6 +372,7 @@ class PublicRepository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-p"""
 
     resource_type: ClassVar[str] = "AWS::ECR::PublicRepository"
+    name_field: ClassVar[str] = "repository_name"
     REPOSITORY_POLICY_TEXT = "RepositoryPolicyText"
     REPOSITORY_NAME = "RepositoryName"
     REPOSITORY_CATALOG_DATA = "RepositoryCatalogData"
@@ -507,6 +508,7 @@ class Repository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-r"""
 
     resource_type: ClassVar[str] = "AWS::ECR::Repository"
+    name_field: ClassVar[str] = "repository_name"
     EMPTY_ON_DELETE = "EmptyOnDelete"
     IMAGE_SCANNING_CONFIGURATION = "ImageScanningConfiguration"
     IMAGE_TAG_MUTABILITY_EXCLUSION_FILTERS = "ImageTagMutabilityExclusionFilters"

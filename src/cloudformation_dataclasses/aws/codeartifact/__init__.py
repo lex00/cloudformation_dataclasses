@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:58
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeArtifact
@@ -242,6 +242,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::Domain"
+    name_field: ClassVar[str] = "domain_name"
     PERMISSIONS_POLICY_DOCUMENT = "PermissionsPolicyDocument"
     DOMAIN_NAME = "DomainName"
     TAGS = "Tags"
@@ -286,6 +287,7 @@ class PackageGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::PackageGroup"
+    name_field: ClassVar[str] = "domain_name"
     PATTERN = "Pattern"
     DESCRIPTION = "Description"
     DOMAIN_NAME = "DomainName"
@@ -324,6 +326,7 @@ class Repository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::Repository"
+    name_field: ClassVar[str] = "repository_name"
     DESCRIPTION = "Description"
     PERMISSIONS_POLICY_DOCUMENT = "PermissionsPolicyDocument"
     DOMAIN_NAME = "DomainName"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:07
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FraudDetector
@@ -281,6 +281,7 @@ class EntityType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::EntityType"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -317,6 +318,7 @@ class EventType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::EventType"
+    name_field: ClassVar[str] = "name"
     ENTITY_TYPES = "EntityTypes"
     DESCRIPTION = "Description"
     LABELS = "Labels"
@@ -362,6 +364,7 @@ class Label(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Label"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -398,6 +401,7 @@ class List(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::List"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     VARIABLE_TYPE = "VariableType"
     ELEMENTS = "Elements"
@@ -440,6 +444,7 @@ class Outcome(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Outcome"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -476,6 +481,7 @@ class Variable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fraud"""
 
     resource_type: ClassVar[str] = "AWS::FraudDetector::Variable"
+    name_field: ClassVar[str] = "name"
     DEFAULT_VALUE = "DefaultValue"
     DESCRIPTION = "Description"
     VARIABLE_TYPE = "VariableType"

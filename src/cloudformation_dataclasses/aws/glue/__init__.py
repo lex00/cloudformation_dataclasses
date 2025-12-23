@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:08
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Glue
@@ -2091,6 +2091,7 @@ class Crawler(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Crawler"
+    name_field: ClassVar[str] = "name"
     CLASSIFIERS = "Classifiers"
     DESCRIPTION = "Description"
     SCHEMA_CHANGE_POLICY = "SchemaChangePolicy"
@@ -2144,6 +2145,7 @@ class CustomEntityType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::CustomEntityType"
+    name_field: ClassVar[str] = "name"
     CONTEXT_WORDS = "ContextWords"
     REGEX_STRING = "RegexString"
     TAGS = "Tags"
@@ -2184,6 +2186,7 @@ class DataQualityRuleset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::DataQualityRuleset"
+    name_field: ClassVar[str] = "name"
     RULESET = "Ruleset"
     DESCRIPTION = "Description"
     TARGET_TABLE = "TargetTable"
@@ -2213,6 +2216,7 @@ class Database(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Database"
+    name_field: ClassVar[str] = "database_name"
     DATABASE_NAME = "DatabaseName"
     DATABASE_INPUT = "DatabaseInput"
     CATALOG_ID = "CatalogId"
@@ -2233,6 +2237,7 @@ class DevEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::DevEndpoint"
+    name_field: ClassVar[str] = "endpoint_name"
     EXTRA_JARS_S3_PATH = "ExtraJarsS3Path"
     PUBLIC_KEY = "PublicKey"
     NUMBER_OF_NODES = "NumberOfNodes"
@@ -2320,6 +2325,7 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Integration"
+    name_field: ClassVar[str] = "integration_name"
     DATA_FILTER = "DataFilter"
     INTEGRATION_NAME = "IntegrationName"
     DESCRIPTION = "Description"
@@ -2403,6 +2409,7 @@ class Job(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Job"
+    name_field: ClassVar[str] = "name"
     CONNECTIONS = "Connections"
     MAX_RETRIES = "MaxRetries"
     JOB_MODE = "JobMode"
@@ -2483,6 +2490,7 @@ class MLTransform(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::MLTransform"
+    name_field: ClassVar[str] = "name"
     MAX_RETRIES = "MaxRetries"
     DESCRIPTION = "Description"
     TRANSFORM_ENCRYPTION = "TransformEncryption"
@@ -2533,6 +2541,7 @@ class Partition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Partition"
+    name_field: ClassVar[str] = "table_name"
     TABLE_NAME = "TableName"
     DATABASE_NAME = "DatabaseName"
     CATALOG_ID = "CatalogId"
@@ -2556,6 +2565,7 @@ class Registry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Registry"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -2582,6 +2592,7 @@ class Schema(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Schema"
+    name_field: ClassVar[str] = "name"
     SCHEMA_DEFINITION = "SchemaDefinition"
     DESCRIPTION = "Description"
     DATA_FORMAT = "DataFormat"
@@ -2671,6 +2682,7 @@ class SecurityConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::SecurityConfiguration"
+    name_field: ClassVar[str] = "name"
     ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
     NAME = "Name"
 
@@ -2688,6 +2700,7 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Table"
+    name_field: ClassVar[str] = "database_name"
     TABLE_INPUT = "TableInput"
     OPEN_TABLE_FORMAT_INPUT = "OpenTableFormatInput"
     DATABASE_NAME = "DatabaseName"
@@ -2711,6 +2724,7 @@ class TableOptimizer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::TableOptimizer"
+    name_field: ClassVar[str] = "table_name"
     TABLE_NAME = "TableName"
     TYPE = "Type"
     DATABASE_NAME = "DatabaseName"
@@ -2737,6 +2751,7 @@ class Trigger(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Trigger"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     START_ON_CREATION = "StartOnCreation"
     DESCRIPTION = "Description"
@@ -2778,6 +2793,7 @@ class UsageProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::UsageProfile"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONFIGURATION = "Configuration"
     TAGS = "Tags"
@@ -2807,6 +2823,7 @@ class Workflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-"""
 
     resource_type: ClassVar[str] = "AWS::Glue::Workflow"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     DEFAULT_RUN_PROPERTIES = "DefaultRunProperties"
     TAGS = "Tags"

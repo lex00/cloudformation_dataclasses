@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:52
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApiGatewayV2
@@ -262,6 +262,7 @@ class Api(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Api"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     ROUTE_SELECTION_EXPRESSION = "RouteSelectionExpression"
     BODY_S3_LOCATION = "BodyS3Location"
@@ -361,6 +362,7 @@ class ApiMapping(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::ApiMapping"
+    name_field: ClassVar[str] = "domain_name"
     DOMAIN_NAME = "DomainName"
     STAGE = "Stage"
     API_MAPPING_KEY = "ApiMappingKey"
@@ -390,6 +392,7 @@ class Authorizer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Authorizer"
+    name_field: ClassVar[str] = "name"
     IDENTITY_VALIDATION_EXPRESSION = "IdentityValidationExpression"
     AUTHORIZER_URI = "AuthorizerUri"
     AUTHORIZER_CREDENTIALS_ARN = "AuthorizerCredentialsArn"
@@ -440,6 +443,7 @@ class Deployment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Deployment"
+    name_field: ClassVar[str] = "stage_name"
     DESCRIPTION = "Description"
     STAGE_NAME = "StageName"
     API_ID = "ApiId"
@@ -466,6 +470,7 @@ class DomainName(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::DomainName"
+    name_field: ClassVar[str] = "domain_name"
     MUTUAL_TLS_AUTHENTICATION = "MutualTlsAuthentication"
     ROUTING_MODE = "RoutingMode"
     DOMAIN_NAME = "DomainName"
@@ -617,6 +622,7 @@ class Model(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Model"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONTENT_TYPE = "ContentType"
     SCHEMA = "Schema"
@@ -649,6 +655,7 @@ class Route(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Route"
+    name_field: ClassVar[str] = "operation_name"
     TARGET = "Target"
     ROUTE_RESPONSE_SELECTION_EXPRESSION = "RouteResponseSelectionExpression"
     REQUEST_MODELS = "RequestModels"
@@ -771,6 +778,7 @@ class Stage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::Stage"
+    name_field: ClassVar[str] = "stage_name"
     CLIENT_CERTIFICATE_ID = "ClientCertificateId"
     DEPLOYMENT_ID = "DeploymentId"
     DESCRIPTION = "Description"
@@ -818,6 +826,7 @@ class VpcLink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGatewayV2::VpcLink"
+    name_field: ClassVar[str] = "name"
     SUBNET_IDS = "SubnetIds"
     SECURITY_GROUP_IDS = "SecurityGroupIds"
     TAGS = "Tags"

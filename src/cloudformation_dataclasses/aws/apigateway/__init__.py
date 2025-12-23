@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:52
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApiGateway
@@ -433,6 +433,7 @@ class ApiKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::ApiKey"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     STAGE_KEYS = "StageKeys"
     VALUE = "Value"
@@ -474,6 +475,7 @@ class Authorizer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::Authorizer"
+    name_field: ClassVar[str] = "name"
     PROVIDER_AR_NS = "ProviderARNs"
     AUTHORIZER_CREDENTIALS = "AuthorizerCredentials"
     IDENTITY_VALIDATION_EXPRESSION = "IdentityValidationExpression"
@@ -521,6 +523,7 @@ class BasePathMapping(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::BasePathMapping"
+    name_field: ClassVar[str] = "domain_name"
     DOMAIN_NAME = "DomainName"
     REST_API_ID = "RestApiId"
     STAGE = "Stage"
@@ -599,6 +602,7 @@ class Deployment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::Deployment"
+    name_field: ClassVar[str] = "stage_name"
     DESCRIPTION = "Description"
     STAGE_DESCRIPTION = "StageDescription"
     STAGE_NAME = "StageName"
@@ -677,6 +681,7 @@ class DomainName(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::DomainName"
+    name_field: ClassVar[str] = "domain_name"
     OWNERSHIP_VERIFICATION_CERTIFICATE_ARN = "OwnershipVerificationCertificateArn"
     MUTUAL_TLS_AUTHENTICATION = "MutualTlsAuthentication"
     ROUTING_MODE = "RoutingMode"
@@ -773,6 +778,7 @@ class DomainNameV2(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::DomainNameV2"
+    name_field: ClassVar[str] = "domain_name"
     POLICY = "Policy"
     ROUTING_MODE = "RoutingMode"
     DOMAIN_NAME = "DomainName"
@@ -851,6 +857,7 @@ class Method(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::Method"
+    name_field: ClassVar[str] = "operation_name"
     INTEGRATION = "Integration"
     OPERATION_NAME = "OperationName"
     REQUEST_MODELS = "RequestModels"
@@ -901,6 +908,7 @@ class Model(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::Model"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONTENT_TYPE = "ContentType"
     SCHEMA = "Schema"
@@ -927,6 +935,7 @@ class RequestValidator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::RequestValidator"
+    name_field: ClassVar[str] = "name"
     VALIDATE_REQUEST_PARAMETERS = "ValidateRequestParameters"
     REST_API_ID = "RestApiId"
     VALIDATE_REQUEST_BODY = "ValidateRequestBody"
@@ -982,6 +991,7 @@ class RestApi(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::RestApi"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     BODY_S3_LOCATION = "BodyS3Location"
     DESCRIPTION = "Description"
@@ -1055,6 +1065,7 @@ class Stage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::Stage"
+    name_field: ClassVar[str] = "stage_name"
     DEPLOYMENT_ID = "DeploymentId"
     DESCRIPTION = "Description"
     STAGE_NAME = "StageName"
@@ -1108,6 +1119,7 @@ class UsagePlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::UsagePlan"
+    name_field: ClassVar[str] = "usage_plan_name"
     DESCRIPTION = "Description"
     QUOTA = "Quota"
     API_STAGES = "ApiStages"
@@ -1169,6 +1181,7 @@ class VpcLink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apiga"""
 
     resource_type: ClassVar[str] = "AWS::ApiGateway::VpcLink"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TARGET_ARNS = "TargetArns"
     TAGS = "Tags"

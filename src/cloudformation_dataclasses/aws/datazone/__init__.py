@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:02
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataZone
@@ -1299,6 +1299,7 @@ class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::Connection"
+    name_field: ClassVar[str] = "name"
     PROJECT_IDENTIFIER = "ProjectIdentifier"
     DESCRIPTION = "Description"
     ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
@@ -1373,6 +1374,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::DataSource"
+    name_field: ClassVar[str] = "name"
     PROJECT_IDENTIFIER = "ProjectIdentifier"
     PUBLISH_ON_IMPORT = "PublishOnImport"
     DESCRIPTION = "Description"
@@ -1479,6 +1481,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::Domain"
+    name_field: ClassVar[str] = "name"
     DOMAIN_EXECUTION_ROLE = "DomainExecutionRole"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
     DESCRIPTION = "Description"
@@ -1555,6 +1558,7 @@ class DomainUnit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::DomainUnit"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PARENT_DOMAIN_UNIT_IDENTIFIER = "ParentDomainUnitIdentifier"
     DOMAIN_IDENTIFIER = "DomainIdentifier"
@@ -1609,6 +1613,7 @@ class Environment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::Environment"
+    name_field: ClassVar[str] = "name"
     PROJECT_IDENTIFIER = "ProjectIdentifier"
     ENVIRONMENT_ACCOUNT_REGION = "EnvironmentAccountRegion"
     USER_PARAMETERS = "UserParameters"
@@ -1711,6 +1716,7 @@ class EnvironmentActions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::EnvironmentActions"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
     IDENTIFIER = "Identifier"
@@ -1812,6 +1818,7 @@ class EnvironmentProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::EnvironmentProfile"
+    name_field: ClassVar[str] = "name"
     PROJECT_IDENTIFIER = "ProjectIdentifier"
     USER_PARAMETERS = "UserParameters"
     DESCRIPTION = "Description"
@@ -1883,6 +1890,7 @@ class FormType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::FormType"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     DESCRIPTION = "Description"
     MODEL = "Model"
@@ -2058,6 +2066,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::Project"
+    name_field: ClassVar[str] = "name"
     DOMAIN_UNIT_ID = "DomainUnitId"
     PROJECT_PROFILE_ID = "ProjectProfileId"
     USER_PARAMETERS = "UserParameters"
@@ -2158,6 +2167,7 @@ class ProjectProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::ProjectProfile"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     ENVIRONMENT_CONFIGURATIONS = "EnvironmentConfigurations"
     DESCRIPTION = "Description"
@@ -2223,6 +2233,7 @@ class SubscriptionTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dataz"""
 
     resource_type: ClassVar[str] = "AWS::DataZone::SubscriptionTarget"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     ENVIRONMENT_IDENTIFIER = "EnvironmentIdentifier"
     MANAGE_ACCESS_ROLE = "ManageAccessRole"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Vectors
@@ -67,6 +67,7 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::Index"
+    name_field: ClassVar[str] = "index_name"
     DISTANCE_METRIC = "DistanceMetric"
     INDEX_NAME = "IndexName"
     VECTOR_BUCKET_ARN = "VectorBucketArn"
@@ -113,6 +114,7 @@ class VectorBucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::VectorBucket"
+    name_field: ClassVar[str] = "vector_bucket_name"
     VECTOR_BUCKET_NAME = "VectorBucketName"
     ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
 
@@ -141,6 +143,7 @@ class VectorBucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::VectorBucketPolicy"
+    name_field: ClassVar[str] = "vector_bucket_name"
     POLICY = "Policy"
     VECTOR_BUCKET_ARN = "VectorBucketArn"
     VECTOR_BUCKET_NAME = "VectorBucketName"

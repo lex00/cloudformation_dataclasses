@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:19
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Omics
@@ -639,6 +639,7 @@ class AnnotationStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::AnnotationStore"
+    name_field: ClassVar[str] = "name"
     STORE_FORMAT = "StoreFormat"
     DESCRIPTION = "Description"
     REFERENCE = "Reference"
@@ -707,6 +708,7 @@ class ReferenceStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::ReferenceStore"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     SSE_CONFIG = "SseConfig"
     TAGS = "Tags"
@@ -746,6 +748,7 @@ class RunGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::RunGroup"
+    name_field: ClassVar[str] = "name"
     MAX_DURATION = "MaxDuration"
     MAX_GPUS = "MaxGpus"
     MAX_RUNS = "MaxRuns"
@@ -791,6 +794,7 @@ class SequenceStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::SequenceStore"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PROPAGATED_SET_LEVEL_TAGS = "PropagatedSetLevelTags"
     FALLBACK_LOCATION = "FallbackLocation"
@@ -870,6 +874,7 @@ class VariantStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::VariantStore"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     REFERENCE = "Reference"
     SSE_CONFIG = "SseConfig"
@@ -932,6 +937,7 @@ class Workflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::Workflow"
+    name_field: ClassVar[str] = "name"
     PARAMETER_TEMPLATE = "ParameterTemplate"
     DESCRIPTION = "Description"
     STORAGE_TYPE = "StorageType"
@@ -1028,6 +1034,7 @@ class WorkflowVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics"""
 
     resource_type: ClassVar[str] = "AWS::Omics::WorkflowVersion"
+    name_field: ClassVar[str] = "version_name"
     PARAMETER_TEMPLATE = "ParameterTemplate"
     DESCRIPTION = "Description"
     STORAGE_TYPE = "StorageType"

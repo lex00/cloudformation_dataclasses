@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:32
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpacesWeb
@@ -75,6 +75,7 @@ class DataProtectionSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::DataProtectionSettings"
+    name_field: ClassVar[str] = "display_name"
     INLINE_REDACTION_CONFIGURATION = "InlineRedactionConfiguration"
     DESCRIPTION = "Description"
     CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
@@ -120,6 +121,7 @@ class IdentityProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::IdentityProvider"
+    name_field: ClassVar[str] = "identity_provider_name"
     IDENTITY_PROVIDER_DETAILS = "IdentityProviderDetails"
     PORTAL_ARN = "PortalArn"
     IDENTITY_PROVIDER_NAME = "IdentityProviderName"
@@ -152,6 +154,7 @@ class IpAccessSettings(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::IpAccessSettings"
+    name_field: ClassVar[str] = "display_name"
     IP_RULES = "IpRules"
     DESCRIPTION = "Description"
     CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
@@ -231,6 +234,7 @@ class Portal(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::Portal"
+    name_field: ClassVar[str] = "display_name"
     TRUST_STORE_ARN = "TrustStoreArn"
     USER_ACCESS_LOGGING_SETTINGS_ARN = "UserAccessLoggingSettingsArn"
     BROWSER_SETTINGS_ARN = "BrowserSettingsArn"
@@ -328,6 +332,7 @@ class SessionLogger(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesWeb::SessionLogger"
+    name_field: ClassVar[str] = "display_name"
     CUSTOMER_MANAGED_KEY = "CustomerManagedKey"
     ADDITIONAL_ENCRYPTION_CONTEXT = "AdditionalEncryptionContext"
     DISPLAY_NAME = "DisplayName"

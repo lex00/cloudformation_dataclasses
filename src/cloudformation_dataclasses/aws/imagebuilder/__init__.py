@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:10
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ImageBuilder
@@ -477,6 +477,7 @@ class Component(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::Component"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     SUPPORTED_OS_VERSIONS = "SupportedOsVersions"
     PLATFORM = "Platform"
@@ -564,6 +565,7 @@ class ContainerRecipe(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ContainerRecipe"
+    name_field: ClassVar[str] = "name"
     WORKING_DIRECTORY = "WorkingDirectory"
     PARENT_IMAGE = "ParentImage"
     DESCRIPTION = "Description"
@@ -656,6 +658,7 @@ class DistributionConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::DistributionConfiguration"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -786,6 +789,7 @@ class ImagePipeline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ImagePipeline"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     IMAGE_SCANNING_CONFIGURATION = "ImageScanningConfiguration"
     DESCRIPTION = "Description"
@@ -858,6 +862,7 @@ class ImageRecipe(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::ImageRecipe"
+    name_field: ClassVar[str] = "name"
     COMPONENTS = "Components"
     WORKING_DIRECTORY = "WorkingDirectory"
     PARENT_IMAGE = "ParentImage"
@@ -935,6 +940,7 @@ class InfrastructureConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::InfrastructureConfiguration"
+    name_field: ClassVar[str] = "name"
     LOGGING = "Logging"
     KEY_PAIR = "KeyPair"
     DESCRIPTION = "Description"
@@ -999,6 +1005,7 @@ class LifecyclePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::LifecyclePolicy"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     DESCRIPTION = "Description"
     RESOURCE_TYPE = "ResourceType"
@@ -1040,6 +1047,7 @@ class Workflow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-image"""
 
     resource_type: ClassVar[str] = "AWS::ImageBuilder::Workflow"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     KMS_KEY_ID = "KmsKeyId"

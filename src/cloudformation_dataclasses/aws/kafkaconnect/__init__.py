@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:12
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KafkaConnect
@@ -181,6 +181,7 @@ class Connector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafka"""
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::Connector"
+    name_field: ClassVar[str] = "connector_name"
     KAFKA_CLUSTER = "KafkaCluster"
     KAFKA_CONNECT_VERSION = "KafkaConnectVersion"
     CONNECTOR_CONFIGURATION = "ConnectorConfiguration"
@@ -237,6 +238,7 @@ class CustomPlugin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafka"""
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::CustomPlugin"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONTENT_TYPE = "ContentType"
     TAGS = "Tags"
@@ -289,6 +291,7 @@ class WorkerConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafka"""
 
     resource_type: ClassVar[str] = "AWS::KafkaConnect::WorkerConfiguration"
+    name_field: ClassVar[str] = "name"
     PROPERTIES_FILE_CONTENT = "PropertiesFileContent"
     DESCRIPTION = "Description"
     TAGS = "Tags"

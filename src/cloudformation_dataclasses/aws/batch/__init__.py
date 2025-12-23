@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:55
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Batch
@@ -401,6 +401,7 @@ class ComputeEnvironment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::ComputeEnvironment"
+    name_field: ClassVar[str] = "compute_environment_name"
     CONTEXT = "Context"
     UNMANAGEDV_CPUS = "UnmanagedvCpus"
     TYPE = "Type"
@@ -451,6 +452,7 @@ class ConsumableResource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::ConsumableResource"
+    name_field: ClassVar[str] = "consumable_resource_name"
     TOTAL_QUANTITY = "TotalQuantity"
     CONSUMABLE_RESOURCE_NAME = "ConsumableResourceName"
     RESOURCE_TYPE = "ResourceType"
@@ -495,6 +497,7 @@ class JobDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::JobDefinition"
+    name_field: ClassVar[str] = "job_definition_name"
     PARAMETERS = "Parameters"
     TIMEOUT = "Timeout"
     JOB_DEFINITION_NAME = "JobDefinitionName"
@@ -557,6 +560,7 @@ class JobQueue(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::JobQueue"
+    name_field: ClassVar[str] = "job_queue_name"
     COMPUTE_ENVIRONMENT_ORDER = "ComputeEnvironmentOrder"
     PRIORITY = "Priority"
     STATE = "State"
@@ -601,6 +605,7 @@ class SchedulingPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::SchedulingPolicy"
+    name_field: ClassVar[str] = "name"
     FAIRSHARE_POLICY = "FairsharePolicy"
     TAGS = "Tags"
     NAME = "Name"
@@ -627,6 +632,7 @@ class ServiceEnvironment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch"""
 
     resource_type: ClassVar[str] = "AWS::Batch::ServiceEnvironment"
+    name_field: ClassVar[str] = "service_environment_name"
     SERVICE_ENVIRONMENT_NAME = "ServiceEnvironmentName"
     STATE = "State"
     SERVICE_ENVIRONMENT_TYPE = "ServiceEnvironmentType"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryReadiness
@@ -54,6 +54,7 @@ class Cell(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::Cell"
+    name_field: ClassVar[str] = "cell_name"
     CELL_NAME = "CellName"
     CELLS = "Cells"
     TAGS = "Tags"
@@ -85,6 +86,7 @@ class ReadinessCheck(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::ReadinessCheck"
+    name_field: ClassVar[str] = "readiness_check_name"
     RESOURCE_SET_NAME = "ResourceSetName"
     READINESS_CHECK_NAME = "ReadinessCheckName"
     TAGS = "Tags"
@@ -111,6 +113,7 @@ class RecoveryGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::RecoveryGroup"
+    name_field: ClassVar[str] = "recovery_group_name"
     RECOVERY_GROUP_NAME = "RecoveryGroupName"
     CELLS = "Cells"
     TAGS = "Tags"
@@ -137,6 +140,7 @@ class ResourceSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryReadiness::ResourceSet"
+    name_field: ClassVar[str] = "resource_set_name"
     RESOURCE_SET_TYPE = "ResourceSetType"
     RESOURCE_SET_NAME = "ResourceSetName"
     RESOURCES = "Resources"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:31
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VpcLattice
@@ -109,6 +109,7 @@ class DomainVerification(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::DomainVerification"
+    name_field: ClassVar[str] = "domain_name"
     DOMAIN_NAME = "DomainName"
     TAGS = "Tags"
 
@@ -157,6 +158,7 @@ class Listener(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Listener"
+    name_field: ClassVar[str] = "name"
     DEFAULT_ACTION = "DefaultAction"
     PORT = "Port"
     SERVICE_IDENTIFIER = "ServiceIdentifier"
@@ -207,6 +209,7 @@ class ResourceConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ResourceConfiguration"
+    name_field: ClassVar[str] = "name"
     CUSTOM_DOMAIN_NAME = "CustomDomainName"
     PORT_RANGES = "PortRanges"
     RESOURCE_CONFIGURATION_DEFINITION = "ResourceConfigurationDefinition"
@@ -268,6 +271,7 @@ class ResourceGateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ResourceGateway"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     VPC_IDENTIFIER = "VpcIdentifier"
     IPV4_ADDRESSES_PER_ENI = "Ipv4AddressesPerEni"
@@ -328,6 +332,7 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Rule"
+    name_field: ClassVar[str] = "name"
     ACTION = "Action"
     PRIORITY = "Priority"
     SERVICE_IDENTIFIER = "ServiceIdentifier"
@@ -371,6 +376,7 @@ class Service(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::Service"
+    name_field: ClassVar[str] = "name"
     DNS_ENTRY = "DnsEntry"
     CUSTOM_DOMAIN_NAME = "CustomDomainName"
     AUTH_TYPE = "AuthType"
@@ -436,6 +442,7 @@ class ServiceNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::ServiceNetwork"
+    name_field: ClassVar[str] = "name"
     SHARING_CONFIG = "SharingConfig"
     AUTH_TYPE = "AuthType"
     TAGS = "Tags"
@@ -668,6 +675,7 @@ class TargetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpcla"""
 
     resource_type: ClassVar[str] = "AWS::VpcLattice::TargetGroup"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     CONFIG = "Config"
     TARGETS = "Targets"

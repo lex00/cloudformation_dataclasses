@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:51
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AccessAnalyzer
@@ -534,6 +534,7 @@ class Analyzer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acces"""
 
     resource_type: ClassVar[str] = "AWS::AccessAnalyzer::Analyzer"
+    name_field: ClassVar[str] = "analyzer_name"
     ARCHIVE_RULES = "ArchiveRules"
     TYPE = "Type"
     ANALYZER_NAME = "AnalyzerName"

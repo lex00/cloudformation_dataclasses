@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:06
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Evidently
@@ -228,6 +228,7 @@ class Experiment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evide"""
 
     resource_type: ClassVar[str] = "AWS::Evidently::Experiment"
+    name_field: ClassVar[str] = "name"
     PROJECT = "Project"
     RUNNING_STATUS = "RunningStatus"
     DESCRIPTION = "Description"
@@ -281,6 +282,7 @@ class Feature(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evide"""
 
     resource_type: ClassVar[str] = "AWS::Evidently::Feature"
+    name_field: ClassVar[str] = "name"
     PROJECT = "Project"
     DESCRIPTION = "Description"
     EVALUATION_STRATEGY = "EvaluationStrategy"
@@ -322,6 +324,7 @@ class Launch(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evide"""
 
     resource_type: ClassVar[str] = "AWS::Evidently::Launch"
+    name_field: ClassVar[str] = "name"
     PROJECT = "Project"
     DESCRIPTION = "Description"
     EXECUTION_STATUS = "ExecutionStatus"
@@ -366,6 +369,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evide"""
 
     resource_type: ClassVar[str] = "AWS::Evidently::Project"
+    name_field: ClassVar[str] = "name"
     DATA_DELIVERY = "DataDelivery"
     DESCRIPTION = "Description"
     APP_CONFIG_RESOURCE = "AppConfigResource"
@@ -398,6 +402,7 @@ class Segment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evide"""
 
     resource_type: ClassVar[str] = "AWS::Evidently::Segment"
+    name_field: ClassVar[str] = "name"
     PATTERN = "Pattern"
     DESCRIPTION = "Description"
     TAGS = "Tags"

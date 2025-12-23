@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:04
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EKS
@@ -799,6 +799,7 @@ class AccessEntry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-a"""
 
     resource_type: ClassVar[str] = "AWS::EKS::AccessEntry"
+    name_field: ClassVar[str] = "cluster_name"
     TYPE = "Type"
     PRINCIPAL_ARN = "PrincipalArn"
     KUBERNETES_GROUPS = "KubernetesGroups"
@@ -837,6 +838,7 @@ class Addon(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-a"""
 
     resource_type: ClassVar[str] = "AWS::EKS::Addon"
+    name_field: ClassVar[str] = "addon_name"
     NAMESPACE_CONFIG = "NamespaceConfig"
     PRESERVE_ON_DELETE = "PreserveOnDelete"
     ADDON_VERSION = "AddonVersion"
@@ -884,6 +886,7 @@ class Capability(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-c"""
 
     resource_type: ClassVar[str] = "AWS::EKS::Capability"
+    name_field: ClassVar[str] = "capability_name"
     TYPE = "Type"
     CONFIGURATION = "Configuration"
     CLUSTER_NAME = "ClusterName"
@@ -952,6 +955,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-c"""
 
     resource_type: ClassVar[str] = "AWS::EKS::Cluster"
+    name_field: ClassVar[str] = "name"
     LOGGING = "Logging"
     COMPUTE_CONFIG = "ComputeConfig"
     FORCE = "Force"
@@ -1061,6 +1065,7 @@ class FargateProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-f"""
 
     resource_type: ClassVar[str] = "AWS::EKS::FargateProfile"
+    name_field: ClassVar[str] = "fargate_profile_name"
     SUBNETS = "Subnets"
     FARGATE_PROFILE_NAME = "FargateProfileName"
     CLUSTER_NAME = "ClusterName"
@@ -1096,6 +1101,7 @@ class IdentityProviderConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-i"""
 
     resource_type: ClassVar[str] = "AWS::EKS::IdentityProviderConfig"
+    name_field: ClassVar[str] = "identity_provider_config_name"
     TYPE = "Type"
     CLUSTER_NAME = "ClusterName"
     IDENTITY_PROVIDER_CONFIG_NAME = "IdentityProviderConfigName"
@@ -1128,6 +1134,7 @@ class Nodegroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-n"""
 
     resource_type: ClassVar[str] = "AWS::EKS::Nodegroup"
+    name_field: ClassVar[str] = "nodegroup_name"
     UPDATE_CONFIG = "UpdateConfig"
     SCALING_CONFIG = "ScalingConfig"
     LABELS = "Labels"
@@ -1217,6 +1224,7 @@ class PodIdentityAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-p"""
 
     resource_type: ClassVar[str] = "AWS::EKS::PodIdentityAssociation"
+    name_field: ClassVar[str] = "cluster_name"
     SERVICE_ACCOUNT = "ServiceAccount"
     TARGET_ROLE_ARN = "TargetRoleArn"
     CLUSTER_NAME = "ClusterName"

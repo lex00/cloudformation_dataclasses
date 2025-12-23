@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:00
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaigns
@@ -118,6 +118,7 @@ class Campaign(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::ConnectCampaigns::Campaign"
+    name_field: ClassVar[str] = "name"
     OUTBOUND_CALL_CONFIG = "OutboundCallConfig"
     CONNECT_INSTANCE_ARN = "ConnectInstanceArn"
     DIALER_CONFIG = "DialerConfig"

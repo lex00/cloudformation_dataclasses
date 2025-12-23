@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:30
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Transfer
@@ -595,6 +595,7 @@ class Connector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Connector"
+    name_field: ClassVar[str] = "security_policy_name"
     AS2_CONFIG = "As2Config"
     LOGGING_ROLE = "LoggingRole"
     ACCESS_ROLE = "AccessRole"
@@ -693,6 +694,7 @@ class Server(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::Server"
+    name_field: ClassVar[str] = "security_policy_name"
     IP_ADDRESS_TYPE = "IpAddressType"
     LOGGING_ROLE = "LoggingRole"
     PROTOCOLS = "Protocols"
@@ -776,6 +778,7 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-trans"""
 
     resource_type: ClassVar[str] = "AWS::Transfer::User"
+    name_field: ClassVar[str] = "user_name"
     POLICY = "Policy"
     ROLE = "Role"
     HOME_DIRECTORY = "HomeDirectory"

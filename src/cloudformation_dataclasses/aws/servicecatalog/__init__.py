@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:29
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalog
@@ -471,6 +471,7 @@ class CloudFormationProduct(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::CloudFormationProduct"
+    name_field: ClassVar[str] = "name"
     OWNER = "Owner"
     DESCRIPTION = "Description"
     SUPPORT_EMAIL = "SupportEmail"
@@ -537,6 +538,7 @@ class CloudFormationProvisionedProduct(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
+    name_field: ClassVar[str] = "path_name"
     PATH_ID = "PathId"
     PROVISIONING_PARAMETERS = "ProvisioningParameters"
     PROVISIONING_PREFERENCES = "ProvisioningPreferences"
@@ -637,6 +639,7 @@ class LaunchRoleConstraint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::LaunchRoleConstraint"
+    name_field: ClassVar[str] = "local_role_name"
     DESCRIPTION = "Description"
     LOCAL_ROLE_NAME = "LocalRoleName"
     ACCEPT_LANGUAGE = "AcceptLanguage"
@@ -698,6 +701,7 @@ class Portfolio(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::Portfolio"
+    name_field: ClassVar[str] = "display_name"
     PROVIDER_NAME = "ProviderName"
     DESCRIPTION = "Description"
     DISPLAY_NAME = "DisplayName"
@@ -831,6 +835,7 @@ class ServiceAction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalog::ServiceAction"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     DEFINITION = "Definition"
     ACCEPT_LANGUAGE = "AcceptLanguage"

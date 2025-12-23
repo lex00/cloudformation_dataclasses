@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:02
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataBrew
@@ -278,6 +278,7 @@ class Dataset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Dataset"
+    name_field: ClassVar[str] = "name"
     INPUT = "Input"
     FORMAT = "Format"
     FORMAT_OPTIONS = "FormatOptions"
@@ -310,6 +311,7 @@ class Job(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Job"
+    name_field: ClassVar[str] = "name"
     MAX_RETRIES = "MaxRetries"
     PROJECT_NAME = "ProjectName"
     RECIPE = "Recipe"
@@ -381,6 +383,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Project"
+    name_field: ClassVar[str] = "name"
     RECIPE_NAME = "RecipeName"
     DATASET_NAME = "DatasetName"
     SAMPLE = "Sample"
@@ -410,6 +413,7 @@ class Recipe(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Recipe"
+    name_field: ClassVar[str] = "name"
     STEPS = "Steps"
     DESCRIPTION = "Description"
     TAGS = "Tags"
@@ -433,6 +437,7 @@ class Ruleset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Ruleset"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TARGET_ARN = "TargetArn"
     RULES = "Rules"
@@ -459,6 +464,7 @@ class Schedule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datab"""
 
     resource_type: ClassVar[str] = "AWS::DataBrew::Schedule"
+    name_field: ClassVar[str] = "name"
     JOB_NAMES = "JobNames"
     CRON_EXPRESSION = "CronExpression"
     TAGS = "Tags"

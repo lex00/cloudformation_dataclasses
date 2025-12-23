@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:07
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FMS
@@ -385,6 +385,7 @@ class NotificationChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-n"""
 
     resource_type: ClassVar[str] = "AWS::FMS::NotificationChannel"
+    name_field: ClassVar[str] = "sns_role_name"
     SNS_TOPIC_ARN = "SnsTopicArn"
     SNS_ROLE_NAME = "SnsRoleName"
 
@@ -402,6 +403,7 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-p"""
 
     resource_type: ClassVar[str] = "AWS::FMS::Policy"
+    name_field: ClassVar[str] = "policy_name"
     RESOURCE_TAG_LOGICAL_OPERATOR = "ResourceTagLogicalOperator"
     RESOURCES_CLEAN_UP = "ResourcesCleanUp"
     RESOURCE_TAGS = "ResourceTags"
@@ -469,6 +471,7 @@ class ResourceSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-r"""
 
     resource_type: ClassVar[str] = "AWS::FMS::ResourceSet"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     RESOURCE_TYPE_LIST = "ResourceTypeList"
     RESOURCES = "Resources"

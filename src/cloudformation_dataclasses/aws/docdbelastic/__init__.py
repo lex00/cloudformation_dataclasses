@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:03
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDBElastic
@@ -30,6 +30,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDBElastic::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     ADMIN_USER_NAME = "AdminUserName"
     KMS_KEY_ID = "KmsKeyId"
     ADMIN_USER_PASSWORD = "AdminUserPassword"

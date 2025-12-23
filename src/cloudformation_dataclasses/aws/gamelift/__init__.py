@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:08
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GameLift
@@ -2015,6 +2015,7 @@ class Alias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::Alias"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ROUTING_STRATEGY = "RoutingStrategy"
     TAGS = "Tags"
@@ -2049,6 +2050,7 @@ class Build(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::Build"
+    name_field: ClassVar[str] = "name"
     OPERATING_SYSTEM = "OperatingSystem"
     VERSION = "Version"
     SERVER_SDK_VERSION = "ServerSdkVersion"
@@ -2089,6 +2091,7 @@ class ContainerFleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::ContainerFleet"
+    name_field: ClassVar[str] = "game_server_container_group_definition_name"
     SCALING_POLICIES = "ScalingPolicies"
     GAME_SERVER_CONTAINER_GROUP_DEFINITION_NAME = "GameServerContainerGroupDefinitionName"
     DESCRIPTION = "Description"
@@ -2197,6 +2200,7 @@ class ContainerGroupDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::ContainerGroupDefinition"
+    name_field: ClassVar[str] = "name"
     OPERATING_SYSTEM = "OperatingSystem"
     VERSION_DESCRIPTION = "VersionDescription"
     GAME_SERVER_CONTAINER_DEFINITION = "GameServerContainerDefinition"
@@ -2264,6 +2268,7 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::Fleet"
+    name_field: ClassVar[str] = "name"
     SCALING_POLICIES = "ScalingPolicies"
     DESCRIPTION = "Description"
     PEER_VPC_ID = "PeerVpcId"
@@ -2352,6 +2357,7 @@ class GameServerGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::GameServerGroup"
+    name_field: ClassVar[str] = "game_server_group_name"
     AUTO_SCALING_POLICY = "AutoScalingPolicy"
     MIN_SIZE = "MinSize"
     DELETE_OPTION = "DeleteOption"
@@ -2410,6 +2416,7 @@ class GameSessionQueue(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::GameSessionQueue"
+    name_field: ClassVar[str] = "name"
     TIMEOUT_IN_SECONDS = "TimeoutInSeconds"
     PLAYER_LATENCY_POLICIES = "PlayerLatencyPolicies"
     DESTINATIONS = "Destinations"
@@ -2459,6 +2466,7 @@ class Location(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::Location"
+    name_field: ClassVar[str] = "location_name"
     TAGS = "Tags"
     LOCATION_NAME = "LocationName"
 
@@ -2482,6 +2490,7 @@ class MatchmakingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::MatchmakingConfiguration"
+    name_field: ClassVar[str] = "name"
     GAME_PROPERTIES = "GameProperties"
     GAME_SESSION_DATA = "GameSessionData"
     DESCRIPTION = "Description"
@@ -2555,6 +2564,7 @@ class MatchmakingRuleSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::MatchmakingRuleSet"
+    name_field: ClassVar[str] = "name"
     RULE_SET_BODY = "RuleSetBody"
     TAGS = "Tags"
     NAME = "Name"
@@ -2591,6 +2601,7 @@ class Script(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamel"""
 
     resource_type: ClassVar[str] = "AWS::GameLift::Script"
+    name_field: ClassVar[str] = "name"
     VERSION = "Version"
     STORAGE_LOCATION = "StorageLocation"
     TAGS = "Tags"

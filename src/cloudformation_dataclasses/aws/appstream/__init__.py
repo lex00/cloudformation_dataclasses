@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:53
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppStream
@@ -634,6 +634,7 @@ class AppBlock(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::AppBlock"
+    name_field: ClassVar[str] = "name"
     SETUP_SCRIPT_DETAILS = "SetupScriptDetails"
     DESCRIPTION = "Description"
     POST_SETUP_SCRIPT_DETAILS = "PostSetupScriptDetails"
@@ -680,6 +681,7 @@ class AppBlockBuilder(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::AppBlockBuilder"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PLATFORM = "Platform"
     VPC_CONFIG = "VpcConfig"
@@ -735,6 +737,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::Application"
+    name_field: ClassVar[str] = "name"
     WORKING_DIRECTORY = "WorkingDirectory"
     PLATFORMS = "Platforms"
     APP_BLOCK_ARN = "AppBlockArn"
@@ -793,6 +796,7 @@ class ApplicationEntitlementAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::ApplicationEntitlementAssociation"
+    name_field: ClassVar[str] = "stack_name"
     ENTITLEMENT_NAME = "EntitlementName"
     APPLICATION_IDENTIFIER = "ApplicationIdentifier"
     STACK_NAME = "StackName"
@@ -813,6 +817,7 @@ class ApplicationFleetAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::ApplicationFleetAssociation"
+    name_field: ClassVar[str] = "fleet_name"
     FLEET_NAME = "FleetName"
     APPLICATION_ARN = "ApplicationArn"
 
@@ -830,6 +835,7 @@ class DirectoryConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::DirectoryConfig"
+    name_field: ClassVar[str] = "directory_name"
     ORGANIZATIONAL_UNIT_DISTINGUISHED_NAMES = "OrganizationalUnitDistinguishedNames"
     SERVICE_ACCOUNT_CREDENTIALS = "ServiceAccountCredentials"
     CERTIFICATE_BASED_AUTH_PROPERTIES = "CertificateBasedAuthProperties"
@@ -853,6 +859,7 @@ class Entitlement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::Entitlement"
+    name_field: ClassVar[str] = "name"
     APP_VISIBILITY = "AppVisibility"
     DESCRIPTION = "Description"
     ATTRIBUTES = "Attributes"
@@ -890,6 +897,7 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::Fleet"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     COMPUTE_CAPACITY = "ComputeCapacity"
     PLATFORM = "Platform"
@@ -967,6 +975,7 @@ class ImageBuilder(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::ImageBuilder"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     VPC_CONFIG = "VpcConfig"
     ENABLE_DEFAULT_INTERNET_ACCESS = "EnableDefaultInternetAccess"
@@ -1023,6 +1032,7 @@ class Stack(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::Stack"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     STORAGE_CONNECTORS = "StorageConnectors"
     DELETE_STORAGE_CONNECTORS = "DeleteStorageConnectors"
@@ -1076,6 +1086,7 @@ class StackFleetAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::StackFleetAssociation"
+    name_field: ClassVar[str] = "fleet_name"
     FLEET_NAME = "FleetName"
     STACK_NAME = "StackName"
 
@@ -1093,6 +1104,7 @@ class StackUserAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::StackUserAssociation"
+    name_field: ClassVar[str] = "user_name"
     SEND_EMAIL_NOTIFICATION = "SendEmailNotification"
     USER_NAME = "UserName"
     STACK_NAME = "StackName"
@@ -1116,6 +1128,7 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appst"""
 
     resource_type: ClassVar[str] = "AWS::AppStream::User"
+    name_field: ClassVar[str] = "user_name"
     USER_NAME = "UserName"
     FIRST_NAME = "FirstName"
     MESSAGE_ACTION = "MessageAction"

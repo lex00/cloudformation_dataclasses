@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:15
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Logs
@@ -523,6 +523,7 @@ class AccountPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::AccountPolicy"
+    name_field: ClassVar[str] = "policy_name"
     POLICY_TYPE = "PolicyType"
     SCOPE = "Scope"
     POLICY_NAME = "PolicyName"
@@ -555,6 +556,7 @@ class Delivery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::Delivery"
+    name_field: ClassVar[str] = "delivery_source_name"
     S3_ENABLE_HIVE_COMPATIBLE_PATH = "S3EnableHiveCompatiblePath"
     FIELD_DELIMITER = "FieldDelimiter"
     DELIVERY_DESTINATION_ARN = "DeliveryDestinationArn"
@@ -603,6 +605,7 @@ class DeliveryDestination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::DeliveryDestination"
+    name_field: ClassVar[str] = "name"
     DESTINATION_RESOURCE_ARN = "DestinationResourceArn"
     OUTPUT_FORMAT = "OutputFormat"
     DELIVERY_DESTINATION_POLICY = "DeliveryDestinationPolicy"
@@ -638,6 +641,7 @@ class DeliverySource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::DeliverySource"
+    name_field: ClassVar[str] = "name"
     RESOURCE_ARN = "ResourceArn"
     LOG_TYPE = "LogType"
     TAGS = "Tags"
@@ -677,6 +681,7 @@ class Destination(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::Destination"
+    name_field: ClassVar[str] = "destination_name"
     DESTINATION_POLICY = "DestinationPolicy"
     DESTINATION_NAME = "DestinationName"
     TARGET_ARN = "TargetArn"
@@ -709,6 +714,7 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::Integration"
+    name_field: ClassVar[str] = "integration_name"
     INTEGRATION_NAME = "IntegrationName"
     RESOURCE_CONFIG = "ResourceConfig"
     INTEGRATION_TYPE = "IntegrationType"
@@ -735,6 +741,7 @@ class LogAnomalyDetector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::LogAnomalyDetector"
+    name_field: ClassVar[str] = "detector_name"
     ANOMALY_VISIBILITY_TIME = "AnomalyVisibilityTime"
     FILTER_PATTERN = "FilterPattern"
     ACCOUNT_ID = "AccountId"
@@ -788,6 +795,7 @@ class LogGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::LogGroup"
+    name_field: ClassVar[str] = "log_group_name"
     FIELD_INDEX_POLICIES = "FieldIndexPolicies"
     RETENTION_IN_DAYS = "RetentionInDays"
     KMS_KEY_ID = "KmsKeyId"
@@ -829,6 +837,7 @@ class LogStream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::LogStream"
+    name_field: ClassVar[str] = "log_stream_name"
     LOG_STREAM_NAME = "LogStreamName"
     LOG_GROUP_NAME = "LogGroupName"
 
@@ -846,6 +855,7 @@ class MetricFilter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::MetricFilter"
+    name_field: ClassVar[str] = "filter_name"
     FIELD_SELECTION_CRITERIA = "FieldSelectionCriteria"
     METRIC_TRANSFORMATIONS = "MetricTransformations"
     FILTER_PATTERN = "FilterPattern"
@@ -878,6 +888,7 @@ class QueryDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::QueryDefinition"
+    name_field: ClassVar[str] = "name"
     QUERY_STRING = "QueryString"
     LOG_GROUP_NAMES = "LogGroupNames"
     QUERY_LANGUAGE = "QueryLanguage"
@@ -907,6 +918,7 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::ResourcePolicy"
+    name_field: ClassVar[str] = "policy_name"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
 
@@ -924,6 +936,7 @@ class SubscriptionFilter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-"""
 
     resource_type: ClassVar[str] = "AWS::Logs::SubscriptionFilter"
+    name_field: ClassVar[str] = "filter_name"
     FIELD_SELECTION_CRITERIA = "FieldSelectionCriteria"
     FILTER_PATTERN = "FilterPattern"
     EMIT_SYSTEM_FIELDS = "EmitSystemFields"

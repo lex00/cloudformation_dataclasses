@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:53
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppSync
@@ -439,6 +439,7 @@ class Api(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::Api"
+    name_field: ClassVar[str] = "name"
     OWNER_CONTACT = "OwnerContact"
     EVENT_CONFIG = "EventConfig"
     TAGS = "Tags"
@@ -554,6 +555,7 @@ class ChannelNamespace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::ChannelNamespace"
+    name_field: ClassVar[str] = "name"
     SUBSCRIBE_AUTH_MODES = "SubscribeAuthModes"
     CODE_S3_LOCATION = "CodeS3Location"
     PUBLISH_AUTH_MODES = "PublishAuthModes"
@@ -595,6 +597,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::DataSource"
+    name_field: ClassVar[str] = "name"
     OPEN_SEARCH_SERVICE_CONFIG = "OpenSearchServiceConfig"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -653,6 +656,7 @@ class DomainName(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::DomainName"
+    name_field: ClassVar[str] = "domain_name"
     DESCRIPTION = "Description"
     DOMAIN_NAME = "DomainName"
     TAGS = "Tags"
@@ -697,6 +701,7 @@ class DomainNameApiAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::DomainNameApiAssociation"
+    name_field: ClassVar[str] = "domain_name"
     DOMAIN_NAME = "DomainName"
     API_ID = "ApiId"
 
@@ -720,6 +725,7 @@ class FunctionConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::FunctionConfiguration"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     REQUEST_MAPPING_TEMPLATE = "RequestMappingTemplate"
     RESPONSE_MAPPING_TEMPLATE = "ResponseMappingTemplate"
@@ -794,6 +800,7 @@ class GraphQLApi(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::GraphQLApi"
+    name_field: ClassVar[str] = "name"
     QUERY_DEPTH_LIMIT = "QueryDepthLimit"
     OPEN_ID_CONNECT_CONFIG = "OpenIDConnectConfig"
     INTROSPECTION_CONFIG = "IntrospectionConfig"
@@ -915,6 +922,7 @@ class Resolver(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsy"""
 
     resource_type: ClassVar[str] = "AWS::AppSync::Resolver"
+    name_field: ClassVar[str] = "type_name"
     TYPE_NAME = "TypeName"
     PIPELINE_CONFIG = "PipelineConfig"
     REQUEST_MAPPING_TEMPLATE = "RequestMappingTemplate"

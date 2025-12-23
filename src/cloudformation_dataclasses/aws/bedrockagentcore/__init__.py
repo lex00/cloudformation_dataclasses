@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:55
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BedrockAgentCore
@@ -39,6 +39,7 @@ class BrowserCustom(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::BrowserCustom"
+    name_field: ClassVar[str] = "name"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     DESCRIPTION = "Description"
     RECORDING_CONFIG = "RecordingConfig"
@@ -102,6 +103,7 @@ class CodeInterpreterCustom(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::CodeInterpreterCustom"
+    name_field: ClassVar[str] = "name"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     DESCRIPTION = "Description"
     NETWORK_CONFIGURATION = "NetworkConfiguration"
@@ -159,6 +161,7 @@ class Gateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Gateway"
+    name_field: ClassVar[str] = "name"
     PROTOCOL_CONFIGURATION = "ProtocolConfiguration"
     DESCRIPTION = "Description"
     EXCEPTION_LEVEL = "ExceptionLevel"
@@ -246,6 +249,7 @@ class GatewayTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::GatewayTarget"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TARGET_CONFIGURATION = "TargetConfiguration"
     GATEWAY_IDENTIFIER = "GatewayIdentifier"
@@ -308,6 +312,7 @@ class Memory(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Memory"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
     MEMORY_EXECUTION_ROLE_ARN = "MemoryExecutionRoleArn"
@@ -371,6 +376,7 @@ class Runtime(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::Runtime"
+    name_field: ClassVar[str] = "agent_runtime_name"
     PROTOCOL_CONFIGURATION = "ProtocolConfiguration"
     DESCRIPTION = "Description"
     ENVIRONMENT_VARIABLES = "EnvironmentVariables"
@@ -456,6 +462,7 @@ class RuntimeEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::RuntimeEndpoint"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     AGENT_RUNTIME_ID = "AgentRuntimeId"
     AGENT_RUNTIME_VERSION = "AgentRuntimeVersion"
@@ -528,6 +535,7 @@ class WorkloadIdentity(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedro"""
 
     resource_type: ClassVar[str] = "AWS::BedrockAgentCore::WorkloadIdentity"
+    name_field: ClassVar[str] = "name"
     ALLOWED_RESOURCE_OAUTH2_RETURN_URLS = "AllowedResourceOauth2ReturnUrls"
     TAGS = "Tags"
     NAME = "Name"

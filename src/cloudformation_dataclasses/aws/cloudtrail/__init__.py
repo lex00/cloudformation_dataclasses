@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:58
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudTrail
@@ -320,6 +320,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Channel"
+    name_field: ClassVar[str] = "name"
     DESTINATIONS = "Destinations"
     SOURCE = "Source"
     TAGS = "Tags"
@@ -349,6 +350,7 @@ class Dashboard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Dashboard"
+    name_field: ClassVar[str] = "name"
     WIDGETS = "Widgets"
     TERMINATION_PROTECTION_ENABLED = "TerminationProtectionEnabled"
     REFRESH_SCHEDULE = "RefreshSchedule"
@@ -401,6 +403,7 @@ class EventDataStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::EventDataStore"
+    name_field: ClassVar[str] = "name"
     MAX_EVENT_SIZE = "MaxEventSize"
     KMS_KEY_ID = "KmsKeyId"
     ADVANCED_EVENT_SELECTORS = "AdvancedEventSelectors"
@@ -498,6 +501,7 @@ class Trail(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudTrail::Trail"
+    name_field: ClassVar[str] = "trail_name"
     INCLUDE_GLOBAL_SERVICE_EVENTS = "IncludeGlobalServiceEvents"
     EVENT_SELECTORS = "EventSelectors"
     KMS_KEY_ID = "KMSKeyId"

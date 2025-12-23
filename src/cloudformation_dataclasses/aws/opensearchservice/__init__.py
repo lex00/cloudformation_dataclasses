@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:19
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchService
@@ -981,6 +981,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Application"
+    name_field: ClassVar[str] = "name"
     DATA_SOURCES = "DataSources"
     APP_CONFIGS = "AppConfigs"
     ENDPOINT = "Endpoint"
@@ -1021,6 +1022,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Domain"
+    name_field: ClassVar[str] = "domain_name"
     SKIP_SHARD_MIGRATION_WAIT = "SkipShardMigrationWait"
     ENGINE_VERSION = "EngineVersion"
     SOFTWARE_UPDATE_OPTIONS = "SoftwareUpdateOptions"

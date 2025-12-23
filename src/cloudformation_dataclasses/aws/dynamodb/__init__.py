@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:03
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DynamoDB
@@ -566,6 +566,7 @@ class GlobalTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynam"""
 
     resource_type: ClassVar[str] = "AWS::DynamoDB::GlobalTable"
+    name_field: ClassVar[str] = "table_name"
     MULTI_REGION_CONSISTENCY = "MultiRegionConsistency"
     SSE_SPECIFICATION = "SSESpecification"
     STREAM_SPECIFICATION = "StreamSpecification"
@@ -638,6 +639,7 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynam"""
 
     resource_type: ClassVar[str] = "AWS::DynamoDB::Table"
+    name_field: ClassVar[str] = "table_name"
     ON_DEMAND_THROUGHPUT = "OnDemandThroughput"
     SSE_SPECIFICATION = "SSESpecification"
     KINESIS_STREAM_SPECIFICATION = "KinesisStreamSpecification"

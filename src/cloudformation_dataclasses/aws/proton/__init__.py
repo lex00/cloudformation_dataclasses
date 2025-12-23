@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Proton
@@ -319,6 +319,7 @@ class EnvironmentAccountConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proto"""
 
     resource_type: ClassVar[str] = "AWS::Proton::EnvironmentAccountConnection"
+    name_field: ClassVar[str] = "environment_name"
     ENVIRONMENT_NAME = "EnvironmentName"
     COMPONENT_ROLE_ARN = "ComponentRoleArn"
     MANAGEMENT_ACCOUNT_ID = "ManagementAccountId"
@@ -367,6 +368,7 @@ class EnvironmentTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proto"""
 
     resource_type: ClassVar[str] = "AWS::Proton::EnvironmentTemplate"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     DISPLAY_NAME = "DisplayName"
     ENCRYPTION_KEY = "EncryptionKey"
@@ -402,6 +404,7 @@ class ServiceTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proto"""
 
     resource_type: ClassVar[str] = "AWS::Proton::ServiceTemplate"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     DISPLAY_NAME = "DisplayName"
     PIPELINE_PROVISIONING = "PipelineProvisioning"

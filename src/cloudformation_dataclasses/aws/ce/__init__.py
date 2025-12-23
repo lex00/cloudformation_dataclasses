@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:56
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CE
@@ -573,6 +573,7 @@ class AnomalyMonitor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-an"""
 
     resource_type: ClassVar[str] = "AWS::CE::AnomalyMonitor"
+    name_field: ClassVar[str] = "monitor_name"
     MONITOR_TYPE = "MonitorType"
     RESOURCE_TAGS = "ResourceTags"
     MONITOR_NAME = "MonitorName"
@@ -625,6 +626,7 @@ class AnomalySubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-an"""
 
     resource_type: ClassVar[str] = "AWS::CE::AnomalySubscription"
+    name_field: ClassVar[str] = "subscription_name"
     MONITOR_ARN_LIST = "MonitorArnList"
     RESOURCE_TAGS = "ResourceTags"
     FREQUENCY = "Frequency"
@@ -668,6 +670,7 @@ class CostCategory(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-co"""
 
     resource_type: ClassVar[str] = "AWS::CE::CostCategory"
+    name_field: ClassVar[str] = "name"
     DEFAULT_VALUE = "DefaultValue"
     SPLIT_CHARGE_RULES = "SplitChargeRules"
     RULE_VERSION = "RuleVersion"

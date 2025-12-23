@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Express
@@ -35,6 +35,7 @@ class AccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3exp"""
 
     resource_type: ClassVar[str] = "AWS::S3Express::AccessPoint"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     PUBLIC_ACCESS_BLOCK_CONFIGURATION = "PublicAccessBlockConfiguration"
     SCOPE = "Scope"
@@ -98,6 +99,7 @@ class DirectoryBucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3exp"""
 
     resource_type: ClassVar[str] = "AWS::S3Express::DirectoryBucket"
+    name_field: ClassVar[str] = "bucket_name"
     BUCKET_NAME = "BucketName"
     BUCKET_ENCRYPTION = "BucketEncryption"
     DATA_REDUNDANCY = "DataRedundancy"

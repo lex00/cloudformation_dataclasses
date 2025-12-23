@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RDS
@@ -477,6 +477,7 @@ class CustomDBEngineVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-c"""
 
     resource_type: ClassVar[str] = "AWS::RDS::CustomDBEngineVersion"
+    name_field: ClassVar[str] = "database_installation_files_s3_bucket_name"
     STATUS = "Status"
     DATABASE_INSTALLATION_FILES_S3_BUCKET_NAME = "DatabaseInstallationFilesS3BucketName"
     DESCRIPTION = "Description"
@@ -530,6 +531,7 @@ class DBCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBCluster"
+    name_field: ClassVar[str] = "database_name"
     DATABASE_INSIGHTS_MODE = "DatabaseInsightsMode"
     STORAGE_ENCRYPTED = "StorageEncrypted"
     DB_SYSTEM_ID = "DBSystemId"
@@ -770,6 +772,7 @@ class DBClusterParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBClusterParameterGroup"
+    name_field: ClassVar[str] = "db_cluster_parameter_group_name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     FAMILY = "Family"
@@ -796,6 +799,7 @@ class DBInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBInstance"
+    name_field: ClassVar[str] = "db_name"
     TIMEZONE = "Timezone"
     DATABASE_INSIGHTS_MODE = "DatabaseInsightsMode"
     STORAGE_ENCRYPTED = "StorageEncrypted"
@@ -1178,6 +1182,7 @@ class DBParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBParameterGroup"
+    name_field: ClassVar[str] = "db_parameter_group_name"
     DB_PARAMETER_GROUP_NAME = "DBParameterGroupName"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
@@ -1210,6 +1215,7 @@ class DBProxy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxy"
+    name_field: ClassVar[str] = "db_proxy_name"
     DB_PROXY_NAME = "DBProxyName"
     DEBUG_LOGGING = "DebugLogging"
     VPC_SUBNET_IDS = "VpcSubnetIds"
@@ -1276,6 +1282,7 @@ class DBProxyEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxyEndpoint"
+    name_field: ClassVar[str] = "db_proxy_endpoint_name"
     DB_PROXY_ENDPOINT_NAME = "DBProxyEndpointName"
     DB_PROXY_NAME = "DBProxyName"
     TARGET_ROLE = "TargetRole"
@@ -1329,6 +1336,7 @@ class DBProxyTargetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBProxyTargetGroup"
+    name_field: ClassVar[str] = "db_proxy_name"
     DB_PROXY_NAME = "DBProxyName"
     DB_INSTANCE_IDENTIFIERS = "DBInstanceIdentifiers"
     TARGET_GROUP_NAME = "TargetGroupName"
@@ -1384,6 +1392,7 @@ class DBSecurityGroupIngress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-s"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBSecurityGroupIngress"
+    name_field: ClassVar[str] = "db_security_group_name"
     CIDRIP = "CIDRIP"
     DB_SECURITY_GROUP_NAME = "DBSecurityGroupName"
     EC2_SECURITY_GROUP_ID = "EC2SecurityGroupId"
@@ -1453,6 +1462,7 @@ class DBSubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-d"""
 
     resource_type: ClassVar[str] = "AWS::RDS::DBSubnetGroup"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
     DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
     SUBNET_IDS = "SubnetIds"
@@ -1476,6 +1486,7 @@ class EventSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-e"""
 
     resource_type: ClassVar[str] = "AWS::RDS::EventSubscription"
+    name_field: ClassVar[str] = "subscription_name"
     SOURCE_TYPE = "SourceType"
     ENABLED = "Enabled"
     EVENT_CATEGORIES = "EventCategories"
@@ -1554,6 +1565,7 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-i"""
 
     resource_type: ClassVar[str] = "AWS::RDS::Integration"
+    name_field: ClassVar[str] = "integration_name"
     DATA_FILTER = "DataFilter"
     INTEGRATION_NAME = "IntegrationName"
     DESCRIPTION = "Description"
@@ -1600,6 +1612,7 @@ class OptionGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-o"""
 
     resource_type: ClassVar[str] = "AWS::RDS::OptionGroup"
+    name_field: ClassVar[str] = "option_group_name"
     OPTION_GROUP_DESCRIPTION = "OptionGroupDescription"
     OPTION_GROUP_NAME = "OptionGroupName"
     OPTION_CONFIGURATIONS = "OptionConfigurations"

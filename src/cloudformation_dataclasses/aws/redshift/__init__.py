@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Redshift
@@ -470,6 +470,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::Cluster"
+    name_field: ClassVar[str] = "db_name"
     REVISION_TARGET = "RevisionTarget"
     AUTOMATED_SNAPSHOT_RETENTION_PERIOD = "AutomatedSnapshotRetentionPeriod"
     ENCRYPTED = "Encrypted"
@@ -663,6 +664,7 @@ class ClusterParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterParameterGroup"
+    name_field: ClassVar[str] = "parameter_group_name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     PARAMETER_GROUP_NAME = "ParameterGroupName"
@@ -706,6 +708,7 @@ class ClusterSecurityGroupIngress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::ClusterSecurityGroupIngress"
+    name_field: ClassVar[str] = "ec2_security_group_name"
     CIDRIP = "CIDRIP"
     CLUSTER_SECURITY_GROUP_NAME = "ClusterSecurityGroupName"
     EC2_SECURITY_GROUP_NAME = "EC2SecurityGroupName"
@@ -755,6 +758,7 @@ class EndpointAccess(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::EndpointAccess"
+    name_field: ClassVar[str] = "endpoint_name"
     ENDPOINT_NAME = "EndpointName"
     VPC_SECURITY_GROUP_IDS = "VpcSecurityGroupIds"
     RESOURCE_OWNER = "ResourceOwner"
@@ -891,6 +895,7 @@ class EventSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::EventSubscription"
+    name_field: ClassVar[str] = "subscription_name"
     SOURCE_TYPE = "SourceType"
     EVENT_CATEGORIES = "EventCategories"
     ENABLED = "Enabled"
@@ -957,6 +962,7 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::Integration"
+    name_field: ClassVar[str] = "integration_name"
     INTEGRATION_NAME = "IntegrationName"
     KMS_KEY_ID = "KMSKeyId"
     SOURCE_ARN = "SourceArn"
@@ -997,6 +1003,7 @@ class ScheduledAction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redsh"""
 
     resource_type: ClassVar[str] = "AWS::Redshift::ScheduledAction"
+    name_field: ClassVar[str] = "scheduled_action_name"
     SCHEDULED_ACTION_DESCRIPTION = "ScheduledActionDescription"
     SCHEDULED_ACTION_NAME = "ScheduledActionName"
     END_TIME = "EndTime"

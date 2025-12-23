@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:28
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SageMaker
@@ -6616,6 +6616,7 @@ class App(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::App"
+    name_field: ClassVar[str] = "app_name"
     RECOVERY_MODE = "RecoveryMode"
     DOMAIN_ID = "DomainId"
     RESOURCE_SPEC = "ResourceSpec"
@@ -6659,6 +6660,7 @@ class AppImageConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::AppImageConfig"
+    name_field: ClassVar[str] = "app_image_config_name"
     KERNEL_GATEWAY_IMAGE_CONFIG = "KernelGatewayImageConfig"
     CODE_EDITOR_APP_IMAGE_CONFIG = "CodeEditorAppImageConfig"
     APP_IMAGE_CONFIG_NAME = "AppImageConfigName"
@@ -6691,6 +6693,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     VPC_CONFIG = "VpcConfig"
     NODE_RECOVERY = "NodeRecovery"
     NODE_PROVISIONING_MODE = "NodeProvisioningMode"
@@ -6756,6 +6759,7 @@ class CodeRepository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::CodeRepository"
+    name_field: ClassVar[str] = "code_repository_name"
     CODE_REPOSITORY_NAME = "CodeRepositoryName"
     GIT_CONFIG = "GitConfig"
     TAGS = "Tags"
@@ -6782,6 +6786,7 @@ class DataQualityJobDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::DataQualityJobDefinition"
+    name_field: ClassVar[str] = "endpoint_name"
     DATA_QUALITY_JOB_INPUT = "DataQualityJobInput"
     DATA_QUALITY_APP_SPECIFICATION = "DataQualityAppSpecification"
     ENDPOINT_NAME = "EndpointName"
@@ -6837,6 +6842,7 @@ class Device(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Device"
+    name_field: ClassVar[str] = "device_fleet_name"
     DEVICE_FLEET_NAME = "DeviceFleetName"
     DEVICE = "Device"
     TAGS = "Tags"
@@ -6857,6 +6863,7 @@ class DeviceFleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::DeviceFleet"
+    name_field: ClassVar[str] = "device_fleet_name"
     DEVICE_FLEET_NAME = "DeviceFleetName"
     DESCRIPTION = "Description"
     OUTPUT_CONFIG = "OutputConfig"
@@ -6883,6 +6890,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Domain"
+    name_field: ClassVar[str] = "domain_name"
     APP_NETWORK_ACCESS_TYPE = "AppNetworkAccessType"
     DEFAULT_SPACE_SETTINGS = "DefaultSpaceSettings"
     KMS_KEY_ID = "KmsKeyId"
@@ -6966,6 +6974,7 @@ class Endpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Endpoint"
+    name_field: ClassVar[str] = "endpoint_name"
     RETAIN_ALL_VARIANT_PROPERTIES = "RetainAllVariantProperties"
     ENDPOINT_NAME = "EndpointName"
     EXCLUDE_RETAINED_VARIANT_PROPERTIES = "ExcludeRetainedVariantProperties"
@@ -7004,6 +7013,7 @@ class EndpointConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::EndpointConfig"
+    name_field: ClassVar[str] = "endpoint_config_name"
     SHADOW_PRODUCTION_VARIANTS = "ShadowProductionVariants"
     DATA_CAPTURE_CONFIG = "DataCaptureConfig"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
@@ -7054,6 +7064,7 @@ class FeatureGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::FeatureGroup"
+    name_field: ClassVar[str] = "feature_group_name"
     THROUGHPUT_CONFIG = "ThroughputConfig"
     DESCRIPTION = "Description"
     OFFLINE_STORE_CONFIG = "OfflineStoreConfig"
@@ -7106,6 +7117,7 @@ class Image(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Image"
+    name_field: ClassVar[str] = "image_name"
     IMAGE_NAME = "ImageName"
     IMAGE_DISPLAY_NAME = "ImageDisplayName"
     IMAGE_ROLE_ARN = "ImageRoleArn"
@@ -7138,6 +7150,7 @@ class ImageVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ImageVersion"
+    name_field: ClassVar[str] = "image_name"
     IMAGE_NAME = "ImageName"
     HOROVOD = "Horovod"
     PROCESSOR = "Processor"
@@ -7203,6 +7216,7 @@ class InferenceComponent(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::InferenceComponent"
+    name_field: ClassVar[str] = "inference_component_name"
     ENDPOINT_NAME = "EndpointName"
     VARIANT_NAME = "VariantName"
     INFERENCE_COMPONENT_NAME = "InferenceComponentName"
@@ -7294,6 +7308,7 @@ class InferenceExperiment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::InferenceExperiment"
+    name_field: ClassVar[str] = "name"
     DATA_STORAGE_CONFIG = "DataStorageConfig"
     DESCRIPTION = "Description"
     STATUS_REASON = "StatusReason"
@@ -7385,6 +7400,7 @@ class MlflowTrackingServer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::MlflowTrackingServer"
+    name_field: ClassVar[str] = "tracking_server_name"
     TRACKING_SERVER_NAME = "TrackingServerName"
     MLFLOW_VERSION = "MlflowVersion"
     WEEKLY_MAINTENANCE_WINDOW_START = "WeeklyMaintenanceWindowStart"
@@ -7426,6 +7442,7 @@ class Model(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Model"
+    name_field: ClassVar[str] = "model_name"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     ENABLE_NETWORK_ISOLATION = "EnableNetworkIsolation"
     PRIMARY_CONTAINER = "PrimaryContainer"
@@ -7467,6 +7484,7 @@ class ModelBiasJobDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelBiasJobDefinition"
+    name_field: ClassVar[str] = "endpoint_name"
     MODEL_BIAS_JOB_INPUT = "ModelBiasJobInput"
     MODEL_BIAS_JOB_OUTPUT_CONFIG = "ModelBiasJobOutputConfig"
     ENDPOINT_NAME = "EndpointName"
@@ -7522,6 +7540,7 @@ class ModelCard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelCard"
+    name_field: ClassVar[str] = "model_card_name"
     LAST_MODIFIED_BY = "LastModifiedBy"
     MODEL_CARD_NAME = "ModelCardName"
     MODEL_CARD_STATUS = "ModelCardStatus"
@@ -7610,6 +7629,7 @@ class ModelExplainabilityJobDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelExplainabilityJobDefinition"
+    name_field: ClassVar[str] = "endpoint_name"
     MODEL_EXPLAINABILITY_JOB_OUTPUT_CONFIG = "ModelExplainabilityJobOutputConfig"
     ENDPOINT_NAME = "EndpointName"
     STOPPING_CONDITION = "StoppingCondition"
@@ -7665,6 +7685,7 @@ class ModelPackage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelPackage"
+    name_field: ClassVar[str] = "model_package_name"
     DRIFT_CHECK_BASELINES = "DriftCheckBaselines"
     MODEL_METRICS = "ModelMetrics"
     TASK = "Task"
@@ -7773,6 +7794,7 @@ class ModelPackageGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelPackageGroup"
+    name_field: ClassVar[str] = "model_package_group_name"
     MODEL_PACKAGE_GROUP_NAME = "ModelPackageGroupName"
     MODEL_PACKAGE_GROUP_DESCRIPTION = "ModelPackageGroupDescription"
     MODEL_PACKAGE_GROUP_POLICY = "ModelPackageGroupPolicy"
@@ -7812,6 +7834,7 @@ class ModelQualityJobDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ModelQualityJobDefinition"
+    name_field: ClassVar[str] = "endpoint_name"
     MODEL_QUALITY_APP_SPECIFICATION = "ModelQualityAppSpecification"
     ENDPOINT_NAME = "EndpointName"
     STOPPING_CONDITION = "StoppingCondition"
@@ -7867,6 +7890,7 @@ class MonitoringSchedule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::MonitoringSchedule"
+    name_field: ClassVar[str] = "monitoring_schedule_name"
     MONITORING_SCHEDULE_STATUS = "MonitoringScheduleStatus"
     MONITORING_SCHEDULE_CONFIG = "MonitoringScheduleConfig"
     MONITORING_SCHEDULE_NAME = "MonitoringScheduleName"
@@ -7915,6 +7939,7 @@ class NotebookInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::NotebookInstance"
+    name_field: ClassVar[str] = "notebook_instance_name"
     KMS_KEY_ID = "KmsKeyId"
     VOLUME_SIZE_IN_GB = "VolumeSizeInGB"
     ADDITIONAL_CODE_REPOSITORIES = "AdditionalCodeRepositories"
@@ -7980,6 +8005,7 @@ class NotebookInstanceLifecycleConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+    name_field: ClassVar[str] = "notebook_instance_lifecycle_config_name"
     ON_START = "OnStart"
     NOTEBOOK_INSTANCE_LIFECYCLE_CONFIG_NAME = "NotebookInstanceLifecycleConfigName"
     ON_CREATE = "OnCreate"
@@ -8006,6 +8032,7 @@ class PartnerApp(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::PartnerApp"
+    name_field: ClassVar[str] = "name"
     APP_VERSION = "AppVersion"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     TYPE = "Type"
@@ -8069,6 +8096,7 @@ class Pipeline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Pipeline"
+    name_field: ClassVar[str] = "pipeline_name"
     PIPELINE_NAME = "PipelineName"
     PARALLELISM_CONFIGURATION = "ParallelismConfiguration"
     PIPELINE_DESCRIPTION = "PipelineDescription"
@@ -8101,6 +8129,7 @@ class ProcessingJob(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::ProcessingJob"
+    name_field: ClassVar[str] = "processing_job_name"
     PROCESSING_RESOURCES = "ProcessingResources"
     STOPPING_CONDITION = "StoppingCondition"
     EXPERIMENT_CONFIG = "ExperimentConfig"
@@ -8201,6 +8230,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Project"
+    name_field: ClassVar[str] = "project_name"
     PROJECT_NAME = "ProjectName"
     TEMPLATE_PROVIDER_DETAILS = "TemplateProviderDetails"
     SERVICE_CATALOG_PROVISIONED_PRODUCT_DETAILS = "ServiceCatalogProvisionedProductDetails"
@@ -8251,6 +8281,7 @@ class Space(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Space"
+    name_field: ClassVar[str] = "space_name"
     DOMAIN_ID = "DomainId"
     SPACE_NAME = "SpaceName"
     SPACE_SETTINGS = "SpaceSettings"
@@ -8294,6 +8325,7 @@ class StudioLifecycleConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::StudioLifecycleConfig"
+    name_field: ClassVar[str] = "studio_lifecycle_config_name"
     STUDIO_LIFECYCLE_CONFIG_APP_TYPE = "StudioLifecycleConfigAppType"
     STUDIO_LIFECYCLE_CONFIG_NAME = "StudioLifecycleConfigName"
     STUDIO_LIFECYCLE_CONFIG_CONTENT = "StudioLifecycleConfigContent"
@@ -8323,6 +8355,7 @@ class UserProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::UserProfile"
+    name_field: ClassVar[str] = "user_profile_name"
     DOMAIN_ID = "DomainId"
     SINGLE_SIGN_ON_USER_VALUE = "SingleSignOnUserValue"
     USER_SETTINGS = "UserSettings"
@@ -8358,6 +8391,7 @@ class Workteam(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagem"""
 
     resource_type: ClassVar[str] = "AWS::SageMaker::Workteam"
+    name_field: ClassVar[str] = "workteam_name"
     DESCRIPTION = "Description"
     NOTIFICATION_CONFIGURATION = "NotificationConfiguration"
     WORKTEAM_NAME = "WorkteamName"

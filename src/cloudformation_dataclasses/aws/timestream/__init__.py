@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:30
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -157,6 +157,7 @@ class Database(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::Database"
+    name_field: ClassVar[str] = "database_name"
     KMS_KEY_ID = "KmsKeyId"
     DATABASE_NAME = "DatabaseName"
     TAGS = "Tags"
@@ -183,6 +184,7 @@ class InfluxDBInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::InfluxDBInstance"
+    name_field: ClassVar[str] = "name"
     DB_PARAMETER_GROUP_IDENTIFIER = "DbParameterGroupIdentifier"
     ORGANIZATION = "Organization"
     PORT = "Port"
@@ -281,6 +283,7 @@ class ScheduledQuery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::ScheduledQuery"
+    name_field: ClassVar[str] = "scheduled_query_name"
     SCHEDULED_QUERY_EXECUTION_ROLE_ARN = "ScheduledQueryExecutionRoleArn"
     ERROR_REPORT_CONFIGURATION = "ErrorReportConfiguration"
     SCHEDULE_CONFIGURATION = "ScheduleConfiguration"
@@ -368,6 +371,7 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::Table"
+    name_field: ClassVar[str] = "table_name"
     TABLE_NAME = "TableName"
     RETENTION_PROPERTIES = "RetentionProperties"
     SCHEMA = "Schema"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:11
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTAnalytics
@@ -135,6 +135,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotan"""
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Channel"
+    name_field: ClassVar[str] = "channel_name"
     CHANNEL_NAME = "ChannelName"
     CHANNEL_STORAGE = "ChannelStorage"
     RETENTION_PERIOD = "RetentionPeriod"
@@ -164,6 +165,7 @@ class Dataset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotan"""
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Dataset"
+    name_field: ClassVar[str] = "dataset_name"
     ACTIONS = "Actions"
     LATE_DATA_RULES = "LateDataRules"
     DATASET_NAME = "DatasetName"
@@ -205,6 +207,7 @@ class Datastore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotan"""
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Datastore"
+    name_field: ClassVar[str] = "datastore_name"
     DATASTORE_STORAGE = "DatastoreStorage"
     FILE_FORMAT_CONFIGURATION = "FileFormatConfiguration"
     DATASTORE_PARTITIONS = "DatastorePartitions"
@@ -240,6 +243,7 @@ class Pipeline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotan"""
 
     resource_type: ClassVar[str] = "AWS::IoTAnalytics::Pipeline"
+    name_field: ClassVar[str] = "pipeline_name"
     PIPELINE_NAME = "PipelineName"
     TAGS = "Tags"
     PIPELINE_ACTIVITIES = "PipelineActivities"

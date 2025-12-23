@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:18
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkManager
@@ -557,6 +557,7 @@ class ConnectAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::ConnectAttachment"
+    name_field: ClassVar[str] = "network_function_group_name"
     PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
     OPTIONS = "Options"
     TRANSPORT_ATTACHMENT_ID = "TransportAttachmentId"
@@ -1157,6 +1158,7 @@ class SiteToSiteVpnAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::SiteToSiteVpnAttachment"
+    name_field: ClassVar[str] = "network_function_group_name"
     PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
     CORE_NETWORK_ID = "CoreNetworkId"
     PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"
@@ -1338,6 +1340,7 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
+    name_field: ClassVar[str] = "network_function_group_name"
     PROPOSED_SEGMENT_CHANGE = "ProposedSegmentChange"
     TRANSIT_GATEWAY_ROUTE_TABLE_ARN = "TransitGatewayRouteTableArn"
     PROPOSED_NETWORK_FUNCTION_GROUP_CHANGE = "ProposedNetworkFunctionGroupChange"

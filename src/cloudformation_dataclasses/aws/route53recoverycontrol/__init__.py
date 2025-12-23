@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryControl
@@ -73,6 +73,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::Cluster"
+    name_field: ClassVar[str] = "name"
     NETWORK_TYPE = "NetworkType"
     TAGS = "Tags"
     NAME = "Name"
@@ -109,6 +110,7 @@ class ControlPanel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::ControlPanel"
+    name_field: ClassVar[str] = "name"
     CLUSTER_ARN = "ClusterArn"
     TAGS = "Tags"
     NAME = "Name"
@@ -150,6 +152,7 @@ class RoutingControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::RoutingControl"
+    name_field: ClassVar[str] = "name"
     CLUSTER_ARN = "ClusterArn"
     CONTROL_PANEL_ARN = "ControlPanelArn"
     NAME = "Name"
@@ -181,6 +184,7 @@ class SafetyRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53RecoveryControl::SafetyRule"
+    name_field: ClassVar[str] = "name"
     CONTROL_PANEL_ARN = "ControlPanelArn"
     ASSERTION_RULE = "AssertionRule"
     RULE_CONFIG = "RuleConfig"

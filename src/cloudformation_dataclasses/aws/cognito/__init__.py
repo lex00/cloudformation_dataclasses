@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:00
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cognito
@@ -662,6 +662,7 @@ class IdentityPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::IdentityPool"
+    name_field: ClassVar[str] = "identity_pool_name"
     PUSH_SYNC = "PushSync"
     COGNITO_IDENTITY_PROVIDERS = "CognitoIdentityProviders"
     COGNITO_EVENTS = "CognitoEvents"
@@ -720,6 +721,7 @@ class IdentityPoolPrincipalTag(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::IdentityPoolPrincipalTag"
+    name_field: ClassVar[str] = "identity_provider_name"
     PRINCIPAL_TAGS = "PrincipalTags"
     USE_DEFAULTS = "UseDefaults"
     IDENTITY_PROVIDER_NAME = "IdentityProviderName"
@@ -827,6 +829,7 @@ class Terms(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::Terms"
+    name_field: ClassVar[str] = "terms_name"
     ENFORCEMENT = "Enforcement"
     USER_POOL_ID = "UserPoolId"
     CLIENT_ID = "ClientId"
@@ -862,6 +865,7 @@ class UserPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPool"
+    name_field: ClassVar[str] = "user_pool_name"
     USER_POOL_TAGS = "UserPoolTags"
     POLICIES = "Policies"
     SCHEMA = "Schema"
@@ -981,6 +985,7 @@ class UserPoolClient(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolClient"
+    name_field: ClassVar[str] = "client_name"
     ANALYTICS_CONFIGURATION = "AnalyticsConfiguration"
     GENERATE_SECRET = "GenerateSecret"
     CALLBACK_UR_LS = "CallbackURLs"
@@ -1106,6 +1111,7 @@ class UserPoolGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolGroup"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     DESCRIPTION = "Description"
     USER_POOL_ID = "UserPoolId"
@@ -1132,6 +1138,7 @@ class UserPoolIdentityProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolIdentityProvider"
+    name_field: ClassVar[str] = "provider_name"
     PROVIDER_NAME = "ProviderName"
     USER_POOL_ID = "UserPoolId"
     ATTRIBUTE_MAPPING = "AttributeMapping"
@@ -1161,6 +1168,7 @@ class UserPoolResourceServer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolResourceServer"
+    name_field: ClassVar[str] = "name"
     USER_POOL_ID = "UserPoolId"
     IDENTIFIER = "Identifier"
     SCOPES = "Scopes"
@@ -1265,6 +1273,7 @@ class UserPoolUserToGroupAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cogni"""
 
     resource_type: ClassVar[str] = "AWS::Cognito::UserPoolUserToGroupAttachment"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     USER_POOL_ID = "UserPoolId"
     USERNAME = "Username"

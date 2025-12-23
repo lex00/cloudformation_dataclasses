@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:32
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpaces
@@ -1072,6 +1072,7 @@ class Workspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpaces::Workspace"
+    name_field: ClassVar[str] = "user_name"
     BUNDLE_ID = "BundleId"
     DIRECTORY_ID = "DirectoryId"
     ROOT_VOLUME_ENCRYPTION_ENABLED = "RootVolumeEncryptionEnabled"
@@ -1107,6 +1108,7 @@ class WorkspacesPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpaces::WorkspacesPool"
+    name_field: ClassVar[str] = "pool_name"
     APPLICATION_SETTINGS = "ApplicationSettings"
     BUNDLE_ID = "BundleId"
     DESCRIPTION = "Description"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:18
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkFirewall
@@ -485,6 +485,7 @@ class Firewall(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::Firewall"
+    name_field: ClassVar[str] = "firewall_name"
     FIREWALL_POLICY_ARN = "FirewallPolicyArn"
     DESCRIPTION = "Description"
     SUBNET_CHANGE_PROTECTION = "SubnetChangeProtection"
@@ -556,6 +557,7 @@ class FirewallPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::FirewallPolicy"
+    name_field: ClassVar[str] = "firewall_policy_name"
     DESCRIPTION = "Description"
     FIREWALL_POLICY_NAME = "FirewallPolicyName"
     TAGS = "Tags"
@@ -590,6 +592,7 @@ class LoggingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::LoggingConfiguration"
+    name_field: ClassVar[str] = "firewall_name"
     ENABLE_MONITORING_DASHBOARD = "EnableMonitoringDashboard"
     FIREWALL_NAME = "FirewallName"
     FIREWALL_ARN = "FirewallArn"
@@ -613,6 +616,7 @@ class RuleGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::RuleGroup"
+    name_field: ClassVar[str] = "rule_group_name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     CAPACITY = "Capacity"
@@ -656,6 +660,7 @@ class TLSInspectionConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkFirewall::TLSInspectionConfiguration"
+    name_field: ClassVar[str] = "tls_inspection_configuration_name"
     DESCRIPTION = "Description"
     TLS_INSPECTION_CONFIGURATION_NAME = "TLSInspectionConfigurationName"
     TAGS = "Tags"

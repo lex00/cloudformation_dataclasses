@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:05
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticBeanstalk
@@ -317,6 +317,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::Application"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     DESCRIPTION = "Description"
     RESOURCE_LIFECYCLE_CONFIG = "ResourceLifecycleConfig"
@@ -337,6 +338,7 @@ class ApplicationVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::ApplicationVersion"
+    name_field: ClassVar[str] = "application_name"
     APPLICATION_NAME = "ApplicationName"
     DESCRIPTION = "Description"
     SOURCE_BUNDLE = "SourceBundle"
@@ -363,6 +365,7 @@ class ConfigurationTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+    name_field: ClassVar[str] = "application_name"
     ENVIRONMENT_ID = "EnvironmentId"
     PLATFORM_ARN = "PlatformArn"
     APPLICATION_NAME = "ApplicationName"
@@ -401,6 +404,7 @@ class Environment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::ElasticBeanstalk::Environment"
+    name_field: ClassVar[str] = "environment_name"
     PLATFORM_ARN = "PlatformArn"
     APPLICATION_NAME = "ApplicationName"
     DESCRIPTION = "Description"

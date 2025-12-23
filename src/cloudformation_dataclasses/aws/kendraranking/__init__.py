@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:13
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KendraRanking
@@ -34,6 +34,7 @@ class ExecutionPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendr"""
 
     resource_type: ClassVar[str] = "AWS::KendraRanking::ExecutionPlan"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CAPACITY_UNITS = "CapacityUnits"
     TAGS = "Tags"

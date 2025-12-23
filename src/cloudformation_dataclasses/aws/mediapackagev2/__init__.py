@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:17
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackageV2
@@ -526,6 +526,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::Channel"
+    name_field: ClassVar[str] = "channel_name"
     INPUT_SWITCH_CONFIGURATION = "InputSwitchConfiguration"
     CHANNEL_NAME = "ChannelName"
     DESCRIPTION = "Description"
@@ -584,6 +585,7 @@ class ChannelGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::ChannelGroup"
+    name_field: ClassVar[str] = "channel_group_name"
     DESCRIPTION = "Description"
     CHANNEL_GROUP_NAME = "ChannelGroupName"
     TAGS = "Tags"
@@ -625,6 +627,7 @@ class ChannelPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::ChannelPolicy"
+    name_field: ClassVar[str] = "channel_name"
     POLICY = "Policy"
     CHANNEL_NAME = "ChannelName"
     CHANNEL_GROUP_NAME = "ChannelGroupName"
@@ -645,6 +648,7 @@ class OriginEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::OriginEndpoint"
+    name_field: ClassVar[str] = "origin_endpoint_name"
     MSS_MANIFESTS = "MssManifests"
     DESCRIPTION = "Description"
     LOW_LATENCY_HLS_MANIFESTS = "LowLatencyHlsManifests"
@@ -731,6 +735,7 @@ class OriginEndpointPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaPackageV2::OriginEndpointPolicy"
+    name_field: ClassVar[str] = "channel_name"
     POLICY = "Policy"
     CHANNEL_NAME = "ChannelName"
     ORIGIN_ENDPOINT_NAME = "OriginEndpointName"

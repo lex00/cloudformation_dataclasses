@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pinpoint
@@ -622,6 +622,7 @@ class App(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::App"
+    name_field: ClassVar[str] = "name"
     TAGS = "Tags"
     NAME = "Name"
 
@@ -694,6 +695,7 @@ class Campaign(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::Campaign"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     SEGMENT_ID = "SegmentId"
     PRIORITY = "Priority"
@@ -802,6 +804,7 @@ class EmailTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::EmailTemplate"
+    name_field: ClassVar[str] = "template_name"
     HTML_PART = "HtmlPart"
     TEXT_PART = "TextPart"
     TEMPLATE_NAME = "TemplateName"
@@ -886,6 +889,7 @@ class InAppTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::InAppTemplate"
+    name_field: ClassVar[str] = "template_name"
     CUSTOM_CONFIG = "CustomConfig"
     LAYOUT = "Layout"
     CONTENT = "Content"
@@ -921,6 +925,7 @@ class PushTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::PushTemplate"
+    name_field: ClassVar[str] = "template_name"
     GCM = "GCM"
     BAIDU = "Baidu"
     TEMPLATE_NAME = "TemplateName"
@@ -988,6 +993,7 @@ class Segment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::Segment"
+    name_field: ClassVar[str] = "name"
     SEGMENT_GROUPS = "SegmentGroups"
     DIMENSIONS = "Dimensions"
     APPLICATION_ID = "ApplicationId"
@@ -1025,6 +1031,7 @@ class SmsTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpo"""
 
     resource_type: ClassVar[str] = "AWS::Pinpoint::SmsTemplate"
+    name_field: ClassVar[str] = "template_name"
     TEMPLATE_NAME = "TemplateName"
     TEMPLATE_DESCRIPTION = "TemplateDescription"
     DEFAULT_SUBSTITUTIONS = "DefaultSubstitutions"

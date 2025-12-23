@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:26
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SMSVOICE
@@ -37,6 +37,7 @@ class ConfigurationSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::ConfigurationSet"
+    name_field: ClassVar[str] = "configuration_set_name"
     EVENT_DESTINATIONS = "EventDestinations"
     MESSAGE_FEEDBACK_ENABLED = "MessageFeedbackEnabled"
     CONFIGURATION_SET_NAME = "ConfigurationSetName"
@@ -72,6 +73,7 @@ class OptOutList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::OptOutList"
+    name_field: ClassVar[str] = "opt_out_list_name"
     OPT_OUT_LIST_NAME = "OptOutListName"
     TAGS = "Tags"
 
@@ -95,6 +97,7 @@ class PhoneNumber(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::PhoneNumber"
+    name_field: ClassVar[str] = "opt_out_list_name"
     OPT_OUT_LIST_NAME = "OptOutListName"
     SELF_MANAGED_OPT_OUTS_ENABLED = "SelfManagedOptOutsEnabled"
     NUMBER_TYPE = "NumberType"
@@ -152,6 +155,7 @@ class Pool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvo"""
 
     resource_type: ClassVar[str] = "AWS::SMSVOICE::Pool"
+    name_field: ClassVar[str] = "opt_out_list_name"
     OPT_OUT_LIST_NAME = "OptOutListName"
     SELF_MANAGED_OPT_OUTS_ENABLED = "SelfManagedOptOutsEnabled"
     SHARED_ROUTES_ENABLED = "SharedRoutesEnabled"

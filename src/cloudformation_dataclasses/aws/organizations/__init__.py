@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Organizations
@@ -554,6 +554,7 @@ class Account(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Account"
+    name_field: ClassVar[str] = "account_name"
     ROLE_NAME = "RoleName"
     EMAIL = "Email"
     PARENT_IDS = "ParentIds"
@@ -656,6 +657,7 @@ class OrganizationalUnit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::OrganizationalUnit"
+    name_field: ClassVar[str] = "name"
     PARENT_ID = "ParentId"
     TAGS = "Tags"
     NAME = "Name"
@@ -687,6 +689,7 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Policy"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     TARGET_IDS = "TargetIds"
     DESCRIPTION = "Description"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:29:59
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeStarConnections
@@ -30,6 +30,7 @@ class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codes"""
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::Connection"
+    name_field: ClassVar[str] = "connection_name"
     CONNECTION_NAME = "ConnectionName"
     HOST_ARN = "HostArn"
     PROVIDER_TYPE = "ProviderType"
@@ -69,6 +70,7 @@ class RepositoryLink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codes"""
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::RepositoryLink"
+    name_field: ClassVar[str] = "repository_name"
     OWNER_ID = "OwnerId"
     ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
     CONNECTION_ARN = "ConnectionArn"
@@ -111,6 +113,7 @@ class SyncConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codes"""
 
     resource_type: ClassVar[str] = "AWS::CodeStarConnections::SyncConfiguration"
+    name_field: ClassVar[str] = "resource_name"
     CONFIG_FILE = "ConfigFile"
     RESOURCE_NAME = "ResourceName"
     BRANCH = "Branch"

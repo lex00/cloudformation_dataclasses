@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RoboMaker
@@ -35,6 +35,7 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::Fleet"
+    name_field: ClassVar[str] = "name"
     TAGS = "Tags"
     NAME = "Name"
 
@@ -58,6 +59,7 @@ class Robot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::Robot"
+    name_field: ClassVar[str] = "name"
     FLEET = "Fleet"
     ARCHITECTURE = "Architecture"
     GREENGRASS_GROUP_ID = "GreengrassGroupId"
@@ -84,6 +86,7 @@ class RobotApplication(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::RobotApplication"
+    name_field: ClassVar[str] = "name"
     CURRENT_REVISION_ID = "CurrentRevisionId"
     ROBOT_SOFTWARE_SUITE = "RobotSoftwareSuite"
     SOURCES = "Sources"
@@ -138,6 +141,7 @@ class SimulationApplication(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robom"""
 
     resource_type: ClassVar[str] = "AWS::RoboMaker::SimulationApplication"
+    name_field: ClassVar[str] = "name"
     RENDERING_ENGINE = "RenderingEngine"
     SIMULATION_SOFTWARE_SUITE = "SimulationSoftwareSuite"
     CURRENT_REVISION_ID = "CurrentRevisionId"

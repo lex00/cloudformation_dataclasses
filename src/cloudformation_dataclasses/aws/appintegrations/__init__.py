@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:52
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppIntegrations
@@ -83,6 +83,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appin"""
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::Application"
+    name_field: ClassVar[str] = "name"
     APPLICATION_SOURCE_CONFIG = "ApplicationSourceConfig"
     DESCRIPTION = "Description"
     INITIALIZATION_TIMEOUT = "InitializationTimeout"
@@ -135,6 +136,7 @@ class DataIntegration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appin"""
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::DataIntegration"
+    name_field: ClassVar[str] = "name"
     SCHEDULE_CONFIG = "ScheduleConfig"
     FILE_CONFIGURATION = "FileConfiguration"
     DESCRIPTION = "Description"
@@ -181,6 +183,7 @@ class EventIntegration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appin"""
 
     resource_type: ClassVar[str] = "AWS::AppIntegrations::EventIntegration"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     EVENT_BRIDGE_BUS = "EventBridgeBus"
     EVENT_FILTER = "EventFilter"

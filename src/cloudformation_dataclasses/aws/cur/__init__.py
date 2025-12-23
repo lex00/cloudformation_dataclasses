@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:56
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CUR
@@ -171,6 +171,7 @@ class ReportDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-r"""
 
     resource_type: ClassVar[str] = "AWS::CUR::ReportDefinition"
+    name_field: ClassVar[str] = "report_name"
     COMPRESSION = "Compression"
     REFRESH_CLOSED_REPORTS = "RefreshClosedReports"
     REPORT_VERSIONING = "ReportVersioning"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:54
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScaling
@@ -465,6 +465,7 @@ class AutoScalingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::AutoScalingGroup"
+    name_field: ClassVar[str] = "auto_scaling_group_name"
     LIFECYCLE_HOOK_SPECIFICATION_LIST = "LifecycleHookSpecificationList"
     LOAD_BALANCER_NAMES = "LoadBalancerNames"
     LAUNCH_CONFIGURATION_NAME = "LaunchConfigurationName"
@@ -584,6 +585,7 @@ class LaunchConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::LaunchConfiguration"
+    name_field: ClassVar[str] = "launch_configuration_name"
     PLACEMENT_TENANCY = "PlacementTenancy"
     SECURITY_GROUPS = "SecurityGroups"
     LAUNCH_CONFIGURATION_NAME = "LaunchConfigurationName"
@@ -652,6 +654,7 @@ class LifecycleHook(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::LifecycleHook"
+    name_field: ClassVar[str] = "lifecycle_hook_name"
     LIFECYCLE_HOOK_NAME = "LifecycleHookName"
     LIFECYCLE_TRANSITION = "LifecycleTransition"
     AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"
@@ -687,6 +690,7 @@ class ScalingPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::ScalingPolicy"
+    name_field: ClassVar[str] = "auto_scaling_group_name"
     METRIC_AGGREGATION_TYPE = "MetricAggregationType"
     POLICY_TYPE = "PolicyType"
     PREDICTIVE_SCALING_CONFIGURATION = "PredictiveScalingConfiguration"
@@ -742,6 +746,7 @@ class ScheduledAction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::ScheduledAction"
+    name_field: ClassVar[str] = "auto_scaling_group_name"
     MIN_SIZE = "MinSize"
     RECURRENCE = "Recurrence"
     TIME_ZONE = "TimeZone"
@@ -783,6 +788,7 @@ class WarmPool(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autos"""
 
     resource_type: ClassVar[str] = "AWS::AutoScaling::WarmPool"
+    name_field: ClassVar[str] = "auto_scaling_group_name"
     MIN_SIZE = "MinSize"
     MAX_GROUP_PREPARED_CAPACITY = "MaxGroupPreparedCapacity"
     AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName"

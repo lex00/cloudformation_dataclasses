@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:10
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service InspectorV2
@@ -37,6 +37,7 @@ class CisScanConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CisScanConfiguration"
+    name_field: ClassVar[str] = "scan_name"
     SECURITY_LEVEL = "SecurityLevel"
     SCHEDULE = "Schedule"
     TARGETS = "Targets"
@@ -69,6 +70,7 @@ class CodeSecurityIntegration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CodeSecurityIntegration"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     CREATE_INTEGRATION_DETAILS = "CreateIntegrationDetails"
     UPDATE_INTEGRATION_DETAILS = "UpdateIntegrationDetails"
@@ -126,6 +128,7 @@ class CodeSecurityScanConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::CodeSecurityScanConfiguration"
+    name_field: ClassVar[str] = "name"
     SCOPE_SETTINGS = "ScopeSettings"
     CONFIGURATION = "Configuration"
     LEVEL = "Level"
@@ -158,6 +161,7 @@ class Filter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::InspectorV2::Filter"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     FILTER_CRITERIA = "FilterCriteria"
     FILTER_ACTION = "FilterAction"

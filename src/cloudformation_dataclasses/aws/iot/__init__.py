@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:11
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoT
@@ -1200,6 +1200,7 @@ class Authorizer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-a"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Authorizer"
+    name_field: ClassVar[str] = "authorizer_name"
     STATUS = "Status"
     TOKEN_KEY_NAME = "TokenKeyName"
     ENABLE_CACHING_FOR_HTTP = "EnableCachingForHttp"
@@ -1241,6 +1242,7 @@ class BillingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-b"""
 
     resource_type: ClassVar[str] = "AWS::IoT::BillingGroup"
+    name_field: ClassVar[str] = "billing_group_name"
     BILLING_GROUP_NAME = "BillingGroupName"
     BILLING_GROUP_PROPERTIES = "BillingGroupProperties"
     TAGS = "Tags"
@@ -1355,6 +1357,7 @@ class CertificateProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-c"""
 
     resource_type: ClassVar[str] = "AWS::IoT::CertificateProvider"
+    name_field: ClassVar[str] = "certificate_provider_name"
     LAMBDA_FUNCTION_ARN = "LambdaFunctionArn"
     CERTIFICATE_PROVIDER_NAME = "CertificateProviderName"
     ACCOUNT_DEFAULT_FOR_OPERATIONS = "AccountDefaultForOperations"
@@ -1384,6 +1387,7 @@ class Command(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-c"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Command"
+    name_field: ClassVar[str] = "display_name"
     DESCRIPTION = "Description"
     LAST_UPDATED_AT = "LastUpdatedAt"
     DEPRECATED = "Deprecated"
@@ -1437,6 +1441,7 @@ class CustomMetric(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-c"""
 
     resource_type: ClassVar[str] = "AWS::IoT::CustomMetric"
+    name_field: ClassVar[str] = "metric_name"
     METRIC_NAME = "MetricName"
     METRIC_TYPE = "MetricType"
     DISPLAY_NAME = "DisplayName"
@@ -1466,6 +1471,7 @@ class Dimension(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-d"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Dimension"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     STRING_VALUES = "StringValues"
     TAGS = "Tags"
@@ -1495,6 +1501,7 @@ class DomainConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-d"""
 
     resource_type: ClassVar[str] = "AWS::IoT::DomainConfiguration"
+    name_field: ClassVar[str] = "domain_configuration_name"
     APPLICATION_PROTOCOL = "ApplicationProtocol"
     CLIENT_CERTIFICATE_CONFIG = "ClientCertificateConfig"
     DOMAIN_CONFIGURATION_NAME = "DomainConfigurationName"
@@ -1612,6 +1619,7 @@ class FleetMetric(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-f"""
 
     resource_type: ClassVar[str] = "AWS::IoT::FleetMetric"
+    name_field: ClassVar[str] = "index_name"
     INDEX_NAME = "IndexName"
     METRIC_NAME = "MetricName"
     DESCRIPTION = "Description"
@@ -1750,6 +1758,7 @@ class MitigationAction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-m"""
 
     resource_type: ClassVar[str] = "AWS::IoT::MitigationAction"
+    name_field: ClassVar[str] = "action_name"
     ACTION_NAME = "ActionName"
     ACTION_PARAMS = "ActionParams"
     ROLE_ARN = "RoleArn"
@@ -1784,6 +1793,7 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-p"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Policy"
+    name_field: ClassVar[str] = "policy_name"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
     TAGS = "Tags"
@@ -1815,6 +1825,7 @@ class PolicyPrincipalAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-p"""
 
     resource_type: ClassVar[str] = "AWS::IoT::PolicyPrincipalAttachment"
+    name_field: ClassVar[str] = "policy_name"
     POLICY_NAME = "PolicyName"
     PRINCIPAL = "Principal"
 
@@ -1832,6 +1843,7 @@ class ProvisioningTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-p"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ProvisioningTemplate"
+    name_field: ClassVar[str] = "template_name"
     PROVISIONING_ROLE_ARN = "ProvisioningRoleArn"
     DESCRIPTION = "Description"
     PRE_PROVISIONING_HOOK = "PreProvisioningHook"
@@ -1873,6 +1885,7 @@ class ResourceSpecificLogging(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-r"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ResourceSpecificLogging"
+    name_field: ClassVar[str] = "target_name"
     TARGET_TYPE = "TargetType"
     TARGET_NAME = "TargetName"
     LOG_LEVEL = "LogLevel"
@@ -1928,6 +1941,7 @@ class ScheduledAudit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-s"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ScheduledAudit"
+    name_field: ClassVar[str] = "scheduled_audit_name"
     DAY_OF_WEEK = "DayOfWeek"
     TARGET_CHECK_NAMES = "TargetCheckNames"
     SCHEDULED_AUDIT_NAME = "ScheduledAuditName"
@@ -1963,6 +1977,7 @@ class SecurityProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-s"""
 
     resource_type: ClassVar[str] = "AWS::IoT::SecurityProfile"
+    name_field: ClassVar[str] = "security_profile_name"
     ADDITIONAL_METRICS_TO_RETAIN_V2 = "AdditionalMetricsToRetainV2"
     METRICS_EXPORT_CONFIG = "MetricsExportConfig"
     SECURITY_PROFILE_DESCRIPTION = "SecurityProfileDescription"
@@ -2004,6 +2019,7 @@ class SoftwarePackage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-s"""
 
     resource_type: ClassVar[str] = "AWS::IoT::SoftwarePackage"
+    name_field: ClassVar[str] = "package_name"
     DESCRIPTION = "Description"
     PACKAGE_NAME = "PackageName"
     TAGS = "Tags"
@@ -2030,6 +2046,7 @@ class SoftwarePackageVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-s"""
 
     resource_type: ClassVar[str] = "AWS::IoT::SoftwarePackageVersion"
+    name_field: ClassVar[str] = "package_name"
     DESCRIPTION = "Description"
     PACKAGE_NAME = "PackageName"
     RECIPE = "Recipe"
@@ -2086,6 +2103,7 @@ class Thing(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::Thing"
+    name_field: ClassVar[str] = "thing_name"
     ATTRIBUTE_PAYLOAD = "AttributePayload"
     THING_NAME = "ThingName"
 
@@ -2114,6 +2132,7 @@ class ThingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingGroup"
+    name_field: ClassVar[str] = "thing_group_name"
     PARENT_GROUP_NAME = "ParentGroupName"
     THING_GROUP_NAME = "ThingGroupName"
     THING_GROUP_PROPERTIES = "ThingGroupProperties"
@@ -2151,6 +2170,7 @@ class ThingPrincipalAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingPrincipalAttachment"
+    name_field: ClassVar[str] = "thing_name"
     PRINCIPAL = "Principal"
     THING_NAME = "ThingName"
     THING_PRINCIPAL_TYPE = "ThingPrincipalType"
@@ -2171,6 +2191,7 @@ class ThingType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::ThingType"
+    name_field: ClassVar[str] = "thing_type_name"
     DEPRECATE_THING_TYPE = "DeprecateThingType"
     THING_TYPE_NAME = "ThingTypeName"
     THING_TYPE_PROPERTIES = "ThingTypeProperties"
@@ -2205,6 +2226,7 @@ class TopicRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-t"""
 
     resource_type: ClassVar[str] = "AWS::IoT::TopicRule"
+    name_field: ClassVar[str] = "rule_name"
     TOPIC_RULE_PAYLOAD = "TopicRulePayload"
     RULE_NAME = "RuleName"
     TAGS = "Tags"

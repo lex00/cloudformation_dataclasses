@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:32
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service XRay
@@ -140,6 +140,7 @@ class Group(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-"""
 
     resource_type: ClassVar[str] = "AWS::XRay::Group"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     INSIGHTS_CONFIGURATION = "InsightsConfiguration"
     FILTER_EXPRESSION = "FilterExpression"
@@ -169,6 +170,7 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-"""
 
     resource_type: ClassVar[str] = "AWS::XRay::ResourcePolicy"
+    name_field: ClassVar[str] = "policy_name"
     BYPASS_POLICY_LOCKOUT_CHECK = "BypassPolicyLockoutCheck"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"

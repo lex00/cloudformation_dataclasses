@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:05
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancing
@@ -34,6 +34,7 @@ class LoadBalancer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
 
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancing::LoadBalancer"
+    name_field: ClassVar[str] = "load_balancer_name"
     ACCESS_LOGGING_POLICY = "AccessLoggingPolicy"
     APP_COOKIE_STICKINESS_POLICY = "AppCookieStickinessPolicy"
     AVAILABILITY_ZONES = "AvailabilityZones"

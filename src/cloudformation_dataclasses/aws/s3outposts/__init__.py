@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Outposts
@@ -67,6 +67,7 @@ class AccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3out"""
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::AccessPoint"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     BUCKET = "Bucket"
     VPC_CONFIGURATION = "VpcConfiguration"
@@ -96,6 +97,7 @@ class Bucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3out"""
 
     resource_type: ClassVar[str] = "AWS::S3Outposts::Bucket"
+    name_field: ClassVar[str] = "bucket_name"
     OUTPOST_ID = "OutpostId"
     BUCKET_NAME = "BucketName"
     LIFECYCLE_CONFIGURATION = "LifecycleConfiguration"

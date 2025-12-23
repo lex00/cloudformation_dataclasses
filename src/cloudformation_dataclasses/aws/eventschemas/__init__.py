@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:06
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EventSchemas
@@ -111,6 +111,7 @@ class Registry(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::Registry"
+    name_field: ClassVar[str] = "registry_name"
     DESCRIPTION = "Description"
     REGISTRY_NAME = "RegistryName"
     TAGS = "Tags"
@@ -142,6 +143,7 @@ class RegistryPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::RegistryPolicy"
+    name_field: ClassVar[str] = "registry_name"
     POLICY = "Policy"
     REGISTRY_NAME = "RegistryName"
     REVISION_ID = "RevisionId"
@@ -168,6 +170,7 @@ class Schema(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-event"""
 
     resource_type: ClassVar[str] = "AWS::EventSchemas::Schema"
+    name_field: ClassVar[str] = "schema_name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     CONTENT = "Content"

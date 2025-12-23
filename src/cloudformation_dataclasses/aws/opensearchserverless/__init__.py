@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:19
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchServerless
@@ -160,6 +160,7 @@ class AccessPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::AccessPolicy"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -183,6 +184,7 @@ class Collection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::Collection"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     STANDBY_REPLICAS = "StandbyReplicas"
@@ -235,6 +237,7 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::Index"
+    name_field: ClassVar[str] = "index_name"
     INDEX_NAME = "IndexName"
     MAPPINGS = "Mappings"
     COLLECTION_ENDPOINT = "CollectionEndpoint"
@@ -264,6 +267,7 @@ class LifecyclePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::LifecyclePolicy"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -287,6 +291,7 @@ class SecurityConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::SecurityConfig"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     SAML_OPTIONS = "SamlOptions"
@@ -337,6 +342,7 @@ class SecurityPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::SecurityPolicy"
+    name_field: ClassVar[str] = "name"
     POLICY = "Policy"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -360,6 +366,7 @@ class VpcEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchServerless::VpcEndpoint"
+    name_field: ClassVar[str] = "name"
     VPC_ID = "VpcId"
     SECURITY_GROUP_IDS = "SecurityGroupIds"
     SUBNET_IDS = "SubnetIds"

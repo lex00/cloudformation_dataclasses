@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pipes
@@ -308,6 +308,7 @@ class Pipe(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes"""
 
     resource_type: ClassVar[str] = "AWS::Pipes::Pipe"
+    name_field: ClassVar[str] = "name"
     ENRICHMENT = "Enrichment"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
     DESCRIPTION = "Description"

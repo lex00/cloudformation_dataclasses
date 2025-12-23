@@ -42,6 +42,55 @@ from cloudformation_dataclasses.codegen.spec_parser import (
 )
 
 
+def detect_name_field(resource: ResourceSpec) -> str | None:
+    """
+    Detect which property is the physical name field for a resource.
+
+    The name field is the property used to set a custom physical name for the resource.
+    This is detected by looking for properties that:
+    1. End with 'Name' (e.g., BucketName, FunctionName, TableName)
+    2. Are of primitive type String
+    3. Preferably match the pattern {ResourceSuffix}Name (e.g., Bucket -> BucketName)
+
+    Args:
+        resource: Resource specification
+
+    Returns:
+        The snake_case field name (e.g., 'bucket_name'), or None if no name field found
+    """
+    if not resource.properties:
+        return None
+
+    # Extract resource suffix (e.g., 'Bucket' from 'AWS::S3::Bucket')
+    suffix = resource.resource_type.rsplit("::", 1)[-1]
+    expected_name = f"{suffix}Name"
+
+    # Priority 1: Look for exact match with resource suffix
+    if expected_name in resource.properties:
+        prop = resource.properties[expected_name]
+        if prop.primitive_type == "String":
+            return sanitize_python_name(to_snake_case(expected_name))
+
+    # Priority 2: Look for any property ending with 'Name' that's a String
+    # Prefer shorter names (more likely to be the primary name)
+    name_candidates = []
+    for prop_name, prop in resource.properties.items():
+        if prop_name.endswith("Name") and prop.primitive_type == "String":
+            # Skip properties that are clearly not the resource name
+            skip_patterns = ["DisplayName", "Description", "UserName", "HostName",
+                           "DomainName", "DatabaseName", "FileName", "PathName"]
+            if any(prop_name.endswith(p) for p in skip_patterns if p != prop_name):
+                continue
+            name_candidates.append(prop_name)
+
+    if name_candidates:
+        # Return the shortest candidate (most likely to be the primary name)
+        best = min(name_candidates, key=len)
+        return sanitize_python_name(to_snake_case(best))
+
+    return None
+
+
 def to_snake_case(name: str) -> str:
     """
     Convert PascalCase to snake_case.
@@ -299,6 +348,11 @@ def generate_resource_class_only(
 
     # Resource type constant
     lines.append(f'    resource_type: ClassVar[str] = "{resource.resource_type}"')
+
+    # Detect and add name_field for auto-naming support
+    name_field = detect_name_field(resource)
+    if name_field:
+        lines.append(f'    name_field: ClassVar[str] = "{name_field}"')
 
     # Generate properties
     if not resource.properties:

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:24
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53
@@ -561,6 +561,7 @@ class CidrCollection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::CidrCollection"
+    name_field: ClassVar[str] = "name"
     LOCATIONS = "Locations"
     NAME = "Name"
 
@@ -626,6 +627,7 @@ class HostedZone(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::HostedZone"
+    name_field: ClassVar[str] = "name"
     HOSTED_ZONE_TAGS = "HostedZoneTags"
     VP_CS = "VPCs"
     HOSTED_ZONE_FEATURES = "HostedZoneFeatures"
@@ -666,6 +668,7 @@ class KeySigningKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::KeySigningKey"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     KEY_MANAGEMENT_SERVICE_ARN = "KeyManagementServiceArn"
     HOSTED_ZONE_ID = "HostedZoneId"
@@ -689,6 +692,7 @@ class RecordSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
 
     resource_type: ClassVar[str] = "AWS::Route53::RecordSet"
+    name_field: ClassVar[str] = "name"
     ALIAS_TARGET = "AliasTarget"
     CIDR_ROUTING_CONFIG = "CidrRoutingConfig"
     COMMENT = "Comment"
@@ -751,6 +755,7 @@ class RecordSetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53::RecordSetGroup"
+    name_field: ClassVar[str] = "hosted_zone_name"
     COMMENT = "Comment"
     HOSTED_ZONE_ID = "HostedZoneId"
     HOSTED_ZONE_NAME = "HostedZoneName"

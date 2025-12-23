@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:17
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MemoryDB
@@ -146,6 +146,7 @@ class ACL(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ACL"
+    name_field: ClassVar[str] = "acl_name"
     ACL_NAME = "ACLName"
     USER_NAMES = "UserNames"
     TAGS = "Tags"
@@ -177,6 +178,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     NUM_REPLICAS_PER_SHARD = "NumReplicasPerShard"
     DESCRIPTION = "Description"
     FINAL_SNAPSHOT_NAME = "FinalSnapshotName"
@@ -301,6 +303,7 @@ class MultiRegionCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::MultiRegionCluster"
+    name_field: ClassVar[str] = "multi_region_parameter_group_name"
     MULTI_REGION_PARAMETER_GROUP_NAME = "MultiRegionParameterGroupName"
     DESCRIPTION = "Description"
     ENGINE_VERSION = "EngineVersion"
@@ -358,6 +361,7 @@ class ParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ParameterGroup"
+    name_field: ClassVar[str] = "parameter_group_name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     PARAMETER_GROUP_NAME = "ParameterGroupName"
@@ -390,6 +394,7 @@ class SubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::SubnetGroup"
+    name_field: ClassVar[str] = "subnet_group_name"
     DESCRIPTION = "Description"
     SUBNET_GROUP_NAME = "SubnetGroupName"
     SUBNET_IDS = "SubnetIds"
@@ -424,6 +429,7 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::User"
+    name_field: ClassVar[str] = "user_name"
     AUTHENTICATION_MODE = "AuthenticationMode"
     USER_NAME = "UserName"
     ACCESS_STRING = "AccessString"

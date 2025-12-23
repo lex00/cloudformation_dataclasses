@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:01
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DMS
@@ -514,6 +514,7 @@ class DataMigration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-d"""
 
     resource_type: ClassVar[str] = "AWS::DMS::DataMigration"
+    name_field: ClassVar[str] = "data_migration_name"
     DATA_MIGRATION_TYPE = "DataMigrationType"
     DATA_MIGRATION_SETTINGS = "DataMigrationSettings"
     DATA_MIGRATION_NAME = "DataMigrationName"
@@ -560,6 +561,7 @@ class DataProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-d"""
 
     resource_type: ClassVar[str] = "AWS::DMS::DataProvider"
+    name_field: ClassVar[str] = "data_provider_name"
     DATA_PROVIDER_NAME = "DataProviderName"
     DESCRIPTION = "Description"
     EXACT_SETTINGS = "ExactSettings"
@@ -603,6 +605,7 @@ class Endpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-e"""
 
     resource_type: ClassVar[str] = "AWS::DMS::Endpoint"
+    name_field: ClassVar[str] = "engine_name"
     SYBASE_SETTINGS = "SybaseSettings"
     REDIS_SETTINGS = "RedisSettings"
     ORACLE_SETTINGS = "OracleSettings"
@@ -713,6 +716,7 @@ class EventSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-e"""
 
     resource_type: ClassVar[str] = "AWS::DMS::EventSubscription"
+    name_field: ClassVar[str] = "subscription_name"
     SOURCE_TYPE = "SourceType"
     EVENT_CATEGORIES = "EventCategories"
     ENABLED = "Enabled"
@@ -745,6 +749,7 @@ class InstanceProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-i"""
 
     resource_type: ClassVar[str] = "AWS::DMS::InstanceProfile"
+    name_field: ClassVar[str] = "instance_profile_name"
     SUBNET_GROUP_IDENTIFIER = "SubnetGroupIdentifier"
     DESCRIPTION = "Description"
     INSTANCE_PROFILE_NAME = "InstanceProfileName"
@@ -797,6 +802,7 @@ class MigrationProject(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-m"""
 
     resource_type: ClassVar[str] = "AWS::DMS::MigrationProject"
+    name_field: ClassVar[str] = "migration_project_name"
     TARGET_DATA_PROVIDER_DESCRIPTORS = "TargetDataProviderDescriptors"
     MIGRATION_PROJECT_NAME = "MigrationProjectName"
     INSTANCE_PROFILE_NAME = "InstanceProfileName"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:11
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTSiteWise
@@ -689,6 +689,7 @@ class Asset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Asset"
+    name_field: ClassVar[str] = "asset_name"
     ASSET_MODEL_ID = "AssetModelId"
     ASSET_DESCRIPTION = "AssetDescription"
     ASSET_PROPERTIES = "AssetProperties"
@@ -732,6 +733,7 @@ class AssetModel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::AssetModel"
+    name_field: ClassVar[str] = "asset_model_name"
     ASSET_MODEL_DESCRIPTION = "AssetModelDescription"
     ASSET_MODEL_COMPOSITE_MODELS = "AssetModelCompositeModels"
     ENFORCED_ASSET_MODEL_INTERFACE_RELATIONSHIPS = "EnforcedAssetModelInterfaceRelationships"
@@ -781,6 +783,7 @@ class ComputationModel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::ComputationModel"
+    name_field: ClassVar[str] = "computation_model_name"
     COMPUTATION_MODEL_CONFIGURATION = "ComputationModelConfiguration"
     COMPUTATION_MODEL_DESCRIPTION = "ComputationModelDescription"
     COMPUTATION_MODEL_NAME = "ComputationModelName"
@@ -818,6 +821,7 @@ class Dashboard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Dashboard"
+    name_field: ClassVar[str] = "dashboard_name"
     DASHBOARD_NAME = "DashboardName"
     DASHBOARD_DEFINITION = "DashboardDefinition"
     PROJECT_ID = "ProjectId"
@@ -855,6 +859,7 @@ class Dataset(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Dataset"
+    name_field: ClassVar[str] = "dataset_name"
     DATASET_NAME = "DatasetName"
     DATASET_SOURCE = "DatasetSource"
     DATASET_DESCRIPTION = "DatasetDescription"
@@ -889,6 +894,7 @@ class Gateway(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Gateway"
+    name_field: ClassVar[str] = "gateway_name"
     GATEWAY_CAPABILITY_SUMMARIES = "GatewayCapabilitySummaries"
     GATEWAY_NAME = "GatewayName"
     GATEWAY_PLATFORM = "GatewayPlatform"
@@ -921,6 +927,7 @@ class Portal(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Portal"
+    name_field: ClassVar[str] = "portal_name"
     PORTAL_NAME = "PortalName"
     PORTAL_AUTH_MODE = "PortalAuthMode"
     NOTIFICATION_SENDER_EMAIL = "NotificationSenderEmail"
@@ -983,6 +990,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsi"""
 
     resource_type: ClassVar[str] = "AWS::IoTSiteWise::Project"
+    name_field: ClassVar[str] = "project_name"
     ASSET_IDS = "AssetIds"
     PROJECT_NAME = "ProjectName"
     PORTAL_ID = "PortalId"

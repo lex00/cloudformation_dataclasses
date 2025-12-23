@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:14
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lambda
@@ -778,6 +778,7 @@ class Alias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::Alias"
+    name_field: ClassVar[str] = "name"
     FUNCTION_NAME = "FunctionName"
     PROVISIONED_CONCURRENCY_CONFIG = "ProvisionedConcurrencyConfig"
     DESCRIPTION = "Description"
@@ -813,6 +814,7 @@ class CapacityProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::CapacityProvider"
+    name_field: ClassVar[str] = "capacity_provider_name"
     CAPACITY_PROVIDER_SCALING_CONFIG = "CapacityProviderScalingConfig"
     KMS_KEY_ARN = "KmsKeyArn"
     VPC_CONFIG = "VpcConfig"
@@ -890,6 +892,7 @@ class EventInvokeConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::EventInvokeConfig"
+    name_field: ClassVar[str] = "function_name"
     FUNCTION_NAME = "FunctionName"
     MAXIMUM_RETRY_ATTEMPTS = "MaximumRetryAttempts"
     DESTINATION_CONFIG = "DestinationConfig"
@@ -916,6 +919,7 @@ class EventSourceMapping(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::EventSourceMapping"
+    name_field: ClassVar[str] = "function_name"
     STARTING_POSITION = "StartingPosition"
     SELF_MANAGED_EVENT_SOURCE = "SelfManagedEventSource"
     PARALLELIZATION_FACTOR = "ParallelizationFactor"
@@ -1022,6 +1026,7 @@ class Function(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::Function"
+    name_field: ClassVar[str] = "function_name"
     FUNCTION_SCALING_CONFIG = "FunctionScalingConfig"
     DESCRIPTION = "Description"
     TRACING_CONFIG = "TracingConfig"
@@ -1147,6 +1152,7 @@ class LayerVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::LayerVersion"
+    name_field: ClassVar[str] = "layer_name"
     COMPATIBLE_RUNTIMES = "CompatibleRuntimes"
     LICENSE_INFO = "LicenseInfo"
     DESCRIPTION = "Description"
@@ -1211,6 +1217,7 @@ class Permission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::Permission"
+    name_field: ClassVar[str] = "function_name"
     FUNCTION_NAME = "FunctionName"
     ACTION = "Action"
     INVOKED_VIA_FUNCTION_URL = "InvokedViaFunctionUrl"
@@ -1292,6 +1299,7 @@ class Version(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambd"""
 
     resource_type: ClassVar[str] = "AWS::Lambda::Version"
+    name_field: ClassVar[str] = "function_name"
     FUNCTION_SCALING_CONFIG = "FunctionScalingConfig"
     FUNCTION_NAME = "FunctionName"
     PROVISIONED_CONCURRENCY_CONFIG = "ProvisionedConcurrencyConfig"

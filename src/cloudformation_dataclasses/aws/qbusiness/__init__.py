@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:21
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QBusiness
@@ -794,6 +794,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Application"
+    name_field: ClassVar[str] = "display_name"
     IDENTITY_TYPE = "IdentityType"
     DESCRIPTION = "Description"
     IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceArn"
@@ -878,6 +879,7 @@ class DataAccessor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::DataAccessor"
+    name_field: ClassVar[str] = "display_name"
     DISPLAY_NAME = "DisplayName"
     ACTION_CONFIGURATIONS = "ActionConfigurations"
     APPLICATION_ID = "ApplicationId"
@@ -933,6 +935,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::DataSource"
+    name_field: ClassVar[str] = "display_name"
     INDEX_ID = "IndexId"
     DESCRIPTION = "Description"
     CONFIGURATION = "Configuration"
@@ -1008,6 +1011,7 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Index"
+    name_field: ClassVar[str] = "display_name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     DISPLAY_NAME = "DisplayName"
@@ -1112,6 +1116,7 @@ class Plugin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Plugin"
+    name_field: ClassVar[str] = "display_name"
     SERVER_URL = "ServerUrl"
     CUSTOM_PLUGIN_CONFIGURATION = "CustomPluginConfiguration"
     TYPE = "Type"
@@ -1173,6 +1178,7 @@ class Retriever(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusi"""
 
     resource_type: ClassVar[str] = "AWS::QBusiness::Retriever"
+    name_field: ClassVar[str] = "display_name"
     TYPE = "Type"
     CONFIGURATION = "Configuration"
     DISPLAY_NAME = "DisplayName"

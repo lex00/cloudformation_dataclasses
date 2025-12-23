@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:57
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRooms
@@ -863,6 +863,7 @@ class AnalysisTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::AnalysisTemplate"
+    name_field: ClassVar[str] = "name"
     MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
     DESCRIPTION = "Description"
     FORMAT = "Format"
@@ -933,6 +934,7 @@ class Collaboration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::Collaboration"
+    name_field: ClassVar[str] = "name"
     ANALYTICS_ENGINE = "AnalyticsEngine"
     CREATOR_DISPLAY_NAME = "CreatorDisplayName"
     CREATOR_MEMBER_ABILITIES = "CreatorMemberAbilities"
@@ -997,6 +999,7 @@ class ConfiguredTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::ConfiguredTable"
+    name_field: ClassVar[str] = "name"
     SELECTED_ANALYSIS_METHODS = "SelectedAnalysisMethods"
     ANALYSIS_METHOD = "AnalysisMethod"
     TABLE_REFERENCE = "TableReference"
@@ -1043,6 +1046,7 @@ class ConfiguredTableAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::ConfiguredTableAssociation"
+    name_field: ClassVar[str] = "name"
     MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
     DESCRIPTION = "Description"
     CONFIGURED_TABLE_ASSOCIATION_ANALYSIS_RULES = "ConfiguredTableAssociationAnalysisRules"
@@ -1086,6 +1090,7 @@ class IdMappingTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::IdMappingTable"
+    name_field: ClassVar[str] = "name"
     MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
     DESCRIPTION = "Description"
     KMS_KEY_ARN = "KmsKeyArn"
@@ -1151,6 +1156,7 @@ class IdNamespaceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-clean"""
 
     resource_type: ClassVar[str] = "AWS::CleanRooms::IdNamespaceAssociation"
+    name_field: ClassVar[str] = "name"
     ID_MAPPING_CONFIG = "IdMappingConfig"
     MEMBERSHIP_IDENTIFIER = "MembershipIdentifier"
     DESCRIPTION = "Description"

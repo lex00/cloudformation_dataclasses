@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:02
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Deadline
@@ -772,6 +772,7 @@ class Farm(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::Farm"
+    name_field: ClassVar[str] = "display_name"
     DESCRIPTION = "Description"
     KMS_KEY_ARN = "KmsKeyArn"
     DISPLAY_NAME = "DisplayName"
@@ -806,6 +807,7 @@ class Fleet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::Fleet"
+    name_field: ClassVar[str] = "display_name"
     DESCRIPTION = "Description"
     CONFIGURATION = "Configuration"
     HOST_CONFIGURATION = "HostConfiguration"
@@ -934,6 +936,7 @@ class Limit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::Limit"
+    name_field: ClassVar[str] = "display_name"
     DESCRIPTION = "Description"
     AMOUNT_REQUIREMENT_NAME = "AmountRequirementName"
     DISPLAY_NAME = "DisplayName"
@@ -1009,6 +1012,7 @@ class Monitor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::Monitor"
+    name_field: ClassVar[str] = "display_name"
     IDENTITY_CENTER_INSTANCE_ARN = "IdentityCenterInstanceArn"
     SUBDOMAIN = "Subdomain"
     DISPLAY_NAME = "DisplayName"
@@ -1056,6 +1060,7 @@ class Queue(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::Queue"
+    name_field: ClassVar[str] = "display_name"
     JOB_RUN_AS_USER = "JobRunAsUser"
     ALLOWED_STORAGE_PROFILE_IDS = "AllowedStorageProfileIds"
     DESCRIPTION = "Description"
@@ -1185,6 +1190,7 @@ class StorageProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadl"""
 
     resource_type: ClassVar[str] = "AWS::Deadline::StorageProfile"
+    name_field: ClassVar[str] = "display_name"
     DISPLAY_NAME = "DisplayName"
     FILE_SYSTEM_LOCATIONS = "FileSystemLocations"
     FARM_ID = "FarmId"

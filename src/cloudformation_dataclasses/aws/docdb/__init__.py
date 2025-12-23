@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:03
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDB
@@ -87,6 +87,7 @@ class DBCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBCluster"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     STORAGE_ENCRYPTED = "StorageEncrypted"
     RESTORE_TO_TIME = "RestoreToTime"
     SNAPSHOT_IDENTIFIER = "SnapshotIdentifier"
@@ -209,6 +210,7 @@ class DBClusterParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBClusterParameterGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     FAMILY = "Family"
@@ -287,6 +289,7 @@ class DBSubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDB::DBSubnetGroup"
+    name_field: ClassVar[str] = "db_subnet_group_name"
     DB_SUBNET_GROUP_NAME = "DBSubnetGroupName"
     DB_SUBNET_GROUP_DESCRIPTION = "DBSubnetGroupDescription"
     SUBNET_IDS = "SubnetIds"
@@ -310,6 +313,7 @@ class EventSubscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDB::EventSubscription"
+    name_field: ClassVar[str] = "subscription_name"
     SOURCE_TYPE = "SourceType"
     ENABLED = "Enabled"
     EVENT_CATEGORIES = "EventCategories"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:09
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVS
@@ -191,6 +191,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-c"""
 
     resource_type: ClassVar[str] = "AWS::IVS::Channel"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     RECORDING_CONFIGURATION_ARN = "RecordingConfigurationArn"
     AUTHORIZED = "Authorized"
@@ -248,6 +249,7 @@ class EncoderConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-e"""
 
     resource_type: ClassVar[str] = "AWS::IVS::EncoderConfiguration"
+    name_field: ClassVar[str] = "name"
     VIDEO = "Video"
     TAGS = "Tags"
     NAME = "Name"
@@ -274,6 +276,7 @@ class IngestConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-i"""
 
     resource_type: ClassVar[str] = "AWS::IVS::IngestConfiguration"
+    name_field: ClassVar[str] = "name"
     USER_ID = "UserId"
     INGEST_PROTOCOL = "IngestProtocol"
     STAGE_ARN = "StageArn"
@@ -324,6 +327,7 @@ class PlaybackKeyPair(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-p"""
 
     resource_type: ClassVar[str] = "AWS::IVS::PlaybackKeyPair"
+    name_field: ClassVar[str] = "name"
     PUBLIC_KEY_MATERIAL = "PublicKeyMaterial"
     TAGS = "Tags"
     NAME = "Name"
@@ -355,6 +359,7 @@ class PlaybackRestrictionPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-p"""
 
     resource_type: ClassVar[str] = "AWS::IVS::PlaybackRestrictionPolicy"
+    name_field: ClassVar[str] = "name"
     ALLOWED_ORIGINS = "AllowedOrigins"
     ENABLE_STRICT_ORIGIN_ENFORCEMENT = "EnableStrictOriginEnforcement"
     ALLOWED_COUNTRIES = "AllowedCountries"
@@ -387,6 +392,7 @@ class PublicKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-p"""
 
     resource_type: ClassVar[str] = "AWS::IVS::PublicKey"
+    name_field: ClassVar[str] = "name"
     PUBLIC_KEY_MATERIAL = "PublicKeyMaterial"
     TAGS = "Tags"
     NAME = "Name"
@@ -418,6 +424,7 @@ class RecordingConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-r"""
 
     resource_type: ClassVar[str] = "AWS::IVS::RecordingConfiguration"
+    name_field: ClassVar[str] = "name"
     DESTINATION_CONFIGURATION = "DestinationConfiguration"
     RENDITION_CONFIGURATION = "RenditionConfiguration"
     RECORDING_RECONNECT_WINDOW_SECONDS = "RecordingReconnectWindowSeconds"
@@ -458,6 +465,7 @@ class Stage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-s"""
 
     resource_type: ClassVar[str] = "AWS::IVS::Stage"
+    name_field: ClassVar[str] = "name"
     AUTO_PARTICIPANT_RECORDING_CONFIGURATION = "AutoParticipantRecordingConfiguration"
     TAGS = "Tags"
     NAME = "Name"
@@ -489,6 +497,7 @@ class StorageConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-s"""
 
     resource_type: ClassVar[str] = "AWS::IVS::StorageConfiguration"
+    name_field: ClassVar[str] = "name"
     S3 = "S3"
     TAGS = "Tags"
     NAME = "Name"

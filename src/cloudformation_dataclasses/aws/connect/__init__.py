@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:00
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Connect
@@ -2583,6 +2583,7 @@ class AgentStatus(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::AgentStatus"
+    name_field: ClassVar[str] = "name"
     RESET_ORDER_NUMBER = "ResetOrderNumber"
     TYPE = "Type"
     DESCRIPTION = "Description"
@@ -2651,6 +2652,7 @@ class ContactFlow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::ContactFlow"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     CONTENT = "Content"
@@ -2689,6 +2691,7 @@ class ContactFlowModule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::ContactFlowModule"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     CONTENT = "Content"
     STATE = "State"
@@ -2762,6 +2765,7 @@ class DataTable(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::DataTable"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     VALUE_LOCK_LEVEL = "ValueLockLevel"
     TIME_ZONE = "TimeZone"
@@ -2825,6 +2829,7 @@ class DataTableAttribute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::DataTableAttribute"
+    name_field: ClassVar[str] = "name"
     VALIDATION = "Validation"
     DESCRIPTION = "Description"
     VALUE_TYPE = "ValueType"
@@ -2914,6 +2919,7 @@ class EmailAddress(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::EmailAddress"
+    name_field: ClassVar[str] = "display_name"
     DESCRIPTION = "Description"
     INSTANCE_ARN = "InstanceArn"
     DISPLAY_NAME = "DisplayName"
@@ -2996,6 +3002,7 @@ class HoursOfOperation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::HoursOfOperation"
+    name_field: ClassVar[str] = "name"
     TIME_ZONE = "TimeZone"
     DESCRIPTION = "Description"
     CONFIG = "Config"
@@ -3193,6 +3200,7 @@ class PredefinedAttribute(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::PredefinedAttribute"
+    name_field: ClassVar[str] = "name"
     ATTRIBUTE_CONFIGURATION = "AttributeConfiguration"
     INSTANCE_ARN = "InstanceArn"
     VALUES = "Values"
@@ -3230,6 +3238,7 @@ class Prompt(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::Prompt"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     S3_URI = "S3Uri"
     INSTANCE_ARN = "InstanceArn"
@@ -3262,6 +3271,7 @@ class Queue(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::Queue"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     HOURS_OF_OPERATION_ARN = "HoursOfOperationArn"
     DESCRIPTION = "Description"
@@ -3314,6 +3324,7 @@ class QuickConnect(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::QuickConnect"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     QUICK_CONNECT_CONFIG = "QuickConnectConfig"
     INSTANCE_ARN = "InstanceArn"
@@ -3351,6 +3362,7 @@ class RoutingProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::RoutingProfile"
+    name_field: ClassVar[str] = "name"
     MANUAL_ASSIGNMENT_QUEUE_CONFIGS = "ManualAssignmentQueueConfigs"
     DESCRIPTION = "Description"
     MEDIA_CONCURRENCIES = "MediaConcurrencies"
@@ -3395,6 +3407,7 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::Rule"
+    name_field: ClassVar[str] = "name"
     FUNCTION = "Function"
     TRIGGER_EVENT_SOURCE = "TriggerEventSource"
     ACTIONS = "Actions"
@@ -3456,6 +3469,7 @@ class SecurityProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::SecurityProfile"
+    name_field: ClassVar[str] = "security_profile_name"
     DESCRIPTION = "Description"
     ALLOWED_ACCESS_CONTROL_TAGS = "AllowedAccessControlTags"
     APPLICATIONS = "Applications"
@@ -3516,6 +3530,7 @@ class TaskTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::TaskTemplate"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     DESCRIPTION = "Description"
     CONSTRAINTS = "Constraints"
@@ -3566,6 +3581,7 @@ class TrafficDistributionGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::TrafficDistributionGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     INSTANCE_ARN = "InstanceArn"
     TAGS = "Tags"
@@ -3655,6 +3671,7 @@ class UserHierarchyGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::UserHierarchyGroup"
+    name_field: ClassVar[str] = "name"
     INSTANCE_ARN = "InstanceArn"
     PARENT_GROUP_ARN = "ParentGroupArn"
     TAGS = "Tags"
@@ -3707,6 +3724,7 @@ class View(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::View"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ACTIONS = "Actions"
     INSTANCE_ARN = "InstanceArn"
@@ -3783,6 +3801,7 @@ class Workspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::Connect::Workspace"
+    name_field: ClassVar[str] = "name"
     PAGES = "Pages"
     DESCRIPTION = "Description"
     INSTANCE_ARN = "InstanceArn"

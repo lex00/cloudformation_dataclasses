@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:09
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GuardDuty
@@ -1076,6 +1076,7 @@ class Filter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::Filter"
+    name_field: ClassVar[str] = "name"
     ACTION = "Action"
     DESCRIPTION = "Description"
     DETECTOR_ID = "DetectorId"
@@ -1108,6 +1109,7 @@ class IPSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::IPSet"
+    name_field: ClassVar[str] = "name"
     FORMAT = "Format"
     ACTIVATE = "Activate"
     DETECTOR_ID = "DetectorId"
@@ -1283,6 +1285,7 @@ class ThreatEntitySet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::ThreatEntitySet"
+    name_field: ClassVar[str] = "name"
     FORMAT = "Format"
     ACTIVATE = "Activate"
     DETECTOR_ID = "DetectorId"
@@ -1341,6 +1344,7 @@ class ThreatIntelSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::ThreatIntelSet"
+    name_field: ClassVar[str] = "name"
     FORMAT = "Format"
     ACTIVATE = "Activate"
     DETECTOR_ID = "DetectorId"
@@ -1379,6 +1383,7 @@ class TrustedEntitySet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guard"""
 
     resource_type: ClassVar[str] = "AWS::GuardDuty::TrustedEntitySet"
+    name_field: ClassVar[str] = "name"
     FORMAT = "Format"
     ACTIVATE = "Activate"
     DETECTOR_ID = "DetectorId"

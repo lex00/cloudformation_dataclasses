@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:25
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Resolver
@@ -436,6 +436,7 @@ class FirewallDomainList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallDomainList"
+    name_field: ClassVar[str] = "name"
     DOMAINS = "Domains"
     DOMAIN_FILE_URL = "DomainFileUrl"
     TAGS = "Tags"
@@ -505,6 +506,7 @@ class FirewallRuleGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallRuleGroup"
+    name_field: ClassVar[str] = "name"
     FIREWALL_RULES = "FirewallRules"
     TAGS = "Tags"
     NAME = "Name"
@@ -576,6 +578,7 @@ class FirewallRuleGroupAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+    name_field: ClassVar[str] = "name"
     VPC_ID = "VpcId"
     FIREWALL_RULE_GROUP_ID = "FirewallRuleGroupId"
     PRIORITY = "Priority"
@@ -646,6 +649,7 @@ class OutpostResolver(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::OutpostResolver"
+    name_field: ClassVar[str] = "name"
     INSTANCE_COUNT = "InstanceCount"
     OUTPOST_ARN = "OutpostArn"
     PREFERRED_INSTANCE_TYPE = "PreferredInstanceType"
@@ -771,6 +775,7 @@ class ResolverEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverEndpoint"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESSES = "IpAddresses"
     PROTOCOLS = "Protocols"
     OUTPOST_ARN = "OutpostArn"
@@ -840,6 +845,7 @@ class ResolverQueryLoggingConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+    name_field: ClassVar[str] = "name"
     DESTINATION_ARN = "DestinationArn"
     TAGS = "Tags"
     NAME = "Name"
@@ -944,6 +950,7 @@ class ResolverRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverRule"
+    name_field: ClassVar[str] = "name"
     RESOLVER_ENDPOINT_ID = "ResolverEndpointId"
     DOMAIN_NAME = "DomainName"
     RULE_TYPE = "RuleType"
@@ -1007,6 +1014,7 @@ class ResolverRuleAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Resolver::ResolverRuleAssociation"
+    name_field: ClassVar[str] = "name"
     VPC_ID = "VPCId"
     RESOLVER_RULE_ID = "ResolverRuleId"
     NAME = "Name"

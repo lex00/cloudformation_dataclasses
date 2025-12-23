@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:31
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFRegional
@@ -795,6 +795,7 @@ class ByteMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::ByteMatchSet"
+    name_field: ClassVar[str] = "name"
     BYTE_MATCH_TUPLES = "ByteMatchTuples"
     NAME = "Name"
 
@@ -812,6 +813,7 @@ class GeoMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::GeoMatchSet"
+    name_field: ClassVar[str] = "name"
     GEO_MATCH_CONSTRAINTS = "GeoMatchConstraints"
     NAME = "Name"
 
@@ -829,6 +831,7 @@ class IPSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::IPSet"
+    name_field: ClassVar[str] = "name"
     IP_SET_DESCRIPTORS = "IPSetDescriptors"
     NAME = "Name"
 
@@ -846,6 +849,7 @@ class RateBasedRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::RateBasedRule"
+    name_field: ClassVar[str] = "name"
     METRIC_NAME = "MetricName"
     RATE_LIMIT = "RateLimit"
     MATCH_PREDICATES = "MatchPredicates"
@@ -872,6 +876,7 @@ class RegexPatternSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::RegexPatternSet"
+    name_field: ClassVar[str] = "name"
     REGEX_PATTERN_STRINGS = "RegexPatternStrings"
     NAME = "Name"
 
@@ -889,6 +894,7 @@ class Rule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::Rule"
+    name_field: ClassVar[str] = "name"
     METRIC_NAME = "MetricName"
     PREDICATES = "Predicates"
     NAME = "Name"
@@ -909,6 +915,7 @@ class SizeConstraintSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::SizeConstraintSet"
+    name_field: ClassVar[str] = "name"
     SIZE_CONSTRAINTS = "SizeConstraints"
     NAME = "Name"
 
@@ -926,6 +933,7 @@ class SqlInjectionMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::SqlInjectionMatchSet"
+    name_field: ClassVar[str] = "name"
     SQL_INJECTION_MATCH_TUPLES = "SqlInjectionMatchTuples"
     NAME = "Name"
 
@@ -943,6 +951,7 @@ class WebACL(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::WebACL"
+    name_field: ClassVar[str] = "name"
     METRIC_NAME = "MetricName"
     DEFAULT_ACTION = "DefaultAction"
     RULES = "Rules"
@@ -983,6 +992,7 @@ class XssMatchSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafre"""
 
     resource_type: ClassVar[str] = "AWS::WAFRegional::XssMatchSet"
+    name_field: ClassVar[str] = "name"
     XSS_MATCH_TUPLES = "XssMatchTuples"
     NAME = "Name"
 

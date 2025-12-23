@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:15
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MSK
@@ -269,6 +269,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-c"""
 
     resource_type: ClassVar[str] = "AWS::MSK::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     KAFKA_VERSION = "KafkaVersion"
     NUMBER_OF_BROKER_NODES = "NumberOfBrokerNodes"
     REBALANCING = "Rebalancing"
@@ -353,6 +354,7 @@ class Configuration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-c"""
 
     resource_type: ClassVar[str] = "AWS::MSK::Configuration"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     LATEST_REVISION = "LatestRevision"
     SERVER_PROPERTIES = "ServerProperties"
@@ -400,6 +402,7 @@ class Replicator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-r"""
 
     resource_type: ClassVar[str] = "AWS::MSK::Replicator"
+    name_field: ClassVar[str] = "replicator_name"
     DESCRIPTION = "Description"
     SERVICE_EXECUTION_ROLE_ARN = "ServiceExecutionRoleArn"
     REPLICATOR_NAME = "ReplicatorName"
@@ -440,6 +443,7 @@ class ServerlessCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-s"""
 
     resource_type: ClassVar[str] = "AWS::MSK::ServerlessCluster"
+    name_field: ClassVar[str] = "cluster_name"
     VPC_CONFIGS = "VpcConfigs"
     CLUSTER_NAME = "ClusterName"
     CLIENT_AUTHENTICATION = "ClientAuthentication"

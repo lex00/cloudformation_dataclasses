@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:14
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lightsail
@@ -1408,6 +1408,7 @@ class Alarm(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Alarm"
+    name_field: ClassVar[str] = "alarm_name"
     METRIC_NAME = "MetricName"
     COMPARISON_OPERATOR = "ComparisonOperator"
     TREAT_MISSING_DATA = "TreatMissingData"
@@ -1463,6 +1464,7 @@ class Bucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Bucket"
+    name_field: ClassVar[str] = "bucket_name"
     OBJECT_VERSIONING = "ObjectVersioning"
     READ_ONLY_ACCESS_ACCOUNTS = "ReadOnlyAccessAccounts"
     BUNDLE_ID = "BundleId"
@@ -1511,6 +1513,7 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Certificate"
+    name_field: ClassVar[str] = "certificate_name"
     DOMAIN_NAME = "DomainName"
     SUBJECT_ALTERNATIVE_NAMES = "SubjectAlternativeNames"
     CERTIFICATE_NAME = "CertificateName"
@@ -1545,6 +1548,7 @@ class Container(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Container"
+    name_field: ClassVar[str] = "service_name"
     PUBLIC_DOMAIN_NAMES = "PublicDomainNames"
     SERVICE_NAME = "ServiceName"
     PRIVATE_REGISTRY_ACCESS = "PrivateRegistryAccess"
@@ -1663,6 +1667,7 @@ class Disk(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Disk"
+    name_field: ClassVar[str] = "disk_name"
     SIZE_IN_GB = "SizeInGb"
     AVAILABILITY_ZONE = "AvailabilityZone"
     ADD_ONS = "AddOns"
@@ -1748,6 +1753,7 @@ class DiskSnapshot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::DiskSnapshot"
+    name_field: ClassVar[str] = "disk_snapshot_name"
     DISK_SNAPSHOT_NAME = "DiskSnapshotName"
     DISK_NAME = "DiskName"
     TAGS = "Tags"
@@ -1829,6 +1835,7 @@ class Distribution(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Distribution"
+    name_field: ClassVar[str] = "distribution_name"
     IP_ADDRESS_TYPE = "IpAddressType"
     ORIGIN = "Origin"
     DISTRIBUTION_NAME = "DistributionName"
@@ -1886,6 +1893,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Domain"
+    name_field: ClassVar[str] = "domain_name"
     DOMAIN_NAME = "DomainName"
     DOMAIN_ENTRIES = "DomainEntries"
     TAGS = "Tags"
@@ -1942,6 +1950,7 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::Instance"
+    name_field: ClassVar[str] = "instance_name"
     INSTANCE_NAME = "InstanceName"
     KEY_PAIR_NAME = "KeyPairName"
     BUNDLE_ID = "BundleId"
@@ -2070,6 +2079,7 @@ class InstanceSnapshot(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::InstanceSnapshot"
+    name_field: ClassVar[str] = "instance_snapshot_name"
     INSTANCE_NAME = "InstanceName"
     INSTANCE_SNAPSHOT_NAME = "InstanceSnapshotName"
     TAGS = "Tags"
@@ -2146,6 +2156,7 @@ class LoadBalancer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::LoadBalancer"
+    name_field: ClassVar[str] = "load_balancer_name"
     IP_ADDRESS_TYPE = "IpAddressType"
     SESSION_STICKINESS_LB_COOKIE_DURATION_SECONDS = "SessionStickinessLBCookieDurationSeconds"
     LOAD_BALANCER_NAME = "LoadBalancerName"
@@ -2190,6 +2201,7 @@ class LoadBalancerTlsCertificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::LoadBalancerTlsCertificate"
+    name_field: ClassVar[str] = "certificate_name"
     LOAD_BALANCER_NAME = "LoadBalancerName"
     CERTIFICATE_DOMAIN_NAME = "CertificateDomainName"
     IS_ATTACHED = "IsAttached"
@@ -2230,6 +2242,7 @@ class StaticIp(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-light"""
 
     resource_type: ClassVar[str] = "AWS::Lightsail::StaticIp"
+    name_field: ClassVar[str] = "static_ip_name"
     STATIC_IP_NAME = "StaticIpName"
     ATTACHED_TO = "AttachedTo"
 

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:10
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Inspector
@@ -405,6 +405,7 @@ class AssessmentTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTarget"
+    name_field: ClassVar[str] = "assessment_target_name"
     ASSESSMENT_TARGET_NAME = "AssessmentTargetName"
     RESOURCE_GROUP_ARN = "ResourceGroupArn"
 
@@ -428,6 +429,7 @@ class AssessmentTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTemplate"
+    name_field: ClassVar[str] = "assessment_template_name"
     ASSESSMENT_TARGET_ARN = "AssessmentTargetArn"
     DURATION_IN_SECONDS = "DurationInSeconds"
     ASSESSMENT_TEMPLATE_NAME = "AssessmentTemplateName"

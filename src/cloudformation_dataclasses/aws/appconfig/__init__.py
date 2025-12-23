@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:52
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppConfig
@@ -184,6 +184,7 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Application"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     TAGS = "Tags"
     NAME = "Name"
@@ -210,6 +211,7 @@ class ConfigurationProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::ConfigurationProfile"
+    name_field: ClassVar[str] = "name"
     LOCATION_URI = "LocationUri"
     TYPE = "Type"
     KMS_KEY_IDENTIFIER = "KmsKeyIdentifier"
@@ -311,6 +313,7 @@ class DeploymentStrategy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::DeploymentStrategy"
+    name_field: ClassVar[str] = "name"
     REPLICATE_TO = "ReplicateTo"
     GROWTH_TYPE = "GrowthType"
     DESCRIPTION = "Description"
@@ -352,6 +355,7 @@ class Environment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Environment"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     MONITORS = "Monitors"
     DELETION_PROTECTION_CHECK = "DeletionProtectionCheck"
@@ -387,6 +391,7 @@ class Extension(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appco"""
 
     resource_type: ClassVar[str] = "AWS::AppConfig::Extension"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PARAMETERS = "Parameters"
     ACTIONS = "Actions"

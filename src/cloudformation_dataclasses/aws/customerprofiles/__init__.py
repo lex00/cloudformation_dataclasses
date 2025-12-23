@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:01
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CustomerProfiles
@@ -40,6 +40,7 @@ class CalculatedAttributeDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::CalculatedAttributeDefinition"
+    name_field: ClassVar[str] = "domain_name"
     USE_HISTORICAL_DATA = "UseHistoricalData"
     DESCRIPTION = "Description"
     ATTRIBUTE_DETAILS = "AttributeDetails"
@@ -109,6 +110,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::Domain"
+    name_field: ClassVar[str] = "domain_name"
     MATCHING = "Matching"
     DEFAULT_EXPIRATION_DAYS = "DefaultExpirationDays"
     DOMAIN_NAME = "DomainName"
@@ -200,6 +202,7 @@ class EventStream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::EventStream"
+    name_field: ClassVar[str] = "event_stream_name"
     DOMAIN_NAME = "DomainName"
     EVENT_STREAM_NAME = "EventStreamName"
     URI = "Uri"
@@ -254,6 +257,7 @@ class EventTrigger(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::EventTrigger"
+    name_field: ClassVar[str] = "event_trigger_name"
     EVENT_TRIGGER_LIMITS = "EventTriggerLimits"
     DESCRIPTION = "Description"
     DOMAIN_NAME = "DomainName"
@@ -300,6 +304,7 @@ class Integration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::Integration"
+    name_field: ClassVar[str] = "domain_name"
     EVENT_TRIGGER_NAMES = "EventTriggerNames"
     OBJECT_TYPE_NAMES = "ObjectTypeNames"
     DOMAIN_NAME = "DomainName"
@@ -343,6 +348,7 @@ class ObjectType(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::ObjectType"
+    name_field: ClassVar[str] = "object_type_name"
     MAX_PROFILE_OBJECT_COUNT = "MaxProfileObjectCount"
     DESCRIPTION = "Description"
     FIELDS = "Fields"
@@ -406,6 +412,7 @@ class SegmentDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-custo"""
 
     resource_type: ClassVar[str] = "AWS::CustomerProfiles::SegmentDefinition"
+    name_field: ClassVar[str] = "segment_definition_name"
     DESCRIPTION = "Description"
     DOMAIN_NAME = "DomainName"
     SEGMENT_GROUPS = "SegmentGroups"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:23
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Rekognition
@@ -684,6 +684,7 @@ class Project(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekog"""
 
     resource_type: ClassVar[str] = "AWS::Rekognition::Project"
+    name_field: ClassVar[str] = "project_name"
     PROJECT_NAME = "ProjectName"
     TAGS = "Tags"
 
@@ -707,6 +708,7 @@ class StreamProcessor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekog"""
 
     resource_type: ClassVar[str] = "AWS::Rekognition::StreamProcessor"
+    name_field: ClassVar[str] = "name"
     S3_DESTINATION = "S3Destination"
     DATA_SHARING_PREFERENCE = "DataSharingPreference"
     KMS_KEY_ID = "KmsKeyId"

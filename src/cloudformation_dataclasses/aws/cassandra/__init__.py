@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:56
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cassandra
@@ -36,6 +36,7 @@ class Keyspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassa"""
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Keyspace"
+    name_field: ClassVar[str] = "keyspace_name"
     CLIENT_SIDE_TIMESTAMPS_ENABLED = "ClientSideTimestampsEnabled"
     KEYSPACE_NAME = "KeyspaceName"
     REPLICATION_SPECIFICATION = "ReplicationSpecification"
@@ -59,6 +60,7 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassa"""
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Table"
+    name_field: ClassVar[str] = "table_name"
     REPLICA_SPECIFICATIONS = "ReplicaSpecifications"
     CLUSTERING_KEY_COLUMNS = "ClusteringKeyColumns"
     WARM_THROUGHPUT = "WarmThroughput"
@@ -115,6 +117,7 @@ class Type(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassa"""
 
     resource_type: ClassVar[str] = "AWS::Cassandra::Type"
+    name_field: ClassVar[str] = "type_name"
     TYPE_NAME = "TypeName"
     FIELDS = "Fields"
     KEYSPACE_NAME = "KeyspaceName"

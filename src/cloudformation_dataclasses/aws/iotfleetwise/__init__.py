@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:11
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTFleetWise
@@ -509,6 +509,7 @@ class Campaign(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::Campaign"
+    name_field: ClassVar[str] = "name"
     ACTION = "Action"
     COMPRESSION = "Compression"
     DESCRIPTION = "Description"
@@ -598,6 +599,7 @@ class DecoderManifest(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::DecoderManifest"
+    name_field: ClassVar[str] = "name"
     SIGNAL_DECODERS = "SignalDecoders"
     STATUS = "Status"
     DESCRIPTION = "Description"
@@ -688,6 +690,7 @@ class ModelManifest(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::ModelManifest"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     DESCRIPTION = "Description"
     SIGNAL_CATALOG_ARN = "SignalCatalogArn"
@@ -733,6 +736,7 @@ class SignalCatalog(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::SignalCatalog"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     NODE_COUNTS = "NodeCounts"
     NODES = "Nodes"
@@ -800,6 +804,7 @@ class StateTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::StateTemplate"
+    name_field: ClassVar[str] = "name"
     STATE_TEMPLATE_PROPERTIES = "StateTemplateProperties"
     DESCRIPTION = "Description"
     DATA_EXTRA_DIMENSIONS = "DataExtraDimensions"
@@ -853,6 +858,7 @@ class Vehicle(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfl"""
 
     resource_type: ClassVar[str] = "AWS::IoTFleetWise::Vehicle"
+    name_field: ClassVar[str] = "name"
     ASSOCIATION_BEHAVIOR = "AssociationBehavior"
     ATTRIBUTES = "Attributes"
     DECODER_MANIFEST_ARN = "DecoderManifestArn"

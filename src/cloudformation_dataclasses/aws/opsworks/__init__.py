@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:20
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpsWorks
@@ -37,6 +37,7 @@ class App(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::App"
+    name_field: ClassVar[str] = "name"
     APP_SOURCE = "AppSource"
     ATTRIBUTES = "Attributes"
     DATA_SOURCES = "DataSources"
@@ -84,6 +85,7 @@ class ElasticLoadBalancerAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
+    name_field: ClassVar[str] = "elastic_load_balancer_name"
     ELASTIC_LOAD_BALANCER_NAME = "ElasticLoadBalancerName"
     LAYER_ID = "LayerId"
 
@@ -101,6 +103,7 @@ class Instance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Instance"
+    name_field: ClassVar[str] = "ssh_key_name"
     AGENT_VERSION = "AgentVersion"
     AMI_ID = "AmiId"
     ARCHITECTURE = "Architecture"
@@ -201,6 +204,7 @@ class Layer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Layer"
+    name_field: ClassVar[str] = "name"
     ATTRIBUTES = "Attributes"
     AUTO_ASSIGN_ELASTIC_IPS = "AutoAssignElasticIps"
     AUTO_ASSIGN_PUBLIC_IPS = "AutoAssignPublicIps"
@@ -269,6 +273,7 @@ class Stack(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Stack"
+    name_field: ClassVar[str] = "name"
     AGENT_VERSION = "AgentVersion"
     ATTRIBUTES = "Attributes"
     CHEF_CONFIGURATION = "ChefConfiguration"
@@ -384,6 +389,7 @@ class Volume(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opswo"""
 
     resource_type: ClassVar[str] = "AWS::OpsWorks::Volume"
+    name_field: ClassVar[str] = "name"
     EC2_VOLUME_ID = "Ec2VolumeId"
     MOUNT_POINT = "MountPoint"
     NAME = "Name"

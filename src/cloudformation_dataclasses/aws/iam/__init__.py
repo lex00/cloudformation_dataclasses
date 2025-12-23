@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:09
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IAM
@@ -423,6 +423,7 @@ class AccessKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
 
     resource_type: ClassVar[str] = "AWS::IAM::AccessKey"
+    name_field: ClassVar[str] = "user_name"
     SERIAL = "Serial"
     STATUS = "Status"
     USER_NAME = "UserName"
@@ -449,6 +450,7 @@ class Group(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-g"""
 
     resource_type: ClassVar[str] = "AWS::IAM::Group"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     PATH = "Path"
     MANAGED_POLICY_ARNS = "ManagedPolicyArns"
@@ -478,6 +480,7 @@ class GroupPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-g"""
 
     resource_type: ClassVar[str] = "AWS::IAM::GroupPolicy"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
@@ -498,6 +501,7 @@ class InstanceProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-i"""
 
     resource_type: ClassVar[str] = "AWS::IAM::InstanceProfile"
+    name_field: ClassVar[str] = "instance_profile_name"
     PATH = "Path"
     INSTANCE_PROFILE_NAME = "InstanceProfileName"
     ROLES = "Roles"
@@ -524,6 +528,7 @@ class ManagedPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-m"""
 
     resource_type: ClassVar[str] = "AWS::IAM::ManagedPolicy"
+    name_field: ClassVar[str] = "managed_policy_name"
     MANAGED_POLICY_NAME = "ManagedPolicyName"
     PATH = "Path"
     DESCRIPTION = "Description"
@@ -626,6 +631,7 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-p"""
 
     resource_type: ClassVar[str] = "AWS::IAM::Policy"
+    name_field: ClassVar[str] = "policy_name"
     GROUPS = "Groups"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
@@ -658,6 +664,7 @@ class Role(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-r"""
 
     resource_type: ClassVar[str] = "AWS::IAM::Role"
+    name_field: ClassVar[str] = "role_name"
     PATH = "Path"
     MANAGED_POLICY_ARNS = "ManagedPolicyArns"
     MAX_SESSION_DURATION = "MaxSessionDuration"
@@ -707,6 +714,7 @@ class RolePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-r"""
 
     resource_type: ClassVar[str] = "AWS::IAM::RolePolicy"
+    name_field: ClassVar[str] = "role_name"
     ROLE_NAME = "RoleName"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
@@ -727,6 +735,7 @@ class SAMLProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-s"""
 
     resource_type: ClassVar[str] = "AWS::IAM::SAMLProvider"
+    name_field: ClassVar[str] = "name"
     ADD_PRIVATE_KEY = "AddPrivateKey"
     REMOVE_PRIVATE_KEY = "RemovePrivateKey"
     ASSERTION_ENCRYPTION_MODE = "AssertionEncryptionMode"
@@ -770,6 +779,7 @@ class ServerCertificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-s"""
 
     resource_type: ClassVar[str] = "AWS::IAM::ServerCertificate"
+    name_field: ClassVar[str] = "server_certificate_name"
     CERTIFICATE_BODY = "CertificateBody"
     PATH = "Path"
     PRIVATE_KEY = "PrivateKey"
@@ -805,6 +815,7 @@ class ServiceLinkedRole(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-s"""
 
     resource_type: ClassVar[str] = "AWS::IAM::ServiceLinkedRole"
+    name_field: ClassVar[str] = "aws_service_name"
     CUSTOM_SUFFIX = "CustomSuffix"
     DESCRIPTION = "Description"
     AWS_SERVICE_NAME = "AWSServiceName"
@@ -831,6 +842,7 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-u"""
 
     resource_type: ClassVar[str] = "AWS::IAM::User"
+    name_field: ClassVar[str] = "user_name"
     PATH = "Path"
     MANAGED_POLICY_ARNS = "ManagedPolicyArns"
     POLICIES = "Policies"
@@ -872,6 +884,7 @@ class UserPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-u"""
 
     resource_type: ClassVar[str] = "AWS::IAM::UserPolicy"
+    name_field: ClassVar[str] = "user_name"
     USER_NAME = "UserName"
     POLICY_NAME = "PolicyName"
     POLICY_DOCUMENT = "PolicyDocument"
@@ -892,6 +905,7 @@ class UserToGroupAddition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
 
     resource_type: ClassVar[str] = "AWS::IAM::UserToGroupAddition"
+    name_field: ClassVar[str] = "group_name"
     GROUP_NAME = "GroupName"
     USERS = "Users"
 
@@ -909,6 +923,7 @@ class VirtualMFADevice(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-v"""
 
     resource_type: ClassVar[str] = "AWS::IAM::VirtualMFADevice"
+    name_field: ClassVar[str] = "virtual_mfa_device_name"
     PATH = "Path"
     VIRTUAL_MFA_DEVICE_NAME = "VirtualMfaDeviceName"
     USERS = "Users"

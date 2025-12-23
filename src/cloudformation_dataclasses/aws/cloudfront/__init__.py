@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:58
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFront
@@ -618,6 +618,7 @@ class AnycastIpList(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::AnycastIpList"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     IP_COUNT = "IpCount"
     IPAM_CIDR_CONFIGS = "IpamCidrConfigs"
@@ -760,6 +761,7 @@ class ConnectionFunction(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ConnectionFunction"
+    name_field: ClassVar[str] = "name"
     CONNECTION_FUNCTION_CONFIG = "ConnectionFunctionConfig"
     AUTO_PUBLISH = "AutoPublish"
     CONNECTION_FUNCTION_CODE = "ConnectionFunctionCode"
@@ -822,6 +824,7 @@ class ConnectionGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::ConnectionGroup"
+    name_field: ClassVar[str] = "name"
     IPV6_ENABLED = "Ipv6Enabled"
     ANYCAST_IP_LIST_ID = "AnycastIpListId"
     ENABLED = "Enabled"
@@ -942,6 +945,7 @@ class DistributionTenant(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::DistributionTenant"
+    name_field: ClassVar[str] = "name"
     DOMAINS = "Domains"
     PARAMETERS = "Parameters"
     CUSTOMIZATIONS = "Customizations"
@@ -1016,6 +1020,7 @@ class Function(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::Function"
+    name_field: ClassVar[str] = "name"
     FUNCTION_CONFIG = "FunctionConfig"
     FUNCTION_METADATA = "FunctionMetadata"
     AUTO_PUBLISH = "AutoPublish"
@@ -1083,6 +1088,7 @@ class KeyValueStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::KeyValueStore"
+    name_field: ClassVar[str] = "name"
     COMMENT = "Comment"
     IMPORT_SOURCE = "ImportSource"
     NAME = "Name"
@@ -1206,6 +1212,7 @@ class RealtimeLogConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::RealtimeLogConfig"
+    name_field: ClassVar[str] = "name"
     FIELDS = "Fields"
     END_POINTS = "EndPoints"
     SAMPLING_RATE = "SamplingRate"
@@ -1283,6 +1290,7 @@ class TrustStore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudFront::TrustStore"
+    name_field: ClassVar[str] = "name"
     CA_CERTIFICATES_BUNDLE_SOURCE = "CaCertificatesBundleSource"
     TAGS = "Tags"
     NAME = "Name"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:08
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GlobalAccelerator
@@ -164,6 +164,7 @@ class Accelerator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globa"""
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::Accelerator"
+    name_field: ClassVar[str] = "name"
     IP_ADDRESS_TYPE = "IpAddressType"
     IP_ADDRESSES = "IpAddresses"
     ENABLED = "Enabled"
@@ -216,6 +217,7 @@ class CrossAccountAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globa"""
 
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::CrossAccountAttachment"
+    name_field: ClassVar[str] = "name"
     PRINCIPALS = "Principals"
     RESOURCES = "Resources"
     TAGS = "Tags"

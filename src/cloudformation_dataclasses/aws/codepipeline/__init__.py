@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:29:59
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodePipeline
@@ -483,6 +483,7 @@ class Pipeline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codep"""
 
     resource_type: ClassVar[str] = "AWS::CodePipeline::Pipeline"
+    name_field: ClassVar[str] = "name"
     VARIABLES = "Variables"
     ARTIFACT_STORES = "ArtifactStores"
     ARTIFACT_STORE = "ArtifactStore"
@@ -536,6 +537,7 @@ class Webhook(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codep"""
 
     resource_type: ClassVar[str] = "AWS::CodePipeline::Webhook"
+    name_field: ClassVar[str] = "name"
     AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
     FILTERS = "Filters"
     AUTHENTICATION = "Authentication"

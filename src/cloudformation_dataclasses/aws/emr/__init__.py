@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:05
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMR
@@ -676,6 +676,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::EMR::Cluster"
+    name_field: ClassVar[str] = "name"
     ADDITIONAL_INFO = "AdditionalInfo"
     APPLICATIONS = "Applications"
     AUTO_SCALING_ROLE = "AutoScalingRole"
@@ -774,6 +775,7 @@ class InstanceFleetConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elast"""
 
     resource_type: ClassVar[str] = "AWS::EMR::InstanceFleetConfig"
+    name_field: ClassVar[str] = "name"
     CLUSTER_ID = "ClusterId"
     INSTANCE_FLEET_TYPE = "InstanceFleetType"
     INSTANCE_TYPE_CONFIGS = "InstanceTypeConfigs"
@@ -809,6 +811,7 @@ class InstanceGroupConfig(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-i"""
 
     resource_type: ClassVar[str] = "AWS::EMR::InstanceGroupConfig"
+    name_field: ClassVar[str] = "name"
     AUTO_SCALING_POLICY = "AutoScalingPolicy"
     BID_PRICE = "BidPrice"
     CONFIGURATIONS = "Configurations"
@@ -853,6 +856,7 @@ class SecurityConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-s"""
 
     resource_type: ClassVar[str] = "AWS::EMR::SecurityConfiguration"
+    name_field: ClassVar[str] = "name"
     SECURITY_CONFIGURATION = "SecurityConfiguration"
     NAME = "Name"
 
@@ -870,6 +874,7 @@ class Step(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-s"""
 
     resource_type: ClassVar[str] = "AWS::EMR::Step"
+    name_field: ClassVar[str] = "name"
     JOB_FLOW_ID = "JobFlowId"
     ACTION_ON_FAILURE = "ActionOnFailure"
     HADOOP_JAR_STEP = "HadoopJarStep"
@@ -899,6 +904,7 @@ class Studio(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-s"""
 
     resource_type: ClassVar[str] = "AWS::EMR::Studio"
+    name_field: ClassVar[str] = "name"
     WORKSPACE_SECURITY_GROUP_ID = "WorkspaceSecurityGroupId"
     DESCRIPTION = "Description"
     ENCRYPTION_KEY_ARN = "EncryptionKeyArn"
@@ -977,6 +983,7 @@ class StudioSessionMapping(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-s"""
 
     resource_type: ClassVar[str] = "AWS::EMR::StudioSessionMapping"
+    name_field: ClassVar[str] = "identity_name"
     IDENTITY_TYPE = "IdentityType"
     SESSION_POLICY_ARN = "SessionPolicyArn"
     STUDIO_ID = "StudioId"
@@ -1000,6 +1007,7 @@ class WALWorkspace(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-w"""
 
     resource_type: ClassVar[str] = "AWS::EMR::WALWorkspace"
+    name_field: ClassVar[str] = "wal_workspace_name"
     WAL_WORKSPACE_NAME = "WALWorkspaceName"
     TAGS = "Tags"
 

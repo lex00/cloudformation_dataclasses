@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:56
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BillingConductor
@@ -331,6 +331,7 @@ class BillingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billi"""
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::BillingGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PRIMARY_ACCOUNT_ID = "PrimaryAccountId"
     COMPUTATION_PREFERENCE = "ComputationPreference"
@@ -391,6 +392,7 @@ class CustomLineItem(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billi"""
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::CustomLineItem"
+    name_field: ClassVar[str] = "name"
     BILLING_PERIOD_RANGE = "BillingPeriodRange"
     DESCRIPTION = "Description"
     ACCOUNT_ID = "AccountId"
@@ -460,6 +462,7 @@ class PricingPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billi"""
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::PricingPlan"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     PRICING_RULE_ARNS = "PricingRuleArns"
     TAGS = "Tags"
@@ -504,6 +507,7 @@ class PricingRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billi"""
 
     resource_type: ClassVar[str] = "AWS::BillingConductor::PricingRule"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     SCOPE = "Scope"

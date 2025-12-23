@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:02
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataSync
@@ -517,6 +517,7 @@ class Agent(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::Agent"
+    name_field: ClassVar[str] = "agent_name"
     SUBNET_ARNS = "SubnetArns"
     AGENT_NAME = "AgentName"
     VPC_ENDPOINT_ID = "VpcEndpointId"
@@ -921,6 +922,7 @@ class LocationObjectStorage(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::LocationObjectStorage"
+    name_field: ClassVar[str] = "bucket_name"
     SERVER_CERTIFICATE = "ServerCertificate"
     SECRET_KEY = "SecretKey"
     BUCKET_NAME = "BucketName"
@@ -1113,6 +1115,7 @@ class Task(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datas"""
 
     resource_type: ClassVar[str] = "AWS::DataSync::Task"
+    name_field: ClassVar[str] = "name"
     INCLUDES = "Includes"
     DESTINATION_LOCATION_ARN = "DestinationLocationArn"
     OPTIONS = "Options"

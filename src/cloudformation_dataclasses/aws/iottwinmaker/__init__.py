@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:12
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTTwinMaker
@@ -413,6 +413,7 @@ class Entity(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottw"""
 
     resource_type: ClassVar[str] = "AWS::IoTTwinMaker::Entity"
+    name_field: ClassVar[str] = "entity_name"
     ENTITY_ID = "EntityId"
     COMPONENTS = "Components"
     PARENT_ENTITY_ID = "ParentEntityId"

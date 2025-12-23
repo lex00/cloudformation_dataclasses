@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:22
+  Generated: 2025-12-22 18:29:58
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudWatch
@@ -250,6 +250,7 @@ class Alarm(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::Alarm"
+    name_field: ClassVar[str] = "alarm_name"
     THRESHOLD_METRIC_ID = "ThresholdMetricId"
     EVALUATE_LOW_SAMPLE_COUNT_PERCENTILE = "EvaluateLowSampleCountPercentile"
     EXTENDED_STATISTIC = "ExtendedStatistic"
@@ -333,6 +334,7 @@ class AnomalyDetector(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::AnomalyDetector"
+    name_field: ClassVar[str] = "metric_name"
     METRIC_CHARACTERISTICS = "MetricCharacteristics"
     METRIC_NAME = "MetricName"
     STAT = "Stat"
@@ -368,6 +370,7 @@ class CompositeAlarm(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::CompositeAlarm"
+    name_field: ClassVar[str] = "alarm_name"
     ALARM_ACTIONS = "AlarmActions"
     ACTIONS_SUPPRESSOR_WAIT_PERIOD = "ActionsSuppressorWaitPeriod"
     ACTIONS_ENABLED = "ActionsEnabled"
@@ -418,6 +421,7 @@ class Dashboard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::Dashboard"
+    name_field: ClassVar[str] = "dashboard_name"
     DASHBOARD_NAME = "DashboardName"
     DASHBOARD_BODY = "DashboardBody"
 
@@ -435,6 +439,7 @@ class InsightRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::InsightRule"
+    name_field: ClassVar[str] = "rule_name"
     RULE_STATE = "RuleState"
     RULE_BODY = "RuleBody"
     APPLY_ON_TRANSFORMED_LOGS = "ApplyOnTransformedLogs"
@@ -472,6 +477,7 @@ class MetricStream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud"""
 
     resource_type: ClassVar[str] = "AWS::CloudWatch::MetricStream"
+    name_field: ClassVar[str] = "name"
     STATISTICS_CONFIGURATIONS = "StatisticsConfigurations"
     FIREHOSE_ARN = "FirehoseArn"
     INCLUDE_LINKED_ACCOUNTS_METRICS = "IncludeLinkedAccountsMetrics"

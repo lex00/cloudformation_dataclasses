@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSM
@@ -1492,6 +1492,7 @@ class Association(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-a"""
 
     resource_type: ClassVar[str] = "AWS::SSM::Association"
+    name_field: ClassVar[str] = "association_name"
     ASSOCIATION_NAME = "AssociationName"
     CALENDAR_NAMES = "CalendarNames"
     SCHEDULE_EXPRESSION = "ScheduleExpression"
@@ -1560,6 +1561,7 @@ class Document(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-d"""
 
     resource_type: ClassVar[str] = "AWS::SSM::Document"
+    name_field: ClassVar[str] = "name"
     DOCUMENT_FORMAT = "DocumentFormat"
     REQUIRES = "Requires"
     CONTENT = "Content"
@@ -1601,6 +1603,7 @@ class MaintenanceWindow(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-m"""
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindow"
+    name_field: ClassVar[str] = "name"
     START_DATE = "StartDate"
     DESCRIPTION = "Description"
     ALLOW_UNASSOCIATED_TARGETS = "AllowUnassociatedTargets"
@@ -1645,6 +1648,7 @@ class MaintenanceWindowTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-m"""
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindowTarget"
+    name_field: ClassVar[str] = "name"
     OWNER_INFORMATION = "OwnerInformation"
     DESCRIPTION = "Description"
     WINDOW_ID = "WindowId"
@@ -1674,6 +1678,7 @@ class MaintenanceWindowTask(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-m"""
 
     resource_type: ClassVar[str] = "AWS::SSM::MaintenanceWindowTask"
+    name_field: ClassVar[str] = "name"
     MAX_ERRORS = "MaxErrors"
     DESCRIPTION = "Description"
     SERVICE_ROLE_ARN = "ServiceRoleArn"
@@ -1727,6 +1732,7 @@ class Parameter(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-p"""
 
     resource_type: ClassVar[str] = "AWS::SSM::Parameter"
+    name_field: ClassVar[str] = "name"
     TYPE = "Type"
     DESCRIPTION = "Description"
     POLICIES = "Policies"
@@ -1776,6 +1782,7 @@ class PatchBaseline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-p"""
 
     resource_type: ClassVar[str] = "AWS::SSM::PatchBaseline"
+    name_field: ClassVar[str] = "name"
     OPERATING_SYSTEM = "OperatingSystem"
     DESCRIPTION = "Description"
     APPROVAL_RULES = "ApprovalRules"
@@ -1838,6 +1845,7 @@ class ResourceDataSync(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-r"""
 
     resource_type: ClassVar[str] = "AWS::SSM::ResourceDataSync"
+    name_field: ClassVar[str] = "sync_name"
     S3_DESTINATION = "S3Destination"
     KMS_KEY_ARN = "KMSKeyArn"
     SYNC_SOURCE = "SyncSource"

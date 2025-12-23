@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:31
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFv2
@@ -1093,6 +1093,7 @@ class IPSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::IPSet"
+    name_field: ClassVar[str] = "name"
     ADDRESSES = "Addresses"
     DESCRIPTION = "Description"
     SCOPE = "Scope"
@@ -1162,6 +1163,7 @@ class RegexPatternSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::RegexPatternSet"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     REGULAR_EXPRESSION_LIST = "RegularExpressionList"
     SCOPE = "Scope"
@@ -1199,6 +1201,7 @@ class RuleGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::RuleGroup"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     SCOPE = "Scope"
     CAPACITY = "Capacity"
@@ -1256,6 +1259,7 @@ class WebACL(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2"""
 
     resource_type: ClassVar[str] = "AWS::WAFv2::WebACL"
+    name_field: ClassVar[str] = "name"
     DESCRIPTION = "Description"
     ASSOCIATION_CONFIG = "AssociationConfig"
     CHALLENGE_CONFIG = "ChallengeConfig"

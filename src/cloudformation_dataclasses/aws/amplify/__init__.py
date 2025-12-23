@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:51
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Amplify
@@ -211,6 +211,7 @@ class App(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::App"
+    name_field: ClassVar[str] = "name"
     AUTO_BRANCH_CREATION_CONFIG = "AutoBranchCreationConfig"
     OAUTH_TOKEN = "OauthToken"
     DESCRIPTION = "Description"
@@ -297,6 +298,7 @@ class Branch(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::Branch"
+    name_field: ClassVar[str] = "branch_name"
     DESCRIPTION = "Description"
     ENABLE_PERFORMANCE_MODE = "EnablePerformanceMode"
     COMPUTE_ROLE_ARN = "ComputeRoleArn"
@@ -367,6 +369,7 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::Domain"
+    name_field: ClassVar[str] = "domain_name"
     SUB_DOMAIN_SETTINGS = "SubDomainSettings"
     APP_ID = "AppId"
     AUTO_SUB_DOMAIN_IAM_ROLE = "AutoSubDomainIAMRole"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:25
+  Generated: 2025-12-22 18:30:15
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LookoutEquipment
@@ -271,6 +271,7 @@ class InferenceScheduler(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-looko"""
 
     resource_type: ClassVar[str] = "AWS::LookoutEquipment::InferenceScheduler"
+    name_field: ClassVar[str] = "inference_scheduler_name"
     INFERENCE_SCHEDULER_NAME = "InferenceSchedulerName"
     DATA_UPLOAD_FREQUENCY = "DataUploadFrequency"
     MODEL_NAME = "ModelName"

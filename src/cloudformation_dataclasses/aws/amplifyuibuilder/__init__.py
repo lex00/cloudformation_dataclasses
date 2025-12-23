@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:21
+  Generated: 2025-12-22 18:29:52
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmplifyUIBuilder
@@ -214,6 +214,7 @@ class Component(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Component"
+    name_field: ClassVar[str] = "name"
     COMPONENT_TYPE = "ComponentType"
     SCHEMA_VERSION = "SchemaVersion"
     ENVIRONMENT_NAME = "EnvironmentName"
@@ -283,6 +284,7 @@ class Form(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Form"
+    name_field: ClassVar[str] = "name"
     FORM_ACTION_TYPE = "FormActionType"
     CTA = "Cta"
     FIELDS = "Fields"
@@ -336,6 +338,7 @@ class Theme(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::AmplifyUIBuilder::Theme"
+    name_field: ClassVar[str] = "name"
     APP_ID = "AppId"
     ENVIRONMENT_NAME = "EnvironmentName"
     VALUES = "Values"

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:23
+  Generated: 2025-12-22 18:30:00
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Comprehend
@@ -612,6 +612,7 @@ class DocumentClassifier(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-compr"""
 
     resource_type: ClassVar[str] = "AWS::Comprehend::DocumentClassifier"
+    name_field: ClassVar[str] = "document_classifier_name"
     LANGUAGE_CODE = "LanguageCode"
     DATA_ACCESS_ROLE_ARN = "DataAccessRoleArn"
     OUTPUT_DATA_CONFIG = "OutputDataConfig"
@@ -665,6 +666,7 @@ class Flywheel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-compr"""
 
     resource_type: ClassVar[str] = "AWS::Comprehend::Flywheel"
+    name_field: ClassVar[str] = "flywheel_name"
     DATA_LAKE_S3_URI = "DataLakeS3Uri"
     DATA_ACCESS_ROLE_ARN = "DataAccessRoleArn"
     FLYWHEEL_NAME = "FlywheelName"

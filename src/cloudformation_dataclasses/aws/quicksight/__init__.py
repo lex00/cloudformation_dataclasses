@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:27
+  Generated: 2025-12-22 18:30:22
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QuickSight
@@ -3646,6 +3646,7 @@ class Analysis(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Analysis"
+    name_field: ClassVar[str] = "name"
     STATUS = "Status"
     PARAMETERS = "Parameters"
     SOURCE_ENTITY = "SourceEntity"
@@ -3720,6 +3721,7 @@ class CustomPermissions(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::CustomPermissions"
+    name_field: ClassVar[str] = "custom_permissions_name"
     CUSTOM_PERMISSIONS_NAME = "CustomPermissionsName"
     CAPABILITIES = "Capabilities"
     AWS_ACCOUNT_ID = "AwsAccountId"
@@ -3749,6 +3751,7 @@ class Dashboard(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Dashboard"
+    name_field: ClassVar[str] = "name"
     PARAMETERS = "Parameters"
     VERSION_DESCRIPTION = "VersionDescription"
     SOURCE_ENTITY = "SourceEntity"
@@ -3881,6 +3884,7 @@ class DataSet(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::DataSet"
+    name_field: ClassVar[str] = "name"
     PHYSICAL_TABLE_MAP = "PhysicalTableMap"
     FIELD_FOLDERS = "FieldFolders"
     SEMANTIC_MODEL_CONFIGURATION = "SemanticModelConfiguration"
@@ -3975,6 +3979,7 @@ class DataSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::DataSource"
+    name_field: ClassVar[str] = "name"
     ERROR_INFO = "ErrorInfo"
     FOLDER_ARNS = "FolderArns"
     NAME = "Name"
@@ -4046,6 +4051,7 @@ class Folder(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Folder"
+    name_field: ClassVar[str] = "name"
     SHARING_MODEL = "SharingModel"
     AWS_ACCOUNT_ID = "AwsAccountId"
     PERMISSIONS = "Permissions"
@@ -4123,6 +4129,7 @@ class Template(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Template"
+    name_field: ClassVar[str] = "name"
     VERSION_DESCRIPTION = "VersionDescription"
     SOURCE_ENTITY = "SourceEntity"
     DEFINITION = "Definition"
@@ -4227,6 +4234,7 @@ class Theme(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Theme"
+    name_field: ClassVar[str] = "name"
     THEME_ID = "ThemeId"
     VERSION_DESCRIPTION = "VersionDescription"
     CONFIGURATION = "Configuration"
@@ -4348,6 +4356,7 @@ class Topic(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::Topic"
+    name_field: ClassVar[str] = "name"
     CUSTOM_INSTRUCTIONS = "CustomInstructions"
     DESCRIPTION = "Description"
     DATA_SETS = "DataSets"
@@ -4395,6 +4404,7 @@ class VPCConnection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quick"""
 
     resource_type: ClassVar[str] = "AWS::QuickSight::VPCConnection"
+    name_field: ClassVar[str] = "name"
     DNS_RESOLVERS = "DnsResolvers"
     AVAILABILITY_STATUS = "AvailabilityStatus"
     AWS_ACCOUNT_ID = "AwsAccountId"

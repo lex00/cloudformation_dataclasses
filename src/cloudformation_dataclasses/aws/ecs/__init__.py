@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:04
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECS
@@ -1087,6 +1087,7 @@ class CapacityProvider(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-c"""
 
     resource_type: ClassVar[str] = "AWS::ECS::CapacityProvider"
+    name_field: ClassVar[str] = "name"
     AUTO_SCALING_GROUP_PROVIDER = "AutoScalingGroupProvider"
     CLUSTER_NAME = "ClusterName"
     TAGS = "Tags"
@@ -1113,6 +1114,7 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-c"""
 
     resource_type: ClassVar[str] = "AWS::ECS::Cluster"
+    name_field: ClassVar[str] = "cluster_name"
     CLUSTER_SETTINGS = "ClusterSettings"
     DEFAULT_CAPACITY_PROVIDER_STRATEGY = "DefaultCapacityProviderStrategy"
     CONFIGURATION = "Configuration"
@@ -1171,6 +1173,7 @@ class ExpressGatewayService(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-e"""
 
     resource_type: ClassVar[str] = "AWS::ECS::ExpressGatewayService"
+    name_field: ClassVar[str] = "service_name"
     TASK_ROLE_ARN = "TaskRoleArn"
     EXECUTION_ROLE_ARN = "ExecutionRoleArn"
     INFRASTRUCTURE_ROLE_ARN = "InfrastructureRoleArn"
@@ -1344,6 +1347,7 @@ class Service(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-s"""
 
     resource_type: ClassVar[str] = "AWS::ECS::Service"
+    name_field: ClassVar[str] = "service_name"
     PLATFORM_VERSION = "PlatformVersion"
     PROPAGATE_TAGS = "PropagateTags"
     PLACEMENT_STRATEGIES = "PlacementStrategies"

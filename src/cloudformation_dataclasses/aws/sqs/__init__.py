@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:28
+  Generated: 2025-12-22 18:30:27
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SQS
@@ -118,6 +118,7 @@ class Queue(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-q"""
 
     resource_type: ClassVar[str] = "AWS::SQS::Queue"
+    name_field: ClassVar[str] = "queue_name"
     RECEIVE_MESSAGE_WAIT_TIME_SECONDS = "ReceiveMessageWaitTimeSeconds"
     FIFO_THROUGHPUT_LIMIT = "FifoThroughputLimit"
     KMS_MASTER_KEY_ID = "KmsMasterKeyId"

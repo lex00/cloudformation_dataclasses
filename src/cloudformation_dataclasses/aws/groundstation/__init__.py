@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:24
+  Generated: 2025-12-22 18:30:09
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GroundStation
@@ -353,6 +353,7 @@ class Config(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groun"""
 
     resource_type: ClassVar[str] = "AWS::GroundStation::Config"
+    name_field: ClassVar[str] = "name"
     CONFIG_DATA = "ConfigData"
     TAGS = "Tags"
     NAME = "Name"
@@ -423,6 +424,7 @@ class MissionProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groun"""
 
     resource_type: ClassVar[str] = "AWS::GroundStation::MissionProfile"
+    name_field: ClassVar[str] = "name"
     STREAMS_KMS_KEY = "StreamsKmsKey"
     CONTACT_POST_PASS_DURATION_SECONDS = "ContactPostPassDurationSeconds"
     MINIMUM_VIABLE_CONTACT_DURATION_SECONDS = "MinimumViableContactDurationSeconds"

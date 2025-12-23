@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 14:55:26
+  Generated: 2025-12-22 18:30:17
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaTailor
@@ -421,6 +421,7 @@ class Channel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::Channel"
+    name_field: ClassVar[str] = "channel_name"
     FILLER_SLATE = "FillerSlate"
     CHANNEL_NAME = "ChannelName"
     TIER = "Tier"
@@ -465,6 +466,7 @@ class ChannelPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::ChannelPolicy"
+    name_field: ClassVar[str] = "channel_name"
     POLICY = "Policy"
     CHANNEL_NAME = "ChannelName"
 
@@ -482,6 +484,7 @@ class LiveSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::LiveSource"
+    name_field: ClassVar[str] = "live_source_name"
     LIVE_SOURCE_NAME = "LiveSourceName"
     SOURCE_LOCATION_NAME = "SourceLocationName"
     HTTP_PACKAGE_CONFIGURATIONS = "HttpPackageConfigurations"
@@ -511,6 +514,7 @@ class PlaybackConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::PlaybackConfiguration"
+    name_field: ClassVar[str] = "name"
     BUMPER = "Bumper"
     DASH_CONFIGURATION = "DashConfiguration"
     INSERTION_MODE = "InsertionMode"
@@ -602,6 +606,7 @@ class SourceLocation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::SourceLocation"
+    name_field: ClassVar[str] = "source_location_name"
     SOURCE_LOCATION_NAME = "SourceLocationName"
     DEFAULT_SEGMENT_DELIVERY_CONFIGURATION = "DefaultSegmentDeliveryConfiguration"
     SEGMENT_DELIVERY_CONFIGURATIONS = "SegmentDeliveryConfigurations"
@@ -637,6 +642,7 @@ class VodSource(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-media"""
 
     resource_type: ClassVar[str] = "AWS::MediaTailor::VodSource"
+    name_field: ClassVar[str] = "vod_source_name"
     VOD_SOURCE_NAME = "VodSourceName"
     SOURCE_LOCATION_NAME = "SourceLocationName"
     HTTP_PACKAGE_CONFIGURATIONS = "HttpPackageConfigurations"
