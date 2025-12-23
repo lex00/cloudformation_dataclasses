@@ -1,1 +1,1 @@
-"""Tests for S3 bucket example."""
+"""Tests for s3_bucket example."""
