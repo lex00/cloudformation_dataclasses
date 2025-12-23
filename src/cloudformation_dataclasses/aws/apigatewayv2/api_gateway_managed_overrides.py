@@ -1,0 +1,89 @@
+"""PropertyTypes for AWS::ApiGatewayV2::ApiGatewayManagedOverrides."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class AccessLogSettings(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "format": "Format",
+        "destination_arn": "DestinationArn",
+    }
+
+    format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    destination_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IntegrationOverrides(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "payload_format_version": "PayloadFormatVersion",
+        "timeout_in_millis": "TimeoutInMillis",
+        "integration_method": "IntegrationMethod",
+    }
+
+    description: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    payload_format_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    timeout_in_millis: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    integration_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RouteOverrides(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "target": "Target",
+        "authorizer_id": "AuthorizerId",
+        "operation_name": "OperationName",
+        "authorization_scopes": "AuthorizationScopes",
+        "authorization_type": "AuthorizationType",
+    }
+
+    target: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    authorizer_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    operation_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    authorization_scopes: Optional[Union[list[str], Ref]] = None
+    authorization_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RouteSettings(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "logging_level": "LoggingLevel",
+        "data_trace_enabled": "DataTraceEnabled",
+        "throttling_burst_limit": "ThrottlingBurstLimit",
+        "detailed_metrics_enabled": "DetailedMetricsEnabled",
+        "throttling_rate_limit": "ThrottlingRateLimit",
+    }
+
+    logging_level: Optional[Union[str, LoggingLevel, Ref, GetAtt, Sub]] = None
+    data_trace_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    throttling_burst_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    detailed_metrics_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    throttling_rate_limit: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class StageOverrides(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "access_log_settings": "AccessLogSettings",
+        "auto_deploy": "AutoDeploy",
+        "route_settings": "RouteSettings",
+        "stage_variables": "StageVariables",
+        "default_route_settings": "DefaultRouteSettings",
+    }
+
+    description: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    access_log_settings: Optional[AccessLogSettings] = None
+    auto_deploy: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    route_settings: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+    stage_variables: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+    default_route_settings: Optional[RouteSettings] = None
+

@@ -28,6 +28,9 @@ Notes and future enhancement ideas for cloudformation_dataclasses.
 - Type stubs (.pyi files) for better IDE support
 - VS Code extension/snippets
 
+### Code Generator
+- **Alexa::ASK support** - The CloudFormation spec includes `Alexa::ASK::Skill` resource which uses a non-standard `Alexa::` prefix instead of `AWS::`. The code generator currently only handles `AWS::` prefixed services. Need to extend generator to support Alexa namespace.
+
 ### Advanced Features
 - Higher-level constructs (common patterns library)
 - boto3 deployment integration

@@ -1,0 +1,120 @@
+"""PropertyTypes for AWS::FSx::S3AccessPointAttachment."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class FileSystemGID(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "gid": "Gid",
+    }
+
+    gid: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OntapFileSystemIdentity(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "unix_user": "UnixUser",
+        "windows_user": "WindowsUser",
+    }
+
+    type_: Optional[Union[str, OntapFileSystemUserType, Ref, GetAtt, Sub]] = None
+    unix_user: Optional[OntapUnixFileSystemUser] = None
+    windows_user: Optional[OntapWindowsFileSystemUser] = None
+
+
+@dataclass
+class OntapUnixFileSystemUser(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "name": "Name",
+    }
+
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OntapWindowsFileSystemUser(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "name": "Name",
+    }
+
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OpenZFSFileSystemIdentity(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "posix_user": "PosixUser",
+    }
+
+    type_: Optional[Union[str, OpenZFSFileSystemUserType, Ref, GetAtt, Sub]] = None
+    posix_user: Optional[OpenZFSPosixFileSystemUser] = None
+
+
+@dataclass
+class OpenZFSPosixFileSystemUser(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "uid": "Uid",
+        "secondary_gids": "SecondaryGids",
+        "gid": "Gid",
+    }
+
+    uid: Optional[Union[float, Ref, GetAtt, Sub]] = None
+    secondary_gids: Optional[list[FileSystemGID]] = None
+    gid: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class S3AccessPoint(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "policy": "Policy",
+        "resource_arn": "ResourceARN",
+        "alias": "Alias",
+        "vpc_configuration": "VpcConfiguration",
+    }
+
+    policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+    resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    vpc_configuration: Optional[S3AccessPointVpcConfiguration] = None
+
+
+@dataclass
+class S3AccessPointOntapConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "volume_id": "VolumeId",
+        "file_system_identity": "FileSystemIdentity",
+    }
+
+    volume_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    file_system_identity: Optional[OntapFileSystemIdentity] = None
+
+
+@dataclass
+class S3AccessPointOpenZFSConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "volume_id": "VolumeId",
+        "file_system_identity": "FileSystemIdentity",
+    }
+
+    volume_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    file_system_identity: Optional[OpenZFSFileSystemIdentity] = None
+
+
+@dataclass
+class S3AccessPointVpcConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_id": "VpcId",
+    }
+
+    vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+

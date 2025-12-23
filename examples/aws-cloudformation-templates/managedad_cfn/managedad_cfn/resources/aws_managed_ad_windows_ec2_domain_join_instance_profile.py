@@ -1,0 +1,14 @@
+"""AWSManagedADWindowsEC2DomainJoinInstanceProfile - AWS::IAM::InstanceProfile resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class AWSManagedADWindowsEC2DomainJoinInstanceProfile:
+    """AWS::IAM::InstanceProfile resource."""
+
+    resource: iam.InstanceProfile
+    instance_profile_name = ref(AWSManagedADWindowsEC2DomainJoinRole)
+    path = '/'
+    roles = [ref(AWSManagedADWindowsEC2DomainJoinRole)]
+    condition = 'WindowsEC2DomainJoinResourcesCondition'

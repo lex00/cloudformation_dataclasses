@@ -1,6 +1,6 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.5.6"  # Package version (independent of spec/generator versions)
+version = "0.6.0"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [
@@ -74,6 +74,7 @@ exclude = [
     "*.pyc",
     "/tests",
     "/examples",
+    "/vendor",
     "/.cloudformation_spec_cache",
 ]
 
@@ -102,7 +103,8 @@ line-length = 100
 target-version = "py310"
 extend-exclude = [
     "src/cloudformation_dataclasses/aws/",  # Generated code - skip linting
-    "examples/",  # Generated/third-party examples - skip linting
+    "examples/",  # Generated examples - skip linting
+    "vendor/",  # Vendored third-party templates - skip linting
 ]
 
 [tool.mypy]
@@ -117,7 +119,7 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=cloudformation_dataclasses --cov-report=term-missing --ignore=examples/third_party"
+addopts = "-v --cov=cloudformation_dataclasses --cov-report=term-missing --ignore=examples/aws-cloudformation-templates"
 
 [tool.coverage.run]
 source = ["src/cloudformation_dataclasses"]

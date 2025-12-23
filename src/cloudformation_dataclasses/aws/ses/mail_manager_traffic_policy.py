@@ -1,0 +1,172 @@
+"""PropertyTypes for AWS::SES::MailManagerTrafficPolicy."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class IngressAnalysis(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "analyzer": "Analyzer",
+        "result_field": "ResultField",
+    }
+
+    analyzer: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    result_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IngressBooleanExpression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operator": "Operator",
+        "evaluate": "Evaluate",
+    }
+
+    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    evaluate: Optional[IngressBooleanToEvaluate] = None
+
+
+@dataclass
+class IngressBooleanToEvaluate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "is_in_address_list": "IsInAddressList",
+        "analysis": "Analysis",
+    }
+
+    is_in_address_list: Optional[IngressIsInAddressList] = None
+    analysis: Optional[IngressAnalysis] = None
+
+
+@dataclass
+class IngressIpToEvaluate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute": "Attribute",
+    }
+
+    attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IngressIpv4Expression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operator": "Operator",
+        "evaluate": "Evaluate",
+        "values": "Values",
+    }
+
+    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    evaluate: Optional[IngressIpToEvaluate] = None
+    values: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class IngressIpv6Expression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operator": "Operator",
+        "evaluate": "Evaluate",
+        "values": "Values",
+    }
+
+    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    evaluate: Optional[IngressIpv6ToEvaluate] = None
+    values: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class IngressIpv6ToEvaluate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute": "Attribute",
+    }
+
+    attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IngressIsInAddressList(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute": "Attribute",
+        "address_lists": "AddressLists",
+    }
+
+    attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    address_lists: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class IngressStringExpression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operator": "Operator",
+        "evaluate": "Evaluate",
+        "values": "Values",
+    }
+
+    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    evaluate: Optional[IngressStringToEvaluate] = None
+    values: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class IngressStringToEvaluate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute": "Attribute",
+        "analysis": "Analysis",
+    }
+
+    attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    analysis: Optional[IngressAnalysis] = None
+
+
+@dataclass
+class IngressTlsProtocolExpression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operator": "Operator",
+        "evaluate": "Evaluate",
+        "value": "Value",
+    }
+
+    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    evaluate: Optional[IngressTlsProtocolToEvaluate] = None
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IngressTlsProtocolToEvaluate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute": "Attribute",
+    }
+
+    attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class PolicyCondition(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "ipv6_expression": "Ipv6Expression",
+        "boolean_expression": "BooleanExpression",
+        "string_expression": "StringExpression",
+        "tls_expression": "TlsExpression",
+        "ip_expression": "IpExpression",
+    }
+
+    ipv6_expression: Optional[IngressIpv6Expression] = None
+    boolean_expression: Optional[IngressBooleanExpression] = None
+    string_expression: Optional[IngressStringExpression] = None
+    tls_expression: Optional[IngressTlsProtocolExpression] = None
+    ip_expression: Optional[IngressIpv4Expression] = None
+
+
+@dataclass
+class PolicyStatement(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "action": "Action",
+        "conditions": "Conditions",
+    }
+
+    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    conditions: Optional[list[PolicyCondition]] = None
+

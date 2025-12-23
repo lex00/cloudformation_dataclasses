@@ -1,0 +1,29 @@
+[project]
+name = "redhat_1"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+redhat_1 = "redhat_1.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["redhat_1"]
+
+[tool.hatch.build.targets.sdist]
+include = ["redhat_1/**/*.py", "redhat_1/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

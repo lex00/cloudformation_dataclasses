@@ -28,13 +28,14 @@ class TestGenerateSimpleBucket:
     def test_has_resource_class(self, code):
         assert "@cloudformation_dataclass" in code
         assert "class MyBucket:" in code
-        assert "resource: Bucket" in code
+        # Bucket exists in multiple modules (s3, s3outposts, lightsail), so qualified name is used
+        assert "resource: s3.Bucket" in code
         assert "bucket_name = 'my-test-bucket'" in code
 
     def test_has_output_class(self, code):
         assert "class BucketNameOutput:" in code
         assert "resource: Output" in code
-        assert 'ref("MyBucket")' in code
+        assert "ref(MyBucket)" in code
 
     def test_uses_template_from_registry(self, code):
         # Template class is no longer generated - resources auto-register
@@ -71,8 +72,8 @@ class TestGenerateBucketWithRef:
         assert "ref(BucketNameParam)" in code
 
     def test_has_getatt(self, code):
-        # Output values use string refs (inline mode), not class refs
-        assert 'get_att("MyBucket", "Arn")' in code
+        # Output values now use class refs
+        assert 'get_att(MyBucket, "Arn")' in code
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")
@@ -210,8 +211,8 @@ class TestGeneratePackage:
         assert "from .main import main" in content
         assert "main()" in content
 
-    def test_has_config_py(self, files):
-        assert "my_stack/config.py" in files
+    def test_has_stack_config_py(self, files):
+        assert "my_stack/stack_config.py" in files
 
     def test_has_resources_package(self, files):
         assert "my_stack/resources/__init__.py" in files

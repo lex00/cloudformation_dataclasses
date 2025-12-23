@@ -298,6 +298,7 @@ class CloudFormationResource(ABC):
     """
 
     resource_type: ClassVar[str]
+    name_field: ClassVar[Optional[str]] = None  # Field for physical resource name (e.g., "bucket_name")
     _property_mappings: ClassVar[dict[str, str]] = {}
 
     logical_id: Optional[str] = None
@@ -447,11 +448,17 @@ class CloudFormationResource(ABC):
         Uses _property_mappings to serialize fields to CloudFormation format.
         Handles intrinsic functions, nested property types, and lists automatically.
 
+        When context is set and a name property (e.g., bucket_name, function_name)
+        is None, auto-populates it with the context-generated resource_name.
+
         Returns:
             Dictionary of CloudFormation properties
         """
         props: dict[str, Any] = {}
         mappings = self.__class__._property_mappings
+
+        # Get the name field for auto-naming (if defined for this resource type)
+        auto_name_field = self.__class__.name_field if self.context else None
 
         for field_name, cf_name in mappings.items():
             # Special case: tags field uses all_tags to merge context tags
@@ -459,6 +466,10 @@ class CloudFormationResource(ABC):
                 value = self.all_tags
             else:
                 value = getattr(self, field_name, None)
+
+            # Auto-populate name field from context if not explicitly set
+            if value is None and field_name == auto_name_field:
+                value = self.resource_name
 
             if value is not None:
                 props[cf_name] = self._serialize_value(value)

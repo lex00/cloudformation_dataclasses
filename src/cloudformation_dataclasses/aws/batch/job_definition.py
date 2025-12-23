@@ -1,0 +1,751 @@
+"""PropertyTypes for AWS::Batch::JobDefinition."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class ConsumableResourceProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "consumable_resource_list": "ConsumableResourceList",
+    }
+
+    consumable_resource_list: Optional[list[ConsumableResourceRequirement]] = None
+
+
+@dataclass
+class ConsumableResourceRequirement(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "consumable_resource": "ConsumableResource",
+        "quantity": "Quantity",
+    }
+
+    consumable_resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ContainerProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "repository_credentials": "RepositoryCredentials",
+        "user": "User",
+        "secrets": "Secrets",
+        "memory": "Memory",
+        "privileged": "Privileged",
+        "enable_execute_command": "EnableExecuteCommand",
+        "linux_parameters": "LinuxParameters",
+        "fargate_platform_configuration": "FargatePlatformConfiguration",
+        "job_role_arn": "JobRoleArn",
+        "readonly_root_filesystem": "ReadonlyRootFilesystem",
+        "vcpus": "Vcpus",
+        "image": "Image",
+        "resource_requirements": "ResourceRequirements",
+        "log_configuration": "LogConfiguration",
+        "mount_points": "MountPoints",
+        "execution_role_arn": "ExecutionRoleArn",
+        "runtime_platform": "RuntimePlatform",
+        "volumes": "Volumes",
+        "command": "Command",
+        "environment": "Environment",
+        "ulimits": "Ulimits",
+        "network_configuration": "NetworkConfiguration",
+        "ephemeral_storage": "EphemeralStorage",
+    }
+
+    repository_credentials: Optional[RepositoryCredentials] = None
+    user: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    secrets: Optional[list[Secret]] = None
+    memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    linux_parameters: Optional[LinuxParameters] = None
+    fargate_platform_configuration: Optional[FargatePlatformConfiguration] = None
+    job_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    vcpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    image: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    resource_requirements: Optional[list[ResourceRequirement]] = None
+    log_configuration: Optional[LogConfiguration] = None
+    mount_points: Optional[list[MountPoint]] = None
+    execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime_platform: Optional[RuntimePlatform] = None
+    volumes: Optional[list[Volume]] = None
+    command: Optional[Union[list[str], Ref]] = None
+    environment: Optional[list[Environment]] = None
+    ulimits: Optional[list[Ulimit]] = None
+    network_configuration: Optional[NetworkConfiguration] = None
+    ephemeral_storage: Optional[EphemeralStorage] = None
+
+
+@dataclass
+class Device(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "host_path": "HostPath",
+        "permissions": "Permissions",
+        "container_path": "ContainerPath",
+    }
+
+    host_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    permissions: Optional[Union[list[str], Ref]] = None
+    container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EFSAuthorizationConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "iam": "Iam",
+        "access_point_id": "AccessPointId",
+    }
+
+    iam: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    access_point_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EFSVolumeConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "transit_encryption": "TransitEncryption",
+        "authorization_config": "AuthorizationConfig",
+        "file_system_id": "FileSystemId",
+        "root_directory": "RootDirectory",
+        "transit_encryption_port": "TransitEncryptionPort",
+    }
+
+    transit_encryption: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    authorization_config: Optional[EFSAuthorizationConfig] = None
+    file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    root_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    transit_encryption_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EcsProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "task_properties": "TaskProperties",
+    }
+
+    task_properties: Optional[list[EcsTaskProperties]] = None
+
+
+@dataclass
+class EcsTaskProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "platform_version": "PlatformVersion",
+        "execution_role_arn": "ExecutionRoleArn",
+        "runtime_platform": "RuntimePlatform",
+        "task_role_arn": "TaskRoleArn",
+        "ipc_mode": "IpcMode",
+        "volumes": "Volumes",
+        "enable_execute_command": "EnableExecuteCommand",
+        "containers": "Containers",
+        "network_configuration": "NetworkConfiguration",
+        "pid_mode": "PidMode",
+        "ephemeral_storage": "EphemeralStorage",
+    }
+
+    platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime_platform: Optional[RuntimePlatform] = None
+    task_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ipc_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    volumes: Optional[list[Volume]] = None
+    enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    containers: Optional[list[TaskContainerProperties]] = None
+    network_configuration: Optional[NetworkConfiguration] = None
+    pid_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ephemeral_storage: Optional[EphemeralStorage] = None
+
+
+@dataclass
+class EksContainer(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "args": "Args",
+        "volume_mounts": "VolumeMounts",
+        "image_pull_policy": "ImagePullPolicy",
+        "command": "Command",
+        "security_context": "SecurityContext",
+        "resources": "Resources",
+        "image": "Image",
+        "env": "Env",
+        "name": "Name",
+    }
+
+    args: Optional[Union[list[str], Ref]] = None
+    volume_mounts: Optional[list[EksContainerVolumeMount]] = None
+    image_pull_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    command: Optional[Union[list[str], Ref]] = None
+    security_context: Optional[EksContainerSecurityContext] = None
+    resources: Optional[EksContainerResourceRequirements] = None
+    image: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    env: Optional[list[EksContainerEnvironmentVariable]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksContainerEnvironmentVariable(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "name": "Name",
+    }
+
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksContainerResourceRequirements(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "limits": "Limits",
+        "requests": "Requests",
+    }
+
+    limits: Optional[dict[str, str]] = None
+    requests: Optional[dict[str, str]] = None
+
+
+@dataclass
+class EksContainerSecurityContext(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "run_as_user": "RunAsUser",
+        "allow_privilege_escalation": "AllowPrivilegeEscalation",
+        "run_as_non_root": "RunAsNonRoot",
+        "privileged": "Privileged",
+        "read_only_root_filesystem": "ReadOnlyRootFilesystem",
+        "run_as_group": "RunAsGroup",
+    }
+
+    run_as_user: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    allow_privilege_escalation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    run_as_non_root: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    read_only_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    run_as_group: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksContainerVolumeMount(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "mount_path": "MountPath",
+        "read_only": "ReadOnly",
+        "sub_path": "SubPath",
+        "name": "Name",
+    }
+
+    mount_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    sub_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksEmptyDir(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "medium": "Medium",
+        "size_limit": "SizeLimit",
+    }
+
+    medium: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    size_limit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksHostPath(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "path": "Path",
+    }
+
+    path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksMetadata(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "annotations": "Annotations",
+        "labels": "Labels",
+        "namespace": "Namespace",
+    }
+
+    annotations: Optional[dict[str, str]] = None
+    labels: Optional[dict[str, str]] = None
+    namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksPersistentVolumeClaim(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "read_only": "ReadOnly",
+        "claim_name": "ClaimName",
+    }
+
+    read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    claim_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksPodProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "init_containers": "InitContainers",
+        "volumes": "Volumes",
+        "dns_policy": "DnsPolicy",
+        "containers": "Containers",
+        "metadata": "Metadata",
+        "service_account_name": "ServiceAccountName",
+        "image_pull_secrets": "ImagePullSecrets",
+        "host_network": "HostNetwork",
+        "share_process_namespace": "ShareProcessNamespace",
+    }
+
+    init_containers: Optional[list[EksContainer]] = None
+    volumes: Optional[list[EksVolume]] = None
+    dns_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    containers: Optional[list[EksContainer]] = None
+    metadata: Optional[EksMetadata] = None
+    service_account_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    image_pull_secrets: Optional[list[ImagePullSecret]] = None
+    host_network: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    share_process_namespace: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "pod_properties": "PodProperties",
+    }
+
+    pod_properties: Optional[EksPodProperties] = None
+
+
+@dataclass
+class EksSecret(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secret_name": "SecretName",
+        "optional": "Optional",
+    }
+
+    secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    optional: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EksVolume(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secret": "Secret",
+        "empty_dir": "EmptyDir",
+        "host_path": "HostPath",
+        "persistent_volume_claim": "PersistentVolumeClaim",
+        "name": "Name",
+    }
+
+    secret: Optional[EksSecret] = None
+    empty_dir: Optional[EksEmptyDir] = None
+    host_path: Optional[EksHostPath] = None
+    persistent_volume_claim: Optional[EksPersistentVolumeClaim] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Environment(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "name": "Name",
+    }
+
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EphemeralStorage(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "size_in_gi_b": "SizeInGiB",
+    }
+
+    size_in_gi_b: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EvaluateOnExit(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "action": "Action",
+        "on_exit_code": "OnExitCode",
+        "on_reason": "OnReason",
+        "on_status_reason": "OnStatusReason",
+    }
+
+    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    on_exit_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    on_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    on_status_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class FargatePlatformConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "platform_version": "PlatformVersion",
+    }
+
+    platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class FirelensConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "options": "Options",
+        "type_": "Type",
+    }
+
+    options: Optional[dict[str, str]] = None
+    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Host(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "source_path": "SourcePath",
+    }
+
+    source_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ImagePullSecret(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "name": "Name",
+    }
+
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class JobTimeout(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attempt_duration_seconds": "AttemptDurationSeconds",
+    }
+
+    attempt_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class LinuxParameters(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "swappiness": "Swappiness",
+        "tmpfs": "Tmpfs",
+        "shared_memory_size": "SharedMemorySize",
+        "devices": "Devices",
+        "init_process_enabled": "InitProcessEnabled",
+        "max_swap": "MaxSwap",
+    }
+
+    swappiness: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    tmpfs: Optional[list[Tmpfs]] = None
+    shared_memory_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    devices: Optional[list[Device]] = None
+    init_process_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    max_swap: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class LogConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secret_options": "SecretOptions",
+        "options": "Options",
+        "log_driver": "LogDriver",
+    }
+
+    secret_options: Optional[list[Secret]] = None
+    options: Optional[dict[str, str]] = None
+    log_driver: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class MountPoint(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "read_only": "ReadOnly",
+        "source_volume": "SourceVolume",
+        "container_path": "ContainerPath",
+    }
+
+    read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    source_volume: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class MultiNodeContainerProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "repository_credentials": "RepositoryCredentials",
+        "user": "User",
+        "secrets": "Secrets",
+        "memory": "Memory",
+        "privileged": "Privileged",
+        "enable_execute_command": "EnableExecuteCommand",
+        "linux_parameters": "LinuxParameters",
+        "job_role_arn": "JobRoleArn",
+        "readonly_root_filesystem": "ReadonlyRootFilesystem",
+        "vcpus": "Vcpus",
+        "image": "Image",
+        "resource_requirements": "ResourceRequirements",
+        "log_configuration": "LogConfiguration",
+        "mount_points": "MountPoints",
+        "execution_role_arn": "ExecutionRoleArn",
+        "runtime_platform": "RuntimePlatform",
+        "volumes": "Volumes",
+        "command": "Command",
+        "environment": "Environment",
+        "ulimits": "Ulimits",
+        "instance_type": "InstanceType",
+        "ephemeral_storage": "EphemeralStorage",
+    }
+
+    repository_credentials: Optional[RepositoryCredentials] = None
+    user: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    secrets: Optional[list[Secret]] = None
+    memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    linux_parameters: Optional[LinuxParameters] = None
+    job_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    vcpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    image: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    resource_requirements: Optional[list[ResourceRequirement]] = None
+    log_configuration: Optional[LogConfiguration] = None
+    mount_points: Optional[list[MountPoint]] = None
+    execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime_platform: Optional[RuntimePlatform] = None
+    volumes: Optional[list[Volume]] = None
+    command: Optional[Union[list[str], Ref]] = None
+    environment: Optional[list[Environment]] = None
+    ulimits: Optional[list[Ulimit]] = None
+    instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ephemeral_storage: Optional[EphemeralStorage] = None
+
+
+@dataclass
+class MultiNodeEcsProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "task_properties": "TaskProperties",
+    }
+
+    task_properties: Optional[list[MultiNodeEcsTaskProperties]] = None
+
+
+@dataclass
+class MultiNodeEcsTaskProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "execution_role_arn": "ExecutionRoleArn",
+        "task_role_arn": "TaskRoleArn",
+        "ipc_mode": "IpcMode",
+        "volumes": "Volumes",
+        "enable_execute_command": "EnableExecuteCommand",
+        "containers": "Containers",
+        "pid_mode": "PidMode",
+    }
+
+    execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    task_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ipc_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    volumes: Optional[list[Volume]] = None
+    enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    containers: Optional[list[TaskContainerProperties]] = None
+    pid_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class NetworkConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "assign_public_ip": "AssignPublicIp",
+    }
+
+    assign_public_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class NodeProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "main_node": "MainNode",
+        "node_range_properties": "NodeRangeProperties",
+        "num_nodes": "NumNodes",
+    }
+
+    main_node: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    node_range_properties: Optional[list[NodeRangeProperty]] = None
+    num_nodes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class NodeRangeProperty(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "container": "Container",
+        "target_nodes": "TargetNodes",
+        "ecs_properties": "EcsProperties",
+        "instance_types": "InstanceTypes",
+        "eks_properties": "EksProperties",
+        "consumable_resource_properties": "ConsumableResourceProperties",
+    }
+
+    container: Optional[MultiNodeContainerProperties] = None
+    target_nodes: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ecs_properties: Optional[MultiNodeEcsProperties] = None
+    instance_types: Optional[Union[list[str], Ref]] = None
+    eks_properties: Optional[EksProperties] = None
+    consumable_resource_properties: Optional[ConsumableResourceProperties] = None
+
+
+@dataclass
+class RepositoryCredentials(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "credentials_parameter": "CredentialsParameter",
+    }
+
+    credentials_parameter: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ResourceRequirement(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "value": "Value",
+    }
+
+    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ResourceRetentionPolicy(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "skip_deregister_on_update": "SkipDeregisterOnUpdate",
+    }
+
+    skip_deregister_on_update: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RetryStrategy(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "evaluate_on_exit": "EvaluateOnExit",
+        "attempts": "Attempts",
+    }
+
+    evaluate_on_exit: Optional[list[EvaluateOnExit]] = None
+    attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RuntimePlatform(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "operating_system_family": "OperatingSystemFamily",
+        "cpu_architecture": "CpuArchitecture",
+    }
+
+    operating_system_family: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cpu_architecture: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Secret(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value_from": "ValueFrom",
+        "name": "Name",
+    }
+
+    value_from: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class TaskContainerDependency(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "condition": "Condition",
+        "container_name": "ContainerName",
+    }
+
+    condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    container_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class TaskContainerProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "repository_credentials": "RepositoryCredentials",
+        "user": "User",
+        "secrets": "Secrets",
+        "privileged": "Privileged",
+        "linux_parameters": "LinuxParameters",
+        "readonly_root_filesystem": "ReadonlyRootFilesystem",
+        "image": "Image",
+        "log_configuration": "LogConfiguration",
+        "essential": "Essential",
+        "resource_requirements": "ResourceRequirements",
+        "name": "Name",
+        "mount_points": "MountPoints",
+        "firelens_configuration": "FirelensConfiguration",
+        "depends_on": "DependsOn",
+        "command": "Command",
+        "environment": "Environment",
+        "ulimits": "Ulimits",
+    }
+
+    repository_credentials: Optional[RepositoryCredentials] = None
+    user: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    secrets: Optional[list[Secret]] = None
+    privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    linux_parameters: Optional[LinuxParameters] = None
+    readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    image: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_configuration: Optional[LogConfiguration] = None
+    essential: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    resource_requirements: Optional[list[ResourceRequirement]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mount_points: Optional[list[MountPoint]] = None
+    firelens_configuration: Optional[FirelensConfiguration] = None
+    depends_on: Optional[list[TaskContainerDependency]] = None
+    command: Optional[Union[list[str], Ref]] = None
+    environment: Optional[list[Environment]] = None
+    ulimits: Optional[list[Ulimit]] = None
+
+
+@dataclass
+class Tmpfs(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "size": "Size",
+        "container_path": "ContainerPath",
+        "mount_options": "MountOptions",
+    }
+
+    size: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mount_options: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class Ulimit(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "soft_limit": "SoftLimit",
+        "hard_limit": "HardLimit",
+        "name": "Name",
+    }
+
+    soft_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    hard_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Volume(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "host": "Host",
+        "efs_volume_configuration": "EfsVolumeConfiguration",
+        "name": "Name",
+    }
+
+    host: Optional[Host] = None
+    efs_volume_configuration: Optional[EFSVolumeConfiguration] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+

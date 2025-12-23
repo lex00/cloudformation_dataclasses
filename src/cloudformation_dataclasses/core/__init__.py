@@ -31,6 +31,7 @@ from cloudformation_dataclasses.core.template import (
     Parameter,
     Template,
 )
+from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.core.wrapper import (
     GetAtt,
     Ref,
@@ -71,4 +72,5 @@ __all__ = [
     "get_att",
     "ref",
     "registry",
+    "setup_resources",
 ]

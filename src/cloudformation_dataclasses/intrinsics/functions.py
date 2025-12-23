@@ -13,6 +13,17 @@ from dataclasses import dataclass
 from typing import Any, Union
 
 
+def _serialize_value(value: Any) -> Any:
+    """Recursively serialize a value, handling intrinsics and nested structures."""
+    if hasattr(value, "to_dict"):
+        return value.to_dict()
+    if isinstance(value, list):
+        return [_serialize_value(item) for item in value]
+    if isinstance(value, dict):
+        return {key: _serialize_value(val) for key, val in value.items()}
+    return value
+
+
 @dataclass
 class Ref:
     """
@@ -82,12 +93,7 @@ class Sub:
         """Serialize to CloudFormation JSON format."""
         if self.variables:
             # Serialize variable values (may contain intrinsic functions)
-            serialized_vars = {}
-            for key, value in self.variables.items():
-                if hasattr(value, "to_dict"):
-                    serialized_vars[key] = value.to_dict()
-                else:
-                    serialized_vars[key] = value
+            serialized_vars = _serialize_value(self.variables)
             return {"Fn::Sub": [self.template_string, serialized_vars]}
         return {"Fn::Sub": self.template_string}
 
@@ -115,13 +121,7 @@ class Join:
 
     def to_dict(self) -> dict[str, list[Any]]:
         """Serialize to CloudFormation JSON format."""
-        # Serialize values (may contain intrinsic functions)
-        serialized_values = []
-        for value in self.values:
-            if hasattr(value, "to_dict"):
-                serialized_values.append(value.to_dict())
-            else:
-                serialized_values.append(value)
+        serialized_values = _serialize_value(self.values)
         return {"Fn::Join": [self.delimiter, serialized_values]}
 
 
@@ -148,18 +148,7 @@ class Select:
 
     def to_dict(self) -> dict[str, list[Any]]:
         """Serialize to CloudFormation JSON format."""
-        # Handle intrinsic function as objects (e.g., GetAZs)
-        if hasattr(self.objects, "to_dict"):
-            return {"Fn::Select": [self.index, self.objects.to_dict()]}
-
-        # Handle list of objects
-        serialized_objects = []
-        for obj in self.objects:
-            if hasattr(obj, "to_dict"):
-                serialized_objects.append(obj.to_dict())
-            else:
-                serialized_objects.append(obj)
-        return {"Fn::Select": [self.index, serialized_objects]}
+        return {"Fn::Select": [self.index, _serialize_value(self.objects)]}
 
 
 @dataclass
@@ -207,16 +196,8 @@ class If:
 
     def to_dict(self) -> dict[str, list[Any]]:
         """Serialize to CloudFormation JSON format."""
-        true_val = (
-            self.value_if_true.to_dict()
-            if hasattr(self.value_if_true, "to_dict")
-            else self.value_if_true
-        )
-        false_val = (
-            self.value_if_false.to_dict()
-            if hasattr(self.value_if_false, "to_dict")
-            else self.value_if_false
-        )
+        true_val = _serialize_value(self.value_if_true)
+        false_val = _serialize_value(self.value_if_false)
         return {"Fn::If": [self.condition_name, true_val, false_val]}
 
 
@@ -315,6 +296,28 @@ class Not:
 
 
 @dataclass
+class Condition:
+    """
+    Condition reference - References another condition by name.
+
+    Used within Fn::And, Fn::Or, Fn::Not to reference a defined condition.
+
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html
+
+    Example:
+        >>> cond = Condition("IsProduction")
+        >>> cond.to_dict()
+        {"Condition": "IsProduction"}
+    """
+
+    condition_name: str
+
+    def to_dict(self) -> dict[str, str]:
+        """Serialize to CloudFormation JSON format."""
+        return {"Condition": self.condition_name}
+
+
+@dataclass
 class Base64:
     """
     Fn::Base64 - Returns the Base64 representation of the input string.
@@ -356,11 +359,11 @@ class GetAZs:
         {"Fn::GetAZs": ""}
     """
 
-    region: str = ""
+    region: str | Any = ""
 
-    def to_dict(self) -> dict[str, str]:
+    def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation JSON format."""
-        return {"Fn::GetAZs": self.region}
+        return {"Fn::GetAZs": _serialize_value(self.region)}
 
 
 @dataclass
@@ -447,6 +450,33 @@ class Cidr:
         return {"Fn::Cidr": [ip_val, self.count, self.cidr_bits]}
 
 
+@dataclass
+class Transform:
+    """
+    Fn::Transform - Calls a macro to process a section of the template.
+
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-transform.html
+
+    Example:
+        >>> transform = Transform(name="AWS::Include", parameters={"Location": "s3://bucket/file"})
+        >>> transform.to_dict()
+        {"Fn::Transform": {"Name": "AWS::Include", "Parameters": {"Location": "s3://bucket/file"}}}
+    """
+
+    name: str
+    parameters: dict[str, Any] | None = None
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize to CloudFormation JSON format."""
+        result: dict[str, Any] = {"Name": self.name}
+        if self.parameters:
+            params = {}
+            for k, v in self.parameters.items():
+                params[k] = v.to_dict() if hasattr(v, "to_dict") else v
+            result["Parameters"] = params
+        return {"Fn::Transform": result}
+
+
 # Type alias for any intrinsic function
 IntrinsicFunction = Union[
     Ref,
@@ -465,4 +495,5 @@ IntrinsicFunction = Union[
     ImportValue,
     FindInMap,
     Cidr,
+    Transform,
 ]

@@ -134,6 +134,7 @@ def _getazs_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic
         value = value[0] if value else ""
     else:  # MappingNode - e.g., !GetAZs { Ref: "AWS::Region" }
         value = loader.construct_mapping(node, deep=True)
+        value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.GET_AZS, value if value else "")
 
 
@@ -188,6 +189,7 @@ def _base64_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic
         value = value[0] if value else ""
     else:  # MappingNode - e.g., !Base64 { Fn::Sub: "..." }
         value = loader.construct_mapping(node, deep=True)
+        value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.BASE64, value)
 
 
@@ -206,6 +208,7 @@ def _importvalue_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntr
         value = value[0] if value else ""
     else:  # MappingNode - e.g., !ImportValue { Fn::Sub: "..." }
         value = loader.construct_mapping(node, deep=True)
+        value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.IMPORT_VALUE, value)
 
 
@@ -218,6 +221,7 @@ def _split_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
 def _transform_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
     """Handle !Transform tag."""
     value = loader.construct_mapping(node, deep=True)
+    value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.TRANSFORM, value)
 
 
@@ -504,6 +508,9 @@ def parse_template(
 
     # Parse resources
     for logical_id, resource_def in data.get("Resources", {}).items():
+        # Skip Fn::ForEach meta-resources - they define loop structure, not actual resources
+        if logical_id.startswith("Fn::ForEach::"):
+            continue
         template.resources[logical_id] = _parse_resource(logical_id, resource_def)
 
     # Parse outputs

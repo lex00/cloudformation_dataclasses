@@ -3,11 +3,21 @@ CloudFormation resource class generator.
 
 This module generates Python dataclasses from CloudFormation Resource Specifications.
 It converts AWS resource types to type-safe Python classes with proper type annotations.
+
+Structure:
+    Each AWS service becomes a package (e.g., ec2/) containing:
+    - __init__.py: Resource classes and submodule imports
+    - {resource}.py: PropertyTypes for each resource (e.g., instance.py, bucket.py)
+
+    This mirrors CloudFormation's type hierarchy:
+    - AWS::EC2::Instance -> ec2.Instance
+    - AWS::EC2::Instance.NetworkInterface -> ec2.instance.NetworkInterface
 """
 
 from __future__ import annotations
 
 import re
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -30,6 +40,55 @@ from cloudformation_dataclasses.codegen.spec_parser import (
     ResourceSpec,
     get_spec,
 )
+
+
+def detect_name_field(resource: ResourceSpec) -> str | None:
+    """
+    Detect which property is the physical name field for a resource.
+
+    The name field is the property used to set a custom physical name for the resource.
+    This is detected by looking for properties that:
+    1. End with 'Name' (e.g., BucketName, FunctionName, TableName)
+    2. Are of primitive type String
+    3. Preferably match the pattern {ResourceSuffix}Name (e.g., Bucket -> BucketName)
+
+    Args:
+        resource: Resource specification
+
+    Returns:
+        The snake_case field name (e.g., 'bucket_name'), or None if no name field found
+    """
+    if not resource.properties:
+        return None
+
+    # Extract resource suffix (e.g., 'Bucket' from 'AWS::S3::Bucket')
+    suffix = resource.resource_type.rsplit("::", 1)[-1]
+    expected_name = f"{suffix}Name"
+
+    # Priority 1: Look for exact match with resource suffix
+    if expected_name in resource.properties:
+        prop = resource.properties[expected_name]
+        if prop.primitive_type == "String":
+            return sanitize_python_name(to_snake_case(expected_name))
+
+    # Priority 2: Look for any property ending with 'Name' that's a String
+    # Prefer shorter names (more likely to be the primary name)
+    name_candidates = []
+    for prop_name, prop in resource.properties.items():
+        if prop_name.endswith("Name") and prop.primitive_type == "String":
+            # Skip properties that are clearly not the resource name
+            skip_patterns = ["DisplayName", "Description", "UserName", "HostName",
+                           "DomainName", "DatabaseName", "FileName", "PathName"]
+            if any(prop_name.endswith(p) for p in skip_patterns if p != prop_name):
+                continue
+            name_candidates.append(prop_name)
+
+    if name_candidates:
+        # Return the shortest candidate (most likely to be the primary name)
+        best = min(name_candidates, key=len)
+        return sanitize_python_name(to_snake_case(best))
+
+    return None
 
 
 def to_snake_case(name: str) -> str:
@@ -122,6 +181,7 @@ def map_property_type(
     prop_name: str | None = None,
     struct_name: str | None = None,
     enum_mappings: dict[tuple[str, str], str] | None = None,
+    submodule_name: str | None = None,
 ) -> str:
     """
     Map a CloudFormation property to a Python type annotation.
@@ -132,6 +192,7 @@ def map_property_type(
         prop_name: Original CloudFormation property name (for enum lookup)
         struct_name: Structure name (for enum lookup, e.g., "KeySchema")
         enum_mappings: Dict mapping (struct_name, prop_name) to enum type
+        submodule_name: If set, prefix PropertyType references with this submodule
 
     Returns:
         Python type annotation string with intrinsic function support
@@ -166,7 +227,10 @@ def map_property_type(
             return f"Union[list[{item_type}], Ref]"
         elif prop.item_type:
             # Complex item type (property type class)
-            return f"list[{prop.item_type}]"
+            item_name = prop.item_type
+            if submodule_name:
+                return f"list[{submodule_name}.{item_name}]"
+            return f"list[{item_name}]"
         else:
             return "Union[list[Any], Ref]"
 
@@ -182,6 +246,8 @@ def map_property_type(
     if prop.type:
         # The type is a property type class name
         simple_name = prop.type.split(".")[-1]  # Get last part after "."
+        if submodule_name:
+            return f"{submodule_name}.{simple_name}"
         return simple_name
 
     # Fallback
@@ -215,13 +281,6 @@ def generate_property_type_class(
     if not prop_type.properties:
         lines.append(f"{indent}    pass")
     else:
-        # Generate CloudFormation property name constants
-        # These allow type-safe dict key access: PropertyType.FIELD_NAME
-        for prop_name, prop in prop_type.properties.items():
-            const_name = to_snake_case(prop_name).upper()
-            lines.append(f'{indent}    {const_name} = "{prop_name}"')
-        lines.append("")
-
         # Generate _property_mappings for data-driven serialization
         lines.append(f"{indent}    _property_mappings: ClassVar[dict[str, str]] = {{")
         for prop_name, prop in prop_type.properties.items():
@@ -248,30 +307,24 @@ def generate_property_type_class(
     return "\n".join(lines)
 
 
-def generate_resource_class(
+def generate_resource_class_only(
     resource: ResourceSpec,
-    spec: CloudFormationSpec,
     enum_mappings: dict[tuple[str, str], str] | None = None,
+    submodule_name: str | None = None,
 ) -> str:
     """
-    Generate a dataclass for a CloudFormation resource.
+    Generate a dataclass for a CloudFormation resource (without inline PropertyTypes).
 
     Args:
         resource: Resource specification
-        spec: Full CloudFormation spec (for looking up property types)
         enum_mappings: Dict mapping (struct_name, prop_name) to enum type
+        submodule_name: Submodule name for PropertyType references (e.g., "instance")
 
     Returns:
         Generated Python dataclass code
     """
     class_name = resource.class_name
     lines = []
-
-    # Generate property type classes first
-    prop_types = spec.get_property_types_for_resource(resource.resource_type)
-    for prop_type in prop_types.values():
-        lines.append(generate_property_type_class(prop_type, enum_mappings=enum_mappings))
-        lines.append("\n")
 
     # Resource class definition
     lines.append("@dataclass")
@@ -289,18 +342,16 @@ def generate_resource_class(
     # Resource type constant
     lines.append(f'    resource_type: ClassVar[str] = "{resource.resource_type}"')
 
+    # Detect and add name_field for auto-naming support
+    name_field = detect_name_field(resource)
+    if name_field:
+        lines.append(f'    name_field: ClassVar[str] = "{name_field}"')
+
     # Generate properties
     if not resource.properties:
         lines.append("")
         lines.append("    pass")
     else:
-        # Generate CloudFormation property name constants
-        # These allow type-safe dict key access: Resource.FIELD_NAME
-        for prop_name, prop in resource.properties.items():
-            const_name = to_snake_case(prop_name).upper()
-            lines.append(f'    {const_name} = "{prop_name}"')
-        lines.append("")
-
         # Generate _property_mappings for data-driven serialization
         lines.append("    _property_mappings: ClassVar[dict[str, str]] = {")
         for prop_name, prop in resource.properties.items():
@@ -317,6 +368,7 @@ def generate_resource_class(
                 prop_name=prop_name,
                 struct_name=class_name,
                 enum_mappings=enum_mappings,
+                submodule_name=submodule_name,
             )
 
             # Add field - make all optional to avoid dataclass inheritance issues
@@ -338,13 +390,99 @@ def generate_resource_class(
     return "\n".join(lines)
 
 
-def generate_service_module(
+def _generate_module_header(service: str) -> str:
+    """Generate module docstring with version metadata."""
+    lines = [
+        '"""',
+        f"AWS CloudFormation {service} Resources",
+        "",
+        "⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY ⚠️",
+        "",
+        "This file is automatically generated from the AWS CloudFormation Resource Specification.",
+        "Any manual changes will be overwritten when regenerated.",
+        "",
+        "Version Information:",
+        f"  CloudFormation Spec: {CLOUDFORMATION_SPEC_VERSION}",
+        f"  Generator Version: {GENERATOR_VERSION}",
+        f"  Combined: {COMBINED_VERSION}",
+        f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        "",
+        "To regenerate:",
+        f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}",
+        '"""',
+    ]
+    return "\n".join(lines)
+
+
+def _generate_common_imports() -> str:
+    """Generate common import statements."""
+    lines = [
+        "",
+        "from __future__ import annotations",
+        "",
+        "from dataclasses import dataclass",
+        "from typing import Any, ClassVar, Optional, Union",
+        "",
+        "from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag",
+        "from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub",
+    ]
+    return "\n".join(lines)
+
+
+def _generate_property_type_imports() -> str:
+    """Generate imports for PropertyType submodules."""
+    lines = [
+        "",
+        "from __future__ import annotations",
+        "",
+        "from dataclasses import dataclass",
+        "from typing import Any, ClassVar, Optional, Union",
+        "",
+        "from cloudformation_dataclasses.core.base import PropertyType, Tag",
+        "from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub",
+    ]
+    return "\n".join(lines)
+
+
+def _generate_property_type_module(
+    path: Path,
+    resource_spec: ResourceSpec,
+    prop_types: dict[str, PropertyTypeSpec],
+    enum_mappings: dict[tuple[str, str], str] | None,
+) -> None:
+    """Generate a module containing PropertyTypes for a single resource.
+
+    Enums are NOT duplicated here - they are defined once in __init__.py
+    and imported via 'from . import *' if needed.
+    """
+    lines = [
+        f'"""PropertyTypes for {resource_spec.resource_type}."""',
+        _generate_property_type_imports(),
+    ]
+
+    lines.append("")
+    lines.append("")
+
+    for prop_type in prop_types.values():
+        lines.append(generate_property_type_class(prop_type, enum_mappings=enum_mappings))
+        lines.append("")
+        lines.append("")
+
+    with open(path, "w") as f:
+        f.write("\n".join(lines))
+
+
+def generate_service_package(
     service: str,
     spec: CloudFormationSpec,
     output_dir: Path,
 ) -> Path:
     """
-    Generate a complete module file for an AWS service.
+    Generate a package directory for an AWS service.
+
+    Creates:
+      - {service}/__init__.py with Resource classes
+      - {service}/{resource}.py for each resource's PropertyTypes
 
     Args:
         service: Service name (e.g., "S3", "EC2")
@@ -352,94 +490,108 @@ def generate_service_module(
         output_dir: Output directory for generated files
 
     Returns:
-        Path to generated module file
-
-    Example:
-        >>> spec = get_spec()
-        >>> generate_service_module("S3", spec, Path("src/cloudformation_dataclasses/aws"))
+        Path to generated package directory
     """
     service_lower = service.lower()
     if service_lower == "lambda":
-        module_name = "lambda_"  # Avoid Python keyword
+        package_name = "lambda_"
     else:
-        module_name = service_lower
+        package_name = service_lower
 
-    output_file = output_dir / f"{module_name}.py"
+    package_dir = output_dir / package_name
+
+    # Clean existing package if it exists
+    if package_dir.exists():
+        shutil.rmtree(package_dir)
+
+    package_dir.mkdir(parents=True, exist_ok=True)
 
     # Get all resources for this service
     resources = spec.get_resources_by_service(service)
 
     if not resources:
         print(f"Warning: No resources found for service: {service}")
-        return output_file
+        return package_dir
 
-    lines = []
-
-    # Module header with version metadata
-    lines.append('"""')
-    lines.append(f"AWS CloudFormation {service} Resources")
-    lines.append("")
-    lines.append("⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY ⚠️")
-    lines.append("")
-    lines.append(
-        "This file is automatically generated from the AWS CloudFormation Resource Specification."
-    )
-    lines.append("Any manual changes will be overwritten when regenerated.")
-    lines.append("")
-    lines.append("Version Information:")
-    lines.append(f"  CloudFormation Spec: {CLOUDFORMATION_SPEC_VERSION}")
-    lines.append(f"  Generator Version: {GENERATOR_VERSION}")
-    lines.append(f"  Combined: {COMBINED_VERSION}")
-    lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    lines.append("")
-    lines.append("To regenerate this file:")
-    lines.append(
-        f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}"
-    )
-    lines.append('"""')
-    lines.append("")
-
-    # Imports
-    lines.append("from __future__ import annotations")
-    lines.append("")
-    lines.append("from dataclasses import dataclass")
-    lines.append("from typing import Any, ClassVar, Optional, Union")
-    lines.append("")
-    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag")
-    lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
-
-    # Generate service-specific enum constants from botocore
+    # Generate enum constants (shared across package)
     enum_classes, enum_aliases = generate_service_enums(service)
     enum_mappings = get_property_enum_mappings(service)
 
-    if enum_classes:
-        lines.append("")
-        lines.append("")
-        lines.append("# " + "=" * 77)
-        lines.append("# Service Constants (auto-generated from botocore)")
-        lines.append("# " + "=" * 77)
-        lines.append("")
-        lines.append(enum_classes)
-        lines.append("")
-        lines.append("")
-        lines.append("# Convenient aliases for enum values")
-        lines.append(enum_aliases)
+    # Build __init__.py content
+    init_lines = [_generate_module_header(service)]
+    init_lines.append(_generate_common_imports())
 
-    lines.append("")
-    lines.append("")
+    # Track submodules to import
+    submodules = []
 
-    # Generate all resource classes
+    # Process each resource
+    resource_classes = []
     for resource_type, resource_spec in resources.items():
-        lines.append(generate_resource_class(resource_spec, spec, enum_mappings=enum_mappings))
-        lines.append("\n\n")
+        resource_name = resource_spec.class_name  # e.g., "Instance"
+        resource_name_lower = to_snake_case(resource_name)  # e.g., "instance"
 
-    # Write to file
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with open(output_file, "w") as f:
-        f.write("\n".join(lines))
+        # Check if this resource has PropertyTypes
+        prop_types = spec.get_property_types_for_resource(resource_type)
 
-    print(f"✅ Generated {len(resources)} resources for {service} -> {output_file}")
-    return output_file
+        if prop_types:
+            # Generate submodule for PropertyTypes
+            submodule_path = package_dir / f"{resource_name_lower}.py"
+            _generate_property_type_module(
+                submodule_path, resource_spec, prop_types, enum_mappings
+            )
+            submodules.append(resource_name_lower)
+
+            # Generate Resource class with submodule references
+            resource_classes.append(
+                generate_resource_class_only(
+                    resource_spec,
+                    enum_mappings=enum_mappings,
+                    submodule_name=resource_name_lower,
+                )
+            )
+        else:
+            # No PropertyTypes - generate Resource class without submodule reference
+            resource_classes.append(
+                generate_resource_class_only(resource_spec, enum_mappings=enum_mappings)
+            )
+
+    # Add enum classes to __init__.py
+    if enum_classes:
+        init_lines.append("")
+        init_lines.append("")
+        init_lines.append("# " + "=" * 77)
+        init_lines.append("# Service Constants (auto-generated from botocore)")
+        init_lines.append("# " + "=" * 77)
+        init_lines.append("")
+        init_lines.append(enum_classes)
+        init_lines.append("")
+        init_lines.append("")
+        init_lines.append("# Convenient aliases for enum values")
+        init_lines.append(enum_aliases)
+
+    # Add submodule imports
+    if submodules:
+        init_lines.append("")
+        init_lines.append("")
+        init_lines.append("# PropertyType submodules (e.g., ec2.instance.NetworkInterface)")
+        for submod in sorted(set(submodules)):
+            init_lines.append(f"from . import {submod}")
+
+    init_lines.append("")
+    init_lines.append("")
+
+    # Add resource classes
+    for resource_class in resource_classes:
+        init_lines.append(resource_class)
+        init_lines.append("")
+        init_lines.append("")
+
+    # Write __init__.py
+    with open(package_dir / "__init__.py", "w") as f:
+        f.write("\n".join(init_lines))
+
+    print(f"✅ Generated {len(resources)} resources for {service} -> {package_dir}/")
+    return package_dir
 
 
 if __name__ == "__main__":
@@ -459,7 +611,7 @@ if __name__ == "__main__":
         print(f"Generating classes for service: {service}")
         spec = get_spec()
         output_dir = Path("src/cloudformation_dataclasses/aws")
-        generate_service_module(service, spec, output_dir)
+        generate_service_package(service, spec, output_dir)
 
     elif "--all" in sys.argv:
         # Generate all services
@@ -472,7 +624,7 @@ if __name__ == "__main__":
 
         for service in services:
             try:
-                generate_service_module(service, spec, output_dir)
+                generate_service_package(service, spec, output_dir)
             except Exception as e:
                 print(f"❌ Error generating {service}: {e}")
 

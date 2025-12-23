@@ -1,0 +1,21 @@
+"""Listener - AWS::ElasticLoadBalancingV2::Listener resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class ListenerAction:
+    resource: elasticloadbalancingv2.listener_rule.Action
+    type_ = 'forward'
+    target_group_arn = ref(TargetGroup)
+
+
+@cloudformation_dataclass
+class Listener:
+    """AWS::ElasticLoadBalancingV2::Listener resource."""
+
+    resource: elasticloadbalancingv2.Listener
+    default_actions = [ListenerAction]
+    load_balancer_arn = ref(loadBalancer)
+    port = '80'
+    protocol = 'TCP'

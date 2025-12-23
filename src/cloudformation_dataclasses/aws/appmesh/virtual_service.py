@@ -1,0 +1,48 @@
+"""PropertyTypes for AWS::AppMesh::VirtualService."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class VirtualNodeServiceProvider(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "virtual_node_name": "VirtualNodeName",
+    }
+
+    virtual_node_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class VirtualRouterServiceProvider(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "virtual_router_name": "VirtualRouterName",
+    }
+
+    virtual_router_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class VirtualServiceProvider(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "virtual_node": "VirtualNode",
+        "virtual_router": "VirtualRouter",
+    }
+
+    virtual_node: Optional[VirtualNodeServiceProvider] = None
+    virtual_router: Optional[VirtualRouterServiceProvider] = None
+
+
+@dataclass
+class VirtualServiceSpec(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "provider": "Provider",
+    }
+
+    provider: Optional[VirtualServiceProvider] = None
+

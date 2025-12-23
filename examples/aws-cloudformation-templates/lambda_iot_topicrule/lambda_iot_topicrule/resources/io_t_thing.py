@@ -1,0 +1,11 @@
+"""IoTThing - AWS::IoT::Thing resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class IoTThing:
+    """AWS::IoT::Thing resource."""
+
+    resource: iot.Thing
+    thing_name = ref(MyLambda)

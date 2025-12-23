@@ -1,0 +1,389 @@
+"""PropertyTypes for AWS::Pinpoint::Campaign."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class AttributeDimension(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute_type": "AttributeType",
+        "values": "Values",
+    }
+
+    attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
+    values: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class CampaignCustomMessage(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "data": "Data",
+    }
+
+    data: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CampaignEmailMessage(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "from_address": "FromAddress",
+        "html_body": "HtmlBody",
+        "title": "Title",
+        "body": "Body",
+    }
+
+    from_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    html_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    title: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CampaignEventFilter(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "filter_type": "FilterType",
+        "dimensions": "Dimensions",
+    }
+
+    filter_type: Optional[Union[str, FilterType, Ref, GetAtt, Sub]] = None
+    dimensions: Optional[EventDimensions] = None
+
+
+@dataclass
+class CampaignHook(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "mode": "Mode",
+        "web_url": "WebUrl",
+        "lambda_function_name": "LambdaFunctionName",
+    }
+
+    mode: Optional[Union[str, Mode, Ref, GetAtt, Sub]] = None
+    web_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    lambda_function_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CampaignInAppMessage(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "custom_config": "CustomConfig",
+        "layout": "Layout",
+        "content": "Content",
+    }
+
+    custom_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+    layout: Optional[Union[str, Layout, Ref, GetAtt, Sub]] = None
+    content: Optional[list[InAppMessageContent]] = None
+
+
+@dataclass
+class CampaignSmsMessage(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "entity_id": "EntityId",
+        "origination_number": "OriginationNumber",
+        "sender_id": "SenderId",
+        "body": "Body",
+        "message_type": "MessageType",
+        "template_id": "TemplateId",
+    }
+
+    entity_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origination_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sender_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    message_type: Optional[Union[str, MessageType, Ref, GetAtt, Sub]] = None
+    template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CustomDeliveryConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "delivery_uri": "DeliveryUri",
+        "endpoint_types": "EndpointTypes",
+    }
+
+    delivery_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    endpoint_types: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class DefaultButtonConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "button_action": "ButtonAction",
+        "border_radius": "BorderRadius",
+        "text": "Text",
+        "text_color": "TextColor",
+        "link": "Link",
+        "background_color": "BackgroundColor",
+    }
+
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
+    border_radius: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    text: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    text_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    link: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    background_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EventDimensions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "metrics": "Metrics",
+        "event_type": "EventType",
+        "attributes": "Attributes",
+    }
+
+    metrics: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+    event_type: Optional[SetDimension] = None
+    attributes: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class InAppMessageBodyConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "alignment": "Alignment",
+        "text_color": "TextColor",
+        "body": "Body",
+    }
+
+    alignment: Optional[Union[str, Alignment, Ref, GetAtt, Sub]] = None
+    text_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class InAppMessageButton(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "web": "Web",
+        "default_config": "DefaultConfig",
+        "ios": "IOS",
+        "android": "Android",
+    }
+
+    web: Optional[OverrideButtonConfiguration] = None
+    default_config: Optional[DefaultButtonConfiguration] = None
+    ios: Optional[OverrideButtonConfiguration] = None
+    android: Optional[OverrideButtonConfiguration] = None
+
+
+@dataclass
+class InAppMessageContent(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "body_config": "BodyConfig",
+        "secondary_btn": "SecondaryBtn",
+        "image_url": "ImageUrl",
+        "primary_btn": "PrimaryBtn",
+        "header_config": "HeaderConfig",
+        "background_color": "BackgroundColor",
+    }
+
+    body_config: Optional[InAppMessageBodyConfig] = None
+    secondary_btn: Optional[InAppMessageButton] = None
+    image_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    primary_btn: Optional[InAppMessageButton] = None
+    header_config: Optional[InAppMessageHeaderConfig] = None
+    background_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class InAppMessageHeaderConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "alignment": "Alignment",
+        "header": "Header",
+        "text_color": "TextColor",
+    }
+
+    alignment: Optional[Union[str, Alignment, Ref, GetAtt, Sub]] = None
+    header: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    text_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Limits(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "daily": "Daily",
+        "maximum_duration": "MaximumDuration",
+        "total": "Total",
+        "messages_per_second": "MessagesPerSecond",
+        "session": "Session",
+    }
+
+    daily: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    maximum_duration: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    total: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    messages_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    session: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Message(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "json_body": "JsonBody",
+        "action": "Action",
+        "media_url": "MediaUrl",
+        "time_to_live": "TimeToLive",
+        "image_small_icon_url": "ImageSmallIconUrl",
+        "image_url": "ImageUrl",
+        "title": "Title",
+        "image_icon_url": "ImageIconUrl",
+        "silent_push": "SilentPush",
+        "body": "Body",
+        "raw_content": "RawContent",
+        "url": "Url",
+    }
+
+    json_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
+    media_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    time_to_live: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    image_small_icon_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    image_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    title: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    image_icon_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    silent_push: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    body: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    raw_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class MessageConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "apns_message": "APNSMessage",
+        "baidu_message": "BaiduMessage",
+        "default_message": "DefaultMessage",
+        "in_app_message": "InAppMessage",
+        "email_message": "EmailMessage",
+        "gcm_message": "GCMMessage",
+        "sms_message": "SMSMessage",
+        "custom_message": "CustomMessage",
+        "adm_message": "ADMMessage",
+    }
+
+    apns_message: Optional[Message] = None
+    baidu_message: Optional[Message] = None
+    default_message: Optional[Message] = None
+    in_app_message: Optional[CampaignInAppMessage] = None
+    email_message: Optional[CampaignEmailMessage] = None
+    gcm_message: Optional[Message] = None
+    sms_message: Optional[CampaignSmsMessage] = None
+    custom_message: Optional[CampaignCustomMessage] = None
+    adm_message: Optional[Message] = None
+
+
+@dataclass
+class MetricDimension(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "comparison_operator": "ComparisonOperator",
+        "value": "Value",
+    }
+
+    comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    value: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OverrideButtonConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "button_action": "ButtonAction",
+        "link": "Link",
+    }
+
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
+    link: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class QuietTime(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "start": "Start",
+        "end": "End",
+    }
+
+    start: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    end: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Schedule(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "time_zone": "TimeZone",
+        "quiet_time": "QuietTime",
+        "end_time": "EndTime",
+        "start_time": "StartTime",
+        "frequency": "Frequency",
+        "event_filter": "EventFilter",
+        "is_local_time": "IsLocalTime",
+    }
+
+    time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    quiet_time: Optional[QuietTime] = None
+    end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    frequency: Optional[Union[str, Frequency, Ref, GetAtt, Sub]] = None
+    event_filter: Optional[CampaignEventFilter] = None
+    is_local_time: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SetDimension(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dimension_type": "DimensionType",
+        "values": "Values",
+    }
+
+    dimension_type: Optional[Union[str, DimensionType, Ref, GetAtt, Sub]] = None
+    values: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class Template(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "version": "Version",
+        "name": "Name",
+    }
+
+    version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class TemplateConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sms_template": "SMSTemplate",
+        "email_template": "EmailTemplate",
+        "push_template": "PushTemplate",
+        "voice_template": "VoiceTemplate",
+    }
+
+    sms_template: Optional[Template] = None
+    email_template: Optional[Template] = None
+    push_template: Optional[Template] = None
+    voice_template: Optional[Template] = None
+
+
+@dataclass
+class WriteTreatmentResource(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "treatment_description": "TreatmentDescription",
+        "message_configuration": "MessageConfiguration",
+        "schedule": "Schedule",
+        "template_configuration": "TemplateConfiguration",
+        "custom_delivery_configuration": "CustomDeliveryConfiguration",
+        "size_percent": "SizePercent",
+        "treatment_name": "TreatmentName",
+    }
+
+    treatment_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    message_configuration: Optional[MessageConfiguration] = None
+    schedule: Optional[Schedule] = None
+    template_configuration: Optional[TemplateConfiguration] = None
+    custom_delivery_configuration: Optional[CustomDeliveryConfiguration] = None
+    size_percent: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    treatment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+

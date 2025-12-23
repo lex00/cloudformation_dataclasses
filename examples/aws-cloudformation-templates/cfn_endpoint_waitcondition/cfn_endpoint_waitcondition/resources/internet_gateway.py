@@ -1,0 +1,18 @@
+"""InternetGateway - AWS::EC2::InternetGateway resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class InternetGatewayAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = ref(EnvironmentName)
+
+
+@cloudformation_dataclass
+class InternetGateway:
+    """AWS::EC2::InternetGateway resource."""
+
+    resource: ec2.InternetGateway
+    tags = [InternetGatewayAssociationParameter]

@@ -292,8 +292,8 @@ class TestCloudFormationResource:
     """Tests for CloudFormationResource base class."""
 
     @dataclass
-    class TestResource(CloudFormationResource):
-        """Test resource class."""
+    class MockResource(CloudFormationResource):
+        """Mock resource class for testing."""
         resource_type = "AWS::Test::Resource"
         test_property: str = "default"
 
@@ -302,18 +302,18 @@ class TestCloudFormationResource:
 
     def test_resource_creation(self):
         """Test creating a resource."""
-        resource = self.TestResource(test_property="value")
+        resource = self.MockResource(test_property="value")
         assert resource.test_property == "value"
 
     def test_resource_logical_id(self):
         """Test resource logical ID."""
-        resource = self.TestResource(logical_id="MyTestResource")
+        resource = self.MockResource(logical_id="MyTestResource")
         assert resource.logical_id == "MyTestResource"
         assert resource.effective_logical_id == "MyTestResource"
 
     def test_resource_name_without_context(self):
         """Test resource name without context."""
-        resource = self.TestResource(logical_id="MyResource")
+        resource = self.MockResource(logical_id="MyResource")
         assert resource.resource_name == "MyResource"
 
     def test_resource_name_with_context(self):
@@ -330,12 +330,12 @@ class TestCloudFormationResource:
             deployment_group="blue",
             region="us-east-1"
         )
-        resource = self.TestResource(context=ctx, logical_id="Database")
+        resource = self.MockResource(context=ctx, logical_id="Database")
         assert resource.resource_name == "acme-MyApp-Database-prod-001-blue-us-east-1"
 
     def test_resource_tags_without_context(self):
         """Test resource tags without context."""
-        resource = self.TestResource(
+        resource = self.MockResource(
             tags=[Tag(key="Name", value="MyResource")]
         )
         assert len(resource.all_tags) == 1
@@ -353,7 +353,7 @@ class TestCloudFormationResource:
                 Tag(key="Project", value="MyProject")
             ]
         )
-        resource = self.TestResource(
+        resource = self.MockResource(
             context=ctx,
             tags=[Tag(key="Name", value="MyResource")]
         )
@@ -365,7 +365,7 @@ class TestCloudFormationResource:
 
     def test_resource_to_dict(self):
         """Test resource serialization."""
-        resource = self.TestResource(
+        resource = self.MockResource(
             logical_id="MyResource",
             test_property="custom_value"
         )
@@ -375,7 +375,7 @@ class TestCloudFormationResource:
 
     def test_resource_with_depends_on(self):
         """Test resource with DependsOn."""
-        resource = self.TestResource(
+        resource = self.MockResource(
             depends_on=["OtherResource", "AnotherResource"]
         )
         result = resource.to_dict()
@@ -383,19 +383,19 @@ class TestCloudFormationResource:
 
     def test_resource_with_condition(self):
         """Test resource with Condition."""
-        resource = self.TestResource(condition="IsProduction")
+        resource = self.MockResource(condition="IsProduction")
         result = resource.to_dict()
         assert result["Condition"] == "IsProduction"
 
     def test_resource_with_deletion_policy(self):
         """Test resource with DeletionPolicy."""
-        resource = self.TestResource(deletion_policy="Retain")
+        resource = self.MockResource(deletion_policy="Retain")
         result = resource.to_dict()
         assert result["DeletionPolicy"] == "Retain"
 
     def test_resource_with_metadata(self):
         """Test resource with Metadata."""
-        resource = self.TestResource(
+        resource = self.MockResource(
             metadata={"Key": "Value", "Nested": {"Inner": "Data"}}
         )
         result = resource.to_dict()
@@ -404,14 +404,14 @@ class TestCloudFormationResource:
 
     def test_resource_ref(self):
         """Test creating Ref to resource."""
-        resource = self.TestResource(logical_id="MyResource")
+        resource = self.MockResource(logical_id="MyResource")
         ref = resource.ref()
         assert isinstance(ref, Ref)
         assert ref.to_dict() == {"Ref": "MyResource"}
 
     def test_resource_get_att(self):
         """Test creating GetAtt for resource."""
-        resource = self.TestResource(logical_id="MyResource")
+        resource = self.MockResource(logical_id="MyResource")
         get_att = resource.get_att("Arn")
         assert get_att.to_dict() == {"Fn::GetAtt": ["MyResource", "Arn"]}
 
@@ -426,7 +426,7 @@ class TestCloudFormationResource:
             stage="prod",
             naming_pattern="{component}-{resource_name}-{stage}"
         )
-        resource = self.TestResource(
+        resource = self.MockResource(
             context=ctx,
             logical_id="Special",
             naming_pattern="{resource_name}-custom"
@@ -435,12 +435,12 @@ class TestCloudFormationResource:
 
     def test_resource_effective_logical_id_fallback(self):
         """Test effective_logical_id falls back to resource_name."""
-        resource = self.TestResource()
+        resource = self.MockResource()
         # Without logical_id, should use class name
-        assert resource.effective_logical_id == "TestResource"
+        assert resource.effective_logical_id == "MockResource"
 
     def test_resource_with_update_replace_policy(self):
         """Test resource with UpdateReplacePolicy."""
-        resource = self.TestResource(update_replace_policy="Snapshot")
+        resource = self.MockResource(update_replace_policy="Snapshot")
         result = resource.to_dict()
         assert result["UpdateReplacePolicy"] == "Snapshot"

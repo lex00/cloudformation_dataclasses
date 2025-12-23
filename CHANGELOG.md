@@ -5,18 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-12-22
+
+### Changed
+- **Import script preserves vendor directory** - Copies templates to a temp directory before applying fixes, ensuring `vendor/` remains immutable
+- **Reduced generated code size** - Deduplicated enum constants and removed UPPER_CASE property aliases
+
+### Fixed
+- **GetAZs intrinsic serialization** - `GetAZs.to_dict()` now correctly serializes nested intrinsics (e.g., `Ref("AWS::Region")`)
+- **YAML datetime.date parsing** - Policy document version strings like "2012-10-17" are now correctly handled when YAML parses them as `datetime.date` objects
+- **Parallel validation race conditions** - Import script now re-validates packages that fail initial validation to handle timing issues
+
+
 ## [0.5.6] - 2025-12-21
 
 ### Fixed
 - **Example Python version** - Added `.python-version` files to all example directories so `uv run` uses Python 3.10 instead of system default
-- **Test collection** - Excluded third-party examples from pytest collection via `--ignore=examples/third_party` in pyproject.toml and updated `scripts/test.sh`
+- **Test collection** - Excluded AWS sample examples from pytest collection via `--ignore=examples/aws-cloudformation-templates` in pyproject.toml and updated `scripts/test.sh`
 
 ---
 
 ### Added
 - **Versioning documentation** (`docs/VERSIONING.md`) - Explains the three-version system (package, spec, generator)
 - **Version bump script** (`scripts/bump_version.sh`) - Automates version updates across all files
-- **Third-party import script** (`scripts/import_third_party.sh`) - Repeatable script for importing aws-cloudformation-templates
+- **AWS samples import script** (`scripts/import_aws_samples.sh`) - Repeatable script for importing aws-cloudformation-templates
 
 ### Changed
 - **Simplified `__init__.py` docstring** - Removed hardcoded version numbers that were getting stale
@@ -37,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Added Architecture section to DEVELOPERS.md** - Design principles and two-layer validation
 
 ### Removed
-- Unnecessary namespace `__init__.py` files in examples/third_party/
+- Unnecessary namespace `__init__.py` files in examples/
 
 ---
 

@@ -114,10 +114,13 @@ cloudformation_dataclasses/
 │   └── __version__.py                  # Version information
 ├── specs/                              # CloudFormation spec (committed)
 │   └── CloudFormationResourceSpecification.json
+├── vendor/                             # Vendored third-party templates
+│   └── aws-cloudformation-templates/   # AWS sample templates for testing
+│       └── .git_commit                 # Tracks upstream commit hash and date
 ├── tests/                              # Framework validation tests
 ├── examples/                           # Usage examples
 │   ├── s3_bucket/                      # S3 bucket example
-│   └── aws_cloudformation_templates/   # DynamoDB examples
+│   └── aws-cloudformation-templates/   # Generated from vendor/ (not in tests)
 ├── scripts/                            # Automation scripts
 │   ├── build.sh                        # Build automation
 │   ├── test.sh                         # Test automation
@@ -244,6 +247,72 @@ uv run ptw tests/ examples/
   - User-focused demonstrations
   - Real-world usage patterns
   - DynamoDB examples with secondary indexes
+
+### AWS Samples Validation
+
+The project includes a vendored copy of AWS's official CloudFormation sample templates for integration testing. This validates that the importer can correctly convert real-world templates.
+
+**Directory Structure:**
+```
+vendor/
+  aws-cloudformation-templates/     # Vendored from awslabs/aws-cloudformation-templates
+    .git_commit                     # Tracks commit hash and date (e.g., "abc123 2025-10-13")
+    CloudFormation/                 # Original YAML/JSON templates
+    ...
+
+examples/
+  aws-cloudformation-templates/     # Generated Python packages
+    vpc/
+    lambda_function/
+    ...
+    import.log                      # Import results log
+```
+
+**Running the AWS Samples Import:**
+
+```bash
+# Full import with validation (cleans, imports, validates each package)
+./scripts/import_aws_samples.sh
+
+# Skip validation step (faster, just import)
+./scripts/import_aws_samples.sh --skip-validation
+
+# Keep failed imports for debugging
+./scripts/import_aws_samples.sh --skip-cleanup
+
+# Clean output directory only
+./scripts/import_aws_samples.sh --clean-only
+```
+
+The script:
+1. Cleans the output directory
+2. Applies known template fixes (via `scripts/fix_templates.py`)
+3. Runs batch import via `cfn-dataclasses-import`
+4. Parses `import.log` for failures
+5. Removes directories for failed imports
+6. Validates each package by running it
+7. Reports final statistics
+
+**Note:** This is a manual validation step, not part of the automated test suite. Run it when:
+- Making changes to the importer
+- Updating the vendored templates
+- Validating code generator changes
+
+**Updating Vendored Templates:**
+
+```bash
+# Clone latest from AWS
+git clone https://github.com/awslabs/aws-cloudformation-templates.git /tmp/aws-cf-templates
+
+# Copy to vendor (excluding .git)
+rsync -av --exclude='.git' /tmp/aws-cf-templates/ vendor/aws-cloudformation-templates/
+
+# Record the commit hash and date
+git -C /tmp/aws-cf-templates log -1 --format='%H %cs' > vendor/aws-cloudformation-templates/.git_commit
+
+# Run import to regenerate examples
+./scripts/import_aws_samples.sh
+```
 
 ---
 
@@ -718,7 +787,6 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
-- **Forward References**: [FORWARD_REFERENCES.md](./FORWARD_REFERENCES.md) - Cross-module refs with `Ref[T]` and `GetAtt[T]`
 - **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
 - **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants

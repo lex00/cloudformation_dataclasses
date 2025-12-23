@@ -1,0 +1,10 @@
+"""PrivateWaitHandle - AWS::CloudFormation::WaitConditionHandle resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class PrivateWaitHandle:
+    """AWS::CloudFormation::WaitConditionHandle resource."""
+
+    resource: cloudformation.WaitConditionHandle

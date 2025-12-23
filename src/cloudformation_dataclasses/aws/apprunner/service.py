@@ -1,0 +1,216 @@
+"""PropertyTypes for AWS::AppRunner::Service."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class AuthenticationConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "access_role_arn": "AccessRoleArn",
+        "connection_arn": "ConnectionArn",
+    }
+
+    access_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CodeConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "configuration_source": "ConfigurationSource",
+        "code_configuration_values": "CodeConfigurationValues",
+    }
+
+    configuration_source: Optional[Union[str, ConfigurationSource, Ref, GetAtt, Sub]] = None
+    code_configuration_values: Optional[CodeConfigurationValues] = None
+
+
+@dataclass
+class CodeConfigurationValues(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
+        "runtime": "Runtime",
+        "start_command": "StartCommand",
+        "runtime_environment_variables": "RuntimeEnvironmentVariables",
+        "port": "Port",
+        "build_command": "BuildCommand",
+    }
+
+    runtime_environment_secrets: Optional[list[KeyValuePair]] = None
+    runtime: Optional[Union[str, Runtime, Ref, GetAtt, Sub]] = None
+    start_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime_environment_variables: Optional[list[KeyValuePair]] = None
+    port: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    build_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CodeRepository(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "source_code_version": "SourceCodeVersion",
+        "code_configuration": "CodeConfiguration",
+        "source_directory": "SourceDirectory",
+        "repository_url": "RepositoryUrl",
+    }
+
+    source_code_version: Optional[SourceCodeVersion] = None
+    code_configuration: Optional[CodeConfiguration] = None
+    source_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EgressConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_connector_arn": "VpcConnectorArn",
+        "egress_type": "EgressType",
+    }
+
+    vpc_connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    egress_type: Optional[Union[str, EgressType, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EncryptionConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key": "KmsKey",
+    }
+
+    kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class HealthCheckConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "path": "Path",
+        "unhealthy_threshold": "UnhealthyThreshold",
+        "timeout": "Timeout",
+        "healthy_threshold": "HealthyThreshold",
+        "protocol": "Protocol",
+        "interval": "Interval",
+    }
+
+    path: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unhealthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    healthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, HealthCheckProtocol, Ref, GetAtt, Sub]] = None
+    interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ImageConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
+        "start_command": "StartCommand",
+        "runtime_environment_variables": "RuntimeEnvironmentVariables",
+        "port": "Port",
+    }
+
+    runtime_environment_secrets: Optional[list[KeyValuePair]] = None
+    start_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime_environment_variables: Optional[list[KeyValuePair]] = None
+    port: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ImageRepository(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "image_identifier": "ImageIdentifier",
+        "image_configuration": "ImageConfiguration",
+        "image_repository_type": "ImageRepositoryType",
+    }
+
+    image_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    image_configuration: Optional[ImageConfiguration] = None
+    image_repository_type: Optional[Union[str, ImageRepositoryType, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IngressConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "is_publicly_accessible": "IsPubliclyAccessible",
+    }
+
+    is_publicly_accessible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class InstanceConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "instance_role_arn": "InstanceRoleArn",
+        "memory": "Memory",
+        "cpu": "Cpu",
+    }
+
+    instance_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    memory: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cpu: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class KeyValuePair(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "name": "Name",
+    }
+
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class NetworkConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "ip_address_type": "IpAddressType",
+        "egress_configuration": "EgressConfiguration",
+        "ingress_configuration": "IngressConfiguration",
+    }
+
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
+    egress_configuration: Optional[EgressConfiguration] = None
+    ingress_configuration: Optional[IngressConfiguration] = None
+
+
+@dataclass
+class ServiceObservabilityConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "observability_enabled": "ObservabilityEnabled",
+        "observability_configuration_arn": "ObservabilityConfigurationArn",
+    }
+
+    observability_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    observability_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SourceCodeVersion(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "value": "Value",
+    }
+
+    type_: Optional[Union[str, SourceCodeVersionType, Ref, GetAtt, Sub]] = None
+    value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SourceConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "authentication_configuration": "AuthenticationConfiguration",
+        "code_repository": "CodeRepository",
+        "image_repository": "ImageRepository",
+        "auto_deployments_enabled": "AutoDeploymentsEnabled",
+    }
+
+    authentication_configuration: Optional[AuthenticationConfiguration] = None
+    code_repository: Optional[CodeRepository] = None
+    image_repository: Optional[ImageRepository] = None
+    auto_deployments_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+

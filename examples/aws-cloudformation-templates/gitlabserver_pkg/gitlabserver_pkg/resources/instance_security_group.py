@@ -1,0 +1,40 @@
+"""InstanceSecurityGroup - AWS::EC2::SecurityGroup resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupIngress:
+    resource: ec2.security_group.Ingress
+    description = 'Allow HTTP from com.amazonaws.global.cloudfront.origin-facing'
+    ip_protocol = 'tcp'
+    from_port = 80
+    to_port = 80
+    source_prefix_list_id = FindInMap("Prefixes", AWS_REGION, 'PrefixList')
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    cidr_ip = '0.0.0.0/0'
+    description = 'Allow all outbound traffic by default'
+    ip_protocol = '-1'
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = 'gitlab-server-isg'
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroup:
+    """AWS::EC2::SecurityGroup resource."""
+
+    resource: ec2.SecurityGroup
+    group_description = 'gitlab-server-isg'
+    security_group_ingress = [InstanceSecurityGroupIngress]
+    security_group_egress = [InstanceSecurityGroupEgress]
+    tags = [InstanceSecurityGroupAssociationParameter]
+    vpc_id = ref(NetworkVPC)
