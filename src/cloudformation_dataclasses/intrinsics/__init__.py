@@ -20,6 +20,7 @@ from cloudformation_dataclasses.intrinsics.functions import (
     Split,
     Sub,
     Transform,
+    ValueOf,
 )
 from cloudformation_dataclasses.intrinsics.pseudo import (
     AWS_ACCOUNT_ID,
@@ -53,6 +54,7 @@ __all__ = [
     "Split",
     "Sub",
     "Transform",
+    "ValueOf",
     # Pseudo-parameters
     "AWS_ACCOUNT_ID",
     "AWS_NO_VALUE",

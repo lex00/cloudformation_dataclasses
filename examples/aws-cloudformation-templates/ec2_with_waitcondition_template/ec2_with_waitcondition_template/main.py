@@ -1,17 +1,13 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import AgentID, BudgetCode, ImageId, InstanceName, InstanceType, IsMaster, KeyName, LaunchPlatform, LaunchUser, MasterID, SSHLocation, SubnetId, TestID, TestTarget, VpcId
-from .outputs import InstanceIdOutput, WebsiteURLOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='Create a variable number of EC2 instance resources.',
-        parameters=[KeyName, InstanceName, InstanceType, ImageId, VpcId, SubnetId, SSHLocation, BudgetCode, LaunchPlatform, LaunchUser, TestID, TestTarget, AgentID, IsMaster, MasterID],
-        outputs=[WebsiteURLOutput, InstanceIdOutput],
+        description='Deploy a service into an ECS cluster behind a public load balancer.',
+        parameters=[StackName, ServiceName, ImageUrl, ContainerPort, ContainerCpu, ContainerMemory, Path, Priority, DesiredCount, Role],
     )
 
 

@@ -1,17 +1,14 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import InstanceType, KeyName, LatestAmiId, SSHLocation, Subnets
-from .outputs import AZOutput, InstanceIdOutput, PublicDNSOutput, PublicIPOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='AWS CloudFormation Sample Template EC2InstanceWithSecurityGroupSample: Create an Amazon EC2 instance running the Amazon Linux AMI. The AMI is chosen based on the region in which the stack is run. This example creates an EC2 security group for the instance to give you SSH access. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.',
-        parameters=[KeyName, InstanceType, SSHLocation, LatestAmiId, Subnets],
-        outputs=[InstanceIdOutput, AZOutput, PublicDNSOutput, PublicIPOutput],
+        description='AWS CloudFormation Sample Template DynamoDB_Secondary_Indexes: Create a DynamoDB table with local and global secondary indexes. **WARNING** This template creates an Amazon DynamoDB table. You will be billed for the AWS resources used if you create a stack from this template.',
+        parameters=[ReadCapacityUnits, WriteCapacityUnits],
+        outputs=[TableNameOutput],
     )
 
 

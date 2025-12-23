@@ -10,9 +10,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import apigateway
 
-from .stack_config import AppName, UserPoolArn
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Api",

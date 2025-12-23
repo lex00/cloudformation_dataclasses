@@ -15,19 +15,12 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Select
 
-from .stack_config import (
-    InstanceType,
-    KeyName,
-    LatestAmiId,
-    SSHLocation,
-    Subnets,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "EC2Instance",
     "EC2SecurityGroup",
+    "InstanceOutput",
     "InstanceType",
     "KeyName",
     "LatestAmiId",

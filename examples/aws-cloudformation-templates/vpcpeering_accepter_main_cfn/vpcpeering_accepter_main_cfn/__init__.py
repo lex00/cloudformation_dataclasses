@@ -14,25 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Join, Sub
 
-from .stack_config import (
-    LambdaFunctionName,
-    LambdaLogLevel,
-    LambdaLogsCloudWatchKMSKey,
-    LambdaLogsLogGroupRetention,
-    LambdaRoleName,
-    NumberOfRouteTables,
-    NumberOfSecurityGroups,
-    PeerName,
-    PeerVPCCIDR,
-    RouteTableIds,
-    SecurityGroupIds,
-    TemplatesS3BucketName,
-    TemplatesS3BucketRegion,
-    TemplatesS3KeyPrefix,
-    VPCPeeringConnectionId,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Join",

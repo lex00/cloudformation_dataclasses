@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import ContentBasedDeduplication, CreateDeadLetterQueueCondition, MaximumMessageSize, MessageRetentionPeriod, QueueName, ReceiveMessageWaitTimeSeconds, UsedeadletterQueue, VisibilityTimeout
-from .outputs import QueueARNOutput, QueueNameOutput, QueueURLOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

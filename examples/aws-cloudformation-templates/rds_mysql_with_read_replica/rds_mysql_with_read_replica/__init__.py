@@ -24,19 +24,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    DBAllocatedStorage,
-    DBInstanceClass,
-    DBName,
-    DBUser,
-    EC2SecurityGroup,
-    EnableReadReplica,
-    EnableReadReplicaCondition,
-    IsEC2VPCCondition,
-    MultiAZ,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -44,16 +32,19 @@ __all__ = [
     "Condition",
     "DBAllocatedStorage",
     "DBCredential",
+    "DBCredentialSecretNameArnOutput",
     "DBEC2SecurityGroup",
     "DBInstanceClass",
     "DBName",
     "DBUser",
+    "EC2PlatformOutput",
     "EC2SecurityGroup",
     "EnableReadReplica",
     "EnableReadReplicaCondition",
     "Equals",
     "If",
     "IsEC2VPCCondition",
+    "JDBCConnectionStringOutput",
     "Join",
     "MainDB",
     "MultiAZ",
@@ -62,6 +53,7 @@ __all__ = [
     "Output",
     "Parameter",
     "ReplicaDB",
+    "ReplicaJDBCConnectionStringOutput",
     "STRING",
     "Sub",
     "Template",

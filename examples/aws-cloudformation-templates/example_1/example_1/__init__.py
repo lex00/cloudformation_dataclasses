@@ -8,7 +8,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AddReadme",

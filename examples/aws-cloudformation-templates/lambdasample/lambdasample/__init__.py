@@ -16,15 +16,16 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import iam, lambda_
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import EnvName, LambdaHandlerPath
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "EnvName",
     "LambdaFunction",
+    "LambdaFunctionARNOutput",
+    "LambdaFunctionNameOutput",
     "LambdaHandlerPath",
     "LambdaRole",
+    "LambdaRoleARNOutput",
     "Output",
     "Parameter",
     "PolicyDocument",

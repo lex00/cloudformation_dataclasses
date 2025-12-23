@@ -17,13 +17,12 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Join
 
-from .stack_config import ECRURL, TCPPORT
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_STACK_NAME",
     "AppRunner",
+    "AppRunnerOutput",
     "AppRunnerRole",
     "CloudFormationResource",
     "ECRURL",

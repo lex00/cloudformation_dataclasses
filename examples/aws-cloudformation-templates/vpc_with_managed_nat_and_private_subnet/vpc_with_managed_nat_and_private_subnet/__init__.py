@@ -22,12 +22,11 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import SubnetConfigMapping, VPCName
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_STACK_NAME",
+    "DefaultSecurityGroupOutput",
     "ElasticIP0",
     "ElasticIP1",
     "FindInMap",
@@ -47,14 +46,18 @@ __all__ = [
     "PrivateRouteToInternet0",
     "PrivateRouteToInternet1",
     "PrivateSubnet0",
+    "PrivateSubnet0Output",
     "PrivateSubnet1",
+    "PrivateSubnet1Output",
     "PrivateSubnetRouteTableAssociation0",
     "PrivateSubnetRouteTableAssociation1",
     "PublicNetworkAcl",
     "PublicRoute",
     "PublicRouteTable",
     "PublicSubnet0",
+    "PublicSubnet0Output",
     "PublicSubnet1",
+    "PublicSubnet1Output",
     "PublicSubnetNetworkAclAssociation0",
     "PublicSubnetNetworkAclAssociation1",
     "PublicSubnetRouteTableAssociation0",
@@ -65,6 +68,7 @@ __all__ = [
     "SubnetConfigMapping",
     "Template",
     "VPC",
+    "VPCIdOutput",
     "VPCName",
     "cloudformation_dataclass",
     "ec2",

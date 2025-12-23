@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import ACMCertificateIdentifier, ALBAttributeDeletionProtection, ALBAttributeIdleTimeOut, ALBAttributeRoutingHttp2, ALBScheme, ALBTargetGroupAttributeDeregistration, ALBTargetGroupHealthCheckIntervalSeconds, ALBTargetGroupHealthCheckTimeoutSeconds, ALBTargetGroupHealthyThresholdCount, ALBTargetGroupUnhealthyThresholdCount, ALBType, AlternateDomainNames, AppName, BootVolSize, BootVolType, Compress, DefaultTTL, EC2ImageId, EC2InstanceType, Environment, ForwardCookies, HealthCheckPath, HealthCheckProtocol, IPV6Enabled, KeyPairName, LambdaEventType, LoggingBucketVersioning, MaxTTL, MinTTL, MinimumProtocolVersion, OriginALBTGPort, OriginKeepaliveTimeout, OriginProtocolPolicy, OriginReadTimeout, PriceClass, PublicSubnetId1, PublicSubnetId2, QueryString, SslSupportMethod, ViewerProtocolPolicy, VpcId
-from .outputs import ALBExternalAccessSGIDOutput, AdministratorAccessIAMRoleOutput, AlternateDomainNamesOutput, CloudFrontEndpointOutput, EC2InstanceDNSOutput, EC2InstanceIDOutput, EC2InstanceIPOutput, EC2InstanceSGIDOutput, LambdaEdgeFunctionARNOutput, LambdaEdgeFunctionOutput, LambdaEdgeVersionOutput, LoggingBucketKMSKeyOutput, LoggingBucketOutput, OriginALBOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

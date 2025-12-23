@@ -969,6 +969,13 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
         source_str = _value_to_python(source, ctx)
         return f"Split({_escape_string(delimiter)}, {source_str})"
 
+    if intrinsic.type == IntrinsicType.VALUE_OF:
+        ctx.add_intrinsic_import("ValueOf")
+        param_name, attr_name = intrinsic.args
+        param_str = _value_to_python(param_name, ctx)
+        attr_str = _value_to_python(attr_name, ctx)
+        return f"ValueOf({param_str}, {attr_str})"
+
     if intrinsic.type == IntrinsicType.TRANSFORM:
         ctx.add_intrinsic_import("Transform")
         args = intrinsic.args
@@ -2088,8 +2095,12 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     lines.append("")
 
-    # Re-export config classes (parameters, mappings, conditions)
-    # so resource files can use ref(ParameterName) via `from .. import *`
+    # Re-export everything from .stack (params, outputs, resources)
+    # This provides `from packagename import ResourceName` access
+    lines.append("from .stack import *  # noqa: F403, F401")
+    lines.append("")
+
+    # Collect names for __all__
     config_names: list[str] = []
     for param in template.parameters.values():
         config_names.append(_sanitize_class_name(param.logical_id))
@@ -2098,25 +2109,13 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     for condition in template.conditions.values():
         config_names.append(f"{_sanitize_class_name(condition.logical_id)}Condition")
 
-    if config_names:
-        sorted_config = sorted(config_names)
-        if len(sorted_config) <= 3:
-            lines.append(f"from .stack_config import {', '.join(sorted_config)}")
-        else:
-            lines.append("from .stack_config import (")
-            for name in sorted_config:
-                lines.append(f"    {name},")
-            lines.append(")")
-        lines.append("")
-
-    # Re-export resource classes so outputs and other resources can use ref(ResourceClass)
     resource_names: list[str] = []
     for resource in template.resources.values():
         resource_names.append(_sanitize_class_name(resource.logical_id))
 
-    if resource_names:
-        lines.append("from .resources import *  # noqa: F403, F401")
-        lines.append("")
+    output_names: list[str] = []
+    for output in template.outputs.values():
+        output_names.append(f"{_sanitize_class_name(output.logical_id)}Output")
 
     # Generate __all__ with all exported names
     # Exclude colliding names - they're accessed via module (e.g., iot.Policy)
@@ -2131,6 +2130,8 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     all_names = sorted(set(all_names) | set(config_names))
     # Add resource names to __all__
     all_names = sorted(set(all_names) | set(resource_names))
+    # Add output names to __all__
+    all_names = sorted(set(all_names) | set(output_names))
 
     lines.append("__all__ = [")
     for name in all_names:
@@ -2140,12 +2141,12 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate stack_config.py with Parameters, Mappings, Conditions."""
+def _generate_params_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate stack/params.py with Parameters, Mappings, Conditions."""
     lines = []
-    lines.append('"""Configuration - Parameters, Mappings, Conditions."""')
+    lines.append('"""Parameters, Mappings, and Conditions."""')
     lines.append("")
-    lines.append("from . import *  # noqa: F403")
+    lines.append("from .. import *  # noqa: F403")
     lines.append("")
     lines.append("")
 
@@ -2349,17 +2350,24 @@ def _find_sub_in_value(
             )
 
 
-def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
-    """Generate resources/ directory, merging cyclically-dependent resources.
+def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
+    """Generate stack/ directory with params, outputs, and consolidated resources.
 
-    Resources that form cycles (mutually reference each other) are placed in the
-    same file to avoid circular import issues at runtime.
+    Resources are consolidated into fewer files:
+    - If total resources < 5: all go in main.py
+    - SCCs (cyclic dependencies) always go in main.py
+    - Single-resource groups also go in main.py
+    - Only large templates with multiple non-SCC resources get separate files
 
     Returns:
-        Dict mapping "resources/<filename>.py" to content
+        Dict mapping "stack/<filename>.py" to content
     """
     files = {}
     ctx = pkg_ctx.codegen_ctx
+
+    # Consolidation threshold
+    total_resources = len(template.resources)
+    consolidate_all = total_resources < 5
 
     # Find strongly connected components to detect cycles
     sccs = _find_strongly_connected_components(template)
@@ -2402,7 +2410,10 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
     # Clear forward_references after generation
     ctx.forward_references = set()
 
-    # Second pass: generate files, grouping SCCs with multiple resources
+    # Second pass: decide which resources go to main.py vs separate files
+    # Collect resources for main.py and track separate files
+    main_py_resources: list[str] = []  # ordered list of resource IDs for main.py
+    separate_files: dict[str, list[str]] = {}  # filename -> ordered resource IDs
     generated_sccs: set[int] = set()
 
     for resource_id in sorted_resources:
@@ -2413,20 +2424,34 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
 
         scc = sccs[scc_idx]
 
-        if len(scc) == 1:
-            # Single resource - generate individual file
-            resource = template.resources[resource_id]
-            resource_class, pt_defs = resource_classes[resource_id]
+        if consolidate_all:
+            # Small template: all resources go to main.py
+            if len(scc) > 1:
+                main_py_resources.extend(scc_orderings[scc_idx])
+            else:
+                main_py_resources.append(resource_id)
+        elif len(scc) > 1:
+            # SCC (cyclic dependencies) always goes to main.py
+            main_py_resources.extend(scc_orderings[scc_idx])
+        else:
+            # Single resource also goes to main.py (fewer files is better)
+            main_py_resources.append(resource_id)
 
-            lines = []
-            filename = _logical_id_to_filename(resource_id)
+    # Re-sort main_py_resources in topological order to ensure dependencies come first
+    topo_order = {rid: idx for idx, rid in enumerate(sorted_resources)}
+    main_py_resources.sort(key=lambda rid: topo_order[rid])
 
-            # Docstring
-            lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
-            lines.append("")
-            lines.append("from .. import *  # noqa: F403")
-            lines.append("")
-            lines.append("")
+    # Generate main.py with all consolidated resources
+    if main_py_resources:
+        lines = []
+        lines.append('"""Stack resources."""')
+        lines.append("")
+        lines.append("from .. import *  # noqa: F403")
+        lines.append("")
+        lines.append("")
+
+        for res_id in main_py_resources:
+            resource_class, pt_defs = resource_classes[res_id]
 
             # PropertyType wrappers for this resource
             for pt_def in pt_defs:
@@ -2436,58 +2461,57 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
 
             # The resource class itself
             lines.append(resource_class)
-
-            # Remove trailing empty lines
-            while lines and lines[-1] == "":
-                lines.pop()
-
-            files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
-        else:
-            # Multiple resources in SCC - merge into one file
-            # Use pre-computed ordering
-            ordered_scc = scc_orderings[scc_idx]
-
-            lines = []
-            # Use first resource's name for filename, with _group suffix
-            first_resource = ordered_scc[0]
-            filename = _logical_id_to_filename(first_resource) + "_group"
-
-            # Docstring listing all resources
-            resource_names = ", ".join(ordered_scc)
-            lines.append(f'"""Grouped resources: {resource_names}."""')
-            lines.append("")
-            lines.append("from .. import *  # noqa: F403")
             lines.append("")
             lines.append("")
 
-            # Add all resources in order
-            for res_id in ordered_scc:
-                resource = template.resources[res_id]
-                resource_class, pt_defs = resource_classes[res_id]
+        # Remove trailing empty lines
+        while lines and lines[-1] == "":
+            lines.pop()
 
-                # PropertyType wrappers for this resource
-                for pt_def in pt_defs:
-                    lines.append(pt_def)
-                    lines.append("")
-                    lines.append("")
+        files["stack/main.py"] = "\n".join(lines) + "\n"
 
-                # The resource class itself
-                lines.append(resource_class)
+    # Generate any separate files (currently none with our consolidation logic)
+    for filename, resource_ids in separate_files.items():
+        lines = []
+        resource_names = ", ".join(resource_ids)
+        lines.append(f'"""Resources: {resource_names}."""')
+        lines.append("")
+        lines.append("from .. import *  # noqa: F403")
+        lines.append("")
+        lines.append("")
+
+        for res_id in resource_ids:
+            resource_class, pt_defs = resource_classes[res_id]
+
+            for pt_def in pt_defs:
+                lines.append(pt_def)
                 lines.append("")
                 lines.append("")
 
-            # Remove trailing empty lines
-            while lines and lines[-1] == "":
-                lines.pop()
+            lines.append(resource_class)
+            lines.append("")
+            lines.append("")
 
-            files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
+        while lines and lines[-1] == "":
+            lines.pop()
 
-    # Generate resources/__init__.py with topological import ordering
-    init_content = '''"""Resource definitions."""
-from cloudformation_dataclasses.core.resource_loader import setup_resources
-setup_resources(__file__, __name__, globals())
-'''
-    files["resources/__init__.py"] = init_content
+        files[f"stack/{filename}.py"] = "\n".join(lines) + "\n"
+
+    # Generate stack/__init__.py that re-exports params, outputs, and resources
+    init_lines = ['"""Stack - parameters, outputs, and resources."""']
+    init_lines.append("from .params import *  # noqa: F403, F401")
+    init_lines.append("")
+    init_lines.append("# Import resources with topological ordering")
+    init_lines.append("from cloudformation_dataclasses.core.resource_loader import setup_resources")
+    init_lines.append('setup_resources(__file__, __name__, globals())')
+    init_lines.append("")
+    init_lines.append("# Import outputs after resources (outputs reference resource classes)")
+    init_lines.append("try:")
+    init_lines.append("    from .outputs import *  # noqa: F403, F401")
+    init_lines.append("except ImportError:")
+    init_lines.append("    pass")
+    init_lines.append("")
+    files["stack/__init__.py"] = "\n".join(init_lines)
 
     return files
 
@@ -2526,7 +2550,7 @@ def _order_scc_resources(
 
 
 def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str | None:
-    """Generate outputs.py with Output definitions.
+    """Generate stack/outputs.py with Output definitions.
 
     Returns None if there are no outputs to generate.
     """
@@ -2536,7 +2560,7 @@ def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str |
     lines = []
     lines.append('"""Template outputs."""')
     lines.append("")
-    lines.append("from . import *  # noqa: F403")
+    lines.append("from .. import *  # noqa: F403")
     lines.append("")
     lines.append("")
 
@@ -2560,24 +2584,10 @@ def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str |
 def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     """Generate main.py with build_template and __main__."""
     lines = []
-    lines.append('"""Template outputs and builder."""')
+    lines.append('"""Template builder."""')
     lines.append("")
-    lines.append("from . import *  # noqa: F403")
-    # Import resources to register them with from_registry()
-    lines.append("from .resources import *  # noqa: F403, F401")
-
-    ctx = pkg_ctx.codegen_ctx
-
-    # Add explicit imports from stack_config (for parameters in build_template)
-    if pkg_ctx.config_exports:
-        sorted_exports = sorted(pkg_ctx.config_exports)
-        lines.append(f"from .stack_config import {', '.join(sorted_exports)}")
-
-    # Add explicit imports from outputs (if any)
-    if pkg_ctx.outputs_exports:
-        sorted_outputs = sorted(pkg_ctx.outputs_exports)
-        lines.append(f"from .outputs import {', '.join(sorted_outputs)}")
-
+    # Import from parent package (gets Template + all stack re-exports)
+    lines.append("from . import *  # noqa: F403, F401")
     lines.append("")
     lines.append("")
 
@@ -2688,12 +2698,10 @@ def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
 
     Returns:
         Dict mapping filename to content, with all files prefixed by package_name/:
-        - "{package_name}/__init__.py": Centralized imports
-        - "{package_name}/stack_config.py": Parameters, Mappings, Conditions
-        - "{package_name}/resources/": Directory with one file per resource
-        - "{package_name}/outputs.py": Output definitions (if any)
+        - "{package_name}/__init__.py": Centralized imports (re-exports from .stack)
         - "{package_name}/main.py": build_template + entry point
         - "{package_name}/__main__.py": Entry point for python -m
+        - "{package_name}/stack/": Directory with params, outputs, and resources
     """
     pkg_ctx = PackageContext(template=template)
 
@@ -2707,15 +2715,16 @@ def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
     # We need to know this before generating resource files so they can use qualified names
     _detect_aws_name_collisions(ctx, template)
 
-    # Generate files in order (to collect imports)
-    config_content = _generate_config_py(pkg_ctx, template)
+    # Generate stack/params.py (Parameters, Mappings, Conditions)
+    params_content = _generate_params_py(pkg_ctx, template)
 
-    # Generate resources as a package (one file per resource)
-    resource_files = _generate_resources_package(pkg_ctx, template)
-
-    # Generate outputs.py (if there are outputs)
+    # Generate stack/outputs.py (if there are outputs)
     outputs_content = _generate_outputs_py(pkg_ctx, template)
 
+    # Generate stack/ package (consolidated resources + __init__.py)
+    stack_files = _generate_stack_package(pkg_ctx, template)
+
+    # Generate main.py (build_template)
     main_content = _generate_main_py(pkg_ctx, template)
 
     # Generate __init__.py last (after all imports collected)
@@ -2732,16 +2741,16 @@ main()
     files = {
         f"{package_name}/__init__.py": init_content,
         f"{package_name}/__main__.py": dunder_main_content,
-        f"{package_name}/stack_config.py": config_content,
         f"{package_name}/main.py": main_content,
+        f"{package_name}/stack/params.py": params_content,
     }
 
-    # Add outputs.py if there are outputs
+    # Add stack/outputs.py if there are outputs
     if outputs_content:
-        files[f"{package_name}/outputs.py"] = outputs_content
+        files[f"{package_name}/stack/outputs.py"] = outputs_content
 
-    # Add all resource files (already have resources/ prefix, add package_name/)
-    for filename, content in resource_files.items():
+    # Add all stack files (already have stack/ prefix, add package_name/)
+    for filename, content in stack_files.items():
         files[f"{package_name}/{filename}"] = content
 
     return files

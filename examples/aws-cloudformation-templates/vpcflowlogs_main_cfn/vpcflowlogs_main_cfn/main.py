@@ -1,8 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import CreateVPCFlowLogsToCloudWatch, CreateVPCFlowLogsToS3, S3AccessLogsBucketName, TemplatesS3BucketName, TemplatesS3BucketRegion, VPCFlowLogsBucketKMSKey, VPCFlowLogsBucketKeyEnabled, VPCFlowLogsBucketName, VPCFlowLogsCloudWatchKMSKey, VPCFlowLogsLogFormat, VPCFlowLogsLogGroupRetention, VPCFlowLogsMaxAggregationInterval, VPCFlowLogsToCloudWatchConditionCondition, VPCFlowLogsToS3ConditionCondition, VPCFlowLogsTrafficType, VPCID
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

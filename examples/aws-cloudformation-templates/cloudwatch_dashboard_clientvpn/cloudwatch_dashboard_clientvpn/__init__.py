@@ -14,9 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudwatch, logs
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import ClientVPNLogGroup, Folder
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "ADSAMLAuthDistinctUsers",
@@ -25,7 +23,9 @@ __all__ = [
     "ADSAMLAuthUsersConnectionDuration",
     "ClientVPNLogGroup",
     "Dashboard",
+    "DashboardUrlOutput",
     "Folder",
+    "LogInsightsUrlOutput",
     "MixAuthDistinctUsers",
     "MixAuthDistinctUsersConnectionDuration",
     "MixAuthTotalUsageReport",

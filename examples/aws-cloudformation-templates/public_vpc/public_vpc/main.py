@@ -1,15 +1,13 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import ContainerCpu, ContainerMemory, ContainerPort, DesiredCount, HasCustomRoleCondition, ImageUrl, Path, Priority, Role, ServiceName, StackName
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='Deploy a service on AWS Fargate, hosted in a public subnet, and accessible via a public load balancer.',
-        parameters=[StackName, ServiceName, ImageUrl, ContainerPort, ContainerCpu, ContainerMemory, Path, Priority, DesiredCount, Role],
+        description='A stack for deploying containerized applications in AWS Fargate. This stack runs containers in a public VPC subnet, and includes a public facing load balancer to register the services in.',
+        outputs=[ClusterNameOutput, ExternalUrlOutput, ECSRoleOutput, ECSTaskExecutionRoleOutput, PublicListenerOutput, VPCIdOutput, PublicSubnetOneOutput, PublicSubnetTwoOutput, FargateContainerSecurityGroupOutput],
     )
 
 

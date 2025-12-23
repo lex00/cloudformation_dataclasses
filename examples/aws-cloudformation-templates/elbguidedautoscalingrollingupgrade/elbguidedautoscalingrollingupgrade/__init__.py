@@ -28,15 +28,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    InstanceType,
-    KeyName,
-    LatestAmiId,
-    Region2ExamplesMapping,
-    SSHLocation,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Base64",
@@ -60,6 +52,7 @@ __all__ = [
     "STRING",
     "Sub",
     "Template",
+    "URLOutput",
     "WebServerGroup",
     "WebServerInstanceProfile",
     "autoscaling",

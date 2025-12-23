@@ -7,8 +7,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import lambda_
 
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
@@ -18,5 +19,6 @@ __all__ = [
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "lambda_",
     "ref",
 ]

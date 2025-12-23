@@ -225,6 +225,13 @@ def _transform_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrin
     return IRIntrinsic(IntrinsicType.TRANSFORM, value)
 
 
+def _valueof_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
+    """Handle !ValueOf tag (StackSets extension)."""
+    # !ValueOf takes a sequence [ParameterName, AttributeName]
+    parts = loader.construct_sequence(node, deep=True)
+    return IRIntrinsic(IntrinsicType.VALUE_OF, tuple(parts))
+
+
 def _get_cfn_loader() -> type:
     """Create a YAML loader with CloudFormation intrinsic support."""
 
@@ -250,6 +257,7 @@ def _get_cfn_loader() -> type:
     CloudFormationLoader.add_constructor("!ImportValue", _importvalue_constructor)
     CloudFormationLoader.add_constructor("!Split", _split_constructor)
     CloudFormationLoader.add_constructor("!Transform", _transform_constructor)
+    CloudFormationLoader.add_constructor("!ValueOf", _valueof_constructor)
 
     return CloudFormationLoader
 
@@ -515,6 +523,9 @@ def parse_template(
 
     # Parse outputs
     for logical_id, output_def in data.get("Outputs", {}).items():
+        # Skip Fn::ForEach meta-outputs - they define loop structure, not actual outputs
+        if logical_id.startswith("Fn::ForEach::"):
+            continue
         template.outputs[logical_id] = _parse_output(logical_id, output_def)
 
     # Build reference graph

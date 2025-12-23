@@ -16,12 +16,6 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import (
-    autoscaling,
-    ec2,
-    elasticloadbalancing,
-    iam,
-)
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     Base64,
@@ -31,15 +25,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    AWSInstanceType2ArchMapping,
-    AWSRegionArch2AMIMapping,
-    InstanceType,
-    KeyName,
-    SSHLocation,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWSInstanceType2ArchMapping",
@@ -66,13 +52,10 @@ __all__ = [
     "STRING",
     "Sub",
     "Template",
+    "URLOutput",
     "WebServerGroup",
     "WebServerInstanceProfile",
-    "autoscaling",
     "cloudformation_dataclass",
-    "ec2",
-    "elasticloadbalancing",
     "get_att",
-    "iam",
     "ref",
 ]

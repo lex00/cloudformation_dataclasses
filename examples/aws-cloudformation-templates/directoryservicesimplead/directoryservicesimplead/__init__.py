@@ -14,31 +14,24 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import directoryservice
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
-from .stack_config import (
-    AliasCondition,
-    CreateAlias,
-    DomainName,
-    PrivateSubnet1,
-    PrivateSubnet2,
-    SimpleADShortName,
-    Size,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AliasCondition",
     "Condition",
     "CreateAlias",
+    "DirectoryAliasOutput",
+    "DirectoryIDOutput",
     "DomainName",
     "Equals",
     "Output",
     "Parameter",
     "ParameterType",
+    "PrimaryDNSOutput",
     "PrivateSubnet1",
     "PrivateSubnet2",
     "STRING",
+    "SecondaryDNSOutput",
     "Select",
     "SimpleAD",
     "SimpleADShortName",

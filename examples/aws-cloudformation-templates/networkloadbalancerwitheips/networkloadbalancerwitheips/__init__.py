@@ -14,15 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2, elasticloadbalancingv2
 from cloudformation_dataclasses.intrinsics import Select
 
-from .stack_config import (
-    ELBIpAddressType,
-    ELBType,
-    Subnet1,
-    Subnet2,
-    VPC,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "EIP1",

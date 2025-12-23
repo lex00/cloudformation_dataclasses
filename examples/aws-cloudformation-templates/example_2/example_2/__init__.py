@@ -2,26 +2,28 @@
 
 from cloudformation_dataclasses.core import (
     CloudFormationResource,
-    Parameter,
-    STRING,
+    Output,
     Template,
     cloudformation_dataclass,
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import cloudformation, cloudwatch
 
-from .stack_config import PermissionBoundaryArn
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
-    "ExecutionRoleBuilderMacroTestRole",
-    "Parameter",
-    "PermissionBoundaryArn",
-    "STRING",
+    "Dashboard",
+    "Macro",
+    "MacroFunction",
+    "Output",
+    "ResourceFunction",
+    "ResourceFunctionOutput",
     "Template",
+    "cloudformation",
     "cloudformation_dataclass",
+    "cloudwatch",
     "get_att",
     "ref",
 ]

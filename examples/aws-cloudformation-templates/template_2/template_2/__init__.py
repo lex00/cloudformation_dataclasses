@@ -24,20 +24,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    EKSClusterVersion,
-    NodeGroupInstanceTypes,
-    PrivateCidrBlock1,
-    PrivateCidrBlock2,
-    PrivateCidrBlock3,
-    PublicCidrBlock1,
-    PublicCidrBlock2,
-    PublicCidrBlock3,
-    ServicePrincipalPartitionMapMapping,
-    VPCCidrBlock,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_ACCOUNT_ID",

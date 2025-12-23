@@ -14,16 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import AWS_REGION, FindInMap, Select
 
-from .stack_config import (
-    PrivateSubnet1CIDR,
-    PrivateSubnet2CIDR,
-    PublicSubnet1CIDR,
-    PublicSubnet2CIDR,
-    RegionMapMapping,
-    VpcCIDR,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_REGION",

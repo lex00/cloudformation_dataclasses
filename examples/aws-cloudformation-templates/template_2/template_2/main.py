@@ -1,8 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import EKSClusterVersion, NodeGroupInstanceTypes, PrivateCidrBlock1, PrivateCidrBlock2, PrivateCidrBlock3, PublicCidrBlock1, PublicCidrBlock2, PublicCidrBlock3, ServicePrincipalPartitionMapMapping, VPCCidrBlock
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

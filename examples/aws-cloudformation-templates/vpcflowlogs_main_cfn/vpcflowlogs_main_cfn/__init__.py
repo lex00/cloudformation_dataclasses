@@ -15,26 +15,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Equals, Sub
 
-from .stack_config import (
-    CreateVPCFlowLogsToCloudWatch,
-    CreateVPCFlowLogsToS3,
-    S3AccessLogsBucketName,
-    TemplatesS3BucketName,
-    TemplatesS3BucketRegion,
-    VPCFlowLogsBucketKMSKey,
-    VPCFlowLogsBucketKeyEnabled,
-    VPCFlowLogsBucketName,
-    VPCFlowLogsCloudWatchKMSKey,
-    VPCFlowLogsLogFormat,
-    VPCFlowLogsLogGroupRetention,
-    VPCFlowLogsMaxAggregationInterval,
-    VPCFlowLogsToCloudWatchConditionCondition,
-    VPCFlowLogsToS3ConditionCondition,
-    VPCFlowLogsTrafficType,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Condition",

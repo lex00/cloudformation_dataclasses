@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import ADConnectorDescription, ADConnectorSize, CreateADConnectorDomainMembersSG, CreateDHCPOptionSet, CreateLinuxEC2DomainJoinResources, CreateWindowsEC2DomainJoinResources, DHCPOptionSetConditionCondition, DomainDNSName, DomainDNSServers, DomainJoinUser, DomainJoinUserPassword, DomainMembersSGConditionCondition, DomainNetBiosName, LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsCloudWatchKMSKeyConditionCondition, LambdaLogsLogGroupRetention, LambdaS3BucketName, LambdaZipFileName, LinuxEC2DomainJoinResourcesConditionCondition, PrivateSubnet1ID, PrivateSubnet2ID, SSMLogsBucketName, SSMLogsBucketNameConditionCondition, SecretsManagerDomainCredentialsSecretsKMSKey, SecretsManagerDomainCredentialsSecretsKMSKeyConditionCondition, VPCID, WindowsEC2DomainJoinResourcesConditionCondition
-from .outputs import ADConnectorADConnectorDomainMembersSGOutput, ADConnectorDirectoryIdOutput, ADConnectorDirectoryNameOutput, ADConnectorLinuxEC2SeamlessDomainJoinInstanceProfileOutput, ADConnectorLinuxEC2SeamlessDomainJoinRoleOutput, ADConnectorWindowsEC2SeamlessDomainJoinInstanceProfileOutput, ADConnectorWindowsEC2SeamlessDomainJoinRoleOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

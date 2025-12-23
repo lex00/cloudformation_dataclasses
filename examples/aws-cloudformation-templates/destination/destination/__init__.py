@@ -18,9 +18,7 @@ from cloudformation_dataclasses.aws import kms, s3
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import AccountIdSource
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AccountIdSource",

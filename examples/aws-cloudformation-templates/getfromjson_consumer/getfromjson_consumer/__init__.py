@@ -14,19 +14,14 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.intrinsics import ImportValue
 
-from .stack_config import (
-    GetFromListJsonData,
-    GetFromListJsonDataQuery,
-    GetFromMapJsonData,
-    GetFromMapJsonDataQuery,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
     "GetFromJsonCustomResourceSampleGetFromList",
+    "GetFromJsonCustomResourceSampleGetFromListValueOutput",
     "GetFromJsonCustomResourceSampleGetFromMap",
+    "GetFromJsonCustomResourceSampleGetFromMapValueOutput",
     "GetFromListJsonData",
     "GetFromListJsonDataQuery",
     "GetFromMapJsonData",

@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import ClientIP, ExistsDMSCloudwatchRole, ExistsDMSVPCRole, NotExistsDMSCloudwatchRoleCondition, NotExistsDMSVPCRoleCondition, SnapshotIdentifier
-from .outputs import AuroraEndpointOutput, RegionNameOutput, S3BucketNameOutput, StackNameOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

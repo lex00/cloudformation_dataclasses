@@ -24,17 +24,7 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
 )
 
-from .stack_config import (
-    VPCFlowLogsCloudWatchKMSKey,
-    VPCFlowLogsCloudWatchKMSKeyConditionCondition,
-    VPCFlowLogsLogFormat,
-    VPCFlowLogsLogGroupRetention,
-    VPCFlowLogsMaxAggregationInterval,
-    VPCFlowLogsTrafficType,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -54,6 +44,7 @@ __all__ = [
     "VPCFlowLogsCloudWatchKMSKeyConditionCondition",
     "VPCFlowLogsLogFormat",
     "VPCFlowLogsLogGroup",
+    "VPCFlowLogsLogGroupOutput",
     "VPCFlowLogsLogGroupRetention",
     "VPCFlowLogsMaxAggregationInterval",
     "VPCFlowLogsRole",

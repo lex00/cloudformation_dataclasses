@@ -16,16 +16,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2, iam
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Base64
 
-from .stack_config import (
-    InstanceAZ,
-    InstanceType,
-    KeyName,
-    LinuxAMIID,
-    SubnetId,
-    WindowsAMIID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_STACK_NAME",

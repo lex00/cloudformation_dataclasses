@@ -16,27 +16,19 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import directoryservice
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
-from .stack_config import (
-    cAliasCondition,
-    pCreateAlias,
-    pDomainName,
-    pEdition,
-    pEnableSingleSignOn,
-    pMicrosoftADShortName,
-    pPrivateSubnet1,
-    pPrivateSubnet2,
-    pVPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Condition",
+    "DirectoryAliasOutput",
+    "DirectoryIDOutput",
     "Equals",
     "Output",
     "Parameter",
     "ParameterType",
+    "PrimaryDNSOutput",
     "STRING",
+    "SecondaryDNSOutput",
     "Select",
     "Template",
     "cAliasCondition",

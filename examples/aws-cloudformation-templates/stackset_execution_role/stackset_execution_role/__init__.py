@@ -16,13 +16,12 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import iam
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import AdministrationAccountId
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWSCloudFormationStackSetExecutionRole",
     "AdministrationAccountId",
+    "ExecutionRoleArnOutput",
     "Output",
     "Parameter",
     "PolicyDocument",

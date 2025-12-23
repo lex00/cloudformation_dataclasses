@@ -7,14 +7,16 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import cloudformation
 
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
     "Function",
     "Macro",
     "Template",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "ref",

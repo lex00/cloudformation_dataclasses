@@ -14,17 +14,11 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudwatch
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import (
-    LogGroupName,
-    NatGatewayID,
-    NatGatewayPrivateIP,
-    VpcCidr,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudWatchDashboard",
+    "DashboardArnOutput",
     "LogGroupName",
     "NatGatewayID",
     "NatGatewayPrivateIP",

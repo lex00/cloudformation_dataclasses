@@ -1,15 +1,13 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import CertificateARN
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='Creates required AWS resources',
-        parameters=[CertificateARN],
+        description='AWS CloudFormation Sample Template RDS_PIOPS: Sample template showing how to create an Amazon RDS Database Instance with provisioned IOPs.**WARNING** This template creates an Amazon Relational Database Service database instance. You will be billed for the AWS resources used if you create a stack from this template.',
+        parameters=[DBUser],
     )
 
 

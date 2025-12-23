@@ -23,18 +23,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    EnvironmentName,
-    KeyName,
-    LinuxAMI,
-    PrivateSubnet1CIDR,
-    PrivateSubnet2CIDR,
-    PublicSubnet1CIDR,
-    PublicSubnet2CIDR,
-    VpcCIDR,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Base64",
@@ -42,6 +31,7 @@ __all__ = [
     "BastionProfile",
     "BastionSG",
     "CfnEndpoint",
+    "CfnEndpointOutput",
     "DefaultPublicRoute",
     "EndpointSG",
     "EnvironmentName",
@@ -67,6 +57,7 @@ __all__ = [
     "PrivateSubnet2",
     "PrivateSubnet2CIDR",
     "PrivateSubnet2RouteTableAssociation",
+    "PrivateSubnetsOutput",
     "PrivateWaitCondition",
     "PrivateWaitHandle",
     "PublicRouteTable",
@@ -76,13 +67,16 @@ __all__ = [
     "PublicSubnet2",
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
+    "PublicSubnetsOutput",
     "RootRole",
     "S3Endpoint",
+    "S3EndpointOutput",
     "STRING",
     "Select",
     "Sub",
     "Template",
     "VPC",
+    "VPCOutput",
     "VpcCIDR",
     "cloudformation",
     "cloudformation_dataclass",

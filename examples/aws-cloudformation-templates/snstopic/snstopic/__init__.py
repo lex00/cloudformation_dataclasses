@@ -13,19 +13,19 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import sns
 
-from .stack_config import SubscriptionEndPoint, SubscriptionProtocol
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Output",
     "Parameter",
+    "QueueNameOutput",
     "SNSSubscription",
     "SNSTopic",
     "STRING",
     "SubscriptionEndPoint",
     "SubscriptionProtocol",
     "Template",
+    "TopicARNOutput",
     "cloudformation_dataclass",
     "get_att",
     "ref",

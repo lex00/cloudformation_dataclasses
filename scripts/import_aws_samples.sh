@@ -46,6 +46,43 @@ SKIP_TEMPLATES=(
     # Currently none - all templates validate successfully
 )
 
+# Templates to exclude from import entirely (Rain-specific, Kubernetes manifests, etc.)
+# These use non-standard CloudFormation features that require preprocessing
+EXCLUDE_TEMPLATES=(
+    # Rain-specific templates (use !Rain:: tags)
+    "APIGateway/apigateway_lambda_integration.yaml"
+    "CloudFormation/CustomResources/getfromjson/src/getfromjson.yml"
+    "CloudFormation/MacrosExamples/Boto3/example.json"
+    "CloudFormation/MacrosExamples/DateFunctions/date_example.yaml"
+    "CloudFormation/MacrosExamples/DateFunctions/date.yaml"
+    "CloudFormation/MacrosExamples/PyPlate/python.yaml"
+    "CloudFormation/MacrosExamples/StringFunctions/string.yaml"
+    "CloudFormation/StackSets/common-resources-stackset_1.yaml"
+    "CloudFormation/StackSets/common-resources.yaml"
+    "CloudFormation/StackSets/common-resources.json"
+    "CloudFormation/StackSets/log-setup-management_1.yaml"
+    "ElastiCache/Elasticache-snapshot.yaml"
+    "IoT/amzn2-greengrass-cfn.yaml"
+    "RainModules/api-resource.yml"
+    "RainModules/bucket-policy.yml"
+    "RainModules/bucket.yml"
+    "RainModules/static-site.yml"
+    "Solutions/GitLab/GitLabServer.yaml"
+    "Solutions/GitLab/GitLabServer.json"
+    "Solutions/GitLabAndVSCode/GitLabAndVSCode.yaml"
+    "Solutions/GitLabAndVSCode/GitLabAndVSCode.json"
+    "Solutions/Gitea/Gitea.yaml"
+    "Solutions/Gitea/Gitea.json"
+    "Solutions/Gitea/Gitea-pkg.yaml"
+    "Solutions/Gitea/Gitea-pkg.json"
+    "Solutions/ManagedAD/templates/MANAGEDAD.cfn.yaml"
+    "Solutions/ManagedAD/templates/MANAGEDAD.cfn.json"
+    "Solutions/VSCode/VSCodeServer.yaml"
+    "Solutions/VSCode/VSCodeServer.json"
+    # Kubernetes manifests (not CloudFormation)
+    "EKS/manifest.yml"
+)
+
 cd "$PROJECT_ROOT"
 
 # Check if a template should be skipped during validation
@@ -191,6 +228,18 @@ trap cleanup_temp EXIT
 
 header "Applying Template Fixes"
 python3 "$SCRIPT_DIR/fix_templates.py" "$TEMP_SOURCE_DIR"
+
+# Remove excluded templates (Rain-specific, Kubernetes, etc.)
+header "Removing Excluded Templates"
+EXCLUDED_COUNT=0
+for template in "${EXCLUDE_TEMPLATES[@]}"; do
+    template_path="$TEMP_SOURCE_DIR/$template"
+    if [ -f "$template_path" ]; then
+        rm -f "$template_path"
+        EXCLUDED_COUNT=$((EXCLUDED_COUNT + 1))
+    fi
+done
+info "Removed $EXCLUDED_COUNT excluded templates (Rain-specific, Kubernetes, etc.)"
 
 # Use the temp directory as source for import
 IMPORT_SOURCE_DIR="$TEMP_SOURCE_DIR"
@@ -350,7 +399,7 @@ if [ "$SKIP_VALIDATION" = false ]; then
     echo ""
     success "Validated: $VALIDATED_COUNT/$TOTAL_PACKAGES packages"
 
-    # Re-import and re-validate packages that failed
+    # Re-import and re-validate packages that failed (in parallel)
     if [ ${#VALIDATION_FAILED[@]} -gt 0 ] && [ "$SKIP_CLEANUP" = false ]; then
         echo ""
         info "Re-importing ${#VALIDATION_FAILED[@]} failed packages..."
@@ -358,27 +407,25 @@ if [ "$SKIP_VALIDATION" = false ]; then
         # Clear the validation errors file before re-validation
         > "$VALIDATION_ERRORS_FILE"
 
-        STILL_FAILING=()
-        for pkg in "${VALIDATION_FAILED[@]}"; do
+        # Export variables needed by reimport function
+        export LOG_FILE OUTPUT_DIR PROJECT_SRC VALIDATION_ERRORS_FILE
+
+        # Function to re-import and validate a single package
+        reimport_package() {
+            local pkg="$1"
             # Find the original template file from import.log
+            local ORIGINAL_TEMPLATE
             ORIGINAL_TEMPLATE=$(grep -B 50 "Generated:.*/$pkg/" "$LOG_FILE" | grep "Importing " | tail -1 | sed 's/.*Importing //')
 
             if [ -n "$ORIGINAL_TEMPLATE" ] && [ -f "$ORIGINAL_TEMPLATE" ]; then
-                # Create package subdirectory (CLI uses output dir name as package name)
-                PKG_OUTPUT="$OUTPUT_DIR/$pkg"
-                # Ensure clean state before re-import
+                local PKG_OUTPUT="$OUTPUT_DIR/$pkg"
                 rm -rf "$PKG_OUTPUT"
-                set +e
-                uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null
-                set -e
+                uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null || true
 
-                # Re-validate the re-imported package
                 if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" >/dev/null 2>&1; then
-                    success "$pkg (fixed on re-import)"
+                    echo "FIXED:$pkg"
                 else
-                    error "$pkg (still failing)"
-                    STILL_FAILING+=("$pkg")
-                    # Log the error
+                    echo "FAIL:$pkg"
                     {
                         echo "=== $pkg ==="
                         PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" 2>&1 || true
@@ -386,10 +433,33 @@ if [ "$SKIP_VALIDATION" = false ]; then
                     } >> "$VALIDATION_ERRORS_FILE"
                 fi
             else
-                warn "Could not find original template for: $pkg"
-                STILL_FAILING+=("$pkg")
+                echo "NOTFOUND:$pkg"
             fi
-        done
+        }
+        export -f reimport_package
+
+        # Run re-imports in parallel
+        REIMPORT_RESULTS_FILE=$(mktemp)
+        printf '%s\n' "${VALIDATION_FAILED[@]}" | xargs -P "$JOBS" -I {} bash -c 'reimport_package "$@"' _ {} > "$REIMPORT_RESULTS_FILE"
+
+        # Process results
+        STILL_FAILING=()
+        while IFS=: read -r status pkg; do
+            case "$status" in
+                FIXED)
+                    success "$pkg (fixed on re-import)"
+                    ;;
+                FAIL)
+                    error "$pkg (still failing)"
+                    STILL_FAILING+=("$pkg")
+                    ;;
+                NOTFOUND)
+                    warn "Could not find original template for: $pkg"
+                    STILL_FAILING+=("$pkg")
+                    ;;
+            esac
+        done < "$REIMPORT_RESULTS_FILE"
+        rm -f "$REIMPORT_RESULTS_FILE"
 
         # Update VALIDATION_FAILED to only contain packages that still fail
         VALIDATION_FAILED=()

@@ -10,7 +10,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import cloudformation, cloudwatch
 
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
@@ -19,6 +19,7 @@ __all__ = [
     "MacroFunction",
     "Output",
     "ResourceFunction",
+    "ResourceFunctionOutput",
     "Template",
     "cloudformation",
     "cloudformation_dataclass",
