@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-12-22
+
+### Changed
+- **Import script preserves vendor directory** - Copies templates to a temp directory before applying fixes, ensuring `vendor/` remains immutable
+- **Reduced generated code size** - Deduplicated enum constants and removed UPPER_CASE property aliases
+
+### Fixed
+- **GetAZs intrinsic serialization** - `GetAZs.to_dict()` now correctly serializes nested intrinsics (e.g., `Ref("AWS::Region")`)
+- **YAML datetime.date parsing** - Policy document version strings like "2012-10-17" are now correctly handled when YAML parses them as `datetime.date` objects
+- **Parallel validation race conditions** - Import script now re-validates packages that fail initial validation to handle timing issues
+
+
 ## [0.5.6] - 2025-12-21
 
 ### Fixed
