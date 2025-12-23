@@ -45,15 +45,15 @@ class MyProjectContext:
     project_name = "my_project"      # Top-level project name
     component = "MyComponent"        # Logical grouping
     stage = "dev"                    # dev, staging, prod
-    deployment_name = "001"          # Deployment identifier
-    deployment_group = "blue"        # For blue/green deployments
     region = "us-east-1"             # AWS region
     tags = [EnvironmentTag, ...]     # Base tags for all resources
 ```
 
 Resources using this context automatically get:
-- **Consistent naming**: Based on the naming pattern
+- **Consistent naming**: Based on the naming pattern (e.g., `myproject-MyComponent-DataBucket-dev-us-east-1`)
 - **Base tags**: Applied to all resources
+
+See the [Context Guide](CONTEXT.md) for full documentation on naming patterns, tag management, and multi-environment deployments.
 
 ### 2. Add Resources
 
@@ -123,85 +123,6 @@ List available skeletons:
 cfn-dataclasses-init --list
 ```
 
-## DeploymentContext Reference
-
-The `DeploymentContext` provides automatic resource naming and shared tags.
-
-### Fields
-
-| Field | Description | Used in Naming |
-|-------|-------------|----------------|
-| `project_name` | Top-level project/organization name | Yes |
-| `component` | Logical grouping within your project | Yes |
-| `stage` | Deployment stage (dev, staging, prod) | Yes |
-| `deployment_name` | Deployment identifier (e.g., "001", "v2") | Yes |
-| `deployment_group` | Blue/green deployment group | Yes |
-| `region` | AWS region | Yes |
-| `naming_pattern` | Custom naming pattern (optional) | N/A |
-| `tags` | Base tags applied to all resources | N/A |
-
-### Default Naming Pattern
-
-```
-{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
-```
-
-**Example**: `analytics-storage-DataBucket-prod-001-blue-us-west-2`
-
-Empty fields are automatically removed from the generated name (no double dashes).
-
-### Custom Naming Pattern
-
-Override the default pattern in your context:
-
-```python
-@cloudformation_dataclass
-class MyContext:
-    context: DeploymentContext
-    project_name = "myapp"
-    component = "api"
-    stage = "prod"
-    region = "us-east-1"
-
-    # Shorter pattern without deployment_name/group
-    naming_pattern = "{project_name}-{component}-{resource_name}-{stage}"
-```
-
-This produces: `myapp-api-DataBucket-prod`
-
-### Overriding Context Fields
-
-Any field can be overridden when instantiating the context:
-
-```python
-# Define defaults in the class
-@cloudformation_dataclass
-class MyContext:
-    context: DeploymentContext
-    project_name = "myapp"
-    component = "api"
-    stage = "dev"
-    region = "us-east-1"
-
-# Override at instantiation
-ctx_prod = MyContext(stage="prod", region="us-west-2")
-ctx_staging = MyContext(stage="staging")
-```
-
-### Blue/Green Deployments
-
-Use `deployment_group` for zero-downtime deployments:
-
-```python
-# Create two contexts with different deployment groups
-ctx_blue = MyContext(deployment_group="blue")
-ctx_green = MyContext(deployment_group="green")
-
-# Resources get different names based on deployment group
-# myapp-api-DataBucket-prod-001-blue-us-east-1
-# myapp-api-DataBucket-prod-001-green-us-east-1
-```
-
 ## Key Concepts
 
 ### Wrapper Classes
@@ -240,4 +161,6 @@ template = Template.from_registry()  # Collects all registered resources
 
 ## See Also
 
-- [Template Importer](IMPORTER.md)
+- [Context Guide](CONTEXT.md) - Full documentation on naming patterns, tags, and multi-environment deployments
+- [Template Importer](IMPORTER.md) - Convert existing CloudFormation templates
+- [with_context example](../examples/with_context/s3_bucket/) - Complete working example with context
