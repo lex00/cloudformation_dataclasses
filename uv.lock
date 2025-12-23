@@ -172,7 +172,7 @@ wheels = [
 
 [[package]]
 name = "cloudformation-dataclasses"
-version = "0.5.6"
+version = "0.6.0"
 source = { editable = "." }
 
 [package.optional-dependencies]
