@@ -61,25 +61,29 @@ Create a new file for each resource. For example, `my_project/bucket.py`:
 
 ```python
 from . import *
-from .context import ctx
 from cloudformation_dataclasses.aws.s3 import Bucket
 
 @cloudformation_dataclass
 class DataBucket:
     resource: Bucket
-    context = ctx
-    bucket_name = "my-data-bucket"
+    # Context is applied at template level - no need to set it here
 ```
 
-Then import it in `my_project/main.py`:
+Then build the template in `my_project/main.py`:
 
 ```python
-from .bucket import DataBucket
+from .context import ctx
 
 def build_template() -> Template:
-    bucket = DataBucket()  # Creates and registers the resource
-    return Template.from_registry()
+    return Template.from_registry(
+        description="My Infrastructure",
+        context=ctx,  # Applies naming + tags to all resources
+    )
 ```
+
+The context automatically:
+- Sets physical names (e.g., `bucket_name`) based on the naming pattern
+- Merges context tags with any resource-specific tags
 
 ### 3. Generate CloudFormation
 

@@ -1,6 +1,10 @@
 """Deployment context for production environment."""
 
-from . import *  # noqa: F403
+from cloudformation_dataclasses.core import (
+    DeploymentContext,
+    Tag,
+    cloudformation_dataclass,
+)
 
 
 # =============================================================================

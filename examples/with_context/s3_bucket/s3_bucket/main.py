@@ -1,13 +1,14 @@
 """Template outputs and builder."""
 
 from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
+from .context import ctx
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
         description='S3 bucket with encryption-required policy',
+        context=ctx,  # Applies naming pattern + tags to all resources
     )
 
 

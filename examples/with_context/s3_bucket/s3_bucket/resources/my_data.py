@@ -1,7 +1,6 @@
 """MyData - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
-from ..context import ctx
 
 
 @cloudformation_dataclass
@@ -40,7 +39,6 @@ class MyData:
     """AWS::S3::Bucket resource."""
 
     resource: s3.Bucket
-    context = ctx  # Wires up deployment context for naming and tags
     bucket_encryption = MyDataBucketEncryption
     versioning_configuration = MyDataDeleteMarkerReplication
     tags = [MyDataTagFilter]
