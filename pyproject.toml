@@ -119,7 +119,9 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=cloudformation_dataclasses --cov-report=term-missing --ignore=examples"
+norecursedirs = ["examples", "vendor", ".venv", "*.egg-info", "build", "dist"]
+addopts = "-v --cov=cloudformation_dataclasses --cov-report=term-missing"
+pythonpath = ["src"]
 
 [tool.coverage.run]
 source = ["src/cloudformation_dataclasses"]
