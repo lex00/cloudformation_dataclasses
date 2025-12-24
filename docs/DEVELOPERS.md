@@ -811,16 +811,19 @@ uv run mypy src/cloudformation_dataclasses/
 API documentation is auto-generated from docstrings using [pdoc](https://pdoc.dev/).
 
 ```bash
-# Build HTML docs to docs/api/
-uv sync --group docs
-uv run pdoc cloudformation_dataclasses -o docs/api/ \
-    --exclude cloudformation_dataclasses.aws \
-    --exclude cloudformation_dataclasses.codegen
+# Use the helper script (recommended)
+./scripts/docs.sh          # Serve with auto-reload
+./scripts/docs.sh --build  # Build static HTML to docs/api/
 
-# Serve locally for preview (auto-reload)
-uv run pdoc cloudformation_dataclasses \
-    --exclude cloudformation_dataclasses.aws \
-    --exclude cloudformation_dataclasses.codegen
+# Or run pdoc directly (explicitly list modules to document)
+uv sync --group docs
+uv run pdoc \
+    cloudformation_dataclasses.core \
+    cloudformation_dataclasses.intrinsics \
+    cloudformation_dataclasses.linter \
+    cloudformation_dataclasses.importer \
+    cloudformation_dataclasses.constants \
+    -o docs/api/
 ```
 
 API docs are automatically deployed to GitHub Pages on push to `main`.

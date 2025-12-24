@@ -30,10 +30,15 @@ jobs:
 
       - name: Build API docs
         run: |
-          uv run pdoc cloudformation_dataclasses \
-            -o docs/api/ \
-            --exclude cloudformation_dataclasses.aws \
-            --exclude cloudformation_dataclasses.codegen
+          uv run pdoc \
+            cloudformation_dataclasses.core \
+            cloudformation_dataclasses.intrinsics \
+            cloudformation_dataclasses.linter \
+            cloudformation_dataclasses.importer \
+            cloudformation_dataclasses.constants \
+            --footer-text "cloudformation_dataclasses" \
+            -t docs/pdoc-templates \
+            -o docs/api/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
