@@ -14,23 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Join, Sub
 
-from .stack_config import (
-    NumberOfRouteTables,
-    NumberOfSecurityGroups,
-    PeerName,
-    PeerOwnerId,
-    PeerRoleARN,
-    PeerVPCCIDR,
-    PeerVPCID,
-    RouteTableIds,
-    SecurityGroupIds,
-    TemplatesS3BucketName,
-    TemplatesS3BucketRegion,
-    TemplatesS3KeyPrefix,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Join",

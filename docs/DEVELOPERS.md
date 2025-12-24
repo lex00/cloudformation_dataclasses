@@ -99,12 +99,29 @@ cloudformation_dataclasses/
 │   │   ├── spec_parser.py              # CloudFormation spec parser
 │   │   ├── botocore_enums.py           # Botocore enum extraction
 │   │   └── generator.py                # AWS resource generator
-│   ├── linter/                         # Linter for detecting/fixing common mistakes
-│   │   ├── __init__.py                 # Public API: lint_code(), fix_code()
-│   │   ├── rules.py                    # Lint rules (CFD001-CFD005)
-│   │   └── introspection.py            # Type introspection utilities
-│   ├── constants/                      # Shared constant mappings
-│   │   └── __init__.py                 # Condition operators, pseudo-params, etc.
+│   ├── importer/                        # Template importer (cfn-dataclasses-import)
+│   │   ├── __init__.py                  # Public API
+│   │   ├── cli.py                       # Command-line interface
+│   │   ├── ir.py                        # Intermediate representation dataclasses
+│   │   ├── parser.py                    # YAML/JSON parsing with intrinsic support
+│   │   └── codegen/                     # Python code generation (8 modules)
+│   │       ├── __init__.py              # Public API: generate_code(), generate_package()
+│   │       ├── context.py               # CodegenContext, PackageContext classes
+│   │       ├── values.py                # Value serialization, intrinsic_to_python
+│   │       ├── classes.py               # Class generation (params, resources, outputs)
+│   │       ├── blocks.py                # Block mode PropertyType wrapper generation
+│   │       ├── imports.py               # Import statement generation
+│   │       ├── topology.py              # SCC detection, topological sort
+│   │       ├── package.py               # Package/file generation
+│   │       └── helpers.py               # SERVICE_CATEGORIES, utilities
+│   ├── linter/                          # Linter for detecting/fixing common mistakes
+│   │   ├── __init__.py                  # Public API: lint_code(), fix_code()
+│   │   ├── rules.py                     # Lint rules (CFD001-CFD005)
+│   │   └── introspection.py             # Type introspection utilities
+│   ├── constants/                      # Shared constant mappings and registries
+│   │   ├── __init__.py                 # Re-exports from maps.py and registry.py
+│   │   ├── maps.py                     # Condition operators, pseudo-params, parameter types
+│   │   └── registry.py                 # Runtime AWS module scanning and class lookup
 │   ├── aws/                            # Generated AWS resources (262 services)
 │   │   ├── s3.py                       # S3 resources
 │   │   ├── dynamodb.py                 # DynamoDB resources

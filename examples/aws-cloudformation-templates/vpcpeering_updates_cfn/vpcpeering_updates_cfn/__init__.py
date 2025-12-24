@@ -22,27 +22,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    NumberOfRouteTables,
-    NumberOfSecurityGroups,
-    PeerName,
-    PeerVPCCIDR,
-    RouteTableIds,
-    SecurityGroupIds,
-    VPCPeeringConnectionId,
-    _2RouteTableConditionCondition,
-    _2SecurityGroupConditionCondition,
-    _3RouteTableConditionCondition,
-    _3SecurityGroupConditionCondition,
-    _4RouteTableConditionCondition,
-    _4SecurityGroupConditionCondition,
-    _5RouteTableConditionCondition,
-    _5SecurityGroupConditionCondition,
-    _6RouteTableConditionCondition,
-    _6SecurityGroupConditionCondition,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Condition",

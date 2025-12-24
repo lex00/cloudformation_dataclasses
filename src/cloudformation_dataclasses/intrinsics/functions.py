@@ -477,6 +477,27 @@ class Transform:
         return {"Fn::Transform": result}
 
 
+@dataclass
+class ValueOf:
+    """
+    Fn::ValueOf - Gets the value of a resource attribute in StackSets.
+
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-valueof.html
+
+    Example:
+        >>> valueof = ValueOf("MyParameter", "ParameterId")
+        >>> valueof.to_dict()
+        {"Fn::ValueOf": ["MyParameter", "ParameterId"]}
+    """
+
+    parameter_logical_id: str
+    attribute: str
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize to CloudFormation JSON format."""
+        return {"Fn::ValueOf": [self.parameter_logical_id, self.attribute]}
+
+
 # Type alias for any intrinsic function
 IntrinsicFunction = Union[
     Ref,
@@ -496,4 +517,5 @@ IntrinsicFunction = Union[
     FindInMap,
     Cidr,
     Transform,
+    ValueOf,
 ]

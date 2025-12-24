@@ -26,6 +26,7 @@ class IntrinsicType(Enum):
     IMPORT_VALUE = "ImportValue"
     SPLIT = "Split"
     TRANSFORM = "Transform"
+    VALUE_OF = "ValueOf"
 
 
 @dataclass

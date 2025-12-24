@@ -13,9 +13,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.intrinsics import Transform
 
-from .stack_config import InputString
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "InputString",

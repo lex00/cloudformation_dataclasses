@@ -15,19 +15,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2, iam, ssm
 
-from .stack_config import (
-    ADDirectoryId,
-    ADDirectoryName,
-    ADDnsIpAddresses1,
-    ADDnsIpAddresses2,
-    AMI,
-    InstanceType,
-    KeyPair,
-    PublicSubnet,
-    VPC,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "ADDirectoryId",

@@ -22,27 +22,14 @@ from cloudformation_dataclasses.aws import (
     elasticloadbalancingv2,
     sns,
 )
+from cloudformation_dataclasses.aws.ec2.instance import AssociationParameter
 from cloudformation_dataclasses.intrinsics import Base64, Join, Sub
 
-from .stack_config import (
-    AZs,
-    CertificateArn,
-    InstanceType,
-    KeyName,
-    KmsKeyArn,
-    LatestAmiId,
-    OperatorEMail,
-    Region2ExamplesMapping,
-    SSHLocation,
-    SecurityGroups,
-    Subnets,
-    VPC,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AZs",
+    "AssociationParameter",
     "Base64",
     "CPUAlarmHigh",
     "CPUAlarmLow",
@@ -71,6 +58,7 @@ __all__ = [
     "Subnets",
     "TargetGroup",
     "Template",
+    "URLOutput",
     "VPC",
     "WebServerGroup",
     "WebServerScaleDownPolicy",

@@ -21,18 +21,7 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
 )
 
-from .stack_config import (
-    ContentBasedDeduplication,
-    CreateDeadLetterQueueCondition,
-    MaximumMessageSize,
-    MessageRetentionPeriod,
-    QueueName,
-    ReceiveMessageWaitTimeSeconds,
-    UsedeadletterQueue,
-    VisibilityTimeout,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -48,7 +37,10 @@ __all__ = [
     "NUMBER",
     "Output",
     "Parameter",
+    "QueueARNOutput",
     "QueueName",
+    "QueueNameOutput",
+    "QueueURLOutput",
     "ReceiveMessageWaitTimeSeconds",
     "SQSQueue",
     "STRING",

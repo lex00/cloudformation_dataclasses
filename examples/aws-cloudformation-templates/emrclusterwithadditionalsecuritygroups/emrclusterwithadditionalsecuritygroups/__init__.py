@@ -19,24 +19,7 @@ from cloudformation_dataclasses.aws import emr, iam
 from cloudformation_dataclasses.aws.emr.cluster import BootstrapActionConfig
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If
 
-from .stack_config import (
-    AdditionalCoreNodeSecurityGroups,
-    AdditionalPrimaryNodeSecurityGroups,
-    Applications,
-    CoreInstanceType,
-    EMRClusterName,
-    HbaseCondition,
-    KeyName,
-    LogUri,
-    MasterInstanceType,
-    NumberOfCoreInstances,
-    ReleaseLabel,
-    S3DataUri,
-    SparkCondition,
-    SubnetID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",

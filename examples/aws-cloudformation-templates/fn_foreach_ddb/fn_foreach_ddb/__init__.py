@@ -9,6 +9,8 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 
+from .stack import *  # noqa: F403, F401
+
 __all__ = [
     "Template",
     "cloudformation_dataclass",

@@ -1,9 +1,6 @@
 # Macro
 
-Migrated from [macro.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `stackset-administration-role.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,7 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `ResourceFunction` | AWS::Serverless::Function |
-| `MacroFunction` | AWS::Serverless::Function |
-| `Macro` | AWS::CloudFormation::Macro |
-| `Dashboard` | AWS::CloudWatch::Dashboard |
+| `AWSCloudFormationStackSetAdministrationRole` | AWS::IAM::Role |

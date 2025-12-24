@@ -13,9 +13,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import cloudformation
 
-from .stack_config import KmsKeyId, OUID, StackSetRegions
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "KmsKeyId",

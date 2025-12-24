@@ -184,15 +184,60 @@ my_stack/                    # Project root
 └── my_stack/                # Actual Python package
     ├── __init__.py          # Centralized imports
     ├── __main__.py          # For `python -m my_stack`
-    ├── config.py            # Parameters, Mappings, Conditions
     ├── main.py              # build_template() entry point
-    ├── outputs.py           # Output definitions (if any)
-    └── resources/           # One file per resource
-        ├── __init__.py      # Re-exports all resources
-        ├── my_bucket.py     # ~40-80 lines per resource
-        ├── my_log_bucket.py
-        └── bucket_policy.py
+    └── stack/               # Parameters, outputs, and resources
+        ├── __init__.py      # Re-exports params + resources (via setup_resources)
+        ├── params.py        # Parameters, Mappings, Conditions
+        ├── outputs.py       # Output definitions (if any)
+        ├── main.py          # Resources (SCCs + uncategorized)
+        ├── compute.py       # EC2, Lambda, ECS resources (if any)
+        ├── network.py       # VPC, Subnet, SecurityGroup resources (if any)
+        ├── storage.py       # S3, EFS resources (if any)
+        └── database.py      # RDS, DynamoDB resources (if any)
 ```
+
+Resources are organized by AWS service category for large templates (10+ resources). Smaller templates put all resources in `stack/main.py`.
+
+### File Organization Logic
+
+For templates with 10+ resources, the importer groups resources by AWS service category:
+
+| Category File | AWS Services |
+|--------------|--------------|
+| `compute.py` | EC2 (instances), Lambda, ECS, EKS, Batch, AutoScaling, ElasticBeanstalk, Lightsail |
+| `network.py` | EC2 (VPC, Subnet, SecurityGroup, etc.), ELB, Route53, CloudFront, API Gateway |
+| `storage.py` | S3, EFS, FSx, Backup |
+| `database.py` | RDS, DynamoDB, ElastiCache, Neptune, DocumentDB, Redshift |
+| `security.py` | IAM, Cognito, SecretsManager, KMS, WAF, ACM, SSM |
+| `messaging.py` | SNS, SQS, EventBridge, StepFunctions, AppSync |
+| `monitoring.py` | CloudWatch, Logs, CloudTrail, X-Ray |
+| `cicd.py` | CodeBuild, CodePipeline, CodeCommit, CodeDeploy |
+| `infra.py` | CloudFormation, Config, ServiceCatalog |
+| `main.py` | Uncategorized services + resources with circular dependencies |
+
+**Circular Dependencies (SCCs)**
+
+When resources have circular references (A → B → C → A), they form a *Strongly Connected Component* (SCC). The importer detects these cycles and places all resources in an SCC together in `main.py` to avoid Python import errors.
+
+For example, if a Lambda function references an S3 bucket, and the bucket's notification configuration references the Lambda:
+```yaml
+# Circular: Lambda → Bucket → Lambda
+MyFunction:
+  Type: AWS::Lambda::Function
+  Properties:
+    Environment:
+      Variables:
+        BUCKET: !Ref MyBucket
+
+MyBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    NotificationConfiguration:
+      LambdaConfigurations:
+        - Function: !GetAtt MyFunction.Arn
+```
+
+Both resources go to `main.py` even though Lambda is normally in `compute.py` and S3 in `storage.py`.
 
 **Run the generated package:**
 ```bash
@@ -213,10 +258,10 @@ from cloudformation_dataclasses.intrinsics import Sub, AWS_ACCOUNT_ID, ...
 __all__ = [...]
 ```
 
-**`config.py`** - Parameters and configuration:
+**`stack/params.py`** - Parameters and configuration:
 ```python
-"""Configuration - Parameters, Mappings, Conditions."""
-from . import *  # noqa: F403
+"""Parameters, Mappings, and Conditions."""
+from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AppName:
@@ -225,12 +270,10 @@ class AppName:
     description = "Application name"
 ```
 
-**`resources/my_bucket.py`** - One resource per file with its PropertyType wrappers:
+**`stack/main.py`** (or `stack/storage.py` for large templates) - Resources with PropertyType wrappers:
 ```python
-"""MyBucket - AWS::S3::Bucket resource."""
+"""Stack resources."""
 from .. import *  # noqa: F403
-from ..config import AppName
-from .my_log_bucket import MyLogBucket  # Cross-resource dependency
 
 @cloudformation_dataclass
 class MyBucketServerSideEncryptionByDefault:
@@ -247,21 +290,26 @@ class MyBucket:
     )
 ```
 
-**`resources/__init__.py`** - Re-exports all resources:
+**`stack/__init__.py`** - Re-exports params and uses dynamic resource loading:
 ```python
-"""Resource definitions - re-exports all resources."""
-from .my_bucket import MyBucket
-from .my_log_bucket import MyLogBucket
-from .bucket_policy import BucketPolicy
+"""Stack - parameters, outputs, and resources."""
+from .params import *  # noqa: F403, F401
 
-__all__ = ["MyBucket", "MyLogBucket", "BucketPolicy"]
+# Import resources with topological ordering
+from cloudformation_dataclasses.core.resource_loader import setup_resources
+setup_resources(__file__, __name__, globals())
+
+# Import outputs after resources (outputs reference resource classes)
+try:
+    from .outputs import *  # noqa: F403, F401
+except ImportError:
+    pass
 ```
 
-**`outputs.py`** - Output definitions (generated only if template has outputs):
+**`stack/outputs.py`** - Output definitions (generated only if template has outputs):
 ```python
 """Template outputs."""
-from . import *  # noqa: F403
-from .resources import MyBucket
+from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class BucketArnOutput:
@@ -271,10 +319,8 @@ class BucketArnOutput:
 
 **`main.py`** - Template builder and entry point:
 ```python
-"""Template outputs and builder."""
-from . import *  # noqa: F403
-from .config import AppName
-from .outputs import BucketArnOutput
+"""Template builder."""
+from . import *  # noqa: F403, F401
 
 def build_template() -> Template:
     return Template.from_registry(
@@ -283,20 +329,22 @@ def build_template() -> Template:
         outputs=[BucketArnOutput],
     )
 
-if __name__ == "__main__":
+def main() -> None:
     import json
     print(json.dumps(build_template().to_dict(), indent=2))
+
+if __name__ == "__main__":
+    main()
 ```
 
 **Benefits:**
-- **Smaller files** - Each resource ~40-80 lines instead of one 400+ line file
-- **AI-friendly** - Agents can work on one resource at a time within context limits
+- **Service-based organization** - Resources grouped by AWS service category (compute, network, storage, etc.)
+- **AI-friendly** - Agents can work on one category at a time within context limits
 - **Clear ownership** - Easy to find where a resource is defined
 - **Natural grouping** - PropertyType wrappers stay with their parent resource
-- **Explicit dependencies** - Cross-resource imports are visible
+- **Dynamic loading** - `setup_resources()` handles topological ordering automatically
 - Cleaner imports with `from . import *`
-- Logical separation of config, resources, outputs, and main
-- Matches hand-written package patterns
+- Logical separation of params, resources, outputs, and main
 
 ## Output Style
 
@@ -501,8 +549,17 @@ importer/
 ├── __init__.py      # Package exports
 ├── ir.py            # Intermediate representation dataclasses
 ├── parser.py        # YAML/JSON parsing with intrinsic support
-├── codegen.py       # Python code generation
-└── cli.py           # Command-line interface
+├── cli.py           # Command-line interface
+└── codegen/         # Python code generation (package with 8 modules)
+    ├── __init__.py  # Public API: generate_code(), generate_package()
+    ├── context.py   # CodegenContext, PackageContext, pattern maps
+    ├── values.py    # Value serialization, intrinsic_to_python
+    ├── classes.py   # Class generation (params, resources, outputs)
+    ├── blocks.py    # Block mode PropertyType wrapper generation
+    ├── imports.py   # Import statement generation
+    ├── topology.py  # SCC detection, topological sort
+    ├── package.py   # Package/file generation
+    └── helpers.py   # SERVICE_CATEGORIES, utilities
 ```
 
 ### Module Overview
@@ -526,14 +583,30 @@ Defines dataclasses for the parsed template structure:
 - Handles JSON with `Fn::` prefix detection
 - Builds reference graph for dependency ordering
 
-**codegen.py** - Code Generator
+**codegen/** - Code Generator Package
 
+The code generator is organized into focused modules:
+
+| Module | Purpose |
+|--------|---------|
+| `context.py` | CodegenContext and PackageContext classes, pattern maps for implicit ref/get_att detection |
+| `values.py` | Value serialization (`value_to_python`, `intrinsic_to_python`) |
+| `classes.py` | Class generation for parameters, resources, outputs, mappings, conditions |
+| `blocks.py` | Block mode PropertyType wrapper and policy document generation |
+| `imports.py` | Import statement generation |
+| `topology.py` | Strongly connected component detection, topological sort for resource ordering |
+| `package.py` | Package/file generation, init file generation |
+| `helpers.py` | SERVICE_CATEGORIES for file organization, utility functions |
+
+Public API (from `codegen/__init__.py`):
 - `generate_code(template, include_main=True)` - Single-file generation
-- `generate_package(template)` - Package generation (multiple files)
-- Handles imports, class generation, and formatting
+- `generate_package(template, package_name)` - Package generation (multiple files)
+
+Features:
 - Automatically detects implicit refs and ARN patterns
 - Uses `ARN` constant for `get_att()` calls (type-safe, IDE-friendly)
 - Uses `Join()` for ARN wildcards instead of verbose `Sub()` patterns
+- Groups resources by AWS service category (compute, network, storage, etc.)
 
 **cli.py** - Command Line Interface
 

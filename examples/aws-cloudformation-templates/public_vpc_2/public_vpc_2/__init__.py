@@ -27,20 +27,23 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
 )
 
-from .stack_config import SubnetConfigMapping
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_REGION",
     "AWS_STACK_NAME",
+    "ClusterNameOutput",
     "DummyTargetGroupPublic",
     "ECSCluster",
     "ECSRole",
+    "ECSRoleOutput",
     "ECSTaskExecutionRole",
+    "ECSTaskExecutionRoleOutput",
     "EcsSecurityGroupIngressFromPublicALB",
     "EcsSecurityGroupIngressFromSelf",
+    "ExternalUrlOutput",
     "FargateContainerSecurityGroup",
+    "FargateContainerSecurityGroupOutput",
     "FindInMap",
     "GatewayAttachement",
     "GetAZs",
@@ -50,19 +53,23 @@ __all__ = [
     "Output",
     "PolicyDocument",
     "PolicyStatement",
+    "PublicListenerOutput",
     "PublicLoadBalancer",
     "PublicLoadBalancerListener",
     "PublicLoadBalancerSG",
     "PublicRoute",
     "PublicRouteTable",
     "PublicSubnetOne",
+    "PublicSubnetOneOutput",
     "PublicSubnetOneRouteTableAssociation",
     "PublicSubnetTwo",
+    "PublicSubnetTwoOutput",
     "PublicSubnetTwoRouteTableAssociation",
     "Select",
     "SubnetConfigMapping",
     "Template",
     "VPC",
+    "VPCIdOutput",
     "cloudformation_dataclass",
     "ec2",
     "ecs",

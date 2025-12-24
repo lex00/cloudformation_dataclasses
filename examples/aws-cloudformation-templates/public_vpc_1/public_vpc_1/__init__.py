@@ -33,21 +33,14 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    DesiredCapacity,
-    ECSAMI,
-    InstanceType,
-    MaxSize,
-    SubnetConfigMapping,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_REGION",
     "AWS_STACK_NAME",
     "AutoscalingRole",
     "Base64",
+    "ClusterNameOutput",
     "ContainerInstances",
     "DesiredCapacity",
     "DummyTargetGroupPublic",
@@ -57,9 +50,12 @@ __all__ = [
     "ECSAutoScalingGroup",
     "ECSCluster",
     "ECSRole",
+    "ECSRoleOutput",
     "EcsHostSecurityGroup",
+    "EcsHostSecurityGroupOutput",
     "EcsSecurityGroupIngressFromPublicALB",
     "EcsSecurityGroupIngressFromSelf",
+    "ExternalUrlOutput",
     "FindInMap",
     "GatewayAttachement",
     "GetAZs",
@@ -73,14 +69,17 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
+    "PublicListenerOutput",
     "PublicLoadBalancer",
     "PublicLoadBalancerListener",
     "PublicLoadBalancerSG",
     "PublicRoute",
     "PublicRouteTable",
     "PublicSubnetOne",
+    "PublicSubnetOneOutput",
     "PublicSubnetOneRouteTableAssociation",
     "PublicSubnetTwo",
+    "PublicSubnetTwoOutput",
     "PublicSubnetTwoRouteTableAssociation",
     "STRING",
     "Select",
@@ -88,6 +87,7 @@ __all__ = [
     "SubnetConfigMapping",
     "Template",
     "VPC",
+    "VPCIdOutput",
     "autoscaling",
     "cloudformation_dataclass",
     "ec2",

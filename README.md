@@ -7,57 +7,6 @@
 
 Write CloudFormation templates as Python dataclasses. Get full IDE autocomplete, type checking, and zero runtime dependencies.
 
-## Quick Example
-
-```python
-from cloudformation_dataclasses.core import *
-from cloudformation_dataclasses.aws.s3 import *
-from cloudformation_dataclasses.intrinsics import Sub
-
-# S3 bucket with AES-256 encryption
-@cloudformation_dataclass
-class MyEncryption:
-    resource: ServerSideEncryptionByDefault
-    sse_algorithm = ServerSideEncryption.AES256
-
-@cloudformation_dataclass
-class MyEncryptionRule:
-    resource: ServerSideEncryptionRule
-    server_side_encryption_by_default = MyEncryption
-
-@cloudformation_dataclass
-class MyBucketEncryption:
-    resource: BucketEncryption
-    server_side_encryption_configuration = [MyEncryptionRule]
-
-@cloudformation_dataclass
-class MyData:
-    resource: Bucket
-    bucket_encryption = MyBucketEncryption
-
-# Policy that denies unencrypted uploads
-@cloudformation_dataclass
-class DenyUnencryptedStatement:
-    resource: DenyStatement
-    principal = "*"
-    action = "s3:PutObject"
-    resource_arn = Sub("${MyData.Arn}/*")
-    condition = {STRING_NOT_EQUALS: {"s3:x-amz-server-side-encryption": "AES256"}}
-
-@cloudformation_dataclass
-class MyDataPolicyDocument:
-    resource: PolicyDocument
-    statement = [DenyUnencryptedStatement]
-
-@cloudformation_dataclass
-class MyDataPolicy:
-    resource: BucketPolicy
-    bucket: Ref[MyData] = ref()
-    policy_document = MyDataPolicyDocument
-```
-
-See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete example with deployment context and naming.
-
 ## Installation
 
 ```bash
@@ -77,13 +26,65 @@ pip install cloudformation-dataclasses
 | **[Developer Guide](docs/DEVELOPERS.md)** | Building, testing, and contributing |
 | **[Changelog](CHANGELOG.md)** | Version history |
 
-## Features
+## Key Features
 
-- **Type-Safe** - Full Python type hints, IDE autocomplete, mypy/pyright support
-- **Zero Dependencies** - Core package requires nothing (pyyaml optional for YAML output)
+### 1. Declarative Syntax
+
+Infrastructure as **data**, not code. No constructors, no method calls, no execution order:
+
+```python
+# cloudformation_dataclasses: Infrastructure as DATA
+@cloudformation_dataclass
+class MyBucket:
+    resource: Bucket
+    bucket_name = "data"
+    bucket_encryption = MyEncryption  # Just reference another class
+
+# CDK: Imperative with construct tree
+bucket = Bucket(self, "MyBucket", bucket_name="data")
+bucket.add_encryption(...)  # Execute methods to mutate
+
+# Troposphere: Imperative with manual registration
+bucket = Bucket("MyBucket", BucketName="data")
+template.add_resource(bucket)  # Don't forget this!
+```
+
+### 2. Type-Safe Cross-Resource References
+
+Use **class references** instead of error-prone strings. Your IDE catches typos immediately:
+
+```python
+role = get_att(MyRol, "Arn")  # ❌ IDE error: "MyRol" undefined
+role = get_att(MyRole, "Arn")  # ✅ IDE validates, autocompletes, refactors
+```
+
+### 3. Flexible File Organization
+
+One import pattern. Reference resources from **any file** without explicit imports:
+
+```python
+# Every file in your stack uses the same import
+from .. import *
+
+# Reference resources from ANY file - no explicit imports needed
+bucket = ref(DataBucket)  # DataBucket could be in storage.py, main.py, anywhere
+```
+
+Move resources between files → **zero import changes**.
+
+### 4. Pure Python
+
+No Node.js required (unlike CDK). No transitive dependencies.
+
+---
+
+See **[Feature Comparison](docs/comparisons/FEATURES.md)** for the full matrix, or compare with **[CDK](docs/comparisons/CDK.md)** and **[Troposphere](docs/comparisons/TROPOSPHERE.md)** directly.
+
+## Also
+
 - **All AWS Services** - 262 services, 1,502 resource types auto-generated from CloudFormation specs
-- **Pure Python** - No Node.js required (unlike AWS CDK)
 - **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses-import`
+- **Clean Output** - Readable logical IDs, no CDK metadata or hashes
 - **Linter** - Auto-fix string literals to type-safe constants
 
 ## Tools

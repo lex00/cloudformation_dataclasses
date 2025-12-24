@@ -15,25 +15,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import servicecatalog
 from cloudformation_dataclasses.intrinsics import Equals, Sub
 
-from .stack_config import (
-    AccountIdOfChildAWSAccount,
-    ActivateProductTagOptions,
-    ConditionShareThisPortfolioCondition,
-    Dept,
-    Env,
-    Owner,
-    PortfolioDescription,
-    PortfolioDisplayName,
-    PortfolioProviderName,
-    ProductDept,
-    ProductEnv,
-    ProductOwner,
-    ProductUser,
-    ShareThisPortfolio,
-    User,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AccountIdOfChildAWSAccount",
@@ -55,8 +37,11 @@ __all__ = [
     "ProductUser",
     "STRING",
     "ServiceCatalogPortfolio",
+    "ServiceCatalogPortfolioNameOutput",
+    "ServiceCatalogPortfolioOutput",
     "ServiceCatalogPortfolioShare",
     "ServiceCatalogProductTagOptionsDept",
+    "ServiceCatalogProductTagOptionsDeptOutput",
     "ServiceCatalogProductTagOptionsEnv",
     "ServiceCatalogProductTagOptionsOwner",
     "ServiceCatalogProductTagOptionsUser",

@@ -1,9 +1,6 @@
 # Example2
 
-Migrated from [example_2.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `macro_2.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,4 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `ExecutionRoleBuilderMacroTestRole` | AWS::IAM::Role |
+| `Function` | AWS::Serverless::Function |
+| `Macro` | AWS::CloudFormation::Macro |

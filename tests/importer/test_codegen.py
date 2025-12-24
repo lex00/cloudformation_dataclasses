@@ -211,11 +211,11 @@ class TestGeneratePackage:
         assert "from .main import main" in content
         assert "main()" in content
 
-    def test_has_stack_config_py(self, files):
-        assert "my_stack/stack_config.py" in files
+    def test_has_stack_params_py(self, files):
+        assert "my_stack/stack/params.py" in files
 
-    def test_has_resources_package(self, files):
-        assert "my_stack/resources/__init__.py" in files
+    def test_has_stack_package(self, files):
+        assert "my_stack/stack/__init__.py" in files
 
     def test_main_has_build_template(self, files):
         content = files["my_stack/main.py"]

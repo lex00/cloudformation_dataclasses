@@ -1,8 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, VPCPeeringConnectionId, _2RouteTableConditionCondition, _2SecurityGroupConditionCondition, _3RouteTableConditionCondition, _3SecurityGroupConditionCondition, _4RouteTableConditionCondition, _4SecurityGroupConditionCondition, _5RouteTableConditionCondition, _5SecurityGroupConditionCondition, _6RouteTableConditionCondition, _6SecurityGroupConditionCondition
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

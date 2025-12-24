@@ -21,16 +21,7 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
 )
 
-from .stack_config import (
-    PeerName,
-    PeerOwnerId,
-    PeerRoleARN,
-    PeerRoleConditionCondition,
-    PeerVPCID,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -50,6 +41,7 @@ __all__ = [
     "Template",
     "VPCID",
     "VPCPeeringConnection",
+    "VPCPeeringConnectionIdOutput",
     "cloudformation_dataclass",
     "ec2",
     "get_att",

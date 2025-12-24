@@ -1,15 +1,13 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import Applications, CoreInstanceType, EMRClusterName, HbaseCondition, KeyName, LogUri, MasterInstanceType, NumberOfCoreInstances, ReleaseLabel, S3DataUri, SparkCondition, SubnetID
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='Best Practice EMR Cluster for Spark or S3 backed Hbase',
-        parameters=[EMRClusterName, KeyName, MasterInstanceType, CoreInstanceType, NumberOfCoreInstances, SubnetID, LogUri, S3DataUri, ReleaseLabel, Applications],
+        description='This stack deploys a Fargate cluster that is in a VPC with both public and private subnets. Containers can be deployed into either the public subnets or the private subnets, and there are two load balancers. One is inside the public subnet, which can be used to send traffic to the containers in the private subnet, and one in the private subnet, which can be used for private internal traffic between internal services.',
+        outputs=[ClusterNameOutput, InternalUrlOutput, ExternalUrlOutput, ECSRoleOutput, ECSTaskExecutionRoleOutput, PublicListenerOutput, PrivateListenerOutput, VPCIdOutput, PublicSubnetOneOutput, PublicSubnetTwoOutput, PrivateSubnetOneOutput, PrivateSubnetTwoOutput, FargateContainerSecurityGroupOutput],
     )
 
 

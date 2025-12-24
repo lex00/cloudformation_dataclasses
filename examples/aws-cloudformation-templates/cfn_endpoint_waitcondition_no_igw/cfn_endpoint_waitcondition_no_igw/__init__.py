@@ -22,19 +22,12 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    EnvironmentName,
-    LinuxAMI,
-    PrivateSubnet1CIDR,
-    PrivateSubnet2CIDR,
-    VpcCIDR,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Base64",
     "CfnEndpoint",
+    "CfnEndpointOutput",
     "EndpointSG",
     "EnvironmentName",
     "GetAZs",
@@ -54,14 +47,17 @@ __all__ = [
     "PrivateSubnet2",
     "PrivateSubnet2CIDR",
     "PrivateSubnet2RouteTableAssociation",
+    "PrivateSubnetsOutput",
     "PrivateWaitCondition",
     "PrivateWaitHandle",
     "S3Endpoint",
+    "S3EndpointOutput",
     "STRING",
     "Select",
     "Sub",
     "Template",
     "VPC",
+    "VPCOutput",
     "VpcCIDR",
     "cloudformation",
     "cloudformation_dataclass",

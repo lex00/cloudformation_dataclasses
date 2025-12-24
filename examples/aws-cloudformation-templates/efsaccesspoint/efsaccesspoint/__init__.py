@@ -14,18 +14,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import efs
 
-from .stack_config import (
-    AccessPointName,
-    EFSFileSystemName,
-    SecurityGroup1,
-    SecurityGroup2,
-    SecurityGroup3,
-    Subnet1,
-    Subnet2,
-    Subnet3,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AccessPointName",
@@ -35,6 +24,7 @@ __all__ = [
     "EFSMountTarget1",
     "EFSMountTarget2",
     "EFSMountTarget3",
+    "FileSystemIdOutput",
     "Output",
     "Parameter",
     "ParameterType",

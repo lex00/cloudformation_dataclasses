@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import EnvironmentName, KeyName, LinuxAMI, PrivateSubnet1CIDR, PrivateSubnet2CIDR, PublicSubnet1CIDR, PublicSubnet2CIDR, VpcCIDR
-from .outputs import CfnEndpointOutput, PrivateSubnetsOutput, PublicSubnetsOutput, S3EndpointOutput, VPCOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

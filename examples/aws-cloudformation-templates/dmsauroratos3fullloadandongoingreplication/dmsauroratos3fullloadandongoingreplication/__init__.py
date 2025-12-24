@@ -32,16 +32,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    ClientIP,
-    ExistsDMSCloudwatchRole,
-    ExistsDMSVPCRole,
-    NotExistsDMSCloudwatchRoleCondition,
-    NotExistsDMSVPCRoleCondition,
-    SnapshotIdentifier,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_REGION",
@@ -51,6 +42,7 @@ __all__ = [
     "AuroraCluster",
     "AuroraDB",
     "AuroraDBSubnetGroup",
+    "AuroraEndpointOutput",
     "AuroraSecurityGroup",
     "AuroraSourceEndpoint",
     "ClientIP",
@@ -74,15 +66,18 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
+    "RegionNameOutput",
     "Route",
     "RouteTable",
     "S3Bucket",
+    "S3BucketNameOutput",
     "S3TargetDMSRole",
     "S3TargetEndpoint",
     "STRING",
     "Select",
     "ServerSideEncryption",
     "SnapshotIdentifier",
+    "StackNameOutput",
     "Sub",
     "SubnetRouteTableAssociation",
     "SubnetRouteTableAssociation1",

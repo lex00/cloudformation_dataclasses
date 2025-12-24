@@ -17,24 +17,15 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Join, Select
 
-from .stack_config import (
-    InstanceType,
-    KeyName,
-    LatestAMI,
-    PrimaryIPAddress,
-    SSHLocation,
-    SecondaryIPAddress,
-    SubnetId,
-    VpcId,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "EC2Instance",
     "EIP1",
+    "EIP1Output",
     "EIPAssoc1",
     "Eth0",
+    "InstanceIdOutput",
     "InstanceType",
     "Join",
     "KeyName",
@@ -43,10 +34,12 @@ __all__ = [
     "Parameter",
     "ParameterType",
     "PrimaryIPAddress",
+    "PrimaryPrivateIPAddressOutput",
     "SSHLocation",
     "SSHSecurityGroup",
     "STRING",
     "SecondaryIPAddress",
+    "SecondaryPrivateIPAddressesOutput",
     "Select",
     "SubnetId",
     "Template",

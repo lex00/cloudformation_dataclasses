@@ -15,21 +15,15 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Base64, Join, Select
 
-from .stack_config import (
-    InstanceType,
-    KeyName,
-    LatestAmiId,
-    SSHLocation,
-    Subnets,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "Base64",
     "EC2Instance",
     "IPAddress",
     "IPAssoc",
+    "InstanceIPAddressOutput",
+    "InstanceIdOutput",
     "InstanceSecurityGroup",
     "InstanceType",
     "Join",

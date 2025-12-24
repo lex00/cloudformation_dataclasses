@@ -7,8 +7,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import codecommit
 
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AddReadme",
@@ -16,6 +17,7 @@ __all__ = [
     "Repo",
     "Template",
     "cloudformation_dataclass",
+    "codecommit",
     "get_att",
     "ref",
 ]

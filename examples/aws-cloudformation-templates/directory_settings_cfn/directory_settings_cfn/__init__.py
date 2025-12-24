@@ -31,28 +31,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    CreateDirectoryAlias,
-    CreateDirectoryConsoleDelegatedAccessRoles,
-    DirectoryAlias,
-    DirectoryConsoleDelegatedAccessRolesConditionCondition,
-    DirectoryID,
-    DirectoryMonitoringEmail,
-    DirectoryMonitoringSNSTopicKMSKey,
-    DirectoryMonitoringSNSTopicKMSKeyConditionCondition,
-    EnableDirectorySSO,
-    LambdaFunctionName,
-    LambdaLogLevel,
-    LambdaLogsCloudWatchKMSKey,
-    LambdaLogsCloudWatchKMSKeyConditionCondition,
-    LambdaLogsLogGroupRetention,
-    LambdaS3BucketName,
-    LambdaZipFileName,
-    SecurityGroups,
-    Subnets,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -62,6 +41,7 @@ __all__ = [
     "CreateDirectoryAlias",
     "CreateDirectoryConsoleDelegatedAccessRoles",
     "DirectoryAlias",
+    "DirectoryAliasUrlOutput",
     "DirectoryConsoleDelegatedAccessEC2ReadOnlyRole",
     "DirectoryConsoleDelegatedAccessRolesConditionCondition",
     "DirectoryConsoleDelegatedAccessSecurityAuditRole",

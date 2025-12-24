@@ -1,14 +1,13 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .outputs import ResourceFunctionOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        outputs=[ResourceFunctionOutput],
+        description='StackSet administration role for management account',
+        outputs=[AdministrationRoleArnOutput],
     )
 
 

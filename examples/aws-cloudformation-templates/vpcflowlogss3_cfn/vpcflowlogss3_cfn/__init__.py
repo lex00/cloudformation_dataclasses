@@ -28,21 +28,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack_config import (
-    S3AccessLogsBucketName,
-    S3AccessLogsConditionCondition,
-    VPCFlowLogsBucketKMSKey,
-    VPCFlowLogsBucketKMSKeyConditionCondition,
-    VPCFlowLogsBucketKeyEnabled,
-    VPCFlowLogsBucketName,
-    VPCFlowLogsLogFormat,
-    VPCFlowLogsMaxAggregationInterval,
-    VPCFlowLogsNewBucketConditionCondition,
-    VPCFlowLogsTrafficType,
-    VPCID,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -69,6 +55,7 @@ __all__ = [
     "VPCFlowLogsBucketKMSKeyConditionCondition",
     "VPCFlowLogsBucketKeyEnabled",
     "VPCFlowLogsBucketName",
+    "VPCFlowLogsBucketOutput",
     "VPCFlowLogsBucketPolicy",
     "VPCFlowLogsLogFormat",
     "VPCFlowLogsMaxAggregationInterval",

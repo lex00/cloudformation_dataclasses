@@ -14,26 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import servicecatalog
 from cloudformation_dataclasses.intrinsics import ImportValue, Sub
 
-from .stack_config import (
-    AppName,
-    Dept,
-    Env,
-    Owner,
-    ProvisioningArtifactDescriptionParameter,
-    ProvisioningArtifactNameParameter,
-    ProvisioningArtifactTemplateUrl,
-    SCProductDescription,
-    SCProductDistributor,
-    SCProductName,
-    SCProductOwner,
-    SCProductSupport,
-    SCSupportEmail,
-    SCSupportUrl,
-    ServiceCatalogPortfolioStackName,
-    User,
-)
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AppName",
@@ -55,9 +36,12 @@ __all__ = [
     "SCSupportUrl",
     "STRING",
     "ServiceCatalogCloudFormationProduct",
+    "ServiceCatalogCloudFormationProductNameOutput",
     "ServiceCatalogCustomTagOptionsAssociation",
     "ServiceCatalogPortfolioProductAssociation",
     "ServiceCatalogPortfolioStackName",
+    "ServiceCatalogProvisioningArtifactIdsOutput",
+    "ServiceCatalogProvisioningArtifactNamesOutput",
     "Sub",
     "Template",
     "User",

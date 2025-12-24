@@ -1,6 +1,9 @@
 # PublicVpc
 
-Imported from `public-service_2.yaml`.
+Migrated from [public-vpc.json](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,7 +34,22 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `TaskDefinition` | AWS::ECS::TaskDefinition |
-| `Service` | AWS::ECS::Service |
-| `TargetGroup` | AWS::ElasticLoadBalancingV2::TargetGroup |
-| `LoadBalancerRule` | AWS::ElasticLoadBalancingV2::ListenerRule |
+| `VPC` | AWS::EC2::VPC |
+| `PublicSubnetOne` | AWS::EC2::Subnet |
+| `PublicSubnetTwo` | AWS::EC2::Subnet |
+| `InternetGateway` | AWS::EC2::InternetGateway |
+| `GatewayAttachement` | AWS::EC2::VPCGatewayAttachment |
+| `PublicRouteTable` | AWS::EC2::RouteTable |
+| `PublicRoute` | AWS::EC2::Route |
+| `PublicSubnetOneRouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `PublicSubnetTwoRouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `ECSCluster` | AWS::ECS::Cluster |
+| `FargateContainerSecurityGroup` | AWS::EC2::SecurityGroup |
+| `EcsSecurityGroupIngressFromPublicALB` | AWS::EC2::SecurityGroupIngress |
+| `EcsSecurityGroupIngressFromSelf` | AWS::EC2::SecurityGroupIngress |
+| `PublicLoadBalancerSG` | AWS::EC2::SecurityGroup |
+| `PublicLoadBalancer` | AWS::ElasticLoadBalancingV2::LoadBalancer |
+| `DummyTargetGroupPublic` | AWS::ElasticLoadBalancingV2::TargetGroup |
+| `PublicLoadBalancerListener` | AWS::ElasticLoadBalancingV2::Listener |
+| `ECSRole` | AWS::IAM::Role |
+| `ECSTaskExecutionRole` | AWS::IAM::Role |

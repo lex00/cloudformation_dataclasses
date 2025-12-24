@@ -1,9 +1,6 @@
 # LambdaIotTopicrule
 
-Migrated from [lambda-iot-topicrule.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `RDS_Snapshot_On_Delete.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,13 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `IoTPolicy` | AWS::IoT::Policy |
-| `OpenIoTStarPolicy` | AWS::IoT::Policy |
-| `IoTPolicyPrincipalAttachment` | AWS::IoT::PolicyPrincipalAttachment |
-| `IoTThing` | AWS::IoT::Thing |
-| `IoTThingPrincipalAttachment` | AWS::IoT::ThingPrincipalAttachment |
-| `IoTTopicRule` | AWS::IoT::TopicRule |
-| `MyLambda` | AWS::Lambda::Function |
-| `MyLambdaVersion` | AWS::Lambda::Version |
-| `MyLambdaRole` | AWS::IAM::Role |
-| `MyLambdaPermission` | AWS::Lambda::Permission |
+| `MyDB` | AWS::RDS::DBInstance |

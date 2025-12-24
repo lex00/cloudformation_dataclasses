@@ -27,9 +27,7 @@ from cloudformation_dataclasses.aws.s3 import (
 )
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
-from .stack_config import AppName
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "ARN_LIKE",

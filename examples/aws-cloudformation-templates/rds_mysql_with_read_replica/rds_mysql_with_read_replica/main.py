@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import DBAllocatedStorage, DBInstanceClass, DBName, DBUser, EC2SecurityGroup, EnableReadReplica, EnableReadReplicaCondition, IsEC2VPCCondition, MultiAZ
-from .outputs import DBCredentialSecretNameArnOutput, EC2PlatformOutput, JDBCConnectionStringOutput, ReplicaJDBCConnectionStringOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

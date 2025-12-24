@@ -1,9 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import AccessPointName, EFSFileSystemName, SecurityGroup1, SecurityGroup2, SecurityGroup3, Subnet1, Subnet2, Subnet3
-from .outputs import FileSystemIdOutput
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:

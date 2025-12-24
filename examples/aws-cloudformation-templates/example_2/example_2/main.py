@@ -1,15 +1,11 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import PermissionBoundaryArn
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
     """Build the CloudFormation template."""
-    return Template.from_registry(
-        parameters=[PermissionBoundaryArn],
-    )
+    return Template.from_registry()
 
 
 def main() -> None:

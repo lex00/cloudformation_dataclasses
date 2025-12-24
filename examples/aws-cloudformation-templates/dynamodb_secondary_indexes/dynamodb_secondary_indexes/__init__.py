@@ -14,9 +14,7 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import dynamodb
 from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType, ProjectionType
 
-from .stack_config import ReadCapacityUnits, WriteCapacityUnits
-
-from .resources import *  # noqa: F403, F401
+from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AttributeType",
@@ -26,6 +24,7 @@ __all__ = [
     "Parameter",
     "ProjectionType",
     "ReadCapacityUnits",
+    "TableNameOutput",
     "TableOfBooks",
     "Template",
     "WriteCapacityUnits",

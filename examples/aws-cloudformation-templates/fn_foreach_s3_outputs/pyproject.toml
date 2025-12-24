@@ -1,0 +1,29 @@
+[project]
+name = "fn_foreach_s3_outputs"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+fn_foreach_s3_outputs = "fn_foreach_s3_outputs.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fn_foreach_s3_outputs"]
+
+[tool.hatch.build.targets.sdist]
+include = ["fn_foreach_s3_outputs/**/*.py", "fn_foreach_s3_outputs/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

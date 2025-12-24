@@ -1,8 +1,6 @@
-"""Template outputs and builder."""
+"""Template builder."""
 
-from . import *  # noqa: F403
-from .resources import *  # noqa: F403, F401
-from .stack_config import LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsLogGroupRetention, LambdaRoleName, NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, TemplatesS3BucketName, TemplatesS3BucketRegion, TemplatesS3KeyPrefix, VPCPeeringConnectionId
+from . import *  # noqa: F403, F401
 
 
 def build_template() -> Template:
