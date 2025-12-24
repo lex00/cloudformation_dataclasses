@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2025-12-23
+
+### Changed
+- **Unified CLI** - Renamed `cfn-dataclasses-import` to `cfn-dataclasses` with subcommands:
+  - `cfn-dataclasses import` - Import CloudFormation templates to Python
+  - `cfn-dataclasses init` - Create new project skeleton
+  - `cfn-dataclasses lint` - Lint Python code for style issues
+- **Linter CLI integration** - `cfn-dataclasses lint` subcommand runs the linter directly:
+  - Supports single files (`cfn-dataclasses lint file.py`)
+  - Supports directories (`cfn-dataclasses lint src/`)
+  - Detects package structure and lints `stack/` directory
+  - `--fix` flag auto-fixes issues in place
+
+
 ## [0.6.1] - 2025-12-23
 
 ### Added
