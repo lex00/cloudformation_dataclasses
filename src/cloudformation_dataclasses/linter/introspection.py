@@ -2,6 +2,17 @@
 
 This module provides utilities to analyze type hints and extract enum classes,
 PropertyType classes, and other type information needed for linting.
+
+Key functions:
+- get_enum_for_field(): Find enum class for a typed field
+- get_enum_values(): Get constant names and values from enum-like classes
+- find_enum_constant_for_value(): Reverse lookup from value to constant name
+- get_property_type_for_field(): Find PropertyType class for a typed field
+- is_property_type(): Check if a class is a PropertyType subclass
+- get_module_for_class(): Extract AWS module name from class module path
+
+These utilities support the linter's ability to suggest enum constants and
+PropertyType wrappers instead of raw string values.
 """
 
 from typing import Any, Optional, Union, get_args, get_origin, get_type_hints

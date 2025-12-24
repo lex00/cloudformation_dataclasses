@@ -1,4 +1,15 @@
-"""Import statement generation."""
+"""Import statement generation.
+
+This module generates the import section for generated Python files,
+organizing imports by category:
+
+1. Core imports (cloudformation_dataclasses.core)
+2. AWS module imports (cloudformation_dataclasses.aws.*)
+3. Intrinsic function imports (cloudformation_dataclasses.intrinsics)
+
+Imports are collected during code generation via CodegenContext
+and formatted here with proper grouping and line wrapping.
+"""
 
 from __future__ import annotations
 
@@ -9,7 +20,17 @@ if TYPE_CHECKING:
 
 
 def generate_imports(ctx: "CodegenContext") -> str:
-    """Generate import statements."""
+    """Generate import statements for a code file.
+
+    Formats all imports collected in the context into properly
+    grouped and sorted import statements.
+
+    Args:
+        ctx: Code generation context with accumulated imports.
+
+    Returns:
+        Formatted import statements as a string.
+    """
     lines = []
 
     # Group imports by package

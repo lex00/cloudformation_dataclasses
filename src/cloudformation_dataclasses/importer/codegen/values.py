@@ -1,4 +1,19 @@
-"""Value serialization to Python source code."""
+"""Value serialization to Python source code.
+
+This module converts IR values (literals, lists, dicts, intrinsics) into
+Python source code strings. It handles:
+
+- String escaping for Python literals
+- Intrinsic function conversion (Ref, GetAtt, Sub, Join, etc.)
+- Enum detection and constant substitution
+- PropertyType class instantiation for nested structures
+- Reference detection (converting Sub patterns to ref/get_att calls)
+
+Key functions:
+- value_to_python(): Simple conversion without type awareness
+- value_to_python_typed(): Type-aware conversion with enum/PropertyType support
+- intrinsic_to_python(): Convert IR intrinsics to Python expressions
+"""
 
 from __future__ import annotations
 
@@ -33,8 +48,17 @@ if TYPE_CHECKING:
 
 
 def escape_string(s: str) -> str:
-    """Escape a string for Python source code."""
-    # Use repr for proper escaping, but handle multi-line strings
+    """Escape a string for Python source code.
+
+    Chooses appropriate quoting style: repr() for single-line strings,
+    triple quotes for multi-line strings.
+
+    Args:
+        s: The string to escape.
+
+    Returns:
+        A properly quoted Python string literal.
+    """
     if "\n" in s:
         # Use triple quotes for multi-line
         if '"""' not in s:
@@ -380,7 +404,26 @@ def value_to_python_typed(
 
 
 def intrinsic_to_python(intrinsic: IRIntrinsic, ctx: "CodegenContext") -> str | AnnotatedValue:
-    """Convert an IRIntrinsic to Python code."""
+    """Convert an IRIntrinsic to Python source code.
+
+    Handles all CloudFormation intrinsic functions, generating appropriate
+    Python expressions. May return an AnnotatedValue for top-level properties
+    that need type annotations.
+
+    Special handling:
+    - Ref to resources/parameters uses class-based ref()
+    - GetAtt to resources uses class-based get_att()
+    - Sub patterns matching resource names use ref() for dependency tracking
+    - Sub patterns matching ARNs use get_att() for dependency tracking
+    - Forward references use string-based refs to avoid NameError
+
+    Args:
+        intrinsic: The IR intrinsic to convert.
+        ctx: Code generation context for import tracking.
+
+    Returns:
+        Python source code string, or AnnotatedValue for annotation-based refs.
+    """
 
     def _format_ref_target(logical_id: str) -> str:
         """Format a ref/get_att target - use PascalCase class names."""

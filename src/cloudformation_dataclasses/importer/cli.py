@@ -1,4 +1,22 @@
-"""Command-line interface for cfn-dataclasses."""
+"""Command-line interface for cfn-dataclasses.
+
+This module provides the CLI for the cloudformation_dataclasses toolkit,
+including three subcommands:
+
+- **init**: Create a new project skeleton
+- **import**: Convert CloudFormation YAML/JSON to Python dataclasses
+- **lint**: Check and auto-fix common style issues
+
+Example:
+    Create a new project:
+        $ cfn-dataclasses init -o my_stack/
+
+    Import a CloudFormation template:
+        $ cfn-dataclasses import template.yaml -o my_stack/
+
+    Lint generated code:
+        $ cfn-dataclasses lint my_stack/ --fix
+"""
 
 from __future__ import annotations
 
@@ -23,8 +41,12 @@ from cloudformation_dataclasses.importer.parser import parse_template
 def _get_aws_module_names() -> set[str]:
     """Get the set of AWS module names to avoid package name collisions.
 
-    Returns module names like 'config', 's3', 'ec2', etc. that would collide
-    with cloudformation_dataclasses.aws.<name> if used as a package name.
+    Scans the cloudformation_dataclasses.aws package to find all AWS service
+    module names. These names (like 'config', 's3', 'ec2') would cause import
+    conflicts if used as generated package names.
+
+    Returns:
+        Set of AWS module names that should be avoided for package names.
     """
     import cloudformation_dataclasses.aws as aws_pkg
 
@@ -48,7 +70,14 @@ _AWS_MODULE_NAMES: set[str] | None = None
 
 
 def _collides_with_aws_module(package_name: str) -> bool:
-    """Check if a package name would collide with an AWS module."""
+    """Check if a package name would collide with an AWS module.
+
+    Args:
+        package_name: The proposed package name to check.
+
+    Returns:
+        True if the name collides with an AWS module, False otherwise.
+    """
     global _AWS_MODULE_NAMES
     if _AWS_MODULE_NAMES is None:
         _AWS_MODULE_NAMES = _get_aws_module_names()
@@ -57,7 +86,16 @@ def _collides_with_aws_module(package_name: str) -> bool:
 
 @dataclass
 class Attribution:
-    """Attribution info extracted from source directory."""
+    """Attribution information extracted from a source directory.
+
+    Used to generate README attribution sections when batch importing
+    templates from external repositories.
+
+    Attributes:
+        source_url: URL to the source repository (GitHub, GitLab, etc.).
+        project_name: Name of the source project (from README heading).
+        license_type: License identifier (MIT, Apache-2.0, etc.).
+    """
 
     source_url: str | None = None
     project_name: str | None = None
@@ -65,7 +103,16 @@ class Attribution:
 
 
 def _get_git_remote_url(git_dir: Path) -> str | None:
-    """Extract origin URL from .git/config file."""
+    """Extract the origin remote URL from a .git/config file.
+
+    Converts SSH URLs to HTTPS format and removes .git suffix.
+
+    Args:
+        git_dir: Path to the .git directory.
+
+    Returns:
+        The remote origin URL, or None if not found.
+    """
     config_file = git_dir / "config"
     if not config_file.exists():
         return None
@@ -96,11 +143,20 @@ def _get_git_remote_url(git_dir: Path) -> str | None:
 
 
 def detect_attribution(source_dir: Path) -> Attribution:
-    """Check source folder (and parent directories) for .git/README/LICENSE.
+    """Detect attribution information from a source directory.
 
-    Walks up the directory tree to find attribution files, stopping at
-    the first directory that contains a .git folder, README.md, or LICENSE.
+    Walks up the directory tree (up to 5 levels) looking for:
+    - .git/config: Remote origin URL
+    - README.md: Project name and fallback URL
+    - LICENSE: License type detection
+
     Git remote origin takes priority over URLs found in README.
+
+    Args:
+        source_dir: The directory to start searching from.
+
+    Returns:
+        Attribution dataclass with any discovered information.
     """
     source_url = None
     project_name = None
@@ -172,7 +228,15 @@ def detect_attribution(source_dir: Path) -> Attribution:
 
 
 def _substitute_variables(content: str, variables: dict[str, str]) -> str:
-    """Substitute {{variable}} placeholders in content."""
+    """Substitute {{variable}} placeholders in content.
+
+    Args:
+        content: Template string with {{variable}} placeholders.
+        variables: Dictionary mapping variable names to values.
+
+    Returns:
+        Content with all known placeholders replaced.
+    """
 
     def replace(match: re.Match[str]) -> str:
         var_name = match.group(1)
@@ -184,7 +248,18 @@ def _substitute_variables(content: str, variables: dict[str, str]) -> str:
 
 
 def _to_pascal_case(name: str) -> str:
-    """Convert snake_case or kebab-case to PascalCase."""
+    """Convert snake_case or kebab-case to PascalCase.
+
+    Args:
+        name: A string in snake_case or kebab-case.
+
+    Returns:
+        The string converted to PascalCase.
+
+    Example:
+        >>> _to_pascal_case("my_project")
+        'MyProject'
+    """
     words = name.replace("-", "_").split("_")
     return "".join(word.capitalize() for word in words)
 
@@ -194,10 +269,18 @@ def _process_package_templates(
     output_dir: Path,
     variables: dict[str, str],
 ) -> list[Path]:
-    """Recursively process package templates directory.
+    """Recursively process package templates to generate IDE support files.
+
+    Copies template files from the package_templates resource, substituting
+    {{variable}} placeholders with provided values.
+
+    Args:
+        pkg: Traversable resource pointing to templates directory.
+        output_dir: Destination directory for processed files.
+        variables: Variable substitutions for template placeholders.
 
     Returns:
-        List of created file paths.
+        List of paths to created files.
     """
     created_files: list[Path] = []
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -233,14 +316,20 @@ def _process_package_templates(
 
 
 def main(argv: list[str] | None = None) -> int:
-    """
-    Main entry point for cfn-dataclasses command.
+    """Main entry point for the cfn-dataclasses CLI.
+
+    Parses command-line arguments and dispatches to the appropriate
+    subcommand handler (init, import, or lint).
 
     Args:
-        argv: Command line arguments (default: sys.argv[1:])
+        argv: Command-line arguments. Defaults to sys.argv[1:].
 
     Returns:
-        Exit code (0 for success)
+        Exit code: 0 for success, 1 for errors.
+
+    Example:
+        >>> main(["init", "-o", "my_stack/"])
+        0
     """
     parser = argparse.ArgumentParser(
         prog="cfn-dataclasses",
@@ -341,7 +430,16 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def _run_import_command(args: argparse.Namespace) -> int:
-    """Handle the import subcommand."""
+    """Handle the import subcommand.
+
+    Determines whether to run single or batch import based on input type.
+
+    Args:
+        args: Parsed command-line arguments.
+
+    Returns:
+        Exit code: 0 for success, 1 for errors.
+    """
     input_path = Path(args.input) if args.input != "-" else None
 
     # Check if input is a directory (batch mode)
@@ -366,7 +464,16 @@ def _run_import_command(args: argparse.Namespace) -> int:
 
 
 def _run_init_command(args: argparse.Namespace) -> int:
-    """Handle the init subcommand."""
+    """Handle the init subcommand.
+
+    Creates an empty project skeleton using run_single_import with init_mode.
+
+    Args:
+        args: Parsed command-line arguments.
+
+    Returns:
+        Exit code: 0 for success, 1 for errors.
+    """
     return run_single_import(
         input_arg="-",  # Will be overridden by init_mode
         output_arg=args.output,
@@ -378,7 +485,17 @@ def _run_init_command(args: argparse.Namespace) -> int:
 
 
 def _run_lint_command(args: argparse.Namespace) -> int:
-    """Handle the lint subcommand."""
+    """Handle the lint subcommand.
+
+    Lints Python files for cloudformation_dataclasses style issues.
+    Can auto-fix issues with --fix flag.
+
+    Args:
+        args: Parsed command-line arguments.
+
+    Returns:
+        Exit code: 0 if no issues (or all fixed), 1 if issues found.
+    """
     from cloudformation_dataclasses.linter import lint_file, fix_file
 
     path = Path(args.path)
@@ -446,11 +563,19 @@ def _run_lint_command(args: argparse.Namespace) -> int:
 
 
 def _is_package_structure(path: Path) -> bool:
-    """Check if path is our generated package structure."""
-    # Has pyproject.toml and package_name/stack/ subdirectory
+    """Check if path is a generated package structure.
+
+    A valid package structure has pyproject.toml and a nested directory
+    containing a stack/ subdirectory.
+
+    Args:
+        path: Directory path to check.
+
+    Returns:
+        True if path matches the generated package structure.
+    """
     if not (path / "pyproject.toml").exists():
         return False
-    # Check for nested package with stack/
     for subdir in path.iterdir():
         if subdir.is_dir() and (subdir / "stack").is_dir():
             return True
@@ -458,7 +583,14 @@ def _is_package_structure(path: Path) -> bool:
 
 
 def _find_package_dir(path: Path) -> Path | None:
-    """Find the package directory within a project structure."""
+    """Find the package directory within a project structure.
+
+    Args:
+        path: Root project directory.
+
+    Returns:
+        Path to the package directory (containing stack/), or None.
+    """
     for subdir in path.iterdir():
         if subdir.is_dir() and (subdir / "stack").is_dir():
             return subdir
@@ -631,7 +763,20 @@ def _generate_readme(
     attribution: Attribution | None = None,
     init_mode: bool = False,
 ) -> str:
-    """Generate README.md with resource table and optional attribution."""
+    """Generate README.md content for a generated package.
+
+    Includes usage instructions, resource table, and optional attribution.
+
+    Args:
+        project_name: Name of the generated package.
+        source_file: Original template filename (for attribution).
+        template: Parsed IR template (for resource table).
+        attribution: Optional attribution info from source repository.
+        init_mode: If True, generate skeleton-appropriate text.
+
+    Returns:
+        Complete README.md content as a string.
+    """
     lines = [f"# {_to_pascal_case(project_name)}", ""]
 
     # Attribution section

@@ -1,4 +1,18 @@
-"""Code generation context classes."""
+"""Code generation context classes.
+
+This module provides context objects that track state during Python code
+generation from CloudFormation IR. The two main context classes are:
+
+- CodegenContext: Tracks imports, generated classes, and analysis data
+  for single-file code generation.
+- PackageContext: Extends CodegenContext for multi-file package generation,
+  tracking per-file imports and exports.
+
+The module also provides helper functions for analyzing templates:
+- analyze_reuse(): Find repeated tag patterns for optimization
+- build_name_pattern_map(): Map Sub patterns to resources for ref() detection
+- build_arn_pattern_map(): Map ARN patterns for get_att() detection
+"""
 
 from __future__ import annotations
 
@@ -20,15 +34,19 @@ from cloudformation_dataclasses.importer.ir import (
 
 @dataclass
 class AnnotatedValue:
-    """
-    Represents a field value that needs a type annotation.
+    """A field value that requires an explicit type annotation.
 
-    Used for annotation-based refs like: bucket: Ref[Bucket] = ref()
+    Used when generating annotation-based references instead of string-based.
+    For example, generates: bucket: Ref[Bucket] = ref()
     Instead of: bucket = ref("Bucket")
+
+    Attributes:
+        annotation: The type annotation string (e.g., "Ref[Bucket]").
+        value: The value expression (e.g., "ref()").
     """
 
-    annotation: str  # e.g., "Ref[Bucket]"
-    value: str  # e.g., "ref()"
+    annotation: str
+    value: str
 
 
 # =============================================================================
@@ -38,69 +56,87 @@ class AnnotatedValue:
 
 @dataclass
 class CodegenContext:
-    """Context for code generation."""
+    """Context for tracking state during code generation.
+
+    Maintains imports, generated class names, and analysis data used by
+    the code generator. A single context is used for single-file generation;
+    PackageContext wraps this for multi-file output.
+
+    Attributes:
+        template: The parsed IR template being converted.
+        include_docstrings: Whether to include docstrings in output.
+        include_main_block: Whether to include if __name__ == "__main__" block.
+        generated_classes: Set of class names already generated.
+        imports: Map of module name to set of names to import from it.
+        intrinsic_imports: Set of intrinsic function names to import.
+        tag_reuse: Count of tag key:value pairs for deduplication.
+        current_module: AWS module being processed (for PropertyType resolution).
+        property_type_class_defs: Accumulated PropertyType wrapper definitions.
+        name_pattern_map: Map Sub patterns to resource IDs for ref() detection.
+        arn_pattern_map: Map ARN patterns to (resource_id, suffix) for get_att().
+        current_resource_id: Resource currently being generated (avoid self-refs).
+        colliding_aws_names: Names that need qualified access (name -> module).
+        forward_references: Resource IDs that need string-based refs.
+    """
 
     template: IRTemplate
     include_docstrings: bool = True
     include_main_block: bool = True
 
-    # Tracking during generation
     generated_classes: set[str] = field(default_factory=set)
-    imports: dict[str, set[str]] = field(default_factory=dict)  # module -> class names
+    imports: dict[str, set[str]] = field(default_factory=dict)
     intrinsic_imports: set[str] = field(default_factory=set)
 
-    # For mixed mode: track reuse counts
-    tag_reuse: dict[str, int] = field(default_factory=dict)  # "Key:Value" -> count
+    tag_reuse: dict[str, int] = field(default_factory=dict)
 
-    # Current module being generated (for PropertyType resolution)
     current_module: Optional[str] = None
 
-    # For block mode: collect PropertyType wrapper class definitions
-    # These are generated during resource class generation and inserted before resources
     property_type_class_defs: list[str] = field(default_factory=list)
 
-    # Map of Sub template patterns to resource logical IDs (for implicit ref detection)
-    # e.g., "${AppName}-${AWS::Region}-${AWS::AccountId}" -> "ObjectStorageBucket"
     name_pattern_map: dict[str, str] = field(default_factory=dict)
-
-    # Map of ARN Sub patterns to (resource_id, suffix) for get_att() replacement
-    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}" -> ("BucketResource", "")
-    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}/*" -> ("BucketResource", "/*")
     arn_pattern_map: dict[str, tuple[str, str]] = field(default_factory=dict)
 
-    # Current resource ID being generated (to avoid self-referential ref() replacements)
     current_resource_id: Optional[str] = None
-
-    # AWS class names that collide across modules (e.g., 'Policy' from both iam and iot)
-    # These need qualified access like iot.Policy instead of bare Policy
-    colliding_aws_names: dict[str, str] = field(default_factory=dict)  # name -> module
-
-    # Set of resource IDs that are forward references (defined later in same SCC file)
-    # For these, use string-based refs like ref("MyLambdaRole") instead of ref(MyLambdaRole)
+    colliding_aws_names: dict[str, str] = field(default_factory=dict)
     forward_references: set[str] = field(default_factory=set)
 
     def add_import(self, module: str, name: str) -> None:
-        """Add an import to track."""
+        """Register an import to include in generated code.
+
+        Args:
+            module: The module path (e.g., "cloudformation_dataclasses.aws.s3").
+            name: The name to import from the module.
+        """
         self.imports.setdefault(module, set()).add(name)
 
     def add_intrinsic_import(self, name: str) -> None:
-        """Add an intrinsic function import."""
+        """Register an intrinsic function import.
+
+        Args:
+            name: The intrinsic function name (e.g., "Sub", "Join").
+        """
         self.intrinsic_imports.add(name)
 
     def add_condition_operator_import(self, const_name: str) -> None:
-        """Add a condition operator constant import."""
+        """Register a condition operator constant import.
+
+        Args:
+            const_name: Either "ConditionOperator.X" or an alias like "STRING_EQUALS".
+        """
         if const_name.startswith("ConditionOperator."):
             self.add_import("cloudformation_dataclasses.core", "ConditionOperator")
         else:
-            # It's an alias like STRING_EQUALS, BOOL, etc.
             self.add_import("cloudformation_dataclasses.core", const_name)
 
     def add_parameter_type_import(self, const_name: str) -> None:
-        """Add a parameter type constant import."""
+        """Register a parameter type constant import.
+
+        Args:
+            const_name: Either "ParameterType.X" or an alias like "STRING".
+        """
         if const_name.startswith("ParameterType."):
             self.add_import("cloudformation_dataclasses.core", "ParameterType")
         else:
-            # It's an alias like STRING, NUMBER
             self.add_import("cloudformation_dataclasses.core", const_name)
 
 
@@ -111,29 +147,41 @@ class CodegenContext:
 
 @dataclass
 class PackageContext:
-    """Context for package generation - tracks imports per file."""
+    """Context for multi-file package generation.
+
+    Extends CodegenContext to track per-file imports and exports when
+    generating a complete Python package with separate files for
+    parameters, resources, and outputs.
+
+    Attributes:
+        template: The parsed IR template being converted.
+        init_imports: Per-file import tracking for __init__.py.
+        config_classes: Classes to export from config (parameters/conditions).
+        resources_classes: Classes to export from stack/ resources.
+        main_classes: Classes used in main.py.
+        config_exports: Classes exported from config module.
+        resources_exports: Classes exported from resources module.
+        outputs_exports: Classes exported from outputs module.
+        codegen_ctx: Underlying CodegenContext for class generation.
+    """
 
     template: IRTemplate
 
-    # Per-file imports
     init_imports: dict[str, set[str]] = field(default_factory=dict)
     config_classes: list[str] = field(default_factory=list)
     resources_classes: list[str] = field(default_factory=list)
     main_classes: list[str] = field(default_factory=list)
 
-    # Cross-file references (for explicit imports)
-    # Maps: file -> set of class names from other files it references
     config_exports: set[str] = field(default_factory=set)
     resources_exports: set[str] = field(default_factory=set)
     outputs_exports: set[str] = field(default_factory=set)
 
-    # For generating classes, we need a CodegenContext
     codegen_ctx: CodegenContext = field(default=None)
 
     def __post_init__(self):
+        """Initialize CodegenContext with pattern maps if not provided."""
         if self.codegen_ctx is None:
             self.codegen_ctx = CodegenContext(template=self.template)
-            # Build pattern maps for implicit ref and get_att detection
             self.codegen_ctx.name_pattern_map = build_name_pattern_map(self.template)
             self.codegen_ctx.arn_pattern_map = build_arn_pattern_map(self.template)
 
@@ -144,7 +192,18 @@ class PackageContext:
 
 
 def analyze_reuse(template: IRTemplate) -> dict[str, int]:
-    """Analyze tag reuse for mixed mode decisions."""
+    """Analyze tag reuse to determine if shared tag classes are worthwhile.
+
+    Scans all resources for Tags properties and counts how often each
+    Key:Value combination appears. Tags that appear multiple times are
+    candidates for extraction into reusable Tag classes.
+
+    Args:
+        template: The parsed IR template to analyze.
+
+    Returns:
+        Dict mapping "Key:Value" signatures to occurrence counts.
+    """
     tag_counts: dict[str, int] = {}
 
     for resource in template.resources.values():

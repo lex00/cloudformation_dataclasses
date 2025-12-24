@@ -1,4 +1,18 @@
-"""Package generation (multi-file output)."""
+"""Package generation for multi-file output.
+
+This module generates complete Python packages from CloudFormation templates,
+organizing code into multiple files:
+
+- __init__.py: Centralized imports and setup_resources()
+- __main__.py: Entry point for python -m package_name
+- main.py: Template builder function
+- stack/__init__.py: Auto-discovery of resource files
+- stack/main.py: Resources (or categorized files for large templates)
+
+Key functions:
+- generate_code(): Single-file output for simple templates
+- generate_package(): Multi-file package output
+"""
 
 from __future__ import annotations
 

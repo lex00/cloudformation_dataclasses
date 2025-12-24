@@ -1,4 +1,18 @@
-"""Helper utilities and constants for code generation."""
+"""Helper utilities and constants for code generation.
+
+This module provides utility functions and mappings used throughout
+the code generation process:
+
+- Class name sanitization and validation
+- Service category mapping for file organization
+- Tag class name generation
+- PropertyType resolution and type hint parsing
+- Enum value lookup
+
+Constants:
+- SERVICE_CATEGORIES: Map AWS services to category files
+- KNOWN_ENUMS: Map enum classes to their value-to-constant mappings
+"""
 
 import re
 from typing import Any, Optional

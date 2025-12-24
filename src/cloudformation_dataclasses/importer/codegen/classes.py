@@ -1,4 +1,17 @@
-"""Class generation functions for parameters, resources, outputs, etc."""
+"""Class generation functions for CloudFormation elements.
+
+This module generates Python dataclass definitions for CloudFormation
+template elements:
+
+- generate_parameter_class(): Parameter wrapper classes
+- generate_resource_class(): Resource wrapper classes with properties
+- generate_output_class(): Output wrapper classes
+- generate_condition_class(): Condition wrapper classes
+- generate_mapping_class(): Mapping wrapper classes
+
+Each function takes an IR element and a CodegenContext, returning
+Python source code as a string.
+"""
 
 from __future__ import annotations
 
@@ -33,7 +46,18 @@ if TYPE_CHECKING:
 
 
 def generate_parameter_class(param: IRParameter, ctx: "CodegenContext") -> str:
-    """Generate a parameter wrapper class."""
+    """Generate a Parameter wrapper class definition.
+
+    Creates a @cloudformation_dataclass with resource: Parameter annotation
+    and all parameter properties (type, default, constraints, etc.).
+
+    Args:
+        param: The parsed IR parameter.
+        ctx: Code generation context for import tracking.
+
+    Returns:
+        Python class definition as a string.
+    """
     lines = []
 
     # Docstring

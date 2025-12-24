@@ -1,4 +1,17 @@
-"""Topological sort and cycle detection for resource dependencies."""
+"""Topological sort and cycle detection for resource dependencies.
+
+CloudFormation resources can have circular dependencies through Ref and
+GetAtt intrinsics. This module provides algorithms to:
+
+1. Find strongly connected components (SCCs) using Tarjan's algorithm
+2. Sort resources in dependency order for proper Python class definition
+3. Detect forward references that need string-based refs
+
+Key functions:
+- find_strongly_connected_components(): Group cyclically-dependent resources
+- sort_resources_topologically(): Order resources for code generation
+- find_resource_dependencies(): Extract all dependencies from a resource
+"""
 
 from __future__ import annotations
 

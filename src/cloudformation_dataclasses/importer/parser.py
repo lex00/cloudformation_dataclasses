@@ -1,4 +1,24 @@
-"""CloudFormation template parser - YAML/JSON to IR."""
+"""CloudFormation template parser - YAML/JSON to IR.
+
+This module provides the core parsing functionality that converts CloudFormation
+templates (YAML or JSON) into the intermediate representation (IR) defined in
+the ir module. The parser handles:
+
+- YAML short-form intrinsics (!Ref, !GetAtt, !Sub, etc.)
+- JSON long-form intrinsics (Fn::Ref, Fn::GetAtt, Fn::Sub, etc.)
+- All template sections (Parameters, Resources, Outputs, Mappings, Conditions)
+- Reference graph analysis for dependency ordering
+
+The main entry point is the parse_template() function.
+
+Example:
+    >>> from cloudformation_dataclasses.importer.parser import parse_template
+    >>> ir = parse_template("template.yaml")
+    >>> print(ir.description)
+    'My CloudFormation Stack'
+    >>> for name, resource in ir.resources.items():
+    ...     print(f"{name}: {resource.resource_type}")
+"""
 
 import json
 import re
@@ -26,15 +46,44 @@ from cloudformation_dataclasses.importer.ir import (
 
 
 def to_snake_case(name: str) -> str:
-    """Convert PascalCase/camelCase to snake_case."""
-    # Handle acronyms: VPCId -> vpc_id, IPv6 -> ipv6
+    """Convert PascalCase or camelCase to snake_case.
+
+    Handles acronyms intelligently: VPCId becomes vpc_id, IPv6 becomes ipv6.
+
+    Args:
+        name: A string in PascalCase or camelCase.
+
+    Returns:
+        The string converted to snake_case.
+
+    Example:
+        >>> to_snake_case("BucketName")
+        'bucket_name'
+        >>> to_snake_case("VPCId")
+        'vpc_id'
+    """
     result = re.sub("(.)([A-Z][a-z]+)", r"\1_\2", name)
     result = re.sub("([a-z0-9])([A-Z])", r"\1_\2", result)
     return result.lower()
 
 
 def sanitize_python_name(name: str) -> str:
-    """Handle Python keyword conflicts."""
+    """Ensure a name is a valid Python identifier.
+
+    If the name conflicts with a Python keyword, append an underscore.
+
+    Args:
+        name: A potential Python identifier.
+
+    Returns:
+        A valid Python identifier (original or with trailing underscore).
+
+    Example:
+        >>> sanitize_python_name("class")
+        'class_'
+        >>> sanitize_python_name("bucket_name")
+        'bucket_name'
+    """
     PYTHON_KEYWORDS = {
         "and",
         "as",
@@ -80,160 +129,324 @@ def sanitize_python_name(name: str) -> str:
 # =============================================================================
 # YAML Intrinsic Constructors
 # =============================================================================
+# These functions are registered with PyYAML to handle CloudFormation's
+# short-form intrinsic tags (!Ref, !GetAtt, !Sub, etc.). Each constructor
+# parses the YAML node and returns an IRIntrinsic with the appropriate type.
 
 
 def _ref_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Ref tag."""
+    """Handle the !Ref YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing the reference target.
+
+    Returns:
+        IRIntrinsic with type REF and the logical ID as args.
+    """
     value = loader.construct_scalar(node)
     return IRIntrinsic(IntrinsicType.REF, value)
 
 
 def _getatt_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !GetAtt tag (scalar or sequence)."""
+    """Handle the !GetAtt YAML tag.
+
+    Supports both scalar form (!GetAtt MyBucket.Arn) and sequence form
+    (!GetAtt [MyBucket, Arn]).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node (ScalarNode or SequenceNode).
+
+    Returns:
+        IRIntrinsic with type GET_ATT and (logical_id, attribute) as args.
+    """
     if isinstance(node, yaml.ScalarNode):
-        # !GetAtt MyBucket.Arn
         value = loader.construct_scalar(node)
         parts = value.split(".", 1)
         return IRIntrinsic(IntrinsicType.GET_ATT, tuple(parts))
     else:
-        # !GetAtt [MyBucket, Arn]
         parts = loader.construct_sequence(node)
         return IRIntrinsic(IntrinsicType.GET_ATT, tuple(parts))
 
 
 def _sub_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Sub tag (scalar or sequence)."""
+    """Handle the !Sub YAML tag.
+
+    Supports both scalar form (!Sub "string with ${Var}") and sequence form
+    (!Sub ["string", {Var: value}]) for variable substitution.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node (ScalarNode or SequenceNode).
+
+    Returns:
+        IRIntrinsic with type SUB. Args is either a string (scalar form)
+        or tuple(template_string, variables_dict) for sequence form.
+    """
     if isinstance(node, yaml.ScalarNode):
-        # !Sub "arn:aws:s3:::${BucketName}"
         value = loader.construct_scalar(node)
         return IRIntrinsic(IntrinsicType.SUB, value)
     else:
-        # !Sub ["arn:aws:s3:::${Bucket}", {Bucket: !Ref MyBucket}]
         parts = loader.construct_sequence(node, deep=True)
         return IRIntrinsic(IntrinsicType.SUB, (parts[0], parts[1] if len(parts) > 1 else {}))
 
 
 def _join_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Join tag."""
+    """Handle the !Join YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [delimiter, [values]].
+
+    Returns:
+        IRIntrinsic with type JOIN and (delimiter, values_list) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.JOIN, (parts[0], parts[1]))
 
 
 def _select_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Select tag."""
+    """Handle the !Select YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [index, list].
+
+    Returns:
+        IRIntrinsic with type SELECT and (index, list) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.SELECT, (int(parts[0]), parts[1]))
 
 
 def _getazs_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !GetAZs tag."""
+    """Handle the !GetAZs YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node (scalar, sequence, or mapping for region).
+
+    Returns:
+        IRIntrinsic with type GET_AZS and region string (or intrinsic) as args.
+    """
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
     elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
-    else:  # MappingNode - e.g., !GetAZs { Ref: "AWS::Region" }
+    else:
         value = loader.construct_mapping(node, deep=True)
         value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.GET_AZS, value if value else "")
 
 
 def _if_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !If tag."""
+    """Handle the !If YAML tag (conditional value).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [condition_name, true_value, false_value].
+
+    Returns:
+        IRIntrinsic with type IF and (condition, true_val, false_val) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.IF, tuple(parts[:3]))
 
 
 def _equals_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Equals tag."""
+    """Handle the !Equals YAML tag (condition function).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [value1, value2].
+
+    Returns:
+        IRIntrinsic with type EQUALS and (value1, value2) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.EQUALS, tuple(parts[:2]))
 
 
 def _and_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !And tag."""
+    """Handle the !And YAML tag (condition function).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing a list of conditions.
+
+    Returns:
+        IRIntrinsic with type AND and list of conditions as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.AND, parts)
 
 
 def _or_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Or tag."""
+    """Handle the !Or YAML tag (condition function).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing a list of conditions.
+
+    Returns:
+        IRIntrinsic with type OR and list of conditions as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.OR, parts)
 
 
 def _not_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Not tag."""
+    """Handle the !Not YAML tag (condition function).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [condition].
+
+    Returns:
+        IRIntrinsic with type NOT and the condition as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.NOT, parts[0])
 
 
 def _condition_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Condition tag."""
+    """Handle the !Condition YAML tag (reference to a condition).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing the condition name.
+
+    Returns:
+        IRIntrinsic with type CONDITION and condition name as args.
+    """
     value = loader.construct_scalar(node)
     return IRIntrinsic(IntrinsicType.CONDITION, value)
 
 
 def _findinmap_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !FindInMap tag."""
+    """Handle the !FindInMap YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [map_name, top_key, second_key].
+
+    Returns:
+        IRIntrinsic with type FIND_IN_MAP and (map, key1, key2) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.FIND_IN_MAP, tuple(parts[:3]))
 
 
 def _base64_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Base64 tag."""
+    """Handle the !Base64 YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing the value to encode.
+
+    Returns:
+        IRIntrinsic with type BASE64 and value to encode as args.
+    """
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
     elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
-    else:  # MappingNode - e.g., !Base64 { Fn::Sub: "..." }
+    else:
         value = loader.construct_mapping(node, deep=True)
         value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.BASE64, value)
 
 
 def _cidr_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Cidr tag."""
+    """Handle the !Cidr YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [ip_block, count, cidr_bits].
+
+    Returns:
+        IRIntrinsic with type CIDR and (ip_block, count, bits) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.CIDR, tuple(parts[:3]))
 
 
 def _importvalue_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !ImportValue tag."""
+    """Handle the !ImportValue YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing the export name to import.
+
+    Returns:
+        IRIntrinsic with type IMPORT_VALUE and export name as args.
+    """
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
     elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
-    else:  # MappingNode - e.g., !ImportValue { Fn::Sub: "..." }
+    else:
         value = loader.construct_mapping(node, deep=True)
         value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.IMPORT_VALUE, value)
 
 
 def _split_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Split tag."""
+    """Handle the !Split YAML tag.
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [delimiter, source_string].
+
+    Returns:
+        IRIntrinsic with type SPLIT and (delimiter, source) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.SPLIT, (parts[0], parts[1]))
 
 
 def _transform_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !Transform tag."""
+    """Handle the !Transform YAML tag (macro invocation).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing {Name: macro, Parameters: {...}}.
+
+    Returns:
+        IRIntrinsic with type TRANSFORM and the transform config as args.
+    """
     value = loader.construct_mapping(node, deep=True)
     value = _resolve_long_form_intrinsics(value)
     return IRIntrinsic(IntrinsicType.TRANSFORM, value)
 
 
 def _valueof_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic:
-    """Handle !ValueOf tag (StackSets extension)."""
-    # !ValueOf takes a sequence [ParameterName, AttributeName]
+    """Handle the !ValueOf YAML tag (StackSets extension).
+
+    Args:
+        loader: The PyYAML loader instance.
+        node: The YAML node containing [ParameterName, AttributeName].
+
+    Returns:
+        IRIntrinsic with type VALUE_OF and (param, attr) as args.
+    """
     parts = loader.construct_sequence(node, deep=True)
     return IRIntrinsic(IntrinsicType.VALUE_OF, tuple(parts))
 
 
 def _get_cfn_loader() -> type:
-    """Create a YAML loader with CloudFormation intrinsic support."""
+    """Create a YAML loader with CloudFormation intrinsic support.
+
+    Returns a subclass of yaml.SafeLoader with constructors registered for
+    all CloudFormation intrinsic function tags (!Ref, !GetAtt, etc.).
+
+    Returns:
+        A YAML loader class configured for CloudFormation templates.
+    """
 
     class CloudFormationLoader(yaml.SafeLoader):
         pass
@@ -268,7 +481,22 @@ def _get_cfn_loader() -> type:
 
 
 def _resolve_long_form_intrinsics(value: Any) -> Any:
-    """Convert Fn:: style intrinsics to IRIntrinsic objects."""
+    """Convert JSON-style Fn:: intrinsics to IRIntrinsic objects.
+
+    Recursively processes a value, converting any dict with a single key
+    starting with "Fn::" or "Ref" into an IRIntrinsic. This handles
+    CloudFormation's JSON long-form syntax.
+
+    Args:
+        value: Any value that may contain Fn:: intrinsics.
+
+    Returns:
+        The value with all Fn:: dicts converted to IRIntrinsic objects.
+
+    Example:
+        >>> _resolve_long_form_intrinsics({"Ref": "MyBucket"})
+        IRIntrinsic(type=<IntrinsicType.REF>, args='MyBucket')
+    """
     if isinstance(value, IRIntrinsic):
         # Already converted (from YAML tags)
         return value
@@ -368,7 +596,15 @@ def _resolve_long_form_intrinsics(value: Any) -> Any:
 
 
 def _parse_parameter(logical_id: str, props: dict[str, Any]) -> IRParameter:
-    """Parse a CloudFormation parameter."""
+    """Parse a CloudFormation parameter definition into IR.
+
+    Args:
+        logical_id: The parameter's logical name.
+        props: The parameter properties dict from the template.
+
+    Returns:
+        An IRParameter with all constraint and validation fields populated.
+    """
     return IRParameter(
         logical_id=logical_id,
         type=props.get("Type", "String"),
@@ -386,14 +622,36 @@ def _parse_parameter(logical_id: str, props: dict[str, Any]) -> IRParameter:
 
 
 def _parse_property(cf_name: str, value: Any) -> IRProperty:
-    """Parse a single property into IR."""
+    """Parse a single resource property into IR.
+
+    Converts the property name from PascalCase to snake_case and resolves
+    any intrinsic functions in the value.
+
+    Args:
+        cf_name: The CloudFormation property name (PascalCase).
+        value: The property value (may contain intrinsics).
+
+    Returns:
+        An IRProperty with normalized name and resolved value.
+    """
     python_name = sanitize_python_name(to_snake_case(cf_name))
     resolved_value = _resolve_long_form_intrinsics(value)
     return IRProperty(cf_name=cf_name, python_name=python_name, value=resolved_value)
 
 
 def _parse_resource(logical_id: str, resource_def: dict[str, Any]) -> IRResource:
-    """Parse a CloudFormation resource."""
+    """Parse a CloudFormation resource definition into IR.
+
+    Parses the resource type, all properties, and resource-level attributes
+    (DependsOn, Condition, DeletionPolicy, etc.).
+
+    Args:
+        logical_id: The resource's logical name in the template.
+        resource_def: The resource definition dict from the template.
+
+    Returns:
+        An IRResource with all properties and attributes populated.
+    """
     resource_type = resource_def.get("Type", "")
     properties_raw = resource_def.get("Properties", {})
 
@@ -418,7 +676,15 @@ def _parse_resource(logical_id: str, resource_def: dict[str, Any]) -> IRResource
 
 
 def _parse_output(logical_id: str, output_def: dict[str, Any]) -> IROutput:
-    """Parse a CloudFormation output."""
+    """Parse a CloudFormation output definition into IR.
+
+    Args:
+        logical_id: The output's logical name in the template.
+        output_def: The output definition dict from the template.
+
+    Returns:
+        An IROutput with value and optional export name.
+    """
     value = _resolve_long_form_intrinsics(output_def.get("Value"))
     export_name = output_def.get("Export", {}).get("Name")
     if export_name:
@@ -434,12 +700,28 @@ def _parse_output(logical_id: str, output_def: dict[str, Any]) -> IROutput:
 
 
 def _parse_mapping(logical_id: str, map_data: dict[str, dict[str, Any]]) -> IRMapping:
-    """Parse a CloudFormation mapping."""
+    """Parse a CloudFormation mapping into IR.
+
+    Args:
+        logical_id: The mapping's logical name in the template.
+        map_data: The two-level mapping dictionary.
+
+    Returns:
+        An IRMapping containing the lookup table.
+    """
     return IRMapping(logical_id=logical_id, map_data=map_data)
 
 
 def _parse_condition(logical_id: str, expression: Any) -> IRCondition:
-    """Parse a CloudFormation condition."""
+    """Parse a CloudFormation condition into IR.
+
+    Args:
+        logical_id: The condition's logical name in the template.
+        expression: The condition expression (typically Fn::Equals, etc.).
+
+    Returns:
+        An IRCondition with the resolved expression.
+    """
     resolved = _resolve_long_form_intrinsics(expression)
     return IRCondition(logical_id=logical_id, expression=resolved)
 
@@ -448,15 +730,34 @@ def parse_template(
     source: Union[str, Path, TextIO],
     source_name: Optional[str] = None,
 ) -> IRTemplate:
-    """
-    Parse a CloudFormation template into IR.
+    """Parse a CloudFormation template into the intermediate representation.
+
+    This is the main entry point for template parsing. It handles both YAML
+    and JSON formats, converts all intrinsic functions to IRIntrinsic objects,
+    and builds a reference graph for dependency analysis.
 
     Args:
-        source: File path, string content, or file-like object
-        source_name: Name for error messages (default: file path or "<stdin>")
+        source: The template source. Can be:
+            - A Path object pointing to a template file
+            - A string containing template content or a file path
+            - A file-like object with a read() method
+        source_name: Optional name for error messages. If not provided,
+            defaults to the file path, "<stream>", or "<string>".
 
     Returns:
-        Parsed IRTemplate
+        An IRTemplate containing all parsed sections (parameters, resources,
+        outputs, mappings, conditions) and a reference graph.
+
+    Raises:
+        ValueError: If the template uses unsupported features (Rain tags,
+            Kubernetes manifests) or cannot be parsed as YAML/JSON.
+
+    Example:
+        >>> ir = parse_template("template.yaml")
+        >>> print(len(ir.resources))
+        5
+        >>> ir = parse_template(Path("templates/vpc.yaml"))
+        >>> ir = parse_template(yaml_content, source_name="inline")
     """
     # Determine content and source name
     if isinstance(source, Path):
@@ -535,9 +836,19 @@ def parse_template(
 
 
 def _analyze_references(template: IRTemplate) -> None:
-    """Populate reference_graph by analyzing Ref/GetAtt usage."""
+    """Build the reference graph by analyzing Ref and GetAtt usage.
+
+    Scans all resources and outputs for references (Ref, GetAtt, Sub with
+    variable interpolation) and populates template.reference_graph with
+    the dependency relationships.
+
+    Args:
+        template: The IRTemplate to analyze. The reference_graph attribute
+            is populated in-place.
+    """
 
     def find_refs(value: Any, source_id: str) -> None:
+        """Recursively find references in a value and add to the graph."""
         if isinstance(value, IRIntrinsic):
             if value.type == IntrinsicType.REF:
                 target_id = value.args

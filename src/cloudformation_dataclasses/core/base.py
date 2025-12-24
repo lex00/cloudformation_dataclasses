@@ -70,14 +70,13 @@ class PolicyStatement:
     condition: Optional[dict[str, Any]] = None
 
     def _serialize_value(self, value: Any) -> Any:
-        """
-        Recursively serialize a value, handling intrinsic functions and nested structures.
+        """Recursively serialize a value for CloudFormation JSON.
 
-        Handles:
-        - Objects with to_dict() methods (intrinsic functions)
-        - Lists containing intrinsic functions
-        - Dicts with intrinsic function values
-        - Primitive values (str, int, bool, etc.)
+        Args:
+            value: Any value that may need serialization.
+
+        Returns:
+            The serialized value suitable for CloudFormation JSON.
         """
         # Handle objects with to_dict() method (intrinsic functions, etc.)
         if hasattr(value, "to_dict"):
@@ -95,7 +94,11 @@ class PolicyStatement:
         return value
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize statement to IAM policy format."""
+        """Serialize statement to IAM policy format.
+
+        Returns:
+            IAM policy statement as a dict.
+        """
         stmt: dict[str, Any] = {"Effect": self.effect}
 
         if self.sid:
@@ -154,7 +157,14 @@ class PropertyType:
     _property_mappings: ClassVar[dict[str, str]] = {}
 
     def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value, handling intrinsic functions and nested structures."""
+        """Recursively serialize a value for CloudFormation JSON.
+
+        Args:
+            value: Any value that may need serialization.
+
+        Returns:
+            The serialized value suitable for CloudFormation JSON.
+        """
         if hasattr(value, "to_dict"):
             return value.to_dict()
         if isinstance(value, list):
@@ -164,7 +174,11 @@ class PropertyType:
         return value
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format using _property_mappings."""
+        """Serialize to CloudFormation format using _property_mappings.
+
+        Returns:
+            Dict of CloudFormation property names to serialized values.
+        """
         props: dict[str, Any] = {}
         for field_name, cf_name in self.__class__._property_mappings.items():
             value = getattr(self, field_name, None)
@@ -288,14 +302,13 @@ class CloudFormationResource(ABC):
         return result
 
     def _serialize_value(self, value: Any) -> Any:
-        """
-        Recursively serialize a value, handling intrinsic functions and nested structures.
+        """Recursively serialize a value for CloudFormation JSON.
 
-        Handles:
-        - Objects with to_dict() methods (intrinsic functions, property types)
-        - Lists containing intrinsic functions or property types
-        - Dicts with intrinsic function values
-        - Primitive values (str, int, bool, etc.)
+        Args:
+            value: Any value that may need serialization.
+
+        Returns:
+            The serialized value suitable for CloudFormation JSON.
         """
         if hasattr(value, "to_dict"):
             return value.to_dict()

@@ -1,7 +1,29 @@
 """Lint rules for cloudformation_dataclasses code.
 
-Each rule detects a specific pattern that can be improved and provides
-suggestions for better alternatives.
+This module defines the lint rules that detect patterns in user code that can
+be improved. Each rule:
+
+- Detects a specific anti-pattern (e.g., string literals instead of constants)
+- Provides a clear message explaining the issue
+- Suggests a better alternative with the exact replacement
+- Specifies the imports needed for the fix
+
+Rules:
+    CFD001: Use condition operator constants instead of string literals
+    CFD002: Use parameter type constants instead of string literals
+    CFD003: Use pseudo-parameter constants instead of Ref() with strings
+    CFD004: Use enum constants instead of string literals
+    CFD005: Use PropertyType classes instead of dict literals
+
+Example:
+    >>> from cloudformation_dataclasses.linter.rules import get_all_rules, LintContext
+    >>> import ast
+    >>> source = 'type = "String"'
+    >>> context = LintContext(source=source, tree=ast.parse(source))
+    >>> for rule in get_all_rules():
+    ...     issues = rule.check(context)
+    ...     for issue in issues:
+    ...         print(f"{issue.rule_id}: {issue.message}")
 """
 
 import ast
@@ -19,7 +41,20 @@ from cloudformation_dataclasses.constants import (
 
 @dataclass
 class LintIssue:
-    """A detected lint issue."""
+    """A detected lint issue with fix information.
+
+    Represents a single issue found by a lint rule, including all information
+    needed to display the issue and optionally auto-fix it.
+
+    Attributes:
+        rule_id: The rule identifier (e.g., "CFD001").
+        message: Human-readable description of the issue.
+        line: Line number where the issue was found (1-indexed).
+        column: Column number where the issue was found (0-indexed).
+        original: The original code that should be replaced.
+        suggestion: The suggested replacement code.
+        fix_imports: List of import statements needed for the fix.
+    """
 
     rule_id: str
     message: str
@@ -27,13 +62,20 @@ class LintIssue:
     column: int
     original: str
     suggestion: str
-    # For auto-fixing
-    fix_imports: list[str]  # Imports to add (e.g., ["from cloudformation_dataclasses.core.constants import BOOL"])
+    fix_imports: list[str]
 
 
 @dataclass
 class LintContext:
-    """Context for linting, including source code and AST."""
+    """Context for linting, including source code and AST.
+
+    Provides all the information a lint rule needs to analyze code.
+
+    Attributes:
+        source: The original source code as a string.
+        tree: The parsed AST of the source code.
+        filename: The filename for error messages (default: "<unknown>").
+    """
 
     source: str
     tree: ast.AST
@@ -41,14 +83,29 @@ class LintContext:
 
 
 class LintRule(ABC):
-    """Base class for lint rules."""
+    """Abstract base class for lint rules.
+
+    Each lint rule must define a rule_id, description, and implement
+    the check() method to detect issues.
+
+    Attributes:
+        rule_id: Unique identifier for the rule (e.g., "CFD001").
+        description: Human-readable description of what the rule checks.
+    """
 
     rule_id: str
     description: str
 
     @abstractmethod
     def check(self, context: LintContext) -> list[LintIssue]:
-        """Check code for issues matching this rule."""
+        """Check code for issues matching this rule.
+
+        Args:
+            context: The lint context containing source and AST.
+
+        Returns:
+            List of LintIssue objects for each detected issue.
+        """
         pass
 
 
@@ -540,5 +597,9 @@ ALL_RULES: list[type[LintRule]] = [
 
 
 def get_all_rules() -> list[LintRule]:
-    """Get instances of all available lint rules."""
+    """Get instances of all available lint rules.
+
+    Returns:
+        List of instantiated LintRule objects, one for each rule.
+    """
     return [rule_cls() for rule_cls in ALL_RULES]

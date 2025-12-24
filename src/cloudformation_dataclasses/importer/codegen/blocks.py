@@ -1,4 +1,25 @@
-"""Block mode PropertyType wrapper generation."""
+"""Block mode PropertyType wrapper generation.
+
+Block mode generates separate wrapper classes for nested PropertyType
+structures instead of inline constructors. This produces more readable
+code for complex nested properties.
+
+For example, instead of:
+    bucket_encryption = BucketEncryption(sse_algorithm="AES256")
+
+Block mode generates:
+    @cloudformation_dataclass
+    class MyBucketEncryption:
+        resource: BucketEncryption
+        sse_algorithm = ServerSideEncryption.AES256
+
+    @cloudformation_dataclass
+    class MyBucket:
+        resource: Bucket
+        bucket_encryption = MyBucketEncryption
+
+Key function: property_value_to_python_block()
+"""
 
 from __future__ import annotations
 

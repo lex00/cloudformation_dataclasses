@@ -1,7 +1,15 @@
 """Runtime registry for AWS resource and PropertyType class discovery.
 
 This module scans the aws/ package to build mappings from CloudFormation types
-to Python classes. The registries are lazily built on first access.
+to Python classes. The registries are lazily built on first access and cached.
+
+Key functions:
+    - resolve_resource_type(): Look up Python class for a CF resource type
+    - find_property_type_for_cf_keys(): Find PropertyType matching dict keys
+    - is_ambiguous_class_name(): Check if a class name exists in multiple modules
+
+The module uses file scanning (not imports) to avoid loading all AWS modules
+at startup, keeping the library lightweight.
 """
 
 import re
@@ -25,7 +33,11 @@ CLASS_WITH_PARENT_PATTERN = re.compile(r"^class\s+(\w+)\s*\(\s*(\w+)\s*\)")
 
 
 def _get_aws_dir() -> Optional[Path]:
-    """Get the path to the AWS modules directory."""
+    """Get the path to the AWS modules directory.
+
+    Returns:
+        Path to the aws/ package directory, or None if not found.
+    """
     try:
         import cloudformation_dataclasses.aws as aws_pkg
 
@@ -105,10 +117,12 @@ _RESOURCE_TYPE_MAP_BUILT = False
 
 
 def _build_resource_type_map() -> None:
-    """Build mapping from CloudFormation types to Python classes by scanning aws modules.
+    """Build mapping from CloudFormation types to Python classes.
 
-    Resources are in __init__.py files for nested packages.
-    Thread-safe: uses local dict and atomic assignment.
+    Scans aws/ modules for resource_type class variables and builds a
+    lookup table. Resources are in __init__.py files for nested packages.
+
+    Thread-safe: builds into a local dict first, then assigns atomically.
     """
     global _RESOURCE_TYPE_MAP, _RESOURCE_TYPE_MAP_BUILT
     if _RESOURCE_TYPE_MAP_BUILT:
@@ -164,7 +178,11 @@ def resolve_resource_type(resource_type: str) -> Optional[tuple[str, str]]:
 
 
 def get_all_resource_types() -> dict[str, tuple[str, str]]:
-    """Get all known resource types and their Python mappings."""
+    """Get all known resource types and their Python mappings.
+
+    Returns:
+        Dict mapping CloudFormation type to (module_name, class_name).
+    """
     _build_resource_type_map()
     return _RESOURCE_TYPE_MAP.copy()
 
@@ -192,9 +210,13 @@ _CF_PROPERTY_TO_CLASSES: dict[str, list[tuple[str, str]]] = {}
 def _build_property_type_map() -> None:
     """Build mapping of PropertyType classes and their field information.
 
+    Scans aws/ modules for PropertyType subclasses and extracts their
+    _property_mappings and field type annotations.
+
     PropertyTypes are in submodules (ec2/instance.py) for nested packages,
     and the module_name will be "ec2.instance" to enable correct imports.
-    Thread-safe: uses local dicts and atomic assignment.
+
+    Thread-safe: builds into local dicts first, then assigns atomically.
     """
     global _PROPERTY_TYPE_MAP, _PROPERTY_TYPE_MAP_BUILT, _CF_PROPERTY_TO_CLASSES
     if _PROPERTY_TYPE_MAP_BUILT:
@@ -364,7 +386,14 @@ def find_property_type_for_cf_keys(
 
 
 def get_all_property_types() -> dict[tuple[str, str], dict[str, Any]]:
-    """Get all known PropertyType classes and their information."""
+    """Get all known PropertyType classes and their information.
+
+    Returns:
+        Dict mapping (module, class_name) to info dict with:
+        - cf_to_python: CloudFormation name -> Python field name
+        - python_to_cf: Python field name -> CloudFormation name
+        - field_types: Python field name -> type annotation string
+    """
     _build_property_type_map()
     return _PROPERTY_TYPE_MAP.copy()
 
@@ -382,8 +411,9 @@ _CLASS_TO_MODULES_BUILT = False
 def _build_class_to_modules_map() -> None:
     """Build mapping of class names to their modules for collision detection.
 
-    Only classes in __init__.py are tracked (Resources), since PropertyTypes
-    in submodules use qualified access (ec2.instance.NetworkInterface).
+    Scans aws/ __init__.py files to find class names that exist in multiple
+    modules. Only Resource classes are tracked, since PropertyTypes in
+    submodules use qualified access (ec2.instance.NetworkInterface).
     """
     global _CLASS_TO_MODULES, _CLASS_TO_MODULES_BUILT
     if _CLASS_TO_MODULES_BUILT:

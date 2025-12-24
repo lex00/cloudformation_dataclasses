@@ -14,6 +14,7 @@ This guide provides comprehensive information for developers working on `cloudfo
 - [Publishing Releases](#publishing-releases)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Contributing Guidelines](#contributing-guidelines)
+  - [Docstring Conventions](#docstring-conventions)
 
 ---
 
@@ -683,9 +684,113 @@ uv run mypy src/cloudformation_dataclasses/  # Type checking
 - **Formatting**: Use `black` (line length 100)
 - **Linting**: Use `ruff`
 - **Type Hints**: Required for all public APIs
-- **Docstrings**: Google style for public functions/classes
+- **Docstrings**: Google style (see [Docstring Conventions](#docstring-conventions) below)
 
 **Note**: The generated `aws/` directory is excluded from linting/formatting since it's auto-generated.
+
+### Docstring Conventions
+
+We use **Google-style docstrings** ([style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)) throughout the codebase. Docstrings should be thorough enough to generate complete API documentation.
+
+#### Which Files Have Docstrings
+
+| Directory | Docstrings | Notes |
+|-----------|------------|-------|
+| `core/` | ✓ Required | Public API for library users |
+| `intrinsics/` | ✓ Required | All intrinsic functions documented |
+| `importer/` | ✓ Required | CLI and code generation internals |
+| `linter/` | ✓ Required | Lint rules and introspection |
+| `constants/` | ✓ Required | Shared mappings and registries |
+| `aws/` | ✗ None | Auto-generated from CloudFormation spec |
+
+**Why no docstrings for generated `aws/` classes?**
+- 262 service modules with thousands of classes
+- AWS documentation is the authoritative source
+- Type annotations provide IDE autocomplete
+- Docstrings would significantly bloat the package
+
+#### Function Docstring Template
+
+```python
+def function_name(param1: Type1, param2: Type2) -> ReturnType:
+    """Brief one-line summary.
+
+    Extended description if the function is complex enough to warrant it.
+    Can span multiple lines.
+
+    Args:
+        param1: Description of first parameter.
+        param2: Description of second parameter.
+
+    Returns:
+        Description of return value.
+
+    Raises:
+        ValueError: When param1 is invalid.
+
+    Example:
+        >>> result = function_name("foo", 42)
+        >>> print(result)
+        'foo: 42'
+    """
+```
+
+#### Dataclass Docstring Template
+
+```python
+@dataclass
+class ClassName:
+    """Brief one-line summary.
+
+    Extended description of the class purpose and usage.
+
+    Attributes:
+        field1: Description of field1.
+        field2: Description of field2.
+
+    Example:
+        >>> obj = ClassName(field1="value", field2=42)
+    """
+    field1: str
+    field2: int
+```
+
+#### Module Docstring Template
+
+```python
+"""Brief module description.
+
+This module provides [what it does]. Key components:
+
+- function1(): Does X
+- function2(): Does Y
+- ClassName: Represents Z
+
+Example:
+    >>> from module import function1
+    >>> result = function1("input")
+"""
+```
+
+#### Required Sections
+
+| Section | When Required |
+|---------|---------------|
+| Summary | Always (one line) |
+| Extended description | Complex functions/classes |
+| Args | Functions with parameters |
+| Returns | Functions with return values |
+| Raises | Functions that raise exceptions |
+| Attributes | Dataclasses and classes with fields |
+| Example | Public API functions (recommended) |
+
+#### Style Guidelines
+
+- Start with a verb for functions: "Parse", "Generate", "Extract", "Build"
+- Keep the one-line summary under 80 characters
+- Use complete sentences with periods
+- Reference related functions/classes when helpful
+- For AWS-specific behavior, link to AWS docs when appropriate
 
 ```bash
 # Format code (excludes generated aws/ directory)
