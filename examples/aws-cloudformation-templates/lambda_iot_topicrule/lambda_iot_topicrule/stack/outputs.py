@@ -13,6 +13,7 @@ class JDBCConnectionStringOutput:
     get_att(MyDB, "Endpoint.Address"),
     ':',
     get_att(MyDB, "Endpoint.Port"),
-    '/MyDatabase',
+    '/',
+    ref(DBName),
 ])
     description = 'JDBC connection string for the database'

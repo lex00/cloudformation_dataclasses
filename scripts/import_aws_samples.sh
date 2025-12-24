@@ -252,7 +252,7 @@ echo ""
 
 # Run import (allow failure - we'll handle it in cleanup)
 set +e
-uv run cfn-dataclasses-import "$IMPORT_SOURCE_DIR" -o "$OUTPUT_DIR"
+uv run cfn-dataclasses import "$IMPORT_SOURCE_DIR" -o "$OUTPUT_DIR"
 IMPORT_EXIT_CODE=$?
 set -e
 
@@ -420,7 +420,7 @@ if [ "$SKIP_VALIDATION" = false ]; then
             if [ -n "$ORIGINAL_TEMPLATE" ] && [ -f "$ORIGINAL_TEMPLATE" ]; then
                 local PKG_OUTPUT="$OUTPUT_DIR/$pkg"
                 rm -rf "$PKG_OUTPUT"
-                uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null || true
+                uv run cfn-dataclasses import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null || true
 
                 if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" >/dev/null 2>&1; then
                     echo "FIXED:$pkg"

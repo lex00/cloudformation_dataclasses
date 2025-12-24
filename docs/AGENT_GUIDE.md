@@ -140,19 +140,19 @@ Ask for the template file path or have them paste the content.
 
 ```bash
 # Generate as package (recommended for larger templates)
-cfn-dataclasses-import template.yaml -o my_stack/
+cfn-dataclasses import template.yaml -o my_stack/
 
 # Generate as single file
-cfn-dataclasses-import template.yaml -o my_stack.py
+cfn-dataclasses import template.yaml -o my_stack.py
 
 # Preview output
-cfn-dataclasses-import template.yaml | less
+cfn-dataclasses import template.yaml | less
 ```
 
 ### For Multiple Templates (Batch Mode)
 
 ```bash
-cfn-dataclasses-import /path/to/templates/ -o examples/3rd_party/source/
+cfn-dataclasses import /path/to/templates/ -o examples/3rd_party/source/
 ```
 
 Batch mode automatically:
@@ -339,5 +339,5 @@ print("✓ All validations passed")
 ## See Also
 
 - [QUICK_START.md](QUICK_START.md) - Project generator reference
-- [IMPORTER.md](IMPORTER.md) - cfn-dataclasses-import command usage
+- [IMPORTER.md](IMPORTER.md) - cfn-dataclasses import command usage
 - [LINTER.md](LINTER.md) - Linter rules and auto-fix

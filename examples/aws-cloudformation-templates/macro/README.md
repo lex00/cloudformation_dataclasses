@@ -1,6 +1,6 @@
 # Macro
 
-Imported from `stackset-administration-role.yaml`.
+Imported from `fn-foreach-ddb.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -26,9 +26,3 @@ uv run python -m macro
 ```bash
 pip install .
 ```
-
-## Resources
-
-| Logical ID | Type |
-|------------|------|
-| `AWSCloudFormationStackSetAdministrationRole` | AWS::IAM::Role |

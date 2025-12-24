@@ -14,10 +14,10 @@ pip install cloudformation_dataclasses
 
 ## Create a New Project
 
-Use the importer with `--init` to create a new project:
+Use the `init` subcommand to create a new project:
 
 ```bash
-uv run cfn-dataclasses-import --init -o my_project/
+uv run cfn-dataclasses init -o my_project/
 ```
 
 This creates a complete project structure:
@@ -87,7 +87,7 @@ aws cloudformation deploy \
 Customize the project name:
 
 ```bash
-uv run cfn-dataclasses-import --init -o my_project/ --project-name analytics
+uv run cfn-dataclasses init -o my_project/ --project-name analytics
 ```
 
 ## Adding Tags
@@ -130,7 +130,8 @@ class MyBucketPolicy:
 ## Next Steps
 
 - **Add more resources**: Create new files in `stack/` for Lambda, IAM, DynamoDB, etc.
-- **Import existing templates**: Use `cfn-dataclasses-import` to convert CloudFormation YAML
+- **Import existing templates**: Use `cfn-dataclasses import` to convert CloudFormation YAML
+- **Lint your code**: Use `cfn-dataclasses lint` to check for style issues
 
 ## See Also
 

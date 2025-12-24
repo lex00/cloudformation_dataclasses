@@ -375,7 +375,7 @@ bucket = Bucket(
    python my_troposphere_stack.py > template.json
 
    # Import into cloudformation_dataclasses
-   cfn-dataclasses-import template.json -o my_stack/
+   cfn-dataclasses import template.json -o my_stack/
    ```
 
 2. **Refactor references**: The importer generates class-based refs automatically

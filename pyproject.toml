@@ -44,7 +44,7 @@ dev = [
 ]
 
 [project.scripts]
-cfn-dataclasses-import = "cloudformation_dataclasses.importer.cli:main"
+cfn-dataclasses = "cloudformation_dataclasses.importer.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/lex00/cloudformation_dataclasses"

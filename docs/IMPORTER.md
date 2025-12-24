@@ -16,47 +16,86 @@ uv pip install cloudformation-dataclasses[importer]
 
 ```bash
 # Convert a template to Python (after pip install)
-cfn-dataclasses-import template.yaml -o my_stack.py
+cfn-dataclasses import template.yaml -o my_stack.py
 
 # Or if working from source with uv
-uv run cfn-dataclasses-import template.yaml -o my_stack.py
+uv run cfn-dataclasses import template.yaml -o my_stack.py
 
 # Read from stdin, write to stdout
-cat template.yaml | cfn-dataclasses-import -
+cat template.yaml | cfn-dataclasses import -
 
 # JSON templates work too
-cfn-dataclasses-import template.json -o my_stack.py
+cfn-dataclasses import template.json -o my_stack.py
 ```
 
 ## CLI Reference
 
+The `cfn-dataclasses` command provides three subcommands:
+
 ```
-cfn-dataclasses-import [OPTIONS] [INPUT]
+cfn-dataclasses <command> [options]
+
+Commands:
+  import    Import CloudFormation template to Python
+  init      Create new project skeleton
+  lint      Lint Python code for style issues
+
+Global Options:
+  --version   Show version and exit
+  --help      Show this message and exit
+```
+
+### import subcommand
+
+```
+cfn-dataclasses import [OPTIONS] INPUT
 
 Arguments:
-  INPUT                      Template file or directory (batch mode). Optional with --init.
+  INPUT                      Template file or directory (batch mode)
 
 Options:
   -o, --output PATH          Output path: directory for package, .py file for single file
                              Default: stdout (single file)
-  --init                     Create empty project skeleton (no template required)
   --project-name NAME        Project name (defaults to output directory name)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
   --skip-checks              Skip validation, linting, and test generation
-  --version                  Show version and exit
+  --help                     Show this message and exit
+```
+
+### init subcommand
+
+```
+cfn-dataclasses init [OPTIONS]
+
+Options:
+  -o, --output PATH          Output path (required)
+  --project-name NAME        Project name (defaults to output directory name)
+  --help                     Show this message and exit
+```
+
+### lint subcommand
+
+```
+cfn-dataclasses lint [OPTIONS] PATH
+
+Arguments:
+  PATH                       File or directory to lint
+
+Options:
+  --fix                      Auto-fix issues in place
   --help                     Show this message and exit
 ```
 
 ### Creating New Projects
 
-Use `--init` to create a new project without an existing template:
+Use `init` to create a new project without an existing template:
 
 ```bash
 # Create a new project skeleton
-cfn-dataclasses-import --init -o my_project/
+cfn-dataclasses init -o my_project/
 
 # With custom project name
-cfn-dataclasses-import --init -o my_project/ --project-name analytics
+cfn-dataclasses init -o my_project/ --project-name analytics
 ```
 
 This creates a complete package structure ready for development. See [Quick Start](QUICK_START.md) for details on adding resources.
@@ -76,16 +115,16 @@ The importer automatically determines whether to generate a package or single fi
 
 ```bash
 # Generate as package (default when -o is a directory)
-cfn-dataclasses-import vpc.yaml -o infrastructure/vpc/
+cfn-dataclasses import vpc.yaml -o infrastructure/vpc/
 
 # Generate as single file (when -o ends with .py)
-cfn-dataclasses-import vpc.yaml -o vpc.py
+cfn-dataclasses import vpc.yaml -o vpc.py
 
 # Omit the main block for library modules
-cfn-dataclasses-import vpc.yaml --no-main -o vpc.py
+cfn-dataclasses import vpc.yaml --no-main -o vpc.py
 
 # Pipe for quick preview
-cfn-dataclasses-import template.yaml | less
+cfn-dataclasses import template.yaml | less
 ```
 
 ### Batch Mode
@@ -93,7 +132,7 @@ cfn-dataclasses-import template.yaml | less
 Import multiple templates from a directory:
 
 ```bash
-cfn-dataclasses-import /path/to/templates/ -o examples/3rd_party/source_name/
+cfn-dataclasses import /path/to/templates/ -o examples/3rd_party/source_name/
 ```
 
 **Example output:**
@@ -173,7 +212,7 @@ Each generated package gets a README with:
 
 **Skip checks for debugging:**
 ```bash
-cfn-dataclasses-import /path/to/templates/ -o output/ --skip-checks
+cfn-dataclasses import /path/to/templates/ -o output/ --skip-checks
 ```
 
 Skips validation, linting, and test generation.
@@ -183,7 +222,7 @@ Skips validation, linting, and test generation.
 When the output path is a directory, the importer generates a portable Python package with a nested structure. Each resource gets its own file for better readability and AI-friendly context management.
 
 ```bash
-cfn-dataclasses-import template.yaml -o my_stack/
+cfn-dataclasses import template.yaml -o my_stack/
 ```
 
 This generates a **nested package structure**:

@@ -7,10 +7,10 @@ Notes and future enhancement ideas for cloudformation_dataclasses.
 **Decision**: Not adding a separate `cfn-dataclasses-lint` CLI at this time.
 
 **Rationale**:
-- Linter is already integrated into `cfn-dataclasses-import` via `--lint`/`--no-lint` flags
+- Linter is already integrated into `cfn-dataclasses import` via `--lint`/`--no-lint` flags
 - Linter is available programmatically via `lint_code()`, `fix_code()`, `LintChecker`, etc.
 - For hand-written code, developers should use type-safe constants from the start (which is the whole point of this library)
-- The primary use case for linting is imported code, which `cfn-dataclasses-import` already handles
+- The primary use case for linting is imported code, which `cfn-dataclasses import` already handles
 
 **Revisit if**:
 - There's user demand for a standalone lint command

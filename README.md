@@ -83,7 +83,7 @@ See **[Feature Comparison](docs/comparisons/FEATURES.md)** for the full matrix, 
 ## Also
 
 - **All AWS Services** - 262 services, 1,502 resource types auto-generated from CloudFormation specs
-- **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses-import`
+- **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses import`
 - **Clean Output** - Readable logical IDs, no CDK metadata or hashes
 - **Linter** - Auto-fix string literals to type-safe constants
 
@@ -91,10 +91,13 @@ See **[Feature Comparison](docs/comparisons/FEATURES.md)** for the full matrix, 
 
 ```bash
 # Create a new project
-cfn-dataclasses-init default -o my_stack/
+cfn-dataclasses init -o my_stack/
 
 # Import existing template
-cfn-dataclasses-import template.yaml -o my_stack.py
+cfn-dataclasses import template.yaml -o my_stack.py
+
+# Lint your code
+cfn-dataclasses lint my_stack/
 ```
 
 ## License

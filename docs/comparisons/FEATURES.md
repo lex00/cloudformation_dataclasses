@@ -223,10 +223,10 @@ Rename `MyRole` to `ExecutionRole`?
 
 ```bash
 # Import a single template
-cfn-dataclasses-import template.yaml -o my_stack/
+cfn-dataclasses import template.yaml -o my_stack/
 
 # Batch import a directory of templates
-cfn-dataclasses-import templates/ -o output/
+cfn-dataclasses import templates/ -o output/
 
 # CDK has CfnInclude but it's runtime, not code generation
 # Troposphere has no import capability

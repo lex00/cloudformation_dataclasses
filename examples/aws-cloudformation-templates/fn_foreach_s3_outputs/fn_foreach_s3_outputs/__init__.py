@@ -9,6 +9,9 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 
+# Import AWS service modules - add more as needed
+# from cloudformation_dataclasses.aws import s3, iam, lambda_, ec2
+
 from .stack import *  # noqa: F403, F401
 
 __all__ = [
