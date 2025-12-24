@@ -1,6 +1,6 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.6.0"  # Package version (independent of spec/generator versions)
+version = "0.6.1"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [

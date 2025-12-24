@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2025-12-23
+
+### Added
+- **Comparison documentation** - New `docs/comparisons/` directory with detailed comparisons:
+  - `FEATURES.md` - Comprehensive feature matrix vs CDK and Troposphere
+  - `CDK.md` - Detailed comparison with AWS CDK Python
+  - `TROPOSPHERE.md` - Detailed comparison with Troposphere
+- **README Key Features section** - Prominently highlights 4 main differentiators:
+  1. Declarative syntax (infrastructure as data)
+  2. Type-safe cross-resource references (class refs, not strings)
+  3. Flexible file organization (no explicit imports needed)
+  4. Pure Python (no Node.js required)
+
+### Changed
+- **IMPORTER.md** - Added File Organization Logic section explaining:
+  - Service category mapping (compute.py, network.py, storage.py, etc.)
+  - SCC (Strongly Connected Component) handling for circular dependencies
+- **README.md** - Restructured to lead with key features; removed redundant Quick Example
+
+---
+
 ## [0.6.0] - 2025-12-22
 
 ### Changed
