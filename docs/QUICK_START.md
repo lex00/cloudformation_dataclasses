@@ -21,7 +21,6 @@ This creates a complete project structure:
 ```
 my_project/
 ├── __init__.py        # Package exports
-├── context.py         # Deployment context (naming, tags, environment)
 ├── main.py            # Template builder and entry point
 ├── pyproject.toml     # Package config with dependencies
 ├── py.typed           # PEP 561 typed package marker
@@ -34,28 +33,7 @@ my_project/
 
 ## Customize Your Project
 
-### 1. Configure the Deployment Context
-
-Edit `my_project/context.py` to set your environment:
-
-```python
-@cloudformation_dataclass
-class MyProjectContext:
-    context: DeploymentContext
-    project_name = "my_project"      # Top-level project name
-    component = "MyComponent"        # Logical grouping
-    stage = "dev"                    # dev, staging, prod
-    region = "us-east-1"             # AWS region
-    tags = [EnvironmentTag, ...]     # Base tags for all resources
-```
-
-Resources using this context automatically get:
-- **Consistent naming**: Based on the naming pattern (e.g., `myproject-MyComponent-DataBucket-dev-us-east-1`)
-- **Base tags**: Applied to all resources
-
-See the [Context Guide](CONTEXT.md) for full documentation on naming patterns, tag management, and multi-environment deployments.
-
-### 2. Add Resources
+### 1. Add Resources
 
 Create a new file for each resource. For example, `my_project/bucket.py`:
 
@@ -66,24 +44,26 @@ from cloudformation_dataclasses.aws.s3 import Bucket
 @cloudformation_dataclass
 class DataBucket:
     resource: Bucket
-    # Context is applied at template level - no need to set it here
+    bucket_name = "my-data-bucket"
 ```
 
-Then build the template in `my_project/main.py`:
+### 2. Add Tags
+
+Define reusable tags as wrapper classes:
 
 ```python
-from .context import ctx
+@cloudformation_dataclass
+class EnvironmentTag:
+    resource: Tag
+    key = "Environment"
+    value = "prod"
 
-def build_template() -> Template:
-    return Template.from_registry(
-        description="My Infrastructure",
-        context=ctx,  # Applies naming + tags to all resources
-    )
+@cloudformation_dataclass
+class DataBucket:
+    resource: Bucket
+    bucket_name = "my-data-bucket"
+    tags = [EnvironmentTag, Tag(key="Team", value="Data")]
 ```
-
-The context automatically:
-- Sets physical names (e.g., `bucket_name`) based on the naming pattern
-- Merges context tags with any resource-specific tags
 
 ### 3. Generate CloudFormation
 
@@ -155,12 +135,9 @@ template = Template.from_registry()  # Collects all registered resources
 ## Next Steps
 
 - **Add more resources**: Create new files for Lambda, IAM, etc.
-- **Customize naming**: Override `naming_pattern` in your context
-- **Add tags**: Define organization-specific tags in `context.py`
 - **Import existing templates**: Use `cfn-dataclasses-import` to convert CloudFormation YAML
 
 ## See Also
 
-- [Context Guide](CONTEXT.md) - Full documentation on naming patterns, tags, and multi-environment deployments
 - [Template Importer](IMPORTER.md) - Convert existing CloudFormation templates
-- [with_context example](../examples/with_context/s3_bucket/) - Complete working example with context
+- [Registry](REGISTRY.md) - Multi-file organization and resource discovery

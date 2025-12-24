@@ -1,7 +1,6 @@
 """{{ProjectName}} - CloudFormation infrastructure."""
 
 from cloudformation_dataclasses.core import (
-    DeploymentContext,
     Tag,
     Template,
     cloudformation_dataclass,
@@ -9,7 +8,6 @@ from cloudformation_dataclasses.core import (
 )
 
 __all__ = [
-    "DeploymentContext",
     "Tag",
     "Template",
     "cloudformation_dataclass",

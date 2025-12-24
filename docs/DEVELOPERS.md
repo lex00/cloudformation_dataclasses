@@ -88,7 +88,7 @@ uv run pytest tests/ examples/ -v
 cloudformation_dataclasses/
 ├── src/cloudformation_dataclasses/     # Source code
 │   ├── core/                           # Core base classes
-│   │   ├── base.py                     # CloudFormationResource, DeploymentContext, Tag
+│   │   ├── base.py                     # CloudFormationResource, Tag, PolicyDocument
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
 │   │   └── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]

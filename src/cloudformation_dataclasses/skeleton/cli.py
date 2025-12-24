@@ -115,9 +115,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  {path.name}")
 
     print(f"\nNext steps:")
-    print(f"  1. Edit {args.output}/context.py to configure your deployment")
-    print(f"  2. Customize resources in {args.output}/bucket.py")
-    print(f"  3. Run: python -m {args.output.name}.main")
+    print(f"  1. Add resources to {args.output}/")
+    print(f"  2. Run: python -m {args.output.name}.main")
 
     return 0
 

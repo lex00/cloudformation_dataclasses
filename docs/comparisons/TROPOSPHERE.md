@@ -308,34 +308,33 @@ template.add_resource(policy)
 print(template.to_json())
 ```
 
-### Environment-Based Naming
+### Reusable Tags
 
 **cloudformation_dataclasses:**
 ```python
 @cloudformation_dataclass
-class MyContext:
-    context: DeploymentContext
-    project_name = "myapp"
-    stage = "prod"
-    region = "us-east-1"
-
-ctx = MyContext()
+class EnvironmentTag:
+    resource: Tag
+    key = "Environment"
+    value = "prod"
 
 @cloudformation_dataclass
 class DataBucket:
     resource: Bucket
-    context = ctx  # Auto-names: myapp-DataBucket-prod-us-east-1
+    bucket_name = "my-bucket"
+    tags = [EnvironmentTag, Tag(key="Team", value="Data")]
 ```
 
 **Troposphere:**
 ```python
-# Manual naming required everywhere
-stage = "prod"
-region = "us-east-1"
-
+# Manual tag definition every time
 bucket = Bucket(
-    f"DataBucket{stage.title()}",  # Manual composition
-    BucketName=f"myapp-data-{stage}-{region}",  # Manual everywhere
+    "DataBucket",
+    BucketName="my-bucket",
+    Tags=[
+        Tag(key="Environment", value="prod"),
+        Tag(key="Team", value="Data"),
+    ],
 )
 ```
 
@@ -346,7 +345,7 @@ bucket = Bucket(
 | Type-safe refs | Yes (`ref(MyClass)`) | No (strings) |
 | Auto-registration | Yes | No (`add_resource()`) |
 | Logical ID generation | Automatic (class name) | Manual parameter |
-| Context-based naming | Built-in | Manual |
+| Reusable tag wrappers | Built-in | Manual |
 | Nested property handling | Flat classes | Deep nesting |
 | File organization | Flexible (no import changes) | Requires explicit imports |
 | Dependencies | None (stdlib only) | cfn-flip + optional awacs |
@@ -357,7 +356,6 @@ bucket = Bucket(
 ### Use cloudformation_dataclasses when:
 - You want **type-safe** resource references with IDE support
 - You prefer **declarative** configuration over imperative code
-- You need **automatic naming** based on environment/context
 - You want **minimal dependencies** (no transitive packages)
 - You want to **reorganize resources** between files without updating imports
 - You're working with **AI assistants** (declarative syntax is easier to generate)
@@ -382,7 +380,7 @@ bucket = Bucket(
 
 2. **Refactor references**: The importer generates class-based refs automatically
 
-3. **Add DeploymentContext**: Replace hardcoded names with context-driven naming
+3. **Add tags**: Use Tag wrappers for reusable tagging
 
 ### From cloudformation_dataclasses to Troposphere
 

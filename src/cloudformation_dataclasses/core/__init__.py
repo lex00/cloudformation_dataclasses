@@ -3,7 +3,6 @@
 from cloudformation_dataclasses.core.base import (
     CloudFormationResource,
     DenyStatement,
-    DeploymentContext,
     PolicyDocument,
     PolicyStatement,
     Tag,
@@ -49,7 +48,6 @@ __all__ = [
     "Condition",
     "ConditionOperator",
     "DenyStatement",
-    "DeploymentContext",
     "GetAtt",
     "IP_ADDRESS",
     "Mapping",

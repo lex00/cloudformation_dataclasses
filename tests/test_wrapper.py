@@ -9,7 +9,6 @@ from dataclasses import dataclass, field
 
 from cloudformation_dataclasses.core.base import (
     CloudFormationResource,
-    DeploymentContext,
     Tag,
 )
 from cloudformation_dataclasses.core.wrapper import (
@@ -38,18 +37,6 @@ class TestWrapperDetection:
         @dataclass
         class MyWrapper:
             resource: TestResource
-
-        assert is_wrapper_dataclass(MyWrapper) is True
-
-    def test_is_wrapper_dataclass_with_context(self):
-        """Test detecting wrapper with context field."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        @dataclass
-        class MyWrapper:
-            context: TestContext
 
         assert is_wrapper_dataclass(MyWrapper) is True
 
@@ -87,19 +74,6 @@ class TestGetWrappedResourceType:
 
         wrapped_type = get_wrapped_resource_type(MyWrapper)
         assert wrapped_type == TestResource
-
-    def test_get_wrapped_resource_type_context(self):
-        """Test getting wrapped context type."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        @dataclass
-        class MyWrapper:
-            context: TestContext
-
-        wrapped_type = get_wrapped_resource_type(MyWrapper)
-        assert wrapped_type == TestContext
 
     def test_get_wrapped_resource_type_not_wrapper(self):
         """Test getting type from non-wrapper."""
@@ -225,24 +199,6 @@ class TestCloudFormationDataclassDecorator:
 
         instance = MySpecialResource()
         assert instance.resource.logical_id == "MySpecialResource"
-
-    def test_decorator_with_context(self):
-        """Test decorator with context field."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        @cloudformation_dataclass
-        class MyContext:
-            context: TestContext
-            component: str = "MyApp"
-            stage: str = "prod"
-
-        instance = MyContext()
-        assert instance.context is not None
-        assert isinstance(instance.context, TestContext)
-        assert instance.context.component == "MyApp"
-        assert instance.context.stage == "prod"
 
     def test_decorator_with_mutable_defaults(self):
         """Test decorator handles mutable defaults correctly."""
@@ -434,25 +390,6 @@ class TestCreateWrappedResource:
         assert isinstance(resource.items[0], InnerResource)
         assert resource.items[0].value == "test"
 
-    def test_create_wrapped_resource_with_context(self):
-        """Test creating wrapped context."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        @dataclass
-        class MyContextWrapper:
-            context: TestContext
-            component: str = "MyApp"
-            stage: str = "prod"
-
-        wrapper = MyContextWrapper(context=None)
-        context = create_wrapped_resource(wrapper)
-
-        assert isinstance(context, TestContext)
-        assert context.component == "MyApp"
-        assert context.stage == "prod"
-
 
 class TestWrapperIntegration:
     """Integration tests for wrapper pattern."""
@@ -503,59 +440,46 @@ class TestWrapperIntegration:
         assert len(subnet.resource.tags) == 1
         assert subnet.resource.tags[0].key == "Name"
 
-    def test_wrapper_with_deployment_context(self):
-        """Test wrapper with deployment context."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        @cloudformation_dataclass
-        class ProdContext:
-            context: TestContext
-            project_name: str = "analytics"
-            component: str = "DataPlatform"
-            stage: str = "prod"
-            deployment_name: str = "001"
-            deployment_group: str = "blue"
-            region: str = "us-east-1"
-            tags = [
-                {"Key": "Environment", "Value": "Production"},
-                {"Key": "ManagedBy", "Value": "CloudFormation"}
-            ]
-
+    def test_wrapper_with_tag_wrappers(self):
+        """Test wrapper with Tag wrapper classes."""
         @dataclass
         class TestResource(CloudFormationResource):
             resource_type = "AWS::Test::Resource"
             name: str = "default"
+            tags: list = field(default_factory=list)
 
             def _get_properties(self):
                 return {"Name": self.name}
 
         @cloudformation_dataclass
+        class EnvironmentTag:
+            resource: Tag
+            key: str = "Environment"
+            value: str = "Production"
+
+        @cloudformation_dataclass
+        class ProjectTag:
+            resource: Tag
+            key: str = "Project"
+            value: str = "Analytics"
+
+        @cloudformation_dataclass
         class MyData:
             resource: TestResource
-            context = ProdContext
             name: str = "DataResource"
-            tags = [{"Key": "DataType", "Value": "Sensitive"}]
+            tags = [EnvironmentTag, ProjectTag, {"Key": "Custom", "Value": "Value"}]
 
         # Create instance
         data = MyData()
 
-        # Verify context was created
-        assert data.resource.context is not None
-        assert data.resource.context.project_name == "analytics"
-        assert data.resource.context.component == "DataPlatform"
-        assert data.resource.context.stage == "prod"
-
-        # Verify resource naming
+        # Verify resource
+        assert data.resource.name == "DataResource"
         assert data.resource.logical_id == "MyData"
-        expected_name = "analytics-DataPlatform-MyData-prod-001-blue-us-east-1"
-        assert data.resource.resource_name == expected_name
 
-        # Verify tag merging
-        all_tags = data.resource.all_tags
-        assert len(all_tags) == 3  # 2 from context tags list + 1 from resource
+        # Verify tags - all converted to Tag instances
+        all_tags = data.resource.tags
+        assert len(all_tags) == 3
         tag_keys = [tag.key for tag in all_tags]
         assert "Environment" in tag_keys
-        assert "ManagedBy" in tag_keys
-        assert "DataType" in tag_keys
+        assert "Project" in tag_keys
+        assert "Custom" in tag_keys

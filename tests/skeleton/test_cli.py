@@ -37,8 +37,8 @@ class TestCLI:
 
         assert exit_code == 0
         assert (output_dir / "__init__.py").exists()
-        assert (output_dir / "context.py").exists()
         assert (output_dir / "main.py").exists()
+        assert (output_dir / "README.md").exists()
 
     def test_custom_variables(self, tmp_path: Path) -> None:
         """CLI passes custom variables to generator."""
@@ -55,11 +55,9 @@ class TestCLI:
 
         assert exit_code == 0
 
-        context_content = (output_dir / "context.py").read_text()
-        assert 'project_name = "analytics"' in context_content
-        assert 'component = "storage"' in context_content
-        assert 'stage = "prod"' in context_content
-        assert 'region = "eu-west-1"' in context_content
+        # Check README has project name
+        readme_content = (output_dir / "README.md").read_text()
+        assert "analytics" in readme_content.lower()
 
     def test_error_on_nonempty_directory(
         self, tmp_path: Path, capsys: pytest.CaptureFixture[str]
@@ -95,4 +93,4 @@ class TestCLI:
 
         captured = capsys.readouterr()
         assert "Next steps:" in captured.out
-        assert "context.py" in captured.out
+        assert "python -m" in captured.out

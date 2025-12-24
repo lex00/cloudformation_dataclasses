@@ -7,7 +7,6 @@ CloudFormation infrastructure using `cloudformation_dataclasses`.
 ```
 {{project_name}}/
 ├── __init__.py        # Package exports
-├── context.py         # Deployment context (naming, tags, environment)
 ├── main.py            # Template builder and entry point
 ├── pyproject.toml     # Package config with dependencies
 ├── py.typed           # PEP 561 typed package marker
@@ -42,13 +41,11 @@ print(template.to_json())
 ```python
 # my_bucket.py
 from . import *
-from .context import ctx
 from cloudformation_dataclasses.aws.s3 import Bucket
 
 @cloudformation_dataclass
 class MyBucket:
     resource: Bucket
-    context = ctx
     bucket_name = "my-bucket"
 ```
 
@@ -65,26 +62,14 @@ def main():
 
 ## Key Concepts
 
-### DeploymentContext
-
-Provides automatic resource naming and shared tags:
-
-```python
-ctx = {{ProjectName}}Context()
-
-# Resources using this context get automatic names:
-# {{project_name}}-{{component}}-ResourceName-{{stage}}-{{region}}
-```
-
 ### Wrapper Classes
 
-Each configuration is a separate class for reusability:
+Each resource configuration is a separate class for reusability:
 
 ```python
 @cloudformation_dataclass
 class MyResource:
     resource: SomeAWSResource
-    context = ctx
     # ... configuration
 ```
 
@@ -96,6 +81,24 @@ Resources are automatically collected when you call `Template.from_registry()`:
 bucket = MyBucket()  # Registered
 
 template = Template.from_registry()  # Collects all registered resources
+```
+
+### Tags
+
+Add tags to resources using the Tag class or tag wrappers:
+
+```python
+@cloudformation_dataclass
+class EnvironmentTag:
+    resource: Tag
+    key = "Environment"
+    value = "prod"
+
+@cloudformation_dataclass
+class MyBucket:
+    resource: Bucket
+    bucket_name = "my-bucket"
+    tags = [EnvironmentTag, Tag(key="Team", value="Data")]
 ```
 
 ## IDE Support

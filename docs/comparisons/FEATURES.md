@@ -256,36 +256,28 @@ AI assistants generate more reliable code with declarative syntax because:
 
 ---
 
-## Deployment Context
+## Tagging
 
 | Feature | cloudformation_dataclasses | AWS CDK | Troposphere |
 |---------|:--------------------------:|:-------:|:-----------:|
-| **Built-in DeploymentContext** | ✅ | ⚠️ | ❌ |
-| Auto-generate resource names | ✅ | ⚠️ | ❌ |
-| Environment-based naming | ✅ | ⚠️ | ❌ |
-| Blue/green deployment groups | ✅ | ❌ | ❌ |
-| Region in resource names | ✅ | ⚠️ | ❌ |
-| Project/component hierarchy | ✅ | ⚠️ | ❌ |
-| Automatic tag propagation | ✅ | ⚠️ | ❌ |
+| **Tag wrappers (reusable tags)** | ✅ | ⚠️ | ❌ |
+| Declarative tag definition | ✅ | ❌ | ❌ |
+| Tag as first-class wrapper | ✅ | ❌ | ❌ |
 
-### DeploymentContext Example
+### Tag Wrapper Example
 
 ```python
 @cloudformation_dataclass
-class MyContext:
-    context: DeploymentContext
-    project_name = "myapp"
-    component = "api"
-    stage = "prod"
-    deployment_group = "blue"
-    region = "us-east-1"
+class EnvironmentTag:
+    resource: Tag
+    key = "Environment"
+    value = "prod"
 
 @cloudformation_dataclass
 class DataBucket:
     resource: Bucket
-    context = ctx
-    # Auto-names to: myapp-api-DataBucket-prod-blue-us-east-1
-    # Auto-tags with project, component, stage, etc.
+    bucket_name = "my-bucket"
+    tags = [EnvironmentTag, Tag(key="Team", value="Data")]
 ```
 
 ---

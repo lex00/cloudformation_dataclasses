@@ -10,7 +10,6 @@ Or import and use programmatically:
 """
 
 from . import *  # noqa: F403
-from .context import ctx
 
 
 def build_template() -> Template:
@@ -29,14 +28,6 @@ def main() -> None:
     # TODO: Import and instantiate your resources here
     # from .my_resource import MyResource
     # resource = MyResource()
-
-    print("=" * 70)
-    print("CONTEXT")
-    print("=" * 70)
-    print(f"Project:     {ctx.project_name}")
-    print(f"Component:   {ctx.component}")
-    print(f"Environment: {ctx.stage} ({ctx.region})")
-    print()
 
     # Build and validate template
     template = build_template()

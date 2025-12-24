@@ -206,17 +206,15 @@ class DeferredGetAtt:
 
 def is_wrapper_dataclass(cls: Type[Any]) -> bool:
     """
-    Check if a class is a wrapper dataclass (has a 'resource' or 'context' field).
+    Check if a class is a wrapper dataclass (has a 'resource' field).
 
-    A wrapper dataclass wraps either:
-    - CloudFormation resources/Tags via 'resource:' field
-    - DeploymentContext via 'context:' field
+    A wrapper dataclass wraps CloudFormation resources or Tags via a 'resource:' field.
 
     Args:
         cls: The class to check
 
     Returns:
-        True if the class has a 'resource' or 'context' field annotation
+        True if the class has a 'resource' field annotation
 
     Examples:
         >>> @dataclass
@@ -226,26 +224,18 @@ def is_wrapper_dataclass(cls: Type[Any]) -> bool:
         >>>
         >>> is_wrapper_dataclass(MyBucket)
         True
-
-        >>> @dataclass
-        >>> class MyDeploymentContext:
-        >>>     context: DeploymentContext
-        >>>     environment: str = "Prod"
-        >>>
-        >>> is_wrapper_dataclass(MyDeploymentContext)
-        True
     """
     if not is_dataclass(cls):
         return False
 
     try:
         type_hints = get_type_hints(cls)
-        return "resource" in type_hints or "context" in type_hints
+        return "resource" in type_hints
     except Exception:
         # If get_type_hints fails (e.g., forward references can't be resolved),
         # fall back to checking raw annotations
         annotations = getattr(cls, "__annotations__", {})
-        return "resource" in annotations or "context" in annotations
+        return "resource" in annotations
 
 
 def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bool = True):
@@ -253,7 +243,7 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
     Decorator that enables the CloudFormation dataclass pattern.
 
     This decorator automatically applies @dataclass, so you only need @cloudformation_dataclass.
-    It modifies the class so that the 'resource' or 'context' field has a default value.
+    It modifies the class so that the 'resource' field has a default value.
 
     Resources are automatically registered with the global registry, enabling:
     - Multi-file template organization
@@ -320,7 +310,7 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
 
                 setattr(cls, attr_name, dc_field(default_factory=make_factory(attr_value)))
 
-        # Add a default to the 'resource' or 'context' field annotation
+        # Add a default to the 'resource' field annotation
         # We do this by adding __annotations__ modification
         wrapper_field = None
         if hasattr(cls, "__annotations__"):
@@ -328,18 +318,14 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
                 wrapper_field = "resource"
                 if not hasattr(cls, "resource") or getattr(cls, "resource") is MISSING:
                     setattr(cls, "resource", None)
-            elif "context" in cls.__annotations__:
-                wrapper_field = "context"
-                if not hasattr(cls, "context") or getattr(cls, "context") is MISSING:
-                    setattr(cls, "context", None)
 
-        # Handle fields whose type is a wrapper dataclass (like context: ProdDeploymentContext)
+        # Handle fields whose type is a wrapper dataclass
         # We need to give these fields defaults too
         if hasattr(cls, "__annotations__"):
             try:
                 type_hints = get_type_hints(cls)
                 for field_name, field_type in type_hints.items():
-                    if field_name in ("resource", "context"):
+                    if field_name == "resource":
                         continue
                     # Check if the type is a wrapper dataclass
                     if isinstance(field_type, type) and is_wrapper_dataclass(field_type):
@@ -355,12 +341,9 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
         original_post_init = getattr(cls, "__post_init__", None)
 
         def __post_init__(self):
-            """Auto-create wrapped resource/context during initialization."""
-            # Determine which field to check
+            """Auto-create wrapped resource during initialization."""
             if wrapper_field == "resource" and getattr(self, "resource", None) is None:
                 self.resource = create_wrapped_resource(self)
-            elif wrapper_field == "context" and getattr(self, "context", None) is None:
-                self.context = create_wrapped_resource(self)
 
             # Call original __post_init__ if it existed
             if original_post_init is not None:
@@ -399,13 +382,13 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
 
 def get_wrapped_resource_type(cls: Type[Any]) -> Type[Any] | None:
     """
-    Get the wrapped type (CloudFormation resource, Tag, or DeploymentContext).
+    Get the wrapped type (CloudFormation resource or Tag).
 
     Args:
         cls: A wrapper dataclass class
 
     Returns:
-        The wrapped class (e.g., Bucket, VPC, Tag, DeploymentContext), or None if not a wrapper
+        The wrapped class (e.g., Bucket, VPC, Tag), or None if not a wrapper
 
     Examples:
         >>> @dataclass
@@ -414,13 +397,6 @@ def get_wrapped_resource_type(cls: Type[Any]) -> Type[Any] | None:
         >>>
         >>> get_wrapped_resource_type(MyBucket)
         <class 'Bucket'>
-
-        >>> @dataclass
-        >>> class MyDeploymentContext:
-        >>>     context: DeploymentContext
-        >>>
-        >>> get_wrapped_resource_type(MyDeploymentContext)
-        <class 'DeploymentContext'>
     """
     if not is_wrapper_dataclass(cls):
         return None
@@ -429,12 +405,10 @@ def get_wrapped_resource_type(cls: Type[Any]) -> Type[Any] | None:
         # Get the raw annotation (might be a string with PEP 563)
         annotations = getattr(cls, "__annotations__", {})
 
-        # Determine which field to look up
-        field_name = "resource" if "resource" in annotations else "context" if "context" in annotations else None
-        if field_name is None:
+        if "resource" not in annotations:
             return None
 
-        annotation = annotations[field_name]
+        annotation = annotations["resource"]
 
         # If it's already a type, return it directly
         if isinstance(annotation, type):
@@ -577,14 +551,14 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
     """
     Create the underlying wrapped object from a wrapper instance.
 
-    This function extracts all fields from the wrapper (except 'resource' or 'context')
+    This function extracts all fields from the wrapper (except 'resource')
     and uses them to instantiate the underlying wrapped object.
 
     Args:
         wrapper_instance: An instance of a wrapper dataclass
 
     Returns:
-        An instance of the underlying wrapped object (CloudFormationResource, Tag, or DeploymentContext)
+        An instance of the underlying wrapped object (CloudFormationResource or Tag)
 
     Examples:
         >>> @dataclass
@@ -596,16 +570,6 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
         >>> bucket = create_wrapped_resource(wrapper)
         >>> isinstance(bucket, Bucket)
         True
-
-        >>> @dataclass
-        >>> class MyDeploymentContext:
-        >>>     context: DeploymentContext
-        >>>     environment: str = "Prod"
-        >>>
-        >>> wrapper = MyDeploymentContext()
-        >>> ctx = create_wrapped_resource(wrapper)
-        >>> isinstance(ctx, DeploymentContext)
-        True
     """
     wrapper_class = type(wrapper_instance)
     wrapped_type = get_wrapped_resource_type(wrapper_class)
@@ -613,16 +577,13 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
     if wrapped_type is None:
         raise TypeError(f"{wrapper_class.__name__} is not a wrapper dataclass")
 
-    # Determine which field is the wrapper field
-    # Use raw annotations to avoid get_type_hints failure with forward references
-    annotations = getattr(wrapper_class, "__annotations__", {})
-    wrapper_field_name = "resource" if "resource" in annotations else "context"
+    wrapper_field_name = "resource"
 
     # Get type hints for resolving annotation-based refs
     # We need to include registry classes for forward reference resolution
     annotation_hints = _get_annotation_hints(wrapper_class)
 
-    # Extract all fields except the wrapper field ('resource' or 'context')
+    # Extract all fields except the 'resource' field
     kwargs: dict[str, Any] = {}
     for field in fields(wrapper_instance):
         if field.name == wrapper_field_name:

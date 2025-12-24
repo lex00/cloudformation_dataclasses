@@ -41,7 +41,6 @@ class TestGenerateSkeleton:
         # Check core files were created
         file_names = {f.name for f in created}
         assert "__init__.py" in file_names
-        assert "context.py" in file_names
         assert "main.py" in file_names
         assert "README.md" in file_names
         # IDE support files from package_templates
@@ -56,9 +55,9 @@ class TestGenerateSkeleton:
 
         generate_skeleton("default", output_dir, project_name="analytics")
 
-        context_content = (output_dir / "context.py").read_text()
-        assert 'project_name = "analytics"' in context_content
-        assert "{{project_name}}" not in context_content
+        readme_content = (output_dir / "README.md").read_text()
+        assert "analytics" in readme_content.lower()
+        assert "{{project_name}}" not in readme_content
 
     def test_substitutes_pascal_case_name(self, tmp_path: Path) -> None:
         """Variable substitution converts to PascalCase for {{ProjectName}}."""
@@ -66,9 +65,9 @@ class TestGenerateSkeleton:
 
         generate_skeleton("default", output_dir, project_name="my_analytics")
 
-        context_content = (output_dir / "context.py").read_text()
-        assert "class MyAnalyticsContext:" in context_content
-        assert "{{ProjectName}}" not in context_content
+        readme_content = (output_dir / "README.md").read_text()
+        assert "MyAnalytics" in readme_content
+        assert "{{ProjectName}}" not in readme_content
 
     def test_substitutes_all_variables(self, tmp_path: Path) -> None:
         """All template variables are substituted."""
@@ -83,11 +82,9 @@ class TestGenerateSkeleton:
             region="us-west-2",
         )
 
-        context_content = (output_dir / "context.py").read_text()
-        assert 'project_name = "analytics"' in context_content
-        assert 'component = "storage"' in context_content
-        assert 'stage = "prod"' in context_content
-        assert 'region = "us-west-2"' in context_content
+        readme_content = (output_dir / "README.md").read_text()
+        # Verify no unsubstituted placeholders remain
+        assert "{{" not in readme_content
 
     def test_raises_for_unknown_skeleton(self, tmp_path: Path) -> None:
         """ValueError raised for unknown skeleton names."""
@@ -127,11 +124,9 @@ class TestGeneratedSkeletonImports:
         try:
             # Import the generated package
             import test_project.main as main_module
-            import test_project.context as context_module
 
             # Check key exports exist
             assert hasattr(main_module, "build_template")
-            assert hasattr(context_module, "ctx")
         finally:
             sys.path.remove(str(tmp_path))
             # Clean up imported modules
