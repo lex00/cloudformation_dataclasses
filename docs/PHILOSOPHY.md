@@ -159,9 +159,8 @@ Hickey's concept of "complecting" - interleaving concerns until they can't be se
 
 ### On Python
 
-- The war is over, and Python won. Use it.
-- Type hints provide constraints that reduce the search space - for humans, IDEs, and agents.
 - A Python dataclass with 5 typed fields is a better prompt than a 50-line YAML example.
+- Type hints provide constraints that reduce the search space - for humans, IDEs, and agents.
 - The agent doesn't need to know CloudFormation. It needs to know Python. The library handles the translation.
 
 ### On CloudFormation
@@ -315,35 +314,3 @@ The future isn't "AI writes infrastructure for you." It's "AI writes infrastruct
 That requires artifacts both humans and agents can reason about - at every stage of the workflow.
 
 Choose your tools accordingly.
-
----
-
-## Attribution Notes
-
-### Statements requiring citation if used directly:
-- Rich Hickey quotes from "Simple Made Easy"
-- Kelsey Hightower quotes from interviews
-- Charity Majors quotes from blog posts
-- All linked source material
-
-### Technical foundations:
-- Eric V. Smith - [PEP 557: Data Classes](https://peps.python.org/pep-0557/) - The dataclasses module that makes this project possible
-
-### Original observations (safe to use without citation):
-- Infrastructure code has become write-only
-- The ops/dev divide is linguistic, not organizational
-- Deployment is a solved problem; template authoring isn't
-- The best infrastructure tool is one you can delete and replace
-- No state files. No daemon processes. No control planes to manage.
-- "47 scripts" pattern observation
-- Human-agent collaboration framing
-
----
-
-## TODO
-
-- [ ] Review all quotes for accuracy against original sources
-- [ ] Seek permission for any extended quotes
-- [ ] Find additional supporting voices
-- [ ] Refine narrative flow
-- [ ] Decide on final title and tone
