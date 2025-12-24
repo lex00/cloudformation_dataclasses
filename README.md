@@ -26,19 +26,11 @@ pip install cloudformation-dataclasses
 | **[Developer Guide](docs/DEVELOPERS.md)** | Building, testing, and contributing |
 | **[Changelog](CHANGELOG.md)** | Version history |
 
-## Why cloudformation_dataclasses?
+## Key Features
 
-| Feature | cloudformation_dataclasses | AWS CDK | Troposphere |
-|---------|:--------------------------:|:-------:|:-----------:|
-| **Declarative syntax** | ✅ | ❌ | ❌ |
-| **Pure Python (no Node.js)** | ✅ | ❌ | ✅ |
-| **No transitive dependencies** | ✅ | ❌ | ❌ |
-| **Type-safe cross-resource refs** | ✅ | ✅ | ❌ |
-| **Move resources without import changes** | ✅ | ❌ | ❌ |
-| **Clean output (no metadata/hashes)** | ✅ | ❌ | ✅ |
-| **Import existing templates** | ✅ | ⚠️ | ❌ |
+### 1. Declarative Syntax
 
-**Declarative means simpler code:**
+Infrastructure as **data**, not code. No constructors, no method calls, no execution order:
 
 ```python
 # cloudformation_dataclasses: Infrastructure as DATA
@@ -57,16 +49,18 @@ bucket = Bucket("MyBucket", BucketName="data")
 template.add_resource(bucket)  # Don't forget this!
 ```
 
-**Type-safe references catch errors in your IDE:**
+### 2. Type-Safe Cross-Resource References
+
+Use **class references** instead of error-prone strings. Your IDE catches typos immediately:
 
 ```python
 role = get_att(MyRol, "Arn")  # ❌ IDE error: "MyRol" undefined
-
-# vs Troposphere strings - typo caught at deploy time
-Role=GetAtt("MyRol", "Arn")  # ⚠️ No error until AWS rejects it
+role = get_att(MyRole, "Arn")  # ✅ IDE validates, autocompletes, refactors
 ```
 
-**Simplified imports - move resources between files freely:**
+### 3. Flexible File Organization
+
+One import pattern. Reference resources from **any file** without explicit imports:
 
 ```python
 # Every file in your stack uses the same import
@@ -76,17 +70,21 @@ from .. import *
 bucket = ref(DataBucket)  # DataBucket could be in storage.py, main.py, anywhere
 ```
 
+Move resources between files → **zero import changes**.
+
+### 4. Pure Python
+
+No Node.js required (unlike CDK). No transitive dependencies.
+
+---
+
 See **[Feature Comparison](docs/comparisons/FEATURES.md)** for the full matrix, or compare with **[CDK](docs/comparisons/CDK.md)** and **[Troposphere](docs/comparisons/TROPOSPHERE.md)** directly.
 
-## Features
+## Also
 
-- **Declarative** - Infrastructure as data, not code. No constructors, no method calls
-- **Type-Safe** - Full Python type hints, IDE autocomplete, mypy/pyright support
-- **No Dependencies** - No transitive packages (pyyaml optional for YAML output)
 - **All AWS Services** - 262 services, 1,502 resource types auto-generated from CloudFormation specs
-- **Pure Python** - No Node.js required (unlike AWS CDK)
 - **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses-import`
-- **Flexible Organization** - Move resources between files without updating imports
+- **Clean Output** - Readable logical IDs, no CDK metadata or hashes
 - **Linter** - Auto-fix string literals to type-safe constants
 
 ## Tools
