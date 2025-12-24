@@ -298,6 +298,13 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     # AWS module imports (e.g., from cloudformation_dataclasses.aws import s3)
     # This is needed when wrapper class names collide with AWS resource class names
     aws_base = ctx.imports.get("cloudformation_dataclasses.aws", set())
+
+    # Add AWS import hint when no resources (skeleton/init mode)
+    if not template.resources and not aws_base:
+        lines.append("")
+        lines.append("# Import AWS service modules - add more as needed")
+        lines.append("# from cloudformation_dataclasses.aws import s3, iam, lambda_, ec2")
+
     if aws_base:
         sorted_modules = sorted(aws_base)
         if len(sorted_modules) <= 3:

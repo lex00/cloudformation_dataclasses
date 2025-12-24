@@ -31,19 +31,35 @@ cfn-dataclasses-import template.json -o my_stack.py
 ## CLI Reference
 
 ```
-cfn-dataclasses-import [OPTIONS] INPUT
+cfn-dataclasses-import [OPTIONS] [INPUT]
 
 Arguments:
-  INPUT                      Template file or directory (batch mode)
+  INPUT                      Template file or directory (batch mode). Optional with --init.
 
 Options:
   -o, --output PATH          Output path: directory for package, .py file for single file
                              Default: stdout (single file)
+  --init                     Create empty project skeleton (no template required)
+  --project-name NAME        Project name (defaults to output directory name)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
   --skip-checks              Skip validation, linting, and test generation
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
+
+### Creating New Projects
+
+Use `--init` to create a new project without an existing template:
+
+```bash
+# Create a new project skeleton
+cfn-dataclasses-import --init -o my_project/
+
+# With custom project name
+cfn-dataclasses-import --init -o my_project/ --project-name analytics
+```
+
+This creates a complete package structure ready for development. See [Quick Start](QUICK_START.md) for details on adding resources.
 
 ### Output Mode Detection
 

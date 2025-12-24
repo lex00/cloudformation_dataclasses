@@ -250,7 +250,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "input",
         metavar="INPUT",
-        help='Template file path, or "-" for stdin',
+        nargs="?",
+        help='Template file path, or "-" for stdin (optional with --init)',
     )
 
     parser.add_argument(
@@ -258,6 +259,18 @@ def main(argv: list[str] | None = None) -> int:
         "--output",
         metavar="PATH",
         help="Output path: directory for package (default), .py file for single file, omit for stdout",
+    )
+
+    parser.add_argument(
+        "--init",
+        action="store_true",
+        help="Create empty project skeleton (no template required)",
+    )
+
+    parser.add_argument(
+        "--project-name",
+        metavar="NAME",
+        help="Project name (defaults to output directory name)",
     )
 
     parser.add_argument(
@@ -280,6 +293,25 @@ def main(argv: list[str] | None = None) -> int:
 
     args = parser.parse_args(argv)
 
+    # Handle --init flag (create empty skeleton)
+    if args.init:
+        if not args.output:
+            print("Error: -o/--output is required with --init", file=sys.stderr)
+            return 1
+        return run_single_import(
+            input_arg="-",  # Will be overridden by init_mode
+            output_arg=args.output,
+            no_main=args.no_main,
+            skip_checks=args.skip_checks,
+            init_mode=True,
+            project_name_override=args.project_name,
+        )
+
+    # Require INPUT argument when not using --init
+    if args.input is None:
+        print("Error: INPUT is required (or use --init for empty skeleton)", file=sys.stderr)
+        return 1
+
     input_path = Path(args.input) if args.input != "-" else None
 
     # Check if input is a directory (batch mode)
@@ -299,6 +331,7 @@ def main(argv: list[str] | None = None) -> int:
         output_arg=args.output,
         no_main=args.no_main,
         skip_checks=args.skip_checks,
+        project_name_override=args.project_name,
     )
 
 
@@ -309,6 +342,8 @@ def run_single_import(
     skip_checks: bool = False,
     attribution: Attribution | None = None,
     logger: logging.Logger | None = None,
+    init_mode: bool = False,
+    project_name_override: str | None = None,
 ) -> int:
     """Import a single CloudFormation template.
 
@@ -319,6 +354,8 @@ def run_single_import(
         skip_checks: Skip validation, linting, and test generation
         attribution: Optional attribution info for README
         logger: Optional logger for batch mode
+        init_mode: If True, create empty skeleton (ignore input_arg)
+        project_name_override: Override project name (instead of deriving from output dir)
 
     Returns:
         Exit code (0 for success)
@@ -342,7 +379,10 @@ def run_single_import(
 
     try:
         # Parse input
-        if input_arg == "-":
+        if init_mode:
+            # Create empty template for skeleton
+            template = parse_template("{}", source_name="<init>")
+        elif input_arg == "-":
             content = sys.stdin.read()
             template = parse_template(content, source_name="<stdin>")
         else:
@@ -362,8 +402,8 @@ def run_single_import(
             output_dir = Path(output_arg)
             output_dir.mkdir(parents=True, exist_ok=True)
 
-            # Get project name from output directory (used for nested package structure)
-            project_name = output_dir.name
+            # Get project name (from override or output directory)
+            project_name = project_name_override or output_dir.name
 
             # Generate package (multiple files) with nested structure
             files = generate_package(template, package_name=project_name)
@@ -389,21 +429,27 @@ def run_single_import(
             for file_path in ide_files:
                 log(f"Generated: {file_path}")
 
-            # Copy original template to original/ subfolder
-            if input_arg != "-":
+            # Copy original template to original/ subfolder (not in init mode)
+            if not init_mode and input_arg != "-":
                 original_dir = output_dir / "original"
                 original_dir.mkdir(exist_ok=True)
                 shutil.copy(input_path, original_dir / input_path.name)
                 log(f"Generated: {original_dir / input_path.name}")
 
             # Always generate README with resource table
-            source_file = Path(input_arg).name if input_arg != "-" else "template"
+            if init_mode:
+                source_file = None
+            elif input_arg != "-":
+                source_file = Path(input_arg).name
+            else:
+                source_file = "template"
             readme_path = output_dir / "README.md"
             readme_content = _generate_readme(
                 project_name=project_name,
                 source_file=source_file,
                 template=template,
                 attribution=attribution,
+                init_mode=init_mode,
             )
             readme_path.write_text(readme_content)
             log(f"Generated: {readme_path}")
@@ -450,15 +496,18 @@ def run_single_import(
 
 def _generate_readme(
     project_name: str,
-    source_file: str,
+    source_file: str | None,
     template: IRTemplate,
     attribution: Attribution | None = None,
+    init_mode: bool = False,
 ) -> str:
     """Generate README.md with resource table and optional attribution."""
     lines = [f"# {_to_pascal_case(project_name)}", ""]
 
     # Attribution section
-    if attribution and attribution.source_url:
+    if init_mode:
+        lines.append("CloudFormation infrastructure as Python code.")
+    elif attribution and attribution.source_url:
         lines.append(f"Migrated from [{source_file}]({attribution.source_url}).")
     else:
         lines.append(f"Imported from `{source_file}`.")
