@@ -150,7 +150,6 @@ cloudformation_dataclasses/
 │   └── PULL_REQUEST_TEMPLATE.md        # PR template
 ├── pyproject.toml                      # Package configuration
 ├── README.md                           # User documentation
-├── GENERATOR.md                        # Code generator architecture docs
 ├── DEVELOPERS.md                       # This file
 └── CHANGELOG.md                        # Version history
 ```
@@ -340,7 +339,7 @@ The generator combines two data sources to produce type-safe Python modules:
 1. **CloudFormation Resource Specification** - Defines resource types, properties, and structure
 2. **Botocore Service Models** - Provides enum values and property-to-enum mappings
 
-For detailed architecture documentation, see [GENERATOR.md](./GENERATOR.md).
+For detailed architecture documentation, see [Internals](./INTERNALS.md).
 
 ### CloudFormation Spec Version
 
@@ -804,10 +803,9 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
-- **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
-- **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
+- **CLI Reference**: [CLI.md](./CLI.md) - init, import, lint commands
 - **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants
-- **Generator Docs**: [GENERATOR.md](./GENERATOR.md) - Code generator architecture
+- **Internals**: [INTERNALS.md](./INTERNALS.md) - Code generation architecture
 - **Changelog**: [CHANGELOG.md](../CHANGELOG.md) - Version history and release notes
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/
 

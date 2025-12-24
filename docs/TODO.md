@@ -1,38 +1,32 @@
-# TODO
+# Path to 1.0
 
-Notes and future enhancement ideas for cloudformation_dataclasses.
+Target audience: Teams heavily invested in AWS who are at a crossroads with their IaC tooling due to the cumulative people-cost of complexity (state management, abstraction leaks, tooling sprawl).
 
-## cfn-dataclasses-lint CLI
+## Remaining Work
 
-**Decision**: Not adding a separate `cfn-dataclasses-lint` CLI at this time.
+| Priority | Item | Status |
+|----------|------|--------|
+| 1 | **Migration path documentation** | Not started |
+| | How teams adopt alongside existing stacks | |
+| | Side-by-side with CDK/Terraform/raw CFN | |
+| | Incremental adoption strategy | |
+| 2 | **Escape hatch documentation** | Not started |
+| | When/how to use raw JSON passthrough | |
+| | Handling resources not yet typed | |
+| 3 | **Team onboarding playbook** | Not started |
+| | "First week" adoption guide | |
+| | Not a reference manual—a playbook | |
 
-**Rationale**:
-- Linter is already integrated into `cfn-dataclasses import` via `--lint`/`--no-lint` flags
-- Linter is available programmatically via `lint_code()`, `fix_code()`, `LintChecker`, etc.
-- For hand-written code, developers should use type-safe constants from the start (which is the whole point of this library)
-- The primary use case for linting is imported code, which `cfn-dataclasses import` already handles
+## Completed
 
-**Revisit if**:
-- There's user demand for a standalone lint command
-- A use case emerges for linting code outside the import workflow
+- [x] Comparison doc (COMPARISON.md) - trade-offs vs CDK/Terraform
+- [x] Quick Start guide - getting started tutorial
+- [x] CLI documentation - init, import, lint
+- [x] Multi-file organization patterns
+- [x] Philosophy document
 
-## Future Enhancements
+## Nice to Have
 
-### Documentation
-- API reference documentation (Sphinx/MkDocs)
-- Getting started tutorial
-- Advanced patterns guide
-- Migration guide (from CDK/Troposphere)
-
-### Developer Experience
-- Type stubs (.pyi files) for better IDE support
-- VS Code extension/snippets
-
-### Code Generator
-- **Alexa::ASK support** - The CloudFormation spec includes `Alexa::ASK::Skill` resource which uses a non-standard `Alexa::` prefix instead of `AWS::`. The code generator currently only handles `AWS::` prefixed services. Need to extend generator to support Alexa namespace.
-
-### Advanced Features
-- Higher-level constructs (common patterns library)
-- boto3 deployment integration
-- CloudFormation drift detection
-- Resource visualization
+- Template validation (pre-deploy sanity checks)
+- Example repo with realistic multi-stack setup
+- Walk an agent through designing a stack based on a blog post

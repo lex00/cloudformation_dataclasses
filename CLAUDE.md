@@ -4,18 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Agent Workflows
 
-When helping users with this library, read the appropriate guide:
-
-| User Intent | Guide |
-|-------------|-------|
-| Create new project, add resources | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
-| Import existing CloudFormation template | [docs/IMPORTER.md](docs/IMPORTER.md) |
-| Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
-
 **Key Tools:**
 - `cfn-dataclasses init -o <dir>/` - Create new project skeleton
 - `cfn-dataclasses import <template> -o <output>` - Import CloudFormation YAML/JSON
-- `cfn-dataclasses lint <path>` - Lint Python code for style issues
+- `cfn-dataclasses lint <path> [--fix]` - Lint and auto-fix code style issues
 
 **Always validate after generating code:**
 ```python
@@ -99,7 +91,7 @@ class BucketPolicy:
 
 **When to use annotation-based refs:**
 - Cross-resource refs where target class is defined in another file
-- Resources using auto-discovery pattern in `resources/__init__.py`
+- Resources using auto-discovery pattern in `stack/__init__.py`
 
 **When to use direct refs:**
 - Parameter refs (parameters are defined in `config.py` and imported before resources)
