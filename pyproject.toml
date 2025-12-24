@@ -48,6 +48,7 @@ cfn-dataclasses = "cloudformation_dataclasses.importer.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/lex00/cloudformation_dataclasses"
+Documentation = "https://lex00.github.io/cloudformation_dataclasses/"
 Repository = "https://github.com/lex00/cloudformation_dataclasses"
 Issues = "https://github.com/lex00/cloudformation_dataclasses/issues"
 
@@ -88,6 +89,7 @@ dev = [
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
     "botocore>=1.35.0",  # For extracting AWS enum values during codegen
 ]
+docs = ["pdoc>=14.0"]
 
 [tool.black]
 line-length = 100
