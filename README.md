@@ -7,57 +7,6 @@
 
 Write CloudFormation templates as Python dataclasses. Get full IDE autocomplete, type checking, and zero runtime dependencies.
 
-## Quick Example
-
-```python
-from cloudformation_dataclasses.core import *
-from cloudformation_dataclasses.aws.s3 import *
-from cloudformation_dataclasses.intrinsics import Sub
-
-# S3 bucket with AES-256 encryption
-@cloudformation_dataclass
-class MyEncryption:
-    resource: ServerSideEncryptionByDefault
-    sse_algorithm = ServerSideEncryption.AES256
-
-@cloudformation_dataclass
-class MyEncryptionRule:
-    resource: ServerSideEncryptionRule
-    server_side_encryption_by_default = MyEncryption
-
-@cloudformation_dataclass
-class MyBucketEncryption:
-    resource: BucketEncryption
-    server_side_encryption_configuration = [MyEncryptionRule]
-
-@cloudformation_dataclass
-class MyData:
-    resource: Bucket
-    bucket_encryption = MyBucketEncryption
-
-# Policy that denies unencrypted uploads
-@cloudformation_dataclass
-class DenyUnencryptedStatement:
-    resource: DenyStatement
-    principal = "*"
-    action = "s3:PutObject"
-    resource_arn = Sub("${MyData.Arn}/*")
-    condition = {STRING_NOT_EQUALS: {"s3:x-amz-server-side-encryption": "AES256"}}
-
-@cloudformation_dataclass
-class MyDataPolicyDocument:
-    resource: PolicyDocument
-    statement = [DenyUnencryptedStatement]
-
-@cloudformation_dataclass
-class MyDataPolicy:
-    resource: BucketPolicy
-    bucket: Ref[MyData] = ref()
-    policy_document = MyDataPolicyDocument
-```
-
-See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete example with deployment context and naming.
-
 ## Installation
 
 ```bash
@@ -77,13 +26,67 @@ pip install cloudformation-dataclasses
 | **[Developer Guide](docs/DEVELOPERS.md)** | Building, testing, and contributing |
 | **[Changelog](CHANGELOG.md)** | Version history |
 
+## Why cloudformation_dataclasses?
+
+| Feature | cloudformation_dataclasses | AWS CDK | Troposphere |
+|---------|:--------------------------:|:-------:|:-----------:|
+| **Declarative syntax** | ✅ | ❌ | ❌ |
+| **Pure Python (no Node.js)** | ✅ | ❌ | ✅ |
+| **No transitive dependencies** | ✅ | ❌ | ❌ |
+| **Type-safe cross-resource refs** | ✅ | ✅ | ❌ |
+| **Move resources without import changes** | ✅ | ❌ | ❌ |
+| **Clean output (no metadata/hashes)** | ✅ | ❌ | ✅ |
+| **Import existing templates** | ✅ | ⚠️ | ❌ |
+
+**Declarative means simpler code:**
+
+```python
+# cloudformation_dataclasses: Infrastructure as DATA
+@cloudformation_dataclass
+class MyBucket:
+    resource: Bucket
+    bucket_name = "data"
+    bucket_encryption = MyEncryption  # Just reference another class
+
+# CDK: Imperative with construct tree
+bucket = Bucket(self, "MyBucket", bucket_name="data")
+bucket.add_encryption(...)  # Execute methods to mutate
+
+# Troposphere: Imperative with manual registration
+bucket = Bucket("MyBucket", BucketName="data")
+template.add_resource(bucket)  # Don't forget this!
+```
+
+**Type-safe references catch errors in your IDE:**
+
+```python
+role = get_att(MyRol, "Arn")  # ❌ IDE error: "MyRol" undefined
+
+# vs Troposphere strings - typo caught at deploy time
+Role=GetAtt("MyRol", "Arn")  # ⚠️ No error until AWS rejects it
+```
+
+**Simplified imports - move resources between files freely:**
+
+```python
+# Every file in your stack uses the same import
+from .. import *
+
+# Reference resources from ANY file - no explicit imports needed
+bucket = ref(DataBucket)  # DataBucket could be in storage.py, main.py, anywhere
+```
+
+See **[Feature Comparison](docs/comparisons/FEATURES.md)** for the full matrix, or compare with **[CDK](docs/comparisons/CDK.md)** and **[Troposphere](docs/comparisons/TROPOSPHERE.md)** directly.
+
 ## Features
 
+- **Declarative** - Infrastructure as data, not code. No constructors, no method calls
 - **Type-Safe** - Full Python type hints, IDE autocomplete, mypy/pyright support
-- **Zero Dependencies** - Core package requires nothing (pyyaml optional for YAML output)
+- **No Dependencies** - No transitive packages (pyyaml optional for YAML output)
 - **All AWS Services** - 262 services, 1,502 resource types auto-generated from CloudFormation specs
 - **Pure Python** - No Node.js required (unlike AWS CDK)
 - **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses-import`
+- **Flexible Organization** - Move resources between files without updating imports
 - **Linter** - Auto-fix string literals to type-safe constants
 
 ## Tools

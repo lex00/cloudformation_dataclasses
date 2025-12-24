@@ -198,6 +198,47 @@ my_stack/                    # Project root
 
 Resources are organized by AWS service category for large templates (10+ resources). Smaller templates put all resources in `stack/main.py`.
 
+### File Organization Logic
+
+For templates with 10+ resources, the importer groups resources by AWS service category:
+
+| Category File | AWS Services |
+|--------------|--------------|
+| `compute.py` | EC2 (instances), Lambda, ECS, EKS, Batch, AutoScaling, ElasticBeanstalk, Lightsail |
+| `network.py` | EC2 (VPC, Subnet, SecurityGroup, etc.), ELB, Route53, CloudFront, API Gateway |
+| `storage.py` | S3, EFS, FSx, Backup |
+| `database.py` | RDS, DynamoDB, ElastiCache, Neptune, DocumentDB, Redshift |
+| `security.py` | IAM, Cognito, SecretsManager, KMS, WAF, ACM, SSM |
+| `messaging.py` | SNS, SQS, EventBridge, StepFunctions, AppSync |
+| `monitoring.py` | CloudWatch, Logs, CloudTrail, X-Ray |
+| `cicd.py` | CodeBuild, CodePipeline, CodeCommit, CodeDeploy |
+| `infra.py` | CloudFormation, Config, ServiceCatalog |
+| `main.py` | Uncategorized services + resources with circular dependencies |
+
+**Circular Dependencies (SCCs)**
+
+When resources have circular references (A → B → C → A), they form a *Strongly Connected Component* (SCC). The importer detects these cycles and places all resources in an SCC together in `main.py` to avoid Python import errors.
+
+For example, if a Lambda function references an S3 bucket, and the bucket's notification configuration references the Lambda:
+```yaml
+# Circular: Lambda → Bucket → Lambda
+MyFunction:
+  Type: AWS::Lambda::Function
+  Properties:
+    Environment:
+      Variables:
+        BUCKET: !Ref MyBucket
+
+MyBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    NotificationConfiguration:
+      LambdaConfigurations:
+        - Function: !GetAtt MyFunction.Arn
+```
+
+Both resources go to `main.py` even though Lambda is normally in `compute.py` and S3 in `storage.py`.
+
 **Run the generated package:**
 ```bash
 cd my_stack/
