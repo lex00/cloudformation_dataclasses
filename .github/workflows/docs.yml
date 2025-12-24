@@ -36,7 +36,7 @@ jobs:
             cloudformation_dataclasses.linter \
             cloudformation_dataclasses.importer \
             cloudformation_dataclasses.constants \
-            --footer-text "cloudformation_dataclasses" \
+            --footer-text "Python dataclasses for CloudFormation" \
             -t docs/pdoc-templates \
             -o docs/api/
 

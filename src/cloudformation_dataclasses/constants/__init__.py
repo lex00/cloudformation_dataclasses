@@ -1,8 +1,26 @@
 """Shared constant mappings and runtime registries for code generation and linting.
 
-This module re-exports from:
-- maps.py: Immutable mapping dictionaries for operators, parameters, and types
-- registry.py: Runtime functions for AWS module scanning and class lookup
+This module provides mappings between CloudFormation string values and their
+Python constant equivalents, plus utilities for looking up resource and property types.
+
+**Mapping Dictionaries:**
+- `CONDITION_OPERATOR_MAP`: "StringEquals" -> `STRING_EQUALS`
+- `PARAMETER_TYPE_MAP`: "String" -> `STRING`
+- `PSEUDO_PARAMETER_MAP`: "AWS::Region" -> `AWS_REGION`
+
+**Registry Functions:**
+- `resolve_resource_type`: Find the Python class for a CF resource type
+- `get_all_resource_types`: List all available resource types
+- `find_property_type_for_cf_keys`: Match property types by their fields
+
+Example:
+    >>> from cloudformation_dataclasses.constants import PSEUDO_PARAMETER_MAP
+    >>> PSEUDO_PARAMETER_MAP["AWS::Region"]
+    'AWS_REGION'
+    >>>
+    >>> from cloudformation_dataclasses.constants import resolve_resource_type
+    >>> resolve_resource_type("AWS::S3::Bucket")
+    ('cloudformation_dataclasses.aws.s3', 'Bucket')
 """
 
 from cloudformation_dataclasses.constants.maps import (

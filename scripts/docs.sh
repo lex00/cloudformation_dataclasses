@@ -17,7 +17,7 @@ OUTPUT_DIR="$PROJECT_ROOT/docs/api"
 MODULES="cloudformation_dataclasses.core cloudformation_dataclasses.intrinsics cloudformation_dataclasses.linter cloudformation_dataclasses.importer cloudformation_dataclasses.constants"
 
 # pdoc styling options
-PDOC_OPTS="--footer-text 'cloudformation_dataclasses' -t $PROJECT_ROOT/docs/pdoc-templates"
+TEMPLATE_DIR="$PROJECT_ROOT/docs/pdoc-templates"
 
 show_help() {
     echo "Usage: $0 [OPTIONS]"
@@ -46,14 +46,14 @@ case "${1:-}" in
     --build)
         echo "Building docs to $OUTPUT_DIR..."
         rm -rf "$OUTPUT_DIR"
-        uv run pdoc $MODULES $PDOC_OPTS -o "$OUTPUT_DIR"
+        uv run pdoc $MODULES --footer-text "Python dataclasses for CloudFormation" -t "$TEMPLATE_DIR" -o "$OUTPUT_DIR"
         echo "Done! Open $OUTPUT_DIR/index.html in your browser."
         ;;
     --serve|"")
         echo "Starting local docs server..."
         echo "Press Ctrl+C to stop."
         echo ""
-        uv run pdoc $MODULES $PDOC_OPTS
+        uv run pdoc $MODULES --footer-text "Python dataclasses for CloudFormation" -t "$TEMPLATE_DIR"
         ;;
     --help|-h)
         show_help
