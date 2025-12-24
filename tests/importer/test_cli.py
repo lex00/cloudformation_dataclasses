@@ -7,6 +7,7 @@ import pytest
 from cloudformation_dataclasses.importer.cli import (
     _get_git_remote_url,
     detect_attribution,
+    main,
 )
 
 
@@ -138,3 +139,142 @@ Permission is hereby granted, free of charge...
         assert attr.source_url is None
         assert attr.project_name is None
         assert attr.license_type is None
+
+
+class TestInitSubcommand:
+    """Tests for init subcommand (skeleton generation)."""
+
+    def test_init_creates_package(self, tmp_path: Path) -> None:
+        """init creates a complete package structure."""
+        output_dir = tmp_path / "my_project"
+
+        exit_code = main(["init", "-o", str(output_dir)])
+
+        assert exit_code == 0
+        assert (output_dir / "my_project" / "__init__.py").exists()
+        assert (output_dir / "my_project" / "main.py").exists()
+        assert (output_dir / "my_project" / "__main__.py").exists()
+        assert (output_dir / "my_project" / "stack" / "__init__.py").exists()
+        assert (output_dir / "README.md").exists()
+        assert (output_dir / "pyproject.toml").exists()
+
+    def test_init_with_project_name(self, tmp_path: Path) -> None:
+        """--project-name overrides package name."""
+        output_dir = tmp_path / "output"
+
+        exit_code = main(["init", "-o", str(output_dir), "--project-name", "analytics"])
+
+        assert exit_code == 0
+        # Package directory uses project name
+        assert (output_dir / "analytics" / "__init__.py").exists()
+        assert (output_dir / "analytics" / "main.py").exists()
+        # README uses project name
+        readme = (output_dir / "README.md").read_text()
+        assert "Analytics" in readme
+
+    def test_init_adds_aws_import_hint(self, tmp_path: Path) -> None:
+        """init adds commented AWS import hint."""
+        output_dir = tmp_path / "my_project"
+
+        main(["init", "-o", str(output_dir)])
+
+        init_content = (output_dir / "my_project" / "__init__.py").read_text()
+        assert "# Import AWS service modules" in init_content
+        assert "# from cloudformation_dataclasses.aws import" in init_content
+
+    def test_init_requires_output(self) -> None:
+        """init requires -o flag."""
+        with pytest.raises(SystemExit):
+            main(["init"])
+
+    def test_init_no_original_folder(self, tmp_path: Path) -> None:
+        """init doesn't create original/ folder."""
+        output_dir = tmp_path / "my_project"
+
+        main(["init", "-o", str(output_dir)])
+
+        assert not (output_dir / "original").exists()
+
+    def test_init_readme_content(self, tmp_path: Path) -> None:
+        """init generates appropriate README."""
+        output_dir = tmp_path / "my_project"
+
+        main(["init", "-o", str(output_dir)])
+
+        readme = (output_dir / "README.md").read_text()
+        assert "CloudFormation infrastructure as Python code" in readme
+        assert "Imported from" not in readme
+
+    def test_generated_skeleton_imports(self, tmp_path: Path) -> None:
+        """Generated skeleton can be imported."""
+        import sys
+
+        output_dir = tmp_path / "test_project"
+        main(["init", "-o", str(output_dir), "--project-name", "test_project"])
+
+        sys.path.insert(0, str(output_dir))
+        try:
+            from test_project.main import build_template
+
+            template = build_template()
+            cf_dict = template.to_dict()
+            assert "AWSTemplateFormatVersion" in cf_dict
+        finally:
+            sys.path.remove(str(output_dir))
+            for mod_name in list(sys.modules.keys()):
+                if mod_name.startswith("test_project"):
+                    del sys.modules[mod_name]
+
+
+class TestLintSubcommand:
+    """Tests for lint subcommand."""
+
+    def test_lint_no_issues(self, tmp_path: Path) -> None:
+        """lint returns 0 when no issues found."""
+        # Create a clean file
+        test_file = tmp_path / "clean.py"
+        test_file.write_text('"""Clean code."""\nx = 1\n')
+
+        exit_code = main(["lint", str(test_file)])
+
+        assert exit_code == 0
+
+    def test_lint_file_not_found(self, tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+        """lint returns error for missing file."""
+        exit_code = main(["lint", str(tmp_path / "nonexistent.py")])
+
+        assert exit_code == 1
+        captured = capsys.readouterr()
+        assert "Path not found" in captured.err
+
+    def test_lint_directory(self, tmp_path: Path) -> None:
+        """lint scans all Python files in directory."""
+        # Create multiple files
+        (tmp_path / "a.py").write_text('"""A."""\n')
+        (tmp_path / "b.py").write_text('"""B."""\n')
+        (tmp_path / "sub").mkdir()
+        (tmp_path / "sub" / "c.py").write_text('"""C."""\n')
+
+        exit_code = main(["lint", str(tmp_path)])
+
+        assert exit_code == 0
+
+    def test_lint_package_structure(self, tmp_path: Path) -> None:
+        """lint detects package structure and lints stack/."""
+        # Create package structure
+        output_dir = tmp_path / "my_project"
+        main(["init", "-o", str(output_dir)])
+
+        exit_code = main(["lint", str(output_dir)])
+
+        assert exit_code == 0
+
+    def test_lint_with_fix(self, tmp_path: Path) -> None:
+        """lint --fix modifies files in place."""
+        # Create a file with a fixable issue (string that should be enum)
+        test_file = tmp_path / "fixable.py"
+        test_file.write_text('"""Test."""\nsse_algorithm = "AES256"\n')
+
+        exit_code = main(["lint", str(test_file), "--fix"])
+
+        assert exit_code == 0

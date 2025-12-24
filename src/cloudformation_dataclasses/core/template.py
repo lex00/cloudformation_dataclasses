@@ -13,12 +13,9 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any, Optional
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
-
-if TYPE_CHECKING:
-    from cloudformation_dataclasses.core.base import DeploymentContext
 
 
 @dataclass
@@ -713,7 +710,6 @@ class Template:
     def from_registry(
         cls,
         description: str = "",
-        context: Optional["DeploymentContext"] = None,
         parameters: dict[str, Parameter] | list[Any] | None = None,
         outputs: dict[str, Output] | list[Any] | None = None,
         conditions: dict[str, Condition] | list[Any] | None = None,
@@ -743,16 +739,9 @@ class Template:
             >>>
             >>> # Build template from registered resources in this package
             >>> template = Template.from_registry(description="My Infrastructure")
-            >>>
-            >>> # With context for auto-naming and tags
-            >>> template = Template.from_registry(
-            ...     description="My Infrastructure",
-            ...     context=ctx,  # Applies to all resources
-            ... )
 
         Args:
             description: Template description
-            context: DeploymentContext to inject into all resources (for naming/tags)
             parameters: Template parameters (dict or list of wrapper classes)
             outputs: Template outputs (dict or list of wrapper classes)
             conditions: Template conditions (dict or list of wrapper classes)
@@ -795,19 +784,6 @@ class Template:
             resources=resources,
             **kwargs,
         )
-
-        # Inject context into CloudFormationResource instances that don't already have one
-        # This must happen AFTER template creation since __post_init__ converts wrapper
-        # classes to CloudFormationResource instances
-        if context:
-            # Unwrap context if it's a wrapper (has a .context attribute that is a DeploymentContext)
-            actual_context = context
-            if hasattr(context, 'context') and context.context is not None:
-                actual_context = context.context
-
-            for resource in template.resources:
-                if hasattr(resource, 'context') and resource.context is None:
-                    resource.context = actual_context
 
         return template
 

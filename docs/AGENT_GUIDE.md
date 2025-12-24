@@ -26,19 +26,12 @@ Ask:
 Run the project generator:
 
 ```bash
-cfn-dataclasses-init s3-bucket -o <project_name>/
+cfn-dataclasses-init default -o <project_name>/
 ```
 
-Available skeletons (check with `cfn-dataclasses-init --list`):
-- `s3-bucket` - S3 bucket with encryption, versioning, and bucket policy
-
-Customize with flags:
+List available skeletons:
 ```bash
-cfn-dataclasses-init s3-bucket -o my_project/ \
-    --project-name analytics \
-    --component storage \
-    --stage prod \
-    --region us-west-2
+cfn-dataclasses-init --list
 ```
 
 **Generated project structure:**
@@ -47,12 +40,10 @@ my_project/
 ├── pyproject.toml           # Package config (uv/pip)
 ├── my_project/
 │   ├── __init__.py          # Centralized imports from library
-│   ├── config.py            # DeploymentContext, Parameters
 │   ├── main.py              # build_template() entry point
 │   └── resources/
 │       ├── __init__.py      # Auto-discovery: imports all resource files
-│       ├── bucket.py        # One file per resource
-│       └── bucket_policy.py
+│       └── bucket.py        # One file per resource
 └── tests/
     └── test_my_project.py
 ```
@@ -62,35 +53,13 @@ my_project/
 `resources/__init__.py` imports all resource modules:
 ```python
 from my_project.resources.bucket import *
-from my_project.resources.bucket_policy import *
 ```
 
 When `main.py` imports from `resources`, all `@cloudformation_dataclass` decorators run, registering each resource in the global registry. Then `Template.from_registry()` collects them all.
 
 **Key pattern:** Import triggers registration. No explicit resource list needed.
 
-### Step 3: Customize DeploymentContext
-
-Edit `context.py` to set naming and tags:
-
-```python
-@cloudformation_dataclass
-class MyProjectContext:
-    context: DeploymentContext
-    project_name = "my-project"      # Top-level project name
-    component = "api"                 # Logical grouping
-    stage = "dev"                     # dev, staging, prod
-    deployment_name = "001"           # Deployment identifier
-    deployment_group = "blue"         # For blue/green deployments
-    region = "us-east-1"              # AWS region
-    tags = [EnvironmentTag, ProjectTag, ManagedByTag]
-
-# Override at instantiation for different environments:
-ctx = MyProjectContext()                    # Use defaults
-ctx_prod = MyProjectContext(stage="prod")   # Override stage
-```
-
-### Step 4: Add Resources
+### Step 3: Add Resources
 
 For each new resource:
 
@@ -106,7 +75,6 @@ from my_project import *  # Gets all imports from __init__.py
 @cloudformation_dataclass
 class MyFunction:
     resource: Function
-    context = ctx  # From config.py
     function_name: str = "my-handler"
     runtime = Runtime.PYTHON3_12
     handler: str = "index.handler"
@@ -118,7 +86,25 @@ Then add to `resources/__init__.py`:
 from my_project.resources.lambda_function import *
 ```
 
-**Key pattern:** Each resource file imports `from my_project import *` to get all library imports and config.
+**Key pattern:** Each resource file imports `from my_project import *` to get all library imports.
+
+### Step 4: Add Tags
+
+Define reusable tags as wrapper classes:
+
+```python
+@cloudformation_dataclass
+class EnvironmentTag:
+    resource: Tag
+    key = "Environment"
+    value = "prod"
+
+@cloudformation_dataclass
+class MyBucket:
+    resource: Bucket
+    bucket_name = "my-bucket"
+    tags = [EnvironmentTag, Tag(key="Team", value="Data")]
+```
 
 ### Step 5: Build and Validate
 
@@ -154,19 +140,19 @@ Ask for the template file path or have them paste the content.
 
 ```bash
 # Generate as package (recommended for larger templates)
-cfn-dataclasses-import template.yaml -o my_stack/
+cfn-dataclasses import template.yaml -o my_stack/
 
 # Generate as single file
-cfn-dataclasses-import template.yaml -o my_stack.py
+cfn-dataclasses import template.yaml -o my_stack.py
 
 # Preview output
-cfn-dataclasses-import template.yaml | less
+cfn-dataclasses import template.yaml | less
 ```
 
 ### For Multiple Templates (Batch Mode)
 
 ```bash
-cfn-dataclasses-import /path/to/templates/ -o examples/3rd_party/source/
+cfn-dataclasses import /path/to/templates/ -o examples/3rd_party/source/
 ```
 
 Batch mode automatically:
@@ -180,9 +166,8 @@ See [IMPORTER.md](IMPORTER.md) for details on batch importing.
 ### Step 3: Review Generated Code
 
 Check for improvements:
-1. **Add DeploymentContext** if not present
-2. **Replace string literals** with type-safe enums
-3. **Verify resource references** use `ref()` and `get_att()`
+1. **Replace string literals** with type-safe enums
+2. **Verify resource references** use `ref()` and `get_att()`
 
 ### Step 4: Run Linter
 
@@ -224,33 +209,7 @@ Replace strings with type-safe constants:
 | `"StringEquals"` | `STRING_EQUALS` |
 | `"Bool"` | `BOOL` |
 
-### Step 2: Add DeploymentContext
-
-If resources don't use context, add one:
-
-```python
-# Before
-@cloudformation_dataclass
-class MyBucket:
-    resource: Bucket
-    bucket_name = "my-app-bucket-prod"  # Hardcoded name
-
-# After
-@cloudformation_dataclass
-class MyContext:
-    context: DeploymentContext
-    project_name = "my-app"
-    stage = "prod"
-
-ctx = MyContext()
-
-@cloudformation_dataclass
-class MyBucket:
-    resource: Bucket
-    context = ctx  # Auto-generates: my-app-MyBucket-prod
-```
-
-### Step 3: Use ref() for Dependencies
+### Step 2: Use ref() for Dependencies
 
 ```python
 # Before
@@ -260,7 +219,7 @@ bucket = ref("MyBucket")  # String reference
 bucket = ref(MyBucket)  # Class reference (type-safe)
 ```
 
-### Step 4: Validate
+### Step 3: Validate
 
 ```python
 template = Template.from_registry()
@@ -279,21 +238,19 @@ assert errors == [], f"Validation errors: {errors}"
    @cloudformation_dataclass
    class MyBucket:
        resource: Bucket
-       context = ctx
+       bucket_name = "my-bucket"
    ```
 
-2. **Use DeploymentContext** - For consistent naming and tags
+2. **Use type-safe constants** - Never use string literals for enums
 
-3. **Use type-safe constants** - Never use string literals for enums
-
-4. **Use ref() for references** - Not string logical IDs
+3. **Use ref() for references** - Not string logical IDs
 
 ### Import Quick Reference
 
 | Need | Import From | Examples |
 |------|-------------|----------|
 | Decorator & helpers | `core` | `cloudformation_dataclass`, `ref`, `get_att` |
-| Deployment context | `core` | `DeploymentContext`, `Tag` |
+| Tag class | `core` | `Tag` |
 | Condition operators | `core` | `STRING_EQUALS`, `IP_ADDRESS`, `BOOL` |
 | Policy classes | `core` | `PolicyStatement`, `DenyStatement`, `PolicyDocument` |
 | Template | `core` | `Template`, `Parameter`, `Output` |
@@ -341,22 +298,18 @@ Give this to the agent:
 
 ```
 Create an S3 bucket with AES256 encryption and versioning enabled.
-Use a DeploymentContext with:
-- project_name: "test-project"
-- component: "storage"
-- stage: "dev"
-- region: "us-east-1"
+Add tags for Environment=dev and Project=test-project.
 
 Generate the template and validate it.
 ```
 
 ### Expected Actions
 
-1. Create project with `cfn-dataclasses-init s3-bucket -o test_bucket/` or write code directly
-2. Set DeploymentContext with provided values
-3. Configure bucket with:
+1. Create project with `cfn-dataclasses-init default -o test_bucket/` or write code directly
+2. Configure bucket with:
    - `ServerSideEncryption.AES256` (NOT string `"AES256"`)
    - `BucketVersioningStatus.ENABLED` (NOT string `"Enabled"`)
+3. Add tags using Tag wrappers or Tag class
 4. Build template with `Template.from_registry()`
 5. Validate with `template.validate()` - should return `[]`
 
@@ -368,10 +321,6 @@ template = Template.from_registry(description="Test S3 bucket")
 errors = template.validate()
 assert errors == [], f"Validation errors: {errors}"
 
-# Check resource naming includes context
-bucket = DataBucket()
-assert "test-project-storage" in bucket.resource.resource_name
-
 # Verify JSON serialization
 import json
 json_output = json.dumps(template.to_dict(), indent=2)
@@ -382,8 +331,6 @@ print("✓ All validations passed")
 ### Validation Checklist
 
 - [ ] No string literals for enums
-- [ ] DeploymentContext used with all fields
-- [ ] Resource name follows pattern: `test-project-storage-DataBucket-dev-...`
 - [ ] `template.validate()` returns empty list
 - [ ] Template serializes to valid JSON
 
@@ -391,6 +338,6 @@ print("✓ All validations passed")
 
 ## See Also
 
-- [QUICK_START.md](QUICK_START.md) - Project generator and DeploymentContext reference
-- [IMPORTER.md](IMPORTER.md) - cfn-dataclasses-import command usage
+- [QUICK_START.md](QUICK_START.md) - Project generator reference
+- [IMPORTER.md](IMPORTER.md) - cfn-dataclasses import command usage
 - [LINTER.md](LINTER.md) - Linter rules and auto-fix

@@ -5,12 +5,10 @@ This module provides the foundational classes that all CloudFormation resources 
 - CloudFormationResource: Abstract base class for all AWS resources
 - PropertyType: Base class for CloudFormation property types (nested structures)
 - Tag: CloudFormation resource tag
-- DeploymentContext: Environment configuration and naming context
 """
 
 from __future__ import annotations
 
-import warnings
 from abc import ABC
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, ClassVar, Optional, Union
@@ -176,115 +174,12 @@ class PropertyType:
 
 
 @dataclass
-class DeploymentContext(ABC):
-    """
-    Base class for deployment context - provides environment defaults and resource naming.
-
-    The context supports automatic resource naming with a configurable pattern.
-    Default pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
-
-    Parameters:
-        project_name: Top-level project or organization name (e.g., "Acme", "MyProject")
-        component: Application or service component name (e.g., "DataPlatform", "APIGateway")
-        stage: Deployment stage/environment (e.g., "dev", "staging", "prod")
-        deployment_name: Unique deployment identifier (e.g., "001", "v2")
-        deployment_group: For blue/green deployments - enables zero-downtime deployments (e.g., "blue", "green")
-        region: AWS region for deployment (e.g., "us-east-1")
-        naming_pattern: Custom naming pattern (default includes all parameters)
-
-    Example (block syntax):
-        @dataclass
-        class MyDeploymentContext:
-            context: DeploymentContext
-            project_name: str = "Acme"
-            component: str = "DataPlatform"
-            stage: str = "prod"
-            deployment_name: str = "001"
-            deployment_group: str = "blue"
-            region: str = "us-east-1"
-
-        ctx = MyDeploymentContext()
-        # resource_name("MyData") -> "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
-
-    Blue/Green deployments:
-        ctx_blue = MyDeploymentContext(deployment_group="blue")
-        ctx_green = MyDeploymentContext(deployment_group="green")
-        # Creates separate resource sets for zero-downtime deployments
-
-    The naming pattern can be customized per context or overridden per resource.
-    """
-
-    context_type: ClassVar[str]
-
-    component: Optional[str] = None
-    stage: Optional[str] = None
-    deployment_name: Optional[str] = None
-    deployment_group: Optional[str] = None
-    region: Optional[str] = None
-    project_name: Optional[str] = None
-    naming_pattern: str = (
-        "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
-    )
-    tags: list[Tag] = field(default_factory=list)
-
-    def resource_name(self, resource_class_name: str, pattern: Optional[str] = None) -> str:
-        """
-        Generate AWS resource name from context and class name.
-
-        Args:
-            resource_class_name: The class name of the resource wrapper
-            pattern: Optional custom naming pattern (overrides context pattern)
-
-        Returns:
-            Generated resource name string
-
-        Example:
-            >>> ctx.resource_name("MyData")
-            "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
-            >>> ctx.resource_name("MyData", "{component}-{resource_name}")
-            "DataPlatform-MyData"
-        """
-        naming_pattern = pattern or self.naming_pattern
-
-        # Build context dict for formatting
-        context_vars = {
-            "project_name": self.project_name or "",
-            "component": self.component or "",
-            "resource_name": resource_class_name,
-            "stage": self.stage or "",
-            "deployment_name": self.deployment_name or "",
-            "deployment_group": self.deployment_group or "",
-            "region": self.region or "",
-        }
-
-        # Format pattern and clean up empty parts
-        formatted = naming_pattern.format(**context_vars)
-        # Remove empty segments (multiple dashes, leading/trailing dashes)
-        parts = [p for p in formatted.split("-") if p]
-        name = "-".join(parts)
-
-        # Warn if name exceeds AWS physical resource ID limit
-        if len(name) > 64:
-            warnings.warn(
-                f"Resource name '{name}' is {len(name)} characters, "
-                f"exceeding AWS's 64-character limit for physical resource IDs. "
-                f"Consider using a shorter naming_pattern.",
-                UserWarning,
-                stacklevel=2,
-            )
-
-        return name
-
-
-@dataclass
 class CloudFormationResource(ABC):
     """
     Abstract base class for all CloudFormation resources.
 
     All generated AWS resource classes inherit from this base class, which provides:
     - Logical ID management
-    - Resource naming via context
-    - Tag merging (context tags + resource-specific tags)
     - CloudFormation property serialization
     - Intrinsic function support (Ref, GetAtt)
     - Dependency tracking
@@ -298,7 +193,6 @@ class CloudFormationResource(ABC):
     """
 
     resource_type: ClassVar[str]
-    name_field: ClassVar[Optional[str]] = None  # Field for physical resource name (e.g., "bucket_name")
     _property_mappings: ClassVar[dict[str, str]] = {}
 
     logical_id: Optional[str] = None
@@ -308,59 +202,29 @@ class CloudFormationResource(ABC):
     update_replace_policy: Optional[str] = None
     metadata: Optional[dict[str, Any]] = None
     tags: list[Tag] = field(default_factory=list)
-    context: Optional[DeploymentContext] = None
-    naming_pattern: Optional[str] = None  # Override context naming pattern
 
     @property
     def resource_name(self) -> str:
         """
-        Auto-generate resource name from context + class name.
-
-        If context is provided, uses context.resource_name() with optional
-        resource-specific naming_pattern override.
+        Get the resource name.
 
         Uses logical_id if set (which contains the wrapper class name),
         otherwise falls back to the resource class name.
 
         Returns:
-            The generated or default resource name
-
-        Example:
-            # With context
-            >>> bucket = MyData(context=ctx)
-            >>> bucket.resource_name
-            "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
-
-            # With custom pattern override
-            >>> bucket = MyData(
-            ...     context=ctx,
-            ...     naming_pattern="{component}-{resource_name}"
-            ... )
-            >>> bucket.resource_name
-            "DataPlatform-MyData"
+            The resource name
         """
-        if self.context:
-            # Use logical_id if set (contains wrapper class name like "MyData")
-            # Otherwise use resource class name (like "Bucket")
-            class_name = self.logical_id if self.logical_id else self.__class__.__name__
-            return self.context.resource_name(class_name, pattern=self.naming_pattern)
         return self.logical_id if self.logical_id else self.__class__.__name__
 
     @property
     def all_tags(self) -> list[Tag]:
         """
-        Merge context tags with resource-specific tags.
-
-        Context tags are applied first, then resource-specific tags.
-        This allows resource tags to override context tags if needed.
+        Get all tags for this resource.
 
         Returns:
-            Combined list of tags from context and resource
+            List of tags
         """
-        resource_tags = self.tags if self.tags is not None else []
-        if self.context:
-            return self.context.tags + resource_tags
-        return resource_tags
+        return self.tags if self.tags is not None else []
 
     @property
     def effective_logical_id(self) -> str:
@@ -448,28 +312,18 @@ class CloudFormationResource(ABC):
         Uses _property_mappings to serialize fields to CloudFormation format.
         Handles intrinsic functions, nested property types, and lists automatically.
 
-        When context is set and a name property (e.g., bucket_name, function_name)
-        is None, auto-populates it with the context-generated resource_name.
-
         Returns:
             Dictionary of CloudFormation properties
         """
         props: dict[str, Any] = {}
         mappings = self.__class__._property_mappings
 
-        # Get the name field for auto-naming (if defined for this resource type)
-        auto_name_field = self.__class__.name_field if self.context else None
-
         for field_name, cf_name in mappings.items():
-            # Special case: tags field uses all_tags to merge context tags
+            # Special case: tags field uses all_tags
             if field_name == "tags":
                 value = self.all_tags
             else:
                 value = getattr(self, field_name, None)
-
-            # Auto-populate name field from context if not explicitly set
-            if value is None and field_name == auto_name_field:
-                value = self.resource_name
 
             if value is not None:
                 props[cf_name] = self._serialize_value(value)

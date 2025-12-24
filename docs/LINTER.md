@@ -31,19 +31,58 @@ The linter includes 5 rules:
 | CFD004 | StringShouldBeEnum | `sse_algorithm = "AES256"` | `ServerSideEncryption.AES256` |
 | CFD005 | DictShouldBePropertyType | `{"ServerSideEncryptionConfiguration": ...}` | `BucketEncryption(...)` |
 
-## Integration with cfn-dataclasses-import
+## CLI Usage
 
-The linter is integrated with the `cfn-dataclasses-import` command and runs automatically by default:
+The `cfn-dataclasses lint` subcommand runs the linter directly on your Python files:
+
+```bash
+# Lint a single file
+cfn-dataclasses lint my_stack.py
+
+# Lint a directory (scans all *.py files)
+cfn-dataclasses lint src/
+
+# Lint a generated project (detects package structure, lints stack/ directory)
+cfn-dataclasses lint my_project/
+
+# Auto-fix issues in place
+cfn-dataclasses lint my_project/ --fix
+```
+
+### Output Format
+
+**No issues:**
+```
+$ cfn-dataclasses lint my_project/
+✓ No issues found
+```
+
+**With issues:**
+```
+$ cfn-dataclasses lint my_project/
+my_project/stack/storage.py:15:20: CFD004 Use ServerSideEncryption.AES256 instead of "AES256"
+
+Found 1 issue in 1 file
+```
+
+**With --fix:**
+```
+$ cfn-dataclasses lint my_project/ --fix
+Fixed my_project/stack/storage.py (1 issue)
+
+Fixed 1 issue in 1 file
+```
+
+## Integration with cfn-dataclasses import
+
+The linter is integrated with the `cfn-dataclasses import` command and runs automatically by default:
 
 ```bash
 # Lint is enabled by default
-cfn-dataclasses-import template.yaml -o output.py
-
-# Explicitly enable (same as default)
-cfn-dataclasses-import template.yaml --lint -o output.py
+cfn-dataclasses import template.yaml -o output.py
 
 # Disable linting to see raw generated code
-cfn-dataclasses-import template.yaml --no-lint -o output.py
+cfn-dataclasses import template.yaml --skip-checks -o output.py
 ```
 
 ## Programmatic Usage
@@ -230,7 +269,7 @@ issues = lint_code(code, rules=[
 
 ## Best Practices
 
-1. **Always run with linting enabled** when using `cfn-dataclasses-import` - it's on by default
+1. **Always run with linting enabled** when using `cfn-dataclasses import` - it's on by default
 2. **Review generated code** after import to understand the structure
 3. **Use IDE autocompletion** with enum and constant classes to discover valid values
 4. **Prefer type-safe constants** over string literals for:

@@ -88,7 +88,7 @@ uv run pytest tests/ examples/ -v
 cloudformation_dataclasses/
 ├── src/cloudformation_dataclasses/     # Source code
 │   ├── core/                           # Core base classes
-│   │   ├── base.py                     # CloudFormationResource, DeploymentContext, Tag
+│   │   ├── base.py                     # CloudFormationResource, Tag, PolicyDocument
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
 │   │   └── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
@@ -99,7 +99,7 @@ cloudformation_dataclasses/
 │   │   ├── spec_parser.py              # CloudFormation spec parser
 │   │   ├── botocore_enums.py           # Botocore enum extraction
 │   │   └── generator.py                # AWS resource generator
-│   ├── importer/                        # Template importer (cfn-dataclasses-import)
+│   ├── importer/                        # Template importer (cfn-dataclasses import)
 │   │   ├── __init__.py                  # Public API
 │   │   ├── cli.py                       # Command-line interface
 │   │   ├── ir.py                        # Intermediate representation dataclasses
@@ -304,7 +304,7 @@ examples/
 The script:
 1. Cleans the output directory
 2. Applies known template fixes (via `scripts/fix_templates.py`)
-3. Runs batch import via `cfn-dataclasses-import`
+3. Runs batch import via `cfn-dataclasses import`
 4. Parses `import.log` for failures
 5. Removes directories for failed imports
 6. Validates each package by running it
@@ -537,7 +537,7 @@ uv run python -c "from cloudformation_dataclasses import __version__; print(__ve
 git commit -m "Bump version to 0.4.0"
 ```
 
-**Note**: The `cfn-dataclasses-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
+**Note**: The `cfn-dataclasses import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
 
 ---
 

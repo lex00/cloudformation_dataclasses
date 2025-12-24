@@ -1,7 +1,7 @@
 """
 Tests for core base classes.
 
-Tests Tag, PolicyStatement, PolicyDocument, DeploymentContext, and CloudFormationResource.
+Tests Tag, PolicyStatement, PolicyDocument, and CloudFormationResource.
 """
 
 import pytest
@@ -9,7 +9,6 @@ from dataclasses import dataclass
 
 from cloudformation_dataclasses.core.base import (
     CloudFormationResource,
-    DeploymentContext,
     DenyStatement,
     PolicyDocument,
     PolicyStatement,
@@ -167,127 +166,6 @@ class TestPolicyDocument:
         }
 
 
-class TestDeploymentContext:
-    """Tests for DeploymentContext class."""
-
-    @dataclass
-    class TestContext(DeploymentContext):
-        """Test deployment context."""
-        pass
-
-    def test_deployment_context_resource_naming(self):
-        """Test resource name generation from context."""
-        ctx = self.TestContext(
-            project_name="analytics",
-            component="DataPlatform",
-            stage="prod",
-            deployment_name="001",
-            deployment_group="blue",
-            region="us-east-1"
-        )
-        name = ctx.resource_name("MyData")
-        assert name == "analytics-DataPlatform-MyData-prod-001-blue-us-east-1"
-
-    def test_deployment_context_custom_pattern(self):
-        """Test custom naming pattern."""
-        ctx = self.TestContext(
-            component="API",
-            stage="dev",
-            naming_pattern="{component}-{resource_name}-{stage}"
-        )
-        name = ctx.resource_name("Gateway")
-        assert name == "API-Gateway-dev"
-
-    def test_deployment_context_simple_pattern(self):
-        """Test simple naming pattern."""
-        ctx = self.TestContext(
-            component="MyApp",
-            naming_pattern="{component}-{resource_name}"
-        )
-        name = ctx.resource_name("Database")
-        assert name == "MyApp-Database"
-
-    def test_deployment_context_partial_params(self):
-        """Test naming with partial parameters."""
-        ctx = self.TestContext(
-            component="Service",
-            stage="staging"
-        )
-        name = ctx.resource_name("Queue")
-        # Should omit empty parts
-        assert name == "Service-Queue-staging"
-
-    def test_deployment_context_override_pattern(self):
-        """Test overriding pattern per resource."""
-        ctx = self.TestContext(
-            component="Platform",
-            stage="prod",
-            naming_pattern="{component}-{resource_name}-{stage}"
-        )
-        # Override pattern for specific resource
-        name = ctx.resource_name("Special", pattern="{resource_name}-only")
-        assert name == "Special-only"
-
-    def test_deployment_context_tags(self):
-        """Test context tags."""
-        ctx = self.TestContext(
-            component="MyApp",
-            tags=[
-                Tag(key="Environment", value="Production"),
-                Tag(key="ManagedBy", value="CloudFormation")
-            ]
-        )
-        assert len(ctx.tags) == 2
-        assert ctx.tags[0].key == "Environment"
-
-    def test_deployment_context_blue_green(self):
-        """Test blue/green deployment naming."""
-        ctx_blue = self.TestContext(
-            project_name="acme",
-            component="API",
-            stage="prod",
-            deployment_name="001",
-            deployment_group="blue",
-            region="us-east-1"
-        )
-        ctx_green = self.TestContext(
-            project_name="acme",
-            component="API",
-            stage="prod",
-            deployment_name="001",
-            deployment_group="green",
-            region="us-east-1"
-        )
-
-        name_blue = ctx_blue.resource_name("Service")
-        name_green = ctx_green.resource_name("Service")
-
-        assert "blue" in name_blue
-        assert "green" in name_green
-        assert name_blue != name_green
-
-    def test_deployment_context_warns_on_long_name(self):
-        """Test warning is emitted for names exceeding 64 characters."""
-        import warnings
-
-        ctx = self.TestContext(
-            project_name="very-long-project-name",
-            component="extremely-long-component-name",
-            stage="production",
-            deployment_name="deployment-001",
-            deployment_group="blue-green-canary",
-            region="us-east-1",
-        )
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            name = ctx.resource_name("MyVeryLongResourceClassName")
-
-            assert len(w) == 1
-            assert "64-character limit" in str(w[0].message)
-            assert len(name) > 64
-
-
 class TestCloudFormationResource:
     """Tests for CloudFormationResource base class."""
 
@@ -311,57 +189,23 @@ class TestCloudFormationResource:
         assert resource.logical_id == "MyTestResource"
         assert resource.effective_logical_id == "MyTestResource"
 
-    def test_resource_name_without_context(self):
-        """Test resource name without context."""
+    def test_resource_name_without_logical_id(self):
+        """Test resource name uses class name when no logical_id."""
+        resource = self.MockResource()
+        assert resource.resource_name == "MockResource"
+
+    def test_resource_name_with_logical_id(self):
+        """Test resource name uses logical_id when set."""
         resource = self.MockResource(logical_id="MyResource")
         assert resource.resource_name == "MyResource"
 
-    def test_resource_name_with_context(self):
-        """Test resource name with deployment context."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        ctx = TestContext(
-            project_name="acme",
-            component="MyApp",
-            stage="prod",
-            deployment_name="001",
-            deployment_group="blue",
-            region="us-east-1"
-        )
-        resource = self.MockResource(context=ctx, logical_id="Database")
-        assert resource.resource_name == "acme-MyApp-Database-prod-001-blue-us-east-1"
-
-    def test_resource_tags_without_context(self):
-        """Test resource tags without context."""
+    def test_resource_tags(self):
+        """Test resource tags."""
         resource = self.MockResource(
             tags=[Tag(key="Name", value="MyResource")]
         )
         assert len(resource.all_tags) == 1
         assert resource.all_tags[0].key == "Name"
-
-    def test_resource_tags_with_context(self):
-        """Test tag merging with context."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        ctx = TestContext(
-            tags=[
-                Tag(key="Environment", value="Production"),
-                Tag(key="Project", value="MyProject")
-            ]
-        )
-        resource = self.MockResource(
-            context=ctx,
-            tags=[Tag(key="Name", value="MyResource")]
-        )
-        all_tags = resource.all_tags
-        assert len(all_tags) == 3
-        assert all_tags[0].key == "Environment"
-        assert all_tags[1].key == "Project"
-        assert all_tags[2].key == "Name"
 
     def test_resource_to_dict(self):
         """Test resource serialization."""
@@ -414,24 +258,6 @@ class TestCloudFormationResource:
         resource = self.MockResource(logical_id="MyResource")
         get_att = resource.get_att("Arn")
         assert get_att.to_dict() == {"Fn::GetAtt": ["MyResource", "Arn"]}
-
-    def test_resource_naming_pattern_override(self):
-        """Test per-resource naming pattern override."""
-        @dataclass
-        class TestContext(DeploymentContext):
-            pass
-
-        ctx = TestContext(
-            component="MyApp",
-            stage="prod",
-            naming_pattern="{component}-{resource_name}-{stage}"
-        )
-        resource = self.MockResource(
-            context=ctx,
-            logical_id="Special",
-            naming_pattern="{resource_name}-custom"
-        )
-        assert resource.resource_name == "Special-custom"
 
     def test_resource_effective_logical_id_fallback(self):
         """Test effective_logical_id falls back to resource_name."""

@@ -113,7 +113,7 @@ print_version_info()
 ### From CLI
 
 ```bash
-cfn-dataclasses-import --version
+cfn-dataclasses import --version
 ```
 
 ### Programmatically

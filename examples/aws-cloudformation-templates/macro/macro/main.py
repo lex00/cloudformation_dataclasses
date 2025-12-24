@@ -6,8 +6,7 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='StackSet administration role for management account',
-        outputs=[AdministrationRoleArnOutput],
+        description='This template demonstrates how to use the Fn::ForEach function to create mutiple tables',
     )
 
 

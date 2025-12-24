@@ -1,4 +1,4 @@
-"""Command-line interface for cfn-dataclasses-import."""
+"""Command-line interface for cfn-dataclasses."""
 
 from __future__ import annotations
 
@@ -234,7 +234,7 @@ def _process_package_templates(
 
 def main(argv: list[str] | None = None) -> int:
     """
-    Main entry point for cfn-dataclasses-import command.
+    Main entry point for cfn-dataclasses command.
 
     Args:
         argv: Command line arguments (default: sys.argv[1:])
@@ -243,43 +243,105 @@ def main(argv: list[str] | None = None) -> int:
         Exit code (0 for success)
     """
     parser = argparse.ArgumentParser(
-        prog="cfn-dataclasses-import",
-        description="Convert CloudFormation templates to Python dataclasses.",
+        prog="cfn-dataclasses",
+        description="CloudFormation dataclasses toolkit.",
     )
-
-    parser.add_argument(
-        "input",
-        metavar="INPUT",
-        help='Template file path, or "-" for stdin',
-    )
-
-    parser.add_argument(
-        "-o",
-        "--output",
-        metavar="PATH",
-        help="Output path: directory for package (default), .py file for single file, omit for stdout",
-    )
-
-    parser.add_argument(
-        "--no-main",
-        action="store_true",
-        help="Omit if __name__ == '__main__' block (single-file mode only)",
-    )
-
-    parser.add_argument(
-        "--skip-checks",
-        action="store_true",
-        help="Skip validation, linting, and test generation",
-    )
-
     parser.add_argument(
         "--version",
         action="version",
         version=f"%(prog)s {__version__}",
     )
 
+    subparsers = parser.add_subparsers(dest="command", metavar="COMMAND")
+
+    # import subcommand
+    import_parser = subparsers.add_parser(
+        "import",
+        help="Import CloudFormation template to Python",
+        description="Convert CloudFormation YAML/JSON templates to Python dataclasses.",
+    )
+    import_parser.add_argument(
+        "input",
+        metavar="INPUT",
+        help='Template file path, directory (batch mode), or "-" for stdin',
+    )
+    import_parser.add_argument(
+        "-o",
+        "--output",
+        metavar="PATH",
+        help="Output path: directory for package, .py file for single file, omit for stdout",
+    )
+    import_parser.add_argument(
+        "--project-name",
+        metavar="NAME",
+        help="Project name (defaults to output directory name)",
+    )
+    import_parser.add_argument(
+        "--no-main",
+        action="store_true",
+        help="Omit if __name__ == '__main__' block (single-file mode only)",
+    )
+    import_parser.add_argument(
+        "--skip-checks",
+        action="store_true",
+        help="Skip validation, linting, and test generation",
+    )
+
+    # init subcommand
+    init_parser = subparsers.add_parser(
+        "init",
+        help="Create new project skeleton",
+        description="Create an empty project structure ready for development.",
+    )
+    init_parser.add_argument(
+        "-o",
+        "--output",
+        metavar="PATH",
+        required=True,
+        help="Output directory for the project",
+    )
+    init_parser.add_argument(
+        "--project-name",
+        metavar="NAME",
+        help="Project name (defaults to output directory name)",
+    )
+
+    # lint subcommand
+    lint_parser = subparsers.add_parser(
+        "lint",
+        help="Lint Python code for style issues",
+        description="Check cloudformation_dataclasses code for style issues and suggest fixes.",
+    )
+    lint_parser.add_argument(
+        "path",
+        metavar="PATH",
+        help="File or directory to lint",
+    )
+    lint_parser.add_argument(
+        "--fix",
+        action="store_true",
+        help="Auto-fix issues in place",
+    )
+
     args = parser.parse_args(argv)
 
+    # Show help if no command provided
+    if args.command is None:
+        parser.print_help()
+        return 0
+
+    if args.command == "import":
+        return _run_import_command(args)
+    elif args.command == "init":
+        return _run_init_command(args)
+    elif args.command == "lint":
+        return _run_lint_command(args)
+
+    return 0
+
+
+def _run_import_command(args: argparse.Namespace) -> int:
+    """Handle the import subcommand."""
     input_path = Path(args.input) if args.input != "-" else None
 
     # Check if input is a directory (batch mode)
@@ -299,7 +361,108 @@ def main(argv: list[str] | None = None) -> int:
         output_arg=args.output,
         no_main=args.no_main,
         skip_checks=args.skip_checks,
+        project_name_override=args.project_name,
     )
+
+
+def _run_init_command(args: argparse.Namespace) -> int:
+    """Handle the init subcommand."""
+    return run_single_import(
+        input_arg="-",  # Will be overridden by init_mode
+        output_arg=args.output,
+        no_main=False,
+        skip_checks=False,
+        init_mode=True,
+        project_name_override=args.project_name,
+    )
+
+
+def _run_lint_command(args: argparse.Namespace) -> int:
+    """Handle the lint subcommand."""
+    from cloudformation_dataclasses.linter import lint_file, fix_file
+
+    path = Path(args.path)
+
+    if not path.exists():
+        print(f"Error: Path not found: {path}", file=sys.stderr)
+        return 1
+
+    if path.is_file():
+        # Single file
+        files = [path]
+    elif path.is_dir():
+        # Check if it's our package structure
+        if _is_package_structure(path):
+            # Lint stack/ directory within the package
+            package_dir = _find_package_dir(path)
+            if package_dir:
+                stack_dir = package_dir / "stack"
+                files = list(stack_dir.glob("*.py")) if stack_dir.exists() else []
+            else:
+                files = []
+        else:
+            # Scan all Python files recursively
+            files = list(path.rglob("*.py"))
+    else:
+        print(f"Error: Invalid path: {path}", file=sys.stderr)
+        return 1
+
+    if not files:
+        print("No Python files found to lint", file=sys.stderr)
+        return 0
+
+    total_issues = 0
+    fixed_files = 0
+
+    for file in sorted(files):
+        if args.fix:
+            original = file.read_text()
+            fixed = fix_file(file, write=True)
+            if fixed != original:
+                fixed_files += 1
+                # Count issues fixed (rough estimate from line changes)
+                issue_count = abs(len(fixed.splitlines()) - len(original.splitlines())) or 1
+                print(f"Fixed {file} ({issue_count} issue(s))")
+        else:
+            issues = lint_file(file)
+            total_issues += len(issues)
+            for issue in issues:
+                print(f"{file}:{issue.line}:{issue.column}: {issue.rule_id} {issue.message}")
+
+    # Summary
+    if args.fix:
+        if fixed_files > 0:
+            print(f"\nFixed {fixed_files} file(s)")
+        else:
+            print("No issues to fix")
+        return 0
+    else:
+        if total_issues > 0:
+            print(f"\nFound {total_issues} issue(s)")
+            return 1
+        else:
+            print("No issues found")
+            return 0
+
+
+def _is_package_structure(path: Path) -> bool:
+    """Check if path is our generated package structure."""
+    # Has pyproject.toml and package_name/stack/ subdirectory
+    if not (path / "pyproject.toml").exists():
+        return False
+    # Check for nested package with stack/
+    for subdir in path.iterdir():
+        if subdir.is_dir() and (subdir / "stack").is_dir():
+            return True
+    return False
+
+
+def _find_package_dir(path: Path) -> Path | None:
+    """Find the package directory within a project structure."""
+    for subdir in path.iterdir():
+        if subdir.is_dir() and (subdir / "stack").is_dir():
+            return subdir
+    return None
 
 
 def run_single_import(
@@ -309,6 +472,8 @@ def run_single_import(
     skip_checks: bool = False,
     attribution: Attribution | None = None,
     logger: logging.Logger | None = None,
+    init_mode: bool = False,
+    project_name_override: str | None = None,
 ) -> int:
     """Import a single CloudFormation template.
 
@@ -319,6 +484,8 @@ def run_single_import(
         skip_checks: Skip validation, linting, and test generation
         attribution: Optional attribution info for README
         logger: Optional logger for batch mode
+        init_mode: If True, create empty skeleton (ignore input_arg)
+        project_name_override: Override project name (instead of deriving from output dir)
 
     Returns:
         Exit code (0 for success)
@@ -342,7 +509,10 @@ def run_single_import(
 
     try:
         # Parse input
-        if input_arg == "-":
+        if init_mode:
+            # Create empty template for skeleton
+            template = parse_template("{}", source_name="<init>")
+        elif input_arg == "-":
             content = sys.stdin.read()
             template = parse_template(content, source_name="<stdin>")
         else:
@@ -362,8 +532,8 @@ def run_single_import(
             output_dir = Path(output_arg)
             output_dir.mkdir(parents=True, exist_ok=True)
 
-            # Get project name from output directory (used for nested package structure)
-            project_name = output_dir.name
+            # Get project name (from override or output directory)
+            project_name = project_name_override or output_dir.name
 
             # Generate package (multiple files) with nested structure
             files = generate_package(template, package_name=project_name)
@@ -389,21 +559,27 @@ def run_single_import(
             for file_path in ide_files:
                 log(f"Generated: {file_path}")
 
-            # Copy original template to original/ subfolder
-            if input_arg != "-":
+            # Copy original template to original/ subfolder (not in init mode)
+            if not init_mode and input_arg != "-":
                 original_dir = output_dir / "original"
                 original_dir.mkdir(exist_ok=True)
                 shutil.copy(input_path, original_dir / input_path.name)
                 log(f"Generated: {original_dir / input_path.name}")
 
             # Always generate README with resource table
-            source_file = Path(input_arg).name if input_arg != "-" else "template"
+            if init_mode:
+                source_file = None
+            elif input_arg != "-":
+                source_file = Path(input_arg).name
+            else:
+                source_file = "template"
             readme_path = output_dir / "README.md"
             readme_content = _generate_readme(
                 project_name=project_name,
                 source_file=source_file,
                 template=template,
                 attribution=attribution,
+                init_mode=init_mode,
             )
             readme_path.write_text(readme_content)
             log(f"Generated: {readme_path}")
@@ -450,15 +626,18 @@ def run_single_import(
 
 def _generate_readme(
     project_name: str,
-    source_file: str,
+    source_file: str | None,
     template: IRTemplate,
     attribution: Attribution | None = None,
+    init_mode: bool = False,
 ) -> str:
     """Generate README.md with resource table and optional attribution."""
     lines = [f"# {_to_pascal_case(project_name)}", ""]
 
     # Attribution section
-    if attribution and attribution.source_url:
+    if init_mode:
+        lines.append("CloudFormation infrastructure as Python code.")
+    elif attribution and attribution.source_url:
         lines.append(f"Migrated from [{source_file}]({attribution.source_url}).")
     else:
         lines.append(f"Imported from `{source_file}`.")

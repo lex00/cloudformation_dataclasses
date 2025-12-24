@@ -13,8 +13,9 @@ When helping users with this library, read the appropriate guide:
 | Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
 
 **Key Tools:**
-- `cfn-dataclasses-init <skeleton> -o <dir>/` - Generate new project from skeleton
-- `cfn-dataclasses-import <template> -o <output>` - Import CloudFormation YAML/JSON
+- `cfn-dataclasses init -o <dir>/` - Create new project skeleton
+- `cfn-dataclasses import <template> -o <output>` - Import CloudFormation YAML/JSON
+- `cfn-dataclasses lint <path>` - Lint Python code for style issues
 
 **Always validate after generating code:**
 ```python

@@ -1,6 +1,6 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.6.1"  # Package version (independent of spec/generator versions)
+version = "0.7.0"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [
@@ -44,8 +44,7 @@ dev = [
 ]
 
 [project.scripts]
-cfn-dataclasses-import = "cloudformation_dataclasses.importer.cli:main"
-cfn-dataclasses-init = "cloudformation_dataclasses.skeleton.cli:main"
+cfn-dataclasses = "cloudformation_dataclasses.importer.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/lex00/cloudformation_dataclasses"

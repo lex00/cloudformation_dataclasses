@@ -373,7 +373,7 @@ class MyStack(Stack):
 
 2. **Import into cloudformation_dataclasses**:
    ```bash
-   cfn-dataclasses-import template.yaml -o my_stack/
+   cfn-dataclasses import template.yaml -o my_stack/
    ```
 
 3. **Clean up**: Remove CDK metadata, simplify logical IDs

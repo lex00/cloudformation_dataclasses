@@ -55,7 +55,7 @@ class MyQueue:
 **What doesn't register:**
 - PropertyTypes (like `BucketEncryption`, `KeySchema`) - they're nested configuration, not top-level resources
 - `PolicyDocument`, `PolicyStatement` - these are IAM policy components
-- `DeploymentContext` - this is infrastructure configuration, not a CF resource
+- `Tag` - these are resource attributes, not standalone CF resources
 
 ## Template.from_registry()
 
@@ -77,29 +77,11 @@ template = Template.from_registry(
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `description` | `str` | Template description |
-| `context` | `DeploymentContext` | Context for auto-naming and tags (applied to all resources) |
 | `parameters` | `list` | Parameter wrapper classes |
 | `outputs` | `list` | Output wrapper classes |
 | `conditions` | `list` | Condition wrapper classes |
 | `mappings` | `list` | Mapping wrapper classes |
-
-### Context Injection
-
-Pass a `DeploymentContext` to automatically apply naming and tags to all resources:
-
-```python
-from .context import ctx
-
-template = Template.from_registry(
-    description="My Application Stack",
-    context=ctx,  # Auto-names resources and applies tags
-)
-```
-
-This automatically:
-- Sets physical names (e.g., `bucket_name`, `function_name`) using the naming pattern
-- Merges context tags with resource-specific tags
-- Only applies to resources that don't already have a context set
+| `scope_package` | `str \| bool \| None` | Package scope for resource discovery |
 
 ## Querying Resources
 

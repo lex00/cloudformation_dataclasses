@@ -4,8 +4,7 @@ Framework validation tests for S3 resources.
 Tests the core functionality of CloudFormation dataclasses with S3 resources:
 - Resource creation and serialization
 - Template generation and validation
-- Tag merging
-- Context-driven naming
+- Tag handling
 - Cross-resource references
 """
 
@@ -16,7 +15,7 @@ import pytest
 from cloudformation_dataclasses.aws.s3 import Bucket, BucketPolicy
 from cloudformation_dataclasses.core import (
     Template,
-    DeploymentContext,
+    Tag,
     cloudformation_dataclass,
     ref,
 )
@@ -174,168 +173,84 @@ def test_multiple_buckets_in_template():
     assert "SecondBucket" in template_dict["Resources"]
 
 
-def test_deployment_context_tags():
-    """Test that deployment context tags are merged with resource-specific tags."""
+def test_resource_tags():
+    """Test that resource tags are handled correctly."""
 
     @cloudformation_dataclass
-    class ProdContext:
-        context: DeploymentContext
+    class TaggedBucket:
+        resource: Bucket
         tags = [
             {"Key": "Environment", "Value": "Test"},
             {"Key": "ManagedBy", "Value": "pytest"},
         ]
 
-    ctx = ProdContext()
+    bucket = TaggedBucket()
+
+    # Verify tags are converted to Tag instances
+    assert len(bucket.resource.tags) == 2
+    assert bucket.resource.tags[0].key == "Environment"
+    assert bucket.resource.tags[0].value == "Test"
+    assert bucket.resource.tags[1].key == "ManagedBy"
+    assert bucket.resource.tags[1].value == "pytest"
+
+    # Verify all_tags returns the tags
+    assert len(bucket.resource.all_tags) == 2
+
+
+def test_tags_in_cloudformation_template():
+    """Test that tags appear in the CloudFormation template."""
 
     @cloudformation_dataclass
     class TaggedBucket:
         resource: Bucket
-        context = ctx
-        tags = [{"Key": "DataClassification", "Value": "test-data"}]
-
-    bucket = TaggedBucket()
-
-    # Verify context has 2 base tags
-    assert len(ctx.tags) == 2
-    context_tag_keys = {tag["Key"] for tag in ctx.tags}
-    assert context_tag_keys == {"Environment", "ManagedBy"}
-
-    # Verify bucket has 1 resource-specific tag
-    assert len(bucket.resource.tags) == 1
-    assert bucket.resource.tags[0].key == "DataClassification"
-    assert bucket.resource.tags[0].value == "test-data"
-
-    # Verify all_tags merges both (2 from context + 1 resource-specific = 3 total)
-    assert len(bucket.resource.all_tags) == 3
-    all_tag_keys = {tag.key for tag in bucket.resource.all_tags}
-    assert all_tag_keys == {"Environment", "ManagedBy", "DataClassification"}
-
-
-def test_context_tags_in_cloudformation_template():
-    """Test that context base tags appear in the CloudFormation template."""
-
-    @cloudformation_dataclass
-    class ProdContext:
-        context: DeploymentContext
         tags = [
             {"Key": "Environment", "Value": "Test"},
             {"Key": "ManagedBy", "Value": "pytest"},
         ]
 
-    ctx = ProdContext()
-
-    @cloudformation_dataclass
-    class TaggedBucket:
-        resource: Bucket
-        context = ctx
-        tags = [{"Key": "DataClassification", "Value": "test-data"}]
-
     bucket = TaggedBucket()
-    template = Template(description="Test bucket with context tags")
+    template = Template(description="Test bucket with tags")
     template.add_resource(bucket)
 
     template_dict = template.to_dict()
     tags = template_dict["Resources"]["TaggedBucket"]["Properties"]["Tags"]
 
-    # Verify all 3 tags are in the CloudFormation template
-    assert len(tags) == 3
+    # Verify tags are in the CloudFormation template
+    assert len(tags) == 2
 
     # Convert to dict for easier assertion
     tag_dict = {tag["Key"]: tag["Value"] for tag in tags}
 
-    # Verify context tags (2 base tags)
     assert tag_dict["Environment"] == "Test"
     assert tag_dict["ManagedBy"] == "pytest"
 
-    # Verify resource-specific tag
-    assert tag_dict["DataClassification"] == "test-data"
 
-
-def test_context_driven_naming():
-    """Test that deployment context provides automatic resource naming."""
+def test_tag_wrapper_classes():
+    """Test that Tag wrapper classes work correctly."""
 
     @cloudformation_dataclass
-    class ProdContext:
-        context: DeploymentContext
-        project_name = "acme"
-        component = "TestApp"
-        stage = "test"
-        deployment_name = "001"
-        deployment_group = "blue"
-        region = "us-east-1"
-
-    ctx = ProdContext()
+    class EnvironmentTag:
+        resource: Tag
+        key = "Environment"
+        value = "Production"
 
     @cloudformation_dataclass
-    class MyTestBucket:
+    class ProjectTag:
+        resource: Tag
+        key = "Project"
+        value = "Analytics"
+
+    @cloudformation_dataclass
+    class TaggedBucket:
         resource: Bucket
-        context = ctx
+        tags = [EnvironmentTag, ProjectTag]
 
-    bucket = MyTestBucket()
+    bucket = TaggedBucket()
 
-    # Verify context naming pattern
-    # Class name: MyTestBucket
-    # Pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
-    assert (
-        bucket.resource.resource_name
-        == "acme-TestApp-MyTestBucket-test-001-blue-us-east-1"
-    )
-
-    # Verify logical ID comes from wrapper class name
-    assert bucket.resource.logical_id == "MyTestBucket"
-
-    # Verify context values
-    assert ctx.project_name == "acme"
-    assert ctx.component == "TestApp"
-    assert ctx.stage == "test"
-    assert ctx.deployment_name == "001"
-    assert ctx.deployment_group == "blue"
-    assert ctx.region == "us-east-1"
-
-
-def test_custom_naming_pattern():
-    """Test that naming pattern can be customized."""
-
-    @cloudformation_dataclass
-    class SimpleContext:
-        context: DeploymentContext
-        component = "MyApp"
-        naming_pattern = "{component}-{resource_name}"
-
-    ctx = SimpleContext()
-
-    @cloudformation_dataclass
-    class NamedBucket:
-        resource: Bucket
-        context = ctx
-
-    bucket = NamedBucket()
-
-    # Verify custom pattern is used
-    assert bucket.resource.resource_name == "MyApp-NamedBucket"
-
-
-def test_resource_specific_naming_pattern():
-    """Test that naming pattern can be overridden per resource."""
-
-    @cloudformation_dataclass
-    class ProdContext:
-        context: DeploymentContext
-        component = "TestApp"
-        stage = "test"
-
-    ctx = ProdContext()
-
-    @cloudformation_dataclass
-    class CustomNamedBucket:
-        resource: Bucket
-        context = ctx
-        naming_pattern = "{resource_name}-{stage}"
-
-    bucket = CustomNamedBucket()
-
-    # Verify resource-specific pattern overrides context pattern
-    assert bucket.resource.resource_name == "CustomNamedBucket-test"
+    # Verify tags are created from wrapper classes
+    assert len(bucket.resource.tags) == 2
+    tag_keys = {tag.key for tag in bucket.resource.tags}
+    assert tag_keys == {"Environment", "Project"}
 
 
 def test_cross_resource_references():
