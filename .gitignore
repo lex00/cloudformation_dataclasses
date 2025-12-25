@@ -19,3 +19,6 @@ htmlcov/
 .cloudformation_spec_cache/
 
 *.log
+
+# Generated API documentation (built by pdoc, deployed via CI)
+docs/api/

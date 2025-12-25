@@ -1,4 +1,22 @@
-"""Core CloudFormation resource base classes and utilities."""
+"""Core CloudFormation resource base classes and utilities.
+
+This module provides the foundation for building CloudFormation templates:
+
+- `Template`: The main container for CloudFormation resources
+- `CloudFormationResource`: Base class for all AWS resources
+- `Parameter`, `Output`, `Condition`, `Mapping`: Template components
+- `Ref`, `GetAtt`: Resource reference helpers
+- `@cloudformation_dataclass`: Decorator for defining resources
+
+Example:
+    >>> from cloudformation_dataclasses.core import Template, Parameter, Output
+    >>> from cloudformation_dataclasses.aws.s3 import Bucket
+    >>>
+    >>> template = Template(description="My S3 Template")
+    >>> template.add_parameter("BucketName", Parameter(type="String"))
+    >>> template.add_resource("MyBucket", Bucket(bucket_name="my-bucket"))
+    >>> print(template.to_yaml())
+"""
 
 from cloudformation_dataclasses.core.base import (
     CloudFormationResource,

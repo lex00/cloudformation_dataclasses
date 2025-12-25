@@ -806,6 +806,28 @@ uv run ruff check src/ --fix
 uv run mypy src/cloudformation_dataclasses/
 ```
 
+### Building API Documentation
+
+API documentation is auto-generated from docstrings using [pdoc](https://pdoc.dev/).
+
+```bash
+# Use the helper script (recommended)
+./scripts/docs.sh          # Serve with auto-reload
+./scripts/docs.sh --build  # Build static HTML to docs/api/
+
+# Or run pdoc directly (explicitly list modules to document)
+uv sync --group docs
+uv run pdoc \
+    cloudformation_dataclasses.core \
+    cloudformation_dataclasses.intrinsics \
+    cloudformation_dataclasses.linter \
+    cloudformation_dataclasses.importer \
+    cloudformation_dataclasses.constants \
+    -o docs/api/
+```
+
+API docs are automatically deployed to GitHub Pages on push to `main`.
+
 ### Commit Messages
 
 Follow conventional commits:

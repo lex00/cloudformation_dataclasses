@@ -1,0 +1,60 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - run: uv python install 3.13
+
+      - run: uv sync --group docs
+
+      - name: Build API docs
+        run: |
+          uv run pdoc \
+            cloudformation_dataclasses.core \
+            cloudformation_dataclasses.intrinsics \
+            cloudformation_dataclasses.linter \
+            cloudformation_dataclasses.importer \
+            cloudformation_dataclasses.constants \
+            --footer-text "Python dataclasses for CloudFormation" \
+            -t docs/pdoc-templates \
+            -o docs/api/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/api/
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

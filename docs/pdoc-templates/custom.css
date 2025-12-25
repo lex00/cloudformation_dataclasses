@@ -1,0 +1,8 @@
+/* Slightly softer background */
+:root {
+    --pdoc-background: #f5f5f5;
+}
+
+nav.pdoc {
+    background-color: #e8e8e8;
+}

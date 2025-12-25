@@ -1,0 +1,18 @@
+{% extends "default/index.html.jinja2" %}
+
+{% block nav %}
+<h2 style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600;">
+    <a href="https://github.com/lex00/cloudformation_dataclasses" style="color: inherit; text-decoration: none;">
+        Cloudformation Dataclasses
+    </a>
+</h2>
+<p style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--muted);">
+    API Reference
+</p>
+<h2>Available Modules</h2>
+<ul>
+    {% for submodule in all_modules if "._" not in submodule and not submodule.startswith("_") %}
+        <li><a href="{{ submodule.replace(".","/") }}.html">{{ submodule }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

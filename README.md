@@ -4,7 +4,7 @@
 
 Infrastructure code should be readable at every stage—by the ops people who write it, the dev people who rely on it, and the AI agents that now help maintain it.
 
-[Read the philosophy →](docs/PHILOSOPHY.md)
+[Read the philosophy →](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/PHILOSOPHY.md)
 
 ## Quick Start
 
@@ -13,7 +13,7 @@ pip install cloudformation-dataclasses
 cfn-dataclasses init -o my_stack/
 ```
 
-[Full Quick Start →](docs/QUICK_START.md)
+[Full Quick Start →](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/QUICK_START.md)
 
 ## What This Is
 
@@ -33,19 +33,19 @@ No Node.js. No state files. No runtime dependencies.
 
 | Guide | Description |
 |-------|-------------|
-| [Quick Start](docs/QUICK_START.md) | Create your first project |
-| [CLI Reference](docs/CLI.md) | init, import, lint commands |
-| [Examples](examples/) | Real-world templates |
-| [Comparison](docs/COMPARISON.md) | vs CDK, Terraform |
+| [Quick Start](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/QUICK_START.md) | Create your first project |
+| [CLI Reference](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/CLI.md) | init, import, lint commands |
+| [Examples](https://github.com/lex00/cloudformation_dataclasses/tree/main/examples) | Real-world templates |
+| [Comparison](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/COMPARISON.md) | vs CDK, Terraform |
 
 ### More
 
 | Guide | Description |
 |-------|-------------|
-| [Developer Guide](docs/DEVELOPERS.md) | Building, testing, contributing |
-| [Internals](docs/INTERNALS.md) | Registry, code generation, importer |
-| [Changelog](CHANGELOG.md) | Version history |
+| [Developer Guide](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/DEVELOPERS.md) | Building, testing, contributing |
+| [Internals](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/INTERNALS.md) | Registry, code generation, importer |
+| [Changelog](https://github.com/lex00/cloudformation_dataclasses/blob/main/CHANGELOG.md) | Version history |
 
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+MIT License - see [LICENSE](https://github.com/lex00/cloudformation_dataclasses/blob/main/LICENSE)
