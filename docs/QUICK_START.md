@@ -35,20 +35,10 @@ my_project/
 
 ## Add Your First Resource
 
-### 1. Edit `my_project/__init__.py`
-
-Uncomment the AWS module imports you need:
-
-```python
-from cloudformation_dataclasses.aws import s3  # Uncomment
-```
-
-### 2. Create a Resource
-
 Create `my_project/stack/storage.py`:
 
 ```python
-from .. import *  # Single import pattern - gets everything
+from .. import *
 
 @cloudformation_dataclass
 class DataBucket:
@@ -56,9 +46,9 @@ class DataBucket:
     bucket_name = "my-data-bucket"
 ```
 
-Resources auto-register when defined. No need to update `__init__.py` - auto-discovery handles it.
+That's it. Resources auto-register when defined. The `from .. import *` pattern provides everything you need: `cloudformation_dataclass`, `ref`, `get_att`, and AWS modules like `s3`, `ec2`, `lambda_` (all imported in the parent `__init__.py`).
 
-### 3. Generate CloudFormation
+### Generate CloudFormation
 
 ```bash
 uv run python -m my_project
@@ -66,7 +56,7 @@ uv run python -m my_project
 
 Outputs CloudFormation JSON to stdout.
 
-### 4. Deploy
+### Deploy
 
 ```bash
 uv run python -m my_project > template.json
@@ -88,7 +78,7 @@ my_project/stack/
 └── database.py      # DynamoDB, RDS
 ```
 
-Each file uses the single import pattern:
+Each file just imports from the parent package:
 
 ```python
 # stack/compute.py
@@ -102,7 +92,7 @@ class MyFunction:
     role: GetAtt[ExecutionRole] = get_att(ARN)  # Reference resource in another file
 ```
 
-**Key benefit:** Move resources between files with zero import changes. The `from .. import *` pattern and auto-discovery handle everything.
+**Key benefit:** Resources auto-register when defined. Move resources between files freely - auto-discovery handles everything.
 
 ---
 
@@ -112,6 +102,8 @@ Reference resources defined in other files using type annotations:
 
 ```python
 # stack/storage.py
+from .. import *
+
 @cloudformation_dataclass
 class DataBucket:
     resource: s3.Bucket

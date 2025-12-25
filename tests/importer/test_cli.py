@@ -172,15 +172,24 @@ class TestInitSubcommand:
         readme = (output_dir / "README.md").read_text()
         assert "Analytics" in readme
 
-    def test_init_adds_aws_import_hint(self, tmp_path: Path) -> None:
-        """init adds commented AWS import hint."""
+    def test_init_adds_aws_imports(self, tmp_path: Path) -> None:
+        """init adds real AWS imports (not commented hints)."""
         output_dir = tmp_path / "my_project"
 
         main(["init", "-o", str(output_dir)])
 
         init_content = (output_dir / "my_project" / "__init__.py").read_text()
-        assert "# Import AWS service modules" in init_content
-        assert "# from cloudformation_dataclasses.aws import" in init_content
+        # Should have real imports, not commented hints
+        assert "from cloudformation_dataclasses.aws import" in init_content
+        assert "# from cloudformation_dataclasses.aws import" not in init_content
+        # Should include common AWS modules
+        assert "ec2" in init_content
+        assert "iam" in init_content
+        assert "lambda_" in init_content
+        assert "s3" in init_content
+        # AWS modules should be in __all__
+        assert '"ec2"' in init_content
+        assert '"s3"' in init_content
 
     def test_init_requires_output(self) -> None:
         """init requires -o flag."""
