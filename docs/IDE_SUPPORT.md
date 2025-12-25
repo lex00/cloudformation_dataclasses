@@ -3,7 +3,7 @@
 cloudformation_dataclasses provides full IDE support through:
 - Type annotations on all classes and functions
 - Generated `.pyi` stub files for dynamic imports
-- Compatibility with Pylance, mypy, and pyright
+- Compatibility with Pylance and other IDE type checkers
 
 ## Quick Setup
 
@@ -35,8 +35,8 @@ class MyBucket:
 ```
 
 This works at runtime because `setup_resources()` dynamically loads
-modules and injects the namespace. However, static analyzers like
-Pylance can't see these dynamic exports.
+modules and injects the namespace. However, IDEs like VSCode/Pylance
+can't see these dynamic exports without help.
 
 ### The Solution: .pyi Stub Files
 
@@ -54,7 +54,7 @@ mystack/
     └── resources.py
 ```
 
-The stub files tell Pylance/mypy:
+The stub files tell the IDE:
 - What names are available via star imports
 - Type information for all exported classes
 - Re-exports from cloudformation_dataclasses
@@ -95,21 +95,6 @@ see "unknown" errors:
 2. Reload VSCode window: Cmd/Ctrl+Shift+P → "Reload Window"
 3. Check Python interpreter is set to your venv
 
-## Mypy Configuration
-
-Add to `pyproject.toml`:
-
-```toml
-[tool.mypy]
-python_version = "3.10"
-strict = true
-
-# Allow star imports in stack files
-[[tool.mypy.overrides]]
-module = "*.stack.*"
-disable_error_code = ["no-redef"]
-```
-
 ## Troubleshooting
 
 ### "Cannot find module" errors
@@ -132,7 +117,7 @@ from .. import *  # noqa: F403, F401
 
 These warnings are expected for the cloudformation_dataclasses pattern.
 
-### Pylance shows "partially unknown" types
+### IDE shows "partially unknown" types
 
-Regenerate stubs and reload the VSCode window. If the issue persists,
+Regenerate stubs and reload your IDE. If the issue persists,
 check that the generated `.pyi` files include your new classes.
