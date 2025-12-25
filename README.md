@@ -34,6 +34,7 @@ No Node.js. No state files. No runtime dependencies.
 | Guide | Description |
 |-------|-------------|
 | [Quick Start](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/QUICK_START.md) | Create your first project |
+| [API Reference](https://lex00.github.io/cloudformation_dataclasses/) | Generated from docstrings |
 | [CLI Reference](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/CLI.md) | init, import, lint commands |
 | [Examples](https://github.com/lex00/cloudformation_dataclasses/tree/main/examples) | Real-world templates |
 | [Comparison](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/COMPARISON.md) | vs CDK, Terraform |

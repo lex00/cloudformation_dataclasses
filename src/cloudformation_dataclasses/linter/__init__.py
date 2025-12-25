@@ -135,6 +135,7 @@ def lint_file(
 def fix_code(
     source: str,
     *,
+    filename: str = "<string>",
     rules: Optional[list[LintRule]] = None,
     add_imports: bool = True,
 ) -> str:
@@ -144,31 +145,37 @@ def fix_code(
 
     Args:
         source: The Python source code to fix
+        filename: Optional filename for context (used by some rules)
         rules: Optional list of rules to apply. Defaults to all rules.
         add_imports: Whether to add required imports. Defaults to True.
 
     Returns:
         The fixed source code
     """
-    issues = lint_code(source, rules=rules)
+    issues = lint_code(source, filename=filename, rules=rules)
     if not issues:
         return source
 
-    # Collect all fixes and imports
-    # Sort issues by position in reverse order so we can apply fixes
-    # from end to start without invalidating positions
-    issues_by_line: dict[int, list[LintIssue]] = {}
-    all_imports: set[str] = set()
+    # Separate insertions from replacements
+    insertions = [i for i in issues if i.insert_after_line is not None]
+    replacements = [i for i in issues if i.insert_after_line is None]
 
-    for issue in issues:
+    # Collect all fix imports
+    all_imports: set[str] = set()
+    if add_imports:
+        for issue in issues:
+            all_imports.update(issue.fix_imports)
+
+    # Apply replacements first (existing logic)
+    issues_by_line: dict[int, list[LintIssue]] = {}
+    for issue in replacements:
         if issue.line not in issues_by_line:
             issues_by_line[issue.line] = []
         issues_by_line[issue.line].append(issue)
-        if add_imports:
-            all_imports.update(issue.fix_imports)
 
-    # Apply fixes line by line
     lines = source.splitlines(keepends=True)
+
+    # Apply replacements line by line (in reverse order to preserve positions)
     for line_num in sorted(issues_by_line.keys(), reverse=True):
         line_issues = issues_by_line[line_num]
         # Sort by column in reverse order
@@ -188,6 +195,19 @@ def fix_code(
                         line = line.replace(pattern, issue.suggestion, 1)
                         break
             lines[line_num - 1] = line
+
+    # Apply insertions (in reverse line order to preserve positions)
+    # Sort by insert_after_line descending
+    for issue in sorted(insertions, key=lambda i: i.insert_after_line or 0, reverse=True):
+        insert_pos = issue.insert_after_line or 0
+        # Ensure the suggestion ends with a newline
+        suggestion = issue.suggestion
+        if not suggestion.endswith("\n"):
+            suggestion += "\n"
+        # Insert after the specified line (insert_pos is 0-indexed conceptually)
+        # Line 0 means insert at the very beginning
+        # Line N means insert after line N
+        lines.insert(insert_pos, suggestion)
 
     fixed_source = "".join(lines)
 

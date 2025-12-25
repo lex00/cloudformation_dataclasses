@@ -20,12 +20,14 @@ from __future__ import annotations
 import importlib.util
 import re
 import sys
-from collections import deque
 from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from cloudformation_dataclasses.constants import CLASS_NAME_PATTERN
+from cloudformation_dataclasses.stubs import (
+    find_class_definitions as _find_class_definitions,
+    generate_stub_file as _generate_stub_file,
+)
 
 
 def _find_class_refs_in_source(source: str) -> set[str]:
@@ -48,11 +50,6 @@ def _find_class_refs_in_source(source: str) -> set[str]:
     for match in re.finditer(r'\bGetAtt\[([A-Za-z_][A-Za-z0-9_]*)\]', source):
         refs.add(match.group(1))
     return refs
-
-
-def _find_class_definitions(source: str) -> list[str]:
-    """Extract class names defined in a source file."""
-    return CLASS_NAME_PATTERN.findall(source)
 
 
 def _topological_sort(deps: dict[str, set[str]]) -> list[str]:
@@ -160,7 +157,16 @@ def setup_resources(
     import_order = _topological_sort(deps)
 
     # 5. Import in order, injecting shared namespace BEFORE each module executes
+    # Start with params from package globals (imported via `from .params import *`)
+    # Filter to only include names ending in "Param" to avoid injecting modules/functions
+    # Also set _logical_id on Parameter instances (strip "Param" suffix for CloudFormation name)
     shared_namespace: dict[str, Any] = {}
+    for name, obj in package_globals.items():
+        if name.endswith("Param"):
+            # Set the logical ID on the Parameter instance (strip "Param" suffix)
+            if hasattr(obj, "_logical_id"):
+                obj._logical_id = name[:-5]  # Remove "Param" suffix
+            shared_namespace[name] = obj
     all_names: list[str] = []
 
     for mod_name in import_order:
@@ -185,6 +191,9 @@ def setup_resources(
 
     # Set __all__ for star imports
     package_globals["__all__"] = all_names
+
+    # Generate __init__.pyi for IDE type checking support
+    _generate_stub_file(pkg_path, all_names, module_classes)
 
 
 def _load_module_with_namespace(

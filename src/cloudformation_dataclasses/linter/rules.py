@@ -14,6 +14,12 @@ Rules:
     CFD003: Use pseudo-parameter constants instead of Ref() with strings
     CFD004: Use enum constants instead of string literals
     CFD005: Use PropertyType classes instead of dict literals
+    CFD006: Use intrinsic function classes instead of raw dicts
+    CFD007: Remove unnecessary .to_dict() calls on intrinsic functions
+    CFD008: Use 'from .. import *' instead of explicit parent imports in stack files
+    CFD009: Use wrapper classes instead of inline PropertyType constructors
+    CFD010: Use ref(ParameterClass) instead of Ref("ParameterName")
+    CFD011: Add missing required stack imports (from .. import *, from . import *)
 
 Example:
     >>> from cloudformation_dataclasses.linter.rules import get_all_rules, LintContext
@@ -51,9 +57,11 @@ class LintIssue:
         message: Human-readable description of the issue.
         line: Line number where the issue was found (1-indexed).
         column: Column number where the issue was found (0-indexed).
-        original: The original code that should be replaced.
-        suggestion: The suggested replacement code.
+        original: The original code that should be replaced (empty for insertions).
+        suggestion: The suggested replacement code (or line to insert).
         fix_imports: List of import statements needed for the fix.
+        insert_after_line: If set, insert suggestion as new line after this line number.
+            Line 0 means insert at the very beginning (after module docstring if present).
     """
 
     rule_id: str
@@ -63,6 +71,7 @@ class LintIssue:
     original: str
     suggestion: str
     fix_imports: list[str]
+    insert_after_line: Optional[int] = None
 
 
 @dataclass
@@ -586,6 +595,518 @@ class DictShouldBePropertyType(LintRule):
         return issues
 
 
+class DictShouldBeIntrinsic(LintRule):
+    """Detect raw intrinsic function dicts that should use typed helpers.
+
+    CloudFormation intrinsic functions like Ref, Sub, Select, Join, etc.
+    should be expressed using the typed helpers from cloudformation_dataclasses.intrinsics
+    rather than raw dict literals.
+
+    Detects: {"Ref": "VpcId"}, {"Fn::Sub": "..."}, {"Fn::Select": [...]}
+    Suggests: Ref("VpcId"), Sub("..."), Select(...)
+    """
+
+    rule_id = "CFD006"
+    description = "Use intrinsic function classes instead of raw dicts"
+
+    # Map CloudFormation intrinsic keys to Python function names and their module
+    INTRINSIC_MAP: dict[str, tuple[str, str]] = {
+        "Ref": ("Ref", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Sub": ("Sub", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Select": ("Select", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Join": ("Join", "cloudformation_dataclasses.intrinsics"),
+        "Fn::GetAZs": ("GetAZs", "cloudformation_dataclasses.intrinsics"),
+        "Fn::GetAtt": ("GetAtt", "cloudformation_dataclasses.intrinsics"),
+        "Fn::If": ("If", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Equals": ("Equals", "cloudformation_dataclasses.intrinsics"),
+        "Fn::And": ("And", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Or": ("Or", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Not": ("Not", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Base64": ("Base64", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Split": ("Split", "cloudformation_dataclasses.intrinsics"),
+        "Fn::ImportValue": ("ImportValue", "cloudformation_dataclasses.intrinsics"),
+        "Fn::FindInMap": ("FindInMap", "cloudformation_dataclasses.intrinsics"),
+        "Fn::Cidr": ("Cidr", "cloudformation_dataclasses.intrinsics"),
+    }
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        for node in ast.walk(context.tree):
+            # Look for single-key dict literals that match intrinsic patterns
+            if isinstance(node, ast.Dict) and len(node.keys) == 1:
+                key = node.keys[0]
+                if isinstance(key, ast.Constant) and isinstance(key.value, str):
+                    key_str = key.value
+                    if key_str in self.INTRINSIC_MAP:
+                        func_name, module = self.INTRINSIC_MAP[key_str]
+                        import_stmt = f"from {module} import {func_name}"
+
+                        issues.append(
+                            LintIssue(
+                                rule_id=self.rule_id,
+                                message=f"Use {func_name}() instead of {{'{key_str}': ...}}",
+                                line=key.lineno,
+                                column=key.col_offset,
+                                original=f'{{"{key_str}": ...}}',
+                                suggestion=f"{func_name}(...)",
+                                fix_imports=[import_stmt],
+                            )
+                        )
+
+        return issues
+
+
+class UnnecessaryToDict(LintRule):
+    """Detect unnecessary .to_dict() calls on intrinsic function results.
+
+    When using intrinsic functions like ref(), get_att(), Join(), etc.,
+    calling .to_dict() is unnecessary because these functions return objects
+    that serialize correctly when used directly.
+
+    Detects: ref(MyResource).to_dict(), get_att(MyResource, "Arn").to_dict()
+    Suggests: ref(MyResource), get_att(MyResource, "Arn")
+    """
+
+    rule_id = "CFD007"
+    description = "Remove unnecessary .to_dict() calls on intrinsic functions"
+
+    # Functions that return serializable intrinsic objects
+    INTRINSIC_FUNCTIONS = {"ref", "get_att", "Ref", "GetAtt", "Sub", "Join", "Select", "If"}
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        for node in ast.walk(context.tree):
+            # Look for method calls: something.to_dict()
+            if isinstance(node, ast.Call):
+                if isinstance(node.func, ast.Attribute) and node.func.attr == "to_dict":
+                    # Check if the object is a call to an intrinsic function
+                    obj = node.func.value
+                    if isinstance(obj, ast.Call):
+                        func = obj.func
+                        func_name = None
+                        if isinstance(func, ast.Name):
+                            func_name = func.id
+                        elif isinstance(func, ast.Attribute):
+                            func_name = func.attr
+
+                        if func_name in self.INTRINSIC_FUNCTIONS:
+                            issues.append(
+                                LintIssue(
+                                    rule_id=self.rule_id,
+                                    message=f"Remove .to_dict() - {func_name}() returns a serializable object",
+                                    line=node.lineno,
+                                    column=node.col_offset,
+                                    original=f"{func_name}(...).to_dict()",
+                                    suggestion=f"{func_name}(...)",
+                                    fix_imports=[],
+                                )
+                            )
+
+        return issues
+
+
+class InlinePropertyTypeConstructor(LintRule):
+    """Detect inline PropertyType constructors that should be wrapper classes.
+
+    In cloudformation_dataclasses, nested PropertyTypes should be defined as
+    separate wrapper classes with @cloudformation_dataclass, not as inline
+    constructor calls.
+
+    Detects:
+        security_group_ingress = [security_group.Ingress(...)]
+        default_actions = [listener.Action(...)]
+        alias_target = record_set.AliasTarget(...)
+
+    Suggests:
+        @cloudformation_dataclass
+        class MyIngress:
+            resource: ec2.security_group.Ingress
+            ...
+
+        security_group_ingress = [MyIngress]
+    """
+
+    rule_id = "CFD009"
+    description = "Use wrapper classes instead of inline PropertyType constructors"
+
+    # Known PropertyType module.Class patterns that indicate inline constructors
+    # Format: (module_pattern, class_name) -> description
+    KNOWN_PROPERTY_TYPES: dict[tuple[str, str], str] = {
+        # EC2 Security Group
+        ("security_group", "Ingress"): "security group ingress rule",
+        ("security_group", "Egress"): "security group egress rule",
+        # ELB Listener
+        ("listener", "Action"): "listener action",
+        ("listener", "Certificate"): "listener certificate",
+        ("listener", "RedirectConfig"): "redirect config",
+        ("listener", "ForwardConfig"): "forward config",
+        ("listener", "AuthenticateOidcConfig"): "OIDC auth config",
+        ("listener", "AuthenticateCognitoConfig"): "Cognito auth config",
+        # Route53 RecordSet
+        ("record_set", "AliasTarget"): "alias target",
+        ("record_set", "GeoLocation"): "geo location",
+        # ECS Task Definition
+        ("task_definition", "ContainerDefinition"): "container definition",
+        ("task_definition", "PortMapping"): "port mapping",
+        ("task_definition", "LogConfiguration"): "log configuration",
+        ("task_definition", "Environment"): "environment variable",
+        ("task_definition", "MountPoint"): "mount point",
+        ("task_definition", "VolumeFrom"): "volume from",
+        ("task_definition", "Secret"): "secret",
+        # ECS Service
+        ("service", "LoadBalancer"): "load balancer config",
+        ("service", "NetworkConfiguration"): "network configuration",
+        ("service", "AwsVpcConfiguration"): "VPC configuration",
+        # IAM
+        ("role", "Policy"): "inline policy",
+        # Lambda
+        ("function", "Code"): "function code",
+        ("function", "VpcConfig"): "VPC config",
+        ("function", "Environment"): "environment",
+        # CloudWatch
+        ("alarm", "Dimension"): "metric dimension",
+        ("alarm", "MetricDataQuery"): "metric data query",
+        # ACM Certificate
+        ("certificate", "DomainValidationOption"): "domain validation option",
+        # RDS
+        ("db_instance", "DBInstanceRole"): "DB instance role",
+    }
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        for node in ast.walk(context.tree):
+            # Check for direct Call nodes that match PropertyType patterns
+            if isinstance(node, ast.Call):
+                issue = self._check_call(node)
+                if issue:
+                    issues.append(issue)
+
+        return issues
+
+    def _check_call(self, node: ast.Call) -> Optional[LintIssue]:
+        """Check if a Call node is an inline PropertyType constructor."""
+        # Look for patterns like: module.ClassName(...)
+        # E.g., security_group.Ingress(...), listener.Action(...)
+        func = node.func
+        if not isinstance(func, ast.Attribute):
+            return None
+
+        class_name = func.attr
+        # Get the module part (e.g., security_group, listener)
+        if isinstance(func.value, ast.Name):
+            module_name = func.value.id
+        elif isinstance(func.value, ast.Attribute):
+            # Could be nested like ec2.security_group.Ingress
+            module_name = func.value.attr
+        else:
+            return None
+
+        # Check if this matches a known PropertyType pattern
+        key = (module_name, class_name)
+        if key in self.KNOWN_PROPERTY_TYPES:
+            description = self.KNOWN_PROPERTY_TYPES[key]
+            return LintIssue(
+                rule_id=self.rule_id,
+                message=f"Define {description} as a separate @cloudformation_dataclass wrapper",
+                line=node.lineno,
+                column=node.col_offset,
+                original=f"{module_name}.{class_name}(...)",
+                suggestion=f"@cloudformation_dataclass class My{class_name}: resource: ...{class_name}",
+                fix_imports=[],
+            )
+
+        return None
+
+
+class ExplicitParentImport(LintRule):
+    """Detect explicit imports from parent package in stack resource files.
+
+    Stack resource files should only use `from .. import *` for consistency.
+    The parent package's __init__.py should re-export everything needed.
+
+    Detects: from .. import (foo, bar, baz)
+    Suggests: from .. import *
+    """
+
+    rule_id = "CFD008"
+    description = "Use 'from .. import *' instead of explicit imports from parent"
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        # Only check files in a stack/ directory
+        filename = str(context.filename)
+        if "/stack/" not in filename:
+            return issues
+
+        # Skip __init__.py files
+        if filename.endswith("__init__.py"):
+            return issues
+
+        for node in ast.walk(context.tree):
+            if isinstance(node, ast.ImportFrom):
+                # Check for `from .. import something` (not `from .. import *`)
+                if node.module is None and node.level == 2:
+                    # This is `from .. import X` or `from .. import (X, Y, Z)`
+                    # Check if it's a star import
+                    is_star = any(alias.name == "*" for alias in node.names)
+                    if not is_star:
+                        names = ", ".join(alias.name for alias in node.names)
+                        issues.append(
+                            LintIssue(
+                                rule_id=self.rule_id,
+                                message="Use 'from .. import *' instead of explicit imports",
+                                line=node.lineno,
+                                column=node.col_offset,
+                                original=f"from .. import {names}",
+                                suggestion="from .. import *",
+                                fix_imports=[],
+                            )
+                        )
+
+        return issues
+
+
+class RefShouldBeParameterClass(LintRule):
+    """Detect Ref() calls with parameter names that should use ref(ParameterClass).
+
+    When referencing CloudFormation parameters, use ref(ParameterClass) to reference
+    the Parameter wrapper class defined in params.py, rather than Ref("ParamName").
+
+    This provides better type safety and allows IDEs to track references.
+
+    Detects:
+        vpc_id = Ref("VpcId")
+        certificate_arn = Ref("CertificateArn")
+
+    Suggests:
+        vpc_id = ref(VpcIdParam)  # where VpcIdParam is defined in params.py
+        certificate_arn = ref(CertificateArnParam)
+
+    Note: This rule only flags Ref() calls with PascalCase parameter names
+    (not pseudo-parameters like "AWS::Region" which are handled by CFD003).
+    """
+
+    rule_id = "CFD010"
+    description = "Use ref(ParameterClass) instead of Ref() with parameter name strings"
+
+    # Common parameter name patterns (PascalCase identifiers, not AWS:: prefixed)
+    PARAM_NAME_PATTERN = re.compile(r'^[A-Z][a-zA-Z0-9]*$')
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        # Only check files in a stack/ directory (resource files that should use params)
+        filename = str(context.filename)
+        if "/stack/" not in filename:
+            return issues
+
+        # Skip params.py itself
+        if filename.endswith("params.py"):
+            return issues
+
+        for node in ast.walk(context.tree):
+            if isinstance(node, ast.Call):
+                # Check if it's a Ref() call
+                func = node.func
+                is_ref = False
+                if isinstance(func, ast.Name) and func.id == "Ref":
+                    is_ref = True
+                elif isinstance(func, ast.Attribute) and func.attr == "Ref":
+                    is_ref = True
+
+                if is_ref and node.args:
+                    arg = node.args[0]
+                    if isinstance(arg, ast.Constant) and isinstance(arg.value, str):
+                        param_name = arg.value
+
+                        # Skip pseudo-parameters (handled by CFD003)
+                        if param_name.startswith("AWS::"):
+                            continue
+
+                        # Check if it looks like a parameter name (PascalCase)
+                        if self.PARAM_NAME_PATTERN.match(param_name):
+                            # Suggest the conventional Param suffix
+                            suggested_class = f"{param_name}Param"
+                            issues.append(
+                                LintIssue(
+                                    rule_id=self.rule_id,
+                                    message=f"Use ref({suggested_class}) instead of Ref('{param_name}')",
+                                    line=node.lineno,
+                                    column=node.col_offset,
+                                    original=f'Ref("{param_name}")',
+                                    suggestion=f"ref({suggested_class})",
+                                    fix_imports=[],
+                                )
+                            )
+
+        return issues
+
+
+class MissingStackImport(LintRule):
+    """Detect missing required import lines in stack files.
+
+    Stack files need specific import patterns:
+    - params.py: from .. import *, from . import *
+    - outputs.py: from .. import * (resource import varies by module name)
+    - resource files: from .. import *, from . import *
+
+    This rule checks for missing star imports and suggests adding them.
+
+    Detects missing:
+        from .. import *  # noqa: F403, F401
+        from . import *
+    """
+
+    rule_id = "CFD011"
+    description = "Missing required stack import"
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        # Only check files in a stack/ directory
+        filename = str(context.filename)
+        if "/stack/" not in filename:
+            return issues
+
+        # Skip __init__.py files
+        if filename.endswith("__init__.py"):
+            return issues
+
+        # Determine file type
+        basename = filename.split("/")[-1]
+
+        # Find existing star imports
+        has_parent_star = False  # from .. import *
+        has_sibling_star = False  # from . import *, from params import *, from {module} import *
+        last_import_line = 0
+        first_import_line = 0
+
+        for node in context.tree.body:
+            if isinstance(node, ast.ImportFrom):
+                is_star = any(alias.name == "*" for alias in node.names)
+                if is_star:
+                    if node.level == 2 and node.module is None:
+                        # from .. import *
+                        has_parent_star = True
+                    elif node.level == 1:
+                        # from . import * or from .something import *
+                        has_sibling_star = True
+                    elif node.level == 0 and node.module:
+                        # from params import * or from alb import * (bare module names)
+                        has_sibling_star = True
+                if first_import_line == 0:
+                    first_import_line = node.lineno
+                last_import_line = max(last_import_line, node.end_lineno or node.lineno)
+            elif isinstance(node, ast.Import):
+                if first_import_line == 0:
+                    first_import_line = node.lineno
+                last_import_line = max(last_import_line, node.end_lineno or node.lineno)
+
+        # Find where to insert (after docstring if present)
+        insert_at_top = 0
+        if context.tree.body and isinstance(context.tree.body[0], ast.Expr):
+            first_stmt = context.tree.body[0]
+            if isinstance(first_stmt.value, ast.Constant) and isinstance(
+                first_stmt.value.value, str
+            ):
+                # Module has a docstring
+                insert_at_top = first_stmt.end_lineno or first_stmt.lineno
+
+        # All stack files need from .. import *
+        if not has_parent_star:
+            issues.append(
+                LintIssue(
+                    rule_id=self.rule_id,
+                    message="Missing 'from .. import *'",
+                    line=insert_at_top + 1,
+                    column=0,
+                    original="",
+                    suggestion="from .. import *  # noqa: F403, F401",
+                    fix_imports=[],
+                    insert_after_line=insert_at_top,
+                )
+            )
+
+        # Only params.py needs a second import (from . import * for sibling params)
+        # Resource files and outputs.py get everything through from .. import *
+        if basename == "params.py" and not has_sibling_star:
+            insert_line = last_import_line if last_import_line > 0 else insert_at_top
+            if not has_parent_star:
+                # We're adding from .. import * too, so second import goes after that
+                insert_line = insert_at_top + 1 if insert_at_top > 0 else 1
+
+            issues.append(
+                LintIssue(
+                    rule_id=self.rule_id,
+                    message="Missing 'from . import *'",
+                    line=insert_line + 1,
+                    column=0,
+                    original="",
+                    suggestion="from . import *  # noqa: F403, F401",
+                    fix_imports=[],
+                    insert_after_line=insert_line,
+                )
+            )
+
+        return issues
+
+
+class FileShouldBeSplit(LintRule):
+    """Detect resource files with many resources that should be split.
+
+    When a resource file has 12+ resources AND would split into multiple
+    category files, it's beneficial to split into category-based files
+    (network.py, security.py, compute.py, etc.) for better organization.
+
+    This rule only triggers if the split would actually produce multiple files.
+    """
+
+    rule_id = "CFD012"
+    description = "File has many resources and should be split"
+    threshold = 12  # Minimum resources to trigger warning
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        # Count @cloudformation_dataclass decorated classes
+        resource_count = 0
+        for node in ast.walk(context.tree):
+            if isinstance(node, ast.ClassDef):
+                for decorator in node.decorator_list:
+                    if isinstance(decorator, ast.Name) and decorator.id == "cloudformation_dataclass":
+                        resource_count += 1
+                        break
+                    elif isinstance(decorator, ast.Call):
+                        func = decorator.func
+                        if isinstance(func, ast.Name) and func.id == "cloudformation_dataclass":
+                            resource_count += 1
+                            break
+
+        if resource_count >= self.threshold:
+            # Check if split would produce multiple files
+            from cloudformation_dataclasses.linter.split import split_resource_file
+
+            split_files = split_resource_file(context.source)
+            if len(split_files) > 1:
+                issues.append(
+                    LintIssue(
+                        rule_id=self.rule_id,
+                        message=f"File has {resource_count} resources across {len(split_files)} categories. Run: cfn-dataclasses split {context.filename}",
+                        line=1,
+                        column=0,
+                        original="",
+                        suggestion="",
+                        fix_imports=[],
+                    )
+                )
+
+        return issues
+
+
 # All available rules
 ALL_RULES: list[type[LintRule]] = [
     StringShouldBeConditionOperator,
@@ -593,6 +1114,12 @@ ALL_RULES: list[type[LintRule]] = [
     RefShouldBePseudoParameter,
     StringShouldBeEnum,
     DictShouldBePropertyType,
+    DictShouldBeIntrinsic,
+    UnnecessaryToDict,
+    InlinePropertyTypeConstructor,
+    ExplicitParentImport,
+    RefShouldBeParameterClass,
+    FileShouldBeSplit,
 ]
 
 

@@ -31,6 +31,9 @@ yaml = [
 importer = [
     "pyyaml>=6.0",  # For parsing CloudFormation YAML templates
 ]
+stubs = [
+    "watchdog>=3.0",  # For cfn-dataclasses stubs --watch
+]
 dev = [
     # Development/build-time only - NOT shipped with the package
     "mypy>=1.8",

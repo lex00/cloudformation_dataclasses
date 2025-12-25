@@ -26,15 +26,13 @@ class Parameter:
     https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 
     Example:
-        @dataclass
-        class EnvironmentParameter:
-            parameter: Parameter
-            type: str = "String"
-            default: str = "dev"
-            allowed_values: list[str] = field(default_factory=lambda: ["dev", "staging", "prod"])
-            description: str = "Deployment environment"
+        VpcIdParam = Parameter(
+            type=ParameterType.AWS_EC2_VPC_ID,
+            description="VPC ID",
+        )
 
-        param = EnvironmentParameter()
+        # Reference in resources using ref():
+        vpc_id = ref(VpcIdParam)
     """
 
     type: str  # String, Number, List<Number>, CommaDelimitedList, AWS::EC2::*, etc.
@@ -48,6 +46,8 @@ class Parameter:
     min_length: Optional[int] = None
     min_value: Optional[int] = None
     no_echo: Optional[bool] = None
+    # Internal: logical ID set by naming convention (variable name without "Param" suffix)
+    _logical_id: Optional[str] = field(default=None, repr=False)
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize parameter to CloudFormation JSON format."""

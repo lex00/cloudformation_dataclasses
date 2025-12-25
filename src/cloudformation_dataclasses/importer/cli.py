@@ -412,6 +412,47 @@ def main(argv: list[str] | None = None) -> int:
         help="Auto-fix issues in place",
     )
 
+    # split subcommand
+    split_parser = subparsers.add_parser(
+        "split",
+        help="Split resource file into category files",
+        description="Split a large resource file into category-based files (network.py, security.py, etc.).",
+    )
+    split_parser.add_argument(
+        "file",
+        metavar="FILE",
+        help="Resource file to split",
+    )
+    split_parser.add_argument(
+        "--preview",
+        action="store_true",
+        help="Preview split without writing files",
+    )
+    split_parser.add_argument(
+        "-o", "--output",
+        metavar="DIR",
+        help="Output directory (default: same as input file)",
+    )
+
+    # stubs subcommand
+    stubs_parser = subparsers.add_parser(
+        "stubs",
+        help="Generate .pyi stub files for IDE support",
+        description="Generate type stub files so Pylance/mypy understands dynamic imports.",
+    )
+    stubs_parser.add_argument(
+        "path",
+        metavar="PATH",
+        nargs="?",
+        default=".",
+        help="Directory to scan (default: current directory)",
+    )
+    stubs_parser.add_argument(
+        "--watch", "-w",
+        action="store_true",
+        help="Watch for changes and regenerate (requires watchdog)",
+    )
+
     args = parser.parse_args(argv)
 
     # Show help if no command provided
@@ -425,6 +466,10 @@ def main(argv: list[str] | None = None) -> int:
         return _run_init_command(args)
     elif args.command == "lint":
         return _run_lint_command(args)
+    elif args.command == "split":
+        return _run_split_command(args)
+    elif args.command == "stubs":
+        return _run_stubs_command(args)
 
     return 0
 
@@ -497,6 +542,7 @@ def _run_lint_command(args: argparse.Namespace) -> int:
         Exit code: 0 if no issues (or all fixed), 1 if issues found.
     """
     from cloudformation_dataclasses.linter import lint_file, fix_file
+    from cloudformation_dataclasses.linter.split import write_split_files
 
     path = Path(args.path)
 
@@ -530,9 +576,27 @@ def _run_lint_command(args: argparse.Namespace) -> int:
 
     total_issues = 0
     fixed_files = 0
+    files_to_remove: list[Path] = []
 
     for file in sorted(files):
         if args.fix:
+            # First check for CFD012 (file should be split)
+            issues = lint_file(file)
+            split_issue = next((i for i in issues if i.rule_id == "CFD012"), None)
+
+            if split_issue:
+                # Split the file
+                split_results = write_split_files(file)
+                if len(split_results) > 1:
+                    fixed_files += 1
+                    new_files = [p.name for p in split_results.values()]
+                    print(f"Split {file} -> {', '.join(new_files)}")
+                    # Mark original file for removal (only if it was actually split)
+                    if file.name not in [p.name for p in split_results.values()]:
+                        files_to_remove.append(file)
+                    continue
+
+            # Apply regular fixes
             original = file.read_text()
             fixed = fix_file(file, write=True)
             if fixed != original:
@@ -545,6 +609,11 @@ def _run_lint_command(args: argparse.Namespace) -> int:
             total_issues += len(issues)
             for issue in issues:
                 print(f"{file}:{issue.line}:{issue.column}: {issue.rule_id} {issue.message}")
+
+    # Remove original files that were split
+    for file in files_to_remove:
+        file.unlink()
+        print(f"Removed {file}")
 
     # Summary
     if args.fix:
@@ -560,6 +629,160 @@ def _run_lint_command(args: argparse.Namespace) -> int:
         else:
             print("No issues found")
             return 0
+
+
+def _run_split_command(args: argparse.Namespace) -> int:
+    """Handle the split subcommand.
+
+    Splits a resource file into category-based files.
+
+    Args:
+        args: Parsed command-line arguments.
+
+    Returns:
+        Exit code: 0 for success, 1 for errors.
+    """
+    from cloudformation_dataclasses.linter.split import (
+        print_split_preview,
+        split_resource_file,
+        write_split_files,
+    )
+
+    file_path = Path(args.file)
+
+    if not file_path.exists():
+        print(f"Error: File not found: {file_path}", file=sys.stderr)
+        return 1
+
+    if not file_path.is_file():
+        print(f"Error: Not a file: {file_path}", file=sys.stderr)
+        return 1
+
+    source = file_path.read_text()
+
+    if args.preview:
+        print_split_preview(source, str(file_path))
+        return 0
+
+    # Determine output directory
+    output_dir = Path(args.output) if args.output else file_path.parent
+
+    # Split and write files
+    split_files = split_resource_file(source)
+
+    if len(split_files) == 1 and "main" in split_files:
+        print(f"No split needed - file has few resources or all in same category")
+        return 0
+
+    # Write files
+    for category, content in split_files.items():
+        out_path = output_dir / f"{category}.py"
+        out_path.write_text(content)
+        print(f"Wrote {out_path}")
+
+    # Optionally remove original file if it was split
+    if file_path.name not in [f"{cat}.py" for cat in split_files]:
+        print(f"\nNote: Original file {file_path.name} can be removed if split is correct")
+
+    return 0
+
+
+def _run_stubs_command(args: argparse.Namespace) -> int:
+    """Handle the stubs subcommand.
+
+    Generates .pyi stub files for IDE type checking support.
+
+    Args:
+        args: Parsed command-line arguments.
+
+    Returns:
+        Exit code: 0 for success, 1 for errors.
+    """
+    from cloudformation_dataclasses.stubs import generate_stubs_for_path, find_stack_packages
+
+    path = Path(args.path).resolve()
+
+    if not path.exists():
+        print(f"Error: Path not found: {path}", file=sys.stderr)
+        return 1
+
+    if args.watch:
+        # Watch mode - requires watchdog
+        try:
+            from watchdog.observers import Observer
+            from watchdog.events import FileSystemEventHandler, FileModifiedEvent
+        except ImportError:
+            print(
+                "Error: Watch mode requires watchdog. Install with:\n"
+                "  pip install watchdog\n"
+                "  # or\n"
+                "  pip install cloudformation_dataclasses[stubs]",
+                file=sys.stderr,
+            )
+            return 1
+
+        # Find all stack packages to watch
+        stacks = find_stack_packages(path)
+        if not stacks:
+            print(f"No stack packages found in {path}", file=sys.stderr)
+            return 1
+
+        # Generate initial stubs
+        count = generate_stubs_for_path(path)
+        print(f"Generated stubs for {count} stack(s)")
+        print(f"Watching for changes... (Ctrl+C to stop)")
+
+        class StubHandler(FileSystemEventHandler):  # type: ignore[misc]
+            """Regenerate stubs when .py files change."""
+
+            def on_modified(self, event: FileModifiedEvent) -> None:
+                if event.is_directory:
+                    return
+                if not str(event.src_path).endswith(".py"):
+                    return
+                # Skip .pyi files
+                if str(event.src_path).endswith(".pyi"):
+                    return
+
+                # Find which stack this file belongs to
+                file_path = Path(str(event.src_path))
+                for stack in stacks:
+                    if stack in file_path.parents or file_path.parent == stack:
+                        from cloudformation_dataclasses.stubs import generate_stub_file
+                        if generate_stub_file(stack):
+                            print(f"Regenerated stubs for {stack.parent.name}")
+                        break
+
+        observer = Observer()
+        handler = StubHandler()
+
+        # Watch each stack's parent directory
+        watched_dirs: set[Path] = set()
+        for stack in stacks:
+            parent = stack.parent
+            if parent not in watched_dirs:
+                observer.schedule(handler, str(parent), recursive=True)
+                watched_dirs.add(parent)
+
+        observer.start()
+        try:
+            import time
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            observer.stop()
+            print("\nStopped watching.")
+        observer.join()
+        return 0
+
+    else:
+        # One-shot mode
+        count = generate_stubs_for_path(path)
+        if count == 0:
+            print(f"No stack packages found in {path}", file=sys.stderr)
+            return 1
+        print(f"Generated stubs for {count} stack(s)")
+        return 0
 
 
 def _is_package_structure(path: Path) -> bool:

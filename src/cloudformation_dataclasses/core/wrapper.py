@@ -18,9 +18,12 @@ declarations rather than at instantiation time.
 from __future__ import annotations
 
 from dataclasses import MISSING, dataclass, fields, is_dataclass
-from typing import Any, Generic, Type, TypeVar, get_type_hints
+from typing import TYPE_CHECKING, Any, Generic, Type, TypeVar, get_type_hints
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
+
+if TYPE_CHECKING:
+    from cloudformation_dataclasses.core.template import Parameter
 
 # Type variable for generic Ref/GetAtt type markers
 T = TypeVar("T")
@@ -66,15 +69,18 @@ def ref(wrapper_class: Type[Any] | str | None = None) -> DeferredRef:
     """
     Create a DeferredRef for use in wrapper dataclass field declarations.
 
-    This function supports three usage patterns:
+    This function supports four usage patterns:
 
     1. Class reference (when class is available at definition time):
-        bucket_name = ref(BucketName)  # Parameter refs work this way
+        bucket_name = ref(MyBucket)
 
-    2. String reference (always works, but no IDE support):
+    2. Parameter reference (for CloudFormation parameters):
+        vpc_id = ref(VpcIdParam)  # VpcIdParam is a Parameter instance
+
+    3. String reference (always works, but no IDE support):
         bucket = ref("Bucket")
 
-    3. Annotation-based reference (recommended for cross-resource refs):
+    4. Annotation-based reference (recommended for cross-resource refs):
         bucket: Ref[Bucket] = ref()  # IDE support via type annotation
 
     The annotation-based pattern uses PEP 563 (`from __future__ import annotations`)
@@ -82,7 +88,7 @@ def ref(wrapper_class: Type[Any] | str | None = None) -> DeferredRef:
     The actual class name is extracted from the annotation at resource creation time.
 
     Args:
-        wrapper_class: The wrapper class, class name, or None (annotation-based)
+        wrapper_class: The wrapper class, Parameter instance, class name, or None
 
     Returns:
         A DeferredRef that will be resolved during resource creation
@@ -107,6 +113,17 @@ def ref(wrapper_class: Type[Any] | str | None = None) -> DeferredRef:
     elif isinstance(wrapper_class, str):
         return DeferredRef(logical_id=wrapper_class)
     else:
+        # Check if it's a Parameter instance (has _logical_id attribute)
+        if hasattr(wrapper_class, "_logical_id") and hasattr(wrapper_class, "to_dict"):
+            # It's a Parameter instance
+            logical_id = wrapper_class._logical_id
+            if logical_id is None:
+                raise ValueError(
+                    f"Parameter has no logical ID set. "
+                    f"Ensure the parameter is defined in params.py with a name ending in 'Param'."
+                )
+            return DeferredRef(logical_id=logical_id)
+        # Otherwise it's a class
         return DeferredRef(logical_id=wrapper_class.__name__)
 
 

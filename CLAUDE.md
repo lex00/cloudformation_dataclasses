@@ -387,3 +387,93 @@ def test_serialization():
 
 - AWS CloudFormation Resource Specification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 - Specification JSON: https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
+
+## Anti-Patterns to Avoid
+
+When generating code for this library, NEVER use raw CloudFormation dict patterns.
+
+### 1. Raw Intrinsic Function Dicts
+```python
+# ❌ WRONG - raw dict
+vpc_id = {"Ref": "VpcId"}
+availability_zone = {"Fn::Select": [0, {"Fn::GetAZs": ""}]}
+password = {"Fn::Sub": "${Secret}"}
+joined = {"Fn::Join": [",", [...]]}
+
+# ✅ CORRECT - typed helpers
+from cloudformation_dataclasses.intrinsics import Ref, Sub, Select, GetAZs, Join
+vpc_id = Ref("VpcId")
+availability_zone = Select(0, GetAZs())
+password = Sub("${Secret}")
+joined = Join(",", [...])
+```
+
+### 2. Pseudo-Parameter References
+```python
+# ❌ WRONG
+region = {"Ref": "AWS::Region"}
+account_id = {"Ref": "AWS::AccountId"}
+
+# ✅ CORRECT
+from cloudformation_dataclasses.intrinsics import AWS_REGION, AWS_ACCOUNT_ID
+region = AWS_REGION
+account_id = AWS_ACCOUNT_ID
+```
+
+### 3. Inline PropertyType Constructors
+```python
+# ❌ WRONG - inline constructor in list
+security_group_ingress = [
+    ec2.security_group.Ingress(ip_protocol=IpProtocol.TCP, from_port=443)
+]
+
+# ✅ CORRECT - separate wrapper class
+@cloudformation_dataclass
+class MySecurityGroupIngress:
+    resource: ec2.security_group.Ingress
+    ip_protocol = IpProtocol.TCP
+    from_port = 443
+
+@cloudformation_dataclass
+class MySecurityGroup:
+    resource: ec2.SecurityGroup
+    security_group_ingress = [MySecurityGroupIngress]
+```
+
+### 4. Inline IAM Policies
+```python
+# ❌ WRONG - inline dict
+assume_role_policy_document = {
+    "Version": "2012-10-17",
+    "Statement": [{"Effect": "Allow", ...}]
+}
+
+# ✅ CORRECT - wrapper classes
+@cloudformation_dataclass
+class MyAssumeRoleStatement:
+    resource: PolicyStatement
+    principal = {"Service": "lambda.amazonaws.com"}
+    action = "sts:AssumeRole"
+
+@cloudformation_dataclass
+class MyAssumeRolePolicy:
+    resource: PolicyDocument
+    statement = [MyAssumeRoleStatement]
+
+@cloudformation_dataclass
+class MyRole:
+    resource: iam.Role
+    assume_role_policy_document = MyAssumeRolePolicy
+```
+
+### Available Intrinsic Functions
+
+Import from `cloudformation_dataclasses.intrinsics`:
+- `Ref("ParameterName")` - Reference parameters
+- `ref(ResourceClass)` - Reference resources (lowercase)
+- `get_att(ResourceClass, "Attribute")` - Get resource attributes
+- `Sub("string with ${variable}")` - String substitution
+- `Join(",", [items])` - Join list to string
+- `Select(index, list)` - Select item from list
+- `GetAZs(region="")` - Get availability zones
+- `AWS_REGION`, `AWS_ACCOUNT_ID`, `AWS_STACK_NAME` - Pseudo-parameters

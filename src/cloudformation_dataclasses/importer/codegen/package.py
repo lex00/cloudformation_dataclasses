@@ -197,13 +197,16 @@ if __name__ == "__main__":
 # =============================================================================
 
 
-def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
+def generate_package(
+    template: IRTemplate, package_name: str, *, lint: bool = True
+) -> dict[str, str]:
     """
     Generate a Python package from template (multi-file output).
 
     Args:
         template: Parsed IRTemplate
         package_name: Name of the Python package (used as subdirectory prefix)
+        lint: Whether to run linter fixes on generated files. Defaults to True.
 
     Returns:
         Dict mapping filename to content, with all files prefixed by package_name/:
@@ -262,7 +265,35 @@ main()
     for filename, content in stack_files.items():
         files[f"{package_name}/{filename}"] = content
 
+    # Run linter fixes on generated files if enabled
+    if lint:
+        files = _lint_generated_files(files)
+
     return files
+
+
+def _lint_generated_files(files: dict[str, str]) -> dict[str, str]:
+    """Run linter fixes on generated stack files.
+
+    This ensures generated code follows idiomatic patterns like:
+    - from .. import * in stack files
+    - from . import * in resource files
+
+    Args:
+        files: Dict mapping filename to content
+
+    Returns:
+        Dict with linted file contents
+    """
+    from cloudformation_dataclasses.linter import fix_code
+
+    result = {}
+    for filename, content in files.items():
+        # Only lint stack files (params.py, outputs.py, resource files)
+        if "/stack/" in filename and not filename.endswith("__init__.py"):
+            content = fix_code(content, filename=filename)
+        result[filename] = content
+    return result
 
 
 # =============================================================================
