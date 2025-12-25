@@ -152,5 +152,6 @@ print(template.to_json())
 
 ## See Also
 
+- [Adoption Guide](ADOPTION.md) - Migration strategies and team onboarding
 - [CLI Reference](CLI.md) - Full command documentation
 - [Internals](INTERNALS.md) - How auto-registration works
