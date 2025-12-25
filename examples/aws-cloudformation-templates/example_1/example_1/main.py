@@ -1,19 +1,17 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry()
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class AddReadme:
+    """Boto3::CodeCommit.put_file resource."""
 
-
-if __name__ == "__main__":
-    main()
+    # Unknown resource type: Boto3::CodeCommit.put_file
+    resource: CloudFormationResource
+    repository_name = get_att(Repo, "Name")
+    branch_name = 'master'
+    file_content = 'Hello, world'
+    file_path = 'README.md'
+    commit_message = 'Add another README.md'
+    name = 'CloudFormation'

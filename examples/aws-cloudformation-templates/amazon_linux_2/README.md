@@ -12,16 +12,16 @@ Migrated from [amazon_linux_2.yaml](https://github.com/aws-cloudformation/cfn-li
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m amazon_linux_2
+python -m amazon_linux_2
+```
+
+### Validate Template
+
+```bash
+python -m amazon_linux_2 --validate
 ```
 
 ### Install as Dependency

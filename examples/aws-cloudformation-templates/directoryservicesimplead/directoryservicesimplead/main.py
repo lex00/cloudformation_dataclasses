@@ -1,22 +1,24 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        parameters=[DomainName, SimpleADShortName, CreateAlias, PrivateSubnet1, PrivateSubnet2, VPCID, Size],
-        outputs=[DirectoryIDOutput, PrimaryDNSOutput, SecondaryDNSOutput, DirectoryAliasOutput],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class SimpleADVpcSettings:
+    resource: directoryservice.microsoft_ad.VpcSettings
+    subnet_ids = [Select(0, ref(PrivateSubnet1)), Select(0, ref(PrivateSubnet2))]
+    vpc_id = Select(0, ref(VPCID))
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class SimpleAD:
+    """AWS::DirectoryService::SimpleAD resource."""
+
+    resource: directoryservice.SimpleAD
+    create_alias = False
+    enable_sso = False
+    name = ref(DomainName)
+    password = '{{resolve:secretsmanager:simple-ad-pw:SecretString:pasword}}'
+    short_name = ref(SimpleADShortName)
+    size = ref(Size)
+    vpc_settings = SimpleADVpcSettings

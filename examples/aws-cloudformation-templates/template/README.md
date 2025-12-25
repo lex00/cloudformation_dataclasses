@@ -1,9 +1,6 @@
 # Template
 
-Migrated from [template.yml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `LambdaSample.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -12,16 +9,16 @@ Migrated from [template.yml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m template
+python -m template
+```
+
+### Validate Template
+
+```bash
+python -m template --validate
 ```
 
 ### Install as Dependency
@@ -34,4 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `GetFromJsonLambdaFunction` | AWS::Serverless::Function |
+| `LambdaRole` | AWS::IAM::Role |
+| `LambdaFunction` | AWS::Lambda::Function |

@@ -1,4 +1,4 @@
 """Allow running as: python -m efsaccesspoint."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="Creates an EFS file system with three mount targets and one access point.")

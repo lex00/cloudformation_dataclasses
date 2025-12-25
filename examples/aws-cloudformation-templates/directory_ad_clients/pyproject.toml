@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-directory_ad_clients = "directory_ad_clients.main:main"
+directory_ad_clients = "directory_ad_clients.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["directory_ad_clients"]
 
 [tool.hatch.build.targets.sdist]
-include = ["directory_ad_clients/**/*.py", "directory_ad_clients/resources/"]
+include = ["directory_ad_clients/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

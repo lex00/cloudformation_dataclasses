@@ -12,16 +12,16 @@ Migrated from [efs_with_automount_to_ec2.yaml](https://github.com/aws-cloudforma
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m efs_with_automount_to_ec2
+python -m efs_with_automount_to_ec2
+```
+
+### Validate Template
+
+```bash
+python -m efs_with_automount_to_ec2 --validate
 ```
 
 ### Install as Dependency

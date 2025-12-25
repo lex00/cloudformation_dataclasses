@@ -25,6 +25,7 @@ from cloudformation_dataclasses.core.base import (
     PolicyStatement,
     Tag,
 )
+from cloudformation_dataclasses.core.cli import run_package_cli
 from cloudformation_dataclasses.core.constants import (
     ARN,
     ARN_EQUALS,
@@ -113,6 +114,7 @@ __all__ = [
     "get_att",
     "ref",
     "registry",
+    "run_package_cli",
     "setup_resources",
     # Type wrappers
     "GetAtt",

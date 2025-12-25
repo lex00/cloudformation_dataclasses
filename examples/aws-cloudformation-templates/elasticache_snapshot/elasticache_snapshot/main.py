@@ -1,22 +1,17 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='Create a VPC containing two subnets and an auto scaling group containing instances with Internet access.',
-        parameters=[RedisNodeType, EnableSnapshotting, SnapshotRetentionLimit, SnapshotWindow],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class EnableShapshotTrigger:
+    """Custom::Region resource."""
 
-
-if __name__ == "__main__":
-    main()
+    # Unknown resource type: Custom::Region
+    resource: CloudFormationResource
+    service_token = get_att(EnableShapshot, "Arn")
+    ss_cluster_id = ref(RedisReplicationGroup)
+    ss_window = ref(SnapshotWindow)
+    ss_retention_limit = ref(SnapshotRetentionLimit)
+    depends_on = ["EnableShapshot", "LambdaExecutePermission", "RedisReplicationGroup"]
+    condition = 'EnableBackups'

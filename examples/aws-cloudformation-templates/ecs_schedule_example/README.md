@@ -12,16 +12,16 @@ Migrated from [ECS_Schedule_Example.yaml](https://github.com/aws-cloudformation/
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m ecs_schedule_example
+python -m ecs_schedule_example
+```
+
+### Validate Template
+
+```bash
+python -m ecs_schedule_example --validate
 ```
 
 ### Install as Dependency

@@ -12,16 +12,16 @@ Migrated from [cloudfront-nocache.yml](https://github.com/aws-cloudformation/cfn
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m cloudfront_nocache
+python -m cloudfront_nocache
+```
+
+### Validate Template
+
+```bash
+python -m cloudfront_nocache --validate
 ```
 
 ### Install as Dependency

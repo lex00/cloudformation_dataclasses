@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ecs_schedule_example = "ecs_schedule_example.main:main"
+ecs_schedule_example = "ecs_schedule_example.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["ecs_schedule_example"]
 
 [tool.hatch.build.targets.sdist]
-include = ["ecs_schedule_example/**/*.py", "ecs_schedule_example/resources/"]
+include = ["ecs_schedule_example/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

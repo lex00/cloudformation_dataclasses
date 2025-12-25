@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-dynamodb_secondary_indexes = "dynamodb_secondary_indexes.main:main"
+dynamodb_secondary_indexes = "dynamodb_secondary_indexes.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["dynamodb_secondary_indexes"]
 
 [tool.hatch.build.targets.sdist]
-include = ["dynamodb_secondary_indexes/**/*.py", "dynamodb_secondary_indexes/resources/"]
+include = ["dynamodb_secondary_indexes/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

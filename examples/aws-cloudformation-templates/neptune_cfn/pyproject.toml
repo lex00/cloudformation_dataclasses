@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-neptune_cfn = "neptune_cfn.main:main"
+neptune_cfn = "neptune_cfn.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["neptune_cfn"]
 
 [tool.hatch.build.targets.sdist]
-include = ["neptune_cfn/**/*.py", "neptune_cfn/resources/"]
+include = ["neptune_cfn/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

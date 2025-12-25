@@ -152,11 +152,12 @@ class TestInitSubcommand:
 
         assert exit_code == 0
         assert (output_dir / "my_project" / "__init__.py").exists()
-        assert (output_dir / "my_project" / "main.py").exists()
         assert (output_dir / "my_project" / "__main__.py").exists()
-        assert (output_dir / "my_project" / "stack" / "__init__.py").exists()
+        assert (output_dir / "my_project" / "params.py").exists()
         assert (output_dir / "README.md").exists()
         assert (output_dir / "pyproject.toml").exists()
+        # Note: main.py is NOT generated for init (empty skeleton)
+        # It will be created when resources are added via import command
 
     def test_init_with_project_name(self, tmp_path: Path) -> None:
         """--project-name overrides package name."""
@@ -167,7 +168,6 @@ class TestInitSubcommand:
         assert exit_code == 0
         # Package directory uses project name
         assert (output_dir / "analytics" / "__init__.py").exists()
-        assert (output_dir / "analytics" / "main.py").exists()
         # README uses project name
         readme = (output_dir / "README.md").read_text()
         assert "Analytics" in readme
@@ -223,9 +223,11 @@ class TestInitSubcommand:
 
         sys.path.insert(0, str(output_dir))
         try:
-            from test_project.main import build_template
-
-            template = build_template()
+            # Import the package to verify it works
+            import test_project
+            # For init skeleton, build_template is accessible via Template.from_registry()
+            from cloudformation_dataclasses.core import Template
+            template = Template.from_registry()
             cf_dict = template.to_dict()
             assert "AWSTemplateFormatVersion" in cf_dict
         finally:
@@ -269,7 +271,7 @@ class TestLintSubcommand:
         assert exit_code == 0
 
     def test_lint_package_structure(self, tmp_path: Path) -> None:
-        """lint detects package structure and lints stack/."""
+        """lint detects package structure and lints resource files."""
         # Create package structure
         output_dir = tmp_path / "my_project"
         main(["init", "-o", str(output_dir)])

@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-sapprivatelinknohostedzone = "sapprivatelinknohostedzone.main:main"
+sapprivatelinknohostedzone = "sapprivatelinknohostedzone.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["sapprivatelinknohostedzone"]
 
 [tool.hatch.build.targets.sdist]
-include = ["sapprivatelinknohostedzone/**/*.py", "sapprivatelinknohostedzone/resources/"]
+include = ["sapprivatelinknohostedzone/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

@@ -12,16 +12,16 @@ Migrated from [common-resources-pkg.json](https://github.com/aws-cloudformation/
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m common_resources_pkg
+python -m common_resources_pkg
+```
+
+### Validate Template
+
+```bash
+python -m common_resources_pkg --validate
 ```
 
 ### Install as Dependency

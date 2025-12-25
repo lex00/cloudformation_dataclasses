@@ -43,7 +43,8 @@ OUTPUT_DIR="$PROJECT_ROOT/examples/aws-cloudformation-templates"
 # Templates with known defects that cannot be imported correctly
 # These will be skipped during validation (but still imported for inspection)
 SKIP_TEMPLATES=(
-    # Currently none - all templates validate successfully
+    # Uses custom CloudFormation macro (ExecutionRoleBuilder) with non-standard properties
+    "example_2"
 )
 
 # Templates to exclude from import entirely (Rain-specific, Kubernetes manifests, etc.)
@@ -81,6 +82,35 @@ EXCLUDE_TEMPLATES=(
     "Solutions/VSCode/VSCodeServer.json"
     # Kubernetes manifests (not CloudFormation)
     "EKS/manifest.yml"
+    # Lambda test events (not CloudFormation templates)
+    "CloudFormation/CustomResources/getfromjson/src/events/event-consume-from-list.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-consume-from-list-retrieval-error.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-consume-from-map.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-consume-from-map-retrieval-error.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-empty-json-data-input.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-empty-search-input.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-invalid-json-data-input.json"
+    "CloudFormation/CustomResources/getfromjson/src/events/event-invalid-search-input.json"
+    # SAM templates (use Transform: AWS::Serverless)
+    "CloudFormation/CustomResources/getfromjson/src/template.yml"
+    # Macro definition templates (just define the macro, no resources to validate)
+    "CloudFormation/MacrosExamples/Count/macro.json"
+    "CloudFormation/MacrosExamples/Count/macro.yaml"
+    "CloudFormation/MacrosExamples/StackMetrics/macro.json"
+    "CloudFormation/MacrosExamples/StackMetrics/macro.yaml"
+    "CloudFormation/MacrosExamples/S3Objects/macro.json"
+    "CloudFormation/MacrosExamples/S3Objects/macro.yaml"
+    "CloudFormation/MacrosExamples/Explode/macro.json"
+    "CloudFormation/MacrosExamples/Explode/macro.yaml"
+    "CloudFormation/MacrosExamples/ExecutionRoleBuilder/macro.json"
+    "CloudFormation/MacrosExamples/ExecutionRoleBuilder/macro.yaml"
+    "CloudFormation/MacrosExamples/Boto3/macro.json"
+    "CloudFormation/MacrosExamples/Boto3/macro.yaml"
+    # CodeBuild buildspec files (not CloudFormation templates)
+    "Solutions/CodeBuildAndCodePipeline/codebuild-app-build.yml"
+    "Solutions/CodeBuildAndCodePipeline/codebuild-app-deploy.yml"
+    # Custom resource consumer example templates (reference custom resources that don't exist)
+    "CloudFormation/CustomResources/getfromjson/example-templates/getfromjson-consumer.yml"
 )
 
 cd "$PROJECT_ROOT"
@@ -357,9 +387,10 @@ if [ "$SKIP_VALIDATION" = false ]; then
         local pkg_dir="$1"
         local pkg_name=$(basename "$pkg_dir")
 
-        # Run directly with PYTHONPATH - capture stderr for debugging
+        # Run with --validate flag for proper validation
+        # This checks for validation errors like missing conditions, duplicate resources, etc.
         local error_output
-        if error_output=$(PYTHONPATH="$PROJECT_SRC:$pkg_dir" python3 -m "$pkg_name" 2>&1 >/dev/null); then
+        if error_output=$(PYTHONPATH="$PROJECT_SRC:$pkg_dir" python3 -m "$pkg_name" --validate 2>&1); then
             echo "OK:$pkg_name"
         else
             echo "FAIL:$pkg_name"
@@ -422,13 +453,13 @@ if [ "$SKIP_VALIDATION" = false ]; then
                 rm -rf "$PKG_OUTPUT"
                 uv run cfn-dataclasses import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null || true
 
-                if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" >/dev/null 2>&1; then
+                if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" --validate >/dev/null 2>&1; then
                     echo "FIXED:$pkg"
                 else
                     echo "FAIL:$pkg"
                     {
                         echo "=== $pkg ==="
-                        PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" 2>&1 || true
+                        PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" --validate 2>&1 || true
                         echo ""
                     } >> "$VALIDATION_ERRORS_FILE"
                 fi

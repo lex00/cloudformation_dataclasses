@@ -184,7 +184,7 @@ from cloudformation_dataclasses.aws import s3, ec2, lambda_
 
 Then read one resource file:
 ```python
-from .. import *
+from . import *
 
 @cloudformation_dataclass
 class DataBucket:
@@ -220,11 +220,11 @@ Run it, diff the output, deploy to dev.
 
 ### Day 3-4: Add a New Resource
 
-Create a new file in `stack/`:
+Create a new file in the package directory:
 
 ```python
-# stack/monitoring.py
-from .. import *
+# monitoring.py
+from . import *
 
 @cloudformation_dataclass
 class AlertTopic:
@@ -237,7 +237,7 @@ Resources auto-register. No imports to update elsewhere.
 ### Day 5: Review the Patterns
 
 By now you've seen:
-- `from .. import *` at the top of every file
+- `from . import *` at the top of every file
 - `@cloudformation_dataclass` decorator
 - `resource: <type>` to specify the CloudFormation type
 - `ref()` and `get_att()` for references
@@ -250,8 +250,8 @@ That's 90% of what you need.
 | Problem | Solution |
 |---------|----------|
 | "NameError: s3 is not defined" | Check `__init__.py` imports the AWS module |
-| "Circular import" | Shouldn't happen—use `from .. import *` pattern |
-| "Resource not in template" | File not in `stack/` directory, or missing decorator |
+| "Circular import" | Shouldn't happen—use `from . import *` pattern |
+| "Resource not in template" | File not in package directory, or missing decorator |
 | "Wrong property name" | Use IDE autocomplete, or check the AWS docs |
 
 ### Team Conventions to Establish

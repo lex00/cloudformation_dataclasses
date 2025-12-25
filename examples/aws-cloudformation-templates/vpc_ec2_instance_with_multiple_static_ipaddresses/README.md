@@ -12,16 +12,16 @@ Migrated from [VPC_EC2_Instance_With_Multiple_Static_IPAddresses.yaml](https://g
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m vpc_ec2_instance_with_multiple_static_ipaddresses
+python -m vpc_ec2_instance_with_multiple_static_ipaddresses
+```
+
+### Validate Template
+
+```bash
+python -m vpc_ec2_instance_with_multiple_static_ipaddresses --validate
 ```
 
 ### Install as Dependency

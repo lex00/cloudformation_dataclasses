@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-redhat_2 = "redhat_2.main:main"
+redhat_2 = "redhat_2.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["redhat_2"]
 
 [tool.hatch.build.targets.sdist]
-include = ["redhat_2/**/*.py", "redhat_2/resources/"]
+include = ["redhat_2/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

@@ -18,6 +18,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam, s3
 from cloudformation_dataclasses.aws.s3 import (
     ObjectLockEnabled,
@@ -27,7 +28,10 @@ from cloudformation_dataclasses.aws.s3 import (
 )
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
-from .stack import *  # noqa: F403, F401
+from .params import *  # noqa: F403, F401
+
+# Auto-discover and import resource files in topological order
+setup_resources(__file__, __name__, globals())
 
 __all__ = [
     "ARN_LIKE",

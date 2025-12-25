@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-dmsauroratos3fullloadandongoingreplication = "dmsauroratos3fullloadandongoingreplication.main:main"
+dmsauroratos3fullloadandongoingreplication = "dmsauroratos3fullloadandongoingreplication.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["dmsauroratos3fullloadandongoingreplication"]
 
 [tool.hatch.build.targets.sdist]
-include = ["dmsauroratos3fullloadandongoingreplication/**/*.py", "dmsauroratos3fullloadandongoingreplication/resources/"]
+include = ["dmsauroratos3fullloadandongoingreplication/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

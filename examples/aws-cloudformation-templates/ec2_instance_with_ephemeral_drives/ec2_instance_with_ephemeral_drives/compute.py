@@ -1,0 +1,23 @@
+"""Compute resources: EC2Instance."""
+
+from . import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class EC2InstanceBlockDeviceMapping:
+    resource: ec2.instance.BlockDeviceMapping
+    device_name = '/dev/sdc'
+    virtual_name = 'ephemeral0'
+
+
+@cloudformation_dataclass
+class EC2Instance:
+    """AWS::EC2::Instance resource."""
+
+    resource: ec2.Instance
+    instance_type = ref(InstanceType)
+    subnet_id = Select(0, ref(Subnets))
+    security_group_ids = [get_att(EC2SecurityGroup, "GroupId")]
+    key_name = ref(KeyName)
+    image_id = ref(LatestAmiId)
+    block_device_mappings = [EC2InstanceBlockDeviceMapping]

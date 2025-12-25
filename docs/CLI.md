@@ -39,14 +39,10 @@ cfn-dataclasses init -o my_stack/ --project-name analytics
 my_stack/
 ├── pyproject.toml           # Package config with uv/pip support
 ├── my_stack/
-│   ├── __init__.py          # Centralized imports
-│   ├── __main__.py          # For `python -m my_stack`
-│   ├── main.py              # build_template() entry point
-│   └── stack/
-│       ├── __init__.py      # Resource auto-discovery
-│       └── main.py          # Your resources go here
-└── tests/
-    └── test_my_stack.py
+│   ├── __init__.py          # Centralized imports + setup_resources()
+│   ├── __init__.pyi         # Type stubs
+│   ├── __main__.py          # For `python -m my_stack` (uses run_package_cli())
+│   └── main.py              # Your resources go here
 ```
 
 See [Quick Start](QUICK_START.md) for a walkthrough of adding your first resource.
@@ -90,28 +86,26 @@ cfn-dataclasses import /path/to/templates/ -o output/
 
 ### Package Output
 
-When outputting to a directory, resources are organized by AWS service category:
+When outputting to a directory, resources are organized by AWS service category in a flat structure:
 
 ```
 my_stack/
 ├── pyproject.toml
 ├── original/template.yaml     # Source preserved
-├── tests/
 ├── my_stack/
-│   ├── __init__.py            # Centralized imports
-│   ├── main.py                # build_template()
-│   └── stack/
-│       ├── __init__.py        # Auto-discovery via setup_resources()
-│       ├── params.py          # Parameters, Mappings, Conditions
-│       ├── outputs.py         # Output definitions
-│       ├── compute.py         # Lambda, EC2, ECS
-│       ├── network.py         # VPC, Subnets, Security Groups
-│       ├── storage.py         # S3, EFS
-│       ├── database.py        # RDS, DynamoDB
-│       └── main.py            # Uncategorized resources
+│   ├── __init__.py            # Centralized imports + setup_resources()
+│   ├── __init__.pyi           # Type stubs
+│   ├── __main__.py            # Uses run_package_cli()
+│   ├── params.py              # Parameters, Mappings, Conditions
+│   ├── outputs.py             # Output definitions
+│   ├── compute.py             # Lambda, EC2, ECS
+│   ├── network.py             # VPC, Subnets, Security Groups
+│   ├── storage.py             # S3, EFS
+│   ├── database.py            # RDS, DynamoDB
+│   └── main.py                # Uncategorized resources
 ```
 
-**Key pattern: Single import.** Resource files use `from .. import *` to get everything they need.
+**Key pattern: Single import.** Resource files use `from . import *` to get everything they need.
 
 ### Batch Mode
 

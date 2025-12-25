@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-date_example = "date_example.main:main"
+date_example = "date_example.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["date_example"]
 
 [tool.hatch.build.targets.sdist]
-include = ["date_example/**/*.py", "date_example/resources/"]
+include = ["date_example/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

@@ -29,7 +29,7 @@ The decorator checks if the wrapped class has a `resource_type` attribute (indic
 
 ## Auto-Discovery
 
-The `setup_resources()` function in `stack/__init__.py` handles auto-discovery:
+The `setup_resources()` function in the package's `__init__.py` handles auto-discovery:
 
 ```python
 from cloudformation_dataclasses.core.resource_loader import setup_resources
@@ -37,7 +37,7 @@ setup_resources(__file__, __name__, globals())
 ```
 
 This function:
-1. Finds all `.py` files in the directory
+1. Finds all `.py` files in the package directory
 2. Imports each module, triggering `@cloudformation_dataclass` decorators
 3. Exports all public names for the single import pattern
 
@@ -471,7 +471,7 @@ from cloudformation_dataclasses.aws.dynamodb import (
 )
 
 # In resource files, use the single import:
-from .. import *  # Gets Table, KeySchema, KeyType, etc.
+from . import *  # Gets Table, KeySchema, KeyType, etc.
 
 # All of these are valid:
 KeySchema(attribute_name="pk", key_type=KeyType.HASH)  # Enum class
@@ -633,6 +633,19 @@ MyBucket:
 ```
 
 Both resources go to `main.py` even though Lambda is normally in `compute.py` and S3 in `storage.py`.
+
+### SCC Relevance: Python Imports vs CloudFormation
+
+**Important**: SCCs are used for **Python code organization**, not CloudFormation correctness.
+
+- **Python requirement**: Resources with circular dependencies must be in the same file to avoid import errors
+- **CloudFormation behavior**: Resource order in templates is irrelevant - AWS builds its own dependency graph from `Ref`, `GetAtt`, and `DependsOn`
+- **What SCCs solve**: Preventing Python circular import errors when generating multi-file packages
+- **What SCCs don't affect**: CloudFormation template validity or deployment behavior
+
+The SCC detection in `topology.py` ensures generated Python code is importable, not that CloudFormation templates are valid. CloudFormation itself is completely order-independent.
+
+For more details, see `DRAFT_SCC_RELEVANCE.md`.
 
 ## Tests
 

@@ -12,16 +12,16 @@ Migrated from [log-setup-management-pkg.json](https://github.com/aws-cloudformat
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m log_setup_management_pkg
+python -m log_setup_management_pkg
+```
+
+### Validate Template
+
+```bash
+python -m log_setup_management_pkg --validate
 ```
 
 ### Install as Dependency

@@ -373,7 +373,7 @@ def main(argv: list[str] | None = None) -> int:
     import_parser.add_argument(
         "--skip-checks",
         action="store_true",
-        help="Skip validation, linting, and test generation",
+        help="Skip validation and linting",
     )
 
     # init subcommand
@@ -556,11 +556,14 @@ def _run_lint_command(args: argparse.Namespace) -> int:
     elif path.is_dir():
         # Check if it's our package structure
         if _is_package_structure(path):
-            # Lint stack/ directory within the package
+            # Lint resource files directly in the package directory
             package_dir = _find_package_dir(path)
             if package_dir:
-                stack_dir = package_dir / "stack"
-                files = list(stack_dir.glob("*.py")) if stack_dir.exists() else []
+                # Find all .py files in the package that match the resources pattern
+                files = [
+                    f for f in package_dir.glob("*.py")
+                    if f.name not in ("__init__.py", "config.py", "__main__.py")
+                ]
             else:
                 files = []
         else:
@@ -788,8 +791,8 @@ def _run_stubs_command(args: argparse.Namespace) -> int:
 def _is_package_structure(path: Path) -> bool:
     """Check if path is a generated package structure.
 
-    A valid package structure has pyproject.toml and a nested directory
-    containing a stack/ subdirectory.
+    A valid package structure has pyproject.toml and a package directory
+    containing an __init__.py with setup_resources pattern.
 
     Args:
         path: Directory path to check.
@@ -800,8 +803,14 @@ def _is_package_structure(path: Path) -> bool:
     if not (path / "pyproject.toml").exists():
         return False
     for subdir in path.iterdir():
-        if subdir.is_dir() and (subdir / "stack").is_dir():
-            return True
+        if subdir.is_dir() and (subdir / "__init__.py").exists():
+            init_file = subdir / "__init__.py"
+            try:
+                content = init_file.read_text()
+                if "setup_resources" in content:
+                    return True
+            except Exception:
+                pass
     return False
 
 
@@ -812,11 +821,17 @@ def _find_package_dir(path: Path) -> Path | None:
         path: Root project directory.
 
     Returns:
-        Path to the package directory (containing stack/), or None.
+        Path to the package directory (containing __init__.py with setup_resources), or None.
     """
     for subdir in path.iterdir():
-        if subdir.is_dir() and (subdir / "stack").is_dir():
-            return subdir
+        if subdir.is_dir() and (subdir / "__init__.py").exists():
+            init_file = subdir / "__init__.py"
+            try:
+                content = init_file.read_text()
+                if "setup_resources" in content:
+                    return subdir
+            except Exception:
+                pass
     return None
 
 
@@ -836,7 +851,7 @@ def run_single_import(
         input_arg: Template file path or "-" for stdin
         output_arg: Output path (directory, .py file, or None for stdout)
         no_main: Omit if __name__ == '__main__' block
-        skip_checks: Skip validation, linting, and test generation
+        skip_checks: Skip validation and linting
         attribution: Optional attribution info for README
         logger: Optional logger for batch mode
         init_mode: If True, create empty skeleton (ignore input_arg)
@@ -939,15 +954,6 @@ def run_single_import(
             readme_path.write_text(readme_content)
             log(f"Generated: {readme_path}")
 
-            # Generate test files
-            if not skip_checks:
-                test_files = _generate_tests(project_name, template)
-                for test_filename, test_content in test_files.items():
-                    test_path = output_dir / test_filename
-                    test_path.parent.mkdir(parents=True, exist_ok=True)
-                    test_path.write_text(test_content)
-                    log(f"Generated: {test_path}")
-
         else:
             # Generate single file
             code = generate_code(template, include_main=not no_main)
@@ -1028,16 +1034,16 @@ def _generate_readme(
         "This is a portable Python package. You can copy this folder into another",
         "project and use it directly.",
         "",
-        "### Run Tests",
-        "",
-        "```bash",
-        "uv run pytest tests/ -v",
-        "```",
-        "",
         "### Generate Template",
         "",
         "```bash",
-        f"uv run python -m {project_name}",
+        f"python -m {project_name}",
+        "```",
+        "",
+        "### Validate Template",
+        "",
+        "```bash",
+        f"python -m {project_name} --validate",
         "```",
         "",
         "### Install as Dependency",
@@ -1063,52 +1069,6 @@ def _generate_readme(
     return "\n".join(lines)
 
 
-def _generate_tests(
-    project_name: str,
-    template: IRTemplate,
-) -> dict[str, str]:
-    """Generate test files for the package.
-
-    Returns:
-        Dictionary of filename -> content for test files.
-    """
-    pascal_name = _to_pascal_case(project_name)
-    resource_count = len(template.resources)
-
-    init_content = f'"""Tests for {project_name} example."""\n'
-
-    test_content = f'''"""Tests for {project_name} example."""
-
-import pytest
-
-from {project_name}.main import build_template
-
-
-class Test{pascal_name}:
-    """Test {project_name} example."""
-
-    @pytest.fixture
-    def template(self):
-        """Build template."""
-        return build_template()
-
-    def test_validates(self, template):
-        """Template should pass validation."""
-        errors = template.validate()
-        assert errors == [], f"Validation errors: {{errors}}"
-
-    def test_resource_count(self, template):
-        """Verify expected number of resources."""
-        output = template.to_dict()
-        assert len(output["Resources"]) == {resource_count}
-'''
-
-    return {
-        "tests/__init__.py": init_content,
-        f"tests/test_{project_name}.py": test_content,
-    }
-
-
 def run_batch_import(
     source_dir: Path,
     output_dir: Path,
@@ -1119,7 +1079,7 @@ def run_batch_import(
     Args:
         source_dir: Directory containing template files
         output_dir: Output directory for generated packages
-        skip_checks: Skip validation, linting, and test generation
+        skip_checks: Skip validation and linting
 
     Returns:
         Exit code (0 for success, 1 if any imports failed)

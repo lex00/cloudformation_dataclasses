@@ -1,9 +1,6 @@
 # Cdk
 
-Migrated from [cdk.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `stackset-execution-role.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -12,16 +9,16 @@ Migrated from [cdk.json](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m cdk
+python -m cdk
+```
+
+### Validate Template
+
+```bash
+python -m cdk --validate
 ```
 
 ### Install as Dependency
@@ -29,3 +26,9 @@ uv run python -m cdk
 ```bash
 pip install .
 ```
+
+## Resources
+
+| Logical ID | Type |
+|------------|------|
+| `AWSCloudFormationStackSetExecutionRole` | AWS::IAM::Role |

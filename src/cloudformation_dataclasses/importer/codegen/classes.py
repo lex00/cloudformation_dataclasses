@@ -283,11 +283,24 @@ def generate_mapping_class(mapping: IRMapping, ctx: "CodegenContext") -> str:
 
 
 def generate_condition_class(condition: IRCondition, ctx: "CodegenContext") -> str:
-    """Generate a condition wrapper class."""
+    """Generate a condition wrapper class.
+
+    Note: We use 'TemplateCondition' as an alias to avoid shadowing with
+    the intrinsics.Condition function which is used in the expression.
+    The intrinsics.Condition is used to reference conditions by name in
+    expressions like Or(conditions=[..., Condition("OtherCondition")]).
+    """
     lines = []
 
-    ctx.add_import("cloudformation_dataclasses.core", "Condition")
-    lines.append("    resource: Condition")
+    # Use TemplateCondition alias to avoid collision with intrinsics.Condition
+    # which is used in condition expressions to reference other conditions
+    ctx.add_import("cloudformation_dataclasses.core.template", "Condition as TemplateCondition")
+    lines.append("    resource: TemplateCondition")
+
+    # Store the original logical ID for CloudFormation serialization
+    # This is needed when the class name differs from the logical ID
+    # (e.g., logical_id "2SecurityGroupCondition" -> class "_2SecurityGroupConditionCondition")
+    lines.append(f"    logical_id = {escape_string(condition.logical_id)}")
 
     # Expression
     expr_str = value_to_python(condition.expression, ctx, indent=1)

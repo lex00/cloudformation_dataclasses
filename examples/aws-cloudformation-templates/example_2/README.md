@@ -1,6 +1,9 @@
 # Example2
 
-Imported from `macro_2.yaml`.
+Migrated from [example_2.yaml](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -9,16 +12,16 @@ Imported from `macro_2.yaml`.
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m example_2
+python -m example_2
+```
+
+### Validate Template
+
+```bash
+python -m example_2 --validate
 ```
 
 ### Install as Dependency
@@ -31,5 +34,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `Function` | AWS::Serverless::Function |
-| `Macro` | AWS::CloudFormation::Macro |
+| `ExecutionRoleBuilderMacroTestRole` | AWS::IAM::Role |

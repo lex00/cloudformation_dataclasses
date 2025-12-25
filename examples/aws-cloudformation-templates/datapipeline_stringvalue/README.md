@@ -12,16 +12,16 @@ Migrated from [DataPipeline-StringValue.yaml](https://github.com/aws-cloudformat
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m datapipeline_stringvalue
+python -m datapipeline_stringvalue
+```
+
+### Validate Template
+
+```bash
+python -m datapipeline_stringvalue --validate
 ```
 
 ### Install as Dependency

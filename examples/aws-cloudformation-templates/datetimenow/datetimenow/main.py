@@ -1,19 +1,31 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
+from . import *  # noqa: F403
 
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry()
+from cloudformation_dataclasses.aws.lambda_ import Runtime
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class TransformFunction:
+    """AWS::Serverless::Function resource."""
 
-
-if __name__ == "__main__":
-    main()
+    # Unknown resource type: AWS::Serverless::Function
+    resource: CloudFormationResource
+    runtime = Runtime.PYTHON3_11
+    handler = 'index.handler'
+    memory_size = 128
+    timeout = 3
+    inline_code = """import datetime
+def handler(event, context):
+    response = {
+        'requestId': event['requestId'],
+        'status': 'success'
+    }
+    try:
+        format = event['params']['format']
+        response['fragment'] = datetime.datetime.now().strftime(format)
+    except Exception as e:
+        response['status'] = 'failure'
+        response['errorMessage'] = str(e)
+    return response
+"""

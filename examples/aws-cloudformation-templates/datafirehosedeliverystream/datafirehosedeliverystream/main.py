@@ -1,22 +1,62 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='Create an Amazon Data Firehose stream with server-side encryption set using AWS Managed keys and destination error logging enabled to a created Amazon CloudWatch log group and log stream.',
-        parameters=[DestinationBucketName, LogStreamName, LogGroupName, CloudWatchLogsKMSKey, CloudWatchLogGroupRetention, DeliveryStreamName],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class DeliveryStreamDeliveryStreamEncryptionConfigurationInput:
+    resource: kinesisfirehose.delivery_stream.DeliveryStreamEncryptionConfigurationInput
+    key_type = 'AWS_OWNED_CMK'
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class DeliveryStreamCloudWatchLoggingOptions:
+    resource: kinesisfirehose.delivery_stream.CloudWatchLoggingOptions
+    enabled = True
+    log_group_name = ref(FirehoseLogGroup)
+    log_stream_name = ref(FirehoseLogStream)
+
+
+@cloudformation_dataclass
+class DeliveryStreamProcessorParameter:
+    resource: kinesisfirehose.delivery_stream.ProcessorParameter
+    parameter_name = 'Delimiter'
+    parameter_value = '\\n'
+
+
+@cloudformation_dataclass
+class DeliveryStreamProcessor:
+    resource: kinesisfirehose.delivery_stream.Processor
+    type_ = 'AppendDelimiterToRecord'
+    parameters = [DeliveryStreamProcessorParameter]
+
+
+@cloudformation_dataclass
+class DeliveryStreamProcessingConfiguration:
+    resource: kinesisfirehose.delivery_stream.ProcessingConfiguration
+    enabled = True
+    processors = [DeliveryStreamProcessor]
+
+
+@cloudformation_dataclass
+class DeliveryStreamExtendedS3DestinationConfiguration:
+    resource: kinesisfirehose.delivery_stream.ExtendedS3DestinationConfiguration
+    cloud_watch_logging_options = DeliveryStreamCloudWatchLoggingOptions
+    role_arn = get_att(DeliveryRole, "Arn")
+    bucket_arn = Join('', [
+    'arn:aws:s3:::',
+    ref(DestinationBucketName),
+])
+    error_output_prefix = 'errors/'
+    processing_configuration = DeliveryStreamProcessingConfiguration
+
+
+@cloudformation_dataclass
+class DeliveryStream:
+    """AWS::KinesisFirehose::DeliveryStream resource."""
+
+    resource: kinesisfirehose.DeliveryStream
+    delivery_stream_name = ref(DeliveryStreamName)
+    delivery_stream_type = 'DirectPut'
+    delivery_stream_encryption_configuration_input = DeliveryStreamDeliveryStreamEncryptionConfigurationInput
+    extended_s3_destination_configuration = DeliveryStreamExtendedS3DestinationConfiguration

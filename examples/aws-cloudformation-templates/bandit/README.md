@@ -1,9 +1,6 @@
 # Bandit
 
-Migrated from [bandit.yml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `AutoScalingScheduledAction.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -12,16 +9,16 @@ Migrated from [bandit.yml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m bandit
+python -m bandit
+```
+
+### Validate Template
+
+```bash
+python -m bandit --validate
 ```
 
 ### Install as Dependency
@@ -29,3 +26,14 @@ uv run python -m bandit
 ```bash
 pip install .
 ```
+
+## Resources
+
+| Logical ID | Type |
+|------------|------|
+| `WebServerGroup` | AWS::AutoScaling::AutoScalingGroup |
+| `ScheduledActionUp` | AWS::AutoScaling::ScheduledAction |
+| `ScheduledActionDown` | AWS::AutoScaling::ScheduledAction |
+| `LaunchTemplate` | AWS::EC2::LaunchTemplate |
+| `ElasticLoadBalancer` | AWS::ElasticLoadBalancing::LoadBalancer |
+| `InstanceSecurityGroup` | AWS::EC2::SecurityGroup |

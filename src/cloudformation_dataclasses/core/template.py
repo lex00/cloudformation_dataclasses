@@ -140,6 +140,7 @@ class Condition:
     """
 
     expression: Any  # Condition intrinsic function (Equals, And, Or, Not, If)
+    logical_id: Optional[str] = None  # CloudFormation logical ID (set by wrapper)
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize condition to CloudFormation JSON format."""
@@ -296,9 +297,10 @@ class Template:
             conditions_dict: dict[str, Condition] = {}
             for cond in self.conditions:
                 if is_wrapper_dataclass(type(cond)):
-                    name = type(cond).__name__
                     wrapped = create_wrapped_resource(cond)
                     if isinstance(wrapped, Condition):
+                        # Use logical_id if set, otherwise fall back to class name
+                        name = wrapped.logical_id or type(cond).__name__
                         conditions_dict[name] = wrapped
                     else:
                         raise TypeError(
@@ -306,10 +308,11 @@ class Template:
                             f"{type(wrapped).__name__}, expected Condition"
                         )
                 elif isinstance(cond, type) and is_wrapper_dataclass(cond):
-                    name = cond.__name__
                     instance = cond()
                     wrapped = create_wrapped_resource(instance)
                     if isinstance(wrapped, Condition):
+                        # Use logical_id if set, otherwise fall back to class name
+                        name = wrapped.logical_id or cond.__name__
                         conditions_dict[name] = wrapped
                     else:
                         raise TypeError(
@@ -723,6 +726,9 @@ class Template:
         By default, only resources from the caller's package are included.
         This enables multiple independent packages to coexist without conflicts.
 
+        Conditions, parameters, outputs, and mappings are auto-discovered from
+        the package if not explicitly provided.
+
         Example:
             >>> from cloudformation_dataclasses import registry, Template
             >>>
@@ -756,8 +762,13 @@ class Template:
             A Template instance containing registered resources
         """
         import inspect
+        import sys
 
         from cloudformation_dataclasses.core.registry import registry
+        from cloudformation_dataclasses.core.wrapper import (
+            get_wrapped_resource_type,
+            is_wrapper_dataclass,
+        )
 
         # Auto-detect caller's package if scope_package is None
         if scope_package is None:
@@ -774,13 +785,64 @@ class Template:
 
         resources = registry.get_all(scope_package=scope_package)
 
+        # Auto-discover conditions, parameters, outputs, and mappings from package
+        # if not explicitly provided
+        discovered_conditions: list[type] = []
+        discovered_parameters: list[type] = []
+        discovered_outputs: list[type] = []
+        discovered_mappings: list[type] = []
+
+        if scope_package:
+            # Find all wrapper classes in the package that wrap Condition, Parameter, Output, Mapping
+            for mod_name, module in sys.modules.items():
+                if not mod_name.startswith(scope_package):
+                    continue
+                if module is None:
+                    continue
+
+                for attr_name in dir(module):
+                    if attr_name.startswith("_"):
+                        # Skip private but include _Prefixed classes like _2SecurityGroupConditionCondition
+                        # These start with _ due to digit in original logical_id
+                        if not (len(attr_name) > 1 and attr_name[1].isdigit()):
+                            continue
+
+                    try:
+                        obj = getattr(module, attr_name)
+                    except AttributeError:
+                        continue
+
+                    if not isinstance(obj, type):
+                        continue
+                    if not is_wrapper_dataclass(obj):
+                        continue
+                    # Skip if from a different package
+                    if not obj.__module__.startswith(scope_package):
+                        continue
+
+                    wrapped_type = get_wrapped_resource_type(obj)
+                    if wrapped_type is Condition:
+                        discovered_conditions.append(obj)
+                    elif wrapped_type is Parameter:
+                        discovered_parameters.append(obj)
+                    elif wrapped_type is Output:
+                        discovered_outputs.append(obj)
+                    elif wrapped_type is Mapping:
+                        discovered_mappings.append(obj)
+
+        # Use discovered values if not explicitly provided
+        final_conditions = conditions if conditions is not None else discovered_conditions
+        final_parameters = parameters if parameters is not None else discovered_parameters
+        final_outputs = outputs if outputs is not None else discovered_outputs
+        final_mappings = mappings if mappings is not None else discovered_mappings
+
         # Create the template (this converts wrapper classes to CloudFormationResource instances)
         template = cls(
             description=description,
-            parameters=parameters if parameters is not None else {},
-            outputs=outputs if outputs is not None else {},
-            conditions=conditions if conditions is not None else {},
-            mappings=mappings if mappings is not None else {},
+            parameters=final_parameters if final_parameters else {},
+            outputs=final_outputs if final_outputs else {},
+            conditions=final_conditions if final_conditions else {},
+            mappings=final_mappings if final_mappings else {},
             resources=resources,
             **kwargs,
         )

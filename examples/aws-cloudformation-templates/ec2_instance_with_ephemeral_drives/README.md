@@ -12,16 +12,16 @@ Migrated from [EC2_Instance_With_Ephemeral_Drives.yaml](https://github.com/aws-c
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m ec2_instance_with_ephemeral_drives
+python -m ec2_instance_with_ephemeral_drives
+```
+
+### Validate Template
+
+```bash
+python -m ec2_instance_with_ephemeral_drives --validate
 ```
 
 ### Install as Dependency

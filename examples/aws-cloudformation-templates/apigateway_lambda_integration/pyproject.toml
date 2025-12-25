@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-apigateway_lambda_integration = "apigateway_lambda_integration.main:main"
+apigateway_lambda_integration = "apigateway_lambda_integration.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["apigateway_lambda_integration"]
 
 [tool.hatch.build.targets.sdist]
-include = ["apigateway_lambda_integration/**/*.py", "apigateway_lambda_integration/resources/"]
+include = ["apigateway_lambda_integration/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

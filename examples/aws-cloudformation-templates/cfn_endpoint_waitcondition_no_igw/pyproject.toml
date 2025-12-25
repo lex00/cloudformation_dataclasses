@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-cfn_endpoint_waitcondition_no_igw = "cfn_endpoint_waitcondition_no_igw.main:main"
+cfn_endpoint_waitcondition_no_igw = "cfn_endpoint_waitcondition_no_igw.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["cfn_endpoint_waitcondition_no_igw"]
 
 [tool.hatch.build.targets.sdist]
-include = ["cfn_endpoint_waitcondition_no_igw/**/*.py", "cfn_endpoint_waitcondition_no_igw/resources/"]
+include = ["cfn_endpoint_waitcondition_no_igw/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

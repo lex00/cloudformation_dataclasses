@@ -1,4 +1,4 @@
 """Allow running as: python -m private_subnet_private_service."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="Deploy a service on AWS Fargate, hosted in a private subnet, behind a private load balancer.")

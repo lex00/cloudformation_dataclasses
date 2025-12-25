@@ -12,16 +12,16 @@ Migrated from [Ubuntu22.04_cfn-hup.yaml](https://github.com/aws-cloudformation/c
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m ubuntu22_04_cfn_hup
+python -m ubuntu22_04_cfn_hup
+```
+
+### Validate Template
+
+```bash
+python -m ubuntu22_04_cfn_hup --validate
 ```
 
 ### Install as Dependency

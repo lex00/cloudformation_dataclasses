@@ -12,16 +12,16 @@ Migrated from [DIRECTORY-AD-CLIENTS.yaml](https://github.com/aws-cloudformation/
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m directory_ad_clients
+python -m directory_ad_clients
+```
+
+### Validate Template
+
+```bash
+python -m directory_ad_clients --validate
 ```
 
 ### Install as Dependency

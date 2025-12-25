@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-elb_access_logs_and_connection_draining = "elb_access_logs_and_connection_draining.main:main"
+elb_access_logs_and_connection_draining = "elb_access_logs_and_connection_draining.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["elb_access_logs_and_connection_draining"]
 
 [tool.hatch.build.targets.sdist]
-include = ["elb_access_logs_and_connection_draining/**/*.py", "elb_access_logs_and_connection_draining/resources/"]
+include = ["elb_access_logs_and_connection_draining/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

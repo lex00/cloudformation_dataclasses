@@ -1,23 +1,43 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='AWS CloudFormation Sample Template AppRunnerService: This template demonstrates the creation of a App Runner Service from existing ECR Repository.  **WARNING** This template creates an AWS App Runner Service. You will be billed for the AWS resources used if you create a stack from this template.',
-        parameters=[ECRURL, TCPPORT],
-        outputs=[AppRunnerOutput],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class AppRunnerAuthenticationConfiguration:
+    resource: apprunner.service.AuthenticationConfiguration
+    access_role_arn = get_att(AppRunnerRole, "Arn")
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class AppRunnerImageConfiguration:
+    resource: apprunner.service.ImageConfiguration
+    port = ref(TCPPORT)
+
+
+@cloudformation_dataclass
+class AppRunnerImageRepository:
+    resource: apprunner.service.ImageRepository
+    image_repository_type = 'ECR'
+    image_identifier = ref(ECRURL)
+    image_configuration = AppRunnerImageConfiguration
+
+
+@cloudformation_dataclass
+class AppRunnerSourceConfiguration:
+    resource: apprunner.service.SourceConfiguration
+    authentication_configuration = AppRunnerAuthenticationConfiguration
+    auto_deployments_enabled = True
+    image_repository = AppRunnerImageRepository
+
+
+@cloudformation_dataclass
+class AppRunner:
+    """AWS::AppRunner::Service resource."""
+
+    resource: apprunner.Service
+    service_name = Join('', [
+    AWS_STACK_NAME,
+    '-service',
+])
+    source_configuration = AppRunnerSourceConfiguration

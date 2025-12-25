@@ -1,6 +1,6 @@
 # LambdaIotTopicrule
 
-Imported from `RDS_with_DBParameterGroup.yaml`.
+Imported from `cloudfront-nocache.yml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -9,16 +9,16 @@ Imported from `RDS_with_DBParameterGroup.yaml`.
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m lambda_iot_topicrule
+python -m lambda_iot_topicrule
+```
+
+### Validate Template
+
+```bash
+python -m lambda_iot_topicrule --validate
 ```
 
 ### Install as Dependency
@@ -31,5 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `MyDB` | AWS::RDS::DBInstance |
-| `MyRDSParamGroup` | AWS::RDS::DBParameterGroup |
+| `CachePolicy` | AWS::CloudFront::CachePolicy |
+| `Distribution` | AWS::CloudFront::Distribution |

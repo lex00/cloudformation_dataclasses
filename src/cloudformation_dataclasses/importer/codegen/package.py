@@ -4,10 +4,10 @@ This module generates complete Python packages from CloudFormation templates,
 organizing code into multiple files:
 
 - __init__.py: Centralized imports and setup_resources()
-- __main__.py: Entry point for python -m package_name
-- main.py: Template builder function
-- stack/__init__.py: Auto-discovery of resource files
-- stack/main.py: Resources (or categorized files for large templates)
+- __main__.py: Entry point for python -m package_name (uses run_package_cli)
+- params.py: Parameters, Mappings, and Conditions
+- outputs.py: Output definitions
+- main.py: Resources (or categorized files for large templates)
 
 Key functions:
 - generate_code(): Single-file output for simple templates
@@ -210,10 +210,11 @@ def generate_package(
 
     Returns:
         Dict mapping filename to content, with all files prefixed by package_name/:
-        - "{package_name}/__init__.py": Centralized imports (re-exports from .stack)
-        - "{package_name}/main.py": build_template + entry point
-        - "{package_name}/__main__.py": Entry point for python -m
-        - "{package_name}/stack/": Directory with params, outputs, and resources
+        - "{package_name}/__init__.py": Centralized imports with setup_resources()
+        - "{package_name}/__main__.py": Entry point using run_package_cli()
+        - "{package_name}/params.py": Parameters, Mappings, Conditions
+        - "{package_name}/outputs.py": Output definitions (if any)
+        - "{package_name}/main.py": Resources (or categorized files for large templates)
     """
     pkg_ctx = PackageContext(template=template)
 
@@ -227,42 +228,44 @@ def generate_package(
     # We need to know this before generating resource files so they can use qualified names
     _detect_aws_name_collisions(ctx, template)
 
-    # Generate stack/params.py (Parameters, Mappings, Conditions)
+    # Generate params.py (Parameters, Mappings, Conditions)
     params_content = _generate_params_py(pkg_ctx, template)
 
-    # Generate stack/outputs.py (if there are outputs)
+    # Generate outputs.py (if there are outputs)
     outputs_content = _generate_outputs_py(pkg_ctx, template)
 
-    # Generate stack/ package (consolidated resources + __init__.py)
-    stack_files = _generate_stack_package(pkg_ctx, template)
-
-    # Generate main.py (build_template)
-    main_content = _generate_main_py(pkg_ctx, template)
+    # Generate resource files (consolidated resources without stack/ prefix)
+    resource_files = _generate_resource_files(pkg_ctx, template)
 
     # Generate __init__.py last (after all imports collected)
     init_content = _generate_init_py(pkg_ctx, template)
 
     # Generate __main__.py for `python -m package_name` support
+    description = template.description or f"{package_name} CloudFormation template"
+    # Escape description for use in Python string literal
+    # Replace backslashes first, then quotes, then newlines
+    escaped_desc = description.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+    # Use __package__ instead of __name__ because when run via `python -m`,
+    # __name__ is "__main__" but __package__ is the actual package name
     dunder_main_content = f'''"""Allow running as: python -m {package_name}."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="{escaped_desc}")
 '''
 
     # Prefix all files with package_name/ for nested package structure
     files = {
         f"{package_name}/__init__.py": init_content,
         f"{package_name}/__main__.py": dunder_main_content,
-        f"{package_name}/main.py": main_content,
-        f"{package_name}/stack/params.py": params_content,
+        f"{package_name}/params.py": params_content,
     }
 
-    # Add stack/outputs.py if there are outputs
+    # Add outputs.py if there are outputs
     if outputs_content:
-        files[f"{package_name}/stack/outputs.py"] = outputs_content
+        files[f"{package_name}/outputs.py"] = outputs_content
 
-    # Add all stack files (already have stack/ prefix, add package_name/)
-    for filename, content in stack_files.items():
+    # Add all resource files (add package_name/ prefix)
+    for filename, content in resource_files.items():
         files[f"{package_name}/{filename}"] = content
 
     # Run linter fixes on generated files if enabled
@@ -273,11 +276,10 @@ main()
 
 
 def _lint_generated_files(files: dict[str, str]) -> dict[str, str]:
-    """Run linter fixes on generated stack files.
+    """Run linter fixes on generated package files.
 
     This ensures generated code follows idiomatic patterns like:
-    - from .. import * in stack files
-    - from . import * in resource files
+    - from . import * in params.py, outputs.py, and resource files
 
     Args:
         files: Dict mapping filename to content
@@ -289,9 +291,11 @@ def _lint_generated_files(files: dict[str, str]) -> dict[str, str]:
 
     result = {}
     for filename, content in files.items():
-        # Only lint stack files (params.py, outputs.py, resource files)
-        if "/stack/" in filename and not filename.endswith("__init__.py"):
-            content = fix_code(content, filename=filename)
+        # Lint params.py, outputs.py, and resource files (main.py, compute.py, etc.)
+        # Skip __init__.py and __main__.py
+        if not filename.endswith("__init__.py") and not filename.endswith("__main__.py"):
+            if filename.endswith(".py"):
+                content = fix_code(content, filename=filename)
         result[filename] = content
     return result
 
@@ -302,7 +306,7 @@ def _lint_generated_files(files: dict[str, str]) -> dict[str, str]:
 
 
 def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate __init__.py with centralized imports."""
+    """Generate __init__.py with centralized imports and setup_resources."""
     lines = []
 
     # Docstring from template description
@@ -339,6 +343,15 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
             for name in sorted_imports:
                 lines.append(f"    {name},")
             lines.append(")")
+
+    # Core template imports (e.g., Condition as TemplateCondition for alias imports)
+    core_template_imports = ctx.imports.get("cloudformation_dataclasses.core.template", set())
+    if core_template_imports:
+        for name in sorted(core_template_imports):
+            lines.append(f"from cloudformation_dataclasses.core.template import {name}")
+
+    # Add setup_resources import
+    lines.append("from cloudformation_dataclasses.core.resource_loader import setup_resources")
 
     # AWS module imports (e.g., from cloudformation_dataclasses.aws import s3)
     # This is needed when wrapper class names collide with AWS resource class names
@@ -437,10 +450,20 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     lines.append("")
 
-    # Re-export everything from .stack (params, outputs, resources)
-    # This provides `from packagename import ResourceName` access
-    lines.append("from .stack import *  # noqa: F403, F401")
+    # Import params first (parameters, mappings, conditions)
+    lines.append("from .params import *  # noqa: F403, F401")
     lines.append("")
+
+    # Setup resources with auto-discovery
+    lines.append("# Auto-discover and import resource files in topological order")
+    lines.append("setup_resources(__file__, __name__, globals())")
+    lines.append("")
+
+    # Import outputs after resources (outputs may reference resource classes)
+    if template.outputs:
+        lines.append("# Import outputs after resources (outputs reference resource classes)")
+        lines.append("from .outputs import *  # noqa: F403, F401")
+        lines.append("")
 
     # Collect names for __all__
     config_names: list[str] = []
@@ -489,11 +512,11 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
 
 def _generate_params_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate stack/params.py with Parameters, Mappings, Conditions."""
+    """Generate params.py with Parameters, Mappings, Conditions."""
     lines = []
     lines.append('"""Parameters, Mappings, and Conditions."""')
     lines.append("")
-    lines.append("from .. import *  # noqa: F403")
+    lines.append("from . import *  # noqa: F403")
     lines.append("")
     lines.append("")
 
@@ -536,7 +559,7 @@ def _generate_params_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
 
 def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str | None:
-    """Generate stack/outputs.py with Output definitions.
+    """Generate outputs.py with Output definitions.
 
     Returns None if there are no outputs to generate.
     """
@@ -546,7 +569,7 @@ def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str |
     lines = []
     lines.append('"""Template outputs."""')
     lines.append("")
-    lines.append("from .. import *  # noqa: F403")
+    lines.append("from . import *  # noqa: F403")
     lines.append("")
     lines.append("")
 
@@ -568,70 +591,12 @@ def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str |
 
 
 # =============================================================================
-# Main File Generation
+# Resource Files Generation
 # =============================================================================
 
 
-def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate main.py with build_template and __main__."""
-    lines = []
-    lines.append('"""Template builder."""')
-    lines.append("")
-    # Import from parent package (gets Template + all stack re-exports)
-    lines.append("from . import *  # noqa: F403, F401")
-    lines.append("")
-    lines.append("")
-
-    # Build template function
-    param_list = ""
-    if template.parameters:
-        param_names = ", ".join(template.parameters.keys())
-        param_list = f"parameters=[{param_names}]"
-
-    output_list = ""
-    if template.outputs:
-        output_names = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
-        output_list = f"outputs=[{output_names}]"
-
-    args = []
-    if template.description:
-        args.append(f"description={escape_string(template.description)}")
-    if param_list:
-        args.append(param_list)
-    if output_list:
-        args.append(output_list)
-
-    if args:
-        args_str = ",\n        ".join(args)
-        from_registry_call = f"Template.from_registry(\n        {args_str},\n    )"
-    else:
-        from_registry_call = "Template.from_registry()"
-
-    lines.append("def build_template() -> Template:")
-    lines.append('    """Build the CloudFormation template."""')
-    lines.append(f"    return {from_registry_call}")
-    lines.append("")
-    lines.append("")
-    lines.append("def main() -> None:")
-    lines.append('    """Print the CloudFormation template as JSON."""')
-    lines.append("    import json")
-    lines.append("    template = build_template()")
-    lines.append("    print(json.dumps(template.to_dict(), indent=2))")
-    lines.append("")
-    lines.append("")
-    lines.append('if __name__ == "__main__":')
-    lines.append("    main()")
-
-    return "\n".join(lines) + "\n"
-
-
-# =============================================================================
-# Stack Package Generation
-# =============================================================================
-
-
-def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
-    """Generate stack/ directory with params, outputs, and consolidated resources.
+def _generate_resource_files(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
+    """Generate resource files without stack/ subdirectory.
 
     Resources are consolidated into fewer files:
     - If total resources < 5: all go in main.py
@@ -640,7 +605,7 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
     - Only large templates with multiple non-SCC resources get separate files
 
     Returns:
-        Dict mapping "stack/<filename>.py" to content
+        Dict mapping "<filename>.py" to content (e.g., "main.py", "compute.py")
     """
     files = {}
     ctx = pkg_ctx.codegen_ctx
@@ -804,7 +769,7 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
         lines = []
         lines.append('"""Stack resources."""')
         lines.append("")
-        lines.append("from .. import *  # noqa: F403")
+        lines.append("from . import *  # noqa: F403")
         lines.append("")
         lines.append("")
 
@@ -826,7 +791,7 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
         while lines and lines[-1] == "":
             lines.pop()
 
-        files["stack/main.py"] = "\n".join(lines) + "\n"
+        files["main.py"] = "\n".join(lines) + "\n"
 
     # Generate category files (compute.py, network.py, etc.)
     for filename, resource_ids in separate_files.items():
@@ -834,7 +799,7 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
         resource_names = ", ".join(resource_ids)
         lines.append(f'"""{filename.title()} resources: {resource_names}."""')
         lines.append("")
-        lines.append("from .. import *  # noqa: F403")
+        lines.append("from . import *  # noqa: F403")
         lines.append("")
         lines.append("")
 
@@ -853,23 +818,7 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
         while lines and lines[-1] == "":
             lines.pop()
 
-        files[f"stack/{filename}.py"] = "\n".join(lines) + "\n"
-
-    # Generate stack/__init__.py that re-exports params, outputs, and resources
-    init_lines = ['"""Stack - parameters, outputs, and resources."""']
-    init_lines.append("from .params import *  # noqa: F403, F401")
-    init_lines.append("")
-    init_lines.append("# Import resources with topological ordering")
-    init_lines.append("from cloudformation_dataclasses.core.resource_loader import setup_resources")
-    init_lines.append('setup_resources(__file__, __name__, globals())')
-    init_lines.append("")
-    init_lines.append("# Import outputs after resources (outputs reference resource classes)")
-    init_lines.append("try:")
-    init_lines.append("    from .outputs import *  # noqa: F403, F401")
-    init_lines.append("except ImportError:")
-    init_lines.append("    pass")
-    init_lines.append("")
-    files["stack/__init__.py"] = "\n".join(init_lines)
+        files[f"{filename}.py"] = "\n".join(lines) + "\n"
 
     return files
 

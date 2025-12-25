@@ -1,8 +1,26 @@
 # Generated Stack Package Restructuring
 
 **Date:** 2025-12-25
-**Status:** DRAFT
+**Status:** IMPLEMENTED
 **Focus:** Flattening the structure of packages created by `cfn-dataclasses init` and `cfn-dataclasses import`
+
+---
+
+## Implementation Status
+
+**Date Implemented:** 2025-12-25
+
+All proposed changes have been implemented:
+- ✅ Resources now live directly in package root (no `stack/` subfolder)
+- ✅ Single `__init__.py` with `setup_resources()` call
+- ✅ Single `__init__.pyi` stub file
+- ✅ `__main__.py` uses `run_package_cli()` instead of custom main.py
+- ✅ No generated tests/ directory
+- ✅ Import pattern is `from . import *` not `from .. import *`
+
+---
+
+## Original Proposal
 
 ---
 

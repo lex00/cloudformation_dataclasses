@@ -12,16 +12,16 @@ Migrated from [EC2-Domain-Join.yaml](https://github.com/aws-cloudformation/cfn-l
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m ec2_domain_join
+python -m ec2_domain_join
+```
+
+### Validate Template
+
+```bash
+python -m ec2_domain_join --validate
 ```
 
 ### Install as Dependency

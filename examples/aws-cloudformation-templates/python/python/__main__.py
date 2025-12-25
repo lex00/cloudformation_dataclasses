@@ -1,4 +1,4 @@
 """Allow running as: python -m python."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="Macro allowing you to run arbitrary Python code in your CloudFormation templates")

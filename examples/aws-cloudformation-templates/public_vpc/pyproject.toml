@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-public_vpc = "public_vpc.main:main"
+public_vpc = "public_vpc.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["public_vpc"]
 
 [tool.hatch.build.targets.sdist]
-include = ["public_vpc/**/*.py", "public_vpc/resources/"]
+include = ["public_vpc/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

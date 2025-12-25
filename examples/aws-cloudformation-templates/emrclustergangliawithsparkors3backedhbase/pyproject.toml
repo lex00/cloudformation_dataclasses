@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-emrclustergangliawithsparkors3backedhbase = "emrclustergangliawithsparkors3backedhbase.main:main"
+emrclustergangliawithsparkors3backedhbase = "emrclustergangliawithsparkors3backedhbase.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["emrclustergangliawithsparkors3backedhbase"]
 
 [tool.hatch.build.targets.sdist]
-include = ["emrclustergangliawithsparkors3backedhbase/**/*.py", "emrclustergangliawithsparkors3backedhbase/resources/"]
+include = ["emrclustergangliawithsparkors3backedhbase/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

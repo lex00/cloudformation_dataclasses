@@ -12,16 +12,16 @@ Migrated from [cloudformation-codebuild-template.yaml](https://github.com/aws-cl
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m cloudformation_codebuild_template
+python -m cloudformation_codebuild_template
+```
+
+### Validate Template
+
+```bash
+python -m cloudformation_codebuild_template --validate
 ```
 
 ### Install as Dependency

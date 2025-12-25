@@ -39,13 +39,10 @@ from cloudformation_dataclasses.intrinsics import (
 
 ```bash
 # Generate template
-python -m {{project_name}}.main
+python -m {{project_name}}
 
 # Type check
 mypy {{project_name}}/
-
-# Run tests
-pytest tests/
 
 # Lint
 cfn-dataclasses lint {{project_name}}/
@@ -61,7 +58,7 @@ assert errors == []
 
 ## Adding Resources
 
-1. Create wrapper class in `stack/` directory
+1. Create wrapper class in package directory
 2. Use `@cloudformation_dataclass` decorator
 3. All nested PropertyTypes should be separate wrapper classes
-4. Resources auto-register via `setup_resources()` in `stack/__init__.py`
+4. Resources auto-register via `setup_resources()` in `__init__.py`

@@ -1,9 +1,6 @@
 # Event
 
-Migrated from [event.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `template.json`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -12,16 +9,16 @@ Migrated from [event.json](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m event
+python -m event
+```
+
+### Validate Template
+
+```bash
+python -m event --validate
 ```
 
 ### Install as Dependency
@@ -29,3 +26,10 @@ uv run python -m event
 ```bash
 pip install .
 ```
+
+## Resources
+
+| Logical ID | Type |
+|------------|------|
+| `Macro` | AWS::CloudFormation::Macro |
+| `CountMacroFunction` | AWS::Serverless::Function |
