@@ -10,8 +10,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import rds
 from cloudformation_dataclasses.intrinsics import Join
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .database import MyDB as MyDB
 from .outputs import JDBCConnectionStringOutput as JDBCConnectionStringOutput

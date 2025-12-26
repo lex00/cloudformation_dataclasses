@@ -4,24 +4,18 @@ from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class StackNameOutput:
+class ConfigRuleForVolumeTagsArnOutput:
     resource: Output
-    value = AWS_STACK_NAME
+    value = get_att(ConfigRuleForVolumeTags, "Arn")
 
 
 @cloudformation_dataclass
-class RegionNameOutput:
+class ConfigRuleForVolumeTagsConfigRuleIdOutput:
     resource: Output
-    value = AWS_REGION
+    value = get_att(ConfigRuleForVolumeTags, "ConfigRuleId")
 
 
 @cloudformation_dataclass
-class S3BucketNameOutput:
+class ConfigRuleForVolumeAutoEnableIOComplianceTypeOutput:
     resource: Output
-    value = ref(S3Bucket)
-
-
-@cloudformation_dataclass
-class AuroraEndpointOutput:
-    resource: Output
-    value = get_att(AuroraCluster, "Endpoint.Address")
+    value = get_att(ConfigRuleForVolumeAutoEnableIO, "Compliance.Type")

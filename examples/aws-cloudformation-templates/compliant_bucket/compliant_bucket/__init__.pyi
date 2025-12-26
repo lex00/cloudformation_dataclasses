@@ -23,7 +23,6 @@ from cloudformation_dataclasses.aws.s3 import (
     ServerSideEncryption,
 )
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
-from .params import *  # noqa: F403, F401
 
 from .params import AppName as AppName
 from .security import ObjectStorageReplicationPolicy as ObjectStorageReplicationPolicy

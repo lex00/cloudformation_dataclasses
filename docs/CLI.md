@@ -1,6 +1,6 @@
 # CLI Reference
 
-The `cfn-dataclasses` command provides three subcommands for working with CloudFormation templates.
+The `cfn-dataclasses` command provides five subcommands for working with CloudFormation templates.
 
 ## Quick Reference
 
@@ -9,6 +9,8 @@ The `cfn-dataclasses` command provides three subcommands for working with CloudF
 | `cfn-dataclasses init -o <path>` | Create new project skeleton |
 | `cfn-dataclasses import <template> -o <path>` | Convert YAML/JSON template to Python |
 | `cfn-dataclasses lint <path> [--fix]` | Check and auto-fix code style |
+| `cfn-dataclasses split <file> [--preview]` | Split large resource file into categories |
+| `cfn-dataclasses stubs <path> [--watch]` | Generate .pyi stub files for IDE support |
 
 ```bash
 cfn-dataclasses --version  # Show version
@@ -172,6 +174,13 @@ cfn-dataclasses lint my_stack/ --fix
 | CFD003 | `Ref("AWS::Region")` | `AWS_REGION` |
 | CFD004 | `sse_algorithm = "AES256"` | `ServerSideEncryption.AES256` |
 | CFD005 | `{"ServerSideEncryptionConfiguration": ...}` | `BucketEncryption(...)` |
+| CFD006 | `{"Ref": "VpcId"}` | `Ref("VpcId")` |
+| CFD007 | `Sub("...").to_dict()` | `Sub("...")` |
+| CFD008 | `from stack.params import X` | `from .. import *` |
+| CFD009 | `[Ingress(from_port=443)]` | Wrapper class pattern |
+| CFD010 | `Ref("MyParameter")` | `ref(MyParameter)` |
+| CFD011 | Missing stack imports | Add `from .. import *` |
+| CFD012 | Large file (12+ resources) | `cfn-dataclasses split` |
 
 ### Output Examples
 
@@ -200,6 +209,77 @@ Fixed 1 issue in 1 file
 ### Integration with import
 
 The linter runs automatically when using `cfn-dataclasses import`. Use `--skip-checks` to disable.
+
+---
+
+## split
+
+Split large resource files into category-based files for better organization.
+
+```bash
+# Preview what files would be created
+cfn-dataclasses split my_stack/my_stack/main.py --preview
+
+# Split the file (creates network.py, security.py, etc.)
+cfn-dataclasses split my_stack/my_stack/main.py
+
+# Split to different output directory
+cfn-dataclasses split main.py -o my_stack/my_stack/
+```
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `--preview` | Show what files would be created without writing |
+| `-o, --output DIR` | Output directory (default: same as input file) |
+
+### How it Works
+
+The split command analyzes `@cloudformation_dataclass` decorated classes and groups them by AWS service category:
+
+| Category | Services |
+|----------|----------|
+| `network.py` | VPC, Subnet, RouteTable, InternetGateway, NatGateway |
+| `security.py` | SecurityGroup, IAM roles/policies, KMS |
+| `compute.py` | Lambda, EC2, ECS, EKS |
+| `storage.py` | S3, EFS, EBS |
+| `database.py` | RDS, DynamoDB, ElastiCache |
+| `main.py` | Remaining uncategorized resources |
+
+The linter rule CFD012 automatically suggests running `split` when a file has 12+ resources that span multiple categories.
+
+---
+
+## stubs
+
+Generate `.pyi` type stub files for IDE support. This enables Pylance and mypy to understand the dynamic imports from `from . import *` patterns.
+
+```bash
+# Generate stubs for current directory
+cfn-dataclasses stubs
+
+# Generate stubs for specific directory
+cfn-dataclasses stubs my_stack/
+
+# Watch for changes and auto-regenerate
+cfn-dataclasses stubs my_stack/ --watch
+```
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `--watch, -w` | Watch for changes and regenerate (requires watchdog) |
+
+### Generated Files
+
+For each `__init__.py` that uses `setup_resources()`, the command generates a corresponding `__init__.pyi` stub file listing all exported symbols.
+
+**Note**: The `--watch` option requires the optional `watchdog` dependency:
+```bash
+pip install cloudformation_dataclasses[stubs]
+```
 
 ---
 

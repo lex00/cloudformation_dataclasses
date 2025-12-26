@@ -13,8 +13,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import dynamodb
 from cloudformation_dataclasses.aws.dynamodb import KeyType
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .database import myDynamoDBTable as myDynamoDBTable
 from .database import myDynamoDBTableAttributeDefinition as myDynamoDBTableAttributeDefinition

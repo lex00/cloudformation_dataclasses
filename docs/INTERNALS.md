@@ -6,6 +6,7 @@ This document covers the internal architecture of cloudformation_dataclasses for
 - [Resource Registry](#resource-registry) - How auto-registration and discovery work
 - [AWS Resource Generator](#aws-resource-generator) - How AWS resource classes are generated from CloudFormation specs
 - [Template Importer](#template-importer) - How CloudFormation templates are converted to Python
+- [Shared Utilities](#shared-utilities) - Common infrastructure between linter and importer
 
 ---
 
@@ -697,4 +698,84 @@ uv run pytest tests/importer/test_codegen.py::TestBlockModeWithTags -v
 
 ---
 
-**Last Updated**: 2025-12-24
+# Shared Utilities
+
+The linter and importer share common infrastructure through modules in `core/`. This avoids code duplication and ensures consistent behavior.
+
+## Shared Modules
+
+### core/naming.py
+
+Name conversion utilities used by both systems:
+
+```python
+from cloudformation_dataclasses.core.naming import (
+    to_snake_case,        # PascalCase → snake_case (BucketName → bucket_name)
+    to_pascal_case,       # snake_case → PascalCase (bucket_name → BucketName)
+    sanitize_python_name, # Handle Python keywords (class → class_)
+    sanitize_class_name,  # Handle numeric prefixes (123Resource → _123Resource)
+)
+```
+
+**Used by:**
+- `importer/parser.py` - Converting CloudFormation property names
+- `codegen/generator.py` - Generating Python class names
+- `linter/split.py` - File organization utilities
+
+### core/ast_helpers.py
+
+Python AST analysis utilities:
+
+```python
+from cloudformation_dataclasses.core.ast_helpers import (
+    is_cloudformation_dataclass,  # Check for @cloudformation_dataclass decorator
+    find_decorator,               # Find decorator by name on a class
+    find_last_import_line,        # Find where to insert new imports
+    parse_existing_imports,       # Extract import info from AST
+    extract_resource_annotation,  # Get resource type from class (s3.Bucket)
+)
+```
+
+**Used by:**
+- `linter/split.py` - Analyzing resource files for splitting
+- `linter/__init__.py` - Import management for auto-fixes
+- `linter/rules.py` - Detecting `@cloudformation_dataclass` decorated classes
+
+## Relationship Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        core/                                 │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   │
+│  │  naming.py   │    │ ast_helpers  │    │ constants/   │   │
+│  │              │    │              │    │              │   │
+│  │ to_snake_case│    │ is_cf_dc()   │    │ KNOWN_ENUMS  │   │
+│  │ to_pascal    │    │ find_import  │    │ PropertyType │   │
+│  │ sanitize_*   │    │ extract_*    │    │ mappings     │   │
+│  └──────┬───────┘    └──────┬───────┘    └──────┬───────┘   │
+│         │                   │                   │           │
+└─────────┼───────────────────┼───────────────────┼───────────┘
+          │                   │                   │
+    ┌─────┴─────┐       ┌─────┴─────┐       ┌─────┴─────┐
+    │           │       │           │       │           │
+┌───▼───┐   ┌───▼───┐   │       ┌───▼───┐   │       ┌───▼───┐
+│parser │   │codegen│   │       │split  │   │       │rules  │
+│       │   │       │   │       │       │   │       │       │
+└───────┘   └───────┘   │       └───────┘   │       └───────┘
+  importer/             │         linter/   │
+                        │                   │
+                        └───────────────────┘
+```
+
+## Design Rationale
+
+1. **Single source of truth**: Name conversion logic is defined once
+2. **No circular imports**: Core utilities don't depend on importer or linter
+3. **Testable**: Shared utilities can be tested independently
+4. **Backward compatible**: `importer/parser.py` re-exports naming functions for existing code
+
+For detailed analysis of unification opportunities, see `docs/DRAFT_LINTER_IMPORTER_UNIFICATION.md`.
+
+---
+
+**Last Updated**: 2025-12-25

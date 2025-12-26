@@ -45,85 +45,11 @@ from cloudformation_dataclasses.importer.ir import (
 # =============================================================================
 
 
-def to_snake_case(name: str) -> str:
-    """Convert PascalCase or camelCase to snake_case.
-
-    Handles acronyms intelligently: VPCId becomes vpc_id, IPv6 becomes ipv6.
-
-    Args:
-        name: A string in PascalCase or camelCase.
-
-    Returns:
-        The string converted to snake_case.
-
-    Example:
-        >>> to_snake_case("BucketName")
-        'bucket_name'
-        >>> to_snake_case("VPCId")
-        'vpc_id'
-    """
-    result = re.sub("(.)([A-Z][a-z]+)", r"\1_\2", name)
-    result = re.sub("([a-z0-9])([A-Z])", r"\1_\2", result)
-    return result.lower()
-
-
-def sanitize_python_name(name: str) -> str:
-    """Ensure a name is a valid Python identifier.
-
-    If the name conflicts with a Python keyword, append an underscore.
-
-    Args:
-        name: A potential Python identifier.
-
-    Returns:
-        A valid Python identifier (original or with trailing underscore).
-
-    Example:
-        >>> sanitize_python_name("class")
-        'class_'
-        >>> sanitize_python_name("bucket_name")
-        'bucket_name'
-    """
-    PYTHON_KEYWORDS = {
-        "and",
-        "as",
-        "assert",
-        "async",
-        "await",
-        "break",
-        "class",
-        "continue",
-        "def",
-        "del",
-        "elif",
-        "else",
-        "except",
-        "finally",
-        "for",
-        "from",
-        "global",
-        "if",
-        "import",
-        "in",
-        "is",
-        "lambda",
-        "nonlocal",
-        "not",
-        "or",
-        "pass",
-        "raise",
-        "return",
-        "try",
-        "while",
-        "with",
-        "yield",
-        "type",
-        "match",
-        "case",
-    }
-    if name in PYTHON_KEYWORDS:
-        return f"{name}_"
-    return name
+# Re-export naming utilities from shared module for backward compatibility
+from cloudformation_dataclasses.core.naming import (
+    to_snake_case,
+    sanitize_python_name,
+)
 
 
 # =============================================================================

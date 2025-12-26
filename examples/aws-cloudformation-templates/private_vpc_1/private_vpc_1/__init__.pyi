@@ -31,8 +31,6 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import ContainerInstances as ContainerInstances
 from .compute import ContainerInstancesIamInstanceProfile as ContainerInstancesIamInstanceProfile

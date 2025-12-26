@@ -22,8 +22,6 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .main import CloudFrontCachePolicy as CloudFrontCachePolicy
 from .main import CloudFrontCachePolicyCachePolicyConfig as CloudFrontCachePolicyCachePolicyConfig

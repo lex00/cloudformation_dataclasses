@@ -14,8 +14,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam, lambda_
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import LambdaFunction as LambdaFunction
 from .compute import LambdaFunctionCode as LambdaFunctionCode

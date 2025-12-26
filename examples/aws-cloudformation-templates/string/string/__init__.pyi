@@ -10,7 +10,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import cloudformation, iam, lambda_
-from .params import *  # noqa: F403, F401
 
 from .compute import TransformFunction as TransformFunction
 from .compute import TransformFunctionCode as TransformFunctionCode

@@ -26,8 +26,6 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import VPCFlowLogstoS3 as VPCFlowLogstoS3
 from .compute import VPCFlowLogstoS3AssociationParameter as VPCFlowLogstoS3AssociationParameter

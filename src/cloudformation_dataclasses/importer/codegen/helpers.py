@@ -135,15 +135,8 @@ def get_resource_category(resource: IRResource) -> str:
 # =============================================================================
 
 
-def sanitize_class_name(name: str) -> str:
-    """Ensure name is a valid Python identifier.
-
-    CloudFormation allows logical IDs starting with digits, but Python
-    class names cannot start with digits. Prepend underscore if needed.
-    """
-    if name and name[0].isdigit():
-        return f"_{name}"
-    return name
+# Import from shared module
+from cloudformation_dataclasses.core.naming import sanitize_class_name
 
 
 # =============================================================================
@@ -317,12 +310,9 @@ def extract_enum_from_type_hint(type_hint: str) -> Optional[tuple[str, str]]:
 
 def tag_class_name(key: str, value: str) -> str:
     """Generate a class name for a tag."""
+    from cloudformation_dataclasses.core.naming import to_pascal_case
 
-    # Convert key and value to PascalCase
-    def to_pascal(s: str) -> str:
-        return "".join(word.title() for word in re.sub(r"[^a-zA-Z0-9]", " ", s).split())
-
-    return f"{to_pascal(key)}{to_pascal(value)}Tag"
+    return f"{to_pascal_case(key)}{to_pascal_case(value)}Tag"
 
 
 def tag_signature(tag: dict[str, Any]) -> str:
@@ -337,5 +327,6 @@ def tag_signature(tag: dict[str, Any]) -> str:
 
 def logical_id_to_filename(logical_id: str) -> str:
     """Convert LogicalId to snake_case filename (without .py extension)."""
-    from cloudformation_dataclasses.importer.parser import to_snake_case
+    from cloudformation_dataclasses.core.naming import to_snake_case
+
     return to_snake_case(logical_id)

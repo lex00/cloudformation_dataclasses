@@ -41,8 +41,6 @@ from cloudformation_dataclasses.intrinsics import (
     Split,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .database import TestTable as TestTable
 from .database import TestTableAttributeDefinition as TestTableAttributeDefinition

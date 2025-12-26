@@ -20,7 +20,6 @@ from cloudformation_dataclasses.aws import (
     sqs,
 )
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
 
 from .infra import TargetAccountLogging as TargetAccountLogging
 from .infra import TargetAccountLoggingAutoDeployment as TargetAccountLoggingAutoDeployment

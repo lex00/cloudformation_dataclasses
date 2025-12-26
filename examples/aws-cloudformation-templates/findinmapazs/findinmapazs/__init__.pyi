@@ -12,7 +12,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import AWS_REGION, FindInMap, Select
-from .params import *  # noqa: F403, F401
 
 from .network import DefaultPrivateRoute1 as DefaultPrivateRoute1
 from .network import DefaultPrivateRoute2 as DefaultPrivateRoute2

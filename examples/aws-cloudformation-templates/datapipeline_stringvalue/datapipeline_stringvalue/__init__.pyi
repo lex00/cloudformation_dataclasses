@@ -8,7 +8,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import datapipeline
-from .params import *  # noqa: F403, F401
 
 from .main import DynamoDBInputS3OutputHive as DynamoDBInputS3OutputHive
 from .main import DynamoDBInputS3OutputHiveField as DynamoDBInputS3OutputHiveField

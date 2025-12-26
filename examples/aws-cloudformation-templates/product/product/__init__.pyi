@@ -12,8 +12,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import servicecatalog
 from cloudformation_dataclasses.intrinsics import ImportValue, Sub
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .infra import ServiceCatalogCloudFormationProduct as ServiceCatalogCloudFormationProduct
 from .infra import ServiceCatalogCloudFormationProductProvisioningArtifactProperties as ServiceCatalogCloudFormationProductProvisioningArtifactProperties

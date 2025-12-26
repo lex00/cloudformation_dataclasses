@@ -91,66 +91,11 @@ def detect_name_field(resource: ResourceSpec) -> str | None:
     return None
 
 
-def to_snake_case(name: str) -> str:
-    """
-    Convert PascalCase to snake_case.
-
-    Examples:
-        BucketName -> bucket_name
-        VPCId -> vpc_id
-        S3Key -> s3_key
-        IPv6CidrBlock -> ipv6_cidr_block
-    """
-    # Insert underscore before uppercase letters (except at start)
-    result = re.sub("(.)([A-Z][a-z]+)", r"\1_\2", name)
-    # Insert underscore before uppercase in acronyms
-    result = re.sub("([a-z0-9])([A-Z])", r"\1_\2", result)
-    return result.lower()
-
-
-def sanitize_python_name(name: str) -> str:
-    """
-    Sanitize names to be valid Python identifiers.
-
-    If name conflicts with Python keywords, append underscore.
-    """
-    python_keywords = {
-        "and",
-        "as",
-        "assert",
-        "break",
-        "class",
-        "continue",
-        "def",
-        "del",
-        "elif",
-        "else",
-        "except",
-        "finally",
-        "for",
-        "from",
-        "global",
-        "if",
-        "import",
-        "in",
-        "is",
-        "lambda",
-        "nonlocal",
-        "not",
-        "or",
-        "pass",
-        "raise",
-        "return",
-        "try",
-        "while",
-        "with",
-        "yield",
-        "type",
-    }
-
-    if name in python_keywords:
-        return f"{name}_"
-    return name
+# Import naming utilities from shared module
+from cloudformation_dataclasses.core.naming import (
+    to_snake_case,
+    sanitize_python_name,
+)
 
 
 def map_primitive_type(primitive_type: str) -> str:

@@ -1,117 +1,124 @@
-"""Security resources: DMSCloudwatchRole, DMSVpcRole, S3TargetDMSRole."""
+"""Security resources: ConfigRole, LambdaExecutionRole."""
 
 from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class DMSCloudwatchRoleAllowStatement0:
+class ConfigRoleAllowStatement0:
     resource: PolicyStatement
     principal = {
-        'Service': ['dms.amazonaws.com'],
+        'Service': ['config.amazonaws.com'],
     }
     action = ['sts:AssumeRole']
 
 
 @cloudformation_dataclass
-class DMSCloudwatchRoleAssumeRolePolicyDocument:
+class ConfigRoleAssumeRolePolicyDocument:
     resource: PolicyDocument
-    statement = [DMSCloudwatchRoleAllowStatement0]
+    statement = [ConfigRoleAllowStatement0]
 
 
 @cloudformation_dataclass
-class DMSCloudwatchRole:
+class ConfigRoleAllowStatement0_1:
+    resource: PolicyStatement
+    action = 's3:GetBucketAcl'
+    resource_arn = Join('', [
+    'arn:aws:s3:::',
+    ref(ConfigBucket),
+])
+
+
+@cloudformation_dataclass
+class ConfigRoleAllowStatement1:
+    resource: PolicyStatement
+    action = 's3:PutObject'
+    resource_arn = Join('', [
+    'arn:aws:s3:::',
+    ref(ConfigBucket),
+    '/AWSLogs/',
+    AWS_ACCOUNT_ID,
+    '/*',
+])
+    condition = {
+        STRING_EQUALS: {
+            's3:x-amz-acl': 'bucket-owner-full-control',
+        },
+    }
+
+
+@cloudformation_dataclass
+class ConfigRoleAllowStatement2:
+    resource: PolicyStatement
+    action = 'config:Put*'
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class ConfigRolePolicies0PolicyDocument:
+    resource: PolicyDocument
+    statement = [ConfigRoleAllowStatement0_1, ConfigRoleAllowStatement1, ConfigRoleAllowStatement2]
+
+
+@cloudformation_dataclass
+class ConfigRolePolicy:
+    resource: iam.user.Policy
+    policy_name = 'root'
+    policy_document = ConfigRolePolicies0PolicyDocument
+
+
+@cloudformation_dataclass
+class ConfigRole:
     """AWS::IAM::Role resource."""
 
     resource: iam.Role
-    role_name = 'dms-cloudwatch-logs-role'
-    assume_role_policy_document = DMSCloudwatchRoleAssumeRolePolicyDocument
-    managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole']
-    path = '/'
-    condition = 'NotExistsDMSCloudwatchRole'
+    assume_role_policy_document = ConfigRoleAssumeRolePolicyDocument
+    managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AWS_ConfigRole']
+    policies = [ConfigRolePolicy]
 
 
 @cloudformation_dataclass
-class DMSVpcRoleAllowStatement0:
+class LambdaExecutionRoleAllowStatement0:
     resource: PolicyStatement
     principal = {
-        'Service': ['dms.amazonaws.com'],
+        'Service': ['lambda.amazonaws.com'],
     }
     action = ['sts:AssumeRole']
 
 
 @cloudformation_dataclass
-class DMSVpcRoleAssumeRolePolicyDocument:
+class LambdaExecutionRoleAssumeRolePolicyDocument:
     resource: PolicyDocument
-    statement = [DMSVpcRoleAllowStatement0]
+    statement = [LambdaExecutionRoleAllowStatement0]
 
 
 @cloudformation_dataclass
-class DMSVpcRole:
-    """AWS::IAM::Role resource."""
-
-    resource: iam.Role
-    role_name = 'dms-vpc-role'
-    assume_role_policy_document = DMSVpcRoleAssumeRolePolicyDocument
-    managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole']
-    path = '/'
-    condition = 'NotExistsDMSVPCRole'
-
-
-@cloudformation_dataclass
-class S3TargetDMSRoleAllowStatement0:
-    resource: PolicyStatement
-    principal = {
-        'Service': ['dms.amazonaws.com'],
-    }
-    action = ['sts:AssumeRole']
-
-
-@cloudformation_dataclass
-class S3TargetDMSRoleAssumeRolePolicyDocument:
-    resource: PolicyDocument
-    statement = [S3TargetDMSRoleAllowStatement0]
-
-
-@cloudformation_dataclass
-class S3TargetDMSRoleAllowStatement0_1:
+class LambdaExecutionRoleAllowStatement0_1:
     resource: PolicyStatement
     action = [
-        's3:PutObject',
-        's3:DeleteObject',
+        'logs:*',
+        'config:PutEvaluations',
+        'ec2:DescribeVolumeAttribute',
     ]
-    resource_arn = [
-        get_att(S3Bucket, "Arn"),
-        Sub('${S3Bucket.Arn}/*'),
-    ]
+    resource_arn = '*'
 
 
 @cloudformation_dataclass
-class S3TargetDMSRoleAllowStatement1:
-    resource: PolicyStatement
-    action = 's3:ListBucket'
-    resource_arn = get_att(S3Bucket, "Arn")
-
-
-@cloudformation_dataclass
-class S3TargetDMSRolePolicies0PolicyDocument:
+class LambdaExecutionRolePolicies0PolicyDocument:
     resource: PolicyDocument
-    statement = [S3TargetDMSRoleAllowStatement0_1, S3TargetDMSRoleAllowStatement1]
+    statement = [LambdaExecutionRoleAllowStatement0_1]
 
 
 @cloudformation_dataclass
-class S3TargetDMSRolePolicy:
+class LambdaExecutionRolePolicy:
     resource: iam.user.Policy
-    policy_name = 'S3AccessForDMSPolicy'
-    policy_document = S3TargetDMSRolePolicies0PolicyDocument
+    policy_name = 'root'
+    policy_document = LambdaExecutionRolePolicies0PolicyDocument
 
 
 @cloudformation_dataclass
-class S3TargetDMSRole:
+class LambdaExecutionRole:
     """AWS::IAM::Role resource."""
 
     resource: iam.Role
-    role_name = 'dms-s3-target-role'
-    assume_role_policy_document = S3TargetDMSRoleAssumeRolePolicyDocument
-    path = '/'
-    policies = [S3TargetDMSRolePolicy]
-    depends_on = ["S3Bucket"]
+    assume_role_policy_document = LambdaExecutionRoleAssumeRolePolicyDocument
+    policies = [LambdaExecutionRolePolicy]

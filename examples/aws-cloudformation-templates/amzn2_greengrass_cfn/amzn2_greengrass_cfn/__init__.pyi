@@ -30,8 +30,6 @@ from cloudformation_dataclasses.intrinsics import (
     Split,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .main import CreateThingFunction as CreateThingFunction
 from .main import CreateThingFunctionCode as CreateThingFunctionCode

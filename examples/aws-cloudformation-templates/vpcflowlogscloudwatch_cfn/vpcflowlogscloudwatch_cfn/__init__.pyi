@@ -22,8 +22,6 @@ from cloudformation_dataclasses.intrinsics import (
     If,
     Not,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import VPCFlowLogsToCloudWatch as VPCFlowLogsToCloudWatch
 from .compute import VPCFlowLogsToCloudWatchAssociationParameter as VPCFlowLogsToCloudWatchAssociationParameter

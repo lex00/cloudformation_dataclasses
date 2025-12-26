@@ -1,7 +1,7 @@
 # Implementation TODO
 
 **Date**: 2025-12-25
-**Status**: Phase 1 Complete - Phase 2 Next
+**Status**: Phase 2 In Progress (Core utility consolidation complete)
 
 ---
 
@@ -46,20 +46,23 @@ Quick wins for better developer experience.
 
 ---
 
-## Phase 2: Consolidation
+## Phase 2: Consolidation (In Progress)
 
-### 3. LINTER_IMPORTER_UNIFICATION (Phases 1-2) - Priority: P1
+### 3. LINTER_IMPORTER_UNIFICATION (Phases 1-2) - Priority: P1 🔄 IN PROGRESS
 
 Share utilities between linter and importer systems.
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Create `core/naming.py` | [ ] | `to_snake_case`, `sanitize_python_name` |
-| Create `core/ast_helpers.py` | [ ] | Common AST utilities |
+| Create `core/naming.py` | [x] | `to_snake_case`, `to_pascal_case`, `sanitize_python_name`, `sanitize_class_name` |
+| Create `core/ast_helpers.py` | [x] | `is_cloudformation_dataclass`, `find_last_import_line`, `extract_resource_annotation`, etc. |
+| Update importer to use shared utilities | [x] | `parser.py` re-exports from `core/naming.py` |
+| Update linter to use shared utilities | [x] | `split.py`, `__init__.py`, `rules.py` updated |
 | Consolidate `KNOWN_ENUMS` into `constants.py` | [ ] | Single source of truth |
-| Update importer to use shared utilities | [ ] | Remove duplicates |
-| Update linter to use shared utilities | [ ] | Remove duplicates |
 | Document canonical code style | [ ] | Style guide for both systems |
+
+**Implementation Date**: 2025-12-25 (Phase 1 started)
+**Status**: Core utility consolidation complete. Remaining items are lower priority.
 
 **Why here**: Package structure simplified, shared utilities are clearer.
 
@@ -134,7 +137,7 @@ Two-Claude testing framework for automated framework validation.
 |-------|------------|--------|
 | Package Restructuring | Medium | ✅ Complete |
 | CLI Improvements (P0) | Low | ✅ Complete |
-| Linter/Importer Unification | Medium | Pending |
+| Linter/Importer Unification | Medium | 🔄 In Progress (core done) |
 | Watchdog Improvements | Low | Pending |
 | Agent Testing | Low | Pending |
 
@@ -145,6 +148,6 @@ Two-Claude testing framework for automated framework validation.
 | Phase | Effort | Status |
 |-------|--------|--------|
 | 1. Foundation | 3-5 days | ✅ Complete |
-| 2. Consolidation | 2-3 days | Next |
+| 2. Consolidation | 2-3 days | 🔄 In Progress |
 | 3. Polish | 2-3 days | Pending |
 | 4. Testing | 3-5 days | Pending |

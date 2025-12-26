@@ -11,7 +11,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Select
-from .params import *  # noqa: F403, F401
 
 from .compute import Association1 as Association1
 from .compute import Association2 as Association2

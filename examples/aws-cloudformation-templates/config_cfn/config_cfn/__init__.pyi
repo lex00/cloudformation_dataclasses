@@ -30,8 +30,6 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
     Select,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import ConfigPermissionToCallLambda as ConfigPermissionToCallLambda
 from .compute import Ec2Volume as Ec2Volume

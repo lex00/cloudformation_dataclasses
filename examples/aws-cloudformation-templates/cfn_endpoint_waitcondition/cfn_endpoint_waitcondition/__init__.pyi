@@ -21,8 +21,6 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import BastionInstance as BastionInstance
 from .compute import BastionInstanceAssociationParameter as BastionInstanceAssociationParameter

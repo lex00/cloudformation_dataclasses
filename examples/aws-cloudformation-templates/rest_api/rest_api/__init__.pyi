@@ -10,7 +10,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import apigateway
-from .params import *  # noqa: F403, F401
 
 from .main import Api as Api
 from .main import ApiAuthorizer as ApiAuthorizer

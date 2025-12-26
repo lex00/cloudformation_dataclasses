@@ -14,8 +14,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Split
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .outputs import PeerRoleARNOutput as PeerRoleARNOutput
 from .params import PeerOwnerIds as PeerOwnerIds

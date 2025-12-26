@@ -12,7 +12,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Join, Sub
-from .params import *  # noqa: F403, F401
 
 from .infra import VPCPeeringRequesterSetupStack as VPCPeeringRequesterSetupStack
 from .infra import VPCPeeringUpdatesStack as VPCPeeringUpdatesStack

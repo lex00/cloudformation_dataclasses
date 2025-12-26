@@ -12,8 +12,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import dynamodb
 from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType, ProjectionType
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .database import TableOfBooks as TableOfBooks
 from .database import TableOfBooksAttributeDefinition as TableOfBooksAttributeDefinition

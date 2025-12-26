@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam, lambda_, s3
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
-from .params import *  # noqa: F403, F401
 
 from .compute import LambdaInvokePermission as LambdaInvokePermission
 from .compute import S3TriggerLambdaFunction as S3TriggerLambdaFunction

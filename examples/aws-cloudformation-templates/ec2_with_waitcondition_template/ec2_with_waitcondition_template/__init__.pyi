@@ -18,8 +18,6 @@ from cloudformation_dataclasses.intrinsics import (
     Base64,
     Join,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import KWOSInstance as KWOSInstance
 from .compute import KWOSInstanceAssociationParameter as KWOSInstanceAssociationParameter

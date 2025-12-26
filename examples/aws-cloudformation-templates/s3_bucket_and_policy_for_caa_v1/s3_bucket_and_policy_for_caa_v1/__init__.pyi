@@ -17,8 +17,6 @@ from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .outputs import BucketOutput as BucketOutput
 from .outputs import BucketPolicyOutput as BucketPolicyOutput

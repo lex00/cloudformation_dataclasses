@@ -12,7 +12,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.intrinsics import Transform
-from .params import *  # noqa: F403, F401
 
 from .params import Date as Date
 from .params import Date2 as Date2

@@ -25,8 +25,6 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
     Select,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import ECSCluster as ECSCluster
 from .compute import EcsSecurityGroupIngressFromPrivateALB as EcsSecurityGroupIngressFromPrivateALB

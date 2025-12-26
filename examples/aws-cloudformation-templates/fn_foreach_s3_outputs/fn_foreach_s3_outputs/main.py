@@ -4,70 +4,234 @@ from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class DMSReplicationSubnetGroup:
-    """AWS::DMS::ReplicationSubnetGroup resource."""
-
-    resource: ReplicationSubnetGroup
-    replication_subnet_group_description = 'Subnets available for DMS'
-    subnet_ids = [ref(DBSubnet1), ref(DBSubnet2)]
+class DynamoDBInputS3OutputHiveField:
+    resource: datapipeline.pipeline.Field
+    key = 'releaseLabel'
+    string_value = 'emr-4.1.0'
 
 
 @cloudformation_dataclass
-class DMSReplicationInstance:
-    """AWS::DMS::ReplicationInstance resource."""
-
-    resource: ReplicationInstance
-    availability_zone = get_att(DBSubnet1, "AvailabilityZone")
-    publicly_accessible = False
-    replication_instance_class = 'dms.t3.medium'
-    replication_instance_identifier = 'aurora-s3-repinstance-sampledb'
-    replication_subnet_group_identifier = ref(DMSReplicationSubnetGroup)
-    vpc_security_group_ids = [ref(DMSSecurityGroup)]
-    depends_on = ["DMSReplicationSubnetGroup", "DMSSecurityGroup"]
+class DynamoDBInputS3OutputHiveField1:
+    resource: datapipeline.pipeline.Field
+    key = 'applications'
+    string_value = 'spark'
 
 
 @cloudformation_dataclass
-class AuroraSourceEndpoint:
-    """AWS::DMS::Endpoint resource."""
-
-    resource: dms.Endpoint
-    endpoint_type = 'source'
-    engine_name = 'AURORA'
-    password = '{{resolve:secretsmanager:aurora-source-enpoint-password:SecretString:password}}'
-    port = 3306
-    server_name = get_att(AuroraCluster, "Endpoint.Address")
-    username = 'admin'
-    depends_on = ["DMSReplicationInstance", "AuroraCluster", "AuroraDB"]
+class DynamoDBInputS3OutputHiveField2:
+    resource: datapipeline.pipeline.Field
+    key = 'applications'
+    string_value = 'hive'
 
 
 @cloudformation_dataclass
-class S3TargetEndpointRedshiftSettings:
-    resource: dms.endpoint.RedshiftSettings
-    bucket_name = ref(S3Bucket)
-    service_access_role_arn = get_att(S3TargetDMSRole, "Arn")
+class DynamoDBInputS3OutputHiveField3:
+    resource: datapipeline.pipeline.Field
+    key = 'applications'
+    string_value = 'pig'
 
 
 @cloudformation_dataclass
-class S3TargetEndpoint:
-    """AWS::DMS::Endpoint resource."""
-
-    resource: dms.Endpoint
-    endpoint_type = 'target'
-    engine_name = 'S3'
-    extra_connection_attributes = 'addColumnName=true'
-    s3_settings = S3TargetEndpointRedshiftSettings
-    depends_on = ["DMSReplicationInstance", "S3Bucket", "S3TargetDMSRole"]
+class DynamoDBInputS3OutputHiveField4:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'EmrCluster'
 
 
 @cloudformation_dataclass
-class DMSReplicationTask:
-    """AWS::DMS::ReplicationTask resource."""
+class DynamoDBInputS3OutputHiveField5:
+    resource: datapipeline.pipeline.Field
+    key = 'configuration'
+    ref_value = 'coresite'
 
-    resource: ReplicationTask
-    migration_type = 'full-load-and-cdc'
-    replication_instance_arn = ref(DMSReplicationInstance)
-    replication_task_settings = '{ "Logging" : { "EnableLogging" : true, "LogComponents": [ { "Id" : "SOURCE_UNLOAD", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "SOURCE_CAPTURE", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "TARGET_LOAD", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "TARGET_APPLY", "Severity" : "LOGGER_SEVERITY_DEFAULT" } ] } }'
-    source_endpoint_arn = ref(AuroraSourceEndpoint)
-    table_mappings = '{ "rules": [ { "rule-type" : "selection", "rule-id" : "1", "rule-name" : "1", "object-locator" : { "schema-name" : "dms_sample", "table-name" : "%" }, "rule-action" : "include" } ] }'
-    target_endpoint_arn = ref(S3TargetEndpoint)
-    depends_on = ["AuroraSourceEndpoint", "S3TargetEndpoint", "DMSReplicationInstance"]
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'ResourceId_I1mCc'
+    name = 'ReleaseLabelCluster'
+    fields = [DynamoDBInputS3OutputHiveField, DynamoDBInputS3OutputHiveField1, DynamoDBInputS3OutputHiveField2, DynamoDBInputS3OutputHiveField3, DynamoDBInputS3OutputHiveField4, DynamoDBInputS3OutputHiveField5]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField6:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'EmrConfiguration'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField7:
+    resource: datapipeline.pipeline.Field
+    key = 'classification'
+    string_value = 'core-site'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField8:
+    resource: datapipeline.pipeline.Field
+    key = 'property'
+    ref_value = 'io-file-buffer-size'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField9:
+    resource: datapipeline.pipeline.Field
+    key = 'property'
+    ref_value = 'fs-s3-block-size'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject1:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'coresite'
+    name = 'coresite'
+    fields = [DynamoDBInputS3OutputHiveField6, DynamoDBInputS3OutputHiveField7, DynamoDBInputS3OutputHiveField8, DynamoDBInputS3OutputHiveField9]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField10:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'Property'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField11:
+    resource: datapipeline.pipeline.Field
+    key = 'value'
+    string_value = '4096'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField12:
+    resource: datapipeline.pipeline.Field
+    key = 'key'
+    string_value = 'io.file.buffer.size'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject2:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'io-file-buffer-size'
+    name = 'io-file-buffer-size'
+    fields = [DynamoDBInputS3OutputHiveField10, DynamoDBInputS3OutputHiveField11, DynamoDBInputS3OutputHiveField12]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField13:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'Property'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField14:
+    resource: datapipeline.pipeline.Field
+    key = 'value'
+    string_value = '67108864'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField15:
+    resource: datapipeline.pipeline.Field
+    key = 'key'
+    string_value = 'fs.s3.block.size'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject3:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'fs-s3-block-size'
+    name = 'fs-s3-block-size'
+    fields = [DynamoDBInputS3OutputHiveField13, DynamoDBInputS3OutputHiveField14, DynamoDBInputS3OutputHiveField15]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField16:
+    resource: datapipeline.pipeline.Field
+    key = 'occurrences'
+    string_value = '1'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField17:
+    resource: datapipeline.pipeline.Field
+    key = 'startAt'
+    string_value = 'FIRST_ACTIVATION_DATE_TIME'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField18:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'Schedule'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField19:
+    resource: datapipeline.pipeline.Field
+    key = 'period'
+    string_value = '1 Day'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject4:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'DefaultSchedule'
+    name = 'RunOnce'
+    fields = [DynamoDBInputS3OutputHiveField16, DynamoDBInputS3OutputHiveField17, DynamoDBInputS3OutputHiveField18, DynamoDBInputS3OutputHiveField19]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField20:
+    resource: datapipeline.pipeline.Field
+    key = 'resourceRole'
+    string_value = 'DataPipelineDefaultResourceRole'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField21:
+    resource: datapipeline.pipeline.Field
+    key = 'role'
+    string_value = 'DataPipelineDefaultRole'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField22:
+    resource: datapipeline.pipeline.Field
+    key = 'scheduleType'
+    string_value = 'cron'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField23:
+    resource: datapipeline.pipeline.Field
+    key = 'type'
+    string_value = 'Default'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHiveField24:
+    resource: datapipeline.pipeline.Field
+    key = 'schedule'
+    ref_value = 'DefaultSchedule'
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHivePipelineObject5:
+    resource: datapipeline.pipeline.PipelineObject
+    id = 'Default'
+    name = 'Default'
+    fields = [DynamoDBInputS3OutputHiveField20, DynamoDBInputS3OutputHiveField21, DynamoDBInputS3OutputHiveField22, DynamoDBInputS3OutputHiveField23, DynamoDBInputS3OutputHiveField24]
+
+
+@cloudformation_dataclass
+class DynamoDBInputS3OutputHive:
+    """AWS::DataPipeline::Pipeline resource."""
+
+    resource: datapipeline.Pipeline
+    name = 'DynamoDBInputS3OutputHive'
+    description = 'Pipeline to backup DynamoDB data to S3'
+    activate = 'true'
+    pipeline_objects = [DynamoDBInputS3OutputHivePipelineObject, DynamoDBInputS3OutputHivePipelineObject1, DynamoDBInputS3OutputHivePipelineObject2, DynamoDBInputS3OutputHivePipelineObject3, DynamoDBInputS3OutputHivePipelineObject4, DynamoDBInputS3OutputHivePipelineObject5]

@@ -11,8 +11,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .outputs import AdministrationRoleArnOutput as AdministrationRoleArnOutput
 from .security import AWSCloudFormationStackSetAdministrationRole as AWSCloudFormationStackSetAdministrationRole
