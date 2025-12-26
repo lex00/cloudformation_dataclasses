@@ -12,16 +12,16 @@ Migrated from [ec2_with_waitcondition_template.yaml](https://github.com/aws-clou
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m ec2_with_waitcondition_template
+python -m ec2_with_waitcondition_template
+```
+
+### Validate Template
+
+```bash
+python -m ec2_with_waitcondition_template --validate
 ```
 
 ### Install as Dependency

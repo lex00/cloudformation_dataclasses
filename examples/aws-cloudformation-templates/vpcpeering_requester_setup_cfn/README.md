@@ -12,16 +12,16 @@ Migrated from [VPCPeering-Requester-Setup.cfn.yaml](https://github.com/aws-cloud
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m vpcpeering_requester_setup_cfn
+python -m vpcpeering_requester_setup_cfn
+```
+
+### Validate Template
+
+```bash
+python -m vpcpeering_requester_setup_cfn --validate
 ```
 
 ### Install as Dependency

@@ -1,23 +1,17 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='This templates updates the settings for an AD Connector or AWS Managed AD directory. Tasks accomplied, (1) enables directory monitoring (2) option to create a custom access url (alias) (3) option to enable SSO via directory services. Note, deleting the directory, will only remove directory monitoring, directory SSO or alias settings will not be touched.',
-        parameters=[CreateDirectoryConsoleDelegatedAccessRoles, CreateDirectoryAlias, DirectoryAlias, DirectoryID, DirectoryMonitoringEmail, DirectoryMonitoringSNSTopicKMSKey, EnableDirectorySSO, LambdaFunctionName, LambdaLogLevel, LambdaLogsLogGroupRetention, LambdaLogsCloudWatchKMSKey, LambdaS3BucketName, LambdaZipFileName, Subnets, SecurityGroups],
-        outputs=[DirectoryAliasUrlOutput],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class DirectorySettingsResource:
+    """Custom::DirectorySettingsResource resource."""
 
-
-if __name__ == "__main__":
-    main()
+    # Unknown resource type: Custom::DirectorySettingsResource
+    resource: CloudFormationResource
+    service_token = get_att(DirectorySettingsLambdaFunction, "Arn")
+    directory_id = ref(DirectoryID)
+    create_directory_alias = ref(CreateDirectoryAlias)
+    enable_directory_sso = ref(EnableDirectorySSO)
+    directory_alias = ref(DirectoryAlias)
+    directory_monitoring_topic_name = get_att(DirectoryMonitoringTopic, "TopicName")

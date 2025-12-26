@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-elbwithlockeddownautoscaledinstances = "elbwithlockeddownautoscaledinstances.main:main"
+elbwithlockeddownautoscaledinstances = "elbwithlockeddownautoscaledinstances.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["elbwithlockeddownautoscaledinstances"]
 
 [tool.hatch.build.targets.sdist]
-include = ["elbwithlockeddownautoscaledinstances/**/*.py", "elbwithlockeddownautoscaledinstances/resources/"]
+include = ["elbwithlockeddownautoscaledinstances/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

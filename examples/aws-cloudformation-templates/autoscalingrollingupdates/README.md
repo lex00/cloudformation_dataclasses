@@ -12,16 +12,16 @@ Migrated from [AutoScalingRollingUpdates.yaml](https://github.com/aws-cloudforma
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m autoscalingrollingupdates
+python -m autoscalingrollingupdates
+```
+
+### Validate Template
+
+```bash
+python -m autoscalingrollingupdates --validate
 ```
 
 ### Install as Dependency

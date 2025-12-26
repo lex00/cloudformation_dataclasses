@@ -12,16 +12,16 @@ Migrated from [VPCFlowLogsS3.cfn.yaml](https://github.com/aws-cloudformation/cfn
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m vpcflowlogss3_cfn
+python -m vpcflowlogss3_cfn
+```
+
+### Validate Template
+
+```bash
+python -m vpcflowlogss3_cfn --validate
 ```
 
 ### Install as Dependency

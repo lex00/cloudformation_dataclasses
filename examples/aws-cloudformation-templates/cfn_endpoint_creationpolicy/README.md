@@ -12,16 +12,16 @@ Migrated from [cfn-endpoint-creationpolicy.yaml](https://github.com/aws-cloudfor
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m cfn_endpoint_creationpolicy
+python -m cfn_endpoint_creationpolicy
+```
+
+### Validate Template
+
+```bash
+python -m cfn_endpoint_creationpolicy --validate
 ```
 
 ### Install as Dependency

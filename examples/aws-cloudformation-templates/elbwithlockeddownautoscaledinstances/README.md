@@ -12,16 +12,16 @@ Migrated from [ELBWithLockedDownAutoScaledInstances.yaml](https://github.com/aws
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m elbwithlockeddownautoscaledinstances
+python -m elbwithlockeddownautoscaledinstances
+```
+
+### Validate Template
+
+```bash
+python -m elbwithlockeddownautoscaledinstances --validate
 ```
 
 ### Install as Dependency

@@ -1,0 +1,212 @@
+"""Auto-generated stub for IDE type checking."""
+
+from cloudformation_dataclasses.core import (
+    ARN_LIKE,
+    BOOL,
+    DenyStatement,
+    Output,
+    Parameter,
+    PolicyDocument,
+    PolicyStatement,
+    STRING,
+    STRING_EQUALS,
+    Template,
+    cloudformation_dataclass,
+    get_att,
+    ref,
+)
+from cloudformation_dataclasses.core.resource_loader import setup_resources
+from cloudformation_dataclasses.aws import (
+    apigateway,
+    cloudfront,
+    cognito,
+    dynamodb,
+    iam,
+    lambda_,
+    s3,
+    wafv2,
+)
+from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType
+from cloudformation_dataclasses.aws.s3 import (
+    ObjectLockEnabled,
+    ObjectLockRetentionMode,
+    ReplicationRuleStatus,
+    ServerSideEncryption,
+)
+from cloudformation_dataclasses.intrinsics import (
+    AWS_ACCOUNT_ID,
+    AWS_STACK_ID,
+    Join,
+    Select,
+    Split,
+    Sub,
+)
+from .params import *  # noqa: F403, F401
+from .outputs import *  # noqa: F403, F401
+
+from .database import TestTable as TestTable
+from .database import TestTableAttributeDefinition as TestTableAttributeDefinition
+from .database import TestTableKeySchema as TestTableKeySchema
+from .main import CognitoClient as CognitoClient
+from .main import CognitoDomain as CognitoDomain
+from .main import CognitoUserPool as CognitoUserPool
+from .main import CognitoUserPoolAdminCreateUserConfig as CognitoUserPoolAdminCreateUserConfig
+from .main import CognitoUserPoolSchemaAttribute as CognitoUserPoolSchemaAttribute
+from .main import CognitoUserPoolSchemaAttribute1 as CognitoUserPoolSchemaAttribute1
+from .main import CognitoUserPoolSchemaAttribute2 as CognitoUserPoolSchemaAttribute2
+from .main import JwtResourceGet as JwtResourceGet
+from .main import JwtResourceGetIntegration as JwtResourceGetIntegration
+from .main import JwtResourceHandler as JwtResourceHandler
+from .main import JwtResourceHandlerContent as JwtResourceHandlerContent
+from .main import JwtResourceHandlerEnvironment as JwtResourceHandlerEnvironment
+from .main import JwtResourceHandlerRole as JwtResourceHandlerRole
+from .main import JwtResourceHandlerRoleAllowStatement0 as JwtResourceHandlerRoleAllowStatement0
+from .main import JwtResourceHandlerRoleAssumeRolePolicyDocument as JwtResourceHandlerRoleAssumeRolePolicyDocument
+from .main import JwtResourceOptions as JwtResourceOptions
+from .main import JwtResourceOptionsIntegration as JwtResourceOptionsIntegration
+from .main import JwtResourcePermission as JwtResourcePermission
+from .main import JwtResourceResource as JwtResourceResource
+from .main import JwtResourceRootPermission as JwtResourceRootPermission
+from .main import RestApi as RestApi
+from .main import RestApiAuthorizer as RestApiAuthorizer
+from .main import RestApiDeployment as RestApiDeployment
+from .main import RestApiStage as RestApiStage
+from .main import SiteCloudFrontLogsBucket as SiteCloudFrontLogsBucket
+from .main import SiteCloudFrontLogsBucketAccessPolicy as SiteCloudFrontLogsBucketAccessPolicy
+from .main import SiteCloudFrontLogsBucketAccessPolicyAllowStatement1 as SiteCloudFrontLogsBucketAccessPolicyAllowStatement1
+from .main import SiteCloudFrontLogsBucketAccessPolicyDenyStatement0 as SiteCloudFrontLogsBucketAccessPolicyDenyStatement0
+from .main import SiteCloudFrontLogsBucketAccessPolicyPolicyDocument as SiteCloudFrontLogsBucketAccessPolicyPolicyDocument
+from .main import SiteCloudFrontLogsBucketBucketEncryption as SiteCloudFrontLogsBucketBucketEncryption
+from .main import SiteCloudFrontLogsBucketDeleteMarkerReplication as SiteCloudFrontLogsBucketDeleteMarkerReplication
+from .main import SiteCloudFrontLogsBucketLoggingConfiguration as SiteCloudFrontLogsBucketLoggingConfiguration
+from .main import SiteCloudFrontLogsBucketOwnershipControls as SiteCloudFrontLogsBucketOwnershipControls
+from .main import SiteCloudFrontLogsBucketOwnershipControlsRule as SiteCloudFrontLogsBucketOwnershipControlsRule
+from .main import SiteCloudFrontLogsBucketPublicAccessBlockConfiguration as SiteCloudFrontLogsBucketPublicAccessBlockConfiguration
+from .main import SiteCloudFrontLogsBucketReplicationConfiguration as SiteCloudFrontLogsBucketReplicationConfiguration
+from .main import SiteCloudFrontLogsBucketReplicationDestination as SiteCloudFrontLogsBucketReplicationDestination
+from .main import SiteCloudFrontLogsBucketReplicationRule as SiteCloudFrontLogsBucketReplicationRule
+from .main import SiteCloudFrontLogsBucketServerSideEncryptionByDefault as SiteCloudFrontLogsBucketServerSideEncryptionByDefault
+from .main import SiteCloudFrontLogsBucketServerSideEncryptionRule as SiteCloudFrontLogsBucketServerSideEncryptionRule
+from .main import SiteCloudFrontLogsLogBucket as SiteCloudFrontLogsLogBucket
+from .main import SiteCloudFrontLogsLogBucketAccessPolicy as SiteCloudFrontLogsLogBucketAccessPolicy
+from .main import SiteCloudFrontLogsLogBucketAccessPolicyAllowStatement1 as SiteCloudFrontLogsLogBucketAccessPolicyAllowStatement1
+from .main import SiteCloudFrontLogsLogBucketAccessPolicyDenyStatement0 as SiteCloudFrontLogsLogBucketAccessPolicyDenyStatement0
+from .main import SiteCloudFrontLogsLogBucketAccessPolicyPolicyDocument as SiteCloudFrontLogsLogBucketAccessPolicyPolicyDocument
+from .main import SiteCloudFrontLogsLogBucketBucketEncryption as SiteCloudFrontLogsLogBucketBucketEncryption
+from .main import SiteCloudFrontLogsLogBucketDefaultRetention as SiteCloudFrontLogsLogBucketDefaultRetention
+from .main import SiteCloudFrontLogsLogBucketDeleteMarkerReplication as SiteCloudFrontLogsLogBucketDeleteMarkerReplication
+from .main import SiteCloudFrontLogsLogBucketObjectLockConfiguration as SiteCloudFrontLogsLogBucketObjectLockConfiguration
+from .main import SiteCloudFrontLogsLogBucketObjectLockRule as SiteCloudFrontLogsLogBucketObjectLockRule
+from .main import SiteCloudFrontLogsLogBucketPublicAccessBlockConfiguration as SiteCloudFrontLogsLogBucketPublicAccessBlockConfiguration
+from .main import SiteCloudFrontLogsLogBucketServerSideEncryptionByDefault as SiteCloudFrontLogsLogBucketServerSideEncryptionByDefault
+from .main import SiteCloudFrontLogsLogBucketServerSideEncryptionRule as SiteCloudFrontLogsLogBucketServerSideEncryptionRule
+from .main import SiteCloudFrontLogsReplicaBucket as SiteCloudFrontLogsReplicaBucket
+from .main import SiteCloudFrontLogsReplicaBucketAccessPolicy as SiteCloudFrontLogsReplicaBucketAccessPolicy
+from .main import SiteCloudFrontLogsReplicaBucketAccessPolicyAllowStatement1 as SiteCloudFrontLogsReplicaBucketAccessPolicyAllowStatement1
+from .main import SiteCloudFrontLogsReplicaBucketAccessPolicyDenyStatement0 as SiteCloudFrontLogsReplicaBucketAccessPolicyDenyStatement0
+from .main import SiteCloudFrontLogsReplicaBucketAccessPolicyPolicyDocument as SiteCloudFrontLogsReplicaBucketAccessPolicyPolicyDocument
+from .main import SiteCloudFrontLogsReplicaBucketBucketEncryption as SiteCloudFrontLogsReplicaBucketBucketEncryption
+from .main import SiteCloudFrontLogsReplicaBucketDeleteMarkerReplication as SiteCloudFrontLogsReplicaBucketDeleteMarkerReplication
+from .main import SiteCloudFrontLogsReplicaBucketPublicAccessBlockConfiguration as SiteCloudFrontLogsReplicaBucketPublicAccessBlockConfiguration
+from .main import SiteCloudFrontLogsReplicaBucketServerSideEncryptionByDefault as SiteCloudFrontLogsReplicaBucketServerSideEncryptionByDefault
+from .main import SiteCloudFrontLogsReplicaBucketServerSideEncryptionRule as SiteCloudFrontLogsReplicaBucketServerSideEncryptionRule
+from .main import SiteCloudFrontLogsReplicationPolicy as SiteCloudFrontLogsReplicationPolicy
+from .main import SiteCloudFrontLogsReplicationPolicyAllowStatement0 as SiteCloudFrontLogsReplicationPolicyAllowStatement0
+from .main import SiteCloudFrontLogsReplicationPolicyAllowStatement1 as SiteCloudFrontLogsReplicationPolicyAllowStatement1
+from .main import SiteCloudFrontLogsReplicationPolicyAllowStatement2 as SiteCloudFrontLogsReplicationPolicyAllowStatement2
+from .main import SiteCloudFrontLogsReplicationPolicyPolicyDocument as SiteCloudFrontLogsReplicationPolicyPolicyDocument
+from .main import SiteCloudFrontLogsReplicationRole as SiteCloudFrontLogsReplicationRole
+from .main import SiteCloudFrontLogsReplicationRoleAllowStatement0 as SiteCloudFrontLogsReplicationRoleAllowStatement0
+from .main import SiteCloudFrontLogsReplicationRoleAssumeRolePolicyDocument as SiteCloudFrontLogsReplicationRoleAssumeRolePolicyDocument
+from .main import SiteContentBucket as SiteContentBucket
+from .main import SiteContentBucketAccessPolicy as SiteContentBucketAccessPolicy
+from .main import SiteContentBucketAccessPolicyAllowStatement0 as SiteContentBucketAccessPolicyAllowStatement0
+from .main import SiteContentBucketAccessPolicyAllowStatement2 as SiteContentBucketAccessPolicyAllowStatement2
+from .main import SiteContentBucketAccessPolicyDenyStatement1 as SiteContentBucketAccessPolicyDenyStatement1
+from .main import SiteContentBucketAccessPolicyPolicyDocument as SiteContentBucketAccessPolicyPolicyDocument
+from .main import SiteContentBucketBucketEncryption as SiteContentBucketBucketEncryption
+from .main import SiteContentBucketDeleteMarkerReplication as SiteContentBucketDeleteMarkerReplication
+from .main import SiteContentBucketLoggingConfiguration as SiteContentBucketLoggingConfiguration
+from .main import SiteContentBucketPublicAccessBlockConfiguration as SiteContentBucketPublicAccessBlockConfiguration
+from .main import SiteContentBucketReplicationConfiguration as SiteContentBucketReplicationConfiguration
+from .main import SiteContentBucketReplicationDestination as SiteContentBucketReplicationDestination
+from .main import SiteContentBucketReplicationRule as SiteContentBucketReplicationRule
+from .main import SiteContentBucketServerSideEncryptionByDefault as SiteContentBucketServerSideEncryptionByDefault
+from .main import SiteContentBucketServerSideEncryptionRule as SiteContentBucketServerSideEncryptionRule
+from .main import SiteContentLogBucket as SiteContentLogBucket
+from .main import SiteContentLogBucketAccessPolicy as SiteContentLogBucketAccessPolicy
+from .main import SiteContentLogBucketAccessPolicyAllowStatement1 as SiteContentLogBucketAccessPolicyAllowStatement1
+from .main import SiteContentLogBucketAccessPolicyDenyStatement0 as SiteContentLogBucketAccessPolicyDenyStatement0
+from .main import SiteContentLogBucketAccessPolicyPolicyDocument as SiteContentLogBucketAccessPolicyPolicyDocument
+from .main import SiteContentLogBucketBucketEncryption as SiteContentLogBucketBucketEncryption
+from .main import SiteContentLogBucketDefaultRetention as SiteContentLogBucketDefaultRetention
+from .main import SiteContentLogBucketDeleteMarkerReplication as SiteContentLogBucketDeleteMarkerReplication
+from .main import SiteContentLogBucketObjectLockConfiguration as SiteContentLogBucketObjectLockConfiguration
+from .main import SiteContentLogBucketObjectLockRule as SiteContentLogBucketObjectLockRule
+from .main import SiteContentLogBucketPublicAccessBlockConfiguration as SiteContentLogBucketPublicAccessBlockConfiguration
+from .main import SiteContentLogBucketServerSideEncryptionByDefault as SiteContentLogBucketServerSideEncryptionByDefault
+from .main import SiteContentLogBucketServerSideEncryptionRule as SiteContentLogBucketServerSideEncryptionRule
+from .main import SiteContentReplicaBucket as SiteContentReplicaBucket
+from .main import SiteContentReplicaBucketAccessPolicy as SiteContentReplicaBucketAccessPolicy
+from .main import SiteContentReplicaBucketAccessPolicyAllowStatement1 as SiteContentReplicaBucketAccessPolicyAllowStatement1
+from .main import SiteContentReplicaBucketAccessPolicyDenyStatement0 as SiteContentReplicaBucketAccessPolicyDenyStatement0
+from .main import SiteContentReplicaBucketAccessPolicyPolicyDocument as SiteContentReplicaBucketAccessPolicyPolicyDocument
+from .main import SiteContentReplicaBucketBucketEncryption as SiteContentReplicaBucketBucketEncryption
+from .main import SiteContentReplicaBucketDeleteMarkerReplication as SiteContentReplicaBucketDeleteMarkerReplication
+from .main import SiteContentReplicaBucketPublicAccessBlockConfiguration as SiteContentReplicaBucketPublicAccessBlockConfiguration
+from .main import SiteContentReplicaBucketServerSideEncryptionByDefault as SiteContentReplicaBucketServerSideEncryptionByDefault
+from .main import SiteContentReplicaBucketServerSideEncryptionRule as SiteContentReplicaBucketServerSideEncryptionRule
+from .main import SiteContentReplicationPolicy as SiteContentReplicationPolicy
+from .main import SiteContentReplicationPolicyAllowStatement0 as SiteContentReplicationPolicyAllowStatement0
+from .main import SiteContentReplicationPolicyAllowStatement1 as SiteContentReplicationPolicyAllowStatement1
+from .main import SiteContentReplicationPolicyAllowStatement2 as SiteContentReplicationPolicyAllowStatement2
+from .main import SiteContentReplicationPolicyPolicyDocument as SiteContentReplicationPolicyPolicyDocument
+from .main import SiteContentReplicationRole as SiteContentReplicationRole
+from .main import SiteContentReplicationRoleAllowStatement0 as SiteContentReplicationRoleAllowStatement0
+from .main import SiteContentReplicationRoleAssumeRolePolicyDocument as SiteContentReplicationRoleAssumeRolePolicyDocument
+from .main import SiteDistribution as SiteDistribution
+from .main import SiteDistributionDefaultCacheBehavior as SiteDistributionDefaultCacheBehavior
+from .main import SiteDistributionDistributionConfig as SiteDistributionDistributionConfig
+from .main import SiteDistributionLogging as SiteDistributionLogging
+from .main import SiteDistributionOrigin as SiteDistributionOrigin
+from .main import SiteDistributionS3OriginConfig as SiteDistributionS3OriginConfig
+from .main import SiteDistributionViewerCertificate as SiteDistributionViewerCertificate
+from .main import SiteOriginAccessControl as SiteOriginAccessControl
+from .main import SiteOriginAccessControlOriginAccessControlConfig as SiteOriginAccessControlOriginAccessControlConfig
+from .main import SiteWebACL as SiteWebACL
+from .main import SiteWebACLAllowAction as SiteWebACLAllowAction
+from .main import SiteWebACLDefaultAction as SiteWebACLDefaultAction
+from .main import SiteWebACLExcludedRule as SiteWebACLExcludedRule
+from .main import SiteWebACLManagedRuleGroupStatement as SiteWebACLManagedRuleGroupStatement
+from .main import SiteWebACLOverrideAction as SiteWebACLOverrideAction
+from .main import SiteWebACLRule as SiteWebACLRule
+from .main import SiteWebACLStatement as SiteWebACLStatement
+from .main import SiteWebACLVisibilityConfig as SiteWebACLVisibilityConfig
+from .main import SiteWebACLVisibilityConfig1 as SiteWebACLVisibilityConfig1
+from .main import TestResourceGet as TestResourceGet
+from .main import TestResourceGetIntegration as TestResourceGetIntegration
+from .main import TestResourceHandler as TestResourceHandler
+from .main import TestResourceHandlerContent as TestResourceHandlerContent
+from .main import TestResourceHandlerEnvironment as TestResourceHandlerEnvironment
+from .main import TestResourceHandlerPolicy as TestResourceHandlerPolicy
+from .main import TestResourceHandlerPolicyAllowStatement0 as TestResourceHandlerPolicyAllowStatement0
+from .main import TestResourceHandlerPolicyPolicyDocument as TestResourceHandlerPolicyPolicyDocument
+from .main import TestResourceHandlerRole as TestResourceHandlerRole
+from .main import TestResourceHandlerRoleAllowStatement0 as TestResourceHandlerRoleAllowStatement0
+from .main import TestResourceHandlerRoleAssumeRolePolicyDocument as TestResourceHandlerRoleAssumeRolePolicyDocument
+from .main import TestResourceOptions as TestResourceOptions
+from .main import TestResourceOptionsIntegration as TestResourceOptionsIntegration
+from .main import TestResourcePermission as TestResourcePermission
+from .main import TestResourceResource as TestResourceResource
+from .main import TestResourceRootPermission as TestResourceRootPermission
+from .outputs import AppClientIdOutput as AppClientIdOutput
+from .outputs import AppNameOutput as AppNameOutput
+from .outputs import CognitoDomainPrefixOutput as CognitoDomainPrefixOutput
+from .outputs import RedirectURIOutput as RedirectURIOutput
+from .outputs import RestApiInvokeURLOutput as RestApiInvokeURLOutput
+from .outputs import SiteURLOutput as SiteURLOutput
+from .params import AppName as AppName
+from .params import LambdaCodeS3Bucket as LambdaCodeS3Bucket
+from .params import LambdaCodeS3Key as LambdaCodeS3Key
+
+__all__: list[str] = ['ARN_LIKE', 'AWS_ACCOUNT_ID', 'AWS_STACK_ID', 'AppClientIdOutput', 'AppName', 'AppNameOutput', 'AttributeType', 'BOOL', 'CognitoClient', 'CognitoDomain', 'CognitoDomainPrefixOutput', 'CognitoUserPool', 'CognitoUserPoolAdminCreateUserConfig', 'CognitoUserPoolSchemaAttribute', 'CognitoUserPoolSchemaAttribute1', 'CognitoUserPoolSchemaAttribute2', 'DenyStatement', 'Join', 'JwtResourceGet', 'JwtResourceGetIntegration', 'JwtResourceHandler', 'JwtResourceHandlerContent', 'JwtResourceHandlerEnvironment', 'JwtResourceHandlerRole', 'JwtResourceHandlerRoleAllowStatement0', 'JwtResourceHandlerRoleAssumeRolePolicyDocument', 'JwtResourceOptions', 'JwtResourceOptionsIntegration', 'JwtResourcePermission', 'JwtResourceResource', 'JwtResourceRootPermission', 'KeyType', 'LambdaCodeS3Bucket', 'LambdaCodeS3Key', 'ObjectLockEnabled', 'ObjectLockRetentionMode', 'Output', 'Parameter', 'PolicyDocument', 'PolicyStatement', 'RedirectURIOutput', 'ReplicationRuleStatus', 'RestApi', 'RestApiAuthorizer', 'RestApiDeployment', 'RestApiInvokeURLOutput', 'RestApiStage', 'STRING', 'STRING_EQUALS', 'Select', 'ServerSideEncryption', 'SiteCloudFrontLogsBucket', 'SiteCloudFrontLogsBucketAccessPolicy', 'SiteCloudFrontLogsBucketAccessPolicyAllowStatement1', 'SiteCloudFrontLogsBucketAccessPolicyDenyStatement0', 'SiteCloudFrontLogsBucketAccessPolicyPolicyDocument', 'SiteCloudFrontLogsBucketBucketEncryption', 'SiteCloudFrontLogsBucketDeleteMarkerReplication', 'SiteCloudFrontLogsBucketLoggingConfiguration', 'SiteCloudFrontLogsBucketOwnershipControls', 'SiteCloudFrontLogsBucketOwnershipControlsRule', 'SiteCloudFrontLogsBucketPublicAccessBlockConfiguration', 'SiteCloudFrontLogsBucketReplicationConfiguration', 'SiteCloudFrontLogsBucketReplicationDestination', 'SiteCloudFrontLogsBucketReplicationRule', 'SiteCloudFrontLogsBucketServerSideEncryptionByDefault', 'SiteCloudFrontLogsBucketServerSideEncryptionRule', 'SiteCloudFrontLogsLogBucket', 'SiteCloudFrontLogsLogBucketAccessPolicy', 'SiteCloudFrontLogsLogBucketAccessPolicyAllowStatement1', 'SiteCloudFrontLogsLogBucketAccessPolicyDenyStatement0', 'SiteCloudFrontLogsLogBucketAccessPolicyPolicyDocument', 'SiteCloudFrontLogsLogBucketBucketEncryption', 'SiteCloudFrontLogsLogBucketDefaultRetention', 'SiteCloudFrontLogsLogBucketDeleteMarkerReplication', 'SiteCloudFrontLogsLogBucketObjectLockConfiguration', 'SiteCloudFrontLogsLogBucketObjectLockRule', 'SiteCloudFrontLogsLogBucketPublicAccessBlockConfiguration', 'SiteCloudFrontLogsLogBucketServerSideEncryptionByDefault', 'SiteCloudFrontLogsLogBucketServerSideEncryptionRule', 'SiteCloudFrontLogsReplicaBucket', 'SiteCloudFrontLogsReplicaBucketAccessPolicy', 'SiteCloudFrontLogsReplicaBucketAccessPolicyAllowStatement1', 'SiteCloudFrontLogsReplicaBucketAccessPolicyDenyStatement0', 'SiteCloudFrontLogsReplicaBucketAccessPolicyPolicyDocument', 'SiteCloudFrontLogsReplicaBucketBucketEncryption', 'SiteCloudFrontLogsReplicaBucketDeleteMarkerReplication', 'SiteCloudFrontLogsReplicaBucketPublicAccessBlockConfiguration', 'SiteCloudFrontLogsReplicaBucketServerSideEncryptionByDefault', 'SiteCloudFrontLogsReplicaBucketServerSideEncryptionRule', 'SiteCloudFrontLogsReplicationPolicy', 'SiteCloudFrontLogsReplicationPolicyAllowStatement0', 'SiteCloudFrontLogsReplicationPolicyAllowStatement1', 'SiteCloudFrontLogsReplicationPolicyAllowStatement2', 'SiteCloudFrontLogsReplicationPolicyPolicyDocument', 'SiteCloudFrontLogsReplicationRole', 'SiteCloudFrontLogsReplicationRoleAllowStatement0', 'SiteCloudFrontLogsReplicationRoleAssumeRolePolicyDocument', 'SiteContentBucket', 'SiteContentBucketAccessPolicy', 'SiteContentBucketAccessPolicyAllowStatement0', 'SiteContentBucketAccessPolicyAllowStatement2', 'SiteContentBucketAccessPolicyDenyStatement1', 'SiteContentBucketAccessPolicyPolicyDocument', 'SiteContentBucketBucketEncryption', 'SiteContentBucketDeleteMarkerReplication', 'SiteContentBucketLoggingConfiguration', 'SiteContentBucketPublicAccessBlockConfiguration', 'SiteContentBucketReplicationConfiguration', 'SiteContentBucketReplicationDestination', 'SiteContentBucketReplicationRule', 'SiteContentBucketServerSideEncryptionByDefault', 'SiteContentBucketServerSideEncryptionRule', 'SiteContentLogBucket', 'SiteContentLogBucketAccessPolicy', 'SiteContentLogBucketAccessPolicyAllowStatement1', 'SiteContentLogBucketAccessPolicyDenyStatement0', 'SiteContentLogBucketAccessPolicyPolicyDocument', 'SiteContentLogBucketBucketEncryption', 'SiteContentLogBucketDefaultRetention', 'SiteContentLogBucketDeleteMarkerReplication', 'SiteContentLogBucketObjectLockConfiguration', 'SiteContentLogBucketObjectLockRule', 'SiteContentLogBucketPublicAccessBlockConfiguration', 'SiteContentLogBucketServerSideEncryptionByDefault', 'SiteContentLogBucketServerSideEncryptionRule', 'SiteContentReplicaBucket', 'SiteContentReplicaBucketAccessPolicy', 'SiteContentReplicaBucketAccessPolicyAllowStatement1', 'SiteContentReplicaBucketAccessPolicyDenyStatement0', 'SiteContentReplicaBucketAccessPolicyPolicyDocument', 'SiteContentReplicaBucketBucketEncryption', 'SiteContentReplicaBucketDeleteMarkerReplication', 'SiteContentReplicaBucketPublicAccessBlockConfiguration', 'SiteContentReplicaBucketServerSideEncryptionByDefault', 'SiteContentReplicaBucketServerSideEncryptionRule', 'SiteContentReplicationPolicy', 'SiteContentReplicationPolicyAllowStatement0', 'SiteContentReplicationPolicyAllowStatement1', 'SiteContentReplicationPolicyAllowStatement2', 'SiteContentReplicationPolicyPolicyDocument', 'SiteContentReplicationRole', 'SiteContentReplicationRoleAllowStatement0', 'SiteContentReplicationRoleAssumeRolePolicyDocument', 'SiteDistribution', 'SiteDistributionDefaultCacheBehavior', 'SiteDistributionDistributionConfig', 'SiteDistributionLogging', 'SiteDistributionOrigin', 'SiteDistributionS3OriginConfig', 'SiteDistributionViewerCertificate', 'SiteOriginAccessControl', 'SiteOriginAccessControlOriginAccessControlConfig', 'SiteURLOutput', 'SiteWebACL', 'SiteWebACLAllowAction', 'SiteWebACLDefaultAction', 'SiteWebACLExcludedRule', 'SiteWebACLManagedRuleGroupStatement', 'SiteWebACLOverrideAction', 'SiteWebACLRule', 'SiteWebACLStatement', 'SiteWebACLVisibilityConfig', 'SiteWebACLVisibilityConfig1', 'Split', 'Sub', 'Template', 'TestResourceGet', 'TestResourceGetIntegration', 'TestResourceHandler', 'TestResourceHandlerContent', 'TestResourceHandlerEnvironment', 'TestResourceHandlerPolicy', 'TestResourceHandlerPolicyAllowStatement0', 'TestResourceHandlerPolicyPolicyDocument', 'TestResourceHandlerRole', 'TestResourceHandlerRoleAllowStatement0', 'TestResourceHandlerRoleAssumeRolePolicyDocument', 'TestResourceOptions', 'TestResourceOptionsIntegration', 'TestResourcePermission', 'TestResourceResource', 'TestResourceRootPermission', 'TestTable', 'TestTableAttributeDefinition', 'TestTableKeySchema', 'apigateway', 'cloudformation_dataclass', 'cloudfront', 'cognito', 'dynamodb', 'get_att', 'iam', 'lambda_', 'ref', 's3', 'setup_resources', 'wafv2']

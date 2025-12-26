@@ -273,6 +273,16 @@ Fixed Python Source Code
 
 **Observation:** The linter enforces the patterns that the importer generates. This is by design, but shows tight coupling.
 
+**Known Issue:** Resource files sometimes generate extra import lines beyond `from . import *`:
+```python
+# network.py - should only have this:
+from . import *  # noqa: F403
+
+# But sometimes generates extra imports like:
+from cloudformation_dataclasses.core.constants import IpProtocol
+```
+These extra imports should be eliminated by ensuring constants like `IpProtocol` are exported from the package `__init__.py` and available via `from . import *`.
+
 **Opportunity:** Document the "canonical style" that both systems target, making it explicit rather than implicit.
 
 ---
@@ -432,9 +442,11 @@ files = _generate_stack_package(pkg_ctx, template)
 
 **Implementation:**
 1. **Generate compliant imports from the start:**
-   - Always emit `from .. import *` in stack files
+   - Always emit `from .. import *` in stack files (flat: `from . import *`)
    - Always emit `from . import *` in params.py
    - Context tracks required imports, emits them correctly
+   - **No extra import lines in resource files** - all needed constants (IpProtocol, etc.)
+     must be exported from `__init__.py` and available via star import
 
 2. **Generate annotation-based refs directly:**
    - `ref(ClassName)` when target is defined before
@@ -448,6 +460,11 @@ files = _generate_stack_package(pkg_ctx, template)
 4. **Generate PropertyType wrappers by default:**
    - Block mode already does this
    - Ensure consistency with linter expectations
+
+5. **Export all needed constants from `__init__.py`:**
+   - When resource files use constants like `IpProtocol`, the codegen must add
+     those constants to the package's `__init__.py` core imports
+   - Resource files should only have `from . import *` with no additional imports
 
 **Impact:**
 - Faster code generation (no post-processing step)

@@ -12,16 +12,16 @@ Migrated from [example_3.yaml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m example_3
+python -m example_3
+```
+
+### Validate Template
+
+```bash
+python -m example_3 --validate
 ```
 
 ### Install as Dependency

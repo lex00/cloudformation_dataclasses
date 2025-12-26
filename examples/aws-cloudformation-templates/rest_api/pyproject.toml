@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-rest_api = "rest_api.main:main"
+rest_api = "rest_api.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["rest_api"]
 
 [tool.hatch.build.targets.sdist]
-include = ["rest_api/**/*.py", "rest_api/resources/"]
+include = ["rest_api/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

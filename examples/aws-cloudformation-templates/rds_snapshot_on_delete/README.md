@@ -12,16 +12,16 @@ Migrated from [RDS_Snapshot_On_Delete.yaml](https://github.com/aws-cloudformatio
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m rds_snapshot_on_delete
+python -m rds_snapshot_on_delete
+```
+
+### Validate Template
+
+```bash
+python -m rds_snapshot_on_delete --validate
 ```
 
 ### Install as Dependency

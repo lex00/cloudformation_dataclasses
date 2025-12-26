@@ -1,4 +1,4 @@
 """Allow running as: python -m elbstickinesssample."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="AWS CloudFormation Sample Template ELBStickinessSample: Create a load balanced sample web site with ELB stickiness enabled. The AI is chosen based on the region in which the stack is run. This example creates 2 EC2 instances behind a load balancer with a simple health check. The ec2 instances are untargeted and may be deployed in one or more availaiblity zones. The web site is available on port 80, however, the instances can be configured to listen on any port (8888 by default). **WARNING** This template creates one or more Amazon EC2 instances and an Elastic Load Balancer. You will be billed for the AWS resources used if you create a stack from this template.")

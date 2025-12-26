@@ -1,1 +1,0 @@
-"""Tests for ubuntu example."""

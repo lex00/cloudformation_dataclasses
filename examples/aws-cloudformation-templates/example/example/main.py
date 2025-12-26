@@ -1,22 +1,28 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
+from . import *  # noqa: F403
 
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='tests String macro functions',
-        parameters=[InputString],
-    )
+from cloudformation_dataclasses.aws.lambda_ import Runtime
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class ResourceFunction:
+    """AWS::Serverless::Function resource."""
+
+    # Unknown resource type: AWS::Serverless::Function
+    resource: CloudFormationResource
+    runtime = Runtime.PYTHON3_12
+    code_uri = 'lambda'
+    handler = 'resource.handler'
+    policies = 'CloudWatchFullAccess'
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class MacroFunction:
+    """AWS::Serverless::Function resource."""
+
+    # Unknown resource type: AWS::Serverless::Function
+    resource: CloudFormationResource
+    runtime = Runtime.PYTHON3_12
+    code_uri = 'lambda'
+    handler = 'index.handler'

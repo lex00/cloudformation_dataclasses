@@ -1,4 +1,4 @@
 """Allow running as: python -m amazon_linux_2."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="Template to install CloudWatchAgent on amazon linux. It was validated on amazon linux 2")

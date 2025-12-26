@@ -12,16 +12,16 @@ Migrated from [RDS_MySQL_With_Read_Replica.yaml](https://github.com/aws-cloudfor
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m rds_mysql_with_read_replica
+python -m rds_mysql_with_read_replica
+```
+
+### Validate Template
+
+```bash
+python -m rds_mysql_with_read_replica --validate
 ```
 
 ### Install as Dependency

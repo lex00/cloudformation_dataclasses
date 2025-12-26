@@ -12,16 +12,16 @@ Migrated from [SNSTopic.yaml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m snstopic
+python -m snstopic
+```
+
+### Validate Template
+
+```bash
+python -m snstopic --validate
 ```
 
 ### Install as Dependency

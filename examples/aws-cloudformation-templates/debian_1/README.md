@@ -12,16 +12,16 @@ Migrated from [debian_1.yaml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m debian_1
+python -m debian_1
+```
+
+### Validate Template
+
+```bash
+python -m debian_1 --validate
 ```
 
 ### Install as Dependency

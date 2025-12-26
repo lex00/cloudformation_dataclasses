@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-macro_4 = "macro_4.main:main"
+macro_4 = "macro_4.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["macro_4"]
 
 [tool.hatch.build.targets.sdist]
-include = ["macro_4/**/*.py", "macro_4/resources/"]
+include = ["macro_4/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

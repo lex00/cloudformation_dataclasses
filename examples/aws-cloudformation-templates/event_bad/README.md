@@ -1,9 +1,6 @@
 # EventBad
 
-Migrated from [event_bad.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `template_1.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -12,16 +9,16 @@ Migrated from [event_bad.json](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m event_bad
+python -m event_bad
+```
+
+### Validate Template
+
+```bash
+python -m event_bad --validate
 ```
 
 ### Install as Dependency
@@ -29,3 +26,10 @@ uv run python -m event_bad
 ```bash
 pip install .
 ```
+
+## Resources
+
+| Logical ID | Type |
+|------------|------|
+| `Macro` | AWS::CloudFormation::Macro |
+| `CountMacroFunction` | AWS::Serverless::Function |

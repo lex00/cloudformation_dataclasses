@@ -1,0 +1,75 @@
+"""Auto-generated stub for IDE type checking."""
+
+from cloudformation_dataclasses.core import (
+    ARN_LIKE,
+    BOOL,
+    DenyStatement,
+    Parameter,
+    PolicyDocument,
+    PolicyStatement,
+    STRING,
+    STRING_EQUALS,
+    Template,
+    cloudformation_dataclass,
+    get_att,
+    ref,
+)
+from cloudformation_dataclasses.core.resource_loader import setup_resources
+from cloudformation_dataclasses.aws import iam, s3
+from cloudformation_dataclasses.aws.s3 import (
+    ObjectLockEnabled,
+    ObjectLockRetentionMode,
+    ReplicationRuleStatus,
+    ServerSideEncryption,
+)
+from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
+from .params import *  # noqa: F403, F401
+
+from .params import AppName as AppName
+from .security import ObjectStorageReplicationPolicy as ObjectStorageReplicationPolicy
+from .security import ObjectStorageReplicationPolicyAllowStatement0 as ObjectStorageReplicationPolicyAllowStatement0
+from .security import ObjectStorageReplicationPolicyAllowStatement1 as ObjectStorageReplicationPolicyAllowStatement1
+from .security import ObjectStorageReplicationPolicyAllowStatement2 as ObjectStorageReplicationPolicyAllowStatement2
+from .security import ObjectStorageReplicationPolicyPolicyDocument as ObjectStorageReplicationPolicyPolicyDocument
+from .security import ObjectStorageReplicationRole as ObjectStorageReplicationRole
+from .security import ObjectStorageReplicationRoleAllowStatement0 as ObjectStorageReplicationRoleAllowStatement0
+from .security import ObjectStorageReplicationRoleAssumeRolePolicyDocument as ObjectStorageReplicationRoleAssumeRolePolicyDocument
+from .storage import ObjectStorageBucket as ObjectStorageBucket
+from .storage import ObjectStorageBucketBucketEncryption as ObjectStorageBucketBucketEncryption
+from .storage import ObjectStorageBucketDeleteMarkerReplication as ObjectStorageBucketDeleteMarkerReplication
+from .storage import ObjectStorageBucketLoggingConfiguration as ObjectStorageBucketLoggingConfiguration
+from .storage import ObjectStorageBucketPolicyPolicy as ObjectStorageBucketPolicyPolicy
+from .storage import ObjectStorageBucketPolicyPolicyAllowStatement1 as ObjectStorageBucketPolicyPolicyAllowStatement1
+from .storage import ObjectStorageBucketPolicyPolicyDenyStatement0 as ObjectStorageBucketPolicyPolicyDenyStatement0
+from .storage import ObjectStorageBucketPolicyPolicyPolicyDocument as ObjectStorageBucketPolicyPolicyPolicyDocument
+from .storage import ObjectStorageBucketPublicAccessBlockConfiguration as ObjectStorageBucketPublicAccessBlockConfiguration
+from .storage import ObjectStorageBucketReplicationConfiguration as ObjectStorageBucketReplicationConfiguration
+from .storage import ObjectStorageBucketReplicationDestination as ObjectStorageBucketReplicationDestination
+from .storage import ObjectStorageBucketReplicationRule as ObjectStorageBucketReplicationRule
+from .storage import ObjectStorageBucketServerSideEncryptionByDefault as ObjectStorageBucketServerSideEncryptionByDefault
+from .storage import ObjectStorageBucketServerSideEncryptionRule as ObjectStorageBucketServerSideEncryptionRule
+from .storage import ObjectStorageLogBucket as ObjectStorageLogBucket
+from .storage import ObjectStorageLogBucketBucketEncryption as ObjectStorageLogBucketBucketEncryption
+from .storage import ObjectStorageLogBucketDefaultRetention as ObjectStorageLogBucketDefaultRetention
+from .storage import ObjectStorageLogBucketDeleteMarkerReplication as ObjectStorageLogBucketDeleteMarkerReplication
+from .storage import ObjectStorageLogBucketObjectLockConfiguration as ObjectStorageLogBucketObjectLockConfiguration
+from .storage import ObjectStorageLogBucketObjectLockRule as ObjectStorageLogBucketObjectLockRule
+from .storage import ObjectStorageLogBucketPolicyPolicy as ObjectStorageLogBucketPolicyPolicy
+from .storage import ObjectStorageLogBucketPolicyPolicyAllowStatement1 as ObjectStorageLogBucketPolicyPolicyAllowStatement1
+from .storage import ObjectStorageLogBucketPolicyPolicyDenyStatement0 as ObjectStorageLogBucketPolicyPolicyDenyStatement0
+from .storage import ObjectStorageLogBucketPolicyPolicyPolicyDocument as ObjectStorageLogBucketPolicyPolicyPolicyDocument
+from .storage import ObjectStorageLogBucketPublicAccessBlockConfiguration as ObjectStorageLogBucketPublicAccessBlockConfiguration
+from .storage import ObjectStorageLogBucketServerSideEncryptionByDefault as ObjectStorageLogBucketServerSideEncryptionByDefault
+from .storage import ObjectStorageLogBucketServerSideEncryptionRule as ObjectStorageLogBucketServerSideEncryptionRule
+from .storage import ObjectStorageReplicaBucket as ObjectStorageReplicaBucket
+from .storage import ObjectStorageReplicaBucketBucketEncryption as ObjectStorageReplicaBucketBucketEncryption
+from .storage import ObjectStorageReplicaBucketDeleteMarkerReplication as ObjectStorageReplicaBucketDeleteMarkerReplication
+from .storage import ObjectStorageReplicaBucketPolicyPolicy as ObjectStorageReplicaBucketPolicyPolicy
+from .storage import ObjectStorageReplicaBucketPolicyPolicyAllowStatement1 as ObjectStorageReplicaBucketPolicyPolicyAllowStatement1
+from .storage import ObjectStorageReplicaBucketPolicyPolicyDenyStatement0 as ObjectStorageReplicaBucketPolicyPolicyDenyStatement0
+from .storage import ObjectStorageReplicaBucketPolicyPolicyPolicyDocument as ObjectStorageReplicaBucketPolicyPolicyPolicyDocument
+from .storage import ObjectStorageReplicaBucketPublicAccessBlockConfiguration as ObjectStorageReplicaBucketPublicAccessBlockConfiguration
+from .storage import ObjectStorageReplicaBucketServerSideEncryptionByDefault as ObjectStorageReplicaBucketServerSideEncryptionByDefault
+from .storage import ObjectStorageReplicaBucketServerSideEncryptionRule as ObjectStorageReplicaBucketServerSideEncryptionRule
+
+__all__: list[str] = ['ARN_LIKE', 'AWS_ACCOUNT_ID', 'AppName', 'BOOL', 'DenyStatement', 'ObjectLockEnabled', 'ObjectLockRetentionMode', 'ObjectStorageBucket', 'ObjectStorageBucketBucketEncryption', 'ObjectStorageBucketDeleteMarkerReplication', 'ObjectStorageBucketLoggingConfiguration', 'ObjectStorageBucketPolicyPolicy', 'ObjectStorageBucketPolicyPolicyAllowStatement1', 'ObjectStorageBucketPolicyPolicyDenyStatement0', 'ObjectStorageBucketPolicyPolicyPolicyDocument', 'ObjectStorageBucketPublicAccessBlockConfiguration', 'ObjectStorageBucketReplicationConfiguration', 'ObjectStorageBucketReplicationDestination', 'ObjectStorageBucketReplicationRule', 'ObjectStorageBucketServerSideEncryptionByDefault', 'ObjectStorageBucketServerSideEncryptionRule', 'ObjectStorageLogBucket', 'ObjectStorageLogBucketBucketEncryption', 'ObjectStorageLogBucketDefaultRetention', 'ObjectStorageLogBucketDeleteMarkerReplication', 'ObjectStorageLogBucketObjectLockConfiguration', 'ObjectStorageLogBucketObjectLockRule', 'ObjectStorageLogBucketPolicyPolicy', 'ObjectStorageLogBucketPolicyPolicyAllowStatement1', 'ObjectStorageLogBucketPolicyPolicyDenyStatement0', 'ObjectStorageLogBucketPolicyPolicyPolicyDocument', 'ObjectStorageLogBucketPublicAccessBlockConfiguration', 'ObjectStorageLogBucketServerSideEncryptionByDefault', 'ObjectStorageLogBucketServerSideEncryptionRule', 'ObjectStorageReplicaBucket', 'ObjectStorageReplicaBucketBucketEncryption', 'ObjectStorageReplicaBucketDeleteMarkerReplication', 'ObjectStorageReplicaBucketPolicyPolicy', 'ObjectStorageReplicaBucketPolicyPolicyAllowStatement1', 'ObjectStorageReplicaBucketPolicyPolicyDenyStatement0', 'ObjectStorageReplicaBucketPolicyPolicyPolicyDocument', 'ObjectStorageReplicaBucketPublicAccessBlockConfiguration', 'ObjectStorageReplicaBucketServerSideEncryptionByDefault', 'ObjectStorageReplicaBucketServerSideEncryptionRule', 'ObjectStorageReplicationPolicy', 'ObjectStorageReplicationPolicyAllowStatement0', 'ObjectStorageReplicationPolicyAllowStatement1', 'ObjectStorageReplicationPolicyAllowStatement2', 'ObjectStorageReplicationPolicyPolicyDocument', 'ObjectStorageReplicationRole', 'ObjectStorageReplicationRoleAllowStatement0', 'ObjectStorageReplicationRoleAssumeRolePolicyDocument', 'Parameter', 'PolicyDocument', 'PolicyStatement', 'ReplicationRuleStatus', 'STRING', 'STRING_EQUALS', 'ServerSideEncryption', 'Sub', 'Template', 'cloudformation_dataclass', 'get_att', 'iam', 'ref', 's3', 'setup_resources']

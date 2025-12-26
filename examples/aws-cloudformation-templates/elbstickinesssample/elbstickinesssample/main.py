@@ -1,23 +1,115 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
+from . import *  # noqa: F403
 
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='AWS CloudFormation Sample Template ELBStickinessSample: Create a load balanced sample web site with ELB stickiness enabled. The AI is chosen based on the region in which the stack is run. This example creates 2 EC2 instances behind a load balancer with a simple health check. The ec2 instances are untargeted and may be deployed in one or more availaiblity zones. The web site is available on port 80, however, the instances can be configured to listen on any port (8888 by default). **WARNING** This template creates one or more Amazon EC2 instances and an Elastic Load Balancer. You will be billed for the AWS resources used if you create a stack from this template.',
-        parameters=[LatestAmiId, InstanceType, KeyName, SSHLocation, SubnetId],
-        outputs=[URLOutput],
-    )
+from cloudformation_dataclasses.core.constants import IpProtocol
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = IpProtocol.TCP
+    from_port = '22'
+    to_port = '22'
+    cidr_ip = ref(SSHLocation)
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class InstanceSecurityGroupEgress1:
+    resource: ec2.security_group.Egress
+    ip_protocol = IpProtocol.TCP
+    from_port = '80'
+    to_port = '80'
+    cidr_ip = '0.0.0.0/0'
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroup:
+    """AWS::EC2::SecurityGroup resource."""
+
+    resource: ec2.SecurityGroup
+    group_description = 'Enable SSH access and HTTP access on the inbound port'
+    security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupEgress1]
+
+
+@cloudformation_dataclass
+class EC2Instance1:
+    """AWS::EC2::Instance resource."""
+
+    resource: ec2.Instance
+    subnet_id = ref(SubnetId)
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
+    key_name = ref(KeyName)
+    instance_type = ref(InstanceType)
+    image_id = ref(LatestAmiId)
+    user_data = Base64(Sub("""#!/bin/bash -xe          
+yum update -y aws-cfn-bootstrap 
+/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} \
+         --resource EC2Instance1 \
+         --region ${AWS::Region}
+
+/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} \
+         --resource EC2Instance1 \
+         --region ${AWS::Region} 
+"""))
+
+
+@cloudformation_dataclass
+class EC2Instance2:
+    """AWS::EC2::Instance resource."""
+
+    resource: ec2.Instance
+    subnet_id = ref(SubnetId)
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
+    key_name = ref(KeyName)
+    instance_type = ref(InstanceType)
+    image_id = ref(LatestAmiId)
+    user_data = Base64(Sub("""#!/bin/bash -xe          
+yum update -y aws-cfn-bootstrap 
+/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} \
+         --resource EC2Instance1 \
+         --region ${AWS::Region}
+
+/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} \
+         --resource EC2Instance2 \
+         --region ${AWS::Region} 
+"""))
+
+
+@cloudformation_dataclass
+class ElasticLoadBalancerLBCookieStickinessPolicy:
+    resource: elasticloadbalancing.load_balancer.LBCookieStickinessPolicy
+    policy_name = 'myLBPolicy'
+    cookie_expiration_period = '180'
+
+
+@cloudformation_dataclass
+class ElasticLoadBalancerListeners:
+    resource: elasticloadbalancing.load_balancer.Listeners
+    load_balancer_port = '80'
+    instance_port = '80'
+    protocol = 'HTTP'
+    policy_names = ['myLBPolicy']
+
+
+@cloudformation_dataclass
+class ElasticLoadBalancerHealthCheck:
+    resource: elasticloadbalancing.load_balancer.HealthCheck
+    target = 'HTTP:80/'
+    healthy_threshold = '3'
+    unhealthy_threshold = '5'
+    interval = '30'
+    timeout = '5'
+
+
+@cloudformation_dataclass
+class ElasticLoadBalancer:
+    """AWS::ElasticLoadBalancing::LoadBalancer resource."""
+
+    resource: elasticloadbalancing.LoadBalancer
+    availability_zones = GetAZs()
+    cross_zone = 'true'
+    instances = [ref(EC2Instance1), ref(EC2Instance2)]
+    lb_cookie_stickiness_policy = [ElasticLoadBalancerLBCookieStickinessPolicy]
+    listeners = [ElasticLoadBalancerListeners]
+    health_check = ElasticLoadBalancerHealthCheck

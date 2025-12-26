@@ -2,13 +2,19 @@
 Stub file generator for IDE type checking.
 
 This module generates .pyi stub files so that IDEs like VSCode/Pylance
-can understand the dynamic imports used in cloudformation_dataclasses stacks.
+can understand the dynamic imports used in cloudformation_dataclasses resource packages.
 
-The problem: Stack files use `from .. import *` which works at runtime
-because setup_resources() dynamically loads and injects names. But static
-analyzers can't see these dynamic exports.
+The problem: Resource files use dynamic imports which work at runtime because
+setup_resources() dynamically loads and injects names. But static analyzers
+can't see these dynamic exports.
 
 The solution: Generate .pyi stub files that explicitly declare what's exported.
+
+Supports two package structures:
+1. New flat structure: package/__init__.py with setup_resources(__file__)
+   - Generates package/__init__.pyi with all re-exports
+2. Old stack/ structure: package/stack/__init__.py with setup_resources
+   - Generates stack/__init__.pyi for backwards compatibility
 
 Usage:
     # Generate stubs for a directory
@@ -189,31 +195,33 @@ def extract_import_names(import_stmt: str) -> list[str]:
 
 
 def generate_stub_file(
-    stack_path: Path,
+    package_path: Path,
     all_names: list[str] | None = None,
     module_classes: dict[str, list[str]] | None = None,
 ) -> bool:
     """Generate .pyi stub files for IDE type checking.
 
     This allows IDEs like VSCode/Pylance to understand what names are
-    exported from the stack/ package, even though they're loaded dynamically.
+    exported from resource packages, even though they're loaded dynamically.
 
-    Generates:
-    - stack/__init__.pyi: Re-exports all classes from resource modules
-    - parent/__init__.pyi: Re-exports classes from stack for `from .. import *`
+    Supports two package structures:
+    1. New flat structure: package/__init__.py with setup_resources()
+       - Generates package/__init__.pyi with all re-exports
+    2. Old stack/ structure: package/stack/__init__.py
+       - Generates stack/__init__.pyi and package/__init__.pyi
 
     Args:
-        stack_path: Path to the stack/ directory
+        package_path: Path to the package directory (either package/ or package/stack/)
         all_names: Optional list of all exported names (computed if not provided)
         module_classes: Optional dict of module -> class names (computed if not provided)
 
     Returns:
         True if stubs were generated/updated, False if unchanged
     """
-    # If not provided, scan the stack directory
+    # If not provided, scan the package directory for resource modules
     if module_classes is None:
         module_classes = {}
-        for file in stack_path.glob("*.py"):
+        for file in package_path.glob("*.py"):
             if file.name.startswith("_"):
                 continue
             source = file.read_text()
@@ -227,47 +235,28 @@ def generate_stub_file(
 
     changed = False
 
-    # Generate stack/__init__.pyi
-    init_stub_path = stack_path / "__init__.pyi"
+    # Generate package/__init__.pyi
+    init_stub_path = package_path / "__init__.pyi"
     init_lines = ['"""Auto-generated stub for IDE type checking."""', ""]
 
-    for mod_name, classes in sorted(module_classes.items()):
-        if classes:
-            class_imports = ", ".join(f"{c} as {c}" for c in sorted(classes))
-            init_lines.append(f"from .{mod_name} import {class_imports}")
-
-    init_lines.append("")
-    init_lines.append("__all__: list[str]")
-    init_lines.append("")
-
-    if _write_stub_if_changed(init_stub_path, "\n".join(init_lines)):
-        changed = True
-
-    # Generate parent/__init__.pyi for `from .. import *` to work
-    parent_path = stack_path.parent
-    parent_stub_path = parent_path / "__init__.pyi"
-    parent_init_file = parent_path / "__init__.py"
-
-    parent_lines = ['"""Auto-generated stub for IDE type checking."""', ""]
-
-    # Copy import statements from parent __init__.py (except `from .stack import *`)
+    # Read the __init__.py to extract imports
+    init_file = package_path / "__init__.py"
     imported_names: list[str] = []
     param_names: list[str] = []
 
-    if parent_init_file.exists():
-        parent_source = parent_init_file.read_text()
+    if init_file.exists():
+        init_source = init_file.read_text()
         in_import = False
         import_buffer: list[str] = []
 
-        for line in parent_source.splitlines():
+        for line in init_source.splitlines():
             if in_import:
                 import_buffer.append(line)
                 if ")" in line:
                     # End of multi-line import
                     full_import = "\n".join(import_buffer)
-                    if "from .stack import" not in full_import:
-                        parent_lines.append(full_import)
-                        imported_names.extend(extract_import_names(full_import))
+                    init_lines.append(full_import)
+                    imported_names.extend(extract_import_names(full_import))
                     import_buffer = []
                     in_import = False
             elif line.startswith("from ") or line.startswith("import "):
@@ -275,41 +264,44 @@ def generate_stub_file(
                     # Start of multi-line import
                     in_import = True
                     import_buffer = [line]
-                elif "from .stack import" not in line:
+                else:
+                    # Skip star imports from .params and .outputs - we'll add explicit imports later
+                    if "from .params import *" in line or "from .outputs import *" in line:
+                        continue
                     # Try to expand star imports from known modules
                     expanded_line, star_names = expand_star_import(line)
-                    parent_lines.append(expanded_line)
+                    init_lines.append(expanded_line)
                     if star_names:
                         imported_names.extend(star_names)
                     else:
                         imported_names.extend(extract_import_names(line))
 
-    parent_lines.append("")
+    init_lines.append("")
 
-    # Re-export params from stack/params.py
-    params_file = stack_path / "params.py"
+    # Re-export params from params.py
+    params_file = package_path / "params.py"
     if params_file.exists():
         param_names = find_param_definitions(params_file.read_text())
         for param in sorted(param_names):
-            parent_lines.append(f"from .stack.params import {param} as {param}")
+            init_lines.append(f"from .params import {param} as {param}")
 
     # Re-export all classes from resource modules
     all_resource_classes: list[str] = []
     for mod_name, classes in sorted(module_classes.items()):
         if classes:
             for cls in sorted(classes):
-                parent_lines.append(f"from .stack.{mod_name} import {cls} as {cls}")
+                init_lines.append(f"from .{mod_name} import {cls} as {cls}")
                 all_resource_classes.append(cls)
 
-    parent_lines.append("")
+    init_lines.append("")
 
-    # Build __all__ for star imports - Pylance needs this to resolve `from .. import *`
+    # Build __all__ for star imports - Pylance needs this to resolve imports
     all_exports = imported_names + param_names + all_resource_classes
 
-    parent_lines.append(f"__all__: list[str] = {sorted(set(all_exports))!r}")
-    parent_lines.append("")
+    init_lines.append(f"__all__: list[str] = {sorted(set(all_exports))!r}")
+    init_lines.append("")
 
-    if _write_stub_if_changed(parent_stub_path, "\n".join(parent_lines)):
+    if _write_stub_if_changed(init_stub_path, "\n".join(init_lines)):
         changed = True
 
     return changed
@@ -331,53 +323,68 @@ def _write_stub_if_changed(stub_path: Path, content: str) -> bool:
     return True
 
 
-def is_stack_package(path: Path) -> bool:
-    """Check if a directory is a cloudformation_dataclasses stack package.
+def is_resource_package(path: Path) -> bool:
+    """Check if a directory is a cloudformation_dataclasses resource package.
 
-    A stack package has:
-    - stack/__init__.py that imports setup_resources
-    - stack/params.py (optional but typical)
+    A resource package has __init__.py that calls setup_resources(__file__).
+
+    Supports two structures:
+    1. New flat structure: package/__init__.py with setup_resources(__file__)
+    2. Old stack/ structure: package/stack/__init__.py with setup_resources
     """
-    stack_init = path / "__init__.py"
-    if not stack_init.exists():
+    init_file = path / "__init__.py"
+    if not init_file.exists():
         return False
 
-    content = stack_init.read_text()
-    return "setup_resources" in content
+    content = init_file.read_text()
+    # Check for setup_resources(__file__ pattern (new flat structure)
+    # or just setup_resources (old stack/ structure for backwards compat)
+    return "setup_resources(__file__" in content or "setup_resources" in content
 
 
-def find_stack_packages(root: Path) -> list[Path]:
-    """Find all stack packages under a root directory.
+def find_resource_packages(root: Path) -> list[Path]:
+    """Find all resource packages under a root directory.
 
-    Looks for directories named 'stack' that contain setup_resources imports.
+    Looks for directories with __init__.py that contain setup_resources(__file__).
+
+    Supports two structures:
+    1. New flat structure: any directory with setup_resources(__file__) in __init__.py
+    2. Old stack/ structure: directories named 'stack' with setup_resources
     """
-    stacks: list[Path] = []
+    packages: list[Path] = []
 
-    for stack_dir in root.rglob("stack"):
-        if stack_dir.is_dir() and is_stack_package(stack_dir):
-            stacks.append(stack_dir)
+    # Find all directories with __init__.py
+    for init_file in root.rglob("__init__.py"):
+        package_dir = init_file.parent
+        if is_resource_package(package_dir):
+            packages.append(package_dir)
 
-    return stacks
+    return packages
 
 
 def generate_stubs_for_path(path: Path) -> int:
-    """Generate stubs for all stack packages under a path.
+    """Generate stubs for all resource packages under a path.
 
     Args:
-        path: Directory to scan for stack packages
+        path: Directory to scan for resource packages
 
     Returns:
-        Number of stack packages processed
+        Number of resource packages processed
     """
     path = path.resolve()
 
-    # Check if path itself is a stack package
-    if path.name == "stack" and is_stack_package(path):
-        stacks = [path]
+    # Check if path itself is a resource package
+    if is_resource_package(path):
+        packages = [path]
     else:
-        stacks = find_stack_packages(path)
+        packages = find_resource_packages(path)
 
-    for stack_path in stacks:
-        generate_stub_file(stack_path)
+    for package_path in packages:
+        generate_stub_file(package_path)
 
-    return len(stacks)
+    return len(packages)
+
+
+# Backwards compatibility aliases
+is_stack_package = is_resource_package
+find_stack_packages = find_resource_packages

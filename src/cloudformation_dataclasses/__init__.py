@@ -19,6 +19,7 @@ from cloudformation_dataclasses.__version__ import (
     get_version_info,
     print_version_info,
 )
+from cloudformation_dataclasses.core.cli import run_package_cli
 
 __all__ = [
     "__version__",
@@ -28,4 +29,5 @@ __all__ = [
     "__combined_version__",
     "get_version_info",
     "print_version_info",
+    "run_package_cli",
 ]

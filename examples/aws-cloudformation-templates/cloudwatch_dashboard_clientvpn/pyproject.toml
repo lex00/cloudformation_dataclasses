@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-cloudwatch_dashboard_clientvpn = "cloudwatch_dashboard_clientvpn.main:main"
+cloudwatch_dashboard_clientvpn = "cloudwatch_dashboard_clientvpn.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["cloudwatch_dashboard_clientvpn"]
 
 [tool.hatch.build.targets.sdist]
-include = ["cloudwatch_dashboard_clientvpn/**/*.py", "cloudwatch_dashboard_clientvpn/resources/"]
+include = ["cloudwatch_dashboard_clientvpn/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

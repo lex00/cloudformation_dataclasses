@@ -12,16 +12,16 @@ Migrated from [CloudWatch_Dashboard_NAT_FlowLogs.yaml](https://github.com/aws-cl
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m cloudwatch_dashboard_nat_flowlogs
+python -m cloudwatch_dashboard_nat_flowlogs
+```
+
+### Validate Template
+
+```bash
+python -m cloudwatch_dashboard_nat_flowlogs --validate
 ```
 
 ### Install as Dependency

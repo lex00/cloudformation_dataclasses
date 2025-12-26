@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-efsaccesspoint = "efsaccesspoint.main:main"
+efsaccesspoint = "efsaccesspoint.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["efsaccesspoint"]
 
 [tool.hatch.build.targets.sdist]
-include = ["efsaccesspoint/**/*.py", "efsaccesspoint/resources/"]
+include = ["efsaccesspoint/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

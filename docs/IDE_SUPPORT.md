@@ -23,10 +23,10 @@ cfn-dataclasses stubs --watch
 
 ### The Challenge
 
-Stack files use `from .. import *` for clean, concise code:
+Resource files use `from . import *` for clean, concise code:
 
 ```python
-from .. import *  # noqa: F403, F401
+from . import *  # noqa: F403, F401
 
 @cloudformation_dataclass
 class MyBucket:
@@ -40,21 +40,19 @@ can't see these dynamic exports without help.
 
 ### The Solution: .pyi Stub Files
 
-The `cfn-dataclasses stubs` command generates `.pyi` type stub files
-that declare what's exported:
+The `cfn-dataclasses stubs` command generates a `.pyi` type stub file
+that declares what's exported:
 
 ```
 mystack/
-├── __init__.py      # Your code
+├── __init__.py      # Your code with setup_resources()
 ├── __init__.pyi     # Generated stub (declares exports)
-└── stack/
-    ├── __init__.py
-    ├── __init__.pyi  # Generated stub
-    ├── params.py
-    └── resources.py
+├── params.py
+├── compute.py
+└── storage.py
 ```
 
-The stub files tell the IDE:
+The stub file tells the IDE:
 - What names are available via star imports
 - Type information for all exported classes
 - Re-exports from cloudformation_dataclasses
@@ -112,7 +110,7 @@ see "unknown" errors:
 Add `# noqa: F403, F401` to suppress flake8/ruff warnings:
 
 ```python
-from .. import *  # noqa: F403, F401
+from . import *  # noqa: F403, F401
 ```
 
 These warnings are expected for the cloudformation_dataclasses pattern.

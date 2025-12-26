@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-log_setup_management = "log_setup_management.main:main"
+log_setup_management = "log_setup_management.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["log_setup_management"]
 
 [tool.hatch.build.targets.sdist]
-include = ["log_setup_management/**/*.py", "log_setup_management/resources/"]
+include = ["log_setup_management/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

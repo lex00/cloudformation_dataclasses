@@ -12,16 +12,16 @@ Migrated from [s3-bucket-and-policy-for-caa-v1.yaml](https://github.com/aws-clou
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m s3_bucket_and_policy_for_caa_v1
+python -m s3_bucket_and_policy_for_caa_v1
+```
+
+### Validate Template
+
+```bash
+python -m s3_bucket_and_policy_for_caa_v1 --validate
 ```
 
 ### Install as Dependency

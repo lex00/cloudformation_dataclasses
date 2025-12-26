@@ -1,4 +1,4 @@
 """Allow running as: python -m redhat."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="Template to install CloudWatchAgent on redhat. It was validated on redhat 7.5")

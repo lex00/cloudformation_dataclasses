@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-fn_foreach_s3_outputs = "fn_foreach_s3_outputs.main:main"
+fn_foreach_s3_outputs = "fn_foreach_s3_outputs.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["fn_foreach_s3_outputs"]
 
 [tool.hatch.build.targets.sdist]
-include = ["fn_foreach_s3_outputs/**/*.py", "fn_foreach_s3_outputs/resources/"]
+include = ["fn_foreach_s3_outputs/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

@@ -160,7 +160,7 @@ cloudformation_dataclasses delegates state entirely to CloudFormation. You autho
 
 ```python
 # cloudformation_dataclasses: ONE import, reference anything
-from .. import *
+from . import *
 
 @cloudformation_dataclass
 class MyFunction:

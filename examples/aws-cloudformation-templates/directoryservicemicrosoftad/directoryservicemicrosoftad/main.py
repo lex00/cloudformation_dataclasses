@@ -1,24 +1,24 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description="""Provision AWS Managed Active Directory
-""",
-        parameters=[pEdition, pDomainName, pMicrosoftADShortName, pEnableSingleSignOn, pCreateAlias, pPrivateSubnet1, pPrivateSubnet2, pVPCID],
-        outputs=[DirectoryIDOutput, PrimaryDNSOutput, SecondaryDNSOutput, DirectoryAliasOutput],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class rMSDirectoryVpcSettings:
+    resource: directoryservice.microsoft_ad.VpcSettings
+    subnet_ids = [ref(pPrivateSubnet1), ref(pPrivateSubnet2)]
+    vpc_id = ref(pVPCID)
 
 
-if __name__ == "__main__":
-    main()
+@cloudformation_dataclass
+class rMSDirectory:
+    """AWS::DirectoryService::MicrosoftAD resource."""
+
+    resource: directoryservice.MicrosoftAD
+    create_alias = ref(pCreateAlias)
+    edition = ref(pEdition)
+    enable_sso = ref(pEnableSingleSignOn)
+    name = ref(pDomainName)
+    password = '{{resolve:secretsmanager:microsoft-ad-pw:SecretString:password}}'
+    short_name = ref(pMicrosoftADShortName)
+    vpc_settings = rMSDirectoryVpcSettings

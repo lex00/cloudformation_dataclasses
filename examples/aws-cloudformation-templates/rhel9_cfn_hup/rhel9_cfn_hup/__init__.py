@@ -12,6 +12,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -20,7 +21,10 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .stack import *  # noqa: F403, F401
+from .params import *  # noqa: F403, F401
+
+# Auto-discover and import resource files in topological order
+setup_resources(__file__, __name__, globals())
 
 __all__ = [
     "AWSInstanceType2ArchMapping",

@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-apprunnerservicefromecr = "apprunnerservicefromecr.main:main"
+apprunnerservicefromecr = "apprunnerservicefromecr.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["apprunnerservicefromecr"]
 
 [tool.hatch.build.targets.sdist]
-include = ["apprunnerservicefromecr/**/*.py", "apprunnerservicefromecr/resources/"]
+include = ["apprunnerservicefromecr/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

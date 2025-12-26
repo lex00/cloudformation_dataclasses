@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-cloudformation_codepipeline_template = "cloudformation_codepipeline_template.main:main"
+cloudformation_codepipeline_template = "cloudformation_codepipeline_template.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["cloudformation_codepipeline_template"]
 
 [tool.hatch.build.targets.sdist]
-include = ["cloudformation_codepipeline_template/**/*.py", "cloudformation_codepipeline_template/resources/"]
+include = ["cloudformation_codepipeline_template/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

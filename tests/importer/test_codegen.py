@@ -186,7 +186,7 @@ class TestBlockModeWithPolicies:
 
 
 class TestGeneratePackage:
-    """Tests for generate_package with nested structure."""
+    """Tests for generate_package with flat structure."""
 
     @pytest.fixture
     def files(self):
@@ -201,26 +201,56 @@ class TestGeneratePackage:
     def test_has_init_py(self, files):
         assert "my_stack/__init__.py" in files
 
-    def test_has_main_py(self, files):
-        assert "my_stack/main.py" in files
+    def test_has_resource_files(self, files):
+        """Should have resource files (either main.py or categorized files like storage.py)."""
+        # Check for at least one resource file (besides __init__.py, __main__.py, params.py, outputs.py)
+        resource_files = [f for f in files.keys() if f.endswith('.py') and
+                         not f.endswith('__init__.py') and
+                         not f.endswith('__main__.py') and
+                         not f.endswith('params.py') and
+                         not f.endswith('outputs.py')]
+        assert len(resource_files) > 0, "Should have at least one resource file"
 
     def test_has_dunder_main(self, files):
         """Should have __main__.py for python -m support."""
         assert "my_stack/__main__.py" in files
         content = files["my_stack/__main__.py"]
-        assert "from .main import main" in content
-        assert "main()" in content
+        assert "run_package_cli" in content
 
-    def test_has_stack_params_py(self, files):
-        assert "my_stack/stack/params.py" in files
+    def test_has_params_py(self, files):
+        """Should have params.py in package root (not stack/ subdirectory)."""
+        assert "my_stack/params.py" in files
 
-    def test_has_stack_package(self, files):
-        assert "my_stack/stack/__init__.py" in files
+    def test_no_stack_subdirectory(self, files):
+        """Should NOT have stack/ subdirectory in new flat structure."""
+        for filename in files:
+            assert "/stack/" not in filename, f"{filename} uses old stack/ structure"
 
-    def test_main_has_build_template(self, files):
-        content = files["my_stack/main.py"]
-        assert "def build_template()" in content
-        assert "Template.from_registry(" in content
+    def test_init_has_setup_resources(self, files):
+        """__init__.py should use setup_resources() for auto-discovery."""
+        content = files["my_stack/__init__.py"]
+        assert "setup_resources" in content
+        assert "setup_resources(__file__, __name__, globals())" in content
+
+    def test_resource_files_have_resources(self, files):
+        """Resource files should contain resource definitions."""
+        # Find resource files (not __init__, __main__, params, outputs)
+        resource_files = [f for f in files.keys() if f.endswith('.py') and
+                         not f.endswith('__init__.py') and
+                         not f.endswith('__main__.py') and
+                         not f.endswith('params.py') and
+                         not f.endswith('outputs.py')]
+
+        # Check that at least one resource file has the MyBucket class
+        found_bucket = False
+        for filename in resource_files:
+            content = files[filename]
+            if "class MyBucket:" in content:
+                found_bucket = True
+                assert "from . import *" in content
+                break
+
+        assert found_bucket, "Should find MyBucket resource in a resource file"
 
     def test_all_files_are_valid_python(self, files):
         for filename, content in files.items():

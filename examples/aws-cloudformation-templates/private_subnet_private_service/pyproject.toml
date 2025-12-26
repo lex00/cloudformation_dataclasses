@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-private_subnet_private_service = "private_subnet_private_service.main:main"
+private_subnet_private_service = "private_subnet_private_service.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["private_subnet_private_service"]
 
 [tool.hatch.build.targets.sdist]
-include = ["private_subnet_private_service/**/*.py", "private_subnet_private_service/resources/"]
+include = ["private_subnet_private_service/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

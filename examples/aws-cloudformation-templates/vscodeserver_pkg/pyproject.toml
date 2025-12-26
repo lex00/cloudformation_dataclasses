@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-vscodeserver_pkg = "vscodeserver_pkg.main:main"
+vscodeserver_pkg = "vscodeserver_pkg.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["vscodeserver_pkg"]
 
 [tool.hatch.build.targets.sdist]
-include = ["vscodeserver_pkg/**/*.py", "vscodeserver_pkg/resources/"]
+include = ["vscodeserver_pkg/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

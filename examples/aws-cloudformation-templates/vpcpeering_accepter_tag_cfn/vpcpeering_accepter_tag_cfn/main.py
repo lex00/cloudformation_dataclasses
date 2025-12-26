@@ -1,22 +1,14 @@
-"""Template builder."""
+"""Stack resources."""
 
-from . import *  # noqa: F403, F401
-
-
-def build_template() -> Template:
-    """Build the CloudFormation template."""
-    return Template.from_registry(
-        description='This template uses a custom resource Lambda to apply a Name tag to the VPC peering connection on the Accepter Account.',
-        parameters=[LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsLogGroupRetention, PeerName, VPCPeeringConnectionId],
-    )
+from . import *  # noqa: F403
 
 
-def main() -> None:
-    """Print the CloudFormation template as JSON."""
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))
+@cloudformation_dataclass
+class TagVpcPeeringConnectionsResource:
+    """Custom::TagVpcPeeringConnection resource."""
 
-
-if __name__ == "__main__":
-    main()
+    # Unknown resource type: Custom::TagVpcPeeringConnection
+    resource: CloudFormationResource
+    service_token = get_att(TagVpcPeeringConnectionsLambdaFunction, "Arn")
+    resource = ref(VPCPeeringConnectionId)
+    name = ref(PeerName)

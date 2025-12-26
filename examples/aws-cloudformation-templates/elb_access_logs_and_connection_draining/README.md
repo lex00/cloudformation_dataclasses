@@ -12,16 +12,16 @@ Migrated from [ELB_Access_Logs_And_Connection_Draining.yaml](https://github.com/
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m elb_access_logs_and_connection_draining
+python -m elb_access_logs_and_connection_draining
+```
+
+### Validate Template
+
+```bash
+python -m elb_access_logs_and_connection_draining --validate
 ```
 
 ### Install as Dependency

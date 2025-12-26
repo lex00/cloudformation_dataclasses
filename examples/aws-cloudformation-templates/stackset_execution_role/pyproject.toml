@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-stackset_execution_role = "stackset_execution_role.main:main"
+stackset_execution_role = "stackset_execution_role.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["stackset_execution_role"]
 
 [tool.hatch.build.targets.sdist]
-include = ["stackset_execution_role/**/*.py", "stackset_execution_role/resources/"]
+include = ["stackset_execution_role/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

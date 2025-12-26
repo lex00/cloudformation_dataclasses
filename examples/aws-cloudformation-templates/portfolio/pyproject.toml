@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-portfolio = "portfolio.main:main"
+portfolio = "portfolio.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["portfolio"]
 
 [tool.hatch.build.targets.sdist]
-include = ["portfolio/**/*.py", "portfolio/resources/"]
+include = ["portfolio/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

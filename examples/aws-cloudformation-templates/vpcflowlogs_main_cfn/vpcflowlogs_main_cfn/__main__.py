@@ -1,4 +1,4 @@
 """Allow running as: python -m vpcflowlogs_main_cfn."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="This template enables VPC Flow Logs to CloudWatch, S3, or both.")

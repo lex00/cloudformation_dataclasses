@@ -12,16 +12,16 @@ Migrated from [VPC_With_Managed_NAT_And_Private_Subnet.yaml](https://github.com/
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m vpc_with_managed_nat_and_private_subnet
+python -m vpc_with_managed_nat_and_private_subnet
+```
+
+### Validate Template
+
+```bash
+python -m vpc_with_managed_nat_and_private_subnet --validate
 ```
 
 ### Install as Dependency

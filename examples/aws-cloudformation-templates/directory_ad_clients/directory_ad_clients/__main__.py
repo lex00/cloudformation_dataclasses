@@ -1,4 +1,4 @@
 """Allow running as: python -m directory_ad_clients."""
-from .main import main
+from cloudformation_dataclasses import run_package_cli
 
-main()
+run_package_cli(__package__, description="This template creates (1) Linux and (3) Windows EC2 instances and joins them to Active Directory using the 'AWS-JoinDirectoryServiceDomain' SSM document via AD Connector or AWS Managed AD directory. By default, it relies on the DNS servers being used by the EC2 instances knowing how to resolve the AD domain (i.e., Route 53 Resolvers, DHCP OptionsSet), with an option to set the DNS servers manually on the EC2 instances, as necessary. Several methods used to initiate the domain join (1) Windows EC2 instance with inline SSM association (2) Windows and Linux EC2 instance with SSM association targeting EC2 instance IDs (3) Windows EC2 instance with SSM association targeting EC2 instance tags")

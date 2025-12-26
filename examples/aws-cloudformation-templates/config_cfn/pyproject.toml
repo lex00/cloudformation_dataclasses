@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-config_cfn = "config_cfn.main:main"
+config_cfn = "config_cfn.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["config_cfn"]
 
 [tool.hatch.build.targets.sdist]
-include = ["config_cfn/**/*.py", "config_cfn/resources/"]
+include = ["config_cfn/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

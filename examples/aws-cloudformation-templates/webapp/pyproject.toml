@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-webapp = "webapp.main:main"
+webapp = "webapp.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["webapp"]
 
 [tool.hatch.build.targets.sdist]
-include = ["webapp/**/*.py", "webapp/resources/"]
+include = ["webapp/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

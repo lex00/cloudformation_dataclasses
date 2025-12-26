@@ -1,6 +1,6 @@
 # Example
 
-Imported from `string_example.yaml`.
+Imported from `macro_5.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -9,16 +9,16 @@ Imported from `string_example.yaml`.
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m example
+python -m example
+```
+
+### Validate Template
+
+```bash
+python -m example --validate
 ```
 
 ### Install as Dependency
@@ -31,4 +31,7 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `S3Bucket` | AWS::S3::Bucket |
+| `ResourceFunction` | AWS::Serverless::Function |
+| `MacroFunction` | AWS::Serverless::Function |
+| `Macro` | AWS::CloudFormation::Macro |
+| `Dashboard` | AWS::CloudWatch::Dashboard |

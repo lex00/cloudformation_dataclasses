@@ -12,16 +12,16 @@ Migrated from [VPCPeering-Accepter-Tag.cfn.yaml](https://github.com/aws-cloudfor
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m vpcpeering_accepter_tag_cfn
+python -m vpcpeering_accepter_tag_cfn
+```
+
+### Validate Template
+
+```bash
+python -m vpcpeering_accepter_tag_cfn --validate
 ```
 
 ### Install as Dependency

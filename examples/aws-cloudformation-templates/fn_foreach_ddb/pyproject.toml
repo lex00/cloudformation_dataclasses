@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-fn_foreach_ddb = "fn_foreach_ddb.main:main"
+fn_foreach_ddb = "fn_foreach_ddb.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["fn_foreach_ddb"]
 
 [tool.hatch.build.targets.sdist]
-include = ["fn_foreach_ddb/**/*.py", "fn_foreach_ddb/resources/"]
+include = ["fn_foreach_ddb/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

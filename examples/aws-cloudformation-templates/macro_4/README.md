@@ -12,16 +12,16 @@ Migrated from [macro_4.yaml](https://github.com/aws-cloudformation/cfn-lint).
 This is a portable Python package. You can copy this folder into another
 project and use it directly.
 
-### Run Tests
-
-```bash
-uv run pytest tests/ -v
-```
-
 ### Generate Template
 
 ```bash
-uv run python -m macro_4
+python -m macro_4
+```
+
+### Validate Template
+
+```bash
+python -m macro_4 --validate
 ```
 
 ### Install as Dependency

@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-log_setup_target_accounts = "log_setup_target_accounts.main:main"
+log_setup_target_accounts = "log_setup_target_accounts.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["log_setup_target_accounts"]
 
 [tool.hatch.build.targets.sdist]
-include = ["log_setup_target_accounts/**/*.py", "log_setup_target_accounts/resources/"]
+include = ["log_setup_target_accounts/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

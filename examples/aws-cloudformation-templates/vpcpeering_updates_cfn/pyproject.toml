@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [project.scripts]
-vpcpeering_updates_cfn = "vpcpeering_updates_cfn.main:main"
+vpcpeering_updates_cfn = "vpcpeering_updates_cfn.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,13 +17,9 @@ build-backend = "hatchling.build"
 packages = ["vpcpeering_updates_cfn"]
 
 [tool.hatch.build.targets.sdist]
-include = ["vpcpeering_updates_cfn/**/*.py", "vpcpeering_updates_cfn/resources/"]
+include = ["vpcpeering_updates_cfn/**/*.py"]
 
 [dependency-groups]
 dev = [
     "mypy>=1.0",
-    "pytest>=8.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
