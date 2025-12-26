@@ -15,6 +15,8 @@ import json
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
+import yaml
+
 from cloudformation_dataclasses.core.base import CloudFormationResource
 
 
@@ -683,14 +685,8 @@ class Template:
         """
         Serialize template to CloudFormation YAML format.
 
-        Requires pyyaml to be installed:
-            pip install cloudformation_dataclasses[yaml]
-
         Returns:
             YAML string representation
-
-        Raises:
-            ImportError: If pyyaml is not installed
 
         Example:
             >>> yaml_str = template.to_yaml()
@@ -699,14 +695,6 @@ class Template:
             Resources:
               ...
         """
-        try:
-            import yaml
-        except ImportError as e:
-            raise ImportError(
-                "pyyaml is required for YAML serialization. "
-                "Install it with: pip install cloudformation_dataclasses[yaml]"
-            ) from e
-
         return yaml.dump(self.to_dict(), default_flow_style=False, sort_keys=False)
 
     @classmethod

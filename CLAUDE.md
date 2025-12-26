@@ -51,7 +51,7 @@ class MySubnet:
 All AWS resource classes are **pre-generated from CloudFormation specs** and **committed to git**. This is NOT runtime generation.
 
 **Rationale**:
-- Zero runtime dependencies
+- Minimal runtime dependencies (just pyyaml)
 - IDE autocomplete works immediately
 - Users can browse generated code on GitHub
 - No generation step during pip install
@@ -91,7 +91,7 @@ class BucketPolicy:
 
 **When to use annotation-based refs:**
 - Cross-resource refs where target class is defined in another file
-- Resources using auto-discovery pattern in `stack/__init__.py`
+- Resources using auto-discovery pattern in `__init__.py`
 
 **When to use direct refs:**
 - Parameter refs (parameters are defined in `config.py` and imported before resources)
@@ -241,9 +241,9 @@ CloudFormation resource names do NOT include service prefixes:
 
 ### 4. Dependencies
 
-**Runtime dependencies**: NONE (zero dependencies!)
-- The published package has no required dependencies
-- Optional: `pyyaml` for YAML serialization via `pip install cloudformation_dataclasses[yaml]`
+**Runtime dependencies**:
+- `pyyaml` - Required for YAML template parsing and serialization
+- Optional: `watchdog` for `cfn-dataclasses stubs --watch` via `pip install cloudformation_dataclasses[stubs]`
 
 **Development dependencies** (NOT shipped):
 - `black` - Format generated code (build-time only)

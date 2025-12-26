@@ -2,7 +2,7 @@
 cloudformation_dataclasses - Python dataclasses for AWS CloudFormation template synthesis.
 
 A pure Python library that uses dataclasses as a declarative interface for AWS CloudFormation
-template generation. Zero runtime dependencies, fully type-safe, IDE-friendly.
+template generation. Minimal dependencies, fully type-safe, IDE-friendly.
 
 To see version info:
   >>> from cloudformation_dataclasses import __version__, print_version_info

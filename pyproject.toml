@@ -22,15 +22,15 @@ classifiers = [
     "Topic :: System :: Systems Administration",
 ]
 
-dependencies = []  # Zero runtime dependencies!
+dependencies = [
+    "pyyaml>=6.0",  # Required for YAML template parsing and serialization
+]
 
 [project.optional-dependencies]
-yaml = [
-    "pyyaml>=6.0",  # For YAML template serialization
-]
-importer = [
-    "pyyaml>=6.0",  # For parsing CloudFormation YAML templates
-]
+# These extras are kept for backwards compatibility but are now empty
+# since pyyaml is a required dependency
+yaml = []
+importer = []
 stubs = [
     "watchdog>=3.0",  # For cfn-dataclasses stubs --watch
 ]
@@ -43,7 +43,6 @@ dev = [
     "black>=23.12",
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
     "botocore>=1.35.0",  # For extracting AWS enum values during codegen
-    "pyyaml>=6.0",  # For importer tests
 ]
 
 [project.scripts]
@@ -88,7 +87,6 @@ dev = [
     "pytest-cov>=4.1",
     "ruff>=0.1",
     "black>=23.12",
-    "pyyaml>=6.0",  # For importer
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
     "botocore>=1.35.0",  # For extracting AWS enum values during codegen
 ]

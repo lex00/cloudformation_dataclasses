@@ -24,7 +24,7 @@ This guide provides comprehensive information for developers working on `cloudfo
 
 1. **Generated, Not Hand-Written** - All AWS resources auto-generated from CloudFormation specs
 2. **Type Safety Throughout** - Full Python type annotations with mypy/pyright support
-3. **Zero Runtime Dependencies** - Core package requires nothing (pyyaml optional)
+3. **Minimal Runtime Dependencies** - Only pyyaml required (no transitive deps)
 4. **Pythonic Ergonomics** - snake_case properties mapping to CloudFormation PascalCase
 5. **Explicit Over Implicit** - Clear behavior, no magic
 

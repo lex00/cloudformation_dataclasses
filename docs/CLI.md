@@ -184,7 +184,7 @@ $ cfn-dataclasses lint my_project/
 **With issues:**
 ```
 $ cfn-dataclasses lint my_project/
-my_project/stack/storage.py:15:20: CFD004 Use ServerSideEncryption.AES256 instead of "AES256"
+my_project/my_project/storage.py:15:20: CFD004 Use ServerSideEncryption.AES256 instead of "AES256"
 
 Found 1 issue in 1 file
 ```
@@ -192,7 +192,7 @@ Found 1 issue in 1 file
 **With --fix:**
 ```
 $ cfn-dataclasses lint my_project/ --fix
-Fixed my_project/stack/storage.py (1 issue)
+Fixed my_project/my_project/storage.py (1 issue)
 
 Fixed 1 issue in 1 file
 ```
