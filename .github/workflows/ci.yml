@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main, develop]
 
+# Prevent duplicate runs when PR merges (both push and pull_request events fire)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Test (Python ${{ matrix.python-version }})

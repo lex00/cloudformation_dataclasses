@@ -5,6 +5,69 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2025-12-25
+
+### Added
+
+**Watch Framework**
+- New `watch/` module with reusable `WatchConfig` and `DebouncedWatcher` classes
+- `lint --watch` command with `--fix`, `--debounce`, `--quiet` options
+- Debouncing support for `stubs --watch` (500ms default, configurable via `--debounce`)
+- `--quiet` flag for both `stubs` and `lint` commands
+- 16 tests for watch framework in `tests/test_watch.py`
+
+**New Lint Rules**
+- **CFD012**: Auto-add missing intrinsics to `__init__.py` imports
+- **CFD013**: Detect and remove redundant imports
+- **CFD014**: Use class references in `depends_on` instead of string literals
+
+**Stub Generation Improvements**
+- Automatic `__init__.pyi` generation after `import`, `init`, and `split` commands
+- `stubs` command now handles both flat and `stack/` package structures
+
+**Shared Utilities**
+- `core/naming.py`: Shared name conversion utilities (`to_snake_case`, `to_pascal_case`, `sanitize_python_name`)
+- `core/ast_helpers.py`: Shared AST analysis functions (`is_cloudformation_dataclass`, `find_last_import_line`, `extract_resource_annotation`)
+- `core/file_organization.py`: Shared resource categorization logic
+
+### Changed
+
+**Package Structure (Breaking)**
+- **Flattened package layout**: Eliminated `stack/` subdirectory from generated packages
+  - `cfn-dataclasses init` now generates flat structure
+  - `cfn-dataclasses import` generates flat structure
+  - `setup_resources(__file__)` now works at package root level
+- **`run_package_cli()`**: New helper for `__main__.py` with `--yaml` and `--validate` flags
+
+**Dependencies**
+- **PyYAML is now required**: Moved from optional to required dependency (CloudFormation is YAML-first)
+- Watchdog remains optional (`pip install cloudformation_dataclasses[stubs]`)
+
+**CLI Improvements**
+- `lint --watch` enables `--fix` by default; use `--no-fix` to disable
+- `CLIError` exception class for user-friendly error messages with suggestions
+- Better error messages throughout CLI
+
+**Lint Rule Improvements**
+- **CFD006**: Now correctly unpacks `Select` and `Join` list arguments
+- **CFD010**: Improved parameter reference detection
+
+**CI/CD**
+- Added `concurrency` settings to prevent duplicate workflow runs on PR merge
+
+**Documentation**
+- Updated CLI.md with `split`, `stubs`, and all lint rules (CFD001-CFD014)
+- Updated INTERNALS.md with shared utilities documentation
+- Added SCC (circular dependency) documentation to CLI.md and INTERNALS.md
+
+### Fixed
+
+- `lint --watch` now properly handles file creation and move events
+- Duplicate error suppression in watch mode
+- SyntaxError handling in watch mode doesn't crash the watcher
+- CI workflow no longer runs twice when PRs are merged
+
+
 ## [0.7.0] - 2025-12-23
 
 ### Changed

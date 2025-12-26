@@ -14,7 +14,7 @@ from cloudformation_dataclasses.codegen.config import (
 )
 
 # Package version (from pyproject.toml)
-__version__ = "0.7.0"
+__version__ = "0.8.0"
 
 # CloudFormation spec and generator versions
 __cf_spec_date__ = CLOUDFORMATION_SPEC_DATE
