@@ -443,7 +443,29 @@ def main(argv: list[str] | None = None) -> int:
     lint_parser.add_argument(
         "--fix",
         action="store_true",
-        help="Auto-fix issues in place",
+        help="Auto-fix issues in place (default in watch mode)",
+    )
+    lint_parser.add_argument(
+        "--no-fix",
+        action="store_true",
+        help="Disable auto-fix in watch mode",
+    )
+    lint_parser.add_argument(
+        "--watch", "-w",
+        action="store_true",
+        help="Watch for changes and re-lint automatically (auto-fix enabled by default)",
+    )
+    lint_parser.add_argument(
+        "--debounce",
+        type=int,
+        default=500,
+        metavar="MS",
+        help="Debounce delay in milliseconds (default: 500)",
+    )
+    lint_parser.add_argument(
+        "--quiet", "-q",
+        action="store_true",
+        help="Only show errors, not successful lints",
     )
 
     # split subcommand
@@ -485,6 +507,18 @@ def main(argv: list[str] | None = None) -> int:
         "--watch", "-w",
         action="store_true",
         help="Watch for changes and regenerate (requires watchdog)",
+    )
+    stubs_parser.add_argument(
+        "--debounce",
+        type=int,
+        default=500,
+        metavar="MS",
+        help="Debounce delay in milliseconds (default: 500)",
+    )
+    stubs_parser.add_argument(
+        "--quiet", "-q",
+        action="store_true",
+        help="Only show errors during watch mode",
     )
 
     args = parser.parse_args(argv)
@@ -571,7 +605,7 @@ def _run_lint_command(args: argparse.Namespace) -> int:
     """Handle the lint subcommand.
 
     Lints Python files for cloudformation_dataclasses style issues.
-    Can auto-fix issues with --fix flag.
+    Can auto-fix issues with --fix flag (default in watch mode).
 
     Args:
         args: Parsed command-line arguments.
@@ -587,6 +621,132 @@ def _run_lint_command(args: argparse.Namespace) -> int:
     if not path.exists():
         print(f"Error: Path not found: {path}", file=sys.stderr)
         return 1
+
+    # In watch mode, --fix is enabled by default unless --no-fix is specified
+    if args.watch and not args.no_fix:
+        args.fix = True
+
+    # Watch mode
+    if args.watch:
+        return _run_lint_watch(args, path)
+
+    # One-shot mode
+    return _run_lint_oneshot(args, path)
+
+
+def _run_lint_watch(args: argparse.Namespace, path: Path) -> int:
+    """Run lint command in watch mode.
+
+    Args:
+        args: Parsed command-line arguments.
+        path: Path to watch.
+
+    Returns:
+        Exit code: 0 for success, 1 for errors.
+    """
+    from cloudformation_dataclasses.linter import lint_file, fix_file
+    from cloudformation_dataclasses.watch import WatchConfig, DebouncedWatcher
+
+    # Determine watch paths
+    if path.is_file():
+        watch_paths = [path.parent]
+    else:
+        watch_paths = [path]
+
+    # Initial lint
+    print(f"Linting {path}...")
+    initial_result = _run_lint_oneshot(args, path)
+    print("\nWatching for changes... (Ctrl+C to stop)")
+
+    def on_file_change(file_path: Path) -> None:
+        """Lint or fix the changed file."""
+        from cloudformation_dataclasses.stubs import generate_stub_file
+
+        if args.fix:
+            try:
+                original = file_path.read_text()
+                fixed = fix_file(file_path, write=True)
+                if fixed != original:
+                    print(f"\u2713 Fixed {file_path.name}")
+                    # Update __init__.py with any new intrinsics
+                    updated_inits = _update_init_with_missing_intrinsics([file_path])
+                    # Regenerate stubs for the package
+                    package_dir = file_path.parent
+                    if (package_dir / "__init__.py").exists():
+                        generate_stub_file(package_dir)
+                        if not args.quiet:
+                            print(f"  \u2713 Regenerated stubs")
+                elif not args.quiet:
+                    print(f"\u2713 {file_path.name}")
+            except Exception as e:
+                print(f"\u2717 {file_path.name}: {e}")
+        else:
+            try:
+                issues = lint_file(file_path)
+                if issues:
+                    print(f"\u26a0 {file_path.name}: {len(issues)} issue(s)")
+                    for issue in issues[:5]:  # Show first 5 issues
+                        print(f"  {issue.line}:{issue.column} {issue.rule_id} {issue.message}")
+                    if len(issues) > 5:
+                        print(f"  ... and {len(issues) - 5} more")
+                elif not args.quiet:
+                    print(f"\u2713 {file_path.name}")
+            except SyntaxError as e:
+                print(f"\u26a0 {file_path.name}: Syntax error: {e}")
+            except Exception as e:
+                print(f"\u2717 {file_path.name}: {e}")
+
+    def on_error(file_path: Path, error: Exception) -> None:
+        """Handle errors during linting."""
+        if isinstance(error, SyntaxError):
+            print(f"\u26a0 {file_path.name}: Syntax error: {error}")
+        else:
+            print(f"\u2717 {file_path.name}: {error}")
+
+    config = WatchConfig(
+        paths=watch_paths,
+        patterns=["*.py"],
+        ignored_patterns=["*.pyi", "__pycache__/*", "*.pyc"],
+        debounce_ms=args.debounce,
+    )
+
+    try:
+        watcher = DebouncedWatcher(
+            config,
+            callback=on_file_change,
+            error_handler=on_error,
+            quiet=args.quiet,
+        )
+        watcher.start()
+    except ImportError as e:
+        print(
+            f"Error: {e}\n\n"
+            "Install watchdog with:\n"
+            "  pip install watchdog\n"
+            "  # or\n"
+            "  pip install cloudformation_dataclasses[stubs]",
+            file=sys.stderr,
+        )
+        return 1
+    except KeyboardInterrupt:
+        pass
+
+    print("\nStopped watching.")
+    return 0
+
+
+def _run_lint_oneshot(args: argparse.Namespace, path: Path) -> int:
+    """Run lint command in one-shot mode.
+
+    Args:
+        args: Parsed command-line arguments.
+        path: Path to lint.
+
+    Returns:
+        Exit code: 0 if no issues (or all fixed), 1 if issues found.
+    """
+    from cloudformation_dataclasses.linter import lint_file, fix_file
+    from cloudformation_dataclasses.linter.split import write_split_files
 
     if path.is_file():
         # Single file
@@ -616,7 +776,8 @@ def _run_lint_command(args: argparse.Namespace) -> int:
         return 0
 
     total_issues = 0
-    fixed_files = 0
+    fixed_files_count = 0
+    fixed_file_paths: list[Path] = []  # Track actual files that were fixed
     files_to_remove: list[Path] = []
 
     for file in sorted(files):
@@ -629,19 +790,22 @@ def _run_lint_command(args: argparse.Namespace) -> int:
                 # Split the file
                 split_results = write_split_files(file)
                 if len(split_results) > 1:
-                    fixed_files += 1
+                    fixed_files_count += 1
                     new_files = [p.name for p in split_results.values()]
                     print(f"Split {file} -> {', '.join(new_files)}")
                     # Mark original file for removal (only if it was actually split)
                     if file.name not in [p.name for p in split_results.values()]:
                         files_to_remove.append(file)
+                    # Track the new files as fixed
+                    fixed_file_paths.extend(split_results.values())
                     continue
 
             # Apply regular fixes
             original = file.read_text()
             fixed = fix_file(file, write=True)
             if fixed != original:
-                fixed_files += 1
+                fixed_files_count += 1
+                fixed_file_paths.append(file)
                 # Count issues fixed (rough estimate from line changes)
                 issue_count = abs(len(fixed.splitlines()) - len(original.splitlines())) or 1
                 print(f"Fixed {file} ({issue_count} issue(s))")
@@ -658,8 +822,12 @@ def _run_lint_command(args: argparse.Namespace) -> int:
 
     # Summary
     if args.fix:
-        if fixed_files > 0:
-            print(f"\nFixed {fixed_files} file(s)")
+        if fixed_files_count > 0:
+            print(f"\nFixed {fixed_files_count} file(s)")
+            # Update __init__.py with any new intrinsics used by fixed files
+            _update_init_with_missing_intrinsics(fixed_file_paths)
+            # Regenerate stubs for affected packages
+            _regenerate_stubs_for_path(path)
         else:
             print("No issues to fix")
         return 0
@@ -670,6 +838,206 @@ def _run_lint_command(args: argparse.Namespace) -> int:
         else:
             print("No issues found")
             return 0
+
+
+def _regenerate_stubs_for_path(path: Path) -> None:
+    """Regenerate .pyi stubs for packages under the given path.
+
+    Args:
+        path: Path to scan for stack packages.
+    """
+    from cloudformation_dataclasses.stubs import generate_stubs_for_path
+
+    count = generate_stubs_for_path(path)
+    if count > 0:
+        print(f"Regenerated stubs for {count} package(s)")
+
+
+def _update_init_with_missing_intrinsics(fixed_files: list[Path]) -> list[Path]:
+    """Update __init__.py files with intrinsics used by fixed files.
+
+    When CFD006 fixes files that use star imports (`from . import *`),
+    it introduces intrinsic functions like GetAZs(), Select(), etc.
+    These need to be exported from the package's __init__.py.
+
+    This function scans fixed files for intrinsic function calls,
+    checks if they're exported from __init__.py, and updates
+    __init__.py to add the missing imports.
+
+    Args:
+        fixed_files: List of file paths that were fixed.
+
+    Returns:
+        List of __init__.py files that were updated.
+    """
+    import ast
+
+    # Known intrinsic functions that might be introduced by CFD006
+    KNOWN_INTRINSICS = {
+        "Ref", "Sub", "Select", "Join", "GetAZs", "GetAtt", "If",
+        "Equals", "And", "Or", "Not", "Base64", "Split", "ImportValue",
+        "FindInMap", "Cidr",
+    }
+
+    updated_inits: list[Path] = []
+    init_updates: dict[Path, set[str]] = {}  # __init__.py -> set of intrinsics to add
+
+    for file_path in fixed_files:
+        # Skip __init__.py files themselves
+        if file_path.name == "__init__.py":
+            continue
+
+        # Check if file exists and uses star imports
+        if not file_path.exists():
+            continue
+
+        source = file_path.read_text()
+        try:
+            tree = ast.parse(source)
+        except SyntaxError:
+            continue
+
+        # Check for relative star imports
+        has_star_import = False
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                if node.module is None and node.level > 0:
+                    for alias in node.names:
+                        if alias.name == "*":
+                            has_star_import = True
+                            break
+
+        if not has_star_import:
+            continue
+
+        # Find intrinsic function calls in the file
+        intrinsics_used: set[str] = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Call):
+                if isinstance(node.func, ast.Name):
+                    if node.func.id in KNOWN_INTRINSICS:
+                        intrinsics_used.add(node.func.id)
+
+        if not intrinsics_used:
+            continue
+
+        # Find the package's __init__.py
+        init_path = file_path.parent / "__init__.py"
+        if not init_path.exists():
+            continue
+
+        # Check which intrinsics are already exported
+        init_source = init_path.read_text()
+        try:
+            init_tree = ast.parse(init_source)
+        except SyntaxError:
+            continue
+
+        # Get currently exported intrinsics from cloudformation_dataclasses.intrinsics
+        current_exports: set[str] = set()
+        for node in init_tree.body:
+            if isinstance(node, ast.ImportFrom):
+                if node.module == "cloudformation_dataclasses.intrinsics":
+                    for alias in node.names:
+                        current_exports.add(alias.name)
+
+        # Find missing intrinsics
+        missing = intrinsics_used - current_exports
+        if missing:
+            if init_path not in init_updates:
+                init_updates[init_path] = set()
+            init_updates[init_path].update(missing)
+
+    # Apply updates to __init__.py files
+    for init_path, missing_intrinsics in init_updates.items():
+        _add_intrinsics_to_init(init_path, missing_intrinsics)
+        updated_inits.append(init_path)
+        print(f"Added {', '.join(sorted(missing_intrinsics))} to {init_path}")
+
+    return updated_inits
+
+
+def _add_intrinsics_to_init(init_path: Path, intrinsics: set[str]) -> None:
+    """Add intrinsic function imports to an __init__.py file.
+
+    Args:
+        init_path: Path to __init__.py
+        intrinsics: Set of intrinsic function names to add
+    """
+    import ast
+    import re
+
+    source = init_path.read_text()
+    tree = ast.parse(source)
+    lines = source.splitlines(keepends=True)
+
+    # Find the existing import line from cloudformation_dataclasses.intrinsics
+    existing_import_line = None
+    existing_names: list[str] = []
+    for node in tree.body:
+        if isinstance(node, ast.ImportFrom):
+            if node.module == "cloudformation_dataclasses.intrinsics":
+                existing_import_line = node.lineno
+                existing_names = [alias.name for alias in node.names]
+                break
+
+    if existing_import_line:
+        # Update the existing import line
+        old_line = lines[existing_import_line - 1]
+        all_names = sorted(set(existing_names) | intrinsics)
+        new_import = f"from cloudformation_dataclasses.intrinsics import {', '.join(all_names)}\n"
+        lines[existing_import_line - 1] = new_import
+    else:
+        # Need to add a new import line
+        # Find the last import line to insert after
+        last_import_line = 0
+        for node in tree.body:
+            if isinstance(node, (ast.Import, ast.ImportFrom)):
+                last_import_line = max(last_import_line, node.lineno)
+
+        new_import = f"from cloudformation_dataclasses.intrinsics import {', '.join(sorted(intrinsics))}\n"
+        if last_import_line > 0:
+            lines.insert(last_import_line, new_import)
+        else:
+            lines.insert(0, new_import)
+
+    # Also update __all__ if it exists
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id == "__all__":
+                    if isinstance(node.value, ast.List):
+                        # Get current __all__ elements
+                        current_all = []
+                        for elt in node.value.elts:
+                            if isinstance(elt, ast.Constant) and isinstance(elt.value, str):
+                                current_all.append(elt.value)
+
+                        # Add missing intrinsics to __all__
+                        new_all = sorted(set(current_all) | intrinsics)
+                        if new_all != current_all:
+                            # Rebuild the __all__ line
+                            # Try to preserve formatting
+                            old_all_line = lines[node.lineno - 1]
+                            all_items = ', '.join(f'"{name}"' for name in new_all)
+                            if "\n" in old_all_line or len(all_items) > 60:
+                                # Multi-line format
+                                indent = "    "
+                                all_lines = [f"{indent}\"{name}\",\n" for name in new_all]
+                                new_all_str = f"__all__ = [\n{''.join(all_lines)}]\n"
+                            else:
+                                # Single line
+                                new_all_str = f"__all__ = [{all_items}]\n"
+
+                            # Replace the line(s) for __all__
+                            end_line = node.end_lineno or node.lineno
+                            # Remove old lines
+                            del lines[node.lineno - 1:end_line]
+                            # Insert new content
+                            lines.insert(node.lineno - 1, new_all_str)
+                    break
+
+    init_path.write_text("".join(lines))
 
 
 def _run_split_command(args: argparse.Namespace) -> int:
@@ -721,6 +1089,13 @@ def _run_split_command(args: argparse.Namespace) -> int:
         out_path.write_text(content)
         print(f"Wrote {out_path}")
 
+    # Regenerate stubs since exports may have changed
+    from cloudformation_dataclasses.stubs import generate_stub_file
+
+    if (output_dir / "__init__.py").exists():
+        if generate_stub_file(output_dir):
+            print(f"Regenerated {output_dir / '__init__.pyi'}")
+
     # Optionally remove original file if it was split
     if file_path.name not in [f"{cat}.py" for cat in split_files]:
         print(f"\nNote: Original file {file_path.name} can be removed if split is correct")
@@ -739,7 +1114,11 @@ def _run_stubs_command(args: argparse.Namespace) -> int:
     Returns:
         Exit code: 0 for success, 1 for errors.
     """
-    from cloudformation_dataclasses.stubs import generate_stubs_for_path, find_stack_packages
+    from cloudformation_dataclasses.stubs import (
+        generate_stubs_for_path,
+        find_stack_packages,
+        generate_stub_file,
+    )
 
     path = Path(args.path).resolve()
 
@@ -748,19 +1127,8 @@ def _run_stubs_command(args: argparse.Namespace) -> int:
         return 1
 
     if args.watch:
-        # Watch mode - requires watchdog
-        try:
-            from watchdog.observers import Observer
-            from watchdog.events import FileSystemEventHandler, FileModifiedEvent
-        except ImportError:
-            print(
-                "Error: Watch mode requires watchdog. Install with:\n"
-                "  pip install watchdog\n"
-                "  # or\n"
-                "  pip install cloudformation_dataclasses[stubs]",
-                file=sys.stderr,
-            )
-            return 1
+        # Watch mode - uses the reusable watch framework
+        from cloudformation_dataclasses.watch import WatchConfig, DebouncedWatcher
 
         # Find all stack packages to watch
         stacks = find_stack_packages(path)
@@ -771,49 +1139,57 @@ def _run_stubs_command(args: argparse.Namespace) -> int:
         # Generate initial stubs
         count = generate_stubs_for_path(path)
         print(f"Generated stubs for {count} stack(s)")
-        print(f"Watching for changes... (Ctrl+C to stop)")
+        print("Watching for changes... (Ctrl+C to stop)")
 
-        class StubHandler(FileSystemEventHandler):  # type: ignore[misc]
-            """Regenerate stubs when .py files change."""
+        # Build list of directories to watch (parent of each stack)
+        watch_paths = list({stack.parent for stack in stacks})
 
-            def on_modified(self, event: FileModifiedEvent) -> None:
-                if event.is_directory:
-                    return
-                if not str(event.src_path).endswith(".py"):
-                    return
-                # Skip .pyi files
-                if str(event.src_path).endswith(".pyi"):
-                    return
+        def on_file_change(file_path: Path) -> None:
+            """Regenerate stubs for the stack containing the changed file."""
+            for stack in stacks:
+                if stack in file_path.parents or file_path.parent == stack:
+                    if generate_stub_file(stack):
+                        if not args.quiet:
+                            print(f"\u2713 {stack.parent.name}")
+                    break
 
-                # Find which stack this file belongs to
-                file_path = Path(str(event.src_path))
-                for stack in stacks:
-                    if stack in file_path.parents or file_path.parent == stack:
-                        from cloudformation_dataclasses.stubs import generate_stub_file
-                        if generate_stub_file(stack):
-                            print(f"Regenerated stubs for {stack.parent.name}")
-                        break
+        def on_error(file_path: Path, error: Exception) -> None:
+            """Handle errors during stub generation."""
+            stack_name = file_path.parent.name
+            if isinstance(error, SyntaxError):
+                print(f"\u26a0 {stack_name}: Syntax error: {error}")
+            else:
+                print(f"\u2717 {stack_name}: {error}")
 
-        observer = Observer()
-        handler = StubHandler()
+        config = WatchConfig(
+            paths=watch_paths,
+            patterns=["*.py"],
+            ignored_patterns=["*.pyi", "__pycache__/*", "*.pyc"],
+            debounce_ms=args.debounce,
+        )
 
-        # Watch each stack's parent directory
-        watched_dirs: set[Path] = set()
-        for stack in stacks:
-            parent = stack.parent
-            if parent not in watched_dirs:
-                observer.schedule(handler, str(parent), recursive=True)
-                watched_dirs.add(parent)
-
-        observer.start()
         try:
-            import time
-            while True:
-                time.sleep(1)
+            watcher = DebouncedWatcher(
+                config,
+                callback=on_file_change,
+                error_handler=on_error,
+                quiet=args.quiet,
+            )
+            watcher.start()
+        except ImportError as e:
+            print(
+                f"Error: {e}\n\n"
+                "Install watchdog with:\n"
+                "  pip install watchdog\n"
+                "  # or\n"
+                "  pip install cloudformation_dataclasses[stubs]",
+                file=sys.stderr,
+            )
+            return 1
         except KeyboardInterrupt:
-            observer.stop()
-            print("\nStopped watching.")
-        observer.join()
+            pass
+
+        print("\nStopped watching.")
         return 0
 
     else:
@@ -991,6 +1367,13 @@ def run_single_import(
             )
             readme_path.write_text(readme_content)
             log(f"Generated: {readme_path}")
+
+            # Generate .pyi stubs for IDE support
+            from cloudformation_dataclasses.stubs import generate_stub_file
+
+            package_dir = output_dir / project_name
+            if generate_stub_file(package_dir):
+                log(f"Generated: {package_dir / '__init__.pyi'}")
 
         else:
             # Generate single file

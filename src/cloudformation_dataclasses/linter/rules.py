@@ -633,6 +633,9 @@ class DictShouldBeIntrinsic(LintRule):
     def check(self, context: LintContext) -> list[LintIssue]:
         issues = []
 
+        # Check if file uses 'from . import *' pattern (don't add explicit imports)
+        has_star_import = self._has_star_import(context.tree)
+
         for node in ast.walk(context.tree):
             # Look for single-key dict literals that match intrinsic patterns
             if isinstance(node, ast.Dict) and len(node.keys) == 1:
@@ -641,21 +644,72 @@ class DictShouldBeIntrinsic(LintRule):
                     key_str = key.value
                     if key_str in self.INTRINSIC_MAP:
                         func_name, module = self.INTRINSIC_MAP[key_str]
-                        import_stmt = f"from {module} import {func_name}"
 
-                        issues.append(
-                            LintIssue(
-                                rule_id=self.rule_id,
-                                message=f"Use {func_name}() instead of {{'{key_str}': ...}}",
-                                line=key.lineno,
-                                column=key.col_offset,
-                                original=f'{{"{key_str}": ...}}',
-                                suggestion=f"{func_name}(...)",
-                                fix_imports=[import_stmt],
+                        # Get the actual source text for the dict
+                        original = ast.get_source_segment(context.source, node)
+
+                        # Get the value and convert to source
+                        value_node = node.values[0]
+                        value_source = ast.get_source_segment(context.source, value_node)
+
+                        # Build the replacement
+                        if value_source:
+                            # Handle special cases
+                            if key_str == "Fn::GetAZs":
+                                # GetAZs with empty string or AWS_REGION -> GetAZs()
+                                if value_source in ('""', "''", "AWS_REGION"):
+                                    suggestion = f"{func_name}()"
+                                else:
+                                    suggestion = f"{func_name}({value_source})"
+                            elif key_str in ("Fn::Select", "Fn::Join"):
+                                # Select/Join take list args that should be unpacked
+                                # {"Fn::Select": [0, GetAZs()]} -> Select(0, GetAZs())
+                                # {"Fn::Join": [",", [...]]} -> Join(",", [...])
+                                if isinstance(value_node, ast.List) and len(value_node.elts) >= 2:
+                                    # Unpack list elements as separate arguments
+                                    args = [ast.get_source_segment(context.source, elt) for elt in value_node.elts]
+                                    if all(args):
+                                        suggestion = f"{func_name}({', '.join(args)})"
+                                    else:
+                                        suggestion = f"{func_name}({value_source})"
+                                else:
+                                    suggestion = f"{func_name}({value_source})"
+                            else:
+                                suggestion = f"{func_name}({value_source})"
+                        else:
+                            suggestion = f"{func_name}(...)"
+
+                        # Don't add explicit imports if using star import pattern
+                        # The user should add the import to __init__.py instead
+                        fix_imports: list[str] = []
+                        if not has_star_import:
+                            fix_imports = [f"from {module} import {func_name}"]
+
+                        if original:
+                            issues.append(
+                                LintIssue(
+                                    rule_id=self.rule_id,
+                                    message=f"Use {func_name}() instead of {{'{key_str}': ...}}",
+                                    line=node.lineno,
+                                    column=node.col_offset,
+                                    original=original,
+                                    suggestion=suggestion,
+                                    fix_imports=fix_imports,
+                                )
                             )
-                        )
 
         return issues
+
+    def _has_star_import(self, tree: ast.Module) -> bool:
+        """Check if the module has a 'from . import *' or 'from .. import *' pattern."""
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                # Check for relative star imports
+                if node.module is None and node.level > 0:
+                    for alias in node.names:
+                        if alias.name == "*":
+                            return True
+        return False
 
 
 class UnnecessaryToDict(LintRule):
@@ -1100,6 +1154,115 @@ class FileShouldBeSplit(LintRule):
         return issues
 
 
+class RedundantExplicitImport(LintRule):
+    """Detect explicit imports that are redundant with 'from . import *'.
+
+    When a file uses 'from . import *' or 'from .. import *', explicit imports
+    from cloudformation_dataclasses modules are redundant and should be removed.
+
+    Detects: from cloudformation_dataclasses.intrinsics import GetAZs
+    Suggests: Remove the import (available through star import)
+    """
+
+    rule_id = "CFD013"
+    description = "Remove redundant explicit imports when using star imports"
+
+    # Modules that are typically available through __init__.py star imports
+    REDUNDANT_MODULES = {
+        "cloudformation_dataclasses.intrinsics",
+        "cloudformation_dataclasses.core",
+        "cloudformation_dataclasses.core.constants",
+    }
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        # Check if file uses star import pattern
+        has_star_import = False
+        for node in ast.walk(context.tree):
+            if isinstance(node, ast.ImportFrom):
+                if node.module is None and node.level > 0:
+                    for alias in node.names:
+                        if alias.name == "*":
+                            has_star_import = True
+                            break
+
+        if not has_star_import:
+            return issues
+
+        # Find explicit imports from cloudformation_dataclasses that are redundant
+        for node in ast.walk(context.tree):
+            if isinstance(node, ast.ImportFrom) and node.module:
+                if node.module in self.REDUNDANT_MODULES or node.module.startswith(
+                    "cloudformation_dataclasses."
+                ):
+                    # Get the source text for this import
+                    original = ast.get_source_segment(context.source, node)
+                    if original:
+                        imported_names = ", ".join(alias.name for alias in node.names)
+                        issues.append(
+                            LintIssue(
+                                rule_id=self.rule_id,
+                                message=f"Remove redundant import '{imported_names}' (available through star import)",
+                                line=node.lineno,
+                                column=node.col_offset,
+                                original=original + "\n",
+                                suggestion="",
+                                fix_imports=[],
+                            )
+                        )
+
+        return issues
+
+
+class DependsOnShouldBeClassRef(LintRule):
+    """Detect string literals in depends_on that should be class references.
+
+    In cloudformation_dataclasses, depends_on can use class references instead
+    of string literals. This provides better IDE support and refactoring safety.
+
+    Detects: depends_on = ["MyResource", "OtherResource"]
+    Suggests: depends_on = [MyResource, OtherResource]
+    """
+
+    rule_id = "CFD014"
+    description = "Use class references in depends_on instead of string literals"
+
+    def check(self, context: LintContext) -> list[LintIssue]:
+        issues = []
+
+        for node in ast.walk(context.tree):
+            # Look for assignments: depends_on = [...]
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name) and target.id == "depends_on":
+                        if isinstance(node.value, ast.List):
+                            self._check_depends_on_list(context, node.value, issues)
+
+        return issues
+
+    def _check_depends_on_list(
+        self, context: LintContext, list_node: ast.List, issues: list[LintIssue]
+    ) -> None:
+        """Check a depends_on list for string literals that look like class names."""
+        for elt in list_node.elts:
+            if isinstance(elt, ast.Constant) and isinstance(elt.value, str):
+                name = elt.value
+                # Check if it looks like a class name (starts with uppercase, valid identifier)
+                if name and name[0].isupper() and name.isidentifier():
+                    issues.append(
+                        LintIssue(
+                            rule_id=self.rule_id,
+                            message=f"Use class reference {name} instead of \"{name}\"",
+                            line=elt.lineno,
+                            column=elt.col_offset,
+                            original=f'"{name}"',
+                            suggestion=name,
+                            fix_imports=[],
+                        )
+                    )
+
+
 # All available rules
 ALL_RULES: list[type[LintRule]] = [
     StringShouldBeConditionOperator,
@@ -1113,6 +1276,8 @@ ALL_RULES: list[type[LintRule]] = [
     ExplicitParentImport,
     RefShouldBeParameterClass,
     FileShouldBeSplit,
+    RedundantExplicitImport,
+    DependsOnShouldBeClassRef,
 ]
 
 

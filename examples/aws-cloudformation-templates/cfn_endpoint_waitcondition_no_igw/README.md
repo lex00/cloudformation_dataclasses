@@ -1,9 +1,6 @@
 # CfnEndpointWaitconditionNoIgw
 
-Migrated from [cfn-endpoint-waitcondition-no-igw.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `DIRECTORY_SETTINGS.cfn.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,17 +31,10 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `VPC` | AWS::EC2::VPC |
-| `CfnEndpoint` | AWS::EC2::VPCEndpoint |
-| `S3Endpoint` | AWS::EC2::VPCEndpoint |
-| `PrivateSubnet1` | AWS::EC2::Subnet |
-| `PrivateSubnet2` | AWS::EC2::Subnet |
-| `PrivateRouteTable1` | AWS::EC2::RouteTable |
-| `PrivateSubnet1RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
-| `PrivateRouteTable2` | AWS::EC2::RouteTable |
-| `PrivateSubnet2RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
-| `PrivateInstance` | AWS::EC2::Instance |
-| `PrivateSG` | AWS::EC2::SecurityGroup |
-| `EndpointSG` | AWS::EC2::SecurityGroup |
-| `PrivateWaitHandle` | AWS::CloudFormation::WaitConditionHandle |
-| `PrivateWaitCondition` | AWS::CloudFormation::WaitCondition |
+| `DirectoryConsoleDelegatedAccessEC2ReadOnlyRole` | AWS::IAM::Role |
+| `DirectoryConsoleDelegatedAccessSecurityAuditRole` | AWS::IAM::Role |
+| `DirectoryMonitoringTopic` | AWS::SNS::Topic |
+| `DirectorySettingsLambdaFunction` | AWS::Lambda::Function |
+| `DirectorySettingsLambdaLogsLogGroup` | AWS::Logs::LogGroup |
+| `DirectorySettingsLambdaRole` | AWS::IAM::Role |
+| `DirectorySettingsResource` | Custom::DirectorySettingsResource |

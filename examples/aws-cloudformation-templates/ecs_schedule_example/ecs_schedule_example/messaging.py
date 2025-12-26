@@ -28,4 +28,4 @@ class ECSScheduledTask:
     schedule_expression = If("CronRate", ref(CronSchedule), ref(RateSchedule))
     state = 'ENABLED'
     targets = [ECSScheduledTaskTarget]
-    depends_on = ["ECSEventRole"]
+    depends_on = [ECSEventRole]

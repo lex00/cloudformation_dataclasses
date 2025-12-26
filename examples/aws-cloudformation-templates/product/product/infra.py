@@ -78,7 +78,7 @@ class ServiceCatalogPortfolioProductAssociation:
     resource: servicecatalog.PortfolioProductAssociation
     portfolio_id = ImportValue(Sub('${ServiceCatalogPortfolioStackName}-ServiceCatalogPortfolio'))
     product_id = ref(ServiceCatalogCloudFormationProduct)
-    depends_on = ["ServiceCatalogCloudFormationProduct"]
+    depends_on = [ServiceCatalogCloudFormationProduct]
 
 
 @cloudformation_dataclass

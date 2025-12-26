@@ -52,4 +52,4 @@ class S3BucketNotification:
     bucket_encryption = S3BucketNotificationBucketEncryption
     public_access_block_configuration = S3BucketNotificationPublicAccessBlockConfiguration
     notification_configuration = S3BucketNotificationNotificationConfiguration
-    depends_on = ["LambdaInvokePermission"]
+    depends_on = [LambdaInvokePermission]

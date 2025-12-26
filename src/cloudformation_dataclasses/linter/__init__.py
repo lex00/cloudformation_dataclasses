@@ -167,14 +167,32 @@ def fix_code(
         for issue in issues:
             all_imports.update(issue.fix_imports)
 
-    # Apply replacements first (existing logic)
+    # Separate multi-line and single-line replacements
+    multiline_replacements = [i for i in replacements if "\n" in i.original]
+    singleline_replacements = [i for i in replacements if "\n" not in i.original]
+
+    # Apply multi-line replacements first (on the full source)
+    # Sort by line number descending to preserve positions
+    fixed_source = source
+    for issue in sorted(multiline_replacements, key=lambda i: i.line, reverse=True):
+        # Try to find and replace the original string
+        original_patterns = [
+            issue.original,
+            issue.original.replace('"', "'"),
+        ]
+        for pattern in original_patterns:
+            if pattern in fixed_source:
+                fixed_source = fixed_source.replace(pattern, issue.suggestion, 1)
+                break
+
+    # Apply single-line replacements
     issues_by_line: dict[int, list[LintIssue]] = {}
-    for issue in replacements:
+    for issue in singleline_replacements:
         if issue.line not in issues_by_line:
             issues_by_line[issue.line] = []
         issues_by_line[issue.line].append(issue)
 
-    lines = source.splitlines(keepends=True)
+    lines = fixed_source.splitlines(keepends=True)
 
     # Apply replacements line by line (in reverse order to preserve positions)
     for line_num in sorted(issues_by_line.keys(), reverse=True):

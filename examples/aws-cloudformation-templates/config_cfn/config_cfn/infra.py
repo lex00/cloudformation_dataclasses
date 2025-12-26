@@ -59,7 +59,7 @@ class ConfigRuleForVolumeTags:
     }
     scope = ConfigRuleForVolumeTagsScope
     source = ConfigRuleForVolumeTagsSource
-    depends_on = ["ConfigRecorder"]
+    depends_on = [ConfigRecorder]
 
 
 @cloudformation_dataclass
@@ -92,4 +92,4 @@ class ConfigRuleForVolumeAutoEnableIO:
     config_rule_name = 'ConfigRuleForVolumeAutoEnableIO'
     scope = ConfigRuleForVolumeAutoEnableIOScope
     source = ConfigRuleForVolumeAutoEnableIOSource
-    depends_on = ["ConfigPermissionToCallLambda", "ConfigRecorder"]
+    depends_on = [ConfigPermissionToCallLambda, ConfigRecorder]

@@ -114,7 +114,7 @@ class Route:
     route_table_id = ref(RouteTable)
     destination_cidr_block = '0.0.0.0/0'
     gateway_id = ref(InternetGateway)
-    depends_on = ["AttachGateway"]
+    depends_on = [AttachGateway]
 
 
 @cloudformation_dataclass

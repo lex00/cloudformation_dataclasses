@@ -76,4 +76,4 @@ class EMRCluster:
     name = ref(EMRClusterName)
     auto_scaling_role = 'EMR_AutoScaling_DefaultRole'
     service_role = ref(EMRClusterServiceRole)
-    depends_on = ["EMRClusterServiceRole", "EMRClusterinstanceProfileRole", "EMRClusterinstanceProfile"]
+    depends_on = [EMRClusterServiceRole, EMRClusterinstanceProfileRole, EMRClusterinstanceProfile]

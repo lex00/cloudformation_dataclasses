@@ -41,7 +41,7 @@ class loadBalancer:
     subnet_mappings = [loadBalancerSubnetMapping, loadBalancerSubnetMapping1]
     type_ = ref(ELBType)
     ip_address_type = ref(ELBIpAddressType)
-    depends_on = ["EIP2", "EIP1"]
+    depends_on = [EIP2, EIP1]
 
 
 @cloudformation_dataclass

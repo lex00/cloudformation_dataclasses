@@ -47,5 +47,5 @@ class AuroraDB:
     multi_az = False
     publicly_accessible = False
     tags = [AuroraDBTagFormat]
-    depends_on = ["AuroraCluster"]
+    depends_on = [AuroraCluster]
     deletion_policy = 'Retain'

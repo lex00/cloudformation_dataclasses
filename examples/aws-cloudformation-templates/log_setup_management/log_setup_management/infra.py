@@ -54,4 +54,4 @@ class TargetAccountLogging:
     operation_preferences = TargetAccountLoggingOperationPreferences
     auto_deployment = TargetAccountLoggingAutoDeployment
     stack_set_name = 'log-setup'
-    depends_on = ["CentralEventRule", "CentralEventLog", "CentralEventLogPolicy"]
+    depends_on = [CentralEventRule, CentralEventLog, CentralEventLogPolicy]

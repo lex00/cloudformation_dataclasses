@@ -1,4 +1,4 @@
 """Allow running as: python -m cloudfront_cfn."""
 from cloudformation_dataclasses import run_package_cli
 
-run_package_cli(__package__, description="CI/CD optimized AWS CloudFormation Sample Template for AWS CloudFront Distribution with Custom Origin with an example of using the AWS Application Load Balancer (ALB) and a basic Amazon EC2 Instance. AWS CloudFront Distribution is associated with Lambda@Edge for Security Headers inspection. In addition, AWS CloudFormation Template will provision an Examples of necessary IAM, S3, KMS and Security Groups resources. ### Before deployment please make sure that all parameters are reviewed and updated according the specific use case. ### **WARNING** This template creates one Amazon EC2 instance and an Application Load Balancer, KMS Keys, S3 bucket, CloudFront Distribution resources. You will be billed for the AWS resources used if you create a stack from this template.")
+run_package_cli(__package__, description="Installing Cloudformation helper scripts in Ubuntu 20.04 LTS")

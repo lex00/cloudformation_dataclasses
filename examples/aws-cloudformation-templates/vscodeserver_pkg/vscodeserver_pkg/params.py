@@ -4,79 +4,32 @@ from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class LatestAMI:
-    resource: Parameter
-    type = 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    default = '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64'
-
-
-@cloudformation_dataclass
-class InstanceType:
-    resource: Parameter
-    type = STRING
-    default = 't3.medium'
-
-
-@cloudformation_dataclass
-class SecretName:
-    """The name of the secrets manager secret that stores the password to be used for the VSCode Server. The password must be a simple plaintext string with no JSON."""
+class VPCName:
+    """The name of the VPC being created."""
 
     resource: Parameter
     type = STRING
-    description = 'The name of the secrets manager secret that stores the password to be used for the VSCode Server. The password must be a simple plaintext string with no JSON.'
-    default = 'vscode-password'
+    description = 'The name of the VPC being created.'
+    default = 'VPC Public and Private with NAT'
 
 
 @cloudformation_dataclass
-class PrefixesMapping:
+class SubnetConfigMapping:
     resource: Mapping
     map_data = {
-        'ap-northeast-1': {
-            'PrefixList': 'pl-58a04531',
+        'VPC': {
+            'CIDR': '10.0.0.0/16',
         },
-        'ap-northeast-2': {
-            'PrefixList': 'pl-22a6434b',
+        'Public0': {
+            'CIDR': '10.0.0.0/24',
         },
-        'ap-south-1': {
-            'PrefixList': 'pl-9aa247f3',
+        'Public1': {
+            'CIDR': '10.0.1.0/24',
         },
-        'ap-southeast-1': {
-            'PrefixList': 'pl-31a34658',
+        'Private0': {
+            'CIDR': '10.0.2.0/24',
         },
-        'ap-southeast-2': {
-            'PrefixList': 'pl-b8a742d1',
-        },
-        'ca-central-1': {
-            'PrefixList': 'pl-38a64351',
-        },
-        'eu-central-1': {
-            'PrefixList': 'pl-a3a144ca',
-        },
-        'eu-north-1': {
-            'PrefixList': 'pl-fab65393',
-        },
-        'eu-west-1': {
-            'PrefixList': 'pl-4fa04526',
-        },
-        'eu-west-2': {
-            'PrefixList': 'pl-93a247fa',
-        },
-        'eu-west-3': {
-            'PrefixList': 'pl-75b1541c',
-        },
-        'sa-east-1': {
-            'PrefixList': 'pl-5da64334',
-        },
-        'us-east-1': {
-            'PrefixList': 'pl-3b927c52',
-        },
-        'us-east-2': {
-            'PrefixList': 'pl-b6a144df',
-        },
-        'us-west-1': {
-            'PrefixList': 'pl-4ea04527',
-        },
-        'us-west-2': {
-            'PrefixList': 'pl-82a045eb',
+        'Private1': {
+            'CIDR': '10.0.3.0/24',
         },
     }

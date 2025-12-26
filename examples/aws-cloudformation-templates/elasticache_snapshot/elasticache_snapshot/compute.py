@@ -24,7 +24,7 @@ class EnableShapshot:
     role = get_att(IamRoleLambda, "Arn")
     runtime = Runtime.NODEJS20_X
     timeout = 30
-    depends_on = ["IamRoleLambda"]
+    depends_on = [IamRoleLambda]
     condition = 'EnableBackups'
     deletion_policy = 'Delete'
 

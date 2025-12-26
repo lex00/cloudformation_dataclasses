@@ -27,7 +27,7 @@ This is my text file;
 there are many like it,
 but this one is mine.
 """
-    depends_on = ["Bucket"]
+    depends_on = [Bucket]
 
 
 @cloudformation_dataclass
@@ -42,7 +42,7 @@ class Object2:
         'ContentType': 'image/png',
     }
     base64_body = 'R0lGODdhAQABAIABAP///0qIbCwAAAAAAQABAAACAkQBADs='
-    depends_on = ["Bucket"]
+    depends_on = [Bucket]
 
 
 @cloudformation_dataclass
@@ -67,7 +67,7 @@ class Object3:
     resource: CloudFormationResource
     source = Object3ManifestFileLocation
     target = Object3ManifestFileLocation1
-    depends_on = ["Bucket"]
+    depends_on = [Bucket]
 
 
 @cloudformation_dataclass
@@ -85,4 +85,4 @@ class Object4:
     resource: CloudFormationResource
     target = Object4ManifestFileLocation
     url = 'https://raw.githubusercontent.com/aws-cloudformation/aws-cloudformation-templates/main/README.md'
-    depends_on = ["Bucket"]
+    depends_on = [Bucket]

@@ -1,4 +1,4 @@
 """Allow running as: python -m vpc."""
 from cloudformation_dataclasses import run_package_cli
 
-run_package_cli(__package__, description="vpc CloudFormation template")
+run_package_cli(__package__, description="CI/CD optimized AWS CloudFormation Sample Template for AWS Service Catalog Product creation. ### Before deployment please make sure that all parameters are reviewed and updated according the specific use case. ### **WARNING** This template creates AWS Service Catalog Product, please make sure you review billing costs for AWS Service Catalog.")

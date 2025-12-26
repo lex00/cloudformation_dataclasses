@@ -49,4 +49,4 @@ cat /tmp/datefile
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource PrivateInstance --region ${AWS::Region}
 """))
     tags = [PrivateInstanceAssociationParameter]
-    depends_on = ["CfnEndpoint"]
+    depends_on = [CfnEndpoint]

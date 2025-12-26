@@ -1,7 +1,7 @@
 # Implementation TODO
 
 **Date**: 2025-12-25
-**Status**: Phase 2 In Progress (Core utility consolidation complete)
+**Status**: Phase 2 Complete (Linter/Importer core unification done)
 
 ---
 
@@ -46,9 +46,9 @@ Quick wins for better developer experience.
 
 ---
 
-## Phase 2: Consolidation (In Progress)
+## Phase 2: Consolidation ✅ COMPLETE
 
-### 3. LINTER_IMPORTER_UNIFICATION (Phases 1-2) - Priority: P1 🔄 IN PROGRESS
+### 3. LINTER_IMPORTER_UNIFICATION (Phases 1-2) - Priority: P1 ✅ COMPLETE
 
 Share utilities between linter and importer systems.
 
@@ -58,29 +58,35 @@ Share utilities between linter and importer systems.
 | Create `core/ast_helpers.py` | [x] | `is_cloudformation_dataclass`, `find_last_import_line`, `extract_resource_annotation`, etc. |
 | Update importer to use shared utilities | [x] | `parser.py` re-exports from `core/naming.py` |
 | Update linter to use shared utilities | [x] | `split.py`, `__init__.py`, `rules.py` updated |
-| Consolidate `KNOWN_ENUMS` into `constants.py` | [ ] | Single source of truth |
-| Document canonical code style | [ ] | Style guide for both systems |
+| Document shared utilities in INTERNALS.md | [x] | `core/naming.py`, `core/ast_helpers.py` sections |
+| Update CLI.md with all commands | [x] | Added `split`, `stubs`, CFD006-CFD012 |
+| Consolidate `KNOWN_ENUMS` into `constants.py` | [ ] | Single source of truth (future) |
+| Document canonical code style | [ ] | Style guide for both systems (future) |
 
-**Implementation Date**: 2025-12-25 (Phase 1 started)
-**Status**: Core utility consolidation complete. Remaining items are lower priority.
-
-**Why here**: Package structure simplified, shared utilities are clearer.
+**Implementation Date**: 2025-12-25
+**Status**: Complete. Core utility consolidation and documentation done.
 
 ---
 
-## Phase 3: Polish
+## Phase 3: Polish ✅ COMPLETE
 
-### 4. WATCHDOG_IMPROVEMENTS - Priority: P2
+### 4. WATCHDOG_IMPROVEMENTS - Priority: P2 ✅ COMPLETE
 
 Improve file watching for better development feedback.
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Add debouncing to `stubs --watch` | [ ] | 500ms default, configurable |
-| Handle `on_created` and `on_moved` events | [ ] | Currently only `on_modified` |
-| Better error handling in watch mode | [ ] | Catch SyntaxError, continue watching |
-| Add `--quiet` flag | [ ] | Minimal output mode |
-| Add `lint --watch` command | [ ] | New feature |
+| Create reusable watch framework | [x] | `watch/` module with WatchConfig, DebouncedWatcher |
+| Add debouncing to `stubs --watch` | [x] | 500ms default, `--debounce` flag |
+| Handle `on_created` and `on_moved` events | [x] | Full event support in DebouncedWatcher |
+| Better error handling in watch mode | [x] | Catch SyntaxError, duplicate suppression |
+| Add `--quiet` flag | [x] | Both stubs and lint support `--quiet` |
+| Add `lint --watch` command | [x] | With `--fix`, `--debounce`, `--quiet` options |
+| Add tests for watch framework | [x] | 16 tests in `tests/test_watch.py` |
+| Document watch framework | [x] | CLI.md, INTERNALS.md updated |
+
+**Implementation Date**: 2025-12-25
+**Status**: Complete. Full watch framework with debouncing, multi-event support, and `lint --watch`.
 
 ---
 
@@ -126,6 +132,7 @@ Two-Claude testing framework for automated framework validation.
 | Task | Status | Notes |
 |------|--------|-------|
 | Add summary to INTERNALS.md | [x] | Explain SCCs are for Python imports, not CloudFormation |
+| Add note to CLI.md | [x] | Note circular deps go to main.py in import section |
 
 **Implementation Date**: 2025-12-25
 
@@ -137,8 +144,8 @@ Two-Claude testing framework for automated framework validation.
 |-------|------------|--------|
 | Package Restructuring | Medium | ✅ Complete |
 | CLI Improvements (P0) | Low | ✅ Complete |
-| Linter/Importer Unification | Medium | 🔄 In Progress (core done) |
-| Watchdog Improvements | Low | Pending |
+| Linter/Importer Unification | Medium | ✅ Complete |
+| Watchdog Improvements | Low | ✅ Complete |
 | Agent Testing | Low | Pending |
 
 ---
@@ -148,6 +155,6 @@ Two-Claude testing framework for automated framework validation.
 | Phase | Effort | Status |
 |-------|--------|--------|
 | 1. Foundation | 3-5 days | ✅ Complete |
-| 2. Consolidation | 2-3 days | 🔄 In Progress |
-| 3. Polish | 2-3 days | Pending |
+| 2. Consolidation | 2-3 days | ✅ Complete |
+| 3. Polish | 2-3 days | ✅ Complete |
 | 4. Testing | 3-5 days | Pending |

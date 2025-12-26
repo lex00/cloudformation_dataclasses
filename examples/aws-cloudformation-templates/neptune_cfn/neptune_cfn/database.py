@@ -125,7 +125,7 @@ class NeptuneDBCluster:
         'Key': 'Storage',
         'Value': Sub('${Storage}'),
     }]
-    depends_on = ["NeptuneDBSG"]
+    depends_on = [NeptuneDBSG]
 
 
 @cloudformation_dataclass

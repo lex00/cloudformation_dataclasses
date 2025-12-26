@@ -17,4 +17,4 @@ class myDB:
     master_user_password = Sub('{{resolve:secretsmanager:${DBCredential}}}')
     publicly_accessible = False
     storage_encrypted = True
-    depends_on = ["DBCredential"]
+    depends_on = [DBCredential]

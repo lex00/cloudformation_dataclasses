@@ -1,8 +1,10 @@
 """Auto-generated stub for IDE type checking."""
 
 from cloudformation_dataclasses.core import (
+    CloudFormationResource,
     Output,
     Parameter,
+    ParameterType,
     PolicyDocument,
     PolicyStatement,
     STRING,
@@ -11,50 +13,63 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.core.template import Condition as TemplateCondition
 from cloudformation_dataclasses.core.resource_loader import setup_resources
-from cloudformation_dataclasses.aws import cloudformation, ec2
+from cloudformation_dataclasses.aws import iam, lambda_, sns
+from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
-    Base64,
-    GetAZs,
-    Join,
-    Select,
+    AWS_NO_VALUE,
+    AWS_STACK_NAME,
+    Equals,
+    If,
+    Not,
     Sub,
 )
 
-from .compute import PrivateInstance as PrivateInstance
-from .compute import PrivateInstanceAssociationParameter as PrivateInstanceAssociationParameter
-from .infra import PrivateWaitCondition as PrivateWaitCondition
-from .infra import PrivateWaitHandle as PrivateWaitHandle
-from .network import CfnEndpoint as CfnEndpoint
-from .network import EndpointSG as EndpointSG
-from .network import EndpointSGAssociationParameter as EndpointSGAssociationParameter
-from .network import EndpointSGEgress as EndpointSGEgress
-from .network import PrivateRouteTable1 as PrivateRouteTable1
-from .network import PrivateRouteTable1AssociationParameter as PrivateRouteTable1AssociationParameter
-from .network import PrivateRouteTable2 as PrivateRouteTable2
-from .network import PrivateRouteTable2AssociationParameter as PrivateRouteTable2AssociationParameter
-from .network import PrivateSG as PrivateSG
-from .network import PrivateSGAssociationParameter as PrivateSGAssociationParameter
-from .network import PrivateSGEgress as PrivateSGEgress
-from .network import PrivateSubnet1 as PrivateSubnet1
-from .network import PrivateSubnet1AssociationParameter as PrivateSubnet1AssociationParameter
-from .network import PrivateSubnet1RouteTableAssociation as PrivateSubnet1RouteTableAssociation
-from .network import PrivateSubnet2 as PrivateSubnet2
-from .network import PrivateSubnet2AssociationParameter as PrivateSubnet2AssociationParameter
-from .network import PrivateSubnet2RouteTableAssociation as PrivateSubnet2RouteTableAssociation
-from .network import S3Endpoint as S3Endpoint
-from .network import S3EndpointAllowStatement0 as S3EndpointAllowStatement0
-from .network import S3EndpointPolicyDocument as S3EndpointPolicyDocument
-from .network import VPC as VPC
-from .network import VPCAssociationParameter as VPCAssociationParameter
-from .outputs import CfnEndpointOutput as CfnEndpointOutput
-from .outputs import PrivateSubnetsOutput as PrivateSubnetsOutput
-from .outputs import S3EndpointOutput as S3EndpointOutput
-from .outputs import VPCOutput as VPCOutput
-from .params import EnvironmentName as EnvironmentName
-from .params import LinuxAMI as LinuxAMI
-from .params import PrivateSubnet1CIDR as PrivateSubnet1CIDR
-from .params import PrivateSubnet2CIDR as PrivateSubnet2CIDR
-from .params import VpcCIDR as VpcCIDR
+from .compute import DirectorySettingsLambdaFunction as DirectorySettingsLambdaFunction
+from .compute import DirectorySettingsLambdaFunctionCapacityProviderVpcConfig as DirectorySettingsLambdaFunctionCapacityProviderVpcConfig
+from .compute import DirectorySettingsLambdaFunctionContent as DirectorySettingsLambdaFunctionContent
+from .compute import DirectorySettingsLambdaFunctionEnvironment as DirectorySettingsLambdaFunctionEnvironment
+from .main import DirectorySettingsResource as DirectorySettingsResource
+from .messaging import DirectoryMonitoringTopic as DirectoryMonitoringTopic
+from .messaging import DirectoryMonitoringTopicSubscription as DirectoryMonitoringTopicSubscription
+from .monitoring import DirectorySettingsLambdaLogsLogGroup as DirectorySettingsLambdaLogsLogGroup
+from .outputs import DirectoryAliasUrlOutput as DirectoryAliasUrlOutput
+from .params import CreateDirectoryAlias as CreateDirectoryAlias
+from .params import CreateDirectoryConsoleDelegatedAccessRoles as CreateDirectoryConsoleDelegatedAccessRoles
+from .params import DirectoryAlias as DirectoryAlias
+from .params import DirectoryConsoleDelegatedAccessRolesConditionCondition as DirectoryConsoleDelegatedAccessRolesConditionCondition
+from .params import DirectoryID as DirectoryID
+from .params import DirectoryMonitoringEmail as DirectoryMonitoringEmail
+from .params import DirectoryMonitoringSNSTopicKMSKey as DirectoryMonitoringSNSTopicKMSKey
+from .params import DirectoryMonitoringSNSTopicKMSKeyConditionCondition as DirectoryMonitoringSNSTopicKMSKeyConditionCondition
+from .params import EnableDirectorySSO as EnableDirectorySSO
+from .params import LambdaFunctionName as LambdaFunctionName
+from .params import LambdaLogLevel as LambdaLogLevel
+from .params import LambdaLogsCloudWatchKMSKey as LambdaLogsCloudWatchKMSKey
+from .params import LambdaLogsCloudWatchKMSKeyConditionCondition as LambdaLogsCloudWatchKMSKeyConditionCondition
+from .params import LambdaLogsLogGroupRetention as LambdaLogsLogGroupRetention
+from .params import LambdaS3BucketName as LambdaS3BucketName
+from .params import LambdaZipFileName as LambdaZipFileName
+from .params import SecurityGroups as SecurityGroups
+from .params import Subnets as Subnets
+from .security import DirectoryConsoleDelegatedAccessEC2ReadOnlyRole as DirectoryConsoleDelegatedAccessEC2ReadOnlyRole
+from .security import DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAllowStatement0 as DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAllowStatement0
+from .security import DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAssumeRolePolicyDocument as DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAssumeRolePolicyDocument
+from .security import DirectoryConsoleDelegatedAccessSecurityAuditRole as DirectoryConsoleDelegatedAccessSecurityAuditRole
+from .security import DirectoryConsoleDelegatedAccessSecurityAuditRoleAllowStatement0 as DirectoryConsoleDelegatedAccessSecurityAuditRoleAllowStatement0
+from .security import DirectoryConsoleDelegatedAccessSecurityAuditRoleAssumeRolePolicyDocument as DirectoryConsoleDelegatedAccessSecurityAuditRoleAssumeRolePolicyDocument
+from .security import DirectorySettingsLambdaRole as DirectorySettingsLambdaRole
+from .security import DirectorySettingsLambdaRoleAllowStatement0 as DirectorySettingsLambdaRoleAllowStatement0
+from .security import DirectorySettingsLambdaRoleAllowStatement0_1 as DirectorySettingsLambdaRoleAllowStatement0_1
+from .security import DirectorySettingsLambdaRoleAllowStatement0_2 as DirectorySettingsLambdaRoleAllowStatement0_2
+from .security import DirectorySettingsLambdaRoleAllowStatement1 as DirectorySettingsLambdaRoleAllowStatement1
+from .security import DirectorySettingsLambdaRoleAllowStatement1_1 as DirectorySettingsLambdaRoleAllowStatement1_1
+from .security import DirectorySettingsLambdaRoleAllowStatement2 as DirectorySettingsLambdaRoleAllowStatement2
+from .security import DirectorySettingsLambdaRoleAssumeRolePolicyDocument as DirectorySettingsLambdaRoleAssumeRolePolicyDocument
+from .security import DirectorySettingsLambdaRolePolicies0PolicyDocument as DirectorySettingsLambdaRolePolicies0PolicyDocument
+from .security import DirectorySettingsLambdaRolePolicies1PolicyDocument as DirectorySettingsLambdaRolePolicies1PolicyDocument
+from .security import DirectorySettingsLambdaRolePolicy as DirectorySettingsLambdaRolePolicy
+from .security import DirectorySettingsLambdaRolePolicy1 as DirectorySettingsLambdaRolePolicy1
 
-__all__: list[str] = ['Base64', 'CfnEndpoint', 'CfnEndpointOutput', 'EndpointSG', 'EndpointSGAssociationParameter', 'EndpointSGEgress', 'EnvironmentName', 'GetAZs', 'Join', 'LinuxAMI', 'Output', 'Parameter', 'PolicyDocument', 'PolicyStatement', 'PrivateInstance', 'PrivateInstanceAssociationParameter', 'PrivateRouteTable1', 'PrivateRouteTable1AssociationParameter', 'PrivateRouteTable2', 'PrivateRouteTable2AssociationParameter', 'PrivateSG', 'PrivateSGAssociationParameter', 'PrivateSGEgress', 'PrivateSubnet1', 'PrivateSubnet1AssociationParameter', 'PrivateSubnet1CIDR', 'PrivateSubnet1RouteTableAssociation', 'PrivateSubnet2', 'PrivateSubnet2AssociationParameter', 'PrivateSubnet2CIDR', 'PrivateSubnet2RouteTableAssociation', 'PrivateSubnetsOutput', 'PrivateWaitCondition', 'PrivateWaitHandle', 'S3Endpoint', 'S3EndpointAllowStatement0', 'S3EndpointOutput', 'S3EndpointPolicyDocument', 'STRING', 'Select', 'Sub', 'Template', 'VPC', 'VPCAssociationParameter', 'VPCOutput', 'VpcCIDR', 'cloudformation', 'cloudformation_dataclass', 'ec2', 'get_att', 'ref', 'setup_resources']
+__all__: list[str] = ['AWS_NO_VALUE', 'AWS_STACK_NAME', 'CloudFormationResource', 'CreateDirectoryAlias', 'CreateDirectoryConsoleDelegatedAccessRoles', 'DirectoryAlias', 'DirectoryAliasUrlOutput', 'DirectoryConsoleDelegatedAccessEC2ReadOnlyRole', 'DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAllowStatement0', 'DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAssumeRolePolicyDocument', 'DirectoryConsoleDelegatedAccessRolesConditionCondition', 'DirectoryConsoleDelegatedAccessSecurityAuditRole', 'DirectoryConsoleDelegatedAccessSecurityAuditRoleAllowStatement0', 'DirectoryConsoleDelegatedAccessSecurityAuditRoleAssumeRolePolicyDocument', 'DirectoryID', 'DirectoryMonitoringEmail', 'DirectoryMonitoringSNSTopicKMSKey', 'DirectoryMonitoringSNSTopicKMSKeyConditionCondition', 'DirectoryMonitoringTopic', 'DirectoryMonitoringTopicSubscription', 'DirectorySettingsLambdaFunction', 'DirectorySettingsLambdaFunctionCapacityProviderVpcConfig', 'DirectorySettingsLambdaFunctionContent', 'DirectorySettingsLambdaFunctionEnvironment', 'DirectorySettingsLambdaLogsLogGroup', 'DirectorySettingsLambdaRole', 'DirectorySettingsLambdaRoleAllowStatement0', 'DirectorySettingsLambdaRoleAllowStatement0_1', 'DirectorySettingsLambdaRoleAllowStatement0_2', 'DirectorySettingsLambdaRoleAllowStatement1', 'DirectorySettingsLambdaRoleAllowStatement1_1', 'DirectorySettingsLambdaRoleAllowStatement2', 'DirectorySettingsLambdaRoleAssumeRolePolicyDocument', 'DirectorySettingsLambdaRolePolicies0PolicyDocument', 'DirectorySettingsLambdaRolePolicies1PolicyDocument', 'DirectorySettingsLambdaRolePolicy', 'DirectorySettingsLambdaRolePolicy1', 'DirectorySettingsResource', 'EnableDirectorySSO', 'Equals', 'If', 'LambdaFunctionName', 'LambdaLogLevel', 'LambdaLogsCloudWatchKMSKey', 'LambdaLogsCloudWatchKMSKeyConditionCondition', 'LambdaLogsLogGroupRetention', 'LambdaS3BucketName', 'LambdaZipFileName', 'LogGroup', 'Not', 'Output', 'Parameter', 'ParameterType', 'PolicyDocument', 'PolicyStatement', 'STRING', 'SecurityGroups', 'Sub', 'Subnets', 'Template', 'TemplateCondition', 'cloudformation_dataclass', 'get_att', 'iam', 'lambda_', 'ref', 'setup_resources', 'sns']

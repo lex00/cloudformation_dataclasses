@@ -4,9 +4,16 @@ from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class EC2IPAddressOutput:
-    """EC2 Instance Public IP Address"""
+class JDBCConnectionStringOutput:
+    """JDBC connection string for the database"""
 
     resource: Output
-    value = get_att(GreengrassInstance, "PublicIp")
-    description = 'EC2 Instance Public IP Address'
+    value = Join('', [
+    'jdbc:mysql://',
+    get_att(MyDB, "Endpoint.Address"),
+    ':',
+    get_att(MyDB, "Endpoint.Port"),
+    '/',
+    ref(DBName),
+])
+    description = 'JDBC connection string for the database'

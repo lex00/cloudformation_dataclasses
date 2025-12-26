@@ -126,6 +126,12 @@ cloudformation_dataclasses/
 │   │   ├── __init__.py                 # Re-exports from maps.py and registry.py
 │   │   ├── maps.py                     # Condition operators, pseudo-params, parameter types
 │   │   └── registry.py                 # Runtime AWS module scanning and class lookup
+│   ├── stubs/                          # Type stub generation for IDE support
+│   │   └── __init__.py                 # generate_stub_file(), find_stack_packages()
+│   ├── watch/                          # File watching framework with debouncing
+│   │   ├── __init__.py                 # Public API: WatchConfig, DebouncedWatcher
+│   │   ├── config.py                   # WatchConfig dataclass
+│   │   └── watcher.py                  # DebouncedWatcher implementation
 │   ├── aws/                            # Generated AWS resources (262 services)
 │   │   ├── s3.py                       # S3 resources
 │   │   ├── dynamodb.py                 # DynamoDB resources

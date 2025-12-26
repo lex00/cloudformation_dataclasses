@@ -197,7 +197,7 @@ class Service:
     load_balancers = [ServiceLoadBalancer]
     role = ref(ECSServiceRole)
     task_definition = ref(TaskDefinition)
-    depends_on = ["ALBListener"]
+    depends_on = [ALBListener]
 
 
 @cloudformation_dataclass
@@ -216,7 +216,7 @@ class ServiceScalingTarget:
     role_arn = get_att(AutoscalingRole, "Arn")
     scalable_dimension = 'ecs:service:DesiredCount'
     service_namespace = 'ecs'
-    depends_on = ["Service"]
+    depends_on = [Service]
 
 
 @cloudformation_dataclass

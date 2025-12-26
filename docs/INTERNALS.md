@@ -7,6 +7,7 @@ This document covers the internal architecture of cloudformation_dataclasses for
 - [AWS Resource Generator](#aws-resource-generator) - How AWS resource classes are generated from CloudFormation specs
 - [Template Importer](#template-importer) - How CloudFormation templates are converted to Python
 - [Shared Utilities](#shared-utilities) - Common infrastructure between linter and importer
+- [Watch Framework](#watch-framework) - File watching with debouncing for CLI commands
 
 ---
 
@@ -775,6 +776,109 @@ from cloudformation_dataclasses.core.ast_helpers import (
 4. **Backward compatible**: `importer/parser.py` re-exports naming functions for existing code
 
 For detailed analysis of unification opportunities, see `docs/DRAFT_LINTER_IMPORTER_UNIFICATION.md`.
+
+---
+
+# Watch Framework
+
+The `watch/` module provides a reusable file watching framework with debouncing, used by CLI commands like `stubs --watch` and `lint --watch`.
+
+## Module Structure
+
+```
+src/cloudformation_dataclasses/watch/
+├── __init__.py     # Public API: WatchConfig, DebouncedWatcher
+├── config.py       # WatchConfig dataclass
+└── watcher.py      # DebouncedWatcher implementation
+```
+
+## Core Components
+
+### WatchConfig
+
+Configuration dataclass for file watching:
+
+```python
+from cloudformation_dataclasses.watch import WatchConfig
+
+config = WatchConfig(
+    paths=[Path("my_stack/")],      # Directories to watch
+    patterns=["*.py"],               # File patterns to include
+    ignored_patterns=["*.pyi"],      # Patterns to exclude
+    recursive=True,                  # Watch subdirectories
+    debounce_ms=500,                 # Delay before triggering callback
+)
+```
+
+### DebouncedWatcher
+
+File watcher with debouncing and error handling:
+
+```python
+from cloudformation_dataclasses.watch import WatchConfig, DebouncedWatcher
+
+def on_change(path: Path) -> None:
+    print(f"File changed: {path}")
+
+def on_error(path: Path, error: Exception) -> None:
+    print(f"Error: {error}")
+
+watcher = DebouncedWatcher(
+    config,
+    callback=on_change,
+    error_handler=on_error,
+    quiet=False,
+)
+watcher.start()  # Blocks until Ctrl+C
+```
+
+## Key Features
+
+1. **Debouncing**: Rapid file saves trigger only one callback after the debounce delay
+2. **Multi-event support**: Handles `on_modified`, `on_created`, and `on_moved` events
+3. **Error recovery**: Catches exceptions (including `SyntaxError`) and continues watching
+4. **Duplicate suppression**: Same error isn't reported multiple times until resolved
+5. **Cross-platform**: Uses `watchdog` library for macOS, Linux, and Windows support
+
+## Usage in CLI Commands
+
+Both `stubs --watch` and `lint --watch` use the watch framework:
+
+```python
+# In cli.py
+from cloudformation_dataclasses.watch import WatchConfig, DebouncedWatcher
+
+config = WatchConfig(
+    paths=watch_paths,
+    patterns=["*.py"],
+    ignored_patterns=["*.pyi", "__pycache__/*"],
+    debounce_ms=args.debounce,
+)
+
+watcher = DebouncedWatcher(
+    config,
+    callback=on_file_change,
+    error_handler=on_error,
+    quiet=args.quiet,
+)
+watcher.start()
+```
+
+## Debouncing Algorithm
+
+The watcher uses time-based debouncing:
+
+1. File event received → cancel existing timer for that path
+2. Start new timer with debounce delay
+3. When timer fires → execute callback
+4. Multiple rapid events for same path → only last one triggers callback
+
+```
+Time:    0ms    100ms   200ms   300ms   500ms   600ms
+Events:  [E1]   [E2]    [E3]                    [callback]
+                                 ↑
+                          500ms debounce delay
+```
 
 ---
 

@@ -89,6 +89,7 @@ dev = [
     "black>=23.12",
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
     "botocore>=1.35.0",  # For extracting AWS enum values during codegen
+    "watchdog>=3.0",  # For cfn-dataclasses stubs/lint --watch
 ]
 docs = ["pdoc>=14.0"]
 

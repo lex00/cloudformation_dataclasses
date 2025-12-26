@@ -544,7 +544,7 @@ class RouteTablePublicInternetRoute:
     route_table_id = ref(RouteTablePublic)
     destination_cidr_block = '0.0.0.0/0'
     gateway_id = ref(InternetGateway)
-    depends_on = ["VPCGatewayAttachment"]
+    depends_on = [VPCGatewayAttachment]
 
 
 @cloudformation_dataclass
@@ -656,7 +656,7 @@ cp greengrass.service /etc/systemd/system
 systemctl enable greengrass.service
 reboot
 """))
-    depends_on = ["GreengrassGroup"]
+    depends_on = [GreengrassGroup]
 
 
 @cloudformation_dataclass
@@ -701,4 +701,4 @@ class GroupDeploymentReset:
     ref(CoreName),
     'Core',
 ])
-    depends_on = ["GreengrassGroup"]
+    depends_on = [GreengrassGroup]
