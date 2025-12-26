@@ -125,18 +125,8 @@ def run_package_cli(
     # Output JSON or YAML
     try:
         if args.yaml:
-            # Lazy import YAML - only load if needed
-            try:
-                output = template.to_yaml()
-            except ImportError:
-                print(
-                    "Error: YAML output requires pyyaml. "
-                    "Install it with: pip install cloudformation_dataclasses[yaml]",
-                    file=sys.stderr,
-                )
-                sys.exit(2)
+            output = template.to_yaml()
         else:
-            # JSON is the default
             output = template.to_json()
 
         print(output)

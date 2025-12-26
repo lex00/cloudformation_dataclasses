@@ -22,7 +22,7 @@ If you're happy with your current tooling, you probably don't need this library.
 | **Paradigm** | Declarative (Python) | Imperative (Python + Node.js) | Declarative (HCL) |
 | **State management** | None (CloudFormation handles it) | Via CDK toolkit | Required (remote backend) |
 | **Runtime** | Python only | Python + Node.js | Go binary |
-| **Dependencies** | None (stdlib) | 500MB+ | Terraform CLI + providers |
+| **Dependencies** | pyyaml only | 500MB+ | Terraform CLI + providers |
 | **Learning curve** | Low | High | Medium |
 | **Multi-cloud** | AWS only | AWS (primarily) | Multi-cloud |
 

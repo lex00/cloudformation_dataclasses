@@ -28,7 +28,7 @@ The `cfn-dataclasses stubs --watch` command currently provides basic file watchi
 
 The `stubs --watch` implementation provides:
 
-1. **Auto-discovery of stack packages**: Finds all `stack/` directories with `setup_resources` imports
+1. **Auto-discovery of stack packages**: Finds all packages with `setup_resources` imports
 2. **Initial stub generation**: Generates stubs before entering watch mode
 3. **File monitoring**: Watches for `.py` file modifications (excludes `.pyi` files)
 4. **Incremental regeneration**: Only regenerates stubs for the affected stack package
@@ -97,10 +97,10 @@ class StubHandler(FileSystemEventHandler):
 
 ```bash
 # Watch mode for continuous linting
-cfn-dataclasses lint path/to/stack --watch
+cfn-dataclasses lint path/to/package --watch
 
 # Watch mode with auto-fix
-cfn-dataclasses lint path/to/stack --watch --fix
+cfn-dataclasses lint path/to/package --watch --fix
 ```
 
 **Benefits**:
@@ -113,7 +113,7 @@ cfn-dataclasses lint path/to/stack --watch --fix
 - Should debounce to avoid running lint on every keystroke
 - Display summary of issues found (not full lint output each time)
 - Optional: Integrate with system notifications for critical issues
-- Should track file additions/deletions in stack/ directory
+- Should track file additions/deletions in package directory
 
 ### 2. `build --watch` (Medium Value)
 
@@ -128,10 +128,10 @@ python -m <package_name>  # Runs main.py to build template
 
 ```bash
 # Watch mode that rebuilds template on changes
-cfn-dataclasses build path/to/stack --watch --output template.json
+cfn-dataclasses build path/to/package --watch --output template.json
 
 # Alternative: Validate on each build
-cfn-dataclasses build path/to/stack --watch --validate
+cfn-dataclasses build path/to/package --watch --validate
 ```
 
 **Benefits**:
@@ -145,7 +145,7 @@ cfn-dataclasses build path/to/stack --watch --validate
 - Should run template validation after build
 - Debouncing critical (template building can be slow for large stacks)
 - Error handling important (partial code during edits)
-- Could watch entire package (not just stack/ directory)
+- Could watch entire project (not just package directory)
 
 ### 3. `stubs --watch` Improvements (Current Feature)
 
@@ -431,7 +431,7 @@ watcher.start()
    - Configurable via `--debounce` flag
 
 2. **Handle Additional Events**
-   - `on_created`: New files in stack/ directory
+   - `on_created`: New files in package directory
    - `on_moved`: Renamed files
    - `on_deleted`: Clean up stale stub entries
 
@@ -780,7 +780,7 @@ ignored_patterns = ["*.pyi", "*.pyc", "__pycache__/*"]
 enabled = true
 auto_fix = true
 quiet = false
-patterns = ["stack/*.py"]
+patterns = ["*.py"]
 ignored_patterns = ["tests/*"]
 
 [build]
@@ -799,7 +799,7 @@ patterns = ["**/*.py"]
 **Risk**: Watching hundreds of files could impact performance.
 
 **Mitigation**:
-- Only watch relevant directories (stack/, not entire project)
+- Only watch relevant directories (package, not entire project)
 - Use debouncing to limit execution frequency
 - Add `--max-watch-files` limit with warning
 
@@ -864,7 +864,7 @@ cfn-dataclasses watch --stubs --lint --build
 
 ```bash
 # Only watch specific modules
-cfn-dataclasses stubs --watch --include "stack/network.py,stack/compute.py"
+cfn-dataclasses stubs --watch --include "network.py,compute.py"
 ```
 
 ### 3. Custom Commands

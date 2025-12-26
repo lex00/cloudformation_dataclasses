@@ -27,7 +27,7 @@ class MyBucket:
     bucket_encryption = MyEncryption  # Reference another class
 ```
 
-No Node.js. No state files. No runtime dependencies.
+No Node.js. No state files. Minimal dependencies (just PyYAML).
 
 ## Documentation
 

@@ -38,6 +38,40 @@ from cloudformation_dataclasses.importer.codegen import generate_code, generate_
 from cloudformation_dataclasses.importer.parser import parse_template
 
 
+class CLIError(Exception):
+    """CLI error with user-friendly message and optional suggestion.
+
+    Use this exception to provide clear, actionable error messages to users.
+    The suggestion field can provide guidance on how to resolve the error.
+
+    Example:
+        raise CLIError(
+            "Template contains unsupported intrinsic function: !Transform",
+            suggestion="Remove the !Transform macro or manually convert it after import."
+        )
+    """
+
+    def __init__(self, message: str, suggestion: str | None = None):
+        self.message = message
+        self.suggestion = suggestion
+        super().__init__(message)
+
+
+def _format_cli_error(error: CLIError) -> str:
+    """Format a CLIError for display to the user.
+
+    Args:
+        error: The CLIError to format.
+
+    Returns:
+        Formatted error string ready for display.
+    """
+    result = f"Error: {error.message}"
+    if error.suggestion:
+        result += f"\n\nSuggestion: {error.suggestion}"
+    return result
+
+
 def _get_aws_module_names() -> set[str]:
     """Get the set of AWS module names to avoid package name collisions.
 
@@ -460,16 +494,20 @@ def main(argv: list[str] | None = None) -> int:
         parser.print_help()
         return 0
 
-    if args.command == "import":
-        return _run_import_command(args)
-    elif args.command == "init":
-        return _run_init_command(args)
-    elif args.command == "lint":
-        return _run_lint_command(args)
-    elif args.command == "split":
-        return _run_split_command(args)
-    elif args.command == "stubs":
-        return _run_stubs_command(args)
+    try:
+        if args.command == "import":
+            return _run_import_command(args)
+        elif args.command == "init":
+            return _run_init_command(args)
+        elif args.command == "lint":
+            return _run_lint_command(args)
+        elif args.command == "split":
+            return _run_split_command(args)
+        elif args.command == "stubs":
+            return _run_stubs_command(args)
+    except CLIError as e:
+        print(_format_cli_error(e), file=sys.stderr)
+        return 1
 
     return 0
 

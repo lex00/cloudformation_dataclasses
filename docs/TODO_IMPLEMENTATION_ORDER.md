@@ -1,7 +1,7 @@
 # Implementation TODO
 
 **Date**: 2025-12-25
-**Status**: Active
+**Status**: Phase 1 Complete - Phase 2 Next
 
 ---
 
@@ -31,17 +31,18 @@ Flatten generated package structure by eliminating `stack/` subdirectory.
 
 ---
 
-### 2. CLI_IMPROVEMENTS (P0 items) - Priority: P0
+### 2. CLI_IMPROVEMENTS (P0 items) - Priority: P0 ✅ COMPLETE
 
 Quick wins for better developer experience.
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Lazy import PyYAML in `parser.py` | [ ] | Clear error message when missing |
-| Lazy import watchdog in stubs watch mode | [ ] | Clear error message when missing |
-| Add `CLIError` class with suggestions | [ ] | User-friendly error messages |
+| ~~Lazy import PyYAML~~ Make PyYAML required | [x] | Simpler than lazy imports; pyyaml has no transitive deps |
+| Lazy import watchdog in stubs watch mode | [x] | Already implemented in cli.py |
+| Add `CLIError` class with suggestions | [x] | User-friendly error messages |
 
-**Why early**: Non-breaking, immediate UX improvement.
+**Implementation Date**: 2025-12-25
+**Decision**: Made PyYAML a required dependency instead of lazy import for simplicity.
 
 ---
 
@@ -129,23 +130,21 @@ Two-Claude testing framework for automated framework validation.
 
 ## Risk Summary
 
-| Draft | Risk Level | Mitigation |
-|-------|------------|------------|
-| Package Restructuring | Medium | Keep old structure working, provide migration |
-| CLI Improvements | Low | Non-breaking, additive |
-| Linter/Importer Unification | Medium | Incremental refactoring, good test coverage |
-| Watchdog Improvements | Low | Additive features |
-| Agent Testing | Low | New feature, no existing code affected |
+| Draft | Risk Level | Status |
+|-------|------------|--------|
+| Package Restructuring | Medium | ✅ Complete |
+| CLI Improvements (P0) | Low | ✅ Complete |
+| Linter/Importer Unification | Medium | Pending |
+| Watchdog Improvements | Low | Pending |
+| Agent Testing | Low | Pending |
 
 ---
 
 ## Effort Estimates
 
-| Phase | Effort | Duration |
-|-------|--------|----------|
-| 1. Foundation | 3-5 days | Week 1 |
-| 2. Consolidation | 2-3 days | Week 2 |
-| 3. Polish | 2-3 days | Week 2-3 |
-| 4. Testing | 3-5 days | Week 3-4 |
-
-**Total**: ~2-4 weeks for complete implementation
+| Phase | Effort | Status |
+|-------|--------|--------|
+| 1. Foundation | 3-5 days | ✅ Complete |
+| 2. Consolidation | 2-3 days | Next |
+| 3. Polish | 2-3 days | Pending |
+| 4. Testing | 3-5 days | Pending |
