@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2, iam, ssm
-from .params import *  # noqa: F403, F401
 
 from .compute import myEC2InstanceSSM as myEC2InstanceSSM
 from .compute import myEC2InstanceSSMAssociationParameter as myEC2InstanceSSMAssociationParameter

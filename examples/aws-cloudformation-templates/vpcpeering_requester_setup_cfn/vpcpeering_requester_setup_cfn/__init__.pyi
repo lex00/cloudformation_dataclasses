@@ -19,8 +19,6 @@ from cloudformation_dataclasses.intrinsics import (
     If,
     Not,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import VPCPeeringConnection as VPCPeeringConnection
 from .compute import VPCPeeringConnectionAssociationParameter as VPCPeeringConnectionAssociationParameter

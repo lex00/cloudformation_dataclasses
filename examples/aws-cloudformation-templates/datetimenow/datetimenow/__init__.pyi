@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import cloudformation
-from .params import *  # noqa: F403, F401
 
 from .infra import Transform as Transform
 from .main import TransformFunction as TransformFunction

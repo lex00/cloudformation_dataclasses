@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Base64, Sub
-from .params import *  # noqa: F403, F401
 
 from .compute import Instance as Instance
 from .compute import InstanceBlockDeviceMapping as InstanceBlockDeviceMapping

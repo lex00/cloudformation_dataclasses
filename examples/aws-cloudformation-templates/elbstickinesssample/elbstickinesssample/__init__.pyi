@@ -19,8 +19,6 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .main import EC2Instance1 as EC2Instance1
 from .main import EC2Instance2 as EC2Instance2

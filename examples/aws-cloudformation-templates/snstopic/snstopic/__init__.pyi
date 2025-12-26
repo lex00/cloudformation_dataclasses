@@ -11,8 +11,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import sns
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .messaging import SNSSubscription as SNSSubscription
 from .messaging import SNSTopic as SNSTopic

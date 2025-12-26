@@ -43,6 +43,7 @@ from cloudformation_dataclasses.constants import (
     PARAMETER_TYPE_MAP,
     PSEUDO_PARAMETER_MAP,
 )
+from cloudformation_dataclasses.core.ast_helpers import is_cloudformation_dataclass
 
 
 @dataclass
@@ -1075,16 +1076,8 @@ class FileShouldBeSplit(LintRule):
         # Count @cloudformation_dataclass decorated classes
         resource_count = 0
         for node in ast.walk(context.tree):
-            if isinstance(node, ast.ClassDef):
-                for decorator in node.decorator_list:
-                    if isinstance(decorator, ast.Name) and decorator.id == "cloudformation_dataclass":
-                        resource_count += 1
-                        break
-                    elif isinstance(decorator, ast.Call):
-                        func = decorator.func
-                        if isinstance(func, ast.Name) and func.id == "cloudformation_dataclass":
-                            resource_count += 1
-                            break
+            if isinstance(node, ast.ClassDef) and is_cloudformation_dataclass(node):
+                resource_count += 1
 
         if resource_count >= self.threshold:
             # Check if split would produce multiple files

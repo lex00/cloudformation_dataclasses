@@ -19,7 +19,6 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .main import EventRole as EventRole
 from .main import EventRoleAllowStatement0 as EventRoleAllowStatement0

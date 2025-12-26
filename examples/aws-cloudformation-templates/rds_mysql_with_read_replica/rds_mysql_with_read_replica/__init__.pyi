@@ -22,8 +22,6 @@ from cloudformation_dataclasses.intrinsics import (
     Or,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .database import MainDB as MainDB
 from .database import MainDBTagFormat as MainDBTagFormat

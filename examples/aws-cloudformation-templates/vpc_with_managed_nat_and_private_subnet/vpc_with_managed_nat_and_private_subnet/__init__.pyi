@@ -20,8 +20,6 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import InboundHTTPPublicNetworkAclEntry as InboundHTTPPublicNetworkAclEntry
 from .compute import InboundHTTPPublicNetworkAclEntryPortRange as InboundHTTPPublicNetworkAclEntryPortRange

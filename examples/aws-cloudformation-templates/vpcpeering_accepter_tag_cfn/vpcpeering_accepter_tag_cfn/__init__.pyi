@@ -22,7 +22,6 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import TagVpcPeeringConnectionsLambdaFunction as TagVpcPeeringConnectionsLambdaFunction
 from .compute import TagVpcPeeringConnectionsLambdaFunctionCode as TagVpcPeeringConnectionsLambdaFunctionCode

@@ -14,8 +14,6 @@ from cloudformation_dataclasses.core.template import Condition as TemplateCondit
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import directoryservice
 from cloudformation_dataclasses.intrinsics import Equals, Select
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .main import rMSDirectory as rMSDirectory
 from .main import rMSDirectoryVpcSettings as rMSDirectoryVpcSettings

@@ -18,7 +18,6 @@ from cloudformation_dataclasses.intrinsics import (
     FindInMap,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import EC2Instance as EC2Instance
 from .network import InstanceSecurityGroup as InstanceSecurityGroup

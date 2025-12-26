@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2, iam
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Base64
-from .params import *  # noqa: F403, F401
 
 from .compute import LinuxInstance as LinuxInstance
 from .compute import LinuxInstanceAssociationParameter as LinuxInstanceAssociationParameter

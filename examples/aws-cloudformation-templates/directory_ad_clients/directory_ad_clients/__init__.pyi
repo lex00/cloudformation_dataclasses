@@ -24,7 +24,6 @@ from cloudformation_dataclasses.intrinsics import (
     Or,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import DomainMember1WithInlineSsmAssociation as DomainMember1WithInlineSsmAssociation
 from .compute import DomainMember1WithInlineSsmAssociationAssociationParameter as DomainMember1WithInlineSsmAssociationAssociationParameter

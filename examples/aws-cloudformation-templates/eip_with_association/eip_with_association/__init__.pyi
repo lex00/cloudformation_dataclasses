@@ -13,8 +13,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Base64, Join, Select
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .compute import EC2Instance as EC2Instance
 from .compute import IPAssoc as IPAssoc

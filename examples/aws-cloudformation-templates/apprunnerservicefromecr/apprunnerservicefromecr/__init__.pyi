@@ -15,8 +15,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import apprunner, iam
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Join
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .main import AppRunner as AppRunner
 from .main import AppRunnerAuthenticationConfiguration as AppRunnerAuthenticationConfiguration

@@ -10,6 +10,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
+from cloudformation_dataclasses.core.ast_helpers import (
+    extract_resource_annotation,
+    find_last_import_line,
+    is_cloudformation_dataclass,
+)
 from cloudformation_dataclasses.core.file_organization import (
     ResourceInfo,
     get_category,
@@ -51,29 +56,20 @@ def parse_resource_file(source: str) -> tuple[dict[str, ResourceInfo], dict[str,
             continue
 
         # Check if decorated with @cloudformation_dataclass
-        is_dataclass = False
-        decorator_line = None
-        for decorator in node.decorator_list:
-            if isinstance(decorator, ast.Name) and decorator.id == "cloudformation_dataclass":
-                is_dataclass = True
-                decorator_line = decorator.lineno
-            elif isinstance(decorator, ast.Call):
-                func = decorator.func
-                if isinstance(func, ast.Name) and func.id == "cloudformation_dataclass":
-                    is_dataclass = True
-                    decorator_line = decorator.lineno
-
-        if not is_dataclass:
+        if not is_cloudformation_dataclass(node):
             continue
 
+        # Get decorator line for source extraction
+        decorator_line = None
+        if node.decorator_list:
+            decorator_line = node.decorator_list[0].lineno
+
         # Extract resource type from `resource: ec2.SecurityGroup` annotation
-        service = None
-        type_name = None
-        for stmt in node.body:
-            if isinstance(stmt, ast.AnnAssign):
-                if isinstance(stmt.target, ast.Name) and stmt.target.id == "resource":
-                    service, type_name = _parse_resource_annotation(stmt.annotation)
-                    break
+        result = extract_resource_annotation(node)
+        if result is None:
+            continue
+        module, type_name = result
+        service = _module_to_service(module)
 
         if not service or not type_name:
             continue
@@ -105,32 +101,6 @@ def parse_resource_file(source: str) -> tuple[dict[str, ResourceInfo], dict[str,
         )
 
     return resources, class_defs
-
-
-def _parse_resource_annotation(annotation: ast.expr) -> tuple[Optional[str], Optional[str]]:
-    """Parse resource type annotation like `ec2.SecurityGroup`.
-
-    Returns:
-        Tuple of (service, type_name) or (None, None) if not parseable
-    """
-    if isinstance(annotation, ast.Attribute):
-        # e.g., ec2.SecurityGroup or elasticloadbalancingv2.LoadBalancer
-        type_name = annotation.attr
-
-        # Get the service module
-        if isinstance(annotation.value, ast.Name):
-            module = annotation.value.id
-            service = _module_to_service(module)
-            return service, type_name
-        elif isinstance(annotation.value, ast.Attribute):
-            # e.g., route53.record_set.AliasTarget - it's a PropertyType, not a Resource
-            # For PropertyTypes, use the parent module
-            if isinstance(annotation.value.value, ast.Name):
-                module = annotation.value.value.id
-                service = _module_to_service(module)
-                return service, type_name
-
-    return None, None
 
 
 def _module_to_service(module: str) -> str:
@@ -254,22 +224,17 @@ def _extract_header(source: str) -> str:
 
     lines = source.splitlines()
 
-    # Find the last import line
-    last_import_line = 0
-    first_class_line = len(lines) + 1
+    # Find the last import line (includes docstrings before imports)
+    last_import_line = find_last_import_line(tree)
 
+    # Find the first class line
+    first_class_line = len(lines) + 1
     for node in tree.body:
-        if isinstance(node, (ast.Import, ast.ImportFrom)):
-            last_import_line = max(last_import_line, node.end_lineno or node.lineno)
-        elif isinstance(node, ast.ClassDef):
-            # Check for decorator
+        if isinstance(node, ast.ClassDef):
             if node.decorator_list:
                 first_class_line = min(first_class_line, node.decorator_list[0].lineno)
             else:
                 first_class_line = min(first_class_line, node.lineno)
-        elif isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant):
-            # Module docstring
-            last_import_line = max(last_import_line, node.end_lineno or node.lineno)
 
     # Header is everything up to and including the last import
     # But stop before the first class

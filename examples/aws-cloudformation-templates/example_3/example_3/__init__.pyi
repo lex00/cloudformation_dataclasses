@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import quicksight, s3
-from .params import *  # noqa: F403, F401
 
 from .storage import Bucket as Bucket
 from .storage import Object1 as Object1

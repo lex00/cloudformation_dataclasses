@@ -11,7 +11,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import rds, secretsmanager
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
 
 from .database import myDB as myDB
 from .params import DBUser as DBUser

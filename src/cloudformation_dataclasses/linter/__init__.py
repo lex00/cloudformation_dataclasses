@@ -43,6 +43,7 @@ import ast
 import re
 from typing import Optional
 
+from cloudformation_dataclasses.core.ast_helpers import find_last_import_line
 from cloudformation_dataclasses.linter.rules import (
     ALL_RULES,
     DictShouldBePropertyType,
@@ -276,11 +277,7 @@ def _add_imports(source: str, imports: set[str]) -> str:
         return import_block + "\n\n" + source
 
     # Find the line of the last module-level import statement
-    # Only consider imports at module level (not inside functions or if blocks)
-    last_import_line = 0
-    for node in tree.body:
-        if isinstance(node, (ast.Import, ast.ImportFrom)):
-            last_import_line = max(last_import_line, node.end_lineno or node.lineno)
+    last_import_line = find_last_import_line(tree)
 
     # Filter out imports that already exist (module-level only)
     existing_imports = set()

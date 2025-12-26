@@ -16,7 +16,6 @@ from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import emr, iam
 from cloudformation_dataclasses.aws.emr.cluster import BootstrapActionConfig
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If
-from .params import *  # noqa: F403, F401
 
 from .main import EMRCluster as EMRCluster
 from .main import EMRClusterBootstrapActionConfig as EMRClusterBootstrapActionConfig

@@ -26,7 +26,6 @@ from cloudformation_dataclasses.intrinsics import (
     FindInMap,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import EnableShapshot as EnableShapshot
 from .compute import EnableShapshotCode as EnableShapshotCode

@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import AWS_REGION, Select
-from .params import *  # noqa: F403, F401
 
 from .network import InternetGateway as InternetGateway
 from .network import PrivateSubnet1DefaultRoute as PrivateSubnet1DefaultRoute

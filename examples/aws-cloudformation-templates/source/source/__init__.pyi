@@ -15,7 +15,6 @@ from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import iam, kms, s3
 from cloudformation_dataclasses.aws.s3 import ReplicationRuleStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
 
 from .params import AccountIdDestination as AccountIdDestination
 from .security import KmsKey as KmsKey

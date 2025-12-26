@@ -20,7 +20,6 @@ from cloudformation_dataclasses.intrinsics import (
     Join,
     Not,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import Service as Service
 from .compute import ServiceDeploymentConfiguration as ServiceDeploymentConfiguration

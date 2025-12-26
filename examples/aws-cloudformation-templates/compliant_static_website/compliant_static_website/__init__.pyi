@@ -31,8 +31,6 @@ from cloudformation_dataclasses.intrinsics import (
     Split,
     Sub,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .network import Distribution as Distribution
 from .network import DistributionDefaultCacheBehavior as DistributionDefaultCacheBehavior

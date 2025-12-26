@@ -20,8 +20,6 @@ from cloudformation_dataclasses.aws import (
 )
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .cicd import AppBuild as AppBuild
 from .cicd import AppBuildArtifacts as AppBuildArtifacts

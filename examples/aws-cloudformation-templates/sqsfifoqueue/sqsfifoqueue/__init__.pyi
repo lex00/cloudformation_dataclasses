@@ -19,8 +19,6 @@ from cloudformation_dataclasses.intrinsics import (
     If,
     Join,
 )
-from .params import *  # noqa: F403, F401
-from .outputs import *  # noqa: F403, F401
 
 from .messaging import MyDeadLetterQueue as MyDeadLetterQueue
 from .messaging import SQSQueue as SQSQueue

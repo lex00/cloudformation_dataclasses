@@ -279,9 +279,18 @@ Fixed Python Source Code
 from . import *  # noqa: F403
 
 # But sometimes generates extra imports like:
-from cloudformation_dataclasses.core.constants import IpProtocol
+from cloudformation_dataclasses.core.constants import IpProtocol  # ❌ WRONG
 ```
-These extra imports should be eliminated by ensuring constants like `IpProtocol` are exported from the package `__init__.py` and available via `from . import *`.
+
+**Correct Pattern:**
+
+| File Type | Import Pattern |
+|-----------|----------------|
+| `*.pyi` stubs | Explicit imports (required for type checkers) |
+| `__init__.py` | Imports from cloudformation_dataclasses + `setup_resources()` |
+| Resource files | `from . import *` only - nothing else |
+
+The `__init__.py` should import all needed constants (like `IpProtocol`) from `cloudformation_dataclasses`, and `setup_resources()` makes them available to resource files via star import. Resource files should **never** have direct imports from `cloudformation_dataclasses`.
 
 **Opportunity:** Document the "canonical style" that both systems target, making it explicit rather than implicit.
 
@@ -441,30 +450,32 @@ files = _generate_stack_package(pkg_ctx, template)
 ```
 
 **Implementation:**
-1. **Generate compliant imports from the start:**
-   - Always emit `from .. import *` in stack files (flat: `from . import *`)
-   - Always emit `from . import *` in params.py
-   - Context tracks required imports, emits them correctly
-   - **No extra import lines in resource files** - all needed constants (IpProtocol, etc.)
-     must be exported from `__init__.py` and available via star import
 
-2. **Generate annotation-based refs directly:**
+1. **Strict import pattern by file type:**
+   | File | Import Pattern |
+   |------|----------------|
+   | `__init__.py` | Explicit imports from cloudformation_dataclasses + `setup_resources()` |
+   | `*.pyi` stubs | Explicit imports (required for type checkers) |
+   | All other `.py` | `from . import *` only - **no other imports** |
+
+2. **`__init__.py` must import all needed constants:**
+   - When codegen detects a resource file needs `IpProtocol`, `KeyType`, etc.
+   - Add those constants to `__init__.py`'s imports from cloudformation_dataclasses
+   - `setup_resources()` then makes them available via star import
+   - Resource files never import directly from cloudformation_dataclasses
+
+3. **Generate annotation-based refs directly:**
    - `ref(ClassName)` when target is defined before
    - `ref("ClassName")` for forward references (same file)
    - Annotation-based refs for top-level properties
 
-3. **Use enum constants during value generation:**
+4. **Use enum constants during value generation:**
    - `try_convert_to_enum()` already does this
    - Extend to cover all cases linter checks
 
-4. **Generate PropertyType wrappers by default:**
+5. **Generate PropertyType wrappers by default:**
    - Block mode already does this
    - Ensure consistency with linter expectations
-
-5. **Export all needed constants from `__init__.py`:**
-   - When resource files use constants like `IpProtocol`, the codegen must add
-     those constants to the package's `__init__.py` core imports
-   - Resource files should only have `from . import *` with no additional imports
 
 **Impact:**
 - Faster code generation (no post-processing step)
@@ -576,10 +587,14 @@ class ReferenceAnalyzer:
 ```markdown
 # CloudFormation Dataclasses Code Style Guide
 
-## 1. Wrapper Class Pattern
-## 2. Resource References (ref/get_att)
-## 3. PropertyType Wrappers
-## 4. Import Patterns
+## 1. Import Patterns (CRITICAL)
+   - `__init__.py`: Explicit imports from cloudformation_dataclasses + setup_resources()
+   - `*.pyi` stubs: Explicit imports (required for type checkers)
+   - All other `.py` files: `from . import *` ONLY - no other imports
+
+## 2. Wrapper Class Pattern
+## 3. Resource References (ref/get_att)
+## 4. PropertyType Wrappers
 ## 5. Enum Usage
 ## 6. File Organization
 ## 7. Naming Conventions

@@ -21,7 +21,6 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
     Sub,
 )
-from .params import *  # noqa: F403, F401
 
 from .compute import TransformFunction as TransformFunction
 from .compute import TransformFunctionCode as TransformFunctionCode

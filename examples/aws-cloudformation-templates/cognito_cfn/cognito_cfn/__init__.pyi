@@ -10,7 +10,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import cognito
-from .params import *  # noqa: F403, F401
 
 from .params import AppName as AppName
 from .params import CallbackURL as CallbackURL

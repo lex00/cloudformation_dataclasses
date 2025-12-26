@@ -1,28 +1,28 @@
-"""Storage resources: S3Bucket."""
+"""Storage resources: ConfigBucket."""
 
 from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class S3BucketServerSideEncryptionByDefault:
+class ConfigBucketServerSideEncryptionByDefault:
     resource: s3.bucket.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
-class S3BucketServerSideEncryptionRule:
+class ConfigBucketServerSideEncryptionRule:
     resource: s3.bucket.ServerSideEncryptionRule
-    server_side_encryption_by_default = S3BucketServerSideEncryptionByDefault
+    server_side_encryption_by_default = ConfigBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
-class S3BucketBucketEncryption:
+class ConfigBucketBucketEncryption:
     resource: s3.bucket.BucketEncryption
-    server_side_encryption_configuration = [S3BucketServerSideEncryptionRule]
+    server_side_encryption_configuration = [ConfigBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
-class S3BucketPublicAccessBlockConfiguration:
+class ConfigBucketPublicAccessBlockConfiguration:
     resource: s3.multi_region_access_point.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
@@ -31,9 +31,9 @@ class S3BucketPublicAccessBlockConfiguration:
 
 
 @cloudformation_dataclass
-class S3Bucket:
+class ConfigBucket:
     """AWS::S3::Bucket resource."""
 
     resource: s3.Bucket
-    bucket_encryption = S3BucketBucketEncryption
-    public_access_block_configuration = S3BucketPublicAccessBlockConfiguration
+    bucket_encryption = ConfigBucketBucketEncryption
+    public_access_block_configuration = ConfigBucketPublicAccessBlockConfiguration

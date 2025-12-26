@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core.template import Condition as TemplateCondit
 from cloudformation_dataclasses.core.resource_loader import setup_resources
 from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Equals, Sub
-from .params import *  # noqa: F403, F401
 
 from .infra import VPCFlowLogsCloudWatchStack as VPCFlowLogsCloudWatchStack
 from .infra import VPCFlowLogsS3Stack as VPCFlowLogsS3Stack

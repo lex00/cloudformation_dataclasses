@@ -93,6 +93,11 @@ EXCLUDE_TEMPLATES=(
     "CloudFormation/CustomResources/getfromjson/src/events/event-invalid-search-input.json"
     # SAM templates (use Transform: AWS::Serverless)
     "CloudFormation/CustomResources/getfromjson/src/template.yml"
+    "CloudFormation/MacrosExamples/Count/template.json"
+    "CloudFormation/MacrosExamples/Count/template.yaml"
+    # EKS templates (too complex, many forward reference issues)
+    "EKS/template.json"
+    "EKS/template.yaml"
     # Macro definition templates (just define the macro, no resources to validate)
     "CloudFormation/MacrosExamples/Count/macro.json"
     "CloudFormation/MacrosExamples/Count/macro.yaml"
@@ -111,6 +116,15 @@ EXCLUDE_TEMPLATES=(
     "Solutions/CodeBuildAndCodePipeline/codebuild-app-deploy.yml"
     # Custom resource consumer example templates (reference custom resources that don't exist)
     "CloudFormation/CustomResources/getfromjson/example-templates/getfromjson-consumer.yml"
+    # Bandit security linter config (not CloudFormation)
+    "CloudFormation/CustomResources/getfromjson/bandit.yml"
+    "CloudFormation/CustomResources/getfromjson/bandit.json"
+    # CDK configuration files (not CloudFormation)
+    "CloudFormation/StackSets-CDK/cdk.json"
+    "CloudFormation/StackSets-CDK/config.json"
+    # Macro test events (not CloudFormation templates)
+    "CloudFormation/MacrosExamples/Count/event.json"
+    "CloudFormation/MacrosExamples/Count/event_bad.json"
 )
 
 cd "$PROJECT_ROOT"
@@ -257,7 +271,7 @@ cleanup_temp() {
 trap cleanup_temp EXIT
 
 header "Applying Template Fixes"
-python3 "$SCRIPT_DIR/fix_templates.py" "$TEMP_SOURCE_DIR"
+uv run python "$SCRIPT_DIR/fix_templates.py" "$TEMP_SOURCE_DIR"
 
 # Remove excluded templates (Rain-specific, Kubernetes, etc.)
 header "Removing Excluded Templates"
@@ -377,8 +391,9 @@ if [ "$SKIP_VALIDATION" = false ]; then
     echo ""
 
     # Validation function for a single package (runs in parallel)
-    # Uses PYTHONPATH instead of venv - much faster, no pip install needed
-    # PROJECT_SRC and VALIDATION_ERRORS_FILE are exported as environment variables
+    # Uses PYTHONPATH with uv run to use the project's virtual environment
+    # PROJECT_ROOT, PROJECT_SRC and VALIDATION_ERRORS_FILE are exported as environment variables
+    export PROJECT_ROOT
     export PROJECT_SRC="$PROJECT_ROOT/src"
     export VALIDATION_ERRORS_FILE="$OUTPUT_DIR/validation_errors.log"
     > "$VALIDATION_ERRORS_FILE"  # Clear/create the file
@@ -389,8 +404,9 @@ if [ "$SKIP_VALIDATION" = false ]; then
 
         # Run with --validate flag for proper validation
         # This checks for validation errors like missing conditions, duplicate resources, etc.
+        # Use uv run to ensure we use the project's virtual environment with pyyaml
         local error_output
-        if error_output=$(PYTHONPATH="$PROJECT_SRC:$pkg_dir" python3 -m "$pkg_name" --validate 2>&1); then
+        if error_output=$(cd "$PROJECT_ROOT" && PYTHONPATH="$PROJECT_SRC:$pkg_dir" uv run python -m "$pkg_name" --validate 2>&1); then
             echo "OK:$pkg_name"
         else
             echo "FAIL:$pkg_name"
@@ -439,7 +455,7 @@ if [ "$SKIP_VALIDATION" = false ]; then
         > "$VALIDATION_ERRORS_FILE"
 
         # Export variables needed by reimport function
-        export LOG_FILE OUTPUT_DIR PROJECT_SRC VALIDATION_ERRORS_FILE
+        export LOG_FILE OUTPUT_DIR PROJECT_ROOT PROJECT_SRC VALIDATION_ERRORS_FILE
 
         # Function to re-import and validate a single package
         reimport_package() {
@@ -453,13 +469,13 @@ if [ "$SKIP_VALIDATION" = false ]; then
                 rm -rf "$PKG_OUTPUT"
                 uv run cfn-dataclasses import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null || true
 
-                if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" --validate >/dev/null 2>&1; then
+                if cd "$PROJECT_ROOT" && PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" uv run python -m "$pkg" --validate >/dev/null 2>&1; then
                     echo "FIXED:$pkg"
                 else
                     echo "FAIL:$pkg"
                     {
                         echo "=== $pkg ==="
-                        PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" --validate 2>&1 || true
+                        cd "$PROJECT_ROOT" && PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" uv run python -m "$pkg" --validate 2>&1 || true
                         echo ""
                     } >> "$VALIDATION_ERRORS_FILE"
                 fi
