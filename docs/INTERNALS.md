@@ -499,11 +499,9 @@ These Union types allow wrapper classes to use:
 - Enum constants (`KeyType.HASH`)
 - CloudFormation intrinsics (`Ref`, `GetAtt`, `Sub`)
 
-When users write wrapper classes that reference other resources, they use the `ref()` and `get_att()` helpers with annotation-based forward references:
+When users write wrapper classes that reference other resources, they use the `ref()` and `get_att()` helpers:
 
 ```python
-from __future__ import annotations
-
 @cloudformation_dataclass
 class MyBucketPolicy:
     resource: BucketPolicy

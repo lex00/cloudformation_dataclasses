@@ -62,40 +62,20 @@ All AWS resource classes are **pre-generated from CloudFormation specs** and **c
 - **CloudFormation → Python mappings**: String→str, Integer→int, Boolean→bool, etc.
 - **Union types for intrinsics**: Every property accepts literal values OR CloudFormation functions (Ref, GetAtt, Sub, etc.)
 - **PascalCase → snake_case**: CloudFormation properties like `BucketName` become `bucket_name`
-- **Forward references**: Handle circular dependencies between resources using PEP 563 annotations
 
-### PEP 563 and Forward References
+### Cross-Resource References
 
-Cross-resource references like `ref(Bucket)` can fail at import time when `Bucket` isn't defined yet (auto-discovery runs after modules load). The solution uses **PEP 563 future annotations** with type markers:
+Use `ref()` and `get_att()` with direct class references:
 
 ```python
-from __future__ import annotations
-
 @cloudformation_dataclass
 class BucketPolicy:
     resource: s3.BucketPolicy
-    bucket: Ref[Bucket] = ref()  # Type annotation has class, resolved at runtime
+    bucket = ref(MyBucket)  # Direct class reference
     policy_document = BucketPolicyPolicyDocument
 ```
 
-**How it works:**
-1. `from __future__ import annotations` makes annotations strings at parse time
-2. `Ref[Bucket]` becomes the string `"Ref[Bucket]"` - Python doesn't evaluate `Bucket` immediately
-3. IDE sees `Ref[Bucket]` and provides autocomplete/go-to-definition
-4. `@cloudformation_dataclass` decorator parses the annotation at runtime to extract `Bucket`
-5. The registry (populated by auto-discovery) provides the actual class for resolution
-
-**Key types:**
-- `Ref[T]` - Type marker for resource references (e.g., `bucket: Ref[Bucket] = ref()`)
-- `GetAtt[T]` - Type marker for GetAtt references (e.g., `arn: GetAtt[Bucket] = get_att("Arn")`)
-
-**When to use annotation-based refs:**
-- Cross-resource refs where target class is defined in another file
-- Resources using auto-discovery pattern in `__init__.py`
-
-**When to use direct refs:**
-- Parameter refs (parameters are defined in `config.py` and imported before resources)
-- Same-file refs where the target is already defined
+Auto-discovery via `setup_resources()` ensures all classes are available at runtime regardless of which file they're defined in.
 
 **Qualified resource types for name collisions:**
 

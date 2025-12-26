@@ -86,7 +86,7 @@ class MyFunction:
     resource: lambda_.Function
     function_name = "my-handler"
     runtime = Runtime.PYTHON3_12
-    role: GetAtt[ExecutionRole] = get_att(ARN)  # Reference resource in another file
+    role = get_att(ExecutionRole, ARN)  # Reference resource in another file
 ```
 
 **Key benefit:** Resources auto-register when defined. Move resources between files freely - auto-discovery handles everything.
@@ -113,12 +113,6 @@ from . import *
 class ProcessorFunction:
     resource: lambda_.Function
     environment = {"BUCKET": ref(DataBucket)}  # Reference works across files
-```
-
-For forward references (when the target isn't imported yet), use type annotations:
-
-```python
-bucket: Ref[DataBucket] = ref()  # Type annotation resolves at runtime
 ```
 
 ---

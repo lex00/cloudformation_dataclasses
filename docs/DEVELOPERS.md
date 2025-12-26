@@ -92,7 +92,7 @@ cloudformation_dataclasses/
 │   │   ├── base.py                     # CloudFormationResource, Tag, PolicyDocument
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
-│   │   ├── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
+│   │   ├── wrapper.py                  # @cloudformation_dataclass decorator, ref(), get_att()
 │   │   ├── naming.py                   # Name conversion (to_snake_case, sanitize_python_name)
 │   │   └── ast_helpers.py              # AST utilities (is_cloudformation_dataclass, etc.)
 │   ├── intrinsics/                     # Intrinsic functions
