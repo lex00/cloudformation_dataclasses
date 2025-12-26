@@ -88,11 +88,13 @@ uv run pytest tests/ examples/ -v
 ```
 cloudformation_dataclasses/
 ├── src/cloudformation_dataclasses/     # Source code
-│   ├── core/                           # Core base classes
+│   ├── core/                           # Core base classes and shared utilities
 │   │   ├── base.py                     # CloudFormationResource, Tag, PolicyDocument
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
-│   │   └── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
+│   │   ├── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
+│   │   ├── naming.py                   # Name conversion (to_snake_case, sanitize_python_name)
+│   │   └── ast_helpers.py              # AST utilities (is_cloudformation_dataclass, etc.)
 │   ├── intrinsics/                     # Intrinsic functions
 │   │   └── functions.py                # Ref, GetAtt, Sub, Join, etc.
 │   ├── codegen/                        # Code generation tools (dev-time only)
@@ -117,7 +119,8 @@ cloudformation_dataclasses/
 │   │       └── helpers.py               # SERVICE_CATEGORIES, utilities
 │   ├── linter/                          # Linter for detecting/fixing common mistakes
 │   │   ├── __init__.py                  # Public API: lint_code(), fix_code()
-│   │   ├── rules.py                     # Lint rules (CFD001-CFD005)
+│   │   ├── rules.py                     # Lint rules (CFD001-CFD012)
+│   │   ├── split.py                     # File splitting by AWS service category
 │   │   └── introspection.py             # Type introspection utilities
 │   ├── constants/                      # Shared constant mappings and registries
 │   │   ├── __init__.py                 # Re-exports from maps.py and registry.py
@@ -938,5 +941,5 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ---
 
-**Last Updated**: 2025-12-21
+**Last Updated**: 2025-12-25
 **For**: v0.5.2 (spec-2025.12.11_gen-1.0.0)
