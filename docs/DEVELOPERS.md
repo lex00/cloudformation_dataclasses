@@ -940,12 +940,11 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
 - **CLI Reference**: [CLI.md](./CLI.md) - init, import, lint commands
-- **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants
 - **Internals**: [INTERNALS.md](./INTERNALS.md) - Code generation architecture
 - **Changelog**: [CHANGELOG.md](../CHANGELOG.md) - Version history and release notes
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/
 
 ---
 
-**Last Updated**: 2025-12-25
-**For**: v0.5.2 (spec-2025.12.11_gen-1.0.0)
+**Last Updated**: 2025-12-26
+**For**: v0.8.0

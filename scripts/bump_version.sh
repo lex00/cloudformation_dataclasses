@@ -6,6 +6,7 @@
 # - pyproject.toml
 # - src/cloudformation_dataclasses/__version__.py
 # - CHANGELOG.md (adds placeholder section)
+# - docs/DEVELOPERS.md (version footer)
 #
 # Usage:
 #   ./scripts/bump_version.sh 0.6.0
@@ -70,6 +71,7 @@ usage() {
     echo "  - pyproject.toml"
     echo "  - src/cloudformation_dataclasses/__version__.py"
     echo "  - CHANGELOG.md (placeholder section added)"
+    echo "  - docs/DEVELOPERS.md (version footer)"
 }
 
 # Validate arguments
@@ -147,6 +149,12 @@ else
     warn "Could not find version entries in CHANGELOG.md - manual update required"
 fi
 
+# Step 4: Update DEVELOPERS.md footer
+info "Updating docs/DEVELOPERS.md..."
+sed -i '' "s/^\*\*Last Updated\*\*: .*/\*\*Last Updated\*\*: $TODAY/" docs/DEVELOPERS.md
+sed -i '' "s/^\*\*For\*\*: v.*/\*\*For\*\*: v$NEW_VERSION/" docs/DEVELOPERS.md
+success "Updated docs/DEVELOPERS.md"
+
 # Summary
 header "Version Bump Complete"
 
@@ -154,6 +162,7 @@ echo "Updated files:"
 echo "  • pyproject.toml"
 echo "  • src/cloudformation_dataclasses/__version__.py"
 echo "  • CHANGELOG.md"
+echo "  • docs/DEVELOPERS.md"
 echo ""
 
 info "Next steps:"

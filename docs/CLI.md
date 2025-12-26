@@ -407,5 +407,5 @@ fixed_code = fix_code(code)
 ## See Also
 
 - [Quick Start](QUICK_START.md) - Create your first project
-- [Registry](REGISTRY.md) - Multi-file organization
+- [Internals](INTERNALS.md) - Multi-file organization and registry
 - [Examples](../examples/) - Real-world templates
