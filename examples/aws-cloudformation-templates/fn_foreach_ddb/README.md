@@ -1,6 +1,6 @@
 # FnForeachDdb
 
-Imported from `Config.yaml`.
+Imported from `DirectoryServiceMicrosoftAD.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,15 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `Ec2Volume` | AWS::EC2::Volume |
-| `ConfigRecorder` | AWS::Config::ConfigurationRecorder |
-| `DeliveryChannel` | AWS::Config::DeliveryChannel |
-| `ConfigBucket` | AWS::S3::Bucket |
-| `ConfigTopic` | AWS::SNS::Topic |
-| `ConfigTopicPolicy` | AWS::SNS::TopicPolicy |
-| `ConfigRuleForVolumeTags` | AWS::Config::ConfigRule |
-| `ConfigRuleForVolumeAutoEnableIO` | AWS::Config::ConfigRule |
-| `ConfigPermissionToCallLambda` | AWS::Lambda::Permission |
-| `VolumeAutoEnableIOComplianceCheck` | AWS::Lambda::Function |
-| `LambdaExecutionRole` | AWS::IAM::Role |
-| `ConfigRole` | AWS::IAM::Role |
+| `rMSDirectory` | AWS::DirectoryService::MicrosoftAD |

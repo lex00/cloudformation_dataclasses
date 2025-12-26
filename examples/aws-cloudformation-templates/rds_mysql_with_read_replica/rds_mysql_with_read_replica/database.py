@@ -27,7 +27,7 @@ class MainDB:
     storage_encrypted = True
     tags = [MainDBTagFormat]
     vpc_security_groups = If("IsEC2VPC", [get_att(DBEC2SecurityGroup, "GroupId")], AWS_NO_VALUE)
-    depends_on = ["DBCredential"]
+    depends_on = [DBCredential]
     deletion_policy = 'Snapshot'
 
 

@@ -4,8 +4,6 @@ from cloudformation_dataclasses.core import (
     Mapping,
     Output,
     Parameter,
-    PolicyDocument,
-    PolicyStatement,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -13,84 +11,88 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
-from cloudformation_dataclasses.aws import cloudfront, ec2, iam
+from cloudformation_dataclasses.aws import ec2
+from cloudformation_dataclasses.aws.ec2 import (
+    EIP,
+    NatGateway,
+    NetworkAcl,
+    NetworkAclEntry,
+    RouteTable,
+    Subnet,
+    SubnetNetworkAclAssociation,
+    SubnetRouteTableAssociation,
+    VPCGatewayAttachment,
+)
 from cloudformation_dataclasses.intrinsics import (
-    AWS_REGION,
-    Base64,
+    AWS_STACK_NAME,
     FindInMap,
     GetAZs,
+    Join,
     Select,
     Sub,
 )
 
-from .main import CloudFrontCachePolicy as CloudFrontCachePolicy
-from .main import CloudFrontCachePolicyCachePolicyConfig as CloudFrontCachePolicyCachePolicyConfig
-from .main import CloudFrontCachePolicyCookiesConfig as CloudFrontCachePolicyCookiesConfig
-from .main import CloudFrontCachePolicyHeadersConfig as CloudFrontCachePolicyHeadersConfig
-from .main import CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin as CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin
-from .main import CloudFrontCachePolicyQueryStringsConfig as CloudFrontCachePolicyQueryStringsConfig
-from .main import CloudFrontDistribution as CloudFrontDistribution
-from .main import CloudFrontDistributionCacheBehavior as CloudFrontDistributionCacheBehavior
-from .main import CloudFrontDistributionCustomOriginConfig as CloudFrontDistributionCustomOriginConfig
-from .main import CloudFrontDistributionDefaultCacheBehavior as CloudFrontDistributionDefaultCacheBehavior
-from .main import CloudFrontDistributionDistributionConfig as CloudFrontDistributionDistributionConfig
-from .main import CloudFrontDistributionOrigin as CloudFrontDistributionOrigin
-from .main import InstanceSecurityGroup as InstanceSecurityGroup
-from .main import InstanceSecurityGroupAssociationParameter as InstanceSecurityGroupAssociationParameter
-from .main import InstanceSecurityGroupEgress as InstanceSecurityGroupEgress
-from .main import InstanceSecurityGroupIngress as InstanceSecurityGroupIngress
-from .main import NetworkInternetGateway as NetworkInternetGateway
-from .main import NetworkInternetGatewayAssociationParameter as NetworkInternetGatewayAssociationParameter
-from .main import NetworkPrivateSubnet1DefaultRoute as NetworkPrivateSubnet1DefaultRoute
-from .main import NetworkPrivateSubnet1RouteTable as NetworkPrivateSubnet1RouteTable
-from .main import NetworkPrivateSubnet1RouteTableAssociation as NetworkPrivateSubnet1RouteTableAssociation
-from .main import NetworkPrivateSubnet1RouteTableAssociationParameter as NetworkPrivateSubnet1RouteTableAssociationParameter
-from .main import NetworkPrivateSubnet1Subnet as NetworkPrivateSubnet1Subnet
-from .main import NetworkPrivateSubnet1SubnetAssociationParameter as NetworkPrivateSubnet1SubnetAssociationParameter
-from .main import NetworkPrivateSubnet2DefaultRoute as NetworkPrivateSubnet2DefaultRoute
-from .main import NetworkPrivateSubnet2RouteTable as NetworkPrivateSubnet2RouteTable
-from .main import NetworkPrivateSubnet2RouteTableAssociation as NetworkPrivateSubnet2RouteTableAssociation
-from .main import NetworkPrivateSubnet2RouteTableAssociationParameter as NetworkPrivateSubnet2RouteTableAssociationParameter
-from .main import NetworkPrivateSubnet2Subnet as NetworkPrivateSubnet2Subnet
-from .main import NetworkPrivateSubnet2SubnetAssociationParameter as NetworkPrivateSubnet2SubnetAssociationParameter
-from .main import NetworkPublicSubnet1 as NetworkPublicSubnet1
-from .main import NetworkPublicSubnet1AssociationParameter as NetworkPublicSubnet1AssociationParameter
-from .main import NetworkPublicSubnet1DefaultRoute as NetworkPublicSubnet1DefaultRoute
-from .main import NetworkPublicSubnet1EIP as NetworkPublicSubnet1EIP
-from .main import NetworkPublicSubnet1EIPAssociationParameter as NetworkPublicSubnet1EIPAssociationParameter
-from .main import NetworkPublicSubnet1NATGateway as NetworkPublicSubnet1NATGateway
-from .main import NetworkPublicSubnet1NATGatewayAssociationParameter as NetworkPublicSubnet1NATGatewayAssociationParameter
-from .main import NetworkPublicSubnet1RouteTable as NetworkPublicSubnet1RouteTable
-from .main import NetworkPublicSubnet1RouteTableAssociation as NetworkPublicSubnet1RouteTableAssociation
-from .main import NetworkPublicSubnet1RouteTableAssociationParameter as NetworkPublicSubnet1RouteTableAssociationParameter
-from .main import NetworkPublicSubnet2 as NetworkPublicSubnet2
-from .main import NetworkPublicSubnet2AssociationParameter as NetworkPublicSubnet2AssociationParameter
-from .main import NetworkPublicSubnet2DefaultRoute as NetworkPublicSubnet2DefaultRoute
-from .main import NetworkPublicSubnet2EIP as NetworkPublicSubnet2EIP
-from .main import NetworkPublicSubnet2EIPAssociationParameter as NetworkPublicSubnet2EIPAssociationParameter
-from .main import NetworkPublicSubnet2NATGateway as NetworkPublicSubnet2NATGateway
-from .main import NetworkPublicSubnet2NATGatewayAssociationParameter as NetworkPublicSubnet2NATGatewayAssociationParameter
-from .main import NetworkPublicSubnet2RouteTable as NetworkPublicSubnet2RouteTable
-from .main import NetworkPublicSubnet2RouteTableAssociation as NetworkPublicSubnet2RouteTableAssociation
-from .main import NetworkPublicSubnet2RouteTableAssociationParameter as NetworkPublicSubnet2RouteTableAssociationParameter
-from .main import NetworkVPC as NetworkVPC
-from .main import NetworkVPCAssociationParameter as NetworkVPCAssociationParameter
-from .main import NetworkVPCGW as NetworkVPCGW
-from .main import Server as Server
-from .main import ServerAssociationParameter as ServerAssociationParameter
-from .main import ServerBlockDeviceMapping as ServerBlockDeviceMapping
-from .main import ServerEbs as ServerEbs
-from .outputs import URLOutput as URLOutput
-from .params import InstanceType as InstanceType
-from .params import LatestAMI as LatestAMI
-from .params import PrefixesMapping as PrefixesMapping
-from .params import SecretName as SecretName
-from .security import InstanceProfile as InstanceProfile
-from .security import InstanceRole as InstanceRole
-from .security import InstanceRoleAllowStatement0 as InstanceRoleAllowStatement0
-from .security import InstanceRoleAssumeRolePolicyDocument as InstanceRoleAssumeRolePolicyDocument
-from .security import InstanceRolePolicy as InstanceRolePolicy
-from .security import InstanceRolePolicyAllowStatement0 as InstanceRolePolicyAllowStatement0
-from .security import InstanceRolePolicyPolicyDocument as InstanceRolePolicyPolicyDocument
+from .compute import InboundHTTPPublicNetworkAclEntry as InboundHTTPPublicNetworkAclEntry
+from .compute import InboundHTTPPublicNetworkAclEntryPortRange as InboundHTTPPublicNetworkAclEntryPortRange
+from .compute import OutboundPublicNetworkAclEntry as OutboundPublicNetworkAclEntry
+from .compute import OutboundPublicNetworkAclEntryPortRange as OutboundPublicNetworkAclEntryPortRange
+from .compute import PublicSubnetNetworkAclAssociation0 as PublicSubnetNetworkAclAssociation0
+from .compute import PublicSubnetNetworkAclAssociation1 as PublicSubnetNetworkAclAssociation1
+from .network import ElasticIP0 as ElasticIP0
+from .network import ElasticIP1 as ElasticIP1
+from .network import GatewayToInternet as GatewayToInternet
+from .network import InternetGateway as InternetGateway
+from .network import InternetGatewayAssociationParameter as InternetGatewayAssociationParameter
+from .network import InternetGatewayAssociationParameter1 as InternetGatewayAssociationParameter1
+from .network import InternetGatewayAssociationParameter2 as InternetGatewayAssociationParameter2
+from .network import NATGateway0 as NATGateway0
+from .network import NATGateway1 as NATGateway1
+from .network import PrivateRouteTable0 as PrivateRouteTable0
+from .network import PrivateRouteTable0AssociationParameter as PrivateRouteTable0AssociationParameter
+from .network import PrivateRouteTable1 as PrivateRouteTable1
+from .network import PrivateRouteTable1AssociationParameter as PrivateRouteTable1AssociationParameter
+from .network import PrivateRouteToInternet0 as PrivateRouteToInternet0
+from .network import PrivateRouteToInternet1 as PrivateRouteToInternet1
+from .network import PrivateSubnet0 as PrivateSubnet0
+from .network import PrivateSubnet0AssociationParameter as PrivateSubnet0AssociationParameter
+from .network import PrivateSubnet0AssociationParameter1 as PrivateSubnet0AssociationParameter1
+from .network import PrivateSubnet0AssociationParameter2 as PrivateSubnet0AssociationParameter2
+from .network import PrivateSubnet1 as PrivateSubnet1
+from .network import PrivateSubnet1AssociationParameter as PrivateSubnet1AssociationParameter
+from .network import PrivateSubnet1AssociationParameter1 as PrivateSubnet1AssociationParameter1
+from .network import PrivateSubnet1AssociationParameter2 as PrivateSubnet1AssociationParameter2
+from .network import PrivateSubnetRouteTableAssociation0 as PrivateSubnetRouteTableAssociation0
+from .network import PrivateSubnetRouteTableAssociation1 as PrivateSubnetRouteTableAssociation1
+from .network import PublicNetworkAcl as PublicNetworkAcl
+from .network import PublicNetworkAclAssociationParameter as PublicNetworkAclAssociationParameter
+from .network import PublicNetworkAclAssociationParameter1 as PublicNetworkAclAssociationParameter1
+from .network import PublicNetworkAclAssociationParameter2 as PublicNetworkAclAssociationParameter2
+from .network import PublicRoute as PublicRoute
+from .network import PublicRouteTable as PublicRouteTable
+from .network import PublicRouteTableAssociationParameter as PublicRouteTableAssociationParameter
+from .network import PublicRouteTableAssociationParameter1 as PublicRouteTableAssociationParameter1
+from .network import PublicRouteTableAssociationParameter2 as PublicRouteTableAssociationParameter2
+from .network import PublicSubnet0 as PublicSubnet0
+from .network import PublicSubnet0AssociationParameter as PublicSubnet0AssociationParameter
+from .network import PublicSubnet0AssociationParameter1 as PublicSubnet0AssociationParameter1
+from .network import PublicSubnet0AssociationParameter2 as PublicSubnet0AssociationParameter2
+from .network import PublicSubnet1 as PublicSubnet1
+from .network import PublicSubnet1AssociationParameter as PublicSubnet1AssociationParameter
+from .network import PublicSubnet1AssociationParameter1 as PublicSubnet1AssociationParameter1
+from .network import PublicSubnet1AssociationParameter2 as PublicSubnet1AssociationParameter2
+from .network import PublicSubnetRouteTableAssociation0 as PublicSubnetRouteTableAssociation0
+from .network import PublicSubnetRouteTableAssociation1 as PublicSubnetRouteTableAssociation1
+from .network import VPC as VPC
+from .network import VPCAssociationParameter as VPCAssociationParameter
+from .network import VPCAssociationParameter1 as VPCAssociationParameter1
+from .network import VPCAssociationParameter2 as VPCAssociationParameter2
+from .outputs import DefaultSecurityGroupOutput as DefaultSecurityGroupOutput
+from .outputs import PrivateSubnet0Output as PrivateSubnet0Output
+from .outputs import PrivateSubnet1Output as PrivateSubnet1Output
+from .outputs import PublicSubnet0Output as PublicSubnet0Output
+from .outputs import PublicSubnet1Output as PublicSubnet1Output
+from .outputs import VPCIdOutput as VPCIdOutput
+from .params import SubnetConfigMapping as SubnetConfigMapping
+from .params import VPCName as VPCName
 
-__all__: list[str] = ['AWS_REGION', 'Base64', 'CloudFrontCachePolicy', 'CloudFrontCachePolicyCachePolicyConfig', 'CloudFrontCachePolicyCookiesConfig', 'CloudFrontCachePolicyHeadersConfig', 'CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin', 'CloudFrontCachePolicyQueryStringsConfig', 'CloudFrontDistribution', 'CloudFrontDistributionCacheBehavior', 'CloudFrontDistributionCustomOriginConfig', 'CloudFrontDistributionDefaultCacheBehavior', 'CloudFrontDistributionDistributionConfig', 'CloudFrontDistributionOrigin', 'FindInMap', 'GetAZs', 'InstanceProfile', 'InstanceRole', 'InstanceRoleAllowStatement0', 'InstanceRoleAssumeRolePolicyDocument', 'InstanceRolePolicy', 'InstanceRolePolicyAllowStatement0', 'InstanceRolePolicyPolicyDocument', 'InstanceSecurityGroup', 'InstanceSecurityGroupAssociationParameter', 'InstanceSecurityGroupEgress', 'InstanceSecurityGroupIngress', 'InstanceType', 'LatestAMI', 'Mapping', 'NetworkInternetGateway', 'NetworkInternetGatewayAssociationParameter', 'NetworkPrivateSubnet1DefaultRoute', 'NetworkPrivateSubnet1RouteTable', 'NetworkPrivateSubnet1RouteTableAssociation', 'NetworkPrivateSubnet1RouteTableAssociationParameter', 'NetworkPrivateSubnet1Subnet', 'NetworkPrivateSubnet1SubnetAssociationParameter', 'NetworkPrivateSubnet2DefaultRoute', 'NetworkPrivateSubnet2RouteTable', 'NetworkPrivateSubnet2RouteTableAssociation', 'NetworkPrivateSubnet2RouteTableAssociationParameter', 'NetworkPrivateSubnet2Subnet', 'NetworkPrivateSubnet2SubnetAssociationParameter', 'NetworkPublicSubnet1', 'NetworkPublicSubnet1AssociationParameter', 'NetworkPublicSubnet1DefaultRoute', 'NetworkPublicSubnet1EIP', 'NetworkPublicSubnet1EIPAssociationParameter', 'NetworkPublicSubnet1NATGateway', 'NetworkPublicSubnet1NATGatewayAssociationParameter', 'NetworkPublicSubnet1RouteTable', 'NetworkPublicSubnet1RouteTableAssociation', 'NetworkPublicSubnet1RouteTableAssociationParameter', 'NetworkPublicSubnet2', 'NetworkPublicSubnet2AssociationParameter', 'NetworkPublicSubnet2DefaultRoute', 'NetworkPublicSubnet2EIP', 'NetworkPublicSubnet2EIPAssociationParameter', 'NetworkPublicSubnet2NATGateway', 'NetworkPublicSubnet2NATGatewayAssociationParameter', 'NetworkPublicSubnet2RouteTable', 'NetworkPublicSubnet2RouteTableAssociation', 'NetworkPublicSubnet2RouteTableAssociationParameter', 'NetworkVPC', 'NetworkVPCAssociationParameter', 'NetworkVPCGW', 'Output', 'Parameter', 'PolicyDocument', 'PolicyStatement', 'PrefixesMapping', 'STRING', 'SecretName', 'Select', 'Server', 'ServerAssociationParameter', 'ServerBlockDeviceMapping', 'ServerEbs', 'Sub', 'Template', 'URLOutput', 'cloudformation_dataclass', 'cloudfront', 'ec2', 'get_att', 'iam', 'ref', 'setup_resources']
+__all__: list[str] = ['AWS_STACK_NAME', 'DefaultSecurityGroupOutput', 'EIP', 'ElasticIP0', 'ElasticIP1', 'FindInMap', 'GatewayToInternet', 'GetAZs', 'InboundHTTPPublicNetworkAclEntry', 'InboundHTTPPublicNetworkAclEntryPortRange', 'InternetGateway', 'InternetGatewayAssociationParameter', 'InternetGatewayAssociationParameter1', 'InternetGatewayAssociationParameter2', 'Join', 'Mapping', 'NATGateway0', 'NATGateway1', 'NatGateway', 'NetworkAcl', 'NetworkAclEntry', 'OutboundPublicNetworkAclEntry', 'OutboundPublicNetworkAclEntryPortRange', 'Output', 'Parameter', 'PrivateRouteTable0', 'PrivateRouteTable0AssociationParameter', 'PrivateRouteTable1', 'PrivateRouteTable1AssociationParameter', 'PrivateRouteToInternet0', 'PrivateRouteToInternet1', 'PrivateSubnet0', 'PrivateSubnet0AssociationParameter', 'PrivateSubnet0AssociationParameter1', 'PrivateSubnet0AssociationParameter2', 'PrivateSubnet0Output', 'PrivateSubnet1', 'PrivateSubnet1AssociationParameter', 'PrivateSubnet1AssociationParameter1', 'PrivateSubnet1AssociationParameter2', 'PrivateSubnet1Output', 'PrivateSubnetRouteTableAssociation0', 'PrivateSubnetRouteTableAssociation1', 'PublicNetworkAcl', 'PublicNetworkAclAssociationParameter', 'PublicNetworkAclAssociationParameter1', 'PublicNetworkAclAssociationParameter2', 'PublicRoute', 'PublicRouteTable', 'PublicRouteTableAssociationParameter', 'PublicRouteTableAssociationParameter1', 'PublicRouteTableAssociationParameter2', 'PublicSubnet0', 'PublicSubnet0AssociationParameter', 'PublicSubnet0AssociationParameter1', 'PublicSubnet0AssociationParameter2', 'PublicSubnet0Output', 'PublicSubnet1', 'PublicSubnet1AssociationParameter', 'PublicSubnet1AssociationParameter1', 'PublicSubnet1AssociationParameter2', 'PublicSubnet1Output', 'PublicSubnetNetworkAclAssociation0', 'PublicSubnetNetworkAclAssociation1', 'PublicSubnetRouteTableAssociation0', 'PublicSubnetRouteTableAssociation1', 'RouteTable', 'STRING', 'Select', 'Sub', 'Subnet', 'SubnetConfigMapping', 'SubnetNetworkAclAssociation', 'SubnetRouteTableAssociation', 'Template', 'VPC', 'VPCAssociationParameter', 'VPCAssociationParameter1', 'VPCAssociationParameter2', 'VPCGatewayAttachment', 'VPCIdOutput', 'VPCName', 'cloudformation_dataclass', 'ec2', 'get_att', 'ref', 'setup_resources']

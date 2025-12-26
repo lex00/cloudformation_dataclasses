@@ -148,14 +148,56 @@ run_package_cli(__name__, build_fn=build_template)
 
 ---
 
+## Linting and IDE Support
+
+The CLI includes tools to keep your code clean and your IDE happy.
+
+### Linting
+
+Check for common issues and auto-fix them:
+
+```bash
+# Check for issues
+cfn-dataclasses lint my_project/
+
+# Auto-fix issues
+cfn-dataclasses lint my_project/ --fix
+
+# Watch mode (auto-fix enabled by default)
+cfn-dataclasses lint my_project/ --watch
+```
+
+The linter detects patterns like raw dict intrinsics (`{"Ref": "..."}`) and suggests type-safe alternatives (`Ref("...")`). See [CLI Reference](CLI.md#lint) for all lint rules.
+
+### Type Stubs
+
+The `from . import *` pattern requires `.pyi` stub files for IDE autocomplete. These are generated automatically by:
+
+- `cfn-dataclasses init` and `cfn-dataclasses import`
+- `cfn-dataclasses lint --fix`
+- `setup_resources()` at runtime (if missing)
+
+To manually regenerate stubs:
+
+```bash
+cfn-dataclasses stubs my_project/
+
+# Or watch mode
+cfn-dataclasses stubs my_project/ --watch
+```
+
+See [IDE Support](IDE_SUPPORT.md) for Pylance/mypy configuration.
+
+---
+
 ## Next Steps
 
 - See [examples/](../examples/) for real-world templates
 - Use `cfn-dataclasses import` to convert existing CloudFormation templates
-- Use `cfn-dataclasses lint --fix` to auto-fix style issues
 
 ## See Also
 
 - [Adoption Guide](ADOPTION.md) - Migration strategies and team onboarding
 - [CLI Reference](CLI.md) - Full command documentation
+- [IDE Support](IDE_SUPPORT.md) - Pylance, mypy, type checking setup
 - [Internals](INTERNALS.md) - How auto-registration works

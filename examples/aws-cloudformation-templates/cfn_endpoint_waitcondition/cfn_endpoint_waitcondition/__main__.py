@@ -1,4 +1,4 @@
 """Allow running as: python -m cfn_endpoint_waitcondition."""
 from cloudformation_dataclasses import run_package_cli
 
-run_package_cli(__package__, description="This template deploys a VPC with a pair of public and private subnets spread across two Availabilty Zones. It deploys an Internet Gateway, with a default route on the public subnets and a bastion server. It deploys VPC Endpoints for CloudFormation and S3 so an instance in the private subnet can use cfn-signal for a WaitCondition. **WARNING** You will be billed for the AWS resources used if you create a stack from this template.\n")
+run_package_cli(__package__, description="Example of cross-account, same-region, S3 replication (v2) using server-side encryption with a customer-managed KMS key.  Create a symmetric KMS key with an alias, and a destination S3 bucket with default encryption and versioning enabled. Allow the source account access to the destination S3 bucket and KMS key for replication.")

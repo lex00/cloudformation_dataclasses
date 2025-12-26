@@ -132,7 +132,7 @@ class ASCPrivateLinkEnablePrivateDNS:
     service_id = ref(ASCPrivateLinkVPCES)
     domain_name = ref(DomainName)
     hosted_zone_id = ref(HostedZone)
-    depends_on = ["ASCPrivateLinkVPCES"]
+    depends_on = [ASCPrivateLinkVPCES]
 
 
 @cloudformation_dataclass

@@ -1,4 +1,4 @@
 """Allow running as: python -m cfn_endpoint_waitcondition_no_igw."""
 from cloudformation_dataclasses import run_package_cli
 
-run_package_cli(__package__, description="This template deploys a VPC with a pair of private subnets spread across two Availabilty Zones. It deploys VPC Endpoints for CloudFormation and S3 so an instance in the private subnet can use cfn-signal for a WaitCondition. **WARNING** You will be billed for the AWS resources used if you create a stack from this template.\n")
+run_package_cli(__package__, description="This templates updates the settings for an AD Connector or AWS Managed AD directory. Tasks accomplied, (1) enables directory monitoring (2) option to create a custom access url (alias) (3) option to enable SSO via directory services. Note, deleting the directory, will only remove directory monitoring, directory SSO or alias settings will not be touched.")

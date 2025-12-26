@@ -35,7 +35,8 @@ No Node.js. No state files. Minimal dependencies (just PyYAML).
 |-------|-------------|
 | [Quick Start](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/QUICK_START.md) | Create your first project |
 | [API Reference](https://lex00.github.io/cloudformation_dataclasses/) | Generated from docstrings |
-| [CLI Reference](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/CLI.md) | init, import, lint commands |
+| [CLI Reference](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/CLI.md) | init, import, lint, stubs commands |
+| [IDE Support](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/IDE_SUPPORT.md) | Pylance, mypy, type stubs |
 | [Examples](https://github.com/lex00/cloudformation_dataclasses/tree/main/examples) | Real-world templates |
 | [Comparison](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/COMPARISON.md) | vs CDK, Terraform |
 
@@ -43,6 +44,7 @@ No Node.js. No state files. Minimal dependencies (just PyYAML).
 
 | Guide | Description |
 |-------|-------------|
+| [Adoption Guide](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/ADOPTION.md) | Migration strategies, team onboarding |
 | [Developer Guide](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/DEVELOPERS.md) | Building, testing, contributing |
 | [Internals](https://github.com/lex00/cloudformation_dataclasses/blob/main/docs/INTERNALS.md) | Registry, code generation, importer |
 | [Changelog](https://github.com/lex00/cloudformation_dataclasses/blob/main/CHANGELOG.md) | Version history |

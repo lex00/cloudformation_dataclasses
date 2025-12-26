@@ -57,7 +57,7 @@ class CentralEventLog:
     log_group_class = 'STANDARD'
     log_group_name = ref(CentralEventLogName)
     kms_key_id = get_att(CentralEventLogKey, "Arn")
-    depends_on = ["CentralEventBus"]
+    depends_on = [CentralEventBus]
 
 
 @cloudformation_dataclass
@@ -135,4 +135,4 @@ class CentralEventRule:
         }],
     }
     targets = [CentralEventRuleTarget]
-    depends_on = ["CentralEventLog"]
+    depends_on = [CentralEventLog]

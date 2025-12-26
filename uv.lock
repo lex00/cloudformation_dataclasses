@@ -201,6 +201,7 @@ dev = [
     { name = "pytest-cov" },
     { name = "requests" },
     { name = "ruff" },
+    { name = "watchdog" },
 ]
 docs = [
     { name = "pdoc" },
@@ -229,6 +230,7 @@ dev = [
     { name = "pytest-cov", specifier = ">=4.1" },
     { name = "requests", specifier = ">=2.31" },
     { name = "ruff", specifier = ">=0.1" },
+    { name = "watchdog", specifier = ">=3.0" },
 ]
 docs = [{ name = "pdoc", specifier = ">=14.0" }]
 

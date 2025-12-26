@@ -63,7 +63,7 @@ class ASCPrivateLinkLambdaRole:
     assume_role_policy_document = ASCPrivateLinkLambdaRoleAssumeRolePolicyDocument
     path = '/'
     policies = [ASCPrivateLinkLambdaRolePolicy]
-    depends_on = ["ASCPrivateLinkCertificate"]
+    depends_on = [ASCPrivateLinkCertificate]
 
 
 @cloudformation_dataclass
@@ -136,7 +136,7 @@ class ASCPrivateLinkNLB:
     scheme = 'internal'
     subnets = ref(Subnets)
     load_balancer_attributes = [ASCPrivateLinkNLBLoadBalancerAttribute]
-    depends_on = ["ASCPrivateLinkCertificate"]
+    depends_on = [ASCPrivateLinkCertificate]
 
 
 @cloudformation_dataclass
@@ -158,7 +158,7 @@ class ASCPrivateLinkEnablePrivateDNS:
     action = 'EnablePrivateDNS'
     service_id = ref(ASCPrivateLinkVPCES)
     domain_name = ref(DomainName)
-    depends_on = ["ASCPrivateLinkVPCES"]
+    depends_on = [ASCPrivateLinkVPCES]
 
 
 @cloudformation_dataclass
@@ -181,7 +181,7 @@ class ASCPrivateLinkTargetGroup:
     targets = [ASCPrivateLinkTargetGroupTargetDescription]
     health_check_path = ref(HealthCheckPath)
     health_check_protocol = ref(Protocol)
-    depends_on = ["ASCPrivateLinkCertificate"]
+    depends_on = [ASCPrivateLinkCertificate]
 
 
 @cloudformation_dataclass

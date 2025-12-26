@@ -1100,7 +1100,7 @@ class CognitoUserPool:
     admin_create_user_config = CognitoUserPoolAdminCreateUserConfig
     auto_verified_attributes = ['email']
     schema = [CognitoUserPoolSchemaAttribute, CognitoUserPoolSchemaAttribute1, CognitoUserPoolSchemaAttribute2]
-    depends_on = ["SiteDistribution"]
+    depends_on = [SiteDistribution]
 
 
 @cloudformation_dataclass
@@ -1383,7 +1383,7 @@ class RestApiDeployment:
 
     resource: apigateway.Deployment
     rest_api_id = ref(RestApi)
-    depends_on = ["TestResourceGet", "TestResourceOptions", "JwtResourceGet", "JwtResourceOptions"]
+    depends_on = [TestResourceGet, TestResourceOptions, JwtResourceGet, JwtResourceOptions]
 
 
 @cloudformation_dataclass

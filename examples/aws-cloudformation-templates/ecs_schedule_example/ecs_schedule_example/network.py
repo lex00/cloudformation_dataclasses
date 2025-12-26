@@ -46,7 +46,7 @@ class ECSTG:
     protocol = 'HTTP'
     unhealthy_threshold_count = 2
     vpc_id = ref(VpcId)
-    depends_on = ["ECSALB"]
+    depends_on = [ECSALB]
 
 
 @cloudformation_dataclass
@@ -65,7 +65,7 @@ class ALBListener:
     load_balancer_arn = ref(ECSALB)
     port = '80'
     protocol = 'HTTP'
-    depends_on = ["ECSServiceRole"]
+    depends_on = [ECSServiceRole]
 
 
 @cloudformation_dataclass
@@ -91,4 +91,4 @@ class ECSALBListenerRule:
     conditions = [ECSALBListenerRuleRuleCondition]
     listener_arn = ref(ALBListener)
     priority = 1
-    depends_on = ["ALBListener"]
+    depends_on = [ALBListener]

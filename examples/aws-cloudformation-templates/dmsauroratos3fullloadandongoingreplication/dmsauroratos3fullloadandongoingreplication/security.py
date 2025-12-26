@@ -114,4 +114,4 @@ class S3TargetDMSRole:
     assume_role_policy_document = S3TargetDMSRoleAssumeRolePolicyDocument
     path = '/'
     policies = [S3TargetDMSRolePolicy]
-    depends_on = ["S3Bucket"]
+    depends_on = [S3Bucket]

@@ -1,29 +1,43 @@
-"""Compute resources: PrivateInstance."""
+"""Compute resources: DirectorySettingsLambdaFunction."""
 
 from . import *  # noqa: F403
 
-
-@cloudformation_dataclass
-class PrivateInstanceAssociationParameter:
-    resource: ec2.instance.AssociationParameter
-    key = 'Name'
-    value = 'Private'
+from cloudformation_dataclasses.aws.lambda_ import Runtime
 
 
 @cloudformation_dataclass
-class PrivateInstance:
-    """AWS::EC2::Instance resource."""
+class DirectorySettingsLambdaFunctionEnvironment:
+    resource: lambda_.function.Environment
+    variables = {
+        'LOG_LEVEL': ref(LambdaLogLevel),
+    }
 
-    resource: ec2.Instance
-    instance_type = 't3.micro'
-    security_group_ids = [ref(PrivateSG)]
-    subnet_id = ref(PrivateSubnet1)
-    image_id = ref(LinuxAMI)
-    user_data = Base64(Sub("""#!/bin/bash -x
-date > /tmp/datefile
-cat /tmp/datefile
-# Signal the status from instance
-/opt/aws/bin/cfn-signal -e $? -d "This was all private." -r "Build Process Complete" '${PrivateWaitHandle}'
-"""))
-    tags = [PrivateInstanceAssociationParameter]
-    depends_on = ["CfnEndpoint"]
+
+@cloudformation_dataclass
+class DirectorySettingsLambdaFunctionContent:
+    resource: lambda_.layer_version.Content
+    s3_bucket = ref(LambdaS3BucketName)
+    s3_key = ref(LambdaZipFileName)
+
+
+@cloudformation_dataclass
+class DirectorySettingsLambdaFunctionCapacityProviderVpcConfig:
+    resource: lambda_.capacity_provider.CapacityProviderVpcConfig
+    subnet_ids = ref(Subnets)
+    security_group_ids = ref(SecurityGroups)
+
+
+@cloudformation_dataclass
+class DirectorySettingsLambdaFunction:
+    """AWS::Lambda::Function resource."""
+
+    resource: lambda_.Function
+    function_name = ref(LambdaFunctionName)
+    handler = 'directory_settings_custom_resource.lambda_handler'
+    role = get_att(DirectorySettingsLambdaRole, "Arn")
+    runtime = Runtime.PYTHON3_12
+    memory_size = 128
+    timeout = 120
+    environment = DirectorySettingsLambdaFunctionEnvironment
+    code = DirectorySettingsLambdaFunctionContent
+    vpc_config = DirectorySettingsLambdaFunctionCapacityProviderVpcConfig

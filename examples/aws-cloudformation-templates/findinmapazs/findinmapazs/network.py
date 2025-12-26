@@ -79,7 +79,7 @@ class NatGateway1EIP:
 
     resource: ec2.EIP
     domain = 'vpc'
-    depends_on = ["InternetGatewayAttachment"]
+    depends_on = [InternetGatewayAttachment]
 
 
 @cloudformation_dataclass
@@ -88,7 +88,7 @@ class NatGateway2EIP:
 
     resource: ec2.EIP
     domain = 'vpc'
-    depends_on = ["InternetGatewayAttachment"]
+    depends_on = [InternetGatewayAttachment]
 
 
 @cloudformation_dataclass
@@ -125,7 +125,7 @@ class DefaultPublicRoute:
     route_table_id = ref(PublicRouteTable)
     destination_cidr_block = '0.0.0.0/0'
     gateway_id = ref(InternetGateway)
-    depends_on = ["InternetGatewayAttachment"]
+    depends_on = [InternetGatewayAttachment]
 
 
 @cloudformation_dataclass

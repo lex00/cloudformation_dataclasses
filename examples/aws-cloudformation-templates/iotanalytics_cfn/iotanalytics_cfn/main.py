@@ -60,7 +60,7 @@ class Pipeline:
         'Key': 'Project',
         'Value': ref(ProjectName),
     }]
-    depends_on = ["Channel", "Datastore"]
+    depends_on = [Channel, Datastore]
 
 
 @cloudformation_dataclass
@@ -108,4 +108,4 @@ class SqlDataset:
         'Key': 'Project',
         'Value': ref(ProjectName),
     }]
-    depends_on = ["Datastore"]
+    depends_on = [Datastore]

@@ -13,5 +13,5 @@ class EnableShapshotTrigger:
     ss_cluster_id = ref(RedisReplicationGroup)
     ss_window = ref(SnapshotWindow)
     ss_retention_limit = ref(SnapshotRetentionLimit)
-    depends_on = ["EnableShapshot", "LambdaExecutePermission", "RedisReplicationGroup"]
+    depends_on = [EnableShapshot, LambdaExecutePermission, RedisReplicationGroup]
     condition = 'EnableBackups'

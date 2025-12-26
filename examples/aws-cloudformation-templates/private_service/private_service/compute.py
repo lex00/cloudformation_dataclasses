@@ -61,4 +61,4 @@ class Service:
     desired_count = ref(DesiredCount)
     task_definition = ref(TaskDefinition)
     load_balancers = [ServiceLoadBalancer]
-    depends_on = ["LoadBalancerRule"]
+    depends_on = [LoadBalancerRule]

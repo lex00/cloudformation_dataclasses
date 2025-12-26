@@ -17,6 +17,11 @@ cfn-dataclasses --version  # Show version
 cfn-dataclasses --help     # Show help
 ```
 
+> **Note**: When developing with uv, prefix commands with `uv run`:
+> ```bash
+> uv run cfn-dataclasses lint my_stack/
+> ```
+
 ---
 
 ## init
@@ -104,8 +109,10 @@ my_stack/
 │   ├── network.py             # VPC, Subnets, Security Groups
 │   ├── storage.py             # S3, EFS
 │   ├── database.py            # RDS, DynamoDB
-│   └── main.py                # Uncategorized resources
+│   └── main.py                # Uncategorized + circular dependencies
 ```
+
+**Note on `main.py`**: Resources with circular dependencies (e.g., Lambda → S3 bucket → Lambda notification) are placed together in `main.py` regardless of category. This avoids Python import errors. See [Internals](INTERNALS.md#circular-dependency-handling-sccs) for details.
 
 **Key pattern: Single import.** Resource files use `from . import *` to get everything they need.
 
@@ -157,13 +164,23 @@ cfn-dataclasses lint my_stack/
 
 # Auto-fix issues in place
 cfn-dataclasses lint my_stack/ --fix
+
+# Watch mode (auto-fix enabled by default)
+cfn-dataclasses lint my_stack/ --watch
+
+# Watch mode without auto-fix
+cfn-dataclasses lint my_stack/ --watch --no-fix
 ```
 
 ### Options
 
 | Option | Description |
 |--------|-------------|
-| `--fix` | Auto-fix issues in place |
+| `--fix` | Auto-fix issues in place (default in watch mode) |
+| `--no-fix` | Disable auto-fix in watch mode |
+| `--watch, -w` | Watch for changes and re-lint automatically |
+| `--debounce MS` | Debounce delay in milliseconds (default: 500) |
+| `--quiet, -q` | Only show errors, not successful lints |
 
 ### Lint Rules
 
@@ -181,6 +198,8 @@ cfn-dataclasses lint my_stack/ --fix
 | CFD010 | `Ref("MyParameter")` | `ref(MyParameter)` |
 | CFD011 | Missing stack imports | Add `from .. import *` |
 | CFD012 | Large file (12+ resources) | `cfn-dataclasses split` |
+| CFD013 | Redundant explicit import | Remove (available via star import) |
+| CFD014 | `depends_on = ["MyResource"]` | `depends_on = [MyResource]` |
 
 ### Output Examples
 
@@ -205,6 +224,10 @@ Fixed my_project/my_project/storage.py (1 issue)
 
 Fixed 1 issue in 1 file
 ```
+
+### Automatic Stub Regeneration
+
+When using `--fix`, the linter automatically regenerates `.pyi` stub files for any packages that had files modified. This keeps type stubs in sync with the fixed code.
 
 ### Integration with import
 
@@ -264,6 +287,9 @@ cfn-dataclasses stubs my_stack/
 
 # Watch for changes and auto-regenerate
 cfn-dataclasses stubs my_stack/ --watch
+
+# Watch mode with quiet output (errors only)
+cfn-dataclasses stubs my_stack/ --watch --quiet
 ```
 
 ### Options
@@ -271,10 +297,21 @@ cfn-dataclasses stubs my_stack/ --watch
 | Option | Description |
 |--------|-------------|
 | `--watch, -w` | Watch for changes and regenerate (requires watchdog) |
+| `--debounce MS` | Debounce delay in milliseconds (default: 500) |
+| `--quiet, -q` | Only show errors during watch mode |
 
 ### Generated Files
 
 For each `__init__.py` that uses `setup_resources()`, the command generates a corresponding `__init__.pyi` stub file listing all exported symbols.
+
+### Watch Mode Features
+
+Watch mode includes several enhancements for better developer experience:
+
+- **Debouncing**: Prevents redundant regenerations during rapid edits (configurable delay)
+- **Event handling**: Responds to file creation, modification, and rename events
+- **Error handling**: Catches syntax errors gracefully and continues watching
+- **Status indicators**: Shows success (✓), warning (⚠), and error (✗) symbols
 
 **Note**: The `--watch` option requires the optional `watchdog` dependency:
 ```bash

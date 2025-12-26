@@ -87,7 +87,7 @@ class PublicRoute:
     route_table_id = ref(PublicRouteTable)
     destination_cidr_block = '0.0.0.0/0'
     gateway_id = ref(InternetGateway)
-    depends_on = ["GatewayAttachement"]
+    depends_on = [GatewayAttachement]
 
 
 @cloudformation_dataclass
@@ -114,7 +114,7 @@ class NatGatewayOneAttachment:
 
     resource: ec2.EIP
     domain = 'vpc'
-    depends_on = ["GatewayAttachement"]
+    depends_on = [GatewayAttachement]
 
 
 @cloudformation_dataclass
@@ -123,7 +123,7 @@ class NatGatewayTwoAttachment:
 
     resource: ec2.EIP
     domain = 'vpc'
-    depends_on = ["GatewayAttachement"]
+    depends_on = [GatewayAttachement]
 
 
 @cloudformation_dataclass
@@ -316,7 +316,7 @@ class PublicLoadBalancerListener:
     load_balancer_arn = ref(PublicLoadBalancer)
     port = 80
     protocol = 'HTTP'
-    depends_on = ["PublicLoadBalancer"]
+    depends_on = [PublicLoadBalancer]
 
 
 @cloudformation_dataclass
@@ -373,4 +373,4 @@ class PrivateLoadBalancerListener:
     load_balancer_arn = ref(PrivateLoadBalancer)
     port = 80
     protocol = 'HTTP'
-    depends_on = ["PrivateLoadBalancer"]
+    depends_on = [PrivateLoadBalancer]

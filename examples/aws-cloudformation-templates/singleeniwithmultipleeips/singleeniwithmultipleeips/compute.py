@@ -11,7 +11,7 @@ class Association1:
     allocation_id = get_att(EIP1, "AllocationId")
     network_interface_id = ref(ENI)
     private_ip_address = Select(0, get_att(ENI, "SecondaryPrivateIpAddresses"))
-    depends_on = ["ENI", "EIP1"]
+    depends_on = [ENI, EIP1]
 
 
 @cloudformation_dataclass
@@ -22,4 +22,4 @@ class Association2:
     allocation_id = get_att(EIP2, "AllocationId")
     network_interface_id = ref(ENI)
     private_ip_address = Select(1, get_att(ENI, "SecondaryPrivateIpAddresses"))
-    depends_on = ["ENI", "EIP2"]
+    depends_on = [ENI, EIP2]

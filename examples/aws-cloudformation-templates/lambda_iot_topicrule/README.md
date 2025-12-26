@@ -1,6 +1,6 @@
 # LambdaIotTopicrule
 
-Imported from `RDS_Snapshot_On_Delete.yaml`.
+Imported from `rest-api.yml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,4 +31,7 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `MyDB` | AWS::RDS::DBInstance |
+| `Api` | AWS::ApiGateway::RestApi |
+| `ApiDeployment` | AWS::ApiGateway::Deployment |
+| `ApiStage` | AWS::ApiGateway::Stage |
+| `ApiAuthorizer` | AWS::ApiGateway::Authorizer |

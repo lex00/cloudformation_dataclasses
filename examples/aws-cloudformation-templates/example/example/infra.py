@@ -1,13 +1,12 @@
-"""Infra resources: Transform."""
+"""Infra resources: Macro."""
 
 from . import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class Transform:
+class Macro:
     """AWS::CloudFormation::Macro resource."""
 
-    resource: Macro
-    name = 'String'
-    description = 'Provides various string processing functions'
-    function_name = get_att(TransformFunction, "Arn")
+    resource: cloudformation.Macro
+    name = 'StackMetrics'
+    function_name = get_att(MacroFunction, "Arn")

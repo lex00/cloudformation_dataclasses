@@ -36,7 +36,7 @@ class PublicInternetRoute:
     destination_cidr_block = '0.0.0.0/0'
     gateway_id = ref(InternetGateway)
     route_table_id = ref(PublicInternetRouteTable)
-    depends_on = ["InternetGateway", "PublicInternetRouteTable"]
+    depends_on = [InternetGateway, PublicInternetRouteTable]
 
 
 @cloudformation_dataclass

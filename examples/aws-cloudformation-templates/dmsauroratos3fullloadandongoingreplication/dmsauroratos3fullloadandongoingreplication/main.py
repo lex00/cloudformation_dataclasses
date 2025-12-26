@@ -23,7 +23,7 @@ class DMSReplicationInstance:
     replication_instance_identifier = 'aurora-s3-repinstance-sampledb'
     replication_subnet_group_identifier = ref(DMSReplicationSubnetGroup)
     vpc_security_group_ids = [ref(DMSSecurityGroup)]
-    depends_on = ["DMSReplicationSubnetGroup", "DMSSecurityGroup"]
+    depends_on = [DMSReplicationSubnetGroup, DMSSecurityGroup]
 
 
 @cloudformation_dataclass
@@ -37,7 +37,7 @@ class AuroraSourceEndpoint:
     port = 3306
     server_name = get_att(AuroraCluster, "Endpoint.Address")
     username = 'admin'
-    depends_on = ["DMSReplicationInstance", "AuroraCluster", "AuroraDB"]
+    depends_on = [DMSReplicationInstance, AuroraCluster, AuroraDB]
 
 
 @cloudformation_dataclass
@@ -56,7 +56,7 @@ class S3TargetEndpoint:
     engine_name = 'S3'
     extra_connection_attributes = 'addColumnName=true'
     s3_settings = S3TargetEndpointRedshiftSettings
-    depends_on = ["DMSReplicationInstance", "S3Bucket", "S3TargetDMSRole"]
+    depends_on = [DMSReplicationInstance, S3Bucket, S3TargetDMSRole]
 
 
 @cloudformation_dataclass
@@ -70,4 +70,4 @@ class DMSReplicationTask:
     source_endpoint_arn = ref(AuroraSourceEndpoint)
     table_mappings = '{ "rules": [ { "rule-type" : "selection", "rule-id" : "1", "rule-name" : "1", "object-locator" : { "schema-name" : "dms_sample", "table-name" : "%" }, "rule-action" : "include" } ] }'
     target_endpoint_arn = ref(S3TargetEndpoint)
-    depends_on = ["AuroraSourceEndpoint", "S3TargetEndpoint", "DMSReplicationInstance"]
+    depends_on = [AuroraSourceEndpoint, S3TargetEndpoint, DMSReplicationInstance]

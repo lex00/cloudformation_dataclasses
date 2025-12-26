@@ -1,37 +1,47 @@
 """Auto-generated stub for IDE type checking."""
 
 from cloudformation_dataclasses.core import (
+    Output,
+    Parameter,
+    STRING,
     Template,
     cloudformation_dataclass,
     get_att,
     ref,
 )
 from cloudformation_dataclasses.core.resource_loader import setup_resources
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.intrinsics import AWS_REGION, Select
+from cloudformation_dataclasses.aws import servicecatalog
+from cloudformation_dataclasses.aws.servicecatalog import CloudFormationProduct, PortfolioProductAssociation, TagOptionAssociation
+from cloudformation_dataclasses.intrinsics import ImportValue, Sub
 
-from .network import InternetGateway as InternetGateway
-from .network import PrivateSubnet1DefaultRoute as PrivateSubnet1DefaultRoute
-from .network import PrivateSubnet1RouteTable as PrivateSubnet1RouteTable
-from .network import PrivateSubnet1RouteTableAssociation as PrivateSubnet1RouteTableAssociation
-from .network import PrivateSubnet1Subnet as PrivateSubnet1Subnet
-from .network import PrivateSubnet2DefaultRoute as PrivateSubnet2DefaultRoute
-from .network import PrivateSubnet2RouteTable as PrivateSubnet2RouteTable
-from .network import PrivateSubnet2RouteTableAssociation as PrivateSubnet2RouteTableAssociation
-from .network import PrivateSubnet2Subnet as PrivateSubnet2Subnet
-from .network import PublicSubnet1 as PublicSubnet1
-from .network import PublicSubnet1DefaultRoute as PublicSubnet1DefaultRoute
-from .network import PublicSubnet1EIP as PublicSubnet1EIP
-from .network import PublicSubnet1NATGateway as PublicSubnet1NATGateway
-from .network import PublicSubnet1RouteTable as PublicSubnet1RouteTable
-from .network import PublicSubnet1RouteTableAssociation as PublicSubnet1RouteTableAssociation
-from .network import PublicSubnet2 as PublicSubnet2
-from .network import PublicSubnet2DefaultRoute as PublicSubnet2DefaultRoute
-from .network import PublicSubnet2EIP as PublicSubnet2EIP
-from .network import PublicSubnet2NATGateway as PublicSubnet2NATGateway
-from .network import PublicSubnet2RouteTable as PublicSubnet2RouteTable
-from .network import PublicSubnet2RouteTableAssociation as PublicSubnet2RouteTableAssociation
-from .network import VPC as VPC
-from .network import VPCGW as VPCGW
+from .infra import ServiceCatalogCloudFormationProduct as ServiceCatalogCloudFormationProduct
+from .infra import ServiceCatalogCloudFormationProductProvisioningArtifactProperties as ServiceCatalogCloudFormationProductProvisioningArtifactProperties
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter as ServiceCatalogCloudFormationProductProvisioningParameter
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter1 as ServiceCatalogCloudFormationProductProvisioningParameter1
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter2 as ServiceCatalogCloudFormationProductProvisioningParameter2
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter3 as ServiceCatalogCloudFormationProductProvisioningParameter3
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter4 as ServiceCatalogCloudFormationProductProvisioningParameter4
+from .infra import ServiceCatalogCloudFormationProductProvisioningParameter5 as ServiceCatalogCloudFormationProductProvisioningParameter5
+from .infra import ServiceCatalogCustomTagOptionsAssociation as ServiceCatalogCustomTagOptionsAssociation
+from .infra import ServiceCatalogPortfolioProductAssociation as ServiceCatalogPortfolioProductAssociation
+from .outputs import ServiceCatalogCloudFormationProductNameOutput as ServiceCatalogCloudFormationProductNameOutput
+from .outputs import ServiceCatalogProvisioningArtifactIdsOutput as ServiceCatalogProvisioningArtifactIdsOutput
+from .outputs import ServiceCatalogProvisioningArtifactNamesOutput as ServiceCatalogProvisioningArtifactNamesOutput
+from .params import AppName as AppName
+from .params import Dept as Dept
+from .params import Env as Env
+from .params import Owner as Owner
+from .params import ProvisioningArtifactDescriptionParameter as ProvisioningArtifactDescriptionParameter
+from .params import ProvisioningArtifactNameParameter as ProvisioningArtifactNameParameter
+from .params import ProvisioningArtifactTemplateUrl as ProvisioningArtifactTemplateUrl
+from .params import SCProductDescription as SCProductDescription
+from .params import SCProductDistributor as SCProductDistributor
+from .params import SCProductName as SCProductName
+from .params import SCProductOwner as SCProductOwner
+from .params import SCProductSupport as SCProductSupport
+from .params import SCSupportEmail as SCSupportEmail
+from .params import SCSupportUrl as SCSupportUrl
+from .params import ServiceCatalogPortfolioStackName as ServiceCatalogPortfolioStackName
+from .params import User as User
 
-__all__: list[str] = ['AWS_REGION', 'InternetGateway', 'PrivateSubnet1DefaultRoute', 'PrivateSubnet1RouteTable', 'PrivateSubnet1RouteTableAssociation', 'PrivateSubnet1Subnet', 'PrivateSubnet2DefaultRoute', 'PrivateSubnet2RouteTable', 'PrivateSubnet2RouteTableAssociation', 'PrivateSubnet2Subnet', 'PublicSubnet1', 'PublicSubnet1DefaultRoute', 'PublicSubnet1EIP', 'PublicSubnet1NATGateway', 'PublicSubnet1RouteTable', 'PublicSubnet1RouteTableAssociation', 'PublicSubnet2', 'PublicSubnet2DefaultRoute', 'PublicSubnet2EIP', 'PublicSubnet2NATGateway', 'PublicSubnet2RouteTable', 'PublicSubnet2RouteTableAssociation', 'Select', 'Template', 'VPC', 'VPCGW', 'cloudformation_dataclass', 'ec2', 'get_att', 'ref', 'setup_resources']
+__all__: list[str] = ['AppName', 'CloudFormationProduct', 'Dept', 'Env', 'ImportValue', 'Output', 'Owner', 'Parameter', 'PortfolioProductAssociation', 'ProvisioningArtifactDescriptionParameter', 'ProvisioningArtifactNameParameter', 'ProvisioningArtifactTemplateUrl', 'SCProductDescription', 'SCProductDistributor', 'SCProductName', 'SCProductOwner', 'SCProductSupport', 'SCSupportEmail', 'SCSupportUrl', 'STRING', 'ServiceCatalogCloudFormationProduct', 'ServiceCatalogCloudFormationProductNameOutput', 'ServiceCatalogCloudFormationProductProvisioningArtifactProperties', 'ServiceCatalogCloudFormationProductProvisioningParameter', 'ServiceCatalogCloudFormationProductProvisioningParameter1', 'ServiceCatalogCloudFormationProductProvisioningParameter2', 'ServiceCatalogCloudFormationProductProvisioningParameter3', 'ServiceCatalogCloudFormationProductProvisioningParameter4', 'ServiceCatalogCloudFormationProductProvisioningParameter5', 'ServiceCatalogCustomTagOptionsAssociation', 'ServiceCatalogPortfolioProductAssociation', 'ServiceCatalogPortfolioStackName', 'ServiceCatalogProvisioningArtifactIdsOutput', 'ServiceCatalogProvisioningArtifactNamesOutput', 'Sub', 'TagOptionAssociation', 'Template', 'User', 'cloudformation_dataclass', 'get_att', 'ref', 'servicecatalog', 'setup_resources']

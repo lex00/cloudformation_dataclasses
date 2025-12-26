@@ -50,7 +50,7 @@ class ElasticLoadBalancer:
     health_check = ElasticLoadBalancerHealthCheck
     connection_draining_policy = ElasticLoadBalancerConnectionDrainingPolicy
     access_logging_policy = ElasticLoadBalancerAccessLoggingPolicy
-    depends_on = ["LogsBucketPolicy"]
+    depends_on = [LogsBucketPolicy]
 
 
 @cloudformation_dataclass
